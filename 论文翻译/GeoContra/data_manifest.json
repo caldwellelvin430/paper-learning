@@ -1,0 +1,237 @@
+{
+  "slug": "GeoContra",
+  "path": "/mnt/data/Xiao 等 - 2026 - GeoContra From Fluent GIS Code to Verifiable Spatial Analysis with Geography-Grounded Repair.pdf",
+  "pages": 19,
+  "empty_pages": [],
+  "artifacts": [
+    {
+      "kind": "figure",
+      "num": "1",
+      "name": "figure-1-p05.png",
+      "caption": "Figure 1: Overview of GeoContra. The pipeline begins with a natural-language GIS task and local geospatial data, constructs a geography-grounded task contract containing dataset schemas, CRS information, expected outputs, topology and metric constraints, spatial-relation semantics, expected GIS operations, and forbidden shortcuts, then asks an LLM to generate Python GIS code. The generated program",
+      "page": 5,
+      "bbox": [
+        65.0,
+        65.0,
+        535.0,
+        446.8
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "1",
+      "name": "algorithm-1-p06.png",
+      "caption": "Algorithm 1. Constructing GeoContra-Real",
+      "page": 6,
+      "bbox": [
+        67.0,
+        69.2,
+        528.0,
+        333.2
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "2",
+      "name": "figure-2-p07.png",
+      "caption": "Figure 2: Detailed verification and repair engine. The static checker inspects AST structure, CRS-unit handling, field-schema consistency, spatial predicate direction, topology-sensitive op- eration patterns, forbidden method patterns, and network shortcuts. The runtime checker exe- cutes the generated program and validates tracebacks, timeouts, output-file existence, readable CSV/GeoJSON artifact",
+      "page": 7,
+      "bbox": [
+        65.0,
+        65.0,
+        535.0,
+        485.5
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "2",
+      "name": "algorithm-2-p08.png",
+      "caption": "Algorithm 2. Verifier-Guided Generation and Repair",
+      "page": 8,
+      "bbox": [
+        67.0,
+        69.2,
+        528.0,
+        352.1
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "3",
+      "name": "algorithm-3-p08.png",
+      "caption": "Algorithm 3. Static Checker",
+      "page": 8,
+      "bbox": [
+        67.0,
+        446.4,
+        528.0,
+        756.5
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "4",
+      "name": "algorithm-4-p09.png",
+      "caption": "Algorithm 4. Runtime Checker",
+      "page": 9,
+      "bbox": [
+        67.0,
+        170.5,
+        528.0,
+        480.6
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "5",
+      "name": "algorithm-5-p10.png",
+      "caption": "Algorithm 5. Semantic Verifier",
+      "page": 10,
+      "bbox": [
+        67.0,
+        69.2,
+        528.0,
+        392.8
+      ]
+    },
+    {
+      "kind": "algorithm",
+      "num": "6",
+      "name": "algorithm-6-p10.png",
+      "caption": "Algorithm 6. Repair Prompt Generation",
+      "page": 10,
+      "bbox": [
+        67.0,
+        513.2,
+        528.0,
+        763.7
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "1",
+      "name": "table-1-p12.png",
+      "caption": "Table 1: GeoContra-Real benchmark composition by task family and difficulty.",
+      "page": 12,
+      "bbox": [
+        65.0,
+        69.6,
+        535.0,
+        441.7
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "2",
+      "name": "table-2-p12.png",
+      "caption": "Table 2: Closed-model overall results on 7,079 paired tasks per family.",
+      "page": 12,
+      "bbox": [
+        65.0,
+        437.4,
+        535.0,
+        796.9
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "3",
+      "name": "figure-3-p13.png",
+      "caption": "Figure 3: Spatial-correctness gains by task family and closed-model family. Each cell is Geo- Contra minus LLM-only in percentage points.",
+      "page": 13,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        413.8
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "3",
+      "name": "table-3-p14.png",
+      "caption": "Table 3: Open-model spatial correctness on 300 formal tasks per setting.",
+      "page": 14,
+      "bbox": [
+        65.0,
+        71.7,
+        535.0,
+        441.7
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "4",
+      "name": "figure-4-p14.png",
+      "caption": "Figure 4: Open-model spatial correctness. Each model has 300 LLM-only and 300 GeoContra runs.",
+      "page": 14,
+      "bbox": [
+        65.0,
+        219.8,
+        535.0,
+        601.9
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "5",
+      "name": "figure-5-p15.png",
+      "caption": "Figure 5: Average final violations per task after the last generation or repair round.",
+      "page": 15,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        312.2
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "4",
+      "name": "table-4-p16.png",
+      "caption": "Table 4: Representative closed-model cases where LLM-only fails and GeoContra succeeds.",
+      "page": 16,
+      "bbox": [
+        65.0,
+        71.7,
+        535.0,
+        441.7
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "5",
+      "name": "table-5-p18.png",
+      "caption": "Table 5: Diversity statistics across the 15 Greater Boston study areas. Densities are normalized by area in square kilometers.",
+      "page": 18,
+      "bbox": [
+        65.0,
+        217.0,
+        535.0,
+        600.4
+      ]
+    }
+  ],
+  "page_chars": [
+    3240,
+    4499,
+    4006,
+    3370,
+    2282,
+    3292,
+    1388,
+    2167,
+    2105,
+    2284,
+    3575,
+    2037,
+    2000,
+    1296,
+    682,
+    3626,
+    3617,
+    2897,
+    2559
+  ]
+}

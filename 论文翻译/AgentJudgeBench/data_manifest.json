@@ -1,0 +1,574 @@
+{
+  "slug": "AgentJudgeBench",
+  "path": "/mnt/data/Verma 等 - 2026 - AgentJudgeBench A Multi-Difficulty Benchmark for Evaluating LLM Judges on Agentic Tool-Calling.pdf",
+  "pages": 31,
+  "empty_pages": [],
+  "artifacts": [
+    {
+      "kind": "figure",
+      "num": "1",
+      "name": "figure-1-p02.png",
+      "caption": "Figure 1: Overall pipeline of AgentJudgeBench. Each BFCL-style Agentic record undergoes difficulty-controlled rewriting, generator inference, and parallel scoring by a programmatic judge and LLM judges (with/without GT), followed by alignment with the programmatic reference.",
+      "page": 2,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        266.1
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "2",
+      "name": "figure-2-p05.png",
+      "caption": "Figure 2: Evaluation pipeline of AgentJudgeBench. Records expand into three difficulty tiers, LLM judges (with/without GT) and programmatic judge score the generated tool-call predictions.",
+      "page": 5,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        318.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "1",
+      "name": "table-1-p07.png",
+      "caption": "Table 1: Full C3 results on Llama-3.3-70B generator. All values are mean alignment (%) over 3,764–3,771 records per cell. cGT: corrupted-GT condition. Gemini: Gemini 2.5 Pro. ∆cGT-GT: corrupted-GT minus standard GT. ∆cGT-noGT: corrupted-GT minus without GT.",
+      "page": 7,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        223.2
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "2",
+      "name": "table-2-p07.png",
+      "caption": "Table 2: LLM–judge alignment (%) with the program- matic reference across generators, judges, difficulty, and GT condition. Bold = column-wise maximum within each generator block among the six main judges. Prom2 = Prometheus-2, a judge-specialised baseline (Limita- tions); shown for reference and not counted toward bold column-wise maxima or six-judge statistics. full breakdowns are in Appendices ",
+      "page": 7,
+      "bbox": [
+        285.6,
+        111.6,
+        535.0,
+        743.0
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "3",
+      "name": "figure-3-p08.png",
+      "caption": "Figure 3: Per-metric alignment (with and without GT) across the six main judges, plus Prometheus-2 (judge- specialised baseline; Limitations), shown for reference.",
+      "page": 8,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        263.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "3",
+      "name": "table-3-p08.png",
+      "caption": "Table 3: Pairwise inter-judge agreement under the with GT condition. Upper triangle : exact metric-level",
+      "page": 8,
+      "bbox": [
+        65.0,
+        55.0,
+        309.6,
+        356.7
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "4",
+      "name": "table-4-p08.png",
+      "caption": "Table 4: Hard without GT alignment (%) under the standard 1.0-default and the recalibrated 0.5-default prompts, averaged across six judges per generator. ∆= (0.5-default) −(1.0-default).",
+      "page": 8,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        404.8
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "4",
+      "name": "figure-4-p09.png",
+      "caption": "Figure 4: Judge temperature sensitivity. Qwen3-32B alignment at T ∈{0.3, 0.7, 1.0} on Llama-3.3-70B. All three difficulty curves are near-flat; maximum spread ≤0.6 pp.",
+      "page": 9,
+      "bbox": [
+        65.0,
+        55.0,
+        309.6,
+        224.0
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "5",
+      "name": "figure-5-p09.png",
+      "caption": "Figure 5: Prompt structure vs. alignment. Structured JSON prompt vs. free-form for Qwen3-32B on Llama- 3.3-70B. The per-metric rubric adds +4.8-+6.5 pp with GT across all difficulty levels.",
+      "page": 9,
+      "bbox": [
+        65.0,
+        166.0,
+        535.0,
+        380.6
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "5",
+      "name": "table-5-p09.png",
+      "caption": "Table 5: Chain-of-thought reasoning in the QwQ-32B judge: alignment (%) with thinking on vs. off across four open-weight generators. ∆= thinking-on − thinking-off (pp).",
+      "page": 9,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        260.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "6",
+      "name": "table-6-p13.png",
+      "caption": "Table 6: Best judge per deployment scenario. The with- out GT rows reflect the common deployment setting where ground-truth tool calls are unavailable. GT = ground-truth tool calls available; without GT = judge uses only query and tool schemas. Alignment (%) is unweighted mean over five generators.",
+      "page": 13,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        323.1
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "6",
+      "name": "figure-6-p15.png",
+      "caption": "Figure 6: DAG topology distribution across the 3,808 unique records (left: proportional pie, right: absolute counts). Fan-in accounts for over a quarter of all records; loop-like is the rarest at 5.9%.",
+      "page": 15,
+      "bbox": [
+        65.0,
+        311.0,
+        535.0,
+        536.3
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "7",
+      "name": "table-7-p15.png",
+      "caption": "Table 7: Record counts by DAG topology. Counts reflect unique records; each record has three difficulty variants (easy / medium / hard), giving 3,808×3 = 11,424 total rows in the full dataset.",
+      "page": 15,
+      "bbox": [
+        65.0,
+        356.5,
+        309.6,
+        732.3
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "7",
+      "name": "figure-7-p15.png",
+      "caption": "Figure 7: Frequency distributions of (left) available tools per record, (centre) parameters per tool, and (right) expected tool calls per record. Dashed vertical lines mark the mean of each distribution. Tool inventory is tightly concentrated around 13 (range 8-19); parameter counts are right-skewed with a median of 2; expected call-sequence length ranges from 2 to 5.",
+      "page": 15,
+      "bbox": [
+        285.6,
+        311.0,
+        535.0,
+        508.3
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "8",
+      "name": "table-8-p15.png",
+      "caption": "Table 8: Structural statistics of the 3,808 Agent- JudgeBench records. All quantities are computed over unique records (collapsing difficulty variants). Avail- able tools is the size of the tool inventory exposed to the generator per record. Parameters per tool counts typed argument fields in each tool’s JSON schema. Expected tool calls is the length of the ground-truth execution trace.",
+      "page": 15,
+      "bbox": [
+        285.6,
+        290.3,
+        535.0,
+        714.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "9",
+      "name": "table-9-p16.png",
+      "caption": "Table 9: Number of records with valid LLM-judge ver- dicts per generator and difficulty tier. Theoretical max per generator is 3,808 × 3 = 11,424 (three difficulty variants of each base record). Judged records are iden- tical across all six LLM judges for a given (genera- tor, difficulty) cell. Multiplying the Total column by 6 judges × 2 conditions yields the full evaluation in- stance count per ",
+      "page": 16,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        295.2
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "10",
+      "name": "table-10-p17.png",
+      "caption": "Table 10: Bootstrap 95% confidence intervals for alignment (%) on the Llama-3.3-70B-Instruct generator. Format: mean [lo, hi].",
+      "page": 17,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        212.9
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "8",
+      "name": "figure-8-p17.png",
+      "caption": "Figure 8: Mean judge alignment as a function of query difficulty, averaged across all six judges and five gen- erators. The without GT degradation slope is roughly 1.5× steeper than the GT slope across all generators.",
+      "page": 17,
+      "bbox": [
+        65.0,
+        240.0,
+        535.0,
+        508.8
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "11",
+      "name": "table-11-p17.png",
+      "caption": "Table 11: Generator programmatic accuracy ¯p (%) on AgentJudgeBench, averaged across the four metrics and six DAG topologies. Generators are ranked by hard- difficulty accuracy.",
+      "page": 17,
+      "bbox": [
+        65.0,
+        359.8,
+        535.0,
+        735.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "12",
+      "name": "table-12-p17.png",
+      "caption": "Table 12: Human annotator agreement with the program- matic scorer across 120 hard-difficulty records (n=480 metric-level verdicts), stratified at 20 records per DAG topology.",
+      "page": 17,
+      "bbox": [
+        285.6,
+        379.3,
+        535.0,
+        755.0
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "13",
+      "name": "table-13-p18.png",
+      "caption": "Table 13: Judge alignment (%, with GT) on 120 hard records: vs. programmatic reference and vs. human verdicts (35 corrected). ∆= human −programmatic. Smaller |∆| is better.",
+      "page": 18,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        223.3
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "14",
+      "name": "table-14-p19.png",
+      "caption": "Table 14: With-GT judge ranking (programmatic ref- erence) under alternative weightings of the parameter- structure metric. The full six-judge ranking is identical across all three weightings.",
+      "page": 19,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        170.3
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "15",
+      "name": "table-15-p19.png",
+      "caption": "Table 15: With-GT alignment (%) under the current parameter-structure rule vs. the maximally generous upper-bound correction, record-weighted across the full corpus. Judges’ own verdicts are held fixed; only the programmatic reference’s parameter-structure score changes. Ranking order is identical to the current one in both columns.",
+      "page": 19,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        270.6
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "16",
+      "name": "table-16-p22.png",
+      "caption": "Table 16: Notation used in the paper.",
+      "page": 22,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        369.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "17",
+      "name": "table-17-p22.png",
+      "caption": "Table 17: Comparison of systems that deploy LLM judges for agentic tool-calling evaluation. Judge Model: LLM used as judge. Per-Metric: whether evaluation is decomposed into fine-grained dimensions. Difficulty: whether tasks span multiple difficulty tiers. GT Abl.: whether the effect of ground-truth availability is studied. Prog. Ref.: whether a deterministic evaluator is used as a bias-free basel",
+      "page": 22,
+      "bbox": [
+        65.0,
+        160.2,
+        535.0,
+        536.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "18",
+      "name": "table-18-p22.png",
+      "caption": "Table 18: Generator models used to produce tool-calling outputs. All generators use temperature = 0 with their native function-calling prompt.",
+      "page": 22,
+      "bbox": [
+        65.0,
+        339.5,
+        535.0,
+        691.6
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "19",
+      "name": "table-19-p23.png",
+      "caption": "Table 19: Per-judge “yes”-rate on the rewrite-validation criteria over n = 198 stratified triplets.",
+      "page": 23,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        181.3
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "20",
+      "name": "table-20-p23.png",
+      "caption": "Table 20: Unanimity of the three meta-judges on each criterion (n = 198).",
+      "page": 23,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        300.8
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "21",
+      "name": "table-21-p24.png",
+      "caption": "Table 21: LLM judge configurations evaluated in this paper. All judges consume the same prompt scaffold (Appendix W) and produce the same JSON output schema.",
+      "page": 24,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        237.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "22",
+      "name": "table-22-p24.png",
+      "caption": "Table 22: Unanimous-agreement rate on each rewrite- validation criterion, Claude Sonnet 4.5 + Gemini-2.5- Pro only (n = 198), versus the published three-meta- judge rate. ∆= 2-judge −3-judge.",
+      "page": 24,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        362.4
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "23",
+      "name": "table-23-p24.png",
+      "caption": "Table 23: Judge=GPT-5.4 bias (llm_accuracy − programmatic_accuracy) by generator, averaged over all difficulty tiers. ∗GPT-5.4 judging its own genera- tions.",
+      "page": 24,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        388.2
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "24",
+      "name": "table-24-p25.png",
+      "caption": "Table 24: Per-metric match score µm j,r,c × 100, av- eraged across all (g, d) configurations. Bold marks the best value per column among the six main judges. Prometheus-2 (all five generators, both GT conditions) is shown for reference below the rule and excluded from bold column-wise maxima; under GT it trails the six- judge range by 20-45 pp on parameter structure and query coverage specifically",
+      "page": 25,
+      "bbox": [
+        285.6,
+        55.0,
+        535.0,
+        398.4
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "25",
+      "name": "table-25-p25.png",
+      "caption": "Table 25: Judge temperature sensitivity: per-difficulty alignment (%) for Qwen3-32B on Llama-3.3-70B.",
+      "page": 25,
+      "bbox": [
+        285.6,
+        172.0,
+        535.0,
+        524.0
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "26",
+      "name": "table-26-p26.png",
+      "caption": "Table 26: Chain-of-thought reasoning study: full per-generator alignment (%) for QwQ-32B with thinking on vs. off. ∆rows show thinking-on minus thinking-off in percentage points.",
+      "page": 26,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        339.7
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "27",
+      "name": "table-27-p26.png",
+      "caption": "Table 27: Judge temperature sensitivity, second pairing: with-GT alignment (%) for GPT-OSS-120B on Llama- 3.1-8B-Instruct. Maximum spread (0.25 pp) is even tighter than the original (Qwen3-32B, Llama-3.3-70B) pairing in Table 25 (≤0.6 pp), confirming temperature insensitivity generalises beyond the original test-bed cell.",
+      "page": 26,
+      "bbox": [
+        65.0,
+        112.2,
+        535.0,
+        523.8
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "28",
+      "name": "table-28-p26.png",
+      "caption": "Table 28: Judge alignment (with GT, %) by DAG topol- ogy. Bold marks the best judge per topology.",
+      "page": 26,
+      "bbox": [
+        65.0,
+        315.7,
+        535.0,
+        667.6
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "9",
+      "name": "figure-9-p26.png",
+      "caption": "Figure 9: Judge alignment (%) by DAG topology (with GT), visualised as a heatmap. Fan-out consistently achieves the highest alignment across all judges; fan-in and loop-like are the hardest. The ordering is judge- independent, indicating that DAG structural complexity is an intrinsic difficulty signal.",
+      "page": 26,
+      "bbox": [
+        285.6,
+        322.8,
+        535.0,
+        569.8
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "10",
+      "name": "figure-10-p27.png",
+      "caption": "Figure 10: Verdict-level confusion matrices (% of N). Rows = judge 1, columns = judge 2. Diagonal entries are shaded.",
+      "page": 27,
+      "bbox": [
+        65.0,
+        65.0,
+        535.0,
+        216.5
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "29",
+      "name": "table-29-p27.png",
+      "caption": "Table 29: Binary vs. {0, 0.5, 1} verdict scale: mean GT alignment (%) and judge rankings averaged over 15 (generator, difficulty) cells. ∆= Binary −Standard.",
+      "page": 27,
+      "bbox": [
+        65.0,
+        55.0,
+        309.6,
+        353.9
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "30",
+      "name": "table-30-p28.png",
+      "caption": "Table 30: Representative works across agentic benchmarks, LLM-as-judge methods, and LLM judges for tool- calling evaluation.",
+      "page": 28,
+      "bbox": [
+        65.0,
+        328.8,
+        535.0,
+        680.8
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "31",
+      "name": "table-31-p29.png",
+      "caption": "Table 31: Prompt format ablation, second pairing: with- GT alignment (%) for QwQ-32B on SmolLM3-3B, structured per-metric prompt vs. free-form. Compare to the original (Qwen3-32B, Llama-3.3-70B) pairing’s +4.8-+6.5 pp (Figure 5): the effect is smaller here and reverses sign on hard queries.",
+      "page": 29,
+      "bbox": [
+        65.0,
+        55.0,
+        535.0,
+        221.5
+      ]
+    }
+  ],
+  "page_chars": [
+    4065,
+    4598,
+    4621,
+    4781,
+    3767,
+    4388,
+    5009,
+    4185,
+    4338,
+    4641,
+    4705,
+    5026,
+    4562,
+    4781,
+    4187,
+    4555,
+    2988,
+    4521,
+    4471,
+    4183,
+    4244,
+    3267,
+    3896,
+    4140,
+    4605,
+    2811,
+    4348,
+    3233,
+    3731,
+    3945,
+    2141
+  ]
+}

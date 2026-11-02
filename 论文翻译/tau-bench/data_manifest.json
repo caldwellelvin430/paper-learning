@@ -1,0 +1,281 @@
+{
+  "slug": "tau-bench",
+  "path": "/mnt/data/Yao 等 - 2024 - τ-bench A Benchmark for Tool-Agent-User Interaction in Real-World Domains.pdf",
+  "pages": 50,
+  "empty_pages": [],
+  "artifacts": [
+    {
+      "kind": "figure",
+      "num": "1",
+      "name": "figure-1-p02.png",
+      "caption": "Figure 1: (a) In τ-bench, an agent interacts with database API tools and an LM-simulated user to complete tasks. The benchmark tests an agent’s ability to collate and convey all required information from/to users through multiple interactions, and solve complex issues on the fly while ensuring it follows guidelines laid out in a domain-specific policy document. (b) An example trajectory in τ-airli",
+      "page": 2,
+      "bbox": [
+        95.0,
+        55.0,
+        520.0,
+        349.2
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "2",
+      "name": "figure-2-p04.png",
+      "caption": "Figure 2: τ-bench is constructed in a modular fashion with several components: (a) JSON databases, (b) Python API tools, (c) Markdown domain policies, and (d) JSON task instances. The agent can only access API tools and domain policies, and indirectly access databases via API tools. Task annotation is not visible to the agent and is used only for user simulation and evaluation.",
+      "page": 4,
+      "bbox": [
+        95.0,
+        65.0,
+        520.0,
+        433.2
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "1",
+      "name": "table-1-p05.png",
+      "caption": "Table 1: Key statistics from τ-retail and τ-airline.",
+      "page": 5,
+      "bbox": [
+        95.0,
+        55.0,
+        520.0,
+        157.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "2",
+      "name": "table-2-p07.png",
+      "caption": "Table 2: Pass^1 across models via function call- ing, except Llama-3 via text-ReAct. Average is weighted by domains, not by tasks.",
+      "page": 7,
+      "bbox": [
+        95.0,
+        55.0,
+        318.0,
+        285.7
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "3",
+      "name": "figure-3-p07.png",
+      "caption": "Figure 3: pass^1 across models/methods in τ-retail.",
+      "page": 7,
+      "bbox": [
+        296.0,
+        68.0,
+        510.0,
+        174.8
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "4",
+      "name": "figure-4-p07.png",
+      "caption": "Figure 4: pass^k (–) and pass@k (..) in τ-retail.",
+      "page": 7,
+      "bbox": [
+        296.0,
+        165.0,
+        510.0,
+        285.6
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "5",
+      "name": "figure-5-p07.png",
+      "caption": "Figure 5: Breakdown of 36 failed gpt-4o FC agent trajectories in τ-retail.",
+      "page": 7,
+      "bbox": [
+        296.0,
+        575.0,
+        510.0,
+        739.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "3",
+      "name": "table-3-p08.png",
+      "caption": "Table 3: pass^1 scores degrade when the domain policy is not provided in the agent’s system prompt.",
+      "page": 8,
+      "bbox": [
+        294.0,
+        55.0,
+        520.0,
+        403.5
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "6",
+      "name": "figure-6-p08.png",
+      "caption": "Figure 6: Retail tasks with more database writes are harder.",
+      "page": 8,
+      "bbox": [
+        296.0,
+        465.3,
+        510.0,
+        617.7
+      ]
+    },
+    {
+      "kind": "figure",
+      "num": "7",
+      "name": "figure-7-p13.png",
+      "caption": "Figure 7: The success rate of each τ-retail task, sorted by gpt-4-turbo success rate. Each task has at least 40 gpt-4-turbo trials to ensure reliable per-task success rates.",
+      "page": 13,
+      "bbox": [
+        95.0,
+        102.7,
+        520.0,
+        250.1
+      ]
+    },
+    {
+      "kind": "table",
+      "num": "4",
+      "name": "table-4-p13.png",
+      "caption": "Table 4: Overview of τ-retail and τ-airline databases and APIs.",
+      "page": 13,
+      "bbox": [
+        95.0,
+        243.3,
+        520.0,
+        583.5
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "1",
+      "name": "listing-1-p23.png",
+      "caption": "Listing 1: An example entry from users database in τ-retail.",
+      "page": 23,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "2",
+      "name": "listing-2-p23.png",
+      "caption": "Listing 2: An example entry from products database in τ-retail (more variants omitted).",
+      "page": 23,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "3",
+      "name": "listing-3-p24.png",
+      "caption": "Listing 3: An example entry from orders database in τ-retail.",
+      "page": 24,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "4",
+      "name": "listing-4-p43.png",
+      "caption": "Listing 4: An example entry from the users database in τ-airline.",
+      "page": 43,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "5",
+      "name": "listing-5-p44.png",
+      "caption": "Listing 5: An example entry from the flights database in τ-airline.",
+      "page": 44,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    },
+    {
+      "kind": "listing",
+      "num": "6",
+      "name": "listing-6-p45.png",
+      "caption": "Listing 6: An example entry from the reservations database in τ-airline.",
+      "page": 45,
+      "bbox": [
+        95.0,
+        60.0,
+        522.0,
+        740.0
+      ]
+    }
+  ],
+  "page_chars": [
+    3395,
+    4425,
+    5232,
+    4148,
+    4133,
+    4441,
+    3706,
+    4513,
+    4312,
+    3447,
+    1251,
+    2180,
+    1728,
+    2358,
+    2015,
+    2618,
+    2672,
+    3024,
+    2528,
+    2738,
+    1892,
+    727,
+    1230,
+    888,
+    2141,
+    1537,
+    3735,
+    2783,
+    2735,
+    1108,
+    1571,
+    2799,
+    2941,
+    2873,
+    2638,
+    1661,
+    1990,
+    3202,
+    2767,
+    2000,
+    3741,
+    2486,
+    1164,
+    1268,
+    859,
+    1939,
+    2540,
+    3478,
+    1923,
+    2137
+  ]
+}
