@@ -75,6 +75,8 @@ git pull --ff-only origin main
 
 已经上传到仓库的资料，克隆后就会自动下载，**不需要再解压上传一次**。本节用于你以后新增论文或更新资料。
 
+论文项目文件夹统一使用论文名称或通用短标题，例如 `GeoContra`、`GISAgentBench`、`Beyond the Final Answer`。同一论文的中文稿、英文原文和图片放在该目录下，翻译类型写在文件名或 README 中。
+
 建议目录如下：
 
 ```text
@@ -84,12 +86,14 @@ paper-learning/
 │   └── GitHub上传与克隆教程.md
 └── 论文翻译/
     ├── README.md
-    ├── GISAgentBench_中文译文/
+    ├── GISAgentBench/
     ├── GeoAgentBench/
     ├── AgentSuite/
     ├── tau-bench/
     ├── GeoContra/
-    └── AgentJudgeBench/
+    ├── AgentJudgeBench/
+    ├── Beyond the Final Answer/
+    └── Benchmarking the Benchmarks/
 ```
 
 最直观的做法：在资源管理器中解压压缩包，再把每篇论文的文件夹复制到本地仓库的“论文翻译”目录。保留 Markdown、`images`、`source_pages` 等原有层级，否则文中的相对图片链接可能失效。
