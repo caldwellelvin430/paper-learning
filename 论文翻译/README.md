@@ -16,6 +16,14 @@
 
 各论文的英文原文、核查报告、图表和原稿页图均保留在对应子目录中。请保持相对目录结构，以便显示文中图片。
 
+## Kim 与 Bhat 论文整理
+
+- [合集阅读说明](学术论文_翻译_Kim_Bhat/README_阅读说明.md)
+- [Bhat：《Benchmarking the Benchmarks》中文主文](学术论文_翻译_Kim_Bhat/Bhat/中文全文_主文.md) · [原文 PDF](学术论文_翻译_Kim_Bhat/Bhat/英文原论文.pdf)
+- [Kim：《Beyond the Final Answer》中文译文与精读](学术论文_翻译_Kim_Bhat/Kim/中文译文与精读.md) · [逐页图表索引](学术论文_翻译_Kim_Bhat/Kim/逐页图表索引.md)
+
+Kim 资料包未包含本地原稿 PDF、逐页原文和图表截图；现有中文稿为主要内容译述与精读，覆盖范围见合集阅读说明及 Kim 核查报告。
+
 ## 使用教程
 
 - [GitHub 上传与克隆教程（Windows）](../教学/GitHub上传与克隆教程.md)
