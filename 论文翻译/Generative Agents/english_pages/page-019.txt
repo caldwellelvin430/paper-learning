@@ -1,0 +1,166 @@
+Generative Agents 
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+[12] Marcel Binz and Eric Schulz. 2023. Using cognitive psychology to under­
+stand GPT-3. Proceedings of the National Academy of Sciences 120, 6 (2023), 
+e2218523120. 
+[13] BioWare. 2007. Mass Efect. Video game. 
+[14] Woody Bledsoe. 1986. I had a dream: AAAI presidential address. AI Magazine 7, 
+1 (1986), 57–61. 
+[15] Rishi Bommasani, Drew A. Hudson, Ehsan Adeli, and et al. 2022. On the 
+Opportunities and Risks of Foundation Models. arXiv:2108.07258 [cs.LG] 
+[16] Michael Brenner. 2010. Creating dynamic story plots with continual multiagent 
+planning. In Proceedings of the 24th AAAI Conference on Artifcial Intelligence. 
+[17] Rodney A. Brooks, Cynthia Breazeal, Marko Marjanovic, Brian Scassellati, and 
+Matthew Williamson. 2000. The Cog Project: Building a Humanoid Robot. In 
+Computation for Metaphors, Analogy, and Agents (Lecture Notes on Artifcial 
+Intelligence, 1562), Chrystopher Nehaniv (Ed.). Springer-Verlag, Berlin, 52–87. 
+[18] Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, 
+Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda 
+Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, 
+Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jefrey Wu, Clemens Winter, 
+Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin 
+Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Radford, Ilya 
+Sutskever, and Dario Amodei. 2020. Language Models are Few-Shot Learners. 
+arXiv:2005.14165 [cs.CL] 
+[19] Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric 
+Horvitz, Ece Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, et al. 
+2023. Sparks of artifcial general intelligence: Early experiments with gpt-4. 
+arXiv preprint arXiv:2303.12712 (2023). 
+[20] Robin Burkinshaw. 2009. Alice and Kev: The Story of Being Homeless in The 
+Sims 3. 
+[21] Chris Callison-Burch, Gaurav Singh Tomar, Lara Martin, Daphne Ippolito, Suma 
+Bailis, and David Reitter. 2022. Dungeons and Dragons as a Dialog Challenge for 
+Artifcial Intelligence. In Proceedings of the 2022 Conference on Empirical Methods 
+in Natural Language Processing. Association for Computational Linguistics, Abu 
+Dhabi, United Arab Emirates, 9379–9393. https://aclanthology.org/2022.emnlp­
+main.637 
+[22] Stuart K Card, Thomas P Moran, and Allen Newell. 1980. The keystroke-
+level model for user performance time with interactive systems. 
+Com-
+mun. ACM 23, 7 (1980), 396–410. 
+https://doi.org/10.1145/358886.358895 
+arXiv:https://doi.org/10.1145/358886.358895 
+[23] Stuart K Card, Thomas P Moran, and Alan Newell. 1983. The psychology of 
+human-computer interaction. (1983). 
+[24] Alex Champandard. 2012. Tutorial presentation. In IEEE Conference on Compu­
+tational Intelligence and Games. 
+[25] Dong kyu Choi, Tolga Konik, Negin Nejati, Chunki Park, and Pat Langley. 2021. 
+A Believable Agent for First-Person Shooter Games. In Proceedings of the AAAI 
+Conference on Artifcial Intelligence and Interactive Digital Entertainment, Vol. 3. 
+71–73. 
+[26] Anind K Dey. 2001. Understanding and using context. Personal and ubiquitous 
+computing 5 (2001), 4–7. 
+[27] Kevin Dill and L Martin. 2011. A Game AI Approach to Autonomous Con­
+trol of Virtual Characters. In Proceedings of the Interservice/Industry Training, 
+Simulation, and Education Conference (I/ITSEC’11). Orlando, FL, USA. 
+[28] David Easley and Jon Kleinberg. 2010. Networks, crowds, and markets: Reasoning 
+about a highly connected world. Cambridge university press. 
+[29] Arpad E Elo. 1967. The Proposed USCF Rating System, Its Development, Theory, 
+and Applications. Chess Life XXII, 8 (August 1967), 242–247. 
+[30] Jerry Alan Fails and Dan R Olsen Jr. 2003. Interactive machine learning. In 
+Proceedings of the 8th international conference on Intelligent user interfaces. ACM, 
+39–45. 
+[31] Ethan Fast, William McGrath, Pranav Rajpurkar, and Michael S Bernstein. 2016. 
+Augur: Mining human behaviors from fction to power interactive systems. In 
+Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems. 
+237–247. 
+[32] Rebecca Fiebrink and Perry R Cook. 2010. The Wekinator: a system for real-time, 
+interactive machine learning in music. In Proceedings of The Eleventh Interna­
+tional Society for Music Information Retrieval Conference (ISMIR 2010)(Utrecht), 
+Vol. 3. Citeseer, 2–1. 
+[33] Uwe Flick. 2009. An Introduction to Qualitative Research. SAGE. 
+[34] James Fogarty, Desney Tan, Ashish Kapoor, and Simon Winder. 2008. CueFlik: 
+Interactive Concept Learning in Image Search. In Proceedings of the SIGCHI 
+Conference on Human Factors in Computing Systems (Florence, Italy) (CHI ’08). 
+Association for Computing Machinery, New York, NY, USA, 29–38. https: 
+//doi.org/10.1145/1357054.1357061 
+[35] Adam Fourney, Richard Mann, and Michael Terry. 2011. Query-feature graphs: 
+bridging user vocabulary and system functionality. In Proceedings of the ACM 
+Symposium on User Interface Software and Technology (UIST) (Santa Barbara, 
+California, USA). ACM. 
+[36] Tom Francis. 2010. 
+The Minecraft Experiment, day 1: Chasing Water­
+falls. http://www.pcgamer.com/2010/11/20/the-minecraft-experiment-day­
+1-chasing-waterfalls/ 
+[37] Jonas Freiknecht and Wolfgang Efelsberg. 2020. Procedural Generation of 
+Interactive Stories using Language Models. In International Conference on the 
+Foundations of Digital Games (FDG ’20). ACM, Bugibba, Malta, 8. https://doi. 
+org/10.1145/3402942.3409599 
+[38] Tianyu Gao, Adam Fisch, and Danqi Chen. 2020. Making Pre-trained Language 
+Models Better Few-shot Learners. CoRR abs/2012.15723 (2020). arXiv:2012.15723 
+https://arxiv.org/abs/2012.15723 
+[39] Perttu Hämäläinen, Mikke Tavast, and Anton Kunnari. 2023. Evaluating Large 
+Language Models in Generating Synthetic HCI Research Data: a Case Study. In 
+Proceedings of the 2023 CHI Conference on Human Factors in Computing Systems. 
+ACM. 
+[40] Matthew Hausknecht, Prithviraj Ammanabrolu, Marc-Alexandre Cote, and 
+Xinyu Yuan. 2020. Interactive Fiction Games: A Colossal Adventure. In Pro­
+ceedings of the AAAI Conference on Artifcial Intelligence, Vol. 34. 7903–7910. 
+https://doi.org/10.1609/aaai.v34i05.6297 
+[41] Chris Hecker. 2011. My Liner Notes for Spore. http://chrishecker.com/My_liner_ 
+notes_for_spore 
+[42] Ralf Herbrich, Tom Minka, and Thore Graepel. 2006. 
+TrueSkill™: A 
+Bayesian Skill Rating System. In Advances in Neural Information Pro­
+cessing Systems, B. Schölkopf, J. Platt, and T. Hofman (Eds.), Vol. 19. 
+MIT Press. 
+https://proceedings.neurips.cc/paper_fles/paper/2006/fle/ 
+f44ee263952e65b3610b8ba51229d1f9-Paper.pdf 
+[43] Douglas Hofstadter. 1995. Fluid concepts and creative analogies: computer models 
+of the fundamental mechanisms of thought. Basic Books. 
+[44] James D. Hollan, Edwin L. Hutchins, and Louis Weitzman. 1984. STEAMER: An 
+Interactive Inspectable Simulation-Based Training System. AI Magazine 5, 2 
+(1984), 23–36. 
+[45] Sture Holm. 1979. A simple sequentially rejective multiple test procedure. 
+Scandinavian Journal of Statistics 6, 2 (1979), 65–70. https://doi.org/notspecifed 
+[46] John J. Horton. 2023. Large Language Models as Simulated Economic Agents: 
+What Can We Learn from Homo Silicus? arXiv:2301.07543 [econ.GN] 
+[47] Eric Horvitz. 1999. Principles of mixed-initiative user interfaces. In Proceedings 
+of the SIGCHI conference on Human Factors in Computing Systems. 159–166. 
+[48] Wenlong Huang, Fei Xia, Ted Xiao, Harris Chan, Jacky Liang, Pete Florence, 
+Andy Zeng, Jonathan Tompson, Igor Mordatch, Yevgen Chebotar, Pierre Ser­
+manet, Noah Brown, Tomas Jackson, Linda Luu, Sergey Levine, Karol Hausman, 
+and Brian Ichter. 2022. Inner Monologue: Embodied Reasoning through Planning 
+with Language Models. arXiv:2207.05608 [cs.RO] 
+[49] Kristen Ibister and Cliford Nass. 2000. Consistency of personality in interactive 
+characters: verbal cues, non-verbal cues, and user characteristics. International 
+Journal of Human-Computer Studies 52, 1 (2000), 65–80. 
+[50] Ellen Jiang, Kristen Olson, Edwin Toh, Alejandra Molina, Aaron Donsbach, 
+Michael Terry, and Carrie J Cai. 2022. PromptMaker: Prompt-Based Prototyping 
+with Large Language Models. In Extended Abstracts of the 2022 CHI Conference 
+on Human Factors in Computing Systems (New Orleans, LA, USA) (CHI EA ’22). 
+Association for Computing Machinery, New York, NY, USA, Article 35, 8 pages. 
+https://doi.org/10.1145/3491101.3503564 
+[51] Bonnie E John and David E Kieras. 1996. The GOMS family of user interface 
+analysis techniques: Comparison and contrast. ACM Transactions on Computer-
+Human Interaction (TOCHI) 3, 4 (1996), 320–351. 
+[52] Randolph M Jones, John E Laird, Paul E Nielsen, Karen J Coulter, Patrick Kenny, 
+and Frank V Koss. 1999. Automated Intelligent Pilots for Combat Flight Simula­
+tion. AI Magazine 20, 1 (1999), 27–42. 
+[53] Omar Khattab, Keshav Santhanam, Xiang Lisa Li, David Hall, Percy Liang, 
+Christopher Potts, and Matei Zaharia. 2023. Demonstrate-Search-Predict: 
+Composing retrieval and language models for knowledge-intensive NLP. 
+arXiv:2212.14024 [cs.CL] 
+[54] Bjoern Knafa. 2011. Introduction to Behavior Trees. http://bjoernknafa.com/ 
+introduction-to-behavior-trees 
+[55] Ranjay Krishna, Donsuk Lee, Li Fei-Fei, and Michael S. Bernstein. 
+2022. 
+Socially situated artifcial intelligence enables learning from 
+human interaction. 
+Proceedings of the National Academy of Sciences 
+119, 39 (2022), e2115730119. 
+https://doi.org/10.1073/pnas.2115730119 
+arXiv:https://www.pnas.org/doi/pdf/10.1073/pnas.2115730119 
+[56] William H Kruskal and WA Wallis. 1952. Use of ranks in one-criterion variance 
+analysis. J. Amer. Statist. Assoc. 47, 260 (1952), 583–621. https://doi.org/10.1080/ 
+01621459.1952.10483441 
+[57] Phaser Labs. 2023. Welcome to Phaser 3. https://phaser.io/phaser3. Accessed 
+on: 2023-04-03. 
+[58] John Laird. 2001. It Knows What You’re Going To Do: Adding Anticipation to a 
+Quakebot. In Proceedings of the 2001 Workshop on Intelligent Cinematography 
+and Editing. 63–69. 
+[59] John Laird and Michael VanLent. 2001. Human-Level AI’s Killer Application: 
+Interactive Computer Games. AI Magazine 22, 2 (2001), 15. https://doi.org/10. 
+1609/aimag.v22i2.1558 
+[60] John E. Laird. 2000. It Knows What You’re Going To Do: Adding Anticipation 
+to a QUAKEBOT. In Papers from the AAAI 2000 Spring Symposium on Artifcial 

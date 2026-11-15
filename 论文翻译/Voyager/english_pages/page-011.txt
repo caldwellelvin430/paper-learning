@@ -1,0 +1,50 @@
+synthesis. Execution-guided approaches leverage intermediate execution outcomes to guide program
+search [86–88]. Another line of research utilizes majority voting to choose candidates based on their
+execution performance [89, 90]. Additionally, LEVER [91] trains a verifier to distinguish and reject
+incorrect programs based on execution results. CLAIRIFY [92], on the other hand, generates code
+for planning chemistry experiments and makes use of a rule-based verifier to iteratively provide
+error feedback to LLMs. VOYAGER distinguishes itself from these works by integrating environment
+feedback, execution errors, and self-verification (to assess task success) into an iterative prompting
+mechanism for embodied control.
+6
+Conclusion
+In this work, we introduce VOYAGER, the first LLM-powered embodied lifelong learning agent,
+which leverages GPT-4 to explore the world continuously, develop increasingly sophisticated skills,
+and make new discoveries consistently without human intervention. VOYAGER exhibits superior
+performance in discovering novel items, unlocking the Minecraft tech tree, traversing diverse terrains,
+and applying its learned skill library to unseen tasks in a newly instantiated world. VOYAGER serves
+as a starting point to develop powerful generalist agents without tuning the model parameters.
+7
+Broader Impacts
+Our research is conducted within Minecraft, a safe and harmless 3D video game environment. While
+VOYAGER is designed to be generally applicable to other domains, such as robotics, its application to
+physical robots would require additional attention and the implementation of safety constraints by
+humans to ensure responsible and secure deployment.
+8
+Acknowledgements
+We are extremely grateful to Ziming Zhu, Kaiyu Yang, Rafał Kocielnik, Colin White, Or Sharir, Sahin
+Lale, De-An Huang, Jean Kossaifi, Yuncong Yang, Charles Zhang, Minchao Huang, and many other
+colleagues and friends for their helpful feedback and insightful discussions. This work is done during
+Guanzhi Wang’s internship at NVIDIA. Guanzhi Wang is supported by the Kortschak fellowship in
+Computing and Mathematical Sciences at Caltech.
+References
+[1] Eric Kolve, Roozbeh Mottaghi, Winson Han, Eli VanderBilt, Luca Weihs, Alvaro Herrasti,
+Daniel Gordon, Yuke Zhu, Abhinav Gupta, and Ali Farhadi. Ai2-thor: An interactive 3d
+environment for visual ai. arXiv preprint arXiv: Arxiv-1712.05474, 2017.
+[2] Manolis Savva, Jitendra Malik, Devi Parikh, Dhruv Batra, Abhishek Kadian, Oleksandr
+Maksymets, Yili Zhao, Erik Wijmans, Bhavana Jain, Julian Straub, Jia Liu, and Vladlen
+Koltun. Habitat: A platform for embodied AI research. In 2019 IEEE/CVF International
+Conference on Computer Vision, ICCV 2019, Seoul, Korea (South), October 27 - November 2,
+2019, pages 9338–9346. IEEE, 2019.
+[3] Yuke Zhu, Josiah Wong, Ajay Mandlekar, and Roberto Martín-Martín. robosuite: A mod-
+ular simulation framework and benchmark for robot learning. arXiv preprint arXiv: Arxiv-
+2009.12293, 2020.
+[4] Fei Xia, William B. Shen, Chengshu Li, Priya Kasimbeg, Micael Tchapmi, Alexander Toshev,
+Li Fei-Fei, Roberto Martín-Martín, and Silvio Savarese. Interactive gibson benchmark (igibson
+0.5): A benchmark for interactive navigation in cluttered environments. arXiv preprint arXiv:
+Arxiv-1910.14442, 2019.
+[5] Bokui Shen, Fei Xia, Chengshu Li, Roberto Martín-Martín, Linxi Fan, Guanzhi Wang, Claudia
+Pérez-D’Arpino, Shyamal Buch, Sanjana Srivastava, Lyne P. Tchapmi, Micael E. Tchapmi, Kent
+Vainio, Josiah Wong, Li Fei-Fei, and Silvio Savarese. igibson 1.0: a simulation environment for
+interactive tasks in large realistic scenes. arXiv preprint arXiv: Arxiv-2012.02924, 2020.
+11

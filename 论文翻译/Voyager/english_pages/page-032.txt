@@ -1,0 +1,103 @@
+The
+function is about
+mining 8 cobblestones
+using a wooden
+pickaxe.
+First
+check if a wooden
+pickaxe is in the
+inventory. If not , craft
+one. If the wooden
+pickaxe is available , equip the wooden
+pickaxe
+in the hand. Next , explore
+the
+environment
+until
+finding a stone
+block. Once a stone
+block is found , mine a total of 8 cobblestone
+blocks
+using the wooden
+pickaxe.
+A.4.3
+Examples
+Skill library example 1: craftWoodenPlanks.
+async
+function
+craftWoodenPlanks (bot) {
+const
+logNames = ["oak_log", "birch_log", "spruce_log", "jungle_log"
+, "acacia_log", "dark_oak_log ", "mangrove_log"];
+const
+plankNames = ["oak_planks", "birch_planks", " spruce_planks ", "
+jungle_planks", "acacia_planks", " dark_oak_planks ", "
+mangrove_planks "];
+const
+logInInventory = logNames.find(logName => bot.inventory.count(
+mcData.itemsByName[logName ].id) > 0);
+if (! logInInventory) {
+bot.chat("No wooden log in inventory. Mining a wooden log ...");
+await
+mineWoodLog(bot);
+}
+const
+logIndex = logNames.indexOf( logInInventory );
+const
+plankName = plankNames[logIndex ];
+bot.chat(‘Crafting 4 ${plankName }... ‘);
+await
+craftItem(bot , plankName , 1);
+bot.chat(‘4 ${plankName} crafted .‘);
+}
+Skill library example 2: mineTenCobbledDeepslateBelowY0.
+async
+function
+mineTenCobbledDeepslateBelowY0 (bot) {
+// Equip the iron
+pickaxe
+const
+ironPickaxe = bot.inventory. findInventoryItem (mcData.
+itemsByName["iron_pickaxe"].id);
+await bot.equip(ironPickaxe , "hand");
+// Find
+cobbled_deepslate
+blocks
+below Y=0
+const
+cobbledDeepslateBlocks = await
+exploreUntil(bot , new Vec3(1,
+-1, 1), 60, () => {
+const
+cobbledDeepslate = bot.findBlock ({
+matching: mcData.blocksByName [" cobbled_deepslate "].id ,
+maxDistance: 32,
+position: pos => pos.y < 0
+});
+return
+cobbledDeepslate ;
+});
+// Mine 10 cobbled_deepslate
+blocks
+await
+mineBlock(bot , " cobbled_deepslate ", 10);
+bot.chat("10 cobbled_deepslate
+mined
+below Y=0.");
+}
+Skill library example 3: smeltFiveRawIronV2.
+async
+function
+findSuitablePosition (bot) {
+const
+offsets = [new Vec3(1, 0, 0), new Vec3(-1, 0, 0), new Vec3(0,
+0, 1), new Vec3(0, 0,
+-1)];
+for (const
+offset of offsets) {
+const
+position = bot.entity.position.offset(offset.x, offset.y,
+offset.z);
+const
+block = bot.blockAt(position);
+32

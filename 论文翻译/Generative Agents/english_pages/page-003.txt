@@ -1,0 +1,111 @@
+Generative Agents 
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+show up, with one agent even asking another on a date to the party, 
+all from a single user-generated seed suggestion. 
+We conducted two evaluations of generative agents: a controlled 
+evaluation to test whether the agents produce believable individual 
+behaviors in isolation, and an end-to-end evaluation where the 
+agents interacted with each other in open-ended ways over two 
+days of game time to understand their stability and emergent social 
+behaviors. In the technical evaluation, we leverage a methodologi­
+cal opportunity to evaluate an agent’s knowledge and behavior by 
+“interviewing” it in natural language to probe the agents’ ability to 
+stay in character, remember, plan, react, and refect accurately. We 
+compared several ablations that limit agents’ access to memory, re­
+fection, and planning. We observe that each of these components is 
+critical to strong performance across these interview tasks. Across 
+the technical and end-to-end evaluation, the most common errors 
+arose when the agent failed to retrieve relevant memories, fabri­
+cated embellishments to the agent’s memory, or inherited overly 
+formal speech or behavior from the language model. 
+In sum, this paper makes the following contributions: 
+• Generative agents, believable simulacra of human behavior 
+that are dynamically conditioned on agents’ changing expe­
+riences and environment. 
+• A novel architecture that makes it possible for generative 
+agents to remember, retrieve, refect, interact with other 
+agents, and plan through dynamically evolving circumstances. 
+The architecture leverages the powerful prompting capabili­
+ties of large language models and supplements those capa­
+bilities to support longer-term agent coherence, the ability 
+to manage dynamically evolving memory, and recursively 
+produce higher-level refections. 
+• Two evaluations, a controlled evaluation and an end-to-end 
+evaluation, that establish causal efects of the importance 
+of components of the architecture, as well as identify break­
+downs arising from, e.g., improper memory retrieval. 
+• Discussion of the opportunities and ethical and societal risks 
+of generative agents in interactive systems. We argue that 
+these agents should be tuned to mitigate the risk of users 
+forming parasocial relationships, logged to mitigate risks 
+stemming from deepfakes and tailored persuasion, and ap­
+plied in ways that complement rather than replace human 
+stakeholders in design processes. 
+2 RELATED WORK 
+In this section, we refect on the prior literature in human-AI interac­
+tion and situate, within its canon, the agenda of building believable 
+proxies of human behavior. This agenda, once hailed as a north 
+star in the interaction, game, and artifcial intelligence communi­
+ties [10, 59, 85, 86], has remained challenging due to the complexity 
+of human behavior [17, 108]. We synthesize this research to suggest 
+that large language models, though not sufcient by themselves, 
+open up a new angle for creating believable agents when leveraged 
+using the appropriate architecture. 
+2.1 Human-AI Interaction 
+Interactive artifcial intelligence systems aim to combine human in­
+sights and capabilities in computational artifacts that can augment 
+their users [4, 30]. A long line of work has explored ways to enable 
+users to interactively specify model behavior. For instance, Crayons 
+demonstrated an early vision of interactive machine learning, allow­
+ing non-expert users to train classifers [30]. Further work helped to 
+articulate how end users might describe their classifcation goals to 
+the system through examples [34] or demonstration [32]. Recent ad­
+vancements have extended these explorations to deep learning [63] 
+and prompt-based authoring [50, 67, 106]. 
+Meanwhile, a persistent thread of research has advanced the case 
+for language- and agent-based interaction in human-computer in­
+teraction. Formative work such as SHRDLU [103] and ELIZA [102] 
+demonstrated the opportunities and the risks associated with nat­
+ural language interaction with computing systems. As research 
+progressed, it became evident that autonomous agents could ofer 
+new metaphors for delegation and interaction [68], but the bound­
+aries of delegation between humans and agents have remained the 
+subject of ongoing debate and refnement [47, 89, 90]. Recently, this 
+technology has reached a level of stability that enables agents to 
+interact via natural language in large and complex online social 
+environments (e.g., [55]). Natural language interaction provides a 
+novel modality that can enhance user abilities in domains such as 
+photo editing [3, 35, 65] and code editing [88]. 
+We convene these threads of work to show that we can now 
+create agents that proxy human behavior for interactive systems, 
+and interact with them using natural language. In doing so, this 
+work reopens the door to examining foundational human-computer 
+interaction questions around cognitive models such as GOMS and 
+Keystroke-Level Model (KLM) [22, 23], around prototyping tools [80], 
+and around ubiquitous computing applications [26, 31, 101]. 
+2.2 Believable Proxies of Human Behavior 
+Prior literature has described believability, or believable agents, as a 
+central design and engineering goal. Believable agents are designed 
+to provide an illusion of life and present a facade of realism in the 
+way they appear to make decisions and act on their own volition, 
+similar to the characters in Disney movies [10, 96]. These agents 
+can populate and perceive an open world environment like the 
+one we inhabit [10, 59], and strive to behave in ways that exhibit 
+emergent behaviors grounded in social interactions with users or 
+other agents with the aim of becoming believable proxies of our 
+behavior in hypothetical simulations of individuals and communi­
+ties [20, 36, 71]. Historically, these agents were developed in the 
+context of intelligent game non-player characters (NPCs) [59, 85]. 
+Creating NPCs with believable behavior, if possible, could enhance 
+player experiences in games and interactive fctions by enabling 
+emergent narratives [8, 16, 49, 93] and social interactions with the 
+agents [109]. However, more importantly, game worlds provide 
+increasingly realistic representations of real-world afordances, and 
+as observed by Laird and van Lent in 2001, these simulated worlds 
+ofer accessible testbeds for developers of believable agents to f­
+nesse the agents’ cognitive capabilities without worrying about 
+implementing robotics in the real world or creating simulation 
+environments from scratch [59, 85]. 
+A diverse set of approaches to creating believable agents emerged 
+over the past four decades. In implementation, however, these ap­
+proaches often simplifed the environment or dimensions of agent 

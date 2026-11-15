@@ -1,0 +1,75 @@
+Task: Mine 3 wood logs
+RESPONSE:
+{
+"reasoning ": "You need to mine 3 wood logs. You have 2 oak logs
+and 2 spruce logs , which add up to 4 wood logs.",
+"success ": true ,
+"critique ": ""
+}
+INPUT:
+Inventory
+(3/36): {’crafting_table ’: 1, ’spruce_planks ’: 6, ’stick ’:
+4}
+Task: Craft a wooden
+pickaxe
+RESPONSE:
+{
+"reasoning ": "You have
+enough
+materials to craft a wooden
+pickaxe ,
+but you didn ’t craft it.",
+"success ": false ,
+"critique ": "Craft a wooden
+pickaxe
+with a crafting
+table
+using 3
+spruce
+planks and 2 sticks ."
+}
+INPUT:
+Inventory
+(2/36): {’raw_iron ’: 5, ’stone_pickaxe ’: 1}
+Task: Mine 5 iron_ore
+RESPONSE:
+{
+"reasoning ": "Mining
+iron_ore in Minecraft
+will get
+raw_iron. You
+have 5 raw_iron in your
+inventory .",
+"success ": true ,
+"critique ": ""
+}
+INPUT:
+Biome: plains
+Nearby
+blocks: stone , dirt , grass_block , grass , farmland , wheat
+Inventory
+(26/36): ...
+Task:
+Plant 1 wheat
+seed.
+RESPONSE:
+{
+"reasoning ": "For
+planting tasks , inventory
+information is useless
+. In nearby blocks , there is farmland
+and wheat , which
+means you
+succeed to plant the wheat
+seed.",
+"success ": true ,
+"critique ": ""
+}
+INPUT:
+Inventory
+(11/36): {... ,’rotten_flesh ’: 1}
+Task: Kill 1 zombie
+Context: ...
+RESPONSE
+{
+36

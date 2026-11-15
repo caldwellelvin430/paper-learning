@@ -1,0 +1,47 @@
+[80] Valts Blukis, Chris Paxton, Dieter Fox, Animesh Garg, and Yoav Artzi. A persistent spatial
+semantic representation for high-level natural language instruction execution. In 5th Annual
+Conference on Robot Learning, 2021.
+[81] Varun Nair, Elliot Schumacher, Geoffrey Tso, and Anitha Kannan. Dera: Enhancing large
+language model completions with dialog-enabled resolving agents. arXiv preprint arXiv:
+Arxiv-2303.17071, 2023.
+[82] Joon Sung Park, Joseph C. O’Brien, Carrie J. Cai, Meredith Ringel Morris, Percy Liang, and
+Michael S. Bernstein. Generative agents: Interactive simulacra of human behavior. arXiv
+preprint arXiv: Arxiv-2304.03442, 2023.
+[83] Yue Wu, Shrimai Prabhumoye, So Yeon Min, Yonatan Bisk, Ruslan Salakhutdinov, Amos
+Azaria, Tom Mitchell, and Yuanzhi Li. Spring: Gpt-4 out-performs rl algorithms by studying
+papers and reasoning. arXiv preprint arXiv: 2305.15486, 2023.
+[84] Erik Nijkamp, Bo Pang, Hiroaki Hayashi, Lifu Tu, Huan Wang, Yingbo Zhou, Silvio Savarese,
+and Caiming Xiong. A conversational paradigm for program synthesis. arXiv preprint arXiv:
+Arxiv-2203.13474, 2022.
+[85] Hung Le, Yue Wang, Akhilesh Deepak Gotmare, Silvio Savarese, and Steven C. H. Hoi. Coderl:
+Mastering code generation through pretrained models and deep reinforcement learning. arXiv
+preprint arXiv: Arxiv-2207.01780, 2022.
+[86] Xinyun Chen, Chang Liu, and Dawn Song. Execution-guided neural program synthesis. In 7th
+International Conference on Learning Representations, ICLR 2019, New Orleans, LA, USA,
+May 6-9, 2019. OpenReview.net, 2019.
+[87] Xinyun Chen, Dawn Song, and Yuandong Tian. Latent execution for neural program synthesis.
+arXiv preprint arXiv: Arxiv-2107.00101, 2021.
+[88] Kevin Ellis, Maxwell I. Nye, Yewen Pu, Felix Sosa, Josh Tenenbaum, and Armando Solar-
+Lezama. Write, execute, assess: Program synthesis with a REPL. In Hanna M. Wallach, Hugo
+Larochelle, Alina Beygelzimer, Florence d’Alché-Buc, Emily B. Fox, and Roman Garnett,
+editors, Advances in Neural Information Processing Systems 32: Annual Conference on Neural
+Information Processing Systems 2019, NeurIPS 2019, December 8-14, 2019, Vancouver, BC,
+Canada, pages 9165–9174, 2019.
+[89] Yujia Li, David Choi, Junyoung Chung, Nate Kushman, Julian Schrittwieser, Rémi Leblond,
+Tom Eccles, James Keeling, Felix Gimeno, Agustin Dal Lago, Thomas Hubert, Peter Choy,
+Cyprien de Masson d’Autume, Igor Babuschkin, Xinyun Chen, Po-Sen Huang, Johannes Welbl,
+Sven Gowal, Alexey Cherepanov, James Molloy, Daniel J. Mankowitz, Esme Sutherland Robson,
+Pushmeet Kohli, Nando de Freitas, Koray Kavukcuoglu, and Oriol Vinyals. Competition-level
+code generation with alphacode. arXiv preprint arXiv: Arxiv-2203.07814, 2022.
+[90] Karl Cobbe, Vineet Kosaraju, Mohammad Bavarian, Mark Chen, Heewoo Jun, Lukasz Kaiser,
+Matthias Plappert, Jerry Tworek, Jacob Hilton, Reiichiro Nakano, Christopher Hesse, and
+John Schulman. Training verifiers to solve math word problems. arXiv preprint arXiv: Arxiv-
+2110.14168, 2021.
+[91] Ansong Ni, Srini Iyer, Dragomir Radev, Ves Stoyanov, Wen tau Yih, Sida I. Wang, and
+Xi Victoria Lin. Lever: Learning to verify language-to-code generation with execution. arXiv
+preprint arXiv: Arxiv-2302.08468, 2023.
+[92] Marta Skreta, Naruki Yoshikawa, Sebastian Arellano-Rubach, Zhi Ji, Lasse Bjørn Kristensen,
+Kourosh Darvish, Alán Aspuru-Guzik, Florian Shkurti, and Animesh Garg. Errors are useful
+prompts: Instruction guided task programming with verifier-assisted iterative prompting. arXiv
+preprint arXiv: Arxiv-2303.14100, 2023.
+18

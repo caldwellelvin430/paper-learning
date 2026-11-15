@@ -1,0 +1,67 @@
+Table 2: Zero-shot generalization to unseen tasks. Fractions indicate the number of successful
+trials out of three total attempts. 0/3 means the method fails to solve the task within the maximal
+prompting iterations (50). Numbers are prompting iterations averaged over three trials. The fewer
+the iterations, the more efficient the method.
+Method
+Diamond Pickaxe
+Golden Sword
+Lava Bucket
+Compass
+ReAct [29]
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+Reflexion [30]
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+AutoGPT [28]
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+AutoGPT [28] w/ Our Skill Library
+39 (1/3)
+30 (1/3)
+N/A (0/3)
+30 (2/3)
+VOYAGER w/o Skill Library
+36 (2/3)
+30 ± 9 (3/3)
+27 ± 9 (3/3)
+26 ± 3 (3/3)
+VOYAGER (Ours)
+19 ± 3 (3/3)
+18 ± 7 (3/3)
+21 ± 5 (3/3)
+18 ± 2 (3/3)
+Figure 8: Zero-shot generalization to unseen tasks. We visualize the intermediate progress of each
+method on two tasks. See Appendix, Sec. B.4.3 for the other two tasks. We do not plot ReAct and
+Reflexion since they do not make any meaningful progress.
+Efficient zero-shot generalization to unseen tasks. To evaluate zero-shot generalization, we clear
+the agent’s inventory, reset it to a newly instantiated world, and test it with unseen tasks. For both
+VOYAGER and AutoGPT, we utilize GPT-4 to break down the task into a series of subgoals. Table. 2
+and Fig. 8 show VOYAGER can consistently solve all the tasks, while baselines cannot solve any task
+within 50 prompting iterations. What’s interesting to note is that our skill library constructed from
+lifelong learning not only enhances VOYAGER’s performance but also gives a boost to AutoGPT.
+This demonstrates that the skill library serves as a versatile tool that can be readily employed by other
+methods, effectively acting as a plug-and-play asset to enhance performance.
+3.4
+Ablation Studies
+We ablate 6 design choices (automatic curriculum, skill library, environment feedback, execution
+errors, self-verification, and GPT-4 for code generation) in VOYAGER and study their impact on
+exploration performance (see Appendix, Sec. B.3 for details of each ablated variant). Results are
+shown in Fig. 9. We highlight the key findings below:
+• Automatic curriculum is crucial for the agent’s consistent progress. The discovered item
+count drops by 93% if the curriculum is replaced with a random one, because certain tasks
+may be too challenging if attempted out of order. On the other hand, a manually designed
+curriculum requires significant Minecraft-specific expertise, and does not take into account
+the agent’s live situation. It falls short in the experimental results compared to our automatic
+curriculum.
+• VOYAGER w/o skill library exhibits a tendency to plateau in the later stages. This
+underscores the pivotal role that the skill library plays in VOYAGER. It helps create more
+complex actions and steadily pushes the agent’s boundaries by encouraging new skills to be
+built upon older ones.
+8

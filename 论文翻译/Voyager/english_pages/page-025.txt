@@ -1,0 +1,55 @@
+• killMob(bot, mobName, timeout = 300):
+Attack the mob and collect its
+dropped item;
+• getItemFromChest(bot, chestPosition, itemsToGet): Move to the chest at
+the specified position and get items from the chest;
+• depositItemIntoChest(bot, chestPosition, itemsToDeposit):
+Move to
+the chest at the specified position and deposit items into the chest;
+(3) Control primitive APIs provided by Mineflayer:
+• await bot.pathfinder.goto(goal): Go to a specific position. See below for how
+to set the goal;
+• new GoalNear(x, y, z, range): Move the bot to a block within the specified
+range of the specified block;
+• new GoalXZ(x, z): For long-range goals that don’t have a specific Y level;
+• new GoalGetToBlock(x, y, z): Not get into the block, but get directly adjacent
+to it. Useful for fishing, farming, filling a bucket, and using a bed.;
+• new GoalFollow(entity, range): Follow the specified entity within the specified
+range;
+• new GoalPlaceBlock(position, bot.world, {}): Position the bot in order to
+place a block;
+• new GoalLookAtBlock(position, bot.world, {}): Path towards a position
+where a face of the block at position is visible;
+• bot.isABed(bedBlock): Return true if bedBlock is a bed;
+• bot.blockAt(position): Return the block at position;
+• await bot.equip(item, destination): Equip the item in the specified destina-
+tion. destination must be one of “hand”, “head”, “torso”, “legs”, “feet”, “off-hand”;
+• await bot.consume(): Consume the item in the bot’s hand. You must equip the
+item to consume first. Useful for eating food, drinking potions, etc.;
+• await bot.fish(): Let bot fish. Before calling this function, you must first get to a
+water block and then equip a fishing rod. The bot will automatically stop fishing when
+it catches a fish;
+• await bot.sleep(bedBlock): Sleep until sunrise. You must get to a bed block
+first;
+• await bot.activateBlock(block): This is the same as right-clicking a block in
+the game. Useful for buttons, doors, etc. You must get to the block first;
+• await bot.lookAt(position): Look at the specified position. You must go near
+the position before you look at it. To fill a bucket with water, you must look at it first;
+• await bot.activateItem(): This is the same as right-clicking to use the item in
+the bot’s hand. Useful for using a bucket, etc. You must equip the item to activate first;
+• await bot.useOn(entity): This is the same as right-clicking an entity in the game.
+Useful for shearing a sheep. You must get to the entity first;
+(4) Retrieved skills from the skill library;
+(5) Generated code from the last round;
+(6) Environment feedback: The chat log in the prompt;
+(7) Execution errors;
+(8) Critique from the self-verification module;
+(9) The agent’s current state: See Sec. A.3.1 for each element of the agent’s state;
+(10) Task proposed by the automatic curriculum;
+(11) Task context: We prompt GPT-3.5 to ask for general suggestions about how to solve the
+task. In practice, this part is handled by the automatic curriculum since it has a systematic
+mechanism for question-answering (Sec. A.3.2);
+(12) Chain-of-thought prompting [46] in response: We ask GPT-4 to first explain the reason why
+the code from the last round fails, then give step-by-step plans to finish the task, and finally
+generate code. See Sec. A.4.2 for the full prompt.
+25

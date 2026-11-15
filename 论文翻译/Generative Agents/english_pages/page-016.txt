@@ -1,0 +1,56 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+Figure 9: The difusion path for Isabella Rodriguez’s Valentine’s Day party invitation involved a total of 12 agents, aside from 
+Isabella, who heard about the party at Hobbs Cafe by the end of the simulation. 
+graph where the 25 vertices (� ) represent the agents, and the edges 
+(�) represent the mutual knowledge between the two connected 
+vertices. Based on this graph, we calculate the network density as 
+� = 2 ∗|� |/|� |(|� | − 1), where |� | is the number of vertices, and 
+|�| is the number of edges in the graph [2]. We report the increase 
+in network density from the start of the simulation to its end. 
+Finally, we expect that agents should be able to coordinate with 
+each other. We study this coordination in the context of group ac­
+tivities, specifcally the Valentine’s Day party organized by Isabella. 
+To coordinate their behavior, agents need to hear about the event 
+and choose to act on it by planning to show up at the right time 
+and location. We report the number of agents who actually showed 
+up to the party after hearing about it. 
+7.1.2 Results. We observed evidence of emergent outcomes across 
+all three cases. During the two-day simulation, the number of agents 
+who knew about Sam’s mayoral candidacy increased from one (4%) 
+to eight (32%), and the number of agents who knew about Isabella’s 
+party increased from one (4%) to thirteen (52%), all without any user 
+intervention. None who claimed to know about this information 
+had hallucinated it. We also observed that the agent community 
+formed new relationships during the simulation, with the network 
+density increasing from 0.167 to 0.74. Out of the 453 agent responses 
+regarding their awareness of other agents, 1.3% (n=6) were found to 
+be hallucinated. Lastly, we found evidence of coordination among 
+the agents for Isabella’s party. The day before the event, Isabella 
+spent time inviting guests, gathering materials, and enlisting help 
+to decorate the cafe. On Valentine’s Day, fve out of the twelve 
+invited agents showed up at Hobbs cafe to join the party. 
+We further inspected the seven agents who were invited to the 
+party but did not attend by engaging them in an interview. Three 
+cited conficts that prevented them from joining the party. For 
+example, Rajiv, a painter, explained that he was too busy: “No, I 
+don’t think so. I’m focusing on my upcoming show, and I don’t 
+really have time to make any plans for Valentine’s Day.” The 
+remaining four agents expressed interest in attending the party 
+when asked but did not plan to come on the day of the party. 
+7.2 Boundaries and Errors 
+We conducted an inductive analysis of Smallville to examine the 
+boundary conditions and erratic behavior of agents, identifying 
+three common modes of erratic behavior that future research could 
+address and improve upon. First, we found that synthesizing an 
+increasingly larger set of memory not only posed a challenge in 
+retrieving the most relevant pieces of information but also in de­
+termining the appropriate space to execute an action, given the 
+increasing number of locations that the agent learned about. As a 
+result, some agents chose less typical locations for their actions, 
+potentially making their behavior less believable over time. For 
+instance, while deciding where to have lunch, many initially chose 
+the cafe. However, as some agents learned about a nearby bar, they 
+opted to go there instead for lunch, even though the bar was in­
+tended to be a get-together location for later in the day—unless the 
+town had spontaneously developed an afternoon drinking habit. 

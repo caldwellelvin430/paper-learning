@@ -1,0 +1,109 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+3.1.2 User Controls. The user communicates with the agent through 
+natural language by specifying a persona that the agent should per­
+ceive them as. For example, if the user specifes that they are a news 
+“reporter” and asks about the upcoming election by saying, “Who 
+is running for ofce?”, the John agent replies: 
+John: My friends Yuriko, Tom and I have been talk­
+ing about the upcoming election and discussing the 
+candidate Sam Moore. We have all agreed to vote for 
+him because we like his platform. 
+To directly command one of the agents, the user takes on the per­
+sona of the agent’s “inner voice”—this makes the agent more likely 
+to treat the statement as a directive. For instance, when told “You 
+are going to run against Sam in the upcoming election” by a user 
+as John’s inner voice, John decides to run in the election and shares 
+his candidacy with his wife and son. 
+3.2 Environmental Interaction 
+Smallville features the common afordances of a small village, in­
+cluding a cafe, bar, park, school, dorm, houses, and stores. It also 
+defnes subareas and objects that make those spaces functional, 
+such as a kitchen in a house and a stove in the kitchen (Figure 2). 
+All spaces serving as agents’ primary living quarters feature a bed, 
+desk, closet, shelf, as well as a bathroom and a kitchen.4 
+Agents move around Smallville as one would in a simple video 
+game, entering and leaving buildings, navigating its map, and ap­
+proaching other agents. Agent movements are directed by the gen­
+erative agent architecture and the sandbox game engine: when the 
+model dictates that the agent will move to a location, we calculate 
+a walking path to the destination in the Smallville environment, 
+and the agent begins moving. In addition, users can also enter the 
+sandbox world of Smallville as an agent operating within it. The 
+agent that the user embodies can be an agent already present in 
+the world, such as Isabella and John, or it can be an outside visitor 
+with no prior history in Smallville. The inhabitants of Smallville 
+will treat the user-controlled agent no diferently than they treat 
+each other. They recognize its presence, initiate interactions, and 
+remember its behavior before forming opinions about it. 
+Users and agents can infuence the state of the objects in this 
+world, much like in sandbox games such as The Sims. For example, 
+a bed can be occupied when an agent is sleeping, and a refrigerator 
+can be empty when an agent uses up the ingredients to make 
+breakfast. End users can also reshape an agent’s environment in 
+Smallville by rewriting the status of objects surrounding the agent 
+in natural language. For instance, when Isabella is making breakfast 
+in the morning, the user can change the status of the kitchen stove 
+from “turned on” to “burning” by inputting a command to the 
+system that chooses the object and illustrates its new status, like 
+this: “<Isabella’s apartment: kitchen: stove> is burning.” Isabella 
+will notice this in the next moment and go to turn of the stove 
+and remake her breakfast. Likewise, if the user sets the status of 
+Isabella’s shower to “leaking water” when she enters the bathroom, 
+she will gather tools from her living room and try to fx the leak. 
+4This environment design is not the focus of our work, so we generated this environ­
+ment manually, not automatically. Future work can continue to expand the richness of 
+the agents’ environments. 
+3.3 Example “Day in the Life” 
+Starting from the single-paragraph description, generative agents 
+begin planning their days. As time passes in the sandbox world, 
+their behaviors evolve as these agents interact with each other and 
+the world, building memories and relationships, and coordinating 
+joint activities. 
+We demonstrate the behavior of generative agents by tracing the 
+output of our system over the course of one day for the agent John 
+Lin (Figure 3). In the Lin family, John is the frst to wake up at 7 a.m. 
+He brushes his teeth, takes a shower, gets dressed, eats breakfast, 
+and checks the news at the dining table in the living room. At 8 
+a.m., Eddy follows suit, rushing out of bed to prepare for his classes. 
+He catches up with John just as he is about to head out: 
+John: Good morning Eddy. Did you sleep well? 
+Eddy: Good morning dad. Yeah, I slept great. 
+John: That’s good. What are you working on today? 
+Eddy: I’m working on a new music composition for 
+my class. It’s due this week, so I’m trying to get it 
+fnished. But I’m having so much fun with it! 
+John: That sounds great! 
+Soon after Eddy heads out, Mei wakes up and joins John. Mei asks 
+about her son, and John recalls the conversation they just had: 
+Mei: Did Eddy already leave for school? 
+John: Yes, he just left. He’s working on a music 
+composition for his class. 
+Mei: Oh, that’s wonderful! Tell me about it. 
+John: I think he’s really enjoying it! He said he’s 
+having a lot of fun with it. 
+Mei: That’s great! I’m so proud of him. 
+As they fnish their conversation, Mei and John pack up. Mei goes 
+on to teach and work on her research paper, while John opens his 
+pharmacy counter at the Willow Market and Pharmacy by 9 a.m. 
+3.4 Emergent Social Behaviors 
+By interacting with each other, generative agents in Smallville 
+exchange information, form new relationships, and coordinate joint 
+activities. Extending prior work [80], these social behaviors are 
+emergent rather than pre-programmed. 
+3.4.1 Information Difusion. As agents notice each other, they may 
+engage in dialogue—as they do so, information can spread from 
+agent to agent. For instance, in a conversation between Sam and 
+Tom at the grocery store, Sam tells Tom about his candidacy in the 
+local election: 
+Sam: Hey Tom, how’s it going? 
+Tom: Good, thanks. What’s up? 
+Sam: Well, I wanted to talk to you about something. 
+I’m actually running for mayor in the upcoming local 
+election. 
+Tom: Really? That’s great news! Why are you run­
+ning? 
+Sam: I’ve been involved in local politics for years 
+now, and I really feel like I can make a diference in 
+our community. Plus, I want to bring new ideas and 
+perspectives to the table. 

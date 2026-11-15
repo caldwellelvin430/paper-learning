@@ -1,0 +1,158 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+Intelligence and Interactive Entertainment (Technical Report SS-00-02). AAAI 
+Press, 41–50. 
+[61] John E. Laird. 2012. The Soar Cognitive Architecture. MIT Press. 
+[62] John E. Laird, Christian Lebiere, and Paul S. Rosenbloom. 2017. A Standard Model 
+of the Mind: Toward a Common Computational Framework across Artifcial 
+Intelligence, Cognitive Science, Neuroscience, and Robotics. AI Magazine 38, 1 
+(2017), 13–26. 
+[63] Michelle S Lam, Zixian Ma, Anne Li, Izequiel Freitas, Dakuo Wang, James A 
+Landay, and Michael S Bernstein. 2023. Model Sketching: Centering Concepts 
+in Early-Stage Machine Learning Model Design. Proceedings of the SIGCHI 
+Conference on Human Factors in Computing Systems. 
+[64] Pat Langley, Dongkyu Choi, and Seth Rogers. 2005. Interleaving Learning, 
+Problem Solving, and Execution in the Icarus Architecture. Technical Report. 
+Stanford University, Center for the Study of Language and Information. 
+[65] Jason Linder, Gierad Laput, Mira Dontcheva, Gregg Wilensky, Walter Chang, 
+Aseem Agarwala, and Eytan Adar. 2013. PixelTone: A Multimodal Interface for 
+Image Editing. In CHI ’13 Extended Abstracts on Human Factors in Computing 
+Systems (Paris, France) (CHI EA ’13). Association for Computing Machinery, 
+New York, NY, USA, 2829–2830. https://doi.org/10.1145/2468356.2479533 
+[66] Jiachang Liu, Dinghan Shen, Yizhe Zhang, Bill Dolan, Lawrence Carin, and 
+Weizhu Chen. 2021. What Makes Good In-Context Examples for GPT-3? CoRR 
+abs/2101.06804 (2021). arXiv:2101.06804 https://arxiv.org/abs/2101.06804 
+[67] Vivian Liu, Han Qiao, and Lydia Chilton. 2022. Opal: Multimodal Image Gener­
+ation for News Illustration. In Proceedings of the 35th Annual ACM Symposium 
+on User Interface Software and Technology. 1–17. 
+[68] Pattie Maes. 1995. Artifcial Life Meets Entertainment: Lifelike Autonomous 
+Agents. Commun. ACM 38, 11 (nov 1995), 108–114. https://doi.org/10.1145/ 
+219717.219808 
+[69] Josh McCoy, Michael Mateas, and Noah Wardrip-Fruin. 2009. Comme il Faut: 
+A System for Simulating Social Games Between Autonomous Characters. In 
+Proceedings of the 7th International Conference on Digital Arts and Culture. 87–94. 
+[70] Josh McCoy, Mike Treanor, Ben Samuel, Michael Mateas, and Noah Wardrip-
+Fruin. 2011. Prom Week: Social Physics as Gameplay. In Proceedings of the 
+6th International Conference on Foundations of Digital Games (FDG’11). ACM, 
+Bordeaux, France, 70–77. https://doi.org/10.1145/2159365.2159377 
+[71] Josh McCoy, Mike Treanor, Ben Samuel, Anna Reed, Michael Mateas, and Noah 
+Wardrip-Fruin. 2012. Prom Week. In Proceedings of the 7th International Confer­
+ence on Foundations of Digital Games (FDG’12). ACM, Raleigh, NC, USA, 1–8. 
+https://doi.org/10.1145/2282338.2282340 
+[72] Josh McCoy, Mike Treanor, Ben Samuel, Noah Wardrip-Fruin, and Michael 
+Mateas. 2011. Comme il faut: A System for Authoring Playable Social Models. 
+In Proceedings of the AAAI Conference on Artifcial Intelligence and Interactive 
+Digital Entertainment (AIIDE’11). AAAI, Stanford, CA, USA, 38–43. 
+[73] Marvin Minsky and Seymour Papert. 1970. Draft of a proposal to ARPA for 
+research on artifcial intelligence at MIT, 1970–71. 
+[74] Shohei Miyashita, Xinyu Lian, Xiao Zeng, Takashi Matsubara, and Kuniaki 
+Uehara. 2017. Developing Game AI Agent Behaving Like Human by Mixing 
+Reinforcement Learning and Supervised Learning. In Proceedings of the 18th 
+IEEE/ACIS International Conference on Software Engineering, Artifcial Intelligence, 
+Networking and Parallel/Distributed Computing (SNPD). Kanazawa, Japan, 153– 
+158. https://doi.org/10.1109/SNPD.2017.8023884 
+[75] Alexander Nareyek. 2007. Game AI is dead. Long live game AI! IEEE Intelligent 
+Systems 22, 1 (2007), 9–11. 
+[76] Allen Newell. 1990. Unifed Theories of Cognition. Harvard University Press, 
+Cambridge, Massachusetts. 
+[77] OpenAI. 2022. Introducing ChatGPT. https://openai.com/blog/chatgpt. Accessed 
+on: 2023-04-03. 
+[78] Kyle Orland. 2021. So what is ’the metaverse’, exactly? Ars Technica (7 November 
+2021). arXiv:2111.04169 https://arstechnica.com/gaming/2021/11/so-what-is­
+the-metaverse-exactly/ 
+[79] Long Ouyang, Jef Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, 
+Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, 
+John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller, Maddie Simens, 
+Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, and Ryan Lowe. 
+2022. Training language models to follow instructions with human feedback. 
+arXiv:2203.02155 [cs.CL] 
+[80] Joon Sung Park, Lindsay Popowski, Carrie J. Cai, Meredith Ringel Morris, Percy 
+Liang, and Michael S. Bernstein. 2022. Social Simulacra: Creating Populated 
+Prototypes for Social Computing Systems. In In the 35th Annual ACM Symposium 
+on User Interface Software and Technology (UIST ’22) (Bend, OR, USA) (UIST ’22). 
+Association for Computing Machinery, New York, NY, USA. https://doi.org/10. 
+1145/3526113.3545616 
+[81] Richard W. Pew and Ann S. Mavor (Eds.). 1998. Modeling Human and Organiza­
+tional Behavior: Applications to Military Simulations. National Academy Press, 
+Washington, D.C. 
+[82] Roberto Pillosu. 2009. Coordinating Agents with Behavior Trees: Synchronizing 
+Multiple Agents in CryEngine 2. https://aiarchitect.wordpress.com/2009/10/19/ 
+coordinating-agents-with-behavior-trees-synchronizing-multiple-agents-in­
+cryengine-2/ 
+[83] Prolifc. 2022. Prolifc: Quickly Find Research Participants You Can Trust. 
+https://www.prolifc.co/ 
+[84] Byron Reeves and Cliford Nass. 1996. The media equation: How people treat 
+computers, television, and new media like real people and places. Cambridge 
+University Press. 
+[85] Mark O. Riedl. 2012. Interactive narrative: A novel application of artifcial intel­
+ligence for computer games. In Proceedings of the Twenty-Sixth AAAI Conference 
+on Artifcial Intelligence (AAAI’12). 2160–2165. 
+[86] Mark O. Riedl and R. Michael Young. 2005. An Objective Character Believability 
+Evaluation Procedure for Multi-Agent Story Generation Systems. In Proceedings 
+of the 5th International Working Conference on Intelligent Virtual Agents (IVA’05). 
+Kos, Greece, 58–70. https://doi.org/10.1007/11550617_5 
+[87] David Rolf. 2015. The Fight for $15: The Right Wage for a Working America. The 
+New Press. 
+[88] Xin Rong, Shiyan Yan, Stephen Oney, Mira Dontcheva, and Eytan Adar. 2016. 
+Codemend: Assisting interactive programming with bimodal embedding. In Pro­
+ceedings of the 29th Annual Symposium on User Interface Software and Technology. 
+247–258. 
+[89] Ben Shneiderman. 2022. Human-centered AI. Oxford University Press. 
+[90] Ben Shneiderman and Pattie Maes. 1997. Direct manipulation vs. interface 
+agents. interactions 4, 6 (1997), 42–61. 
+[91] Ho Chit Siu, Jaime Peña, Edenna Chen, Yutai Zhou, Victor Lopez, Kyle 
+Palko, Kimberlee Chang, and Ross Allen. 2021. Evaluation of Human-AI 
+Teams for Learned and Rule-Based Agents in Hanabi. In Advances in Neu­
+ral Information Processing Systems, M. Ranzato, A. Beygelzimer, Y. Dauphin, 
+P.S. Liang, and J. Wortman Vaughan (Eds.), Vol. 34. Curran Associates, 
+Inc., 16183–16195. https://proceedings.neurips.cc/paper_fles/paper/2021/fle/ 
+86e8f7ab32cfd12577bc2619bc635690-Paper.pdf 
+[92] Taylor Sorensen, Joshua Robinson, Christopher Rytting, Alexander Shaw, Kyle 
+Rogers, Alexia Delorey, Mahmoud Khalil, Nancy Fulda, and David Wingate. 
+2022. An Information-theoretic Approach to Prompt Engineering Without 
+Ground Truth Labels. In Proceedings of the 60th Annual Meeting of the Asso­
+ciation for Computational Linguistics (Volume 1: Long Papers). Association for 
+Computational Linguistics. https://doi.org/10.18653/v1/2022.acl-long.60 
+[93] William Swartout, Jonathan Gratch, Randall Hill, Eduard Hovy, Stacy Marsella, 
+Jef Rickel, and David Traum. 2006. Toward virtual humans. AI Magazine 27, 1 
+(2006). 
+[94] Milind Tambe, W Lewis Johnson, Randolph M Jones, Frank Koss, John E Laird, 
+Paul S Rosenbloom, and Karl Schwamb. 1995. Intelligent agents for interactive 
+simulation environments. AI Magazine 16, 1 (1995), 15. 
+[95] David R. Thomas. 2006. A General Inductive Approach for Analyzing Qualitative 
+Evaluation Data. American Journal of Evaluation 27, 2 (2006), 237–246. https: 
+//doi.org/10.1177/1098214005283748 
+[96] Frank Thomas and Ollie Johnston. 1981. Disney Animation: The Illusion of Life. 
+Abbeville Press, New York. 
+[97] Ilshat Umarov, Mikhail Mozgovoy, and Patrick C. Rogers. 2012. Believable and 
+Efective AI Agents in Virtual Worlds: Current State and Future Perspectives. 
+International Journal of Gaming and Computer-Mediated Simulations 4, 2 (2012), 
+37–59. 
+[98] Graham Upton and Ian Cook. 2006. A Dictionary of Statistics (2 ed.). Oxford 
+University Press, Oxford, United Kingdom. 
+[99] Oriol Vinyals, Igor Babuschkin, Wojciech M. Czarnecki, and et al. 2019. Grand­
+master level in StarCraft II using multi-agent reinforcement learning. Nature 
+575 (2019), 350–354. https://doi.org/10.1038/s41586-019-1724-z 
+[100] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Brian Ichter, Fei 
+Xia, Ed Chi, Quoc Le, and Denny Zhou. 2023. Chain-of-Thought Prompting 
+Elicits Reasoning in Large Language Models. arXiv:2201.11903 [cs.CL] 
+[101] Mark Weiser. 1991. The computer for the 21st century. Scientifc American 265, 
+3 (1991), 94–104. https://doi.org/10.1038/scientifcamerican0991-94 
+[102] Joseph Weizenbaum. 1966. ELIZA—a computer program for the study of natural 
+language communication between man and machine. Commun. ACM 9, 1 (1966), 
+36–45. 
+[103] Terry Winograd. 1971. Procedures as a Representation for Data in a Computer 
+Program for Understanding Natural Language. (1971). 
+[104] Jef Wu, Long Ouyang, Daniel M. Ziegler, Nisan Stiennon, Ryan Lowe, Jan 
+Leike, and Paul Christiano. 2021. Recursively Summarizing Books with Human 
+Feedback. arXiv:2109.10862 [cs.CL] 
+[105] Tongshuang Wu, Ellen Jiang, Aaron Donsbach, Jef Gray, Alejandra Molina, 
+Michael Terry, and Carrie J Cai. 2022. PromptChainer: Chaining Large Language 
+Model Prompts through Visual Programming. In CHI EA ’22: Extended Abstracts 
+of the 2022 CHI Conference on Human Factors in Computing Systems. 
+[106] Tongshuang Wu, Michael Terry, and Carrie J Cai. 2022. AI Chains: Transparent 
+and Controllable Human-AI Interaction by Chaining Large Language Model 
+Prompts. In CHI ’22: Proceedings of the 2022 CHI Conference on Human Factors in 
+Computing Systems. 
+[107] Qian Yang, Aaron Steinfeld, Carolyn Rosé, and John Zimmerman. 2020. Re­
+examining whether, why, and how human-AI interaction is uniquely difcult to 

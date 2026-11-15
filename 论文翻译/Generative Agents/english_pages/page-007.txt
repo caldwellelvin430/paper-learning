@@ -1,0 +1,52 @@
+Generative Agents 
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+Figure 3: A morning in the life of a generative agent, John Lin. John wakes up around 6 am and completes his morning routine, 
+which includes brushing his teeth, taking a shower, and eating breakfast. He briefy catches up with his wife, Mei, and son, 
+Eddy, before heading out to begin his workday. 
+Figure 4: At the beginning of the simulation, one agent is 
+initialized with an intent to organize a Valentine’s Day party. 
+Despite many possible points of failure in the ensuing chain 
+of events—agents might not act on that intent, might forget 
+to tell others, might not remember to show up—the Valen­
+tine’s Day party does, in fact, occur, with a number of agents 
+gathering and interacting. 
+Later that day, after Sam left, Tom and John, who heard the news 
+from another source, discuss Sam’s chances of winning the election: 
+John: I heard that Sam Moore is running for mayor 
+in the local election. Do you think he has a good 
+chance of winning? 
+Tom: I do think he has a good chance. He’s been 
+working hard in the community and I think he will 
+get a lot of support. What do you think? 
+John: I think it’s great that he’s running. I’m curious 
+to see how the election will turn out. 
+Gradually, Sam’s candidacy becomes the talk of the town, with 
+some supporting him and others remaining undecided. 
+3.4.2 Relationship Memory. Agents in Smallville form new rela­
+tionships over time and remember their interactions with other 
+agents. For example, at the start, Sam does not know Latoya Williams. 
+While taking a walk in Johnson Park, Sam runs into Latoya, and 
+they introduce themselves. Latoya mentions that she is working 
+on a photography project: “I’m here to take some photos for a 
+project I’m working on.” In a later interaction, Sam’s interactions 
+with Latoya indicate a memory of that interaction, as he asks “Hi, 
+Latoya. How is your project going?” and she replies “Hi, Sam. It’s 
+going well!” 
+3.4.3 Coordination. Generative agents coordinate with each other. 
+Isabella Rodriguez, at Hobbs Cafe, is initialized with an intent to 
+plan a Valentine’s Day party from 5 to 7 p.m. on February 14th. From 
+this seed, the agent proceeds to invite friends and customers when 
+she sees them at Hobbs Cafe or elsewhere. Isabella then spends the 
+afternoon of the 13th decorating the cafe for the occasion. Maria, a 
+frequent customer and close friend of Isabella’s, arrives at the cafe. 
+Isabella asks for Maria’s help in decorating for the party, and Maria 
+agrees. Maria’s character description mentions that she has a crush 
+on Klaus. That night, Maria invites Klaus, her secret crush, to join 
+her at the party, and he gladly accepts. 
+On Valentine’s Day, fve agents, including Klaus and Maria, show 
+up at Hobbs Cafe at 5 pm, and they enjoy the festivities (Figure 4). 
+In this scenario, the end user only set Isabella’s initial intent to 
+throw a party and Maria’s crush on Klaus: the social behaviors of 
+spreading the word, decorating, asking each other out, arriving at 
+the party, and interacting with each other at the party were initiated 
+by the agent architecture. 

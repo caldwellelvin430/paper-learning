@@ -1,0 +1,52 @@
+• System: A high-level instruction that guides the model behavior throughout the conversation.
+It sets the overall tone and objective for the interaction.
+• User: A detailed instruction that guides the assistant for the next immediate response.
+• Assistant: A response message generated the model.
+See https://platform.openai.com/docs/guides/chat/introduction for more details.
+To save token usage, instead of engaging in multi-round conversations, we concatenate a system
+prompt and a user prompt to obtain each assistant’s response.
+A.3
+Automatic Curriculum
+A.3.1
+Components in the Prompt
+The input prompt to GPT-4 consists of several components:
+(1) Directives encouraging diverse behaviors and imposing constraints (so that the proposed
+task is achievable and verifiable): See Sec. A.3.4 for the full prompt;
+(2) The agent’s current state:
+• Inventory: A dictionary of items with counts, for example, {‘cobblestone’: 4, ‘furnace’:
+1, ‘stone_pickaxe’: 1, ‘oak_planks’: 7, ‘dirt’: 6, ‘wooden_pickaxe’: 1, ‘crafting_table’:
+1, ‘raw_iron’: 4, ‘coal’: 1};
+• Equipment: Armors or weapons equipped by the agents;
+• Nearby blocks: A set of block names within a 32-block distance to the agent, for
+example, ‘dirt’, ‘water’, ‘spruce_planks’, ‘grass_block’, ‘dirt_path’, ‘sugar_cane’,
+‘fern’;
+• Other blocks that are recently seen: Blocks that are not nearby or in the inventory;
+• Nearby entities: A set of entity names within a 32-block distance to the agent, for
+example, ‘pig’, ‘cat’, ‘villager’, ‘zombie’;
+• A list of chests that are seen by the agent: Chests are external containers where the
+agent can deposit items. If a chest is not opened before, its content is “Unknown”.
+Otherwise, the items inside each chest are shown to the agent.
+• Biome: For example, ‘plains’, ‘flower_forest’, ‘meadow’, ‘river’, ‘beach’, ‘for-
+est’, ‘snowy_slopes’, ‘frozen_peaks’, ‘old_growth_birch_forest’, ‘ocean’, ‘sun-
+flower_plains’, ‘stony_shore’;
+• Time: One of ‘sunrise’, ‘day’, ‘noon’, ‘sunset’, ‘night’, ‘midnight’;
+• Health and hunger bars: The max value is 20;
+• Position: 3D coordinate (x, y, z) of the agent’s position in the Minecraft world;
+(3) Previously completed and failed tasks;
+(4) Additional context: See Sec. A.3.2;
+(5) Chain-of-thought prompting [46] in response: We request GPT-4 to first reason about the
+current progress and then suggest the next task.
+A.3.2
+Additional Context
+We leverage GPT-3.5 to self-ask questions to provide additional context. Each question is paired with
+a concept that is used for retrieving the most relevant document from the wiki knowledge base [23].
+We feed the document content to GPT-3.5 for self-answering questions. In practice, using a wiki
+knowledge base is optional since GPT-3.5 already possesses a good understanding of Minecraft
+game mechanics. However, the external knowledge base becomes advantageous if GPT-3.5 is not
+pre-trained in that specific domain. See Sec. A.3.4 for the full prompt.
+A.3.3
+Warm-up Schedule
+In practice, we adopt a warm-up schedule to gradually incorporate the agent’s state and the additional
+context into the prompt based on how many tasks the agent has completed. This ensures that the
+prompt is exposed to increasing amounts of information over the exploration progress and therefore
+20

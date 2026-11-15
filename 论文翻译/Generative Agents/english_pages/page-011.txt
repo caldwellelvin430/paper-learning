@@ -1,0 +1,112 @@
+Generative Agents 
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+eaten his lunch twice. Optimizing for believability in the moment 
+sacrifces believability over time. To overcome this issue, planning 
+is essential. With the approach described below, Klaus’s afternoon 
+plan is less gluttonous: he has lunch at Hobbs Cafe while reading 
+at 12pm, works on his research paper at the school library at 1pm, 
+and takes a break for a walk in the park at 3pm. 
+Approach: Plans describe a future sequence of actions for the agent, 
+and help keep the agent’s behavior consistent over time. A plan 
+includes a location, a starting time, and a duration. For instance, 
+Klaus Mueller, who is dedicated in his research and has an im­
+pending deadline,5 may choose to spend his day working at his 
+desk drafting his research paper. An entry in a plan might state, 
+for example: for 180 minutes from 9am, February 12th, 2023, at 
+Oak Hill College Dorm: Klaus Mueller’s room: desk, read and 
+take notes for research paper. Like refections, plans are stored in 
+the memory stream and are included in the retrieval process. This 
+allows the agent to consider observations, refections, and plans all 
+together when deciding how to behave. Agents may change their 
+plans midstream if needed. 
+It would be unrealistic and uninteresting for an artist agent 
+to plan on painting while sitting at a pharmacy counter for four 
+hours without moving. A more desirable plan would involve the 
+agent taking the necessary time to gather materials, mix paint, take 
+breaks, and clean up during the four-hour period in their home 
+studio. To create such plans, our approach starts top-down and 
+then recursively generates more detail. The frst step is to create 
+a plan that outlines the day’s agenda in broad strokes. To create 
+the initial plan, we prompt the language model with the agent’s 
+summary description (e.g., name, traits, and a summary of their 
+recent experiences) and a summary of their previous day. A full 
+example prompt is below, which is unfnished at the bottom for the 
+language model to complete: 
+Name: Eddy Lin (age: 19) 
+Innate traits: friendly, outgoing, hospitable 
+Eddy Lin is a student at Oak Hill College studying 
+music theory and composition. He loves to explore 
+different musical styles and is always looking for 
+ways to expand his knowledge. Eddy Lin is working 
+on a composition project for his college class. He 
+is taking classes to learn more about music theory. 
+Eddy Lin is excited about the new composition he 
+is working on but he wants to dedicate more hours 
+in the day to work on it in the coming days 
+On Tuesday February 12, Eddy 1) woke up and 
+completed the morning routine at 7:00 am, [. . . ] 
+6) got ready to sleep around 10 pm. 
+Today is Wednesday February 13. Here is Eddy’s 
+plan today in broad strokes: 1) 
+This generates a rough sketch of the agent’s plan for a day, divided 
+into fve to eight chunks: “1) wake up and complete the morning 
+routine at 8:00 am, 2) go to Oak Hill College to take classes starting 
+10:00 am, [. . . ] 5) work on his new music composition from 1:00 pm 
+to 5:00 pm, 6) have dinner at 5:30 pm, 7) fnish school assignments 
+and go to bed by 11:00 pm.” 
+5And, in this way, bears at least a passing resemblance to the authors of this paper. 
+The agent saves this plan in the memory stream and then re­
+cursively decomposes it to create fner-grained actions, frst into 
+hour-long chunks of actions—Eddy’s plan to work on his new music 
+composition from 1:00 pm to 5:00 pm becomes 1:00 pm: start 
+by brainstorming some ideas for his music composition [...] 4:00 
+pm: take a quick break and recharge his creative energy before 
+reviewing and polishing his composition. We then recursively de­
+compose this again into 5–15 minute chunks: e.g., 4:00 pm: grab a 
+light snack, such as a piece of fruit, a granola bar, or some nuts. 
+4:05 pm: take a short walk around his workspace [...] 4:50 pm: 
+take a few minutes to clean up his workspace. This process can be 
+adjusted to match the desired granularity. 
+4.3.1 Reacting and Updating Plans. Generative agents operate in 
+an action loop where, at each time step, they perceive the world 
+around them and those perceived observations are stored in their 
+memory stream. We prompt the language model with these obser­
+vations to decide whether the agent should continue with their 
+existing plan, or react. Standing at an easel and painting, for exam­
+ple, might trigger an observation of the easel, but this is unlikely to 
+prompt a reaction. However, if Eddy’s father John records that he 
+sees Eddy taking a short walk in the house garden, the outcome is 
+diferent. The prompt is below, with [Agent’s Summary Descrip­
+tion] standing in for a dynamically-generated, paragraph-long 
+summary of the agent’s overall goals and disposition, which is 
+described in Appendix A: 
+[Agent’s Summary Description] 
+It is February 13, 2023, 4:56 pm. 
+John Lin’s status: John is back home early from 
+work. 
+Observation: John saw Eddy taking a short walk 
+around his workplace. 
+Summary of relevant context from John’s memory: 
+Eddy Lin is John’s Lin’s son. Eddy Lin has been 
+working on a music composition for his class. Eddy 
+Lin likes to walk around the garden when he is 
+thinking about or listening to music. 
+Should John react to the observation, and if so, 
+what would be an appropriate reaction? 
+The context summary is generated through two prompts that re­
+trieve memories via the queries “What is [observer]’s relationship 
+with the [observed entity]?” and “[Observed entity] is [action status 
+of the observed entity]”, and their answers summarized together. 
+The output suggests that John could consider asking Eddy about 
+his music composition project. We then regenerate the agent’s 
+existing plan starting from the time when the reaction takes place. 
+Finally, if the action indicates an interaction between agents, we 
+generate their dialogue. 
+4.3.2 Dialogue. Agents converse as they interact with each other. 
+We generate agents’ dialogue by conditioning their utterances on 
+their memories about each other. For example, when John initiates 
+his conversation with Eddy, we generate John’s frst utterance 
+by using his summarized memory about Eddy and the intended 
+reaction when he decided to ask Eddy about his composition project: 
+[Agent’s Summary Description] 
+It is February 13, 2023, 4:56 pm. 

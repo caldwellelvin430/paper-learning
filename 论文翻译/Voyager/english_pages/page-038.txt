@@ -1,0 +1,102 @@
+Table A.2: System-level comparison between VOYAGER and prior works.
+VPT [8]
+DreamerV3 [69] DECKARD [53] DEPS [55]
+Plan4MC [71]
+VOYAGER
+Demos
+Videos
+None
+Videos
+None
+None
+None
+Rewards
+Sparse
+Dense
+Sparse
+None
+Dense
+None
+Observations
+Pixels Only
+Pixels &
+Meta
+Pixels &
+Inventory
+Feedback &
+Inventory
+Pixels &
+Meta
+Feedback &
+Meta &
+Inventory
+Actions
+Keyboard
+&
+Mouse
+Discrete
+Keyboard
+&
+Mouse
+Keyboard
+&
+Mouse
+Discrete
+Code
+Automatic
+Curriculum
+✓
+✓
+(in-context
+GPT-4
+pro-
+posal)
+Iterative Plan-
+ning
+✓
+✓
+(3
+types
+of
+feedback)
+Skill Library
+✓
+(pre-defined)
+✓
+(self-
+generated)
+Gradient-Free
+✓
+B
+Experiments
+B.1
+Experimental Setup
+Our simulation environment is built upon MineDojo [23] and utilizes Mineflayer [52] JavaScript APIs
+for motor controls (Sec. A.4.2). Additionally, we incorporate many bot.chat() into Mineflayer
+functions to provide abundant environment feedback and implement various condition checks along
+with try-catch exceptions for continuous execution. If the bot dies, it is resurrected near the closest
+ground, and its inventory is preserved for uninterrupted exploration. The bot recycles its crafting table
+and furnace after program execution. For detailed implementations, please refer to our codebase.
+B.2
+Baselines
+ReAct [29] uses chain-of-thought prompting [46] by generating both reasoning traces and action
+plans with LLMs. We provide it with our environment feedback and the agent states as observations.
+ReAct undergoes one round of code generation from scratch, followed by three rounds of code
+refinement. This process is then repeated until the maximum prompting iteration is reached.
+Reflexion [30] is built on top of ReAct [29] with self-reflection to infer more intuitive future actions.
+We provide it with environment feedback, the agent states, execution errors, and our self-verification
+module. Similar to ReAct, Reflexion undergoes one round of code generation from scratch, followed
+by three rounds of code refinement. This process is then repeated until the maximum prompting
+iteration is reached.
+AutoGPT [28] is a popular software tool that automates NLP tasks by decomposing a high-level goal
+into multiple subgoals and executing them in a ReAct-style loop. We re-implement AutoGPT by
+using GPT-4 to do task decomposition and provide it with the agent states, environment feedback,
+and execution errors as observations for subgoal execution. Compared with VOYAGER, AutoGPT
+lacks the skill library for accumulating knowledge, self-verification for assessing task success, and
+automatic curriculum for open-ended exploration. During each subgoal execution, if no execution
+error occurs, we consider the subgoal completed and proceed to the next one. Otherwise, we refine
+the program until three rounds of code refinement (equivalent to four rounds of code generation)
+are completed, and then move on to the next subgoal. If three consecutive subgoals do not result in
+acquiring a new item, we replan by rerunning the task decomposition.
+The task is “explore the world and get as many items as possible” for all baselines.
+38

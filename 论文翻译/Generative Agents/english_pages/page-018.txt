@@ -1,0 +1,119 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+models, generative agents may struggle to generate believable be­
+havior for certain subpopulations, particularly marginalized popu­
+lations, due to limited data availability. While improvements to the 
+agents’ modules may mitigate some of these issues, we believe that 
+addressing them fundamentally requires improving the underlying 
+large language models by aligning their values with the desired 
+outcomes of the agents. 
+8.3 Ethics and Societal Impact 
+Generative agents, while ofering new possibilities for human-
+computer interaction, also raise important ethical concerns that 
+must be addressed. One risk is people forming parasocial relation­
+ships with generative agents, even when such relationships may not 
+be appropriate. Despite being aware that generative agents are com­
+putational entities, users may anthropomorphize them or attach 
+human emotions to them [43, 84]. While this tendency may increase 
+user engagement, it also poses risks, such as users becoming overly 
+reliant on or emotionally attached to the agents [1]. To mitigate 
+this risk, we propose two principles. First, generative agents should 
+explicitly disclose their nature as computational entities. Second, 
+developers of generative agents must ensure that the agents, or the 
+underlying language models, are value-aligned so that they do not 
+engage in behaviors that would be inappropriate given the context, 
+for example, reciprocating confessions of love. 
+A second risk is the impact of errors. For example, if a ubiqui­
+tous computing application makes the wrong inference about a 
+user’s goals based on generative agent predictions, it could lead to 
+annoyance at best and outright harm at worst. In our instantiation 
+of generative agents, we mitigate these risks by focusing on an 
+interactive video game environment, where such harms are un­
+likely. However, in other application domains, it will be important 
+to follow best practices in human-AI design [5, 107] to understand 
+errors and how they might percolate into the user experience. 
+Third, generative agents may exacerbate existing risks associated 
+with generative AI, such as deepfakes, misinformation generation, 
+and tailored persuasion. To mitigate this risk, we suggest that plat­
+forms hosting generative agents maintain an audit log of the inputs 
+and generated outputs. This would enable the detection, verifca­
+tion, and intervention against malicious use. While logging alone 
+cannot directly prevent such misuse, it can reduce the likelihood of 
+motivated actors engaging in this behavior, as the risk of disclosure 
+would be higher. Additionally, building this architecture oneself 
+can be time-consuming (in our case, roughly a year), which may 
+deter some actors from pursuing such behavior by using their own 
+generative agent infrastructures. 
+A fourth risk is over-reliance: the concern that developers or 
+designers might use generative agents and displace the role of 
+humans and system stakeholders in the design process [80]. We 
+suggest that generative agents should never be a substitute for 
+real human input in studies and design processes. Instead, they 
+should be used to prototype ideas in the early stages of design when 
+gathering participants may be challenging or when testing theories 
+that are difcult or risky to test with real human participants. By 
+adhering to these principles, we can ensure that the deployment of 
+generative agents in the wild is ethical and socially responsible. 
+9 CONCLUSION 
+This paper introduces generative agents, interactive computational 
+agents that simulate human behavior. We describe an architec­
+ture for generative agents that provides a mechanism for storing 
+a comprehensive record of an agent’s experiences, deepening its 
+understanding of itself and the environment through refection, 
+and retrieving a compact subset of that information to inform the 
+agent’s actions. We then demonstrate the potential of generative 
+agents by manifesting them as non-player characters in a Sims-style 
+game world and simulating their lives within it. Evaluations suggest 
+that our architecture creates believable behavior. Looking ahead, 
+we suggest that generative agents can play roles in many interac­
+tive applications, ranging from design tools to social computing 
+systems to immersive environments. 
+ACKNOWLEDGMENTS 
+We thank Lindsay Popowski, Philip Guo, Michael Terry, and the 
+Center for Advanced Study in the Behavioral Sciences (CASBS) 
+community for their insights, discussions, and support. Joon Sung 
+Park was supported by the Microsoft Research PhD Fellowship. We 
+would also like to thank the Stanford Human-Centered AI Insti­
+tute (HAI), Google Research, the Hasso Plattner Design Thinking 
+Research Program (HPDTRP), the Siegel Family Endowment, and 
+OpenAI for their additional funding support. Lastly, all locations fea­
+tured in Smallville are inspired by real-world locations that Joon has 
+frequented as an undergraduate and graduate student—he thanks 
+everyone there for feeding and supporting him all these years. 
+REFERENCES 
+[1] Gavin Abercrombie, Amanda Cercas Curry, Tanvi Dinkar, and Zeerak Talat. 2023. 
+Mirages: On Anthropomorphism in Dialogue Systems. arXiv:2305.09800 [cs.CL] 
+[2] Robert Ackland, Jamsheed Shorish, Paul Thomas, and Lexing Xie. 2013. 
+How dense is a network? http://users.cecs.anu.edu.au/~xlx/teaching/css2013/ 
+network-density.html. 
+[3] Eytan Adar, Mira Dontcheva, and Gierad Laput. 2014. CommandSpace: Modeling 
+the Relationships between Tasks, Descriptions and Features. In Proceedings of 
+the 27th Annual ACM Symposium on User Interface Software and Technology 
+(Honolulu, Hawaii, USA) (UIST ’14). Association for Computing Machinery, New 
+York, NY, USA, 167–176. https://doi.org/10.1145/2642918.2647395 
+[4] Saleema Amershi, Maya Cakmak, William Bradley Knox, and Todd Kulesza. 
+2014. Power to the people: The role of humans in interactive machine learning. 
+AI Magazine 35, 4 (2014), 105–120. 
+[5] Saleema Amershi, Dan Weld, Mihaela Vorvoreanu, Adam Fourney, Besmira 
+Nushi, Penny Collisson, Jina Suh, Shamsi Iqbal, Paul N Bennett, Kori Inkpen, 
+et al. 2019. Guidelines for human-AI interaction. In Proceedings of the 2019 chi 
+conference on human factors in computing systems. 1–13. 
+[6] John R. Anderson. 1993. Rules of the Mind. Lawrence Erlbaum Associates, 
+Hillsdale, NJ. 
+[7] Electronic Arts. 2009. The Sims 3. Video game. 
+[8] Ruth Aylett. 1999. Narrative in virtual environments—towards emergent narra­
+tive. In Narrative Intelligence: Papers from the AAAI Fall Symposium (Technical 
+Report FS-99-01). AAAI Press, 83–86. 
+[9] Christoph Bartneck and Jodi Forlizzi. 2004. A design-centered framework for 
+social human-robot interaction. In Proceedings of the 13th IEEE International 
+Workshop on Robot and Human Interactive Communication (RO-MAN’04). 591– 
+594. https://doi.org/10.1109/ROMAN.2004.1374827 
+[10] Joseph Bates. 1994. The Role of Emotion in Believable Agents. Commun. ACM 
+37, 7 (1994), 122–125. https://doi.org/10.1145/176789.176803 
+[11] Christopher Berner, Greg Brockman, Brooke Chan, Vicki Cheung, Przemysław 
+Dębiak, Christy Dennison, David Farhi, Quirin Fischer, Shariq Hashme, Chris 
+Hesse, Rafal Józefowicz, Scott Gray, Catherine Olsson, Jakub Pachocki, Michael 
+Petrov, Henrique P. d.O. Pinto, Jonathan Raiman, Tim Salimans, Jeremy Schlatter, 
+Jonas Schneider, Szymon Sidor, Ilya Sutskever, Jie Tang, Filip Wolski, and Susan 
+Zhang. 2019. Dota 2 with Large Scale Deep Reinforcement Learning. arXiv 
+preprint arXiv:1912.06680 (2019). 

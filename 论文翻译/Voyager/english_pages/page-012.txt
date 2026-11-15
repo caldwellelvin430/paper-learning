@@ -1,0 +1,52 @@
+[6] Jens Kober, J Andrew Bagnell, and Jan Peters. Reinforcement learning in robotics: A survey.
+The International Journal of Robotics Research, 32(11):1238–1274, 2013.
+[7] Kai Arulkumaran, Marc Peter Deisenroth, Miles Brundage, and Anil Anthony Bharath. Deep
+reinforcement learning: A brief survey. IEEE Signal Processing Magazine, 34(6):26–38, 2017.
+[8] Bowen Baker, Ilge Akkaya, Peter Zhokhov, Joost Huizinga, Jie Tang, Adrien Ecoffet, Brandon
+Houghton, Raul Sampedro, and Jeff Clune. Video pretraining (vpt): Learning to act by watching
+unlabeled online videos. arXiv preprint arXiv: Arxiv-2206.11795, 2022.
+[9] DeepMind Interactive Agents Team, Josh Abramson, Arun Ahuja, Arthur Brussee, Federico
+Carnevale, Mary Cassin, Felix Fischer, Petko Georgiev, Alex Goldin, Mansi Gupta, Tim
+Harley, Felix Hill, Peter C Humphreys, Alden Hung, Jessica Landon, Timothy Lillicrap, Hamza
+Merzic, Alistair Muldal, Adam Santoro, Guy Scully, Tamara von Glehn, Greg Wayne, Nathaniel
+Wong, Chen Yan, and Rui Zhu. Creating multimodal interactive agents with imitation and
+self-supervised learning. arXiv preprint arXiv: Arxiv-2112.03763, 2021.
+[10] Oriol Vinyals, Igor Babuschkin, Junyoung Chung, Michael Mathieu, Max Jaderberg, Wo-
+jciech M Czarnecki, Andrew Dudzik, Aja Huang, Petko Georgiev, Richard Powell, et al.
+Alphastar: Mastering the real-time strategy game starcraft ii. DeepMind blog, 2, 2019.
+[11] Adrien Ecoffet, Joost Huizinga, Joel Lehman, Kenneth O. Stanley, and Jeff Clune. Go-explore:
+a new approach for hard-exploration problems. arXiv preprint arXiv: Arxiv-1901.10995, 2019.
+[12] Joost Huizinga and Jeff Clune. Evolving multimodal robot behavior via many stepping stones
+with the combinatorial multiobjective evolutionary algorithm.
+Evolutionary computation,
+30(2):131–164, 2022.
+[13] Rui Wang, Joel Lehman, Aditya Rawal, Jiale Zhi, Yulun Li, Jeffrey Clune, and Kenneth O.
+Stanley. Enhanced POET: open-ended reinforcement learning through unbounded invention of
+learning challenges and their solutions. In Proceedings of the 37th International Conference on
+Machine Learning, ICML 2020, 13-18 July 2020, Virtual Event, volume 119 of Proceedings of
+Machine Learning Research, pages 9940–9951. PMLR, 2020.
+[14] Ingmar Kanitscheider, Joost Huizinga, David Farhi, William Hebgen Guss, Brandon Houghton,
+Raul Sampedro, Peter Zhokhov, Bowen Baker, Adrien Ecoffet, Jie Tang, Oleg Klimov, and Jeff
+Clune. Multi-task curriculum learning in a complex, visual, hard-exploration domain: Minecraft.
+arXiv preprint arXiv: Arxiv-2106.14876, 2021.
+[15] Michael Dennis, Natasha Jaques, Eugene Vinitsky, Alexandre M. Bayen, Stuart Russell, Andrew
+Critch, and Sergey Levine. Emergent complexity and zero-shot transfer via unsupervised
+environment design. In Hugo Larochelle, Marc’Aurelio Ranzato, Raia Hadsell, Maria-Florina
+Balcan, and Hsuan-Tien Lin, editors, Advances in Neural Information Processing Systems 33:
+Annual Conference on Neural Information Processing Systems 2020, NeurIPS 2020, December
+6-12, 2020, virtual, 2020.
+[16] Jacky Liang, Wenlong Huang, Fei Xia, Peng Xu, Karol Hausman, Brian Ichter, Pete Florence,
+and Andy Zeng. Code as policies: Language model programs for embodied control. arXiv
+preprint arXiv: Arxiv-2209.07753, 2022.
+[17] Shao-Hua Sun, Te-Lin Wu, and Joseph J. Lim. Program guided agent. In 8th International
+Conference on Learning Representations, ICLR 2020, Addis Ababa, Ethiopia, April 26-30, 2020.
+OpenReview.net, 2020.
+[18] Zelin Zhao, Karan Samel, Binghong Chen, and Le Song. Proto: Program-guided transformer for
+program-guided tasks. In Marc’Aurelio Ranzato, Alina Beygelzimer, Yann N. Dauphin, Percy
+Liang, and Jennifer Wortman Vaughan, editors, Advances in Neural Information Processing
+Systems 34: Annual Conference on Neural Information Processing Systems 2021, NeurIPS
+2021, December 6-14, 2021, virtual, pages 17021–17036, 2021.
+[19] Yunfan Jiang, Agrim Gupta, Zichen Zhang, Guanzhi Wang, Yongqiang Dou, Yanjun Chen,
+Li Fei-Fei, Anima Anandkumar, Yuke Zhu, and Linxi (Jim) Fan. Vima: General robot manipu-
+lation with multimodal prompts. ARXIV.ORG, 2022.
+12

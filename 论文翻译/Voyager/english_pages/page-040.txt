@@ -1,0 +1,52 @@
+• Trial 1:
+‘iron_ingot’, ‘stone_shovel’, ‘iron_leggings’, ‘fishing_rod’, ‘pufferfish’,
+‘oak_log’, ‘cooked_mutton’, ‘green_dye’, ‘flint’, ‘chest’, ‘iron_sword’, ‘string’, ‘en-
+der_pearl’, ‘raw_copper’, ‘crafting_table’, ‘cactus’, ‘lapis_lazuli’, ‘iron_pickaxe’, ‘cop-
+per_ingot’, ‘stone_pickaxe’, ‘wooden_hoe’, ‘scaffolding’, ‘stick’, ‘porkchop’, ‘cop-
+per_block’, ‘gravel’, ‘grass_block’, ‘white_bed’, ‘bone’, ‘dirt’, ‘mutton’, ‘white_wool’,
+‘oak_sapling’, ‘coal’, ‘bamboo’, ‘wooden_pickaxe’, ‘rotten_flesh’, ‘cooked_porkchop’,
+‘cod’, ‘iron_boots’, ‘lightning_rod’, ‘diorite’, ‘water_bucket’, ‘shears’, ‘furnace’, ‘andesite’,
+‘granite’, ‘bucket’, ‘wooden_sword’, ‘sandstone’, ‘iron_helmet’, ‘raw_iron’, ‘sand’, ‘aca-
+cia_log’, ‘cooked_cod’, ‘oak_planks’, ‘azure_bluet’, ‘iron_shovel’, ‘acacia_planks’, ‘shield’,
+‘iron_axe’, ‘iron_chestplate’, ‘cobblestone’;
+• Trial 2: ‘iron_ingot’, ‘tuff’, ‘stone_shovel’, ‘iron_leggings’, ‘fishing_rod’, ‘cooked_mutton’,
+‘spruce_planks’, ‘gunpowder’, ‘amethyst_shard’, ‘chest’, ‘string’, ‘cooked_salmon’,
+‘iron_sword’, ‘raw_copper’, ‘crafting_table’, ‘torch’, ‘lapis_lazuli’, ‘iron_pickaxe’, ‘cop-
+per_ingot’, ‘stone_pickaxe’, ‘wooden_hoe’, ‘stick’, ‘amethyst_block’, ‘salmon’, ‘cal-
+cite’, ‘gravel’, ‘white_bed’, ‘bone’, ‘dirt’, ‘mutton’, ‘white_wool’, ‘spyglass’, ‘coal’,
+‘wooden_pickaxe’, ‘cod’, ‘iron_boots’, ‘lily_pad’, ‘cobbled_deepslate’, ‘lightning_rod’,
+‘snowball’, ‘stone_axe’, ‘smooth_basalt’, ‘diorite’, ‘water_bucket’, ‘furnace’, ‘andesite’,
+‘bucket’, ‘granite’, ‘shield’, ‘iron_helmet’, ‘raw_iron’, ‘cobblestone’, ‘spruce_log’,
+‘cooked_cod’, ‘tripwire_hook’, ‘stone_hoe’, ‘iron_chestplate’, ‘stone_sword’;
+• Trial 3:
+‘spruce_planks’, ‘dirt’, ‘shield’, ‘redstone’, ‘clock’, ‘diamond_sword’,
+‘iron_chestplate’, ‘stone_pickaxe’, ‘leather’, ‘string’, ‘chicken’, ‘chest’, ‘diorite’,
+‘iron_leggings’, ‘black_wool’, ‘cobblestone_wall’, ‘cobblestone’, ‘cooked_chicken’,
+‘feather’, ‘stone_sword’, ‘raw_gold’, ‘gravel’, ‘birch_planks’, ‘coal’, ‘cobbled_deepslate’,
+‘oak_planks’, ‘iron_pickaxe’, ‘granite’, ‘tuff’, ‘crafting_table’, ‘iron_helmet’, ‘stone_hoe’,
+‘iron_ingot’, ‘stone_axe’, ‘birch_boat’, ‘stick’, ‘sand’, ‘bone’, ‘raw_iron’, ‘beef’, ‘rail’,
+‘oak_sapling’, ‘kelp’, ‘gold_ingot’, ‘birch_log’, ‘wheat_seeds’, ‘cooked_mutton’, ‘furnace’,
+‘arrow’, ‘stone_shovel’, ‘white_wool’, ‘andesite’, ‘jungle_slab’, ‘mutton’, ‘iron_sword’,
+‘copper_ingot’, ‘diamond’, ‘torch’, ‘oak_log’, ‘cooked_beef’, ‘copper_block’, ‘flint’,
+‘bone_meal’, ‘raw_copper’, ‘wooden_pickaxe’, ‘iron_boots’, ‘wooden_sword’.
+The items collected by ReAct [29] in each trial is
+• Trial 1: ‘bamboo’, ‘dirt’, ‘sand’, ‘wheat_seeds’;
+• Trial 2: ‘dirt’, ‘rabbit’, ‘spruce_log’, ‘spruce_sapling’;
+• Trial 3: ‘dirt’, ‘pointed_dripstone’;
+The items collected by Reflexion [30] in each trial is
+• Trial 1: ‘crafting_table’, ‘orange_tulip’, ‘oak_planks’, ‘oak_log’, ‘dirt’;
+• Trial 2: ‘spruce_log’, ‘dirt’, ‘clay_ball’, ‘sand’, ‘gravel’;
+• Trial 3: ‘wheat_seeds’, ‘oak_log’, ‘dirt’, ‘birch_log’, ‘sand’.
+The items collected by AutoGPT [28] in each trial is
+• Trial 1: ‘feather’, ‘oak_log’, ‘leather’, ‘stick’, ‘porkchop’, ‘chicken’, ‘crafting_table’,
+‘wheat_seeds’, ‘oak_planks’, ‘dirt’, ‘mutton’;
+• Trial 2:
+‘wooden_pickaxe’, ‘iron_ingot’, ‘stone’, ‘coal’, ‘spruce_planks’, ‘string’,
+‘raw_copper’, ‘crafting_table’, ‘diorite’, ‘andesite’, ‘furnace’, ‘torch’, ‘spruce_sapling’,
+‘granite’, ‘iron_pickaxe’, ‘stone_pickaxe’, ‘wooden_axe’, ‘raw_iron’, ‘stick’, ‘spruce_log’,
+‘dirt’, ‘cobblestone’;
+• Trial 3: ‘wooden_shovel’, ‘wooden_pickaxe’, ‘iron_ingot’, ‘stone’, ‘cod’, ‘coal’, ‘oak_log’,
+‘flint’, ‘raw_copper’, ‘crafting_table’, ‘diorite’, ‘furnace’, ‘andesite’, ‘torch’, ‘granite’,
+‘lapis_lazuli’, ‘iron_pickaxe’, ‘stone_pickaxe’, ‘raw_iron’, ‘stick’, ‘gravel’, ‘oak_planks’,
+‘dirt’, ‘iron_axe’, ‘cobblestone’.
+40

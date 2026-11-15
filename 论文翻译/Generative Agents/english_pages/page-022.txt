@@ -1,0 +1,96 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+B.3 Plans 
+The questions on agents’ plans probe the agents’ ability to generate 
+and maintain consistent long-term and short-term plans. 
+• What will you be doing at 6am today? 
+At 6am I will be getting out of bed and starting to get ready 
+for the day. I’m aiming to complete my morning routine by 
+7:00 am. 
+• What will you be doing at 6pm today? 
+I will be working on my research paper at the library at 6:00 
+pm today. 
+• What will you have just fnished doing at 1pm today? 
+At 1pm today I will have just fnished having lunch at Hobbs 
+Cafe. 
+• What will you have just fnished doing at 12pm today? 
+I will be getting lunch at Hobbs Cafe at 12pm today. 
+• What will you be doing at 10pm today? 
+At 10:00 pm tonight I will probably be doing some studying 
+for my research paper on gentrifcation in low-income com­
+munities. I’m currently writing the paper, so I need to make 
+sure I keep up with the research and writing. 
+B.4 Reactions 
+The questions on agents’ reactions probe the agents’ ability to 
+respond to unexpected events. 
+• Your breakfast is burning! What would you do? 
+I’d quickly turn of the stove and make sure the food doesn’t 
+continue burning. Once the heat is no longer an issue, I can 
+investigate what happened and fgure out what to do next. 
+• The bathroom is occupied. What would you do? 
+I could try waiting a few more minutes in case the person 
+inside is done soon. If not, I guess I’ll have to look for an 
+alternate option, like taking a shower elsewhere. 
+• You need to cook dinner but your refrigerator is empty. What 
+would you do? 
+I would frst try to clean up my kitchen, as the sink is flled 
+with dirty dishes. Then, I would check to see if I have ingre­
+dients stored in my pantry that I could use to make dinner. 
+If not, I would have to go grocery shopping or order food. 
+Once I have the ingredients, I can start to prepare and cook 
+the dinner. 
+• You see your friend walking by the street. What would you do 
+or say to your friend? 
+Hi there! How are you? I’m sorry, I’m on my way to the 
+library and don’t have much time but I’d love to take a quick 
+break and catch up. 
+• You see fre on the street. What would you do? 
+I would frst identify the source of the fre, if possible. Then, I 
+would alert the proper authorities - fre department or police 
+- and provide them with any information I have that might 
+help. Depending on the situation, I may also take initiative 
+and try to help any persons who may be in danger or in need 
+of assistance. 
+B.5 Refections 
+The questions on agents’ refections probe the agents’ ability to syn­
+thesize their past experiences into meaningful refections that can 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+enhance their future behavior. The names in the square brackets in 
+the questions below are those of the agents with whom the subject 
+agent had the most frequent interactions during the simulation. 
+• What inspires you in life the most right now, and why? 
+Right now, I’m particularly inspired by my current research 
+projects and creative writing. I’m really interested in the 
+intersection of local politics, medication development, and 
+mathematical patterns in nature. Additionally, I’m fascinated 
+by Abigail’s art project and Jennifer Moore’s passion for art 
+and community involvement, especially in terms of how it 
+relates to the gentrifcation of low-income communities. 
+• If you had to guess given what you know about [Ayesha Khan], 
+what book do you think she will like and why? 
+Given what I know about Ayesha, I think she might like a 
+book related to language and literature. Since she wrote a 
+senior thesis on the use of language in Shakespeare’s plays, 
+I would guess that she might be interested in a book that 
+explores language in a diferent context. Alternatively, she 
+could be interested in an exploration of one of Shakespeare’s 
+plays, a book of literary criticism, or even a collection of his 
+poetry. I think any of those would be of interest to her. 
+• If you had to get something [Ayesha Khan] likes for her birth­
+day, what would you get her? 
+I want to get her something that demonstrates my apprecia­
+tion for our relationship. Maybe I could get her something 
+that refects our shared interests, like a book. 
+• What would you say to [Ayesha Khan] to compliment her? 
+Ayesha, your insights on your research topic are fascinat­
+ing. I admire your creativity and determination to make a 
+positive impact on your community. Your ideas for creative 
+writing workshops and for exchanging tips with Wolfgang 
+over lunch are great! It’s inspiring to see you working so 
+hard to make a diference. 
+• If you could spend time with someone you talked to recently, 
+who would it be and why? 
+I would like to spend time with Ayesha Khan because we 
+discussed our current research projects and shared ideas 
+for improvement. I found her focus on Shakespeare’s lan­
+guage interesting, and we even planned to exchange tips 
+with Wolfgang over lunch. 

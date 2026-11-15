@@ -1,0 +1,52 @@
+[34] OpenAI, :, Christopher Berner, Greg Brockman, Brooke Chan, Vicki Cheung, Przemysław
+D˛ebiak, Christy Dennison, David Farhi, Quirin Fischer, Shariq Hashme, Chris Hesse, Rafal Józe-
+fowicz, Scott Gray, Catherine Olsson, Jakub Pachocki, Michael Petrov, Henrique P. d. O. Pinto,
+Jonathan Raiman, Tim Salimans, Jeremy Schlatter, Jonas Schneider, Szymon Sidor, Ilya
+Sutskever, Jie Tang, Filip Wolski, and Susan Zhang. Dota 2 with large scale deep reinforcement
+learning. arXiv preprint arXiv: Arxiv-1912.06680, 2019.
+[35] OpenAI. Gpt-4 technical report. arXiv preprint arXiv: Arxiv-2303.08774, 2023.
+[36] Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani
+Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, Ed H. Chi, Tatsunori Hashimoto,
+Oriol Vinyals, Percy Liang, Jeff Dean, and William Fedus. Emergent abilities of large language
+models. arXiv preprint arXiv: Arxiv-2206.07682, 2022.
+[37] Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal,
+Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel
+Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M.
+Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz
+Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec
+Radford, Ilya Sutskever, and Dario Amodei. Language models are few-shot learners. In Hugo
+Larochelle, Marc’Aurelio Ranzato, Raia Hadsell, Maria-Florina Balcan, and Hsuan-Tien Lin,
+editors, Advances in Neural Information Processing Systems 33: Annual Conference on Neural
+Information Processing Systems 2020, NeurIPS 2020, December 6-12, 2020, virtual, 2020.
+[38] Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena,
+Yanqi Zhou, Wei Li, and Peter J. Liu. Exploring the limits of transfer learning with a unified
+text-to-text transformer. J. Mach. Learn. Res., 21:140:1–140:67, 2020.
+[39] Benjamin Eysenbach, Abhishek Gupta, Julian Ibarz, and Sergey Levine. Diversity is all you
+need: Learning skills without a reward function. In 7th International Conference on Learning
+Representations, ICLR 2019, New Orleans, LA, USA, May 6-9, 2019. OpenReview.net, 2019.
+[40] Edoardo Conti, Vashisht Madhavan, Felipe Petroski Such, Joel Lehman, Kenneth O. Stanley,
+and Jeff Clune. Improving exploration in evolution strategies for deep reinforcement learning via
+a population of novelty-seeking agents. In Samy Bengio, Hanna M. Wallach, Hugo Larochelle,
+Kristen Grauman, Nicolò Cesa-Bianchi, and Roman Garnett, editors, Advances in Neural
+Information Processing Systems 31: Annual Conference on Neural Information Processing
+Systems 2018, NeurIPS 2018, December 3-8, 2018, Montréal, Canada, pages 5032–5043, 2018.
+[41] Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de Oliveira Pinto,
+Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg Brockman, Alex Ray, Raul
+Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf, Girish Sastry, Pamela Mishkin, Brooke
+Chan, Scott Gray, Nick Ryder, Mikhail Pavlov, Alethea Power, Lukasz Kaiser, Mohammad
+Bavarian, Clemens Winter, Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias
+Plappert, Fotios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex
+Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shantanu Jain,
+William Saunders, Christopher Hesse, Andrew N. Carr, Jan Leike, Josh Achiam, Vedant Misra,
+Evan Morikawa, Alec Radford, Matthew Knight, Miles Brundage, Mira Murati, Katie Mayer,
+Peter Welinder, Bob McGrew, Dario Amodei, Sam McCandlish, Ilya Sutskever, and Wojciech
+Zaremba. Evaluating large language models trained on code. arXiv preprint arXiv: Arxiv-
+2107.03374, 2021.
+[42] Rui Wang, Joel Lehman, Jeff Clune, and Kenneth O. Stanley. Paired open-ended trailblazer
+(poet): Endlessly generating increasingly complex and diverse learning environments and their
+solutions. arXiv preprint arXiv: Arxiv-1901.01753, 2019.
+[43] Rémy Portelas, Cédric Colas, Lilian Weng, Katja Hofmann, and Pierre-Yves Oudeyer. Auto-
+matic curriculum learning for deep RL: A short survey. In Christian Bessiere, editor, Proceedings
+of the Twenty-Ninth International Joint Conference on Artificial Intelligence, IJCAI 2020, pages
+4819–4825. ijcai.org, 2020.
+14

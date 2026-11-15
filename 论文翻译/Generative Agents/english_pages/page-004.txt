@@ -1,0 +1,110 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+behavior to make the efort more manageable [17, 73]. Rule-based 
+approaches, such as fnite-state machines [91, 97] and behavior 
+trees [41, 54, 82] account for the brute force approach of human-
+authoring the agent’s behavior [71]. They provide a straightforward 
+way of creating simple agents that is still the most dominant ap­
+proach today [69, 74, 108], and can even handle rudimentary social 
+interactions, as shown in games such as Mass Efect [13] and The 
+Sims [7] series. Nonetheless, manually crafting behavior that can 
+comprehensively address the breadth of possible interactions in 
+an open world is untenable. This means that the resulting agent 
+behaviors may not fully represent the consequences of their in­
+teractions [70–72], and cannot perform new procedures that were 
+not hard-coded in their script [91, 97]. On the other hand, preva­
+lent learning-based approaches for creating believable agents, such 
+as reinforcement learning, have overcome the challenge of man­
+ual authoring by letting the agents learn their behavior, and have 
+achieved superhuman performance in recent years in games such 
+as AlphaStar for Starcraft [99] and OpenAI Five for Dota 2 [11]. 
+However, their success has largely taken place in adversarial games 
+with readily defnable rewards that a learning algorithm can op­
+timize for. They have not yet addressed the challenge of creating 
+believable agents in an open world [40, 74, 91]. 
+Cognitive architectures in computation, pioneered by Newell, 
+aimed to build the infrastructure for supporting a comprehensive 
+set of cognitive functions [76] that suited the all-encompassing 
+nature of believable agents held in its original vision. They fueled 
+some of the earliest examples of believable agents. For instance, 
+Quakebot-SOAR [60] and ICARUS [25, 64] generated NPCs in frst-
+person shooter games, while TacAir-SOAR [81] generated pilots in 
+aerial combat training simulations. The architectures used by these 
+agents difered (Quakebot- and TacAir-SOAR relied on SOAR [61], 
+while ICARUS relied on its own variation that was inspired by 
+SOAR and ACT-R [6]), but they shared the same underlying prin­
+ciple [62]. They maintained short-term and long-term memories, 
+flled these memories with symbolic structures, and operated in 
+perceive-plan-act cycles, dynamically perceiving the environment 
+and matching it with one of the manually crafted action proce­
+dures [58, 97]. Agents created using cognitive architectures aimed 
+to be generalizable to most, if not all, open world contexts and 
+exhibited robust behavior for their time. However, their space of 
+action was limited to manually crafted procedural knowledge, and 
+they did not ofer a mechanism through which the agents could be 
+inspired to seek new behavior. As such, these agents were deployed 
+mostly in non-open world contexts such as frst-person shooter 
+games [25, 60] or blocks worlds [64]. 
+Today, creating believable agents as described in its original 
+defnition remains an open problem [85, 108]. Many have moved 
+on, arguing that although current approaches for creating believable 
+agents might be cumbersome and limited, they are good enough 
+to support existing gameplay and interactions [24, 75, 108]. Our 
+argument is that large language models ofer an opportunity to 
+re-examine these questions, provided that we can craft an efective 
+architecture to synthesize memories into believable behavior. We 
+ofer a step toward such an architecture in this paper. 
+2.3 Large Language Models and Human 
+Behavior 
+Generative agents leverage a large language model to power their 
+behavior. The key observation is that large language models encode 
+a wide range of human behavior from their training data [15, 18]. If 
+prompted with a narrowly defned context, the models can be used 
+to generate believable behavior. Recent work has demonstrated 
+the efcacy of this approach. For instance, social simulacra used a 
+large language model to generate users that would populate new 
+social computing systems to prototype their emergent social dynam­
+ics [80]. This approach used a prompt chain [105, 106] to generate 
+short natural language descriptions of personas and their behaviors 
+as they appear in the system being prototyped. Other empirical 
+studies have replicated existing social science studies [46], political 
+surveys [92], and generated synthetic data [39]. Large language 
+models have also been used to generate interactive human behavior 
+for users to engage with. In gaming, for instance, these models have 
+been employed to create interactive fction [37] and text adventure 
+games [21]. With their ability to generate and decompose action 
+sequences, large language models have also been used in planning 
+robotics tasks [48]. For example, when presented with a task, such 
+as picking up a bottle, the model is prompted to break down the 
+task into smaller action sequences, such as heading to the table 
+where the bottle is located and picking it up. 
+We posit that, based on the work summarized above, large lan­
+guage models can become a key ingredient for creating believable 
+agents. The existing literature largely relies on what could be con­
+sidered frst-order templates that employ few-shot prompts [38, 66] 
+or chain-of-thought prompts [100]. These templates are efective in 
+generating behavior that is conditioned solely on the agent’s cur­
+rent environment (e.g., how would a troll respond to a given post, 
+what actions would a robot need to take to enter a room given that 
+there is a door). However, believable agents require conditioning 
+not only on their current environment but also on a vast amount 
+of past experience, which is a poor ft (and as of today, impossi­
+ble due to the underlying models’ limited context window) using 
+frst-order prompting. Recent studies have attempted to go beyond 
+frst-order prompting by augmenting language models with a static 
+knowledge base and an information retrieval scheme [53] or with 
+a simple summarization scheme [104]. This paper extends these 
+ideas to craft an agent architecture that handles retrieval where 
+past experience is dynamically updated at each time step and mixed 
+with agents’ current context and plans, which may either reinforce 
+or contradict each other. 
+3 GENERATIVE AGENT BEHAVIOR AND 
+INTERACTION 
+To illustrate the afordances of generative agents, we instantiate 
+them as characters in a simple sandbox world reminiscent of The 
+Sims [7]. This sprite-based sandbox game world, Smallville, evokes 
+a small town environment. In this section, we will walk through the 
+afordances and interactions with generative agents in Smallville 
+and describe how the agents behave within it. Then, in Section 4, 
+we will introduce our generative agent architecture that powers 
+these afordances and interactions. In Section 5, we will describe the 

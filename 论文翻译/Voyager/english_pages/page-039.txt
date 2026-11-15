@@ -1,0 +1,60 @@
+Table A.3: Comparison between VOYAGER and baselines.
+ReAct [29]
+Reflexion [30]
+AutoGPT [28]
+VOYAGER
+Chain-of-Thought [46]
+✓
+✓
+✓
+✓
+Self Verification
+✓
+✓
+Environment Feedback
+✓
+✓
+✓
+✓
+Execution Errors
+✓
+✓
+✓
+Agent State
+✓
+✓
+✓
+✓
+Skill Library
+✓
+Automatic Curriculum
+✓
+Figure A.1: Minecraft item icons with corresponding names.
+B.3
+Ablations
+We ablate 6 design choices (automatic curriculum, skill library, environment feedback, execution
+errors, self-verification, and GPT-4 for code generation) in VOYAGER and study their impact on
+exploration performance.
+• Manual Curriculum: We substitute the automatic curriculum with a manually designed
+curriculum for mining a diamond: “Mine 3 wood log”, “Craft 1 crafting table”, “Craft
+1 wooden pickaxe”, “Mine 11 cobblestone”, “Craft 1 stone pickaxe”, “Craft 1 furnace”,
+“Mine 3 iron ore”, “Smelt 3 iron ore”, “Craft 1 iron pickaxe”, “Mine 1 diamond”. A manual
+curriculum requires human effort to design and is not scalable for open-ended exploration.
+• Random Curriculum: We curate 101 items obtained by VOYAGER and create a random
+curriculum by randomly selecting one item as the next task.
+• w/o Skill Library: We remove the skill library, eliminating skill retrieval for code generation.
+• w/o Environment Feedback: We exclude environment feedback (chat log) from the prompt
+for code generation.
+• w/o Execution Errors: We exclude execution errors from the prompt for code generation.
+• w/o Self-Verification: For each task, we generate code without self-verification and it-
+eratively refine the program for 3 rounds (equivalent to 4 rounds of code generation in
+total).
+• GPT-3.5: We replace GPT-4 with GPT-3.5 for code generation. We retain GPT-4 for the
+automatic curriculum and the self-verification module.
+B.4
+Evaluation Results
+B.4.1
+Significantly Better Exploration
+The meaning of each icon in Fig. 1 is shown in Fig. A.1.
+We run three trials for each method. The items collected by VOYAGER in each trial is
+39

@@ -15,6 +15,8 @@
 | Attention Is All You Need | [中文全文](Attention%20Is%20All%20You%20Need/中文全文.md) · [阅读说明](Attention%20Is%20All%20You%20Need/README_使用说明.md) · [原文 PDF](Attention%20Is%20All%20You%20Need/原论文.pdf) |
 | SWE-bench | [中文全文](SWE-bench/中文全文.md) · [阅读说明](SWE-bench/README_使用说明.md) · [原文 PDF](SWE-bench/原论文.pdf) |
 | Segment Anything | [中文全文](Segment%20Anything/中文全文.md) · [阅读说明](Segment%20Anything/README_使用说明.md) · [原文 PDF](Segment%20Anything/原论文.pdf) |
+| Generative Agents | [中文稿](Generative%20Agents/中文全文.md) · [阅读说明](Generative%20Agents/README_阅读说明.md) · [原文 PDF](Generative%20Agents/原始论文.pdf) |
+| Voyager | [中文稿](Voyager/中文全文.md) · [阅读说明](Voyager/README_阅读说明.md) · [原文 PDF](Voyager/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

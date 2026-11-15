@@ -1,0 +1,60 @@
+Table 1: Tech tree mastery. Fractions indicate the number of successful trials out of three total runs.
+0/3 means the method fails to unlock a level of the tech tree within the maximal prompting iterations
+(160). Numbers are prompting iterations averaged over three trials. The fewer the iterations, the
+more efficient the method.
+Method
+Wooden Tool
+Stone Tool
+Iron Tool
+Diamond Tool
+ReAct [29]
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+Reflexion [30]
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+N/A (0/3)
+AutoGPT [28]
+92 ± 72 (3/3)
+94 ± 72 (3/3)
+135 ± 103 (3/3)
+N/A (0/3)
+VOYAGER w/o Skill Library
+7 ± 2 (3/3)
+9 ± 4 (3/3)
+29 ± 11 (3/3)
+N/A (0/3)
+VOYAGER (Ours)
+6 ± 2 (3/3)
+11 ± 2 (3/3)
+21 ± 7 (3/3)
+102 (1/3)
+Figure 7: Map coverage: bird’s eye views of Minecraft maps. VOYAGER is able to traverse 2.3×
+longer distances compared to baselines while crossing diverse terrains.
+VPT [8] as long as the controller provides a code API. We make a system-level comparison between
+VOYAGER and prior Minecraft agents in Table. A.2.
+3.3
+Evaluation Results
+We systematically evaluate VOYAGER and baselines on their exploration performance, tech tree
+mastery, map coverage, and zero-shot generalization capability to novel tasks in a new world.
+Significantly better exploration.
+Results of exploration performance are shown in Fig. 1.
+VOYAGER’s superiority is evident in its ability to consistently make new strides, discovering 63
+unique items within 160 prompting iterations, 3.3× many novel items compared to its counterparts.
+On the other hand, AutoGPT lags considerably in discovering new items, while ReAct and Reflexion
+struggle to make significant progress, given the abstract nature of the open-ended exploration goal
+that is challenging to execute without an appropriate curriculum.
+Consistent tech tree mastery. The Minecraft tech tree tests the agent’s ability to craft and use a
+hierarchy of tools. Progressing through this tree (wooden tool →stone tool →iron tool →diamond
+tool) requires the agent to master systematic and compositional skills. Compared with baselines,
+VOYAGER unlocks the wooden level 15.3× faster (in terms of the prompting iterations), the stone
+level 8.5× faster, the iron level 6.4× faster, and VOYAGER is the only one to unlock the diamond level
+of the tech tree (Fig. 2 and Table. 1). This underscores the effectiveness of the automatic curriculum,
+which consistently presents challenges of suitable complexity to facilitate the agent’s progress.
+Extensive map traversal. VOYAGER is able to navigate distances 2.3× longer compared to baselines
+by traversing a variety of terrains, while the baseline agents often find themselves confined to local
+areas, which significantly hampers their capacity to discover new knowledge (Fig. 7).
+7

@@ -1,0 +1,34 @@
+Figure A.2: Map coverage: Two bird’s eye views of Minecraft maps. VOYAGER is able to traverse
+2.3× longer distances compared to baselines while crossing diverse terrains. Trajectories are plotted
+based on the positions where each agent interacts with GPT-4.
+B.4.2
+Extensive Map Traversal
+Agent trajectories for map coverage are displayed in Fig. A.2. Fig. 7 is plotted based on Fig. A.2 by
+drawing the smallest circle enclosing each trajectory. The terrains traversed by VOYAGER in each
+trial is
+• Trial 1: ‘meadow’, ‘desert’, ‘river’, ‘savanna’, ‘forest’, ‘plains’, ‘bamboo_jungle’, ‘drip-
+stone_caves’;
+• Trial 2: ‘snowy_plains’, ‘frozen_river’, ‘dripstone_caves’, ‘snowy_taiga’, ‘beach’;
+• Trial 3:
+‘flower_forest’,
+‘meadow’,
+‘old_growth_birch_forest’,
+‘snowy_slopes’,
+‘frozen_peaks’, ‘forest’, ‘river’, ‘beach’, ‘ocean’, ‘sunflower_plains’, ‘plains’, ‘stony_shore’.
+The terrains traversed by ReAct [29] in each trial is
+• Trial 1: ‘plains’, ‘desert’, ‘jungle’;
+• Trial 2: ‘snowy_plains’, ‘snowy_taiga’, ‘snowy_slopes’;
+• Trial 3: ‘dark_forest’, ‘dripstone_caves’, ‘grove’, ‘jagged_peaks’.
+The terrains traversed by Reflexion [30] in each trial is
+• Trial 1: ‘plains’, ‘flower_forest’;
+• Trial 2: ‘snowy_taiga’;
+• Trial 3: ‘old_growth_birch_forest’, ‘river’, ‘ocean’, ‘beach’, ‘plains’.
+The terrains traversed by AutoGPT [28] in each trial is
+• Trial 1: ‘plains’, ‘dripstone_caves’, ‘savanna’, ‘meadow’;
+• Trial 2: ‘snowy_taiga’;
+• Trial 3: ‘plains’, ‘stony_shore’, ‘forest’, ‘ocean’.
+B.4.3
+Efficient Zero-Shot Generalization to Unseen Tasks
+The results of zero-shot generalization to unseen tasks for the other two tasks are presented in Fig. A.3.
+Similar to Fig. 8, VOYAGER consistently solves all tasks, while the baselines are unable to solve any
+41

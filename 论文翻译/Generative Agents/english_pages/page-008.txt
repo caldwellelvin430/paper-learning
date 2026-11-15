@@ -1,0 +1,75 @@
+UIST ’23, October 29–November 01, 2023, San Francisco, CA, USA 
+J.S. Park, J.C. O’Brien, C.J. Cai, M.R. Morris, P. Liang, M.S. Bernstein 
+Figure 5: Our generative agent architecture. Agents perceive their environment, and all perceptions are saved in a comprehensive 
+record of the agent’s experiences called the memory stream. Based on their perceptions, the architecture retrieves relevant 
+memories and uses those retrieved actions to determine an action. These retrieved memories are also used to form longer-term 
+plans and create higher-level refections, both of which are entered into the memory stream for future use. 
+4 GENERATIVE AGENT ARCHITECTURE 
+Generative agents aim to provide a framework for behavior in an 
+open world: one that can engage in interactions with other agents 
+and react to changes in the environment. Generative agents take 
+their current environment and past experiences as input and gener­
+ate behavior as output. Underlying this behavior is a novel agent ar­
+chitecture that combines a large language model with mechanisms 
+for synthesizing and retrieving relevant information to condition 
+the language model’s output. Without these mechanisms, large 
+language models can output behavior, but the resulting agents may 
+not react based on the agent’s past experiences, may not make 
+important inferences, and may not maintain long-term coherence. 
+Challenges with long-term planning and coherence remain [19] 
+even with today’s most performant models such as GPT-4. Because 
+generative agents produce large streams of events and memories 
+that must be retained, a core challenge of our architecture is to 
+ensure that the most relevant pieces of the agent’s memory are 
+retrieved and synthesized when needed. 
+At the center of our architecture is the memory stream, a data­
+base that maintains a comprehensive record of an agent’s experi­
+ence. From the memory stream, records are retrieved as relevant to 
+plan the agent’s actions and react appropriately to the environment. 
+Records are recursively synthesized into higher- and higher-level 
+refections that guide behavior. Everything in the architecture is 
+recorded and reasoned over as a natural language description, al­
+lowing the architecture to leverage a large language model. 
+Our current implementation utilizes the gpt3.5-turbo version of 
+ChatGPT [77]. We expect that the architectural basics of genera­
+tive agents—memory, planning, and refection—will likely remain 
+the same as language models improve. Newer language models 
+(e.g., GPT-4) will continue to expand the expressive power and 
+performance of the prompts that underpin generative agents. As of 
+writing, however, GPT-4’s API was invitation-only, so our agents 
+use ChatGPT. 
+4.1 Memory and Retrieval 
+Challenge: Creating generative agents that can simulate human 
+behavior requires reasoning about a set of experiences that is far 
+larger than what should be described in a prompt, as the full mem­
+ory stream can distract the model and does not even currently ft 
+into the limited context window. Consider the Isabella agent an­
+swering the question, “What are you passionate about these days?” 
+Summarizing all of Isabella’s experiences to ft in the limited con­
+text window of the language model produces an uninformative 
+response, where Isabella discusses topics such as collaborations for 
+events and projects and cleanliness and organization in a cafe. In­
+stead of summarizing, the memory stream described below surfaces 
+relevant memories, resulting in a more informative and specifc 
+response that mentions Isabella’s passion for making people feel 
+welcome and included, planning events and creating an atmosphere 
+that people can enjoy, such as the Valentine’s Day party. 
+Approach: The memory stream maintains a comprehensive record 
+of the agent’s experience. It is a list of memory objects, where each 
+object contains a natural language description, a creation times­
+tamp, and a most recent access timestamp. The most basic element 
+of the memory stream is an observation, which is an event directly 
+perceived by an agent. Common observations include behaviors 
+performed by the agent themselves or behaviors that agents per­
+ceive being performed by other agents or non-agent objects. For 
+instance, Isabella Rodriguez, who works at a cofee shop, might 
+accrue the following observations over time: (1) Isabella Rodriguez 
+is setting out the pastries, (2) Maria Lopez is studying for a Chem­
+istry test while drinking cofee, (3) Isabella Rodriguez and Maria 
+Lopez are conversing about planning a Valentine’s day party at 
+Hobbs Cafe, (4) The refrigerator is empty. 
+Our architecture implements a retrieval function that takes the 
+agent’s current situation as input and returns a subset of the mem­
+ory stream to pass on to the language model. There are many pos­
+sible implementations of a retrieval function, depending on what 
+is important for the agent to consider when deciding how to act. 

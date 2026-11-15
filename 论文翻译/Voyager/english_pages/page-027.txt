@@ -1,0 +1,109 @@
+// You must
+place a crafting
+table
+before
+calling
+this
+function
+async
+function
+craftItem(bot , name , count = 1) {
+const
+item = mcData.itemsByName[name ];
+const
+craftingTable = bot.findBlock ({
+matching: mcData.blocksByName . crafting_table .id ,
+maxDistance: 32,
+});
+await bot.pathfinder.goto(
+new
+GoalLookAtBlock ( craftingTable .position , bot.world)
+);
+const
+recipe = bot.recipesFor(item.id , null , 1, craftingTable)[0];
+await bot.craft(recipe , count , craftingTable );
+}
+// Place a crafting_table
+near the player , Vec3(1, 0, 0) is just an
+example , you shouldn ’t always use that: placeItem(bot , "
+crafting_table ", bot.entity.position.offset (1, 0, 0));
+async
+function
+placeItem(bot , name , position) {
+const
+item = bot.inventory. findInventoryItem (mcData.itemsByName[
+name ].id);
+// find a reference
+block
+const
+faceVectors = [
+new Vec3(0, 1, 0),
+new Vec3(0, -1, 0),
+new Vec3(1, 0, 0),
+new Vec3(-1, 0, 0),
+new Vec3(0, 0, 1),
+new Vec3(0, 0,
+-1),
+];
+let
+referenceBlock = null;
+let
+faceVector = null;
+for (const
+vector of faceVectors) {
+const
+block = bot.blockAt(position.minus(vector));
+if (block ?. name !== "air") {
+referenceBlock = block;
+faceVector = vector;
+break;
+}
+}
+// You must
+first go to the block
+position
+you want to place
+await bot.pathfinder.goto(new
+GoalPlaceBlock (position , bot.world ,
+{}));
+// You must
+equip the item
+right
+before
+calling
+placeBlock
+await bot.equip(item , "hand ");
+await bot.placeBlock(referenceBlock , faceVector);
+}
+// Smelt 1 raw_iron
+into 1 iron_ingot
+using 1 oak_planks as fuel:
+smeltItem(bot , "raw_iron", "oak_planks ");
+// You must
+place a furnace
+before
+calling
+this
+function
+async
+function
+smeltItem(bot , itemName , fuelName , count = 1) {
+const
+item = mcData.itemsByName[itemName ];
+const
+fuel = mcData.itemsByName[fuelName ];
+const
+furnaceBlock = bot.findBlock ({
+matching: mcData.blocksByName .furnace.id ,
+maxDistance: 32,
+});
+await bot.pathfinder.goto(
+new
+GoalLookAtBlock (furnaceBlock.position , bot.world)
+);
+const
+furnace = await bot.openFurnace(furnaceBlock);
+for (let i = 0; i < count; i++) {
+await
+furnace.putFuel(fuel.id , null , 1);
+27

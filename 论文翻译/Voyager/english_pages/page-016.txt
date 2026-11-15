@@ -1,0 +1,53 @@
+[59] Danny Driess, Fei Xia, Mehdi S. M. Sajjadi, Corey Lynch, Aakanksha Chowdhery, Brian Ichter,
+Ayzaan Wahid, Jonathan Tompson, Quan Vuong, Tianhe Yu, Wenlong Huang, Yevgen Chebotar,
+Pierre Sermanet, Daniel Duckworth, Sergey Levine, Vincent Vanhoucke, Karol Hausman, Marc
+Toussaint, Klaus Greff, Andy Zeng, Igor Mordatch, and Pete Florence. Palm-e: An embodied
+multimodal language model. arXiv preprint arXiv: Arxiv-2303.03378, 2023.
+[60] Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timo-
+thée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, Aurelien Rodriguez,
+Armand Joulin, Edouard Grave, and Guillaume Lample. Llama: Open and efficient foundation
+language models. arXiv preprint arXiv: Arxiv-2302.13971, 2023.
+[61] William H. Guss, Brandon Houghton, Nicholay Topin, Phillip Wang, Cayden Codel, Manuela
+Veloso, and Ruslan Salakhutdinov. Minerl: A large-scale dataset of minecraft demonstrations.
+In Sarit Kraus, editor, Proceedings of the Twenty-Eighth International Joint Conference on
+Artificial Intelligence, IJCAI 2019, Macao, China, August 10-16, 2019, pages 2442–2448.
+ijcai.org, 2019.
+[62] William H. Guss, Cayden Codel, Katja Hofmann, Brandon Houghton, Noboru Kuno, Stephanie
+Milani, Sharada Mohanty, Diego Perez Liebana, Ruslan Salakhutdinov, Nicholay Topin,
+Manuela Veloso, and Phillip Wang. The minerl 2019 competition on sample efficient re-
+inforcement learning using human priors. arXiv preprint arXiv: Arxiv-1904.10079, 2019.
+[63] William H. Guss, Mario Ynocente Castro, Sam Devlin, Brandon Houghton, Noboru Sean Kuno,
+Crissman Loomis, Stephanie Milani, Sharada Mohanty, Keisuke Nakata, Ruslan Salakhutdinov,
+John Schulman, Shinya Shiroshita, Nicholay Topin, Avinash Ummadisingu, and Oriol Vinyals.
+The minerl 2020 competition on sample efficient reinforcement learning using human priors.
+arXiv preprint arXiv: Arxiv-2101.11071, 2021.
+[64] Anssi Kanervisto, Stephanie Milani, Karolis Ramanauskas, Nicholay Topin, Zichuan Lin, Jun-
+you Li, Jianing Shi, Deheng Ye, Qiang Fu, Wei Yang, Weijun Hong, Zhongyue Huang, Haicheng
+Chen, Guangjun Zeng, Yue Lin, Vincent Micheli, Eloi Alonso, François Fleuret, Alexander
+Nikulin, Yury Belousov, Oleg Svidchenko, and Aleksei Shpilman. Minerl diamond 2021
+competition: Overview, results, and lessons learned. arXiv preprint arXiv: Arxiv-2202.10583,
+2022.
+[65] Matthew Johnson, Katja Hofmann, Tim Hutton, and David Bignell. The malmo platform for
+artificial intelligence experimentation. In Subbarao Kambhampati, editor, Proceedings of the
+Twenty-Fifth International Joint Conference on Artificial Intelligence, IJCAI 2016, New York,
+NY, USA, 9-15 July 2016, pages 4246–4247. IJCAI/AAAI Press, 2016.
+[66] Zichuan Lin, Junyou Li, Jianing Shi, Deheng Ye, Qiang Fu, and Wei Yang. Juewu-mc: Playing
+minecraft with sample-efficient hierarchical reinforcement learning. arXiv preprint arXiv:
+Arxiv-2112.04907, 2021.
+[67] Hangyu Mao, Chao Wang, Xiaotian Hao, Yihuan Mao, Yiming Lu, Chengjie Wu, Jianye
+Hao, Dong Li, and Pingzhong Tang. Seihai: A sample-efficient hierarchical ai for the minerl
+competition. arXiv preprint arXiv: Arxiv-2111.08857, 2021.
+[68] Alexey Skrynnik, Aleksey Staroverov, Ermek Aitygulov, Kirill Aksenov, Vasilii Davydov, and
+Aleksandr I. Panov. Hierarchical deep q-network from imperfect demonstrations in minecraft.
+Cogn. Syst. Res., 65:74–78, 2021.
+[69] Danijar Hafner, Jurgis Pasukonis, Jimmy Ba, and Timothy Lillicrap. Mastering diverse domains
+through world models. arXiv preprint arXiv: Arxiv-2301.04104, 2023.
+[70] Ryan Volum, Sudha Rao, Michael Xu, Gabriel DesGarennes, Chris Brockett, Benjamin
+Van Durme, Olivia Deng, Akanksha Malhotra, and Bill Dolan. Craft an iron sword: Dy-
+namically generating interactive game characters by prompting large language models tuned on
+code. In Proceedings of the 3rd Wordplay: When Language Meets Games Workshop (Wordplay
+2022), pages 25–43, Seattle, United States, 2022. Association for Computational Linguistics.
+[71] Haoqi Yuan, Chi Zhang, Hongcheng Wang, Feiyang Xie, Penglin Cai, Hao Dong, and Zongqing
+Lu. Plan4mc: Skill reinforcement learning and planning for open-world minecraft tasks. arXiv
+preprint arXiv: 2303.16563, 2023.
+16

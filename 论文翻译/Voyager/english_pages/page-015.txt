@@ -1,0 +1,48 @@
+[44] Sébastien Forestier, Rémy Portelas, Yoan Mollard, and Pierre-Yves Oudeyer. Intrinsically
+motivated goal exploration processes with automatic curriculum learning. The Journal of
+Machine Learning Research, 23(1):6818–6858, 2022.
+[45] Kevin Ellis, Catherine Wong, Maxwell Nye, Mathias Sable-Meyer, Luc Cary, Lucas Morales,
+Luke Hewitt, Armando Solar-Lezama, and Joshua B. Tenenbaum. Dreamcoder: Growing
+generalizable, interpretable knowledge with wake-sleep bayesian program learning. arXiv
+preprint arXiv: Arxiv-2006.08381, 2020.
+[46] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Ed Chi, Quoc Le, and Denny
+Zhou. Chain of thought prompting elicits reasoning in large language models. arXiv preprint
+arXiv: Arxiv-2201.11903, 2022.
+[47] Volodymyr Mnih, Adrià Puigdomènech Badia, Mehdi Mirza, Alex Graves, Timothy P. Lillicrap,
+Tim Harley, David Silver, and Koray Kavukcuoglu. Asynchronous methods for deep rein-
+forcement learning. In Maria-Florina Balcan and Kilian Q. Weinberger, editors, Proceedings
+of the 33nd International Conference on Machine Learning, ICML 2016, New York City, NY,
+USA, June 19-24, 2016, volume 48 of JMLR Workshop and Conference Proceedings, pages
+1928–1937. JMLR.org, 2016.
+[48] John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. Proximal
+policy optimization algorithms. arXiv preprint arXiv: Arxiv-1707.06347, 2017.
+[49] Timothy P. Lillicrap, Jonathan J. Hunt, Alexander Pritzel, Nicolas Heess, Tom Erez, Yuval
+Tassa, David Silver, and Daan Wierstra. Continuous control with deep reinforcement learning.
+In Yoshua Bengio and Yann LeCun, editors, 4th International Conference on Learning Repre-
+sentations, ICLR 2016, San Juan, Puerto Rico, May 2-4, 2016, Conference Track Proceedings,
+2016.
+[50] Introducing chatgpt, 2022.
+[51] New and improved embedding model, 2022.
+[52] PrismarineJS. Prismarinejs/mineflayer: Create minecraft bots with a powerful, stable, and high
+level javascript api., 2013.
+[53] Kolby Nottingham, Prithviraj Ammanabrolu, Alane Suhr, Yejin Choi, Hanna Hajishirzi, Sameer
+Singh, and Roy Fox. Do embodied agents dream of pixelated sheep?: Embodied decision
+making using language guided world modelling. ARXIV.ORG, 2023.
+[54] Shaofei Cai, Zihao Wang, Xiaojian Ma, Anji Liu, and Yitao Liang. Open-world multi-task
+control through goal-aware representation learning and adaptive horizon prediction. arXiv
+preprint arXiv: Arxiv-2301.10034, 2023.
+[55] Zihao Wang, Shaofei Cai, Anji Liu, Xiaojian Ma, and Yitao Liang. Describe, explain, plan and
+select: Interactive planning with large language models enables open-world multi-task agents.
+arXiv preprint arXiv: Arxiv-2302.01560, 2023.
+[56] Sébastien Bubeck, Varun Chandrasekaran, Ronen Eldan, Johannes Gehrke, Eric Horvitz, Ece
+Kamar, Peter Lee, Yin Tat Lee, Yuanzhi Li, Scott Lundberg, Harsha Nori, Hamid Palangi,
+Marco Tulio Ribeiro, and Yi Zhang. Sparks of artificial general intelligence: Early experiments
+with gpt-4. arXiv preprint arXiv: Arxiv-2303.12712, 2023.
+[57] Yiheng Liu, Tianle Han, Siyuan Ma, Jiayue Zhang, Yuanyuan Yang, Jiaming Tian, Hao He,
+Antong Li, Mengshen He, Zhengliang Liu, Zihao Wu, Dajiang Zhu, Xiang Li, Ning Qiang,
+Dingang Shen, Tianming Liu, and Bao Ge. Summary of chatgpt/gpt-4 research and perspective
+towards the future of large language models. arXiv preprint arXiv: Arxiv-2304.01852, 2023.
+[58] Shikun Liu, Linxi Fan, Edward Johns, Zhiding Yu, Chaowei Xiao, and Anima Anandkumar.
+Prismer: A vision-language model with an ensemble of experts. arXiv preprint arXiv: Arxiv-
+2303.02506, 2023.
+15
