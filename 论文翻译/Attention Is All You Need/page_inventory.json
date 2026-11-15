@@ -1,0 +1,68 @@
+[
+  {
+    "page": 1,
+    "characters": 2908,
+    "images": 0,
+    "page_image": "source_pages/page-001.jpg"
+  },
+  {
+    "page": 2,
+    "characters": 4254,
+    "images": 0,
+    "page_image": "source_pages/page-002.jpg"
+  },
+  {
+    "page": 3,
+    "characters": 1756,
+    "images": 1,
+    "page_image": "source_pages/page-003.jpg"
+  },
+  {
+    "page": 4,
+    "characters": 2449,
+    "images": 2,
+    "page_image": "source_pages/page-004.jpg"
+  },
+  {
+    "page": 5,
+    "characters": 3207,
+    "images": 0,
+    "page_image": "source_pages/page-005.jpg"
+  },
+  {
+    "page": 6,
+    "characters": 3545,
+    "images": 0,
+    "page_image": "source_pages/page-006.jpg"
+  },
+  {
+    "page": 7,
+    "characters": 3228,
+    "images": 0,
+    "page_image": "source_pages/page-007.jpg"
+  },
+  {
+    "page": 8,
+    "characters": 3328,
+    "images": 0,
+    "page_image": "source_pages/page-008.jpg"
+  },
+  {
+    "page": 9,
+    "characters": 2618,
+    "images": 0,
+    "page_image": "source_pages/page-009.jpg"
+  },
+  {
+    "page": 10,
+    "characters": 3090,
+    "images": 0,
+    "page_image": "source_pages/page-010.jpg"
+  },
+  {
+    "page": 11,
+    "characters": 2326,
+    "images": 0,
+    "page_image": "source_pages/page-011.jpg"
+  }
+]

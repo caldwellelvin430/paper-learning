@@ -1,0 +1,37 @@
+[
+  {
+    "type": "figure",
+    "number": 1,
+    "page": 3,
+    "file": "images/figure-01-p03.png",
+    "original_caption": "Figure 1: The Transformer - model architecture."
+  },
+  {
+    "type": "figure",
+    "number": 2,
+    "page": 4,
+    "file": "images/figure-02-p04.png",
+    "original_caption": "Figure 2: (left) Scaled Dot-Product Attention. (right) Multi-Head Attention consists of several\nattention layers running in parallel."
+  },
+  {
+    "type": "table",
+    "number": 1,
+    "page": 6,
+    "file": "images/table-01-p06.png",
+    "original_caption": "Table 1: Maximum path lengths, per-layer complexity and minimum number of sequential operations\nfor different layer types. n is the sequence length, d is the representation dimension, k is the kernel\nsize of convolutions and r the size of the neighborhood in restricted self-attention."
+  },
+  {
+    "type": "table",
+    "number": 2,
+    "page": 8,
+    "file": "images/table-02-p08.png",
+    "original_caption": "Table 2: The Transformer achieves better BLEU scores than previous state-of-the-art models on the\nEnglish-to-German and English-to-French newstest2014 tests at a fraction of the training cost."
+  },
+  {
+    "type": "table",
+    "number": 3,
+    "page": 9,
+    "file": "images/table-03-p09.png",
+    "original_caption": "Table 3: Variations on the Transformer architecture. Unlisted values are identical to those of the base\nmodel. All metrics are on the English-to-German translation development set, newstest2013. Listed\nperplexities are per-wordpiece, according to our byte-pair encoding, and should not be compared to\nper-word perplexities."
+  }
+]

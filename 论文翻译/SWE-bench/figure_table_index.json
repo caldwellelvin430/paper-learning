@@ -1,0 +1,310 @@
+[
+  {
+    "type": "figure",
+    "number": 1,
+    "page": 1,
+    "file": "images/figure-01-p01.png",
+    "original_caption": "Figure 1: SWE-bench sources task instances from real-world Python repositories by connecting\nGitHub issues to merged pull request solutions that resolve related tests. Provided with the issue\ntext and a codebase snapshot, models generate a patch that is evaluated against real tests."
+  },
+  {
+    "type": "figure",
+    "number": 2,
+    "page": 2,
+    "file": "images/figure-02-p02.png",
+    "original_caption": "Figure 2: SWE-bench task instances are created from merged pull requests that resolve an issue,\ncontributes tests, and install successfully."
+  },
+  {
+    "type": "figure",
+    "number": 3,
+    "page": 4,
+    "file": "images/figure-03-p04.png",
+    "original_caption": "Figure 3:\nDistribution of SWE-bench tasks\n(in parenthesis) across 12 open source GitHub\nrepositories that each contains the source code\nfor a popular, widely downloaded PyPI package."
+  },
+  {
+    "type": "table",
+    "number": 1,
+    "page": 4,
+    "file": "images/table-01-p04.png",
+    "original_caption": "Table 1: Average and maximum numbers char-\nacterizing different attributes of a SWE-bench\ntask instance. Statistics are micro-averages cal-\nculated without grouping by repository."
+  },
+  {
+    "type": "table",
+    "number": 2,
+    "page": 5,
+    "file": "images/table-02-p05.png",
+    "original_caption": "Table 2: Model resolve rates with BM25 re-\ntrieval, with different maximum context lengths."
+  },
+  {
+    "type": "table",
+    "number": 3,
+    "page": 5,
+    "file": "images/table-03-p05.png",
+    "original_caption": "We compare the BM25 retrieval results with those of the “oracle” retrieval setting, as shown in\nTable 3. We observe that in approximately 40% of instances, BM25 retrieves a superset of the\noracle files for the 27,000-token context limit. However, in almost half of the instances with the\n27,000-token limit, it retrieves none of the files from the “oracle” context."
+  },
+  {
+    "type": "table",
+    "number": 4,
+    "page": 5,
+    "file": "images/table-04-p05.png",
+    "original_caption": "Table 4: We compare the different context lengths and proportion of the “oracle” retrieval setting\ncovered. Models with shorter context lengths are thus inherently disadvantaged. Note that descrip-\ntions of token-lengths is a relative non-standard measure (e.g. Llama-tokenized sequences are 42%\nlonger on average than the equivalent sequence tokenized for GPT-4)."
+  },
+  {
+    "type": "figure",
+    "number": 4,
+    "page": 6,
+    "file": "images/figure-04-p06.png",
+    "original_caption": "Figure 4: Resolution rate for three models across the 12 repositories represented in SWE-bench in\nthe “Oracle” retrieval setting."
+  },
+  {
+    "type": "figure",
+    "number": 5,
+    "page": 6,
+    "file": "images/figure-05-p06.png",
+    "original_caption": "Figure 5: We compare the performance of Claude 2 on tasks\npartitioned by total input length and by only the issue length."
+  },
+  {
+    "type": "table",
+    "number": 5,
+    "page": 6,
+    "file": "images/table-05-p06.png",
+    "original_caption": "Table 5: We compare models against each other using the BM25 retriever as described in Section 4.\n∗Due to budget constraints we evaluate GPT-4 on a 25% random subset of SWE-bench."
+  },
+  {
+    "type": "table",
+    "number": 6,
+    "page": 6,
+    "file": "images/table-06-p06.png",
+    "original_caption": "Table 6: We show the results for\nthe “Oracle”-collapsed retrieval\nsetting, which uses oracle files but\ncollapses code that isn’t directly\nmodified by the PR ±15 lines."
+  },
+  {
+    "type": "table",
+    "number": 7,
+    "page": 7,
+    "file": "images/table-07-p07.png",
+    "original_caption": "Table 7: We compare performance on task instances from before and after 2023 in the “Oracle”\nretrieval setting. Most models show little difference in performance. ∗Due to budget constraints,\nGPT-4 is evaluated on a 25% random subset of SWE-bench tasks, which may impact performance."
+  },
+  {
+    "type": "table",
+    "number": 8,
+    "page": 7,
+    "file": "images/table-08-p07.png",
+    "original_caption": "Table 8: Average edits of model generated patches in the “oracle” retrieval setting across success-\nfully applied patches. For the task instances specific to each model, we calculate the same statistics\nacross the gold patches. Avg Gold shows statistics macro-averaged over each models’ respective\ngold patches. All Gold shows statistics for all gold patches unconditioned on model performance."
+  },
+  {
+    "type": "figure",
+    "number": 6,
+    "page": 8,
+    "file": "images/figure-06-p08.png",
+    "original_caption": "Figure 6: We show an example of an formatted task instance, a model prediction, and the testing\nframework logs. In the patches, red highlights are deletions. Green highlights are additions."
+  },
+  {
+    "type": "figure",
+    "number": 7,
+    "page": 16,
+    "file": "images/figure-07-p16.png",
+    "original_caption": "Figure 7: SWE-bench task instance example. Problem statement P is an aggregation of the issues\nrelated to the pull request. Codebase C corresponds to a repository and base commit. The tests T\nand solution D are derived from the original PR’s associated code changes. Stylized for readability."
+  },
+  {
+    "type": "table",
+    "number": 9,
+    "page": 16,
+    "file": "images/table-09-p16.png",
+    "original_caption": "Table 9: Description of each field of a SWE-bench task instance object. See § A.2 for details\nregarding how each field is collected."
+  },
+  {
+    "type": "figure",
+    "number": 8,
+    "page": 19,
+    "file": "images/figure-08-p19.png",
+    "original_caption": "Figure 8: Visualization of the evaluation pipeline at an individual task instance level. During evalua-\ntion, the Patch is model generated. A prediction .patch must be applied successfully and produce\nthe same results as the corresponding task instance’s D for task completion."
+  },
+  {
+    "type": "table",
+    "number": 10,
+    "page": 19,
+    "file": "images/table-10-p19.png",
+    "original_caption": "Table 10: Statistics for how many candidate task instances were kept after the completion of a stage\nacross the construction and validation procedures."
+  },
+  {
+    "type": "figure",
+    "number": 9,
+    "page": 21,
+    "file": "images/figure-09-p21.png",
+    "original_caption": "Figure 9: Cumulative Distribution Functions for different attributes of SWE-bench task instances."
+  },
+  {
+    "type": "table",
+    "number": 11,
+    "page": 22,
+    "file": "images/table-11-p22.png",
+    "original_caption": "Table 11: Average numbers characterizing different attributes of a SWE-bench task instance grouped\nby repository. In addition to the statistics presented in Table 1, we also introduce three new values:\nδ # Lines Added, δ # Lines Removed, and |T| (Pass to Pass)."
+  },
+  {
+    "type": "table",
+    "number": 12,
+    "page": 22,
+    "file": "images/table-12-p22.png",
+    "original_caption": "Table 12: Summary and licenses for all GitHub repositories that task instances were extracted from."
+  },
+  {
+    "type": "table",
+    "number": 13,
+    "page": 23,
+    "file": "images/table-13-p23.png",
+    "original_caption": "Table 13: Categories of tags associated with issues from SWE-bench’s task instances."
+  },
+  {
+    "type": "table",
+    "number": 14,
+    "page": 23,
+    "file": "images/table-14-p23.png",
+    "original_caption": "Table 14: Statistics for how many patches for 2,294 task instances were generated, applied suc-\ncessfully, and required a post-generation fix to apply successfully for each [model, retrieval setting]\ncombination during evaluation. The GPT-4 BM25 27k and “Oracle” settings were ran on the 25%\nsubset. The GPT-4 “Oracle”-collapsed setting was run on the full SWE-bench test set."
+  },
+  {
+    "type": "table",
+    "number": 15,
+    "page": 24,
+    "file": "images/table-15-p24.png",
+    "original_caption": "Table 15: Summary and licenses for all GitHub repositories that development task instances were\nextracted from."
+  },
+  {
+    "type": "table",
+    "number": 16,
+    "page": 24,
+    "file": "images/table-16-p24.png",
+    "original_caption": "Table 16: Categories of tags associated with issues from SWE-bench’s development task instances."
+  },
+  {
+    "type": "table",
+    "number": 17,
+    "page": 25,
+    "file": "images/table-17-p25.png",
+    "original_caption": "Table 17: Average numbers characterizing different attributes of a SWE-bench task instance grouped\nby repository for repositories in the development dataset. The same statistics presented in Table 11\nare also shown here."
+  },
+  {
+    "type": "table",
+    "number": 18,
+    "page": 25,
+    "file": "images/table-18-p25.png",
+    "original_caption": "Table 18: We compare models against each other using the BM25 and oracle retrieval settings as\ndescribed in Section 4. The main results table, Table 5, presents the results for the different models\nwhen using BM25 only. ∗Due to budget constraints we evaluate GPT-4 on a 25% random subset of\nSWE-bench in the “Oracle” and BM25 27K retriever settings only."
+  },
+  {
+    "type": "table",
+    "number": 19,
+    "page": 26,
+    "file": "images/table-19-p26.png",
+    "original_caption": "Table 19: % Resolved for models per repository represented in SWE-bench."
+  },
+  {
+    "type": "table",
+    "number": 20,
+    "page": 26,
+    "file": "images/table-20-p26.png",
+    "original_caption": "Table 20: We compare models against each other using the BM25 and oracle retrieval settings as\ndescribed in Section 4 on a 25% random subset (574 instances) of SWE-bench in the “oracle” and\nBM25 27K retriever settings only. This is the same subset that GPT-4 is evaluated on, as mentioned\nin Table 5. The difference relative to percentages in Table 5 and Table 18 is included as a subscript."
+  },
+  {
+    "type": "table",
+    "number": 21,
+    "page": 27,
+    "file": "images/table-21-p27.png",
+    "original_caption": "Table 21: We present an extended temporal analysis in this table, showing the % resolved for task\ninstances across models in the “Oracle” retrieval setting, separated by different cutoff dates. The\nYear column refers to the subset of tasks that were created during the specified calendar year. In\nthe Total column, we list the number of tasks that fall within the given year. The 25% column is\nthe same information for the subset that GPT-4 was evaluated on. The remaining model-specific\ncolumns contain the % resolved metric."
+  },
+  {
+    "type": "table",
+    "number": 22,
+    "page": 27,
+    "file": "images/table-22-p27.png",
+    "original_caption": "Table 22: We present the 6 possible outcomes for a patch generation that is applied successfully and\nthen executed. The outcomes are distinguished by the number of F2P and P2P tests that pass."
+  },
+  {
+    "type": "table",
+    "number": 23,
+    "page": 28,
+    "file": "images/table-23-p28.png",
+    "original_caption": "Table 23: Categorization of model generations that applied successfully by the cases defined in\nTable 22. As mentioned, GPT-4 was evaluated on a 25% subset (574 instances) of SWE-bench."
+  },
+  {
+    "type": "table",
+    "number": 24,
+    "page": 28,
+    "file": "images/table-24-p28.png",
+    "original_caption": "Table 24: Average edits of model generated patches in the oracle retrieval setting across all patches\n(including unsuccessfully applied patches). For the task instances specific to each model, we calcu-\nlate the same statistics across the gold patches."
+  },
+  {
+    "type": "figure",
+    "number": 10,
+    "page": 29,
+    "file": "images/figure-10-p29.png",
+    "original_caption": "Figure 10: Comparison of the Claude 2 prediction (left) and reference solution (right) patches\nfor SWE-bench task instance psf requests-4356.\nWhile the code generated by the\npatch is fewer lines of code and solves the problem correctly, the prediction patch intro-\nduces greater Cyclomatic complexity (requests.adapters.py/HTTPAdapter: 3 →5)\ncompared to the gold solution (requests/adapters.py:get connection:\n2 →3,\nrequests/exceptions.py:InvalidHeader: 0 →1). Changes that introduce new exe-\ncution paths are boxed in blue. Parts of the gold patch have been truncated for appearance."
+  },
+  {
+    "type": "table",
+    "number": 25,
+    "page": 32,
+    "file": "images/table-25-p32.png",
+    "original_caption": "Table 25: In this example, Claude 2 correctly addresses an issue from scikit-learn/scikit-learn. How-\never, as demonstrated in the discussion, while the solution is correct, it demonstrates models’ ten-\ndency to write primitive Python and not employ existing methods within the codebase."
+  },
+  {
+    "type": "table",
+    "number": 26,
+    "page": 34,
+    "file": "images/table-26-p34.png",
+    "original_caption": "Table 26: We provide another example where Claude-2 solves the issue correctly and develops a\nsolution similar to the gold patch. However, the gold patch solution is more cognizant of avoiding\nfuture potential issues that could be related to this code."
+  },
+  {
+    "type": "table",
+    "number": 27,
+    "page": 36,
+    "file": "images/table-27-p36.png",
+    "original_caption": "Table 27: In this example, we show an issue from astropy/astropy that Claude 2 does not solve\ncorrectly. The error is primarily due to the patch generation’s attempt to directly solve the issue."
+  },
+  {
+    "type": "table",
+    "number": 28,
+    "page": 38,
+    "file": "images/table-28-p38.png",
+    "original_caption": "Table 28: For this issue from the mwaskom/seaborn repository, the problem statement includes\nhyperlinks to images. As discussed in Section 5, a minor subset of SWE-bench tasks include images\nin them, making image understanding a small but important component to resolving issues that is\nunexplored by the initial baselines."
+  },
+  {
+    "type": "table",
+    "number": 29,
+    "page": 40,
+    "file": "images/table-29-p40.png",
+    "original_caption": "Table 29: In this final example of a Claude 2 generation, the model must resolve an error related to\nresolving an error regarding cyclic dependencies. Claude 2’s solution under-delivers on an otherwise\ncomplex problem."
+  },
+  {
+    "type": "table",
+    "number": 30,
+    "page": 42,
+    "file": "images/table-30-p42.png",
+    "original_caption": "Table 30: Example of a SWE-Llama 13b generation that correctly solves a SWE-bench task instance.\nIn this example, the SWE-Llama generation is exactly the same as the solution."
+  },
+  {
+    "type": "table",
+    "number": 31,
+    "page": 44,
+    "file": "images/table-31-p44.png",
+    "original_caption": "Table 31: Example of a SWE-Llama 13b generation that correctly solves a SWE-bench task instance.\nIn this example, the SWE-Llama generation is different from the gold patch."
+  },
+  {
+    "type": "table",
+    "number": 32,
+    "page": 46,
+    "file": "images/table-32-p46.png",
+    "original_caption": "Table 32: This is another example where SWE-Llama13b solves the task successfully. This example\nis interesting because the model develops a somewhat novel solution compared to the reference that\nis arguably more efficient and cleaner."
+  },
+  {
+    "type": "table",
+    "number": 33,
+    "page": 48,
+    "file": "images/table-33-p48.png",
+    "original_caption": "Table 33: This is an example where SWE-Llama13b writes an incorrect solution, but maintains prior\nbehavior successfully. The difference in the model’s generation and the gold patch here demonstrates\nhow models tend to under-generate the necessary fixes."
+  },
+  {
+    "type": "table",
+    "number": 34,
+    "page": 50,
+    "file": "images/table-34-p50.png",
+    "original_caption": "Table 34: In this final example, SWE-Llama 13b not only does not solve the task, but also corrupts\nexisting behavior in the model. This example demonstrates the need for models to understand the\ncodebase beyond the scope of the required edits."
+  }
+]

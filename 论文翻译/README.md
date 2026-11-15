@@ -12,6 +12,9 @@
 | AgentJudgeBench | [中文精读](AgentJudgeBench/AgentJudgeBench_中文精读与核心内容译述.md) |
 | Beyond the Final Answer | [中文译文与精读](Beyond%20the%20Final%20Answer/中文译文与精读.md) |
 | Benchmarking the Benchmarks | [中文主文](Benchmarking%20the%20Benchmarks/中文全文_主文.md) |
+| Attention Is All You Need | [中文全文](Attention%20Is%20All%20You%20Need/中文全文.md) · [阅读说明](Attention%20Is%20All%20You%20Need/README_使用说明.md) · [原文 PDF](Attention%20Is%20All%20You%20Need/原论文.pdf) |
+| SWE-bench | [中文全文](SWE-bench/中文全文.md) · [阅读说明](SWE-bench/README_使用说明.md) · [原文 PDF](SWE-bench/原论文.pdf) |
+| Segment Anything | [中文全文](Segment%20Anything/中文全文.md) · [阅读说明](Segment%20Anything/README_使用说明.md) · [原文 PDF](Segment%20Anything/原论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 
