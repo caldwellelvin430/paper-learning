@@ -1,0 +1,148 @@
+Table 6: A summary of API call examples
+APIs
+API
+Call
+Templates
+Prompt Examples
+Instructions
+Inputs
+Outputs
+API
+1
+<at[]>
+“Use the <at[]>tag
+to mark the stan-
+dard address por-
+tion in this ad-
+dress:”
+Cake Shop, across from
+Gate 5 of XX University ,
+Yangpu District, Shanghai
+Cake Shop, across from
+<at[]>Gate 5 of XX Uni-
+versity , Yangpu District,
+Shanghai
+API
+2
+<go[direction,
+distance] >
+“Use
+the
+<go[]>tag
+to
+mark
+the
+geo-
+graphic
+location
+descriptive infor-
+mation
+in
+this
+address:”
+Cake
+Shop,
+20
+meters
+southwest of the intersec-
+tion of Guoquan North
+Road and Guoxue Road,
+Yangpu District, Shanghai
+Cake
+Shop,
+<go[southwest,20]>20
+meters southwest of the
+intersection of Guoquan
+North Road and Guoxue
+Road,
+Yangpu
+District,
+Shanghai
+<go[colloquial]>
+Cake Shop, across from
+Gate 5 of XX University ,
+Yangpu District, Shanghai
+Cake
+Shop,
+<go[across
+from]>across from Gate 5
+of XX University , Yangpu
+District, Shanghai
+API
+3
+<rb[road
+name]>
+“Use the <rb[]>tag
+to mark the road
+in this address:”
+Cake
+Shop,
+20
+meters
+southwest of the intersec-
+tion of Guoquan North
+Road and Guoxue Road,
+Yangpu District, Shanghai
+Cake
+Shop,
+20
+meters
+southwest of the intersec-
+tion of Guoquan North
+Road <rb[Guoquan North
+Road]>and Guoxue Road
+<rb[Guoxue
+Road]>,
+Yangpu District, Shanghai
+Loss
+Ac@100M
+Ac@1KM
+AD(m)
+CrossEntropy
+0.655
+0.958
+236.34
+GeoEntropy
+0.743
+0.968
+180.89
+Table 7: Ablation results in loss function
+(-55.45 meters), and the proportion of predicted
+distances within 100 meters of the true distance
+increased from 65.5% to 74.3% (+8.8%). These
+results demonstrate that weighting the output se-
+quence positions and types helps the model capture
+the correlation between address text and real loca-
+tions.
+C
+Case study
+C.1
+Address standardization case
+As shown in Table 2 of our paper. It can be ob-
+served that GeoAgent significantly reduces the edit
+distance (8.378), while the API service even shows
+an increase in edit distance relative to the original
+non-standard address. As the specific algorithm of
+the API-provided address standardization service is
+not transparent, we can only analyze it based on the
+API data. It may be due to the fact that the service
+relies on POI address database characters for error
+correction and completion, which cannot handle
+addresses containing descriptive information well.
+The no-standard address “No.
+356, Aomen
+Road, Sanxiang Building, 246 meters south of
+Shibachuan (Jiangning Road Branch), Putuo Dis-
+trict, Shanghai” was standardized by AS-1 as:
+“Shibachuan (Jiangning Road Branch), No. 356
+Aomen Road, Changshou Road Subdistrict, Putuo
+District, Shanghai”. However, the correct address
+is “Shibachuan (Jiangning Road Branch), No. 1228
+Jiangning Road, Putuo District, Shanghai (160 me-
+ters walk from Exit 4 of Jiangning Road Subway
+Station)”. For addresses that do not contain descrip-
+tive information, such as address element missing
+:“B2 D-065, Paris Spring (Pu Jian Branch), No.
+118 Jian, Pudong District”, AS-1 output: “D-065,
+B2, Paris Spring (Pu Jian Branch), No. 118 Pu Jian
+6059

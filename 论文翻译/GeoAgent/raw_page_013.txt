@@ -1,0 +1,77 @@
+API 1 : 329.7m
+API 2: 135.1m
+GeoAgent: 93.1m
+GeoAgent+API 1: 10.2m
+GeoAgent+API 2: 15.5m
+Target POI
+Input address: 356 Aomen Road, Puxi District, Shanghai, 246 
+meters south of Sanxiong Building, Eat Eight Sichuan
+Target address: 1228 Jiangning Road, Putuo District, Shanghai, 
+160 meters walk from Exit 4 of Jiangning Road Subway Station, 
+Eat Eight Sichuan (Jiangning Road Branch)
+Input address: 1228 Jiangning Road, Putuo District, Shanghai, 
+160 meters walk from Exit 4 of Jiangning Road Subway Station, 
+Eat Eight Sichuan
+Figure 3: Geocoding case
+Road, Tangqiao Street, Pudong New Area, Shang-
+hai”, is very close to the standard address.It can
+be seen that AS-1 only removes the descriptive in-
+formation by extracting features, without properly
+understanding and processing the descriptive infor-
+mation. This also shows that in the task of address
+standardization, it is very necessary to process the
+description information in the address
+C.2
+Geocoding case
+As described in section 5.2, the Geocoding task
+takes address text as input and aims to parse the
+input address into its corresponding real-world ge-
+ographic location. Figure 3 shows a typical exam-
+ple from the experiment. The blue markers rep-
+resent the Geocoding results for non-standardized
+addresses, the green markers represent the Geocod-
+ing results standardized by GeoAgent, and the red
+markers represent the true geographic location of
+the address.
+For non-standardized address input text (text
+marked in blue), both API 1 and API 2 have sig-
+nificant errors (329.7 meters and 135.1 meters, re-
+spectively). GeoAgent achieves the best perfor-
+mance(93.1 meters) by splitting non-standardized
+addresses into two stages: standard address map-
+ping and location offset.
+After the input address is standardized by GeoA-
+gent, it was successfully linked to the standard
+address library, and the results are very impressive
+when the standardized address is used as the in-
+put for API calls. This indicates that map service
+providers, based on their massive data resources,
+can map standard addresses to very accurate po-
+sitions. However, when an address contains de-
+scriptive information, it can greatly increase the
+error, which also demonstrates the importance of
+standardizing non-standardized addresses.
+C.3
+Address matching case
+To investigate the reasons why standardized ad-
+dress text can improve the performance of address
+matching tasks, we take StructBert as an example
+and analyze the model’s prediction performance be-
+fore and after address standardization on each class
+in the GeoGLUE dataset, as shown in Table 10.
+Our analysis reveals that GeoAgent increases
+the text similarity between addresses with exact
+matches and reduces the text similarity between
+addresses with non-matches through the standard-
+ization process. This greatly improves the model’s
+classification performance for these two classes,
+with F1 scores increasing by 8% and 17%, respec-
+tively. By standardizing missing and incorrect ad-
+dress elements, addresses with partial matches have
+the same prefix, making it easier to discern the
+labels for partial matches, resulting in a 12% im-
+provement in performance.
+For example, for the original data labeled as
+non-matching “address1: No.
+206, Lane 999,
+6060

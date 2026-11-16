@@ -1,0 +1,50 @@
+Prompt
+Given an address, we aim to rephrase the descriptive information related to the location. Descriptive information
+refers to additional details about the location, such as “234 meters to the south”, “nearby”, “opposite”, “next to”, etc.
+Demonstrations
+Input: Red Swallow Food Business located 409 me-
+ters northwest of Cheng Ye Bath, No. 266 Xinhua
+West Road, Zhangyan Town, Jinshan District, Shang-
+hai.
+Output: Red Swallow Food Business is located 409
+meters northwest of Cheng Ye Shower Room, No.
+266 Xinhua West Road, Zhangyan Town, Jinshan
+District, Shanghai.
+Input: Beside Industrial and Commercial Bank of
+China, 20 Fengbin Road, Chongming District, is
+Yixuan Cultural Communication.
+Yixuan Cultural Communication is located near In-
+dustrial and Commercial Bank of China, 20 Fengbin
+Road, Chongming District.
+No. 8-2, Zhongyi Residence, Gaoxi Village, is lo-
+cated about 150 meters southwest of the intersection
+of Ting’an Road and Pudong North Road, Pudong
+New District, Shanghai.
+8-2, Zhongyi Residence, Gaoxi Village, is located
+about 150 meters southwest of the intersection of
+Ting’an Road and Pudong North Road, Pudong New
+District, Shanghai.
+Demonstrations End
+Table 11: The details of the prompt design for ChatGPT expanding
+Task
+Input
+Output
+Geocoding
+Opposite Huicai Restaurant, No. 652, Libao Road,
+Ma Town, Jiading District, Shanghai
+35b26bc225f5
+Address
+Standard-
+ization
+Opposite Huicai Restaurant, No. 652, Libao Road,
+Ma Town, Jiading District, Shanghai
+Huiwei Huicai Restaurant ,No.
+2350
+Baoan Road, Jiading District, Shanghai
+Address
+Linking
+Opposite Huicai Restaurant, No. 652, Libao Road,
+Ma Town, Jiading District, Shanghai
+index in POI database
+Table 12: Dataset sample
+6063

@@ -1,0 +1,98 @@
+Findings of the Association for Computational Linguistics: ACL 2024, pages 6048–6063
+August 11-16, 2024 ©2024 Association for Computational Linguistics
+GeoAgent: To Empower LLMs using Geospatial Tools for Address
+Standardization
+Chenghua Huang♦, Shisong Chen♥, Zhixu Li♦*, Jianfeng Qu♣*
+Yanghua Xiao♦, Jiaxin Liu♢, Zhigang Chen✝
+♦Shanghai Key Laboratory of Data Science, School of Computer Science, Fudan University
+♥Lab of Artificial Intelligence for Education, East China Normal University
+♣School of Computer Science and Technology, Soochow University.
+♢IFLYTEK Research, Suzhou, China. ✝Jilin Kexun Information Technology Co., Ltd.
+huangch22@m.fudan.edu.cn, sschen@stu.ecnu.edu.cn, jfqu@suda.edu.cn
+{zhixuli,shawyh}@fudan.edu.cn, {jxliu6, zgchen}@iflytek.com
+Abstract
+This paper presents a novel solution to tackle
+the challenges that posed by the abundance of
+non-standard addresses, which input by users in
+modern applications such as navigation maps,
+ride-hailing apps, food delivery platforms, and
+logistics services. These manually entered ad-
+dresses often contain irregularities, such as
+missing information, spelling errors, colloquial
+descriptions, and directional offsets, which hin-
+der address-related tasks like address matching
+and linking. To tackle these challenges, we
+propose GeoAgent, a new framework compris-
+ing two main components: a large language
+model (LLM) and a suite of geographical tools.
+By harnessing the semantic understanding ca-
+pabilities of the LLM and integrating specific
+geospatial tools, GeoAgent incorporates spatial
+knowledge into address texts and achieves ef-
+ficient address standardization. Further, to ver-
+ify the effectiveness and practicality of our ap-
+proach, we construct a comprehensive dataset
+of complex non-standard addresses, which fills
+the gaps in existing datasets and proves in-
+valuable for training and evaluating the per-
+formance of address standardization models in
+this community. Experimental results demon-
+strate the efficacy of GeoAgent, showcasing
+substantial improvements in the performance
+of address-related models across various down-
+stream tasks.1
+1
+Introduction
+With the widespread using of navigation maps (e.g.
+Google Maps), ride-hailing apps (e.g. Uber), food
+delivery platforms (e.g. Uber Eats), and logistics
+services (e.g. Amazon Logistics) in our daily life,
+a significant amount of user-entered addresses have
+been collected. However, these addresses often suf-
+fer from irregularities, such as missing addresses
+and spelling errors (Figure 1(a)), directional offset
+*Corresponding authors.
+1Resources of this paper can be found at https://github.
+com/chenghuahuang/GeoAgent
+(a) Address missing and spelling error:
+Cake Shop, Guoquan North Road, Shanghai
+(b) Directional offset description:
+Cake Shop, 20 meters southwest of the intersection of Guoquan
+North Road and Guoxue Road, Yangpu District, Shanghai
+(c) Colloquial description:
+Cake Shop, across from Gate 5 of XX University, Yangpu District, 
+Shanghai
+Standard address:
+Tianxia Cake Shop, 1480 Guoquan North Road, Yangpu District, 
+Shanghai
+Figure 1: Examples of three non-standard address types
+and their corresponding standard addresses. (a) Many
+address elements are missing. Description information
+in (b) and (c) is highlighted.
+descriptions (Figure 1(b), colloquial descriptions
+(Figure 1(c)) etc. Handling these non-standard ad-
+dresses presents considerable challenges for sub-
+sequent downstream tasks such as address match-
+ing (Lin et al., 2019) and address linking (Huang
+et al., 2021).
+To address this issue, the task of Address stan-
+dardization (Lu et al., 2019) is proposed to correct,
+complete, and normalize input address data, con-
+verting non-standard addresses into standard ones.
+Actually, there are various possible ways to express
+an address. For example, in Figure 1, phrase a, b
+and c represent the same geographical location but
+are totally different in surface expression. This re-
+quires the model to possess relevant spatial knowl-
+edge and strong semantic understanding ability, so
+as to normalize these addresses to the standard one.
+Conventional methods for address standardiza-
+tion often rely on character matching and rules,
+such as splitting address hierarchies based on ad-
+dress tree (Mengjun et al., 2015) and then complet-
+ing missing administrative region elements based
+on a hierarchical address database (Tian et al.,
+2016). Unfortunately, these methods face limi-
+tations in handling fine-grained non-standard ad-
+dresses, and shallow rules may not cover all sce-
+6048

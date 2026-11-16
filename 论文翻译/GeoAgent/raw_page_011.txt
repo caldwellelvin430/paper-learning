@@ -1,0 +1,110 @@
+Jason Wei, Yi Tay, Rishi Bommasani, Colin Raf-
+fel, Barret Zoph, Sebastian Borgeaud, Dani Yo-
+gatama, Maarten Bosma, Denny Zhou, Donald Met-
+zler, Ed Huai hsin Chi, Tatsunori Hashimoto, Oriol
+Vinyals, Percy Liang, Jeff Dean, and William Fedus.
+2022a. Emergent abilities of large language models.
+Trans. Mach. Learn. Res., 2022.
+Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten
+Bosma, Ed Huai hsin Chi, F. Xia, Quoc Le, and
+Denny Zhou. 2022b. Chain of thought prompting
+elicits reasoning in large language models. ArXiv,
+abs/2201.11903.
+Lixia Wu, Jianlin Liu, Junhong Lou, Haoyuan Hu, Jian-
+bin Zheng, Haomin Wen, Chao Song, and Shu He.
+2023. G2ptl: A pre-trained model for delivery ad-
+dress and its applications in logistics system. ArXiv,
+abs/2304.01559.
+Kaiyu Yang, Aidan M. Swope, Alex Gu, Rahul Chala-
+mala, Peiyang Song, Shixing Yu, Saad Godil, Ryan J.
+Prenger, and Anima Anandkumar. 2023. Leandojo:
+Theorem proving with retrieval-augmented language
+models. ArXiv, abs/2306.15626.
+Marouane Yassine, David Beauchemin, François Lavi-
+olette, and Luc Lamontagne. 2020. Leveraging sub-
+word embeddings for multinational address parsing.
+2020 6th IEEE Congress on Information Science and
+Technology (CiSt), pages 353–360.
+Zi Ye, Xuefeng Piao, Fanchao Meng, Bo Cao, and Di-
+anhui Chu. 2022. A non-standardized chinese ex-
+press delivery address identification model based on
+enhanced representation. 2022 International Confer-
+ence on Service Science (ICSS), pages 5–11.
+Ji Zhao, Dan Peng, Chuhan Wu, H. Chen, Meiyu Yu,
+Wanji Zheng, Li Ma, Hua Chai, Jieping Ye, and Xi-
+aohu Qie. 2019. Incorporating semantic similarity
+with geographic correlation for query-poi relevance
+learning. In AAAI Conference on Artificial Intelli-
+gence.
+A
+Implementation Details
+A.1
+LLM backbone
+Considering the need for good Chinese under-
+standing ability, we choose ChatGLM-6B (Du
+et al., 2021) as the base LLM and fine-tuned
+it on Lora (Hu et al., 2021).
+We use the
+AdamW (Loshchilov and Hutter, 2017) optimizer
+with a learning rate of 3e-5 and a weight decay of
+0.001. The data is shuffled, and the training set
+and test set are divided. The model is trained for 3
+epochs with a batch size of 8 on 4 GTX3090s. The
+max input/output token length of the model is set
+to 200. For the language model’s generation func-
+tion, the following hyper-parameters are used: max
+length: 200, temperature: 0, do sample: False. All
+other parameters follow the default settings. The
+parameters of Lora are as follows: rank: 8, Lora
+alpha: 32, Lora dropout: 0.1, Lora layer: 0-27.
+A.2
+Geocoding model
+We choose the transformer as the network structure
+for the address mapping model. The number of at-
+tention heads is 8, and the dimension of the hidden
+state is 512. The training batch size is 1024, and
+we use AdamW as the optimizer with a learning
+rate of 1e-4 and weight decay of 0.02. We train
+the model for 50 epochs on 4 GTX3090 GPUs and
+select the epoch with the best performance on the
+validation set as the final checkpoint.
+We have design a loss function for the
+address mapping model, Which includes two
+loss weights:
+sequence loss weight Ws and
+token loss weight Wt.
+The sequence loss
+weight is an 12-dimensional vector, we set it to
+[1,1,1,1,1.35,1.30,1.25,1.20,1.15,1.10,1.05,1]. The
+token loss weight Wt is a 16*16 matrix, please
+visit our GitHub repository to learn more about the
+specific parameters.
+A.3
+LLM Instruction Sample
+We followed the example in the Table 6, built
+2K data, and trained 3 epoch of Chatglm using
+Lora. The fine-tuning parameters are shown in
+Appendix A.1. The aim of finetuning is to make
+the output format of the model conform the prede-
+fined format (such as wrapping street names with
+<[]> symbols, shown in Table 6), rather than to in-
+ject fine-grained geographical knowledge. In larger
+models with greater language understanding(such
+as ChatGPT), the fine-tuning process might be re-
+placed by in-context learning prompt.
+B
+Loss Function Ablation Study
+We investigate the impact of a loss function de-
+signed for the address mapping task on the perfor-
+mance of address mapping, as shown in Table 7.
+We choose the baseline model trained with the orig-
+inal CrossEntropy Loss as the loss function, while
+keeping the remaining parameters unchanged. It
+can be observed that the GeoEntropy, designed
+specifically for the characteristics of address map-
+ping, can effectively improve the model’s predic-
+tion performance compared to the original CrossEn-
+tropy Loss. The average distance between the pre-
+dicted S2token and the true geographic location
+was reduced from 236.34 meters to 180.89 meters
+6058

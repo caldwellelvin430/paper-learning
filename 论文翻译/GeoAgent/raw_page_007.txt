@@ -1,0 +1,110 @@
+with the largest number of domestic users as the
+baseline, we use AS-15 to refer to it. The evalua-
+tion metric we choose is the edit distance, which
+measures the average edit distance between the non-
+standard address and the corresponding standard
+address in the POI database.
+In address standardization tasks, the importance
+of n-grams located at the beginning of the text is
+obviously greater than those located at the end (in
+Chinese address text, the administrative regions
+are arranged from large to small, from the front to
+the back, which is opposite to English addresses).
+For example, for the address “No. 2005 Guoquan
+North Road, Yangpu District, Shanghai”, admin-
+istrative areas “Yangpu” and “Shanghai”, the tra-
+ditional gram-based metrics (Rouge (Lin, 2004),
+BLEU (Papineni et al., 2002)) are of the same im-
+portance in the calculation. However, from the
+point of view of address accuracy, the importance
+of “Shanghai” is greater than “Yangpu”, and if the
+prediction is wrong, the actual location error is
+greater.
+Therefore, we propose a new metric for the ad-
+dress standardization task, called “GeoROUGE-N”,
+inspired by ROUGE metrics used in text generation
+tasks. The GeoROUGE-N metric assigns higher
+weights to n-grams with higher importance. The
+GeoROUGE-N formula is as follows:
+GeoROUGE −N = LP ·
+P
+gramn∈S
+wi · vmatch[i]
+P
+gramn∈S
+wi
+(3)
+vmatch is a one-dimensional vector with a dimen-
+sion equal to the number of n-grams. For the i-th
+gram, if it is successfully matched in the candidate,
+vmatch[i] is 1, otherwise it is 0. wi is the weight
+based on the position of the gram in the text, with
+higher weights assigned to grams located closer to
+the beginning of the text. The specific formula is
+shown below:
+wi = (1 −i
+n) ∗(1 −λ) + λ
+(4)
+LP =
+(
+1,
+if c < r
+exp(1−c/r)
+if c ≥r
+(5)
+Here, i represents the index of the gram in the
+sequence, n represents the length of the gram se-
+quence, and λ represents the minimum threshold
+5https://www.aliyun.com/product/addresspurification/addrp
+for the weight. LP is the length penalty coefficient,
+which is used to penalize excessively long texts.
+c is the length of the candidate text and r is the
+length of the reference text.
+Geocoding. The Geocoding task takes as input
+an address text and outputs the real geographic lo-
+cation coordinates corresponding to the address.
+The Geocoding task is a basic service for many
+mapping applications. Therefore, we choose the
+paid geocoding service provided by the two map
+applications with the largest number of users in
+China to illustrate the effectiveness of our method.
+we use GC-16 and GC-27 to refer to them, with-
+out specifying their names to avoid commercial
+competition. The evaluation metrics follow the
+ERNIE-Geo setting, using “Accuracy@N km” as
+the evaluation metric. It represents the percentage
+of samples in which the predicted distance from the
+true distance is less than N km. In our experiments,
+we set N to 0.1 and 1. In addition, we also pro-
+vide a more granular evaluation metric, “Average
+distance”, measured in meters. It represents the
+average distance between the predicted distance
+and the true distance.
+Address Matching. The goal of the address
+matching task is to determine whether two differ-
+ent address texts refer to the same geographic entity.
+The task takes two address texts as input and out-
+puts a label indicating whether they match, with
+the type “exact match”, “partial match”, or “not
+match”. We conducted the experiment at the Shang-
+hai address in the GeoGlue (Li et al., 2023a).
+The baseline models we choose for compar-
+ison are three strong generic PTMs, including
+BERT (Devlin et al., 2019), RoBERTa (Liu et al.,
+2019),StructBert (Wang et al., 2019), MGeo (Ding
+et al., 2023), Among them, MGeo performs pre-
+training on geographic corpus and sets a unique
+pre-training task to learn location information in
+the map. The models are all of the base model
+size and are trained for 3 epochs on the training set.
+For the PTM+GeoAgent experiments, the model is
+also trained and tested on the training and valida-
+tion data after being normalized by GeoAgent. We
+use Precision, Recall, and Macro F1 as evaluation
+metrics, and the results are shown in Table 3.
+Address Linking. The task of Address Linking
+is to link an input address to a standard address
+in a standard POI database. Our approach to this
+6https://lbs.amap.com/api/webservice/guide/api/georegeo
+7https://api.map.baidu.com/geocoding
+6054

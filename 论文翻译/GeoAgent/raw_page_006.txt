@@ -1,0 +1,114 @@
+standardize the input address. The LLM recognizes
+the POI name from the non-standard address and
+then performs a query in POI database based on
+the geospatial location and POI name. If the query
+is successful, the corresponding address in the stan-
+dardized POI database is taken as the output of this
+step. If the query fails, we integrate the address
+information from the original address text.
+POI Database Linking Based on the original
+input address’s POI name identified by LLM, along
+with the geographic location information, we make
+another attempt to match it with the POI database
+based on a comprehensive evaluation of both POI
+name similarity and S2 token similarity. If a suc-
+cessful match is found, the standardized address
+from the standard POI database is returned as the
+standardization result.
+Address information integration Based on the
+geographic location information, we utilize the
+open-source OPM library for reverse geocoding
+to perform error correction and completion on the
+original input address. This process involves the
+following steps:
+Administrative area standardization: The ad-
+dress location information in the open-source OPM
+library is used to correct and complete the admin-
+istrative area at all levels in the original address
+text.
+Road name standardization: For original input
+texts that lack road information or contain errors
+with multiple road names, we standardize the road
+by selecting the closest road based on the road net-
+work data. We also clean up additional descriptive
+information, such as directions. By incorporating
+the recognized original POI name, we obtain the
+final standardized result.
+3.4
+Instruction Tuning
+In order to enable LLM to call tools in the way we
+want (such as calling APIs with <> symbols and
+passing parameters with [] symbols), we manually
+built some dialog instructions containing tool calls
+based on the non-standard addresses mentioned
+above, and then extended them with ChatGPT. For
+the model finetuning and tool call dialogues, see
+the Appendix A.3.
+4
+Experiments
+In this section, we present the results of the GeoA-
+gent standardized address on four address-related
+tasks (address matching, geocoding, address stan-
+Task
+Train
+Dev
+Test
+Geocoding
+7540K
+76K
+76k
+Address Linking
+175k
+4K
+4k
+Address standardization
+175k
+4k
+4k
+Table 1: Statistics of our dataset
+dardization, and address linking) compared to the
+original non-standard address and the construction
+process of our dataset.
+4.1
+Dataset Construction
+Considering that there is no relevant dataset for
+non-standard addresses, especially the problem of
+containing descriptive information, we construct a
+non-standard dataset containing descriptive infor-
+mation based on some heuristic rules and a stan-
+dard POI database. The dataset contains 3 address-
+related downstream tasks (geocoding, address link-
+ing, address standardization), and the dataset size
+is shown in the table 1. We construct non-standard
+addresses that conform to human writing habits by
+the following method:
+Address Missing: For a standard address, we
+adopt the following strategies with 15% probabil-
+ity: delete administrative area entities, delete char-
+acters, and replace characters. This is in line with
+the handwritten address in the administrative area
+entity and characters missing, spelling errors, etc.
+Address Descriptive Information: We design al-
+gorithm 1 to add description information to an ad-
+dress based on the direction and distance between
+addresses in the POI database. The details of the
+algorithm can be viewed in the Appendix D.1.
+ChatGPT expanding: Our approach to data con-
+struction is based on heuristic rules, but rules obvi-
+ously can’t cover everyone’s language habits. Since
+ChatGPT has demonstrated excellent in-context
+learning capabilities, we use ChatGPT to enrich the
+expression of descriptive information in addresses,
+our prompt can be viewed in the Appendix D.2.
+The statistics of our dataset as shown in Table 1,
+through the above methods, we construct about
+7700K non-standard addresses. 183K of this data
+is allocated to address standardization and address
+linking tasks, and the rest is used for geocoding
+tasks. An example of the dataset is shown in Ap-
+pendix D.3.
+4.2
+Evaluation Metrics and Baseline
+Address Standardization. we choose the paid
+service provided by the logistics service provider
+6053

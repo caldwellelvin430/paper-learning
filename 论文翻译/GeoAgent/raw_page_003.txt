@@ -1,0 +1,132 @@
+Cake Shop, 20 meters southwest of the intersection of Guoquan North 
+Road and Guoxue Road, Yangpu District, Shanghai
+API 1: Address Mapping
+POI Database
+Geocoding Model
+API 2: Geographical Offset Correction
+API 3: Road information
+Non-standard address:
+Normalization Address
+Tianxia CakeShop, 1580 Guoquan North Road, Yangpu District, Shanghai
+Input: Address
+Example: the 
+intersection of
+Guoquan North ….
+Output: S2 token
+Example: 
+35b27304a89f
+Input: API 1 output& 
+description information
+Example:(southwest,20
+),35b27304a89f
+Output: S2 token
+Example: 
+35b273035897
+Offset 
+Computing
+Input: Road name
+Example: Guoquan
+North Road
+OPM Map
+Output: Road 
+information
+Example: 
+(sencondary highway, 
+direction…)
+Instruct: For the input address, generate a series of tool calls to 
+standardize the address
+LLM output：<API3>  <API 1>  <API2>
+API 1 Executive
+Instruct: Identify the standard address part of the address, that is, the 
+content of the standard address does not contain geographical location 
+description information (such as: east, northwest, nearby opposite, etc.)
+LLM output：< the intersection of Guoquan North Road and Guoxue
+Road, Yangpu District, Shanghai>
+Instruct: Identify the POI name in this address
+LLM output: Cake Shop 
+(POI name, address location) -> Normalization Address
+Stage #1: LLM Planning
+Stage #2: Task Execution
+Stage #3:Address Text Normalization
+Query
+Address1: Cake….,Yangpu,Shanghai
+Address2: XX University,…, Shanghai
+Candidate ：YES✔No❌
+Query
+Cake….,Yangpu,Shanghai
+Output
+(121,50979,31.30102)
+Query
+Cake…,Yangpu,Shanghai
+Output
+Address 
+Base
+Query
+Cake…,20 meters southewest of …,Shanghai
+Standard address
+Tianxia Cake Shop, 1480 Guoquan North Road, 
+Yangpu District, Shanghai）
+Geocoding
+Address Link
+Address Match
+Address Standardization
+(A) GeoAgent Design
+(B)  Geography Tools
+(C)  Downstream Tasks
+Figure 2: An illustration of GeoAgent. (A) is a demonstration of the GeoAgent workflow. (B) depicts the series of
+geography tools and the corresponding inputs and outputs. (C) are some of the downstream tasks related to address
+text.
+of experiments. The results demonstrate sig-
+nificant improvements in various tasks when
+using the normalized data.
+2
+Related Work
+Address Standardization. Mainstream address
+standardization methods can be divided into two
+categories: standard address matching based, ad-
+dress element split based. Standard address based
+method requires to establish a reference standard
+address database, followed by fuzzy matching ac-
+cording to some rules (Buckles et al., 1994). The
+disadvantage is that it requires a high-quality and
+large-scale standard address database, and the al-
+gorithm bottleneck is quite obvious. Address ele-
+ment split based method split address by adminis-
+trative region element and complete missing ele-
+ments (Tian et al., 2016). The address split meth-
+ods include rule split,statistical model split meth-
+ods (Mengjun et al., 2015) and deep learning meth-
+ods (Li et al., 2018; Matcı and Avdan, 2018; Zhao
+et al., 2019; Yassine et al., 2020). Due to the di-
+versity and arbitrariness of address colloquial ex-
+pression, these methods were limited generaliza-
+tion ability for address combinations that are not
+present in the training data and unable to handle
+common descriptive information in address. To
+address such problems, in this paper, we propose
+GeoAgent which combines LLM and geospatial
+tools. LLM’s powerful semantic understanding
+ability can handle various address expression, and
+convert the description information in the address
+into location movement problem is calculated by
+geospatial tools.
+Geography Pre-trained Model. Pre-trained lan-
+guage models have achieved excellent results in
+many task. Some scholars improve the address re-
+lated tasks performance by injecting geographic
+knowledge into pre-trained models (Gao et al.,
+2022; Huang et al., 2022; Ding et al., 2023; Deng
+et al., 2023; Li et al., 2023b; Chen et al., 2022).
+However, these works focused on specific address
+tasks rather than improving the quality of address
+data, which is the focus of this work. Recently,
+some works attempt to stimulate geographic knowl-
+edge within the LLM (Roberts et al., 2023; Manvi
+et al., 2023; Gurnee and Tegmark, 2023), but these
+work show that there is only contain coarse-grained
+geographic knowledge in the model. In this paper,
+we introduce fine-grained knowledge into the LLM
+by interact with knowledge base and geographic
+tools.
+Specific Task-Soving with LLM Agent. Spe-
+6050

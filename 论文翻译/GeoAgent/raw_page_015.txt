@@ -1,0 +1,130 @@
+StructBert
+StructBert+GeoAgent
+Class
+Precision
+Recall
+F1
+Precision
+Recall
+F1
+Exact match
+0.875
+0.583
+0.70
+0.818
+0.750
+0.782
+Paritial match
+0.50
+0.638
+0.560
+0.840
+0.583
+0.688
+Not match
+0.808
+0.746
+0.776
+0.846
+0.974
+0.905
+Table 10: The performance of StructBert in the three types
+Algorithm 1: Non-standard Address Con-
+struction
+Input: Standard addresses in the address
+database
+Output: Non-standard addresses containing
+descriptive information
+1 for each address u in the address database
+do
+2
+for each address v in the address
+database and u != v do
+3
+if 20 <distance(u, v) <500 then
+4
+calculate the direction m and
+distance n of u relative to v;
+5
+desc = m + n;
+6
+end
+7
+else if 10 <distance(u, v) <20 then
+8
+desc = “nearby”;
+9
+end
+10
+else if 5 <distance(u, v) <10 then
+11
+desc = “next to”;
+12
+end
+13
+Non-standard address = u.ad + desc
++ v.name;
+14
+add the non-standard address to the
+non-standard address list;
+15
+end
+16 end
+D.3
+Dataset sample
+An example of the dataset we built is shown in
+Table 12, where we provide examples of inputs
+and outputs for each task. Note that in the table,
+the input address is in English, but it is actually in
+Chinese in the dataset.
+For an geocoding task, the input is a non-
+standard address and the output is the actual spatial
+location of that address (S2token). For an address
+Standardization task, the output is the correct ad-
+dress for that address. For the address linking task,
+the output is the index of the corresponding stan-
+dard address in the standard address library. In
+the address linking task, the model will sort all
+the addresses in the standard address library based
+on their degree of association with the input ad-
+dress, and we will determine the performance of
+the task based on whether the top 5 addresses with
+the highest degree of association contain the correct
+answer.
+E
+Generalized Discussion
+Due to the complexity of Chinese address (there
+is no symbol to separate the address, and the ex-
+pression forms are diverse), compared with other
+languages, Chinese address is very challenging, so
+we choose Chinese address as the research object.
+However, our framework(GeoAgent) are lan-
+guage independent.Specifically, we model the ad-
+dress standardization task in two steps: first, get
+the real world location of the address part in the
+address text, and second, offset the location accord-
+ing to the description information. This framework
+is not tied to the language itself and can be gener-
+alized to use in different languages. To implement
+the above steps, it is up to the LLM to determine
+the use and order of the geographic tools based on
+the different input addresses.
+Next, we discuss how our work can be applied
+to languages with different styles of expression -
+using English as an example. The expression of
+address in English is different from that in Chinese.
+It is customary to arrange the address elements
+according to the size of administrative area from
+small to large, which is the opposite of Chinese. So
+to use our method in English addresses, you only
+need to make the following changes. LLM: Choose
+a LLM with English ability. Modify the GeoLoss:
+If you want to train a model that maps addresses to
+specific locations yourself, you just need to modify
+the weights of the GeoLoss to give higher scores to
+the parts that represent larger administrative areas.
+Modify GeoRouge: If you need to use GeoRouge
+for addresses with administrative areas arranged
+from smallest to largest, simply change the formula
+1 −i/n in Wi in formula (4) to i/n.
+6062

@@ -1,0 +1,126 @@
+Pinglu Road, Shanghai; address2: Building 206,
+Wenxiang Mingyuan, No. 3088, Wenxiang Road,
+Songjiang District, Shanghai”, after standardiza-
+tion, it becomes “address1:
+No.
+206, Lane
+999, Pinglu Road, Jing’an District, Shanghai; ad-
+dress2: Building 206, Wenxiang Mingyuan, No.
+3088, Wenxiang Road, Songjiang District, Shang-
+hai”. This increases the difference between non-
+matching addresses, which helps to improve the
+performance of this type.
+For two models (Bert, MGeo) that have made
+only modest progress, we analyze the bad cases
+to find out why. We found an overall trend, the
+accuracy and recall rate of the model are improved
+for the two categories of partial matching and non-
+matching, but the precision of the model is de-
+creased for the category of full matching.The rea-
+son is that after GeoAgent address standardization,
+the text similarity between the two addresses is
+improved, so the model may mistakenly predict
+that the partially matched data is a full match. But
+StructBert and Roberta have stronger semantic un-
+derstanding ability and can effectively distinguish
+it. The detailed results are shown in the table 8 and
+table 9.
+For example, address 1: "Qianming Cun She,
+Qingping Road, Qingpu District, Shanghai", ad-
+dress 2: "Qianming Cun Bridge G50, Qingpu Dis-
+trict", after GeoAgent standardization, address 2
+becomes: "Qianming Cun Bridge, G50, Xujing
+Town, Qingpu District, Shanghai". The similar-
+ity between the two addresses becomes higher at
+the text level. For Bert, by encoding the text as
+a vector and then calculating the Cos similarity
+of the two vectors, may not be able to distinguish
+this small difference, so the two addresses are in-
+correctly predicted to full match, The actual re-
+sults is not match. For MGeo, its text-only train-
+ing method is very similar to Bert, which trains
+the model through MLM pre-training task. Al-
+though the MGM (Masked Geographic Modeling)
+pre-training task is added to learn location infor-
+mation, this module is more relevant to situations
+with geo-location information (such as latitude and
+longitude) input.So it makes the same mistake as
+the Bert.
+D
+Dataset Construction Details
+D.1
+Descriptive Information Construction
+As shown in Algorithm 1, the algorithm takes as
+input the standard address u that has undergone
+Class
+Precision
+Recall
+F1
+Full Match
+1(-0.33)
+0.583(+0.083)
+0.736(+0.07)
+Part Match
+0.615(+0.079)
+0.66(+0.034)
+0.64(+0.054)
+Not Match
+0.82(+0.066)
+0.848(+0.038)
+0.837(+0.049)
+Table 8: The performance of Bert in the three types
+(full match, partial match, and no match), with the result
+of GeoAgent processing in parentheses
+Class
+Precision
+Recall
+F1
+Full Match
+0.818(-0.126)
+0.75(+0)
+0.782(-0.06)
+Part Match
+0.782(-0.055)
+0.5(+0.16)
+0.61(+0.08)
+Not Match
+0.827(+0.037)
+0.974(-0.088)
+0.895(-0.02)
+Table 9: The performance of MGeo in the three types
+(full match, partial match, and no match), with the result
+of GeoAgent processing in parentheses
+the address entity missing process. The algorithm
+searches for a POI v within a distance of less than
+500 meters from u. If the distance between u and v
+satisfies the condition in line 3 of the algorithm, we
+use spatial calculation tools to obtain the relative
+direction and distance between u and v as the de-
+scriptive information. Similarly, if u and v satisfy
+the condition in line 7 of the algorithm, “nearby”
+is returned as the descriptive information. If the
+distance between u and v satisfies the condition
+in line 10 of the algorithm, “next to” is returned
+as the descriptive information. Following the for-
+mula in line 13 of the algorithm, we combine the
+address u after the address entity missing process
+with the descriptive information and the POI name
+of v to obtain the final non-standard address with
+descriptive information.
+For simplicity, we use “u.ad” to denote the miss-
+ing address of u, “desc” to denote the descriptive
+information, and “v.name” to denote the name of
+the POI v. The final non-standard address with de-
+scriptive information is obtained by combining the
+address u after the address entity missing process
+with the descriptive information and the POI name
+of v.
+D.2
+ChatGPT Expanding Prompt
+we use ChatGPT (gpt-3.5-turbo) in this paper to
+enrich the expression of descriptive information in
+addresses. To do so, we adopt the In-Context Learn-
+ing (ICL) approach and use prompts to provide in-
+put instructions and three examples, as shown in
+Table 11.
+6061

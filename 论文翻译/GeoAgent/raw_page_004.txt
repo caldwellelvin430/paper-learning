@@ -1,0 +1,105 @@
+cific task-soving LLM agents rely on LLMs for pro-
+ficiency in task decomposition (Wei et al., 2022b),
+generalization in decision-making, language under-
+standing capabilites (Wei et al., 2022a), interacts
+with the environment solves tasks that the LLM
+itself cannot solve well (Wang et al., 2023a; Shen
+et al., 2023). These agents have diverse applica-
+tions in robotics, law and complex reasoning (Dalvi
+et al., 2022; Cui et al., 2023; Pan et al., 2023).
+In this paper, we interact with the environment
+through the LLM, introduce fine-grained geograph-
+ical knowledge, accurate spatial computation, com-
+plete the task of address standardization.
+3
+GeoAgent
+Before diving into technical details, we formally
+define the Address Standardization task below:
+Address Standardization. We define the ad-
+dress standardization task as the problem of go-
+ing from a non-standard address S to a standard
+address S∗. The standard address refers to the
+address expression that conforms to the address
+writing rules. Taking the Chinese scenario as an
+example, a standard city address expression should
+be “province - city - district - street - street number
+- POI name” (Although our proposed approach is
+language-independent, we provide an analysis of
+different language implementations details in the
+appendix E).
+The core architecture of our framework is shown
+in Figure 2, which consists of three main steps: (1)
+Task planning. Given an address S, the model gen-
+erates a series of task execution sequences. Split-
+ting the address standardization task into smaller
+tasks. (2) Task execution. Execute and return re-
+sults based on the sequence of tasks are generated
+by the LLM. (3) Address text standardization. Ac-
+cording to the results of the previous task, the ad-
+dress text processing process is executed to obtain
+the standardized address S∗. The resulting stan-
+dardized address is the output of the GeoAgent.
+3.1
+Task Planning
+The aim of GeoAgent is to enable the LLM to pro-
+cess non-standard addresses in a way that aligns
+with human thinking and intuition.
+For a non-
+standard address that contains descriptive informa-
+tion, human intuition dictates that we first find the
+location of the standard part address section, which
+is called “Address Mapping”, and then use the de-
+scription to determine the final location, which is
+called “Offset Correction”.
+In this step, as shown in Figure 2, due to the vari-
+ety of description styles of non-standard addresses,
+the LLM should generate different tool calls based
+on the input address. For example, for the address
+“Cake Shop, 20 meters southwest of the intersec-
+tion of Guoquan North Road and Guoxue Road,
+Yangpu District”. LLM plan first calls the API 3 to
+query the relevant road information, then calls the
+API 1 to find the real location, and finally calls the
+API 2 directional offset tool based on the type of
+description information.
+3.2
+Task Execution
+The task execution step executes all the tasks gen-
+erated by the Task Planning step. LLM extracts
+parameters from the input address to pass the tool,
+we provide prompt API 1 in Figure 2, other API
+parameters and prompt can be seen in table 6. Here
+we need to build a toolset to facilitate LLM in exe-
+cuting these tasks, including address mapping tool,
+offset calculation tool and road information tool.
+3.2.1
+Address Mapping Tool
+The function of this tool is to map the address text
+to the corresponding real geographical location.
+For example, for an address “the intersection of
+Guoquan North Road and Guoxue Road, Yangpu
+District”, the output of the tool is “35b27304a89f”,
+we use Google S22 tokens to represent real geo-
+graphic locations rather than latitude and longitude.
+This tool mainly consists of two components:
+Standard POI Database. We construct a stan-
+dardized POI (Point of Interest) database contain-
+ing Shanghai address, which comprises approxi-
+mately 1.4 million POI address data. We organize
+the database in the format of “standard address
+-S2token” pairs.
+Geocoding Model. To improve the generaliza-
+tion of the address mapping tool, we train a Geocod-
+ing model to deal with the address inputs that do
+not exist in the standard POI database. We model
+the mapping between address and location in the
+real world as a seq-to-seq problem in this paper,
+aiming to capture potential correlations between
+tokens.
+Specifically, we choose transformers (Vaswani
+et al., 2017) as the model architecture. By encod-
+ing the input address text and decoding it into S2
+tokens, the model can learn the semantics and cor-
+relations between addresses and spatial locations.
+2https://s2geometry.io
+6051

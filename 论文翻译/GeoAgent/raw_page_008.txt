@@ -1,0 +1,166 @@
+Method
+AED
+GR-1
+GR-2
+GR-3
+GR-4
+Non-standard
+12.12
+0.739
+0.677
+0.645
+0.618
+AS-1
+15.27
+0.738
+0.608
+0.519
+0.438
+GeoAgent
+3.742
+0.926
+0.892
+0.871
+0.852
+Table 2: Address standardization results. AED indicates
+the average edit distance. GR-N is GeoRouge-N grams.
+Method
+Precision
+Recall
+F1
+Bert
+0.814
+0.699
+0.738
++GeoAgent
+0.769
+0.733
+0.749
+RoBERTa
+0.739
+0.669
+0.691
++GeoAgent
+0.809
+0.760
+0.774
+StructBert
+0.727
+0.656
+0.679
++GeoAgent
+0.834
+0.769
+0.792
+Mgeo
+0.809
+0.741
+0.762
++GeoAgent
+0.761
+0.767
+0.763
+Table 3: The results of different models on the address
+matching. +GeoAgent indicates the results of the model
+on address that have been standardized by GeoAgent.
+task is a combination of pre-ranking and ranking.
+We first filter the candidate addresses based on
+the input address’s district, and then the model
+scores the candidate addresses, recalling the top 5
+candidates with the highest scores. Our evaluation
+metric is MRR@5, which is a measure commonly
+used for evaluating linking algorithms. we choose
+the MGeo as the baseline.
+4.3
+Overall results
+Address standardization results. Our results are
+shown in Table 2. Non-standard indicates the dif-
+ference between the original non-standard address
+and the corresponding standard address. It can be
+observed that GeoAgent significantly reduces the
+edit distance (-8.378). GeoAgent also achieved
+very high scores in the GeoRouge-N metric, with
+no significant decay in grams 1, 2, 3, and 4. This
+shows that GeoAgent is able to take into account
+the importance of the order of address elements.
+The results show that it is necessary to process the
+description information in non-standard address in
+the process of address standardization. We provide
+a case study of the task in the Appendix C.1.
+Geocoding results. The Table 5 shows the re-
+sults of geocoding for non-standard address and
+address standardized by GeoAgent, the average dis-
+tance error is reduced by 66.55M and 42.41M, re-
+spectively. This proves the necessity and validity of
+standardizing non-standardized addresses. In addi-
+tion, the average error of GeoAgent is 53.06m, and
+Method
+MRR@5
+Mgeo
+0.698
+Mgeo+GeoAgent
+0.744
+Table 4: Address linking results
+Method
+Ac@100M
+Ac@1KM
+AD(m)
+GC-1
+0.579
+0.920
+535.65
++GeoAgent
+0.590
+0.938
+469.10
+GC-2
+0.626
+0.904
+396.46
++GeoAgent
+0.617
+0.942
+354.05
+GeoAgent
+0.866
+0.977
+53.05
+Table 5: The performance of the different geocoding
+apis, +GeoAgent indicates the performance of the api
+on addresses that have been standardized by GeoAgent.
+AD indicates the average error distance.
+the Ac@100M is 86.6%. This shows that GeoA-
+gent’s method of splitting non-standardized ad-
+dresses into standard address mapping and descrip-
+tion information offset steps is effective. We pro-
+vide a case study of the task in the Appendix C.2.
+Address matching results. GeoAgent’s stan-
+dardization of non-standard addresses improves
+the performance of all models, with the largest
+improvements seen in RoBERTa (+8.3 %) and
+StructBert (+11.3 %). The results of combining
+GeoAgent with StructBert surpass the SOTA model
+MGeo, demonstrating the effectiveness of GeoA-
+gent. To further analyze the reasons, we analyze
+the prediction changes for each class and found
+that GeoAgent increases the similarity between part
+match addresses and reduces the similarity between
+not match addresses through the standardization
+process, greatly increasing the model’s classifica-
+tion accuracy for these two classes. Details will be
+analyzed in the Appendix C.3.
+Address linking results. The results of address
+linking are shown in Table 4, which demonstrates
+that GeoAgent helps improve the performance of
+SOTA models in their domain of expertise (from
+69.8% to 74.4%).
+5
+Conclusion
+In conclusion, this paper introduces GeoAgent, a
+novel solution designed to address the challenges
+posed by non-standard addresses frequently input
+by users in modern applications. We utilize LLM
+task planning ability and tool utilization ability
+to make up for LLM lack of fine-grained spatial
+knowledge and accurate spatial calculation prob-
+6055

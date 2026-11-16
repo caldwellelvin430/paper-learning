@@ -1,0 +1,107 @@
+lems, leading to efficient address standardization.
+Additionally, we create an extensive dataset of com-
+plex non-standard addresses, which bridges the
+gaps in existing datasets. The experimental results
+demonstrate the effectiveness of GeoAgent, as it
+showcases significant enhancements in the perfor-
+mance of address-related models across various
+downstream tasks.
+Limitations
+First of all, our experiment was conducted on Chi-
+nese address. Although the framework of our pro-
+posed method is language-independent, it may re-
+quire some minor adjustments to generalize our
+method to other languages due to the differing con-
+ventions of addressing (GeoLoss, GeoRouge).
+Secondly, limited by our resources, we chose
+ChatGLM-6B as the LLM backbone, which has
+limited ability to follow and understand instruc-
+tions. In order to make the model output in the
+format we want, we conducted fine-tuning. As the
+size of the LLM increases and its ability to under-
+stand and follow instructions improves, the model
+should be able to output in the desired format via in-
+context learning, thereby skipping the fine-tuning
+step.
+Finally, because our method consists of multiple
+steps, cascading errors can occur. For example, if
+the geocoding has an average error of 50 meters,
+and the address happens to be at the junction of
+two administrative regions, this could lead to an ad-
+ministrative region prediction error, although such
+instances are relatively rare.
+Acknowledgements
+We thank the anonymous reviewers for their
+valuable comments.
+This work is supported
+by the National Natural Science Foundation of
+China (No.62072323, U21A20488, No.62102276),
+Shanghai
+Science
+and
+Technology
+Innova-
+tion Action Plan (No.22511104700),
+China
+Postdoctoral Science Foundation (Grant No.
+2023M732563), Zhejiang Lab Open ResearchPro-
+ject (No.K2022NB0AB04).
+References
+Mikael Brunila, Jack LaViolette, Sky CH-Wang,
+Priyanka Verma, Clara F’er’e, and Grant McKen-
+zie. 2023. Toward a critical toponymy framework for
+named entity recognition: A case study of airbnb in
+new york city. In Conference on Empirical Methods
+in Natural Language Processing.
+Bill P. Buckles, James J. Buckley, and Fernando Petry.
+1994. Architecture of fame: fuzzy address matching
+environment. Proceedings of 1994 IEEE 3rd Inter-
+national Fuzzy Systems Conference, pages 308–312
+vol.1.
+Pei Chen, Haotian Xu, Cheng Zhang, and Ruihong
+Huang. 2022. Crossroads, buildings and neighbor-
+hoods: A dataset for fine-grained location recogni-
+tion. In North American Chapter of the Association
+for Computational Linguistics.
+Jiaxi Cui, Zongjia Li, Yang Yan, Bohua Chen, and
+Li Yuan. 2023. Chatlaw: Open-source legal large
+language model with integrated external knowledge
+bases. ArXiv, abs/2306.16092.
+Bhavana Dalvi, Oyvind Tafjord, and Peter Clark. 2022.
+Towards teachable reasoning systems: Using a dy-
+namic memory of user feedback for continual system
+improvement. ArXiv, abs/2204.13074.
+Cheng Deng, Tianhang Zhang, Zhongmou He, Qiyuan
+Chen, Yuanyuan Shi, Le Zhou, Luoyi Fu, Weinan
+Zhang, Xinbing Wang, Cheng Zhou, Zhouhan Lin,
+and Junxian He. 2023. K2: A foundation language
+model for geoscience knowledge understanding and
+utilization.
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and
+Kristina Toutanova. 2019. Bert: Pre-training of deep
+bidirectional transformers for language understand-
+ing. In North American Chapter of the Association
+for Computational Linguistics.
+Ruixue Ding, Boli Chen, Pengjun Xie, Fei Huang, Xin
+Li, Qiang-Wei Zhang, and Yao Xu. 2023. Mgeo:
+Multi-modal geographic language model pre-training.
+Proceedings of the 46th International ACM SIGIR
+Conference on Research and Development in Infor-
+mation Retrieval.
+Zhengxiao Du, Yujie Qian, Xiao Liu, Ming Ding,
+Jiezhong Qiu, Zhilin Yang, and Jie Tang. 2021. Glm:
+General language model pretraining with autoregres-
+sive blank infilling. In Annual Meeting of the Associ-
+ation for Computational Linguistics.
+Yunfan Gao, Yun Xiong, Siqi Wang, and Haofen Wang.
+2022. Geobert: Pre-training geospatial representa-
+tion learning on point-of-interest. Applied Sciences.
+Wes Gurnee and Max Tegmark. 2023. Language models
+represent space and time. ArXiv, abs/2310.02207.
+Andrew Halterman. 2023. Mordecai 3: A neural geop-
+arser and event geocoder. ArXiv, abs/2303.13675.
+J. Edward Hu, Yelong Shen, Phillip Wallis, Zeyuan
+Allen-Zhu, Yuanzhi Li, Shean Wang, and Weizhu
+Chen. 2021. Lora: Low-rank adaptation of large
+language models. ArXiv, abs/2106.09685.
+6056

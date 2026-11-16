@@ -1,0 +1,110 @@
+Jizhou Huang, Haifeng Wang, Yibo Sun, Miao Fan,
+Zhengjie Huang, Chunyuan Yuan, and Yawen Li.
+2021. Hgamn: Heterogeneous graph attention match-
+ing network for multilingual poi retrieval at baidu
+maps. Proceedings of the 27th ACM SIGKDD Con-
+ference on Knowledge Discovery & Data Mining.
+Jizhou Huang, Haifeng Wang, Yibo Sun, Yunsheng Shi,
+Zhengjie Huang, An Zhuo, and Shikun Feng. 2022.
+Ernie-geol: A geography-and-language pre-trained
+model and its applications in baidu maps. Proceed-
+ings of the 28th ACM SIGKDD Conference on Knowl-
+edge Discovery and Data Mining.
+Dongyang Li, Ruixue Ding, Qiang-Wei Zhang, Zheng
+Li, Boli Chen, Pengjun Xie, Yao Xu, Xin Li, Ning
+Guo, Fei Huang, and Xiaofeng He. 2023a.
+Ge-
+oglue: A geographic language understanding evalua-
+tion benchmark. ArXiv, abs/2305.06545.
+Lin Li, Wei Wang, Biao He, and Yu Zhang. 2018. A
+hybrid method for chinese address segmentation. In-
+ternational Journal of Geographical Information Sci-
+ence, 32:30 – 48.
+Zekun Li, Wenxuan Zhou, Yao-Yi Chiang, and Muhao
+Chen. 2023b. Geolm: Empowering language models
+for geospatially grounded language understanding.
+ArXiv, abs/2310.14478.
+Chin-Yew Lin. 2004. Rouge: A package for automatic
+evaluation of summaries. In Annual Meeting of the
+Association for Computational Linguistics.
+Yue Lin, Mengjun Kang, Yuyang Wu, Qingyun Du,
+and Tao Liu. 2019. A deep learning architecture for
+semantic address matching. International Journal of
+Geographical Information Science, 34:559 – 576.
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Man-
+dar Joshi, Danqi Chen, Omer Levy, Mike Lewis,
+Luke Zettlemoyer, and Veselin Stoyanov. 2019.
+Roberta: A robustly optimized bert pretraining ap-
+proach. ArXiv, abs/1907.11692.
+Ilya Loshchilov and Frank Hutter. 2017. Decoupled
+weight decay regularization. In International Confer-
+ence on Learning Representations.
+Yan Lu, Hongli Liu, and Yanquan Zhou. 2019. Chi-
+nese address standardization based on seq2seq model.
+Proceedings of the 2019 2nd International Confer-
+ence on Computational Intelligence and Intelligent
+Systems.
+Rohin Manvi, Samar Khanna, Gengchen Mai, Marshall
+Burke, David B. Lobell, and Stefano Ermon. 2023.
+Geollm: Extracting geospatial knowledge from large
+language models. ArXiv, abs/2310.06213.
+Dilek Küçük Matcı and U˘gur Avdan. 2018. Address
+standardization using the natural language process
+for improving geocoding results. Comput. Environ.
+Urban Syst., 70:1–8.
+Kang Mengjun, Du Qingyun, and Wang Mingjun. 2015.
+A new method of chinese address extraction based
+on address tree model.
+Liangming Pan, Alon Albalak, Xinyi Wang, and
+William Yang Wang. 2023. Logic-lm: Empower-
+ing large language models with symbolic solvers for
+faithful logical reasoning. ArXiv, abs/2305.12295.
+Kishore Papineni, Salim Roukos, Todd Ward, and Wei-
+Jing Zhu. 2002. Bleu: a method for automatic evalu-
+ation of machine translation. In Annual Meeting of
+the Association for Computational Linguistics.
+Jonathan Roberts, Timo Luddecke, Sowmen Das,
+K. Han, and Samuel Albanie. 2023. Gpt4geo: How a
+language model sees the world’s geography. ArXiv,
+abs/2306.00020.
+Timo Schick, Jane Dwivedi-Yu, Roberto Dessì, Roberta
+Raileanu, Maria Lomeli, Luke Zettlemoyer, Nicola
+Cancedda, and Thomas Scialom. 2023. Toolformer:
+Language models can teach themselves to use tools.
+ArXiv, abs/2302.04761.
+Yongliang Shen, Kaitao Song, Xu Tan, Dong Sheng Li,
+Weiming Lu, and Yue Ting Zhuang. 2023. Hugging-
+gpt: Solving ai tasks with chatgpt and its friends in
+hugging face. ArXiv, abs/2303.17580.
+Liufeng Tao, Zhong Xie, Dexing Xu, Kai Ma, Qinjun
+Qiu, Shengyong Pan, and Bo Huang. 2022. Geo-
+graphic named entity recognition by employing natu-
+ral language processing and an improved bert model.
+ISPRS Int. J. Geo Inf., 11:598.
+Qin Tian, Fu Ren, Tao Hu, Jiangtao Liu, Ruichang Li,
+and Qingyun Du. 2016. Using an optimized chinese
+address matching method to develop a geocoding
+service: A case study of shenzhen, china. ISPRS Int.
+J. Geo Inf., 5:65.
+Ashish Vaswani, Noam M. Shazeer, Niki Parmar, Jakob
+Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz
+Kaiser, and Illia Polosukhin. 2017. Attention is all
+you need. In Neural Information Processing Systems.
+Wei Wang, Bin Bi, Ming Yan, Chen Wu, Zuyi Bao,
+Liwei Peng, and Luo Si. 2019. Structbert: Incorpo-
+rating language structures into pre-training for deep
+language understanding. ArXiv, abs/1908.04577.
+Zekun Wang, Ge Zhang, Kexin Yang, Ning Shi,
+Wangchunshu Zhou, Shaochun Hao, Guangzheng
+Xiong, Yizhi Li, Mong Yuan Sim, Xiuying Chen,
+Qingqing Zhu, Zhenzhu Yang, Adam Nik, Qi Liu,
+Chenghua Lin, Shizhuo Wang, Ruibo Liu, Wenhu
+Chen, Ke Xu, Dayiheng Liu, Yi-Ting Guo, and Jie
+Fu. 2023a. Interactive natural language processing.
+ArXiv, abs/2305.13246.
+Zhenhailong Wang, Shaoguang Mao, Wenshan Wu,
+Tao Ge, Furu Wei, and Heng Ji. 2023b. Unleash-
+ing cognitive synergy in large language models:
+A task-solving agent through multi-persona self-
+collaboration. ArXiv, abs/2307.05300.
+6057

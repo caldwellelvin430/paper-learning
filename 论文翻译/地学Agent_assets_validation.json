@@ -1,0 +1,50 @@
+{
+  "Earth-Agent": {
+    "pages": 65,
+    "page_screenshots": 65,
+    "text_pages": 65,
+    "empty_text_pages": [],
+    "figures": 42,
+    "tables": 17,
+    "individual_graphics": 66,
+    "missing_figures": [],
+    "missing_tables": [],
+    "md_image_references": 66,
+    "broken_image_references": [],
+    "figure_table_not_in_md": [],
+    "corrupt_images": [],
+    "source_pdf_sha256": "97228beb0798bb021f70d9c973ba5dc13d31667bef71ca1c282099bfb7e0694f"
+  },
+  "Geospatial-Code-LLMs": {
+    "pages": 9,
+    "page_screenshots": 9,
+    "text_pages": 9,
+    "empty_text_pages": [],
+    "figures": 1,
+    "tables": 7,
+    "individual_graphics": 8,
+    "missing_figures": [],
+    "missing_tables": [],
+    "md_image_references": 8,
+    "broken_image_references": [],
+    "figure_table_not_in_md": [],
+    "corrupt_images": [],
+    "source_pdf_sha256": "d86f3965d24d777cf003c4448d0f444d1cb8702896fc4896615d1fe8aa15aea3"
+  },
+  "GeoAgent": {
+    "pages": 16,
+    "page_screenshots": 16,
+    "text_pages": 16,
+    "empty_text_pages": [],
+    "figures": 3,
+    "tables": 12,
+    "individual_graphics": 15,
+    "missing_figures": [],
+    "missing_tables": [],
+    "md_image_references": 15,
+    "broken_image_references": [],
+    "figure_table_not_in_md": [],
+    "corrupt_images": [],
+    "source_pdf_sha256": "7c5f1d711748fdb604e83259427c653a36d227d45b34192e65841c93645e2007"
+  }
+}

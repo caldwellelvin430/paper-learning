@@ -1,0 +1,332 @@
+[
+  {
+    "kind": "Figure",
+    "number": 1,
+    "y": 342.4066467285156,
+    "x": 306.144287109375,
+    "bbox": [
+      306.14,
+      342.41,
+      524.42,
+      354.41
+    ],
+    "caption_head": "Figure 1: Examples of three non-standard address types",
+    "page": 1,
+    "file": "./images/figure-01-p001.jpg",
+    "crop": [
+      305.0,
+      217.0,
+      562.0,
+      393.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 2,
+    "y": 351.8771057128906,
+    "x": 70.85653686523438,
+    "bbox": [
+      70.86,
+      351.88,
+      524.42,
+      363.88
+    ],
+    "caption_head": "Figure 2: An illustration of GeoAgent. (A) is a demonstration of the GeoAgent workflow. (B) depicts the series of",
+    "page": 3,
+    "file": "./images/figure-02-p003.jpg",
+    "crop": [
+      26.0,
+      65.0,
+      569.3,
+      400.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 1,
+    "y": 135.36727905273438,
+    "x": 351.1665344238281,
+    "bbox": [
+      351.17,
+      135.37,
+      479.09,
+      147.37
+    ],
+    "caption_head": "Table 1: Statistics of our dataset",
+    "page": 6,
+    "file": "./images/table-01-p006.jpg",
+    "crop": [
+      302.0,
+      64.0,
+      535.0,
+      167.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 4,
+    "y": 121.81759643554688,
+    "x": 351.5795593261719,
+    "bbox": [
+      351.58,
+      121.82,
+      478.68,
+      133.82
+    ],
+    "caption_head": "Table 4: Address linking results",
+    "page": 8,
+    "file": "./images/table-04-p008.jpg",
+    "crop": [
+      306.0,
+      66.0,
+      532.0,
+      161.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 2,
+    "y": 126.93484497070312,
+    "x": 70.54752349853516,
+    "bbox": [
+      70.55,
+      126.93,
+      289.13,
+      138.94
+    ],
+    "caption_head": "Table 2: Address standardization results. AED indicates",
+    "page": 8,
+    "file": "./images/table-02-p008.jpg",
+    "crop": [
+      60.0,
+      70.0,
+      298.0,
+      175.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 5,
+    "y": 239.50949096679688,
+    "x": 305.8352966308594,
+    "bbox": [
+      305.84,
+      239.51,
+      524.42,
+      251.52
+    ],
+    "caption_head": "Table 5: The performance of the different geocoding",
+    "page": 8,
+    "file": "./images/table-05-p008.jpg",
+    "crop": [
+      306.0,
+      165.0,
+      536.0,
+      292.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 3,
+    "y": 297.5723571777344,
+    "x": 70.54752349853516,
+    "bbox": [
+      70.55,
+      297.57,
+      289.13,
+      309.58
+    ],
+    "caption_head": "Table 3: The results of different models on the address",
+    "page": 8,
+    "file": "./images/table-03-p008.jpg",
+    "crop": [
+      62.0,
+      178.0,
+      303.0,
+      341.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 6,
+    "y": 70.00900268554688,
+    "x": 213.4026641845703,
+    "bbox": [
+      213.4,
+      70.01,
+      381.57,
+      82.01
+    ],
+    "caption_head": "Table 6: A summary of API call examples",
+    "page": 12,
+    "file": "./images/table-06-p012.jpg",
+    "crop": [
+      62.0,
+      67.0,
+      534.0,
+      465.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 7,
+    "y": 525.4537353515625,
+    "x": 97.3328628540039,
+    "bbox": [
+      97.33,
+      525.45,
+      262.35,
+      537.46
+    ],
+    "caption_head": "Table 7: Ablation results in loss function",
+    "page": 12,
+    "file": "./images/table-07-p012.jpg",
+    "crop": [
+      64.0,
+      469.0,
+      302.0,
+      564.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 3,
+    "y": 326.9298400878906,
+    "x": 246.29029846191406,
+    "bbox": [
+      246.29,
+      326.93,
+      348.99,
+      338.94
+    ],
+    "caption_head": "Figure 3: Geocoding case",
+    "page": 13,
+    "file": "./images/figure-03-p013.jpg",
+    "crop": [
+      28.0,
+      66.9,
+      567.3,
+      374.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 8,
+    "y": 122.20968627929688,
+    "x": 305.8352966308594,
+    "bbox": [
+      305.84,
+      122.21,
+      524.42,
+      134.22
+    ],
+    "caption_head": "Table 8: The performance of Bert in the three types",
+    "page": 14,
+    "file": "./images/table-08-p014.jpg",
+    "crop": [
+      306.0,
+      65.0,
+      538.0,
+      174.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 9,
+    "y": 233.14517211914062,
+    "x": 305.8352966308594,
+    "bbox": [
+      305.84,
+      233.15,
+      524.42,
+      245.15
+    ],
+    "caption_head": "Table 9: The performance of MGeo in the three types",
+    "page": 14,
+    "file": "./images/table-09-p014.jpg",
+    "crop": [
+      306.0,
+      172.0,
+      538.0,
+      286.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 11,
+    "y": 762.76806640625,
+    "x": 305.8062744140625,
+    "bbox": [
+      305.81,
+      762.77,
+      346.14,
+      775.91
+    ],
+    "caption_head": "Table 11.",
+    "page": 16,
+    "file": "./images/table-11-p016.jpg",
+    "crop": [
+      58.0,
+      145.0,
+      536.0,
+      405.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 10,
+    "y": 149.31600952148438,
+    "x": 180.68402099609375,
+    "bbox": [
+      180.68,
+      149.32,
+      414.29,
+      161.32
+    ],
+    "caption_head": "Table 10: The performance of StructBert in the three types",
+    "page": 15,
+    "file": "./images/table-10-p015.jpg",
+    "crop": [
+      122.0,
+      65.0,
+      506.0,
+      170.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 12,
+    "y": 679.603515625,
+    "x": 245.84228515625,
+    "bbox": [
+      245.84,
+      679.6,
+      349.13,
+      691.61
+    ],
+    "caption_head": "Table 12: Dataset sample",
+    "page": 16,
+    "file": "./images/table-12-p016.jpg",
+    "crop": [
+      61.0,
+      535.0,
+      540.0,
+      720.0
+    ],
+    "extracted": true
+  }
+]

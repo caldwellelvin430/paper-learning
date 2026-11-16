@@ -1,0 +1,104 @@
+narios. In recent years, with the advancements
+in deep learning technology, researchers have ex-
+plored the use of neural network models to tackle
+non-standard address issues (Ye et al., 2022). Re-
+cently, many methods of pre-training in geographic
+text corpus have been proposed (Huang et al., 2022;
+Ding et al., 2023; Gao et al., 2022), or design mod-
+els for specific tasks (Wu et al., 2023; Halterman,
+2023; Brunila et al., 2023; Tao et al., 2022). How-
+ever, such methods require a large amount of an-
+notated data and are unable to handle common
+descriptive information (e.g., 20 meters southwest)
+in addresses.
+With the emergence of large language models
+(LLMs) like ChatGPT, they have demonstrated
+powerful semantic understanding capabilities, lead-
+ing to remarkable performance across multiple
+tasks. Existing work shows that LLMs have some
+coarse-grained geographic knowledge, but it still
+suffer from the following problems according to
+our observations: 1) Spatial Similarity Issues:
+LLMs excel in processing natural language texts
+and understanding their semantics. However, ad-
+dress information processing involves spatial simi-
+larity issues. Geographically close addresses may
+have significant textual differences, such as “No.
+323 Songhan Road, Baoshan District” and “No.
+861 Guofan Road, Yangpu District”. Although
+the two addresses are literally completely differ-
+ent, they are actually very close, located on op-
+posite sides of an intersection.
+To tackle such
+cases, the model needs spatial knowledge to dis-
+cern spatial correlations. Unfortunately, existing
+LLMs often lack geographic and address-related
+fine-grained knowledge, resulting in unsatisfactory
+results when dealing with addressing-related prob-
+lems. 2) Changes in Geographic Spatial Knowl-
+edge: Geographic information is subject to fre-
+quent changes, with businesses, companies, and
+establishments experiencing relocations, closures,
+and other transformations over time. Large lan-
+guage models store knowledge in parameters, mak-
+ing it difficult for them to adapt to such knowledge
+changes. It requires substantial training costs to
+update these parameters, which makes it challenge-
+able to keep the model up-to-date with the real-
+world changes in address information 3) Deficien-
+cies in Precise Numerical Calculations: Exist-
+ing work indicates that LLMs have deficiencies in
+performing precise numerical calculations (Schick
+et al., 2023). This limitation makes it challenge-
+able for them to handle non-standard addresses that
+involve directional shifts (e.g. figure 1(b)).
+To tackle the above problems, inspired by the
+latest research on LLM Agent (Yang et al., 2023;
+Wang et al., 2023b), we propose GeoAgent, an
+innovative framework that combines a LLM with
+geospatial tools. By leveraging the language under-
+standing and decision-making capabilities of LLMs
+to interact with geospatial tools, GeoAgent effec-
+tively processes non-standard addresses. By intro-
+ducing an address knowledge base, fine-grained
+geospatial knowledge can be obtained. To main-
+tain geospatial knowledge efficiently, we store it
+in an external vector database. This approach sig-
+nificantly reduces costs compared to re-training
+the model every time when the knowledge needs
+updating. Furthermore, our method uses spatial
+computing tools to achieve accurate spatial offset
+calculations.
+Recognizing the lack of a dataset that contains
+various non-standard addresses, especially those
+with descriptive information, we construct a com-
+prehensive dataset for providing non-standard ad-
+dresses for this task. Our dataset covers complex
+non-standard address linking, address standardiza-
+tion, and geocoding, which effectively fills the gaps
+in existing datasets. We have conducted exten-
+sive experiments on both our dataset and existing
+datasets, demonstrating that GeoAgent’s standard-
+ized processing significantly enhances the perfor-
+mance of address-related models in downstream
+tasks. To account for the importance of text posi-
+tion in address text evaluation, we propose a new
+standardized metric called GeoRouge, which pro-
+vides a more comprehensive and relevant evalua-
+tion for address standardized.
+Our major contributions are highlighted as fol-
+lows:
+• We propose the GeoAgent framework, a novel
+approach that combines the capabilities of
+LLM with geospatial tools to address issues
+related to address text.
+• Our work includes the construction of a com-
+prehensive dataset comprising various non-
+standard addresses, aiming at closely resem-
+bling real-life scenarios of address text prob-
+lems. Additionally, we introduce a new metric,
+GeoRouge, specifically tailored for measuring
+address standardization performance.
+• Extensive validation of our framework’s effec-
+tiveness has been conducted through a series
+6049
