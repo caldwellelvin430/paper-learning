@@ -1,0 +1,112 @@
+carries out the subtasks according to the plan. Eval-
+uation on ten datasets across three types of reason-
+ing problems shows PS+ prompting outperforms
+the previous zero-shot baselines and performs on
+par with few-shot CoT prompting on multiple arith-
+metic reasoning datasets. Overall, our results sug-
+gest that (a) Zero-shot PS+ prompting can generate
+a high-quality reasoning process than Zero-shot-
+CoT prompting since the PS prompts can provide
+more detailed instructions guiding the LLMs to per-
+form correct reasoning; (b) Zero-shot PS+ prompt-
+ing has the potential to outperform manual Few-
+shot CoT prompting, which hopefully will spark
+further development of new CoT prompting ap-
+proaches to elicit reasoning in LLMs. Moreover,
+PS(+) prompting is a general idea that can be used
+for non-reasoning tasks, and refining the plan is
+also an interesting idea. We leave them for future
+work.
+7
+Limitations
+There are two limitations to this work. First, it takes
+effort to design the prompt to guide the LLMs to
+generate correct reasoning steps. The GPT-3 mod-
+els are sensitive to the expressions in prompts. Thus
+we need to carefully design the prompts. Second,
+the proposed plan-and-solve prompting can help ad-
+dress the calculation errors and missing-reasoning-
+step errors, but the semantic misunderstanding er-
+rors still remain. We will explore how to address
+semantic misunderstanding errors by prompting
+instead of upgrading LLMs in the future.
+8
+Ethics
+We experiment on six math reasoning datasets, in-
+cluding AQuA (Ling et al., 2017), GSM8K (Cobbe
+et al., 2021), MultiArith, AddSub, SingleEq, and
+SVAMP (Patel et al., 2021), two commonsense
+reasoning tasks (CommonsenseQA (Talmor et al.,
+2019) and StrategyQA (Geva et al., 2021)), and
+two symbolic tasks (Last Letter and Coin Flip (Wei
+et al., 2022b)), where GSM8K and SVAMP use
+the MIT License code, AQUA and StrategyQA use
+the Apache-2.0 code, the remaining datasets are
+unspecified.
+The proposed prompts do not collect and use
+personal information about other individuals. The
+prompts we used are listed in Appendix.
+The
+prompts in this work do not contain any words
+that discriminate against any individual or group.
+In this work, prompts would not negatively impact
+other people’s safety.
+References
+Tom Brown, Benjamin Mann, Nick Ryder, Melanie
+Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind
+Neelakantan, Pranav Shyam, Girish Sastry, Amanda
+Askell, et al. 2020. Language models are few-shot
+learners. Advances in neural information processing
+systems, 33:1877–1901.
+Wenhu Chen, Xueguang Ma, Xinyi Wang, and
+William W Cohen. 2022.
+Program of thoughts
+prompting: Disentangling computation from reason-
+ing for numerical reasoning tasks. arXiv preprint
+arXiv:2211.12588.
+Aakanksha Chowdhery, Sharan Narang, Jacob Devlin,
+Maarten Bosma, Gaurav Mishra, Adam Roberts,
+Paul Barham, Hyung Won Chung, Charles Sutton,
+Sebastian Gehrmann, et al. 2022. PaLM: Scaling
+language modeling with pathways. arXiv preprint
+arXiv:2204.02311.
+Karl Cobbe, Vineet Kosaraju, Mohammad Bavar-
+ian, Jacob Hilton, Reiichiro Nakano, Christopher
+Hesse, and John Schulman. 2021.
+Training veri-
+fiers to solve math word problems. arXiv preprint
+arXiv:2110.14168.
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and
+Kristina Toutanova. 2019. BERT: Pre-training of
+deep bidirectional transformers for language under-
+standing. In Proceedings of NAACL, pages 4171–
+4186.
+Dheeru Dua, Shivanshu Gupta, Sameer Singh, and
+Matt Gardner. 2022.
+Successive prompting for
+decomposing complex questions.
+arXiv preprint
+arXiv:2212.04092.
+Yao Fu, Hao Peng, Ashish Sabharwal, Peter Clark,
+and Tushar Khot. 2022. Complexity-based prompt-
+ing for multi-step reasoning.
+arXiv preprint
+arXiv:2210.00720.
+Mor Geva, Daniel Khashabi, Elad Segal, Tushar Khot,
+Dan Roth, and Jonathan Berant. 2021. Did aristotle
+use a laptop? a question answering benchmark with
+implicit reasoning strategies. TACL, 9:346–361.
+Junxian He, Chunting Zhou, Xuezhe Ma, Taylor Berg-
+Kirkpatrick, and Graham Neubig. 2021. Towards a
+unified view of parameter-efficient transfer learning.
+arXiv preprint arXiv:2110.04366.
+Dan Hendrycks, Collin Burns, Saurav Kadavath, Akul
+Arora, Steven Basart, Eric Tang, Dawn Song, and Ja-
+cob Steinhardt. 2021. Measuring mathematical prob-
+lem solving with the math dataset. arXiv preprint
+arXiv:2103.03874.
+Mohammad Javad Hosseini, Hannaneh Hajishirzi, Oren
+Etzioni, and Nate Kushman. 2014. Learning to solve
+arithmetic word problems with verb categorization.
+In EMNLP, pages 523–533.
+2617

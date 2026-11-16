@@ -1,0 +1,46 @@
+Table 17: Example outputs by Zero-shot-PS+ for AQuA.
+Q: The average wages of a worker during a fortnight comprising of 15 consecutive working days was
+$90 per day. During the first 7 days, his average wage was $87 per day and the average wage during
+the last 7 days was $92 per day. What was his wage on the 8th day? Answer Choices: (A) $83 (B)
+$92 (C) $90 (D) $97 (E) $104
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+Variables:
+Average wage during the first 7 days = 87
+Average wage during the last 7 days = 92
+Average wage during the fortnight = 90
+Plan:
+Calculate the total wages earned during
+the first 7 days.
+Calculate the total wages earned during
+the last 7 days.
+Calculate the total wages earned during
+the fortnight.
+Calculate the wage on the 8th day.
+Calculation:
+Total wages earned during the first 7 days = 7 x 87 = 609
+Total wages earned during the last 7 days = 7 x 92 = 644
+Total wages earned during the fortnight = 15 x 90 = 1350
+Wage on the 8th day = (1350 - 609 - 644) / 1 = 97
+Answer: (D) $97.
+Q: If 27 bottles of soda cost A cents, how much will B bottles cost in dollars? Answer Choices: (A)
+AB/2700 (B) 27/AB (C) AB/270 (D) 2700/AB (E) 100AB/27
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+Given:
+27 bottles of soda cost A cents
+B bottles of soda
+Plan:
+1. Convert A cents to dollars
+2. Calculate the cost of B bottles of soda
+Solution:
+1. Convert A cents to dollars: A cents = A/100 dollars
+2. Calculate the cost of B bottles of soda: B bottles of soda = (A/100) * (B/27) = AB/2700 dollars
+Answer: (A) AB/2700
+2623

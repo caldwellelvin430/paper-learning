@@ -1,0 +1,18 @@
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456
+
+Fig. 10. Comparison of Code Generation Test Results.
+
+CRediT authorship contribution statement
+
+Shuyang Hou: Writing – original draft, Visualization, Validation, 
+Software, Methodology, Investigation, Formal analysis, Data curation, 
+Conceptualization. Zhangxiao Shen: Software, Project administration,
+
+Data curation. Anqi Zhao: Software, Conceptualization. Jianyuan 
+Liang: Validation, Data curation. Zhipeng Gui: Writing – review & 
+editing, Supervision, Funding acquisition. Xuefeng Guan: Writing – 
+review & editing, Supervision, Funding acquisition. Rui Li: Writing – 
+review & editing, Supervision, Funding acquisition. Huayi Wu: Writing
+
+13

@@ -1,0 +1,60 @@
+Summarization and code generation tasks were constructed following 
+the GeoCode-SFT framework, utilizing valid code snippets with prompt- 
+based guidance to generate geospatial code summaries. Summaries were 
+required to accurately capture functionality, clearly identify entities, 
+and maintain concise language. In total, 500 summarization tasks and 
+500 code generation tasks were created, with all questions and answers 
+manually verified for quality and clarity. The example questions are 
+shown in Fig. 7.
+4. Model training
+A robust base model is essential for effective fine-tuning. While 
+general-purpose code generation models are optimized for coding tasks, 
+they lack domain-specific knowledge of geospatial code, making fine- 
+tuning indispensable. This study employs a general code generation 
+model as the foundation. QLoRA reduces GPU memory usage by 
+approximately 75 %, enabling larger batch sizes and longer sequences, 
+making it well-suited for large-scale code processing in resource-limited 
+settings. Conversely, LoRA accelerates fine-tuning convergence by 
+approximately 66 %, making it ideal for high-precision instruction 
+tuning. Accordingly, QLoRA is utilized for pretraining and LoRA for fine- 
+tuning, achieving a balance between computational efficiency and 
+training precision. This section introduces the base model, Code Llama- 
+7B, and the two training stages of GeoCode-GPT.
+4.1. Base model
+Code Llama was selected as the base model. Built on the widely 
+adopted LLaMA-2 foundation, Code Llama incorporates specialized 
+training for code generation tasks. It has demonstrated strong perfor­
+mance in benchmarks such as HumanEval and MBPP, excelling in code 
+generation, code completion, and handling long contexts, even 
+outperforming the larger LLaMA 2-70B model in certain tasks. This 
+makes it particularly suited for geospatial code generation. Code Llama 
+offers three parameter configurations: 7B, 13B, and 34B. Among these, 
+Code Llama-7B strikes an optimal balance between performance and 
+resource efficiency while supporting effective LoRA fine-tuning. 
+Considering its performance, flexibility, and lower training costs, Code 
+Llama-7B was chosen as the base model for this study.
+4.2. Pretraining
+During the pretraining phase, we optimized the Code Llama-7B 
+model using the GeoCode-PT corpus with QLoRA, combining quanti­
+zation and low-rank adaptation to reduce memory usage and support the 
+longest possible input sequences, thereby improving the model’s 
+learning efficiency. The specific hyperparameter configuration is as 
+follows: a global batch size of 64, int4 quantization precision, and one 
+training epoch. The initial learning rate was set at 0.0002, with a cosine 
+decay scheduler and linear warmup over the first 5 % of steps. A weight 
+decay factor of 0.1 was applied to prevent overfitting. Gradient accu­
+mulation steps were set to 4, and the maximum input sequence length 
+was 4096 tokens, ensuring smooth operation on two NVIDIA A100 40 
+GB GPUs. For the QLoRA configuration, we set the rank value to 64, used 
+NF4 quantization, and a scaling factor of 128. The main modules opti­
+mized included the q_proj, v_proj, k_proj, o_proj, and MLP layers. A 
+dropout probability of 0.05 was applied to mitigate the risk of 
+overfitting.
+4.3. Fine-tuning
+Following QLoRA pretraining, fine-tuning was performed using 
+LoRA to further enhance task-specific capabilities and adaptability. 
+Distinct from the pretraining phase, fine-tuning employed a reduced 
+Fig. 3. Diagram of the Rule-based Structured Extraction Method.
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+6 

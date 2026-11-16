@@ -1,0 +1,114 @@
+Neil Houlsby, Andrei Giurgiu, Stanislaw Jastrzebski,
+Bruna Morrone, Quentin De Laroussilhe, Andrea
+Gesmundo, Mona Attariyan, and Sylvain Gelly. 2019.
+Parameter-efficient transfer learning for nlp. In In-
+ternational Conference on Machine Learning, pages
+2790–2799. PMLR.
+Jie Huang and Kevin Chen-Chuan Chang. 2022. To-
+wards reasoning in large language models: A survey.
+arXiv preprint arXiv:2212.10403.
+Wenlong Huang, Pieter Abbeel, Deepak Pathak, and
+Igor Mordatch. 2022. Language models as zero-shot
+planners: Extracting actionable knowledge for em-
+bodied agents. In International Conference on Ma-
+chine Learning, pages 9118–9147. PMLR.
+Tushar Khot, Harsh Trivedi, Matthew Finlayson, Yao
+Fu, Kyle Richardson, Peter Clark, and Ashish Sab-
+harwal. 2022. Decomposed prompting: A modular
+approach for solving complex tasks. arXiv preprint
+arXiv:2210.02406.
+Takeshi Kojima, Shixiang Shane Gu, Machel Reid, Yu-
+taka Matsuo, and Yusuke Iwasawa. 2022. Large lan-
+guage models are zero-shot reasoners. arXiv preprint
+arXiv:2205.11916.
+Rik Koncel-Kedziorski, Hannaneh Hajishirzi, Ashish
+Sabharwal, Oren Etzioni, and Siena Dumas Ang.
+2015. Parsing algebraic word problems into equa-
+tions. Transactions of the Association for Computa-
+tional Linguistics, 3:585–597.
+Rik Koncel-Kedziorski, Subhro Roy, Aida Amini, Nate
+Kushman, and Hannaneh Hajishirzi. 2016. MAWPS:
+A math word problem repository. In Proceedings of
+NAACL, pages 1152–1157.
+Yifei Li, Zeqi Lin, Shizhuo Zhang, Qiang Fu, Bei Chen,
+Jian-Guang Lou, and Weizhu Chen. 2022. On the
+advance of making language models better reasoners.
+arXiv preprint arXiv:2206.02336.
+Wang Ling, Dani Yogatama, Chris Dyer, and Phil Blun-
+som. 2017. Program induction by rationale genera-
+tion: Learning to solve and explain algebraic word
+problems. In Proceedings of the 55th Annual Meet-
+ing of the Association for Computational Linguistics
+(Volume 1: Long Papers), pages 158–167.
+Bo Liu, Yuqian Jiang, Xiaohan Zhang, Qiang Liu,
+Shiqi Zhang, Joydeep Biswas, and Peter Stone.
+2023. Llm+ p: Empowering large language mod-
+els with optimal planning proficiency. arXiv preprint
+arXiv:2304.11477.
+Yinhan Liu, Myle Ott, Naman Goyal, Jingfei Du, Man-
+dar Joshi, Danqi Chen, Omer Levy, Mike Lewis,
+Luke Zettlemoyer, and Veselin Stoyanov. 2019.
+Roberta: A robustly optimized bert pretraining ap-
+proach. arXiv preprint arXiv:1907.11692.
+Pan Lu, Liang Qiu, Kai-Wei Chang, Ying Nian Wu,
+Song-Chun Zhu, Tanmay Rajpurohit, Peter Clark,
+and Ashwin Kalyan. 2022. Dynamic prompt learning
+via policy gradient for semi-structured mathematical
+reasoning. arXiv preprint arXiv:2209.14610.
+Arkil Patel, Satwik Bhattamishra, and Navin Goyal.
+2021. Are NLP models really able to solve simple
+math word problems?
+In Proceedings of NAACL,
+pages 2080–2094.
+Ofir Press, Muru Zhang, Sewon Min, Ludwig Schmidt,
+Noah A Smith, and Mike Lewis. 2022. Measuring
+and narrowing the compositionality gap in language
+models. arXiv preprint arXiv:2210.03350.
+Subhro Roy and Dan Roth. 2016.
+Solving gen-
+eral arithmetic word problems.
+arXiv preprint
+arXiv:1608.01413.
+Abulhair Saparov and He He. 2022. Language models
+are greedy reasoners: A systematic formal analysis of
+chain-of-thought. arXiv preprint arXiv:2210.01240.
+Omar Shaikh, Hongxin Zhang, William Held, Michael
+Bernstein, and Diyi Yang. 2022. On second thought,
+let’s not think step by step! bias and toxicity in zero-
+shot reasoning. arXiv preprint arXiv:2212.08061.
+Simeng Sun, Yang Liu, Shuohang Wang, Chenguang
+Zhu, and Mohit Iyyer. 2023. Pearl: Prompting large
+language models to plan and execute actions over
+long documents.
+Tianxiang Sun, Yunfan Shao, Hong Qian, Xuanjing
+Huang, and Xipeng Qiu. 2022. Black-box tuning
+for language-model-as-a-service.
+arXiv preprint
+arXiv:2201.03514.
+Mirac Suzgun, Nathan Scales, Nathanael Schärli, Se-
+bastian Gehrmann, Yi Tay, Hyung Won Chung,
+Aakanksha Chowdhery, Quoc V Le, Ed H Chi, Denny
+Zhou, et al. 2022. Challenging big-bench tasks and
+whether chain-of-thought can solve them.
+arXiv
+preprint arXiv:2210.09261.
+Alon Talmor, Jonathan Herzig, Nicholas Lourie, and
+Jonathan Berant. 2019. Commonsenseqa: A question
+answering challenge targeting commonsense knowl-
+edge. In Proceedings of NAACL-HLT, pages 4149–
+4158.
+Romal Thoppilan, Daniel De Freitas, Jamie Hall, Noam
+Shazeer, Apoorv Kulshreshtha, Heng-Tze Cheng,
+Alicia Jin, Taylor Bos, Leslie Baker, Yu Du, et al.
+2022. Lamda: Language models for dialog applica-
+tions. arXiv preprint arXiv:2201.08239.
+Boshi Wang, Sewon Min, Xiang Deng, Jiaming Shen,
+You Wu, Luke Zettlemoyer, and Huan Sun. 2022a.
+Towards understanding chain-of-thought prompting:
+An empirical study of what matters. arXiv preprint
+arXiv:2212.10001.
+Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc Le,
+Ed Chi, and Denny Zhou. 2022b. Self-consistency
+improves chain of thought reasoning in language
+models. arXiv preprint arXiv:2203.11171.
+2618

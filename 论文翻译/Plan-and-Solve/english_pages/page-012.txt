@@ -1,0 +1,97 @@
+Table 7:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on AQuA.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+42.5
+
+Let’s first understand the problem, extract all relevant variables and their corresponding numerals
+carefully, and devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and common sense), solve the problem step by step carefully, and show
+the answer.
+
+2
+
+42.9
+
+Let’s first understand the problem, extract relevant correct variables and their correct corresponding
+numerals, and devise complete plans. Then, let’s carry out the plan, calculate intermediate variables
+including extracted variables (pay attention to correct numerical calculation and common sense), solve
+the problem by single equations, and show the answer.
+
+3
+
+43.7
+
+4
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+46.0
+
+Table 8:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on GSM8K.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+58.2
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to correct
+numeral calculation and commonsense), solve the problem step by step, and show the answer.
+58.7
+
+3
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+59.3
+
+Table 9:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on MultiArith.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+87.2
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to correct
+numeral calculation and commonsense), solve the problem step by step, and show the answer.
+88.3
+
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to the correctness of the calculation and common sense), solve the problem step by step, and show
+the answer.
+
+3
+
+90.5
+
+4
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+91.8
+
+2620

@@ -1,0 +1,235 @@
+[
+  {
+    "page": 1,
+    "raw_chars": 4034,
+    "paragraph_chars": 4057,
+    "figure_table_captions": [
+      "Figure-1"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 2,
+    "raw_chars": 4686,
+    "paragraph_chars": 4692,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 3,
+    "raw_chars": 3321,
+    "paragraph_chars": 3327,
+    "figure_table_captions": [
+      "Figure-2"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 4,
+    "raw_chars": 2611,
+    "paragraph_chars": 2616,
+    "figure_table_captions": [
+      "Figure-3"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 5,
+    "raw_chars": 4416,
+    "paragraph_chars": 4428,
+    "figure_table_captions": [
+      "Table-1"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 6,
+    "raw_chars": 3646,
+    "paragraph_chars": 3668,
+    "figure_table_captions": [
+      "Table-2",
+      "Table-3",
+      "Table-4",
+      "Figure-4"
+    ],
+    "image_count": 2
+  },
+  {
+    "page": 7,
+    "raw_chars": 4019,
+    "paragraph_chars": 4040,
+    "figure_table_captions": [
+      "Table-5",
+      "Table-6"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 8,
+    "raw_chars": 4344,
+    "paragraph_chars": 4365,
+    "figure_table_captions": [
+      "Figure-5"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 9,
+    "raw_chars": 4517,
+    "paragraph_chars": 4534,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 10,
+    "raw_chars": 4865,
+    "paragraph_chars": 4889,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 11,
+    "raw_chars": 2084,
+    "paragraph_chars": 2097,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 12,
+    "raw_chars": 3466,
+    "paragraph_chars": 3488,
+    "figure_table_captions": [
+      "Table-7",
+      "Table-8",
+      "Table-9"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 13,
+    "raw_chars": 3462,
+    "paragraph_chars": 3484,
+    "figure_table_captions": [
+      "Table-10",
+      "Table-11",
+      "Table-12",
+      "Table-13",
+      "Table-14"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 14,
+    "raw_chars": 1732,
+    "paragraph_chars": 1748,
+    "figure_table_captions": [
+      "Table-15",
+      "Table-16"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 15,
+    "raw_chars": 2083,
+    "paragraph_chars": 2089,
+    "figure_table_captions": [
+      "Table-17"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 16,
+    "raw_chars": 2397,
+    "paragraph_chars": 2403,
+    "figure_table_captions": [
+      "Table-18"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 17,
+    "raw_chars": 1740,
+    "paragraph_chars": 1746,
+    "figure_table_captions": [
+      "Table-19"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 18,
+    "raw_chars": 1837,
+    "paragraph_chars": 1843,
+    "figure_table_captions": [
+      "Table-20"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 19,
+    "raw_chars": 1704,
+    "paragraph_chars": 1710,
+    "figure_table_captions": [
+      "Table-21"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 20,
+    "raw_chars": 1831,
+    "paragraph_chars": 1837,
+    "figure_table_captions": [
+      "Table-22"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 21,
+    "raw_chars": 1710,
+    "paragraph_chars": 1716,
+    "figure_table_captions": [
+      "Table-23"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 22,
+    "raw_chars": 1540,
+    "paragraph_chars": 1546,
+    "figure_table_captions": [
+      "Table-24"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 23,
+    "raw_chars": 665,
+    "paragraph_chars": 671,
+    "figure_table_captions": [
+      "Table-25"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 24,
+    "raw_chars": 2298,
+    "paragraph_chars": 2304,
+    "figure_table_captions": [
+      "Table-26"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 25,
+    "raw_chars": 2238,
+    "paragraph_chars": 2255,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 26,
+    "raw_chars": 1613,
+    "paragraph_chars": 1622,
+    "figure_table_captions": [],
+    "image_count": 0
+  }
+]

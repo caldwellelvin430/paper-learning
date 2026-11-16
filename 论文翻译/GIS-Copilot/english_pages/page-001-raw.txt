@@ -1,0 +1,21 @@
+International Journal of Digital Earth
+ISSN: 1753-8947 (Print) 1753-8955 (Online) Journal homepage: www.tandfonline.com/journals/tjde20
+GIS Copilot: towards an autonomous GIS agent
+for spatial analysis
+Temitope Akinboyewa, Zhenlong Li, Huan Ning & M. Naser Lessani
+To cite this article: Temitope Akinboyewa, Zhenlong Li, Huan Ning & M. Naser Lessani (2025)
+GIS Copilot: towards an autonomous GIS agent for spatial analysis, International Journal of
+Digital Earth, 18:1, 2497489, DOI: 10.1080/17538947.2025.2497489
+To link to this article:  https://doi.org/10.1080/17538947.2025.2497489
+© 2025 The Author(s). Published by Informa
+UK Limited, trading as Taylor & Francis
+Group
+View supplementary material 
+Published online: 28 Apr 2025.
+Submit your article to this journal 
+Article views: 20304
+View related articles 
+View Crossmark data
+Citing articles: 70 View citing articles 
+Full Terms & Conditions of access and use can be found at
+https://www.tandfonline.com/action/journalInformation?journalCode=tjde20

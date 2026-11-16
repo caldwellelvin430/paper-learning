@@ -1,0 +1,33 @@
+10 
+T. AKINBOYEWA ET AL.
+
+Figure 5.  Generating contour lines from DEM (Task: Generate contour lines from the DEM of Puerto Rico with a 50-meter interval).
+
+(extract by attribute) and attribute (Population) to filter the data. The agent then generated the 
+necessary executable code, which included setting the population threshold and applying the filter­
+ing operation based on the specified condition (Figure 6).
+
+4.1.4. Extracting land cover data of Pennsylvania
+This case focuses on extracting land cover data for Pennsylvania from a larger dataset covering the 
+contiguous US. The input data includes land cover raster data from the National Land Cover Data­
+base (NLCD) and a shapefile containing the boundary of Pennsylvania. The agent accurately 
+selected the appropriate tool (the GDAL Clip Raster by Mask Layer tool) and generated the execu­
+table code, configuring parameters such as the input layer, output path, and clipping settings. The 
+agent was able to produce the clipped raster layer showing the land cover specific to Pennsylvania 
+(Figure 7). The result provides a detailed view of various land cover categories within the state’s 
+boundary.
+
+4.2. Intermediate level tasks
+
+At this level, tasks become more complex and involve multiple steps and tools. The agent is guided 
+with specific instructions or a list of steps to perform the task. Although the steps are outlined, the 
+agent still needs to generate the correct code for each step and link them together to perform the 
+analysis. The focus here is to test the agent’s ability to follow a given general workflow while mana­
+ging more than one process.
+
+4.2.1. Zonal statistics of average elevation for counties in South Carolina
+In this case, the agent is tasked with analyzing the average elevation for each county in South Car­
+olina (SC) based on the DEM. This involved a series of geoprocessing steps: clipping the DEM to the 
+boundary of SC, generating a histogram of the clipped DEM’s pixel values, calculating zonal stat­
+istics, and creating a choropleth map. The input consists of three data layers: a DEM covering a 
+region larger than SC and two vector layers containing SC’s boundary and all SC counties.

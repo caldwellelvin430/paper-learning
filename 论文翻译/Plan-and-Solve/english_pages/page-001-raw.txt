@@ -1,0 +1,101 @@
+Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics
+Volume 1: Long Papers, pages 2609–2634
+July 9-14, 2023 ©2023 Association for Computational Linguistics
+Plan-and-Solve Prompting: Improving Zero-Shot Chain-of-Thought
+Reasoning by Large Language Models
+Lei Wang1 Wanyu Xu2 Yihuai Lan Zhiqiang Hu3 Yunshi Lan4
+Roy Ka-Wei Lee3 Ee-Peng Lim1∗
+1Singapore Management University
+2Southwest Jiaotong University
+3Singapore University of Technology and Design
+4East China Normal University
+Abstract
+Large language models (LLMs) have recently
+been shown to deliver impressive performance
+in various NLP tasks. To tackle multi-step rea-
+soning tasks, few-shot chain-of-thought (CoT)
+prompting includes a few manually crafted
+step-by-step reasoning demonstrations which
+enable LLMs to explicitly generate reasoning
+steps and improve their reasoning task accu-
+racy. To eliminate the manual effort, Zero-
+shot-CoT concatenates the target problem state-
+ment with “Let’s think step by step” as an in-
+put prompt to LLMs. Despite the success of
+Zero-shot-CoT, it still suffers from three pit-
+falls: calculation errors, missing-step errors,
+and semantic misunderstanding errors. To ad-
+dress the missing-step errors, we propose Plan-
+and-Solve (PS) Prompting. It consists of two
+components: first, devising a plan to divide the
+entire task into smaller subtasks, and then car-
+rying out the subtasks according to the plan.
+To address the calculation errors and improve
+the quality of generated reasoning steps, we
+extend PS prompting with more detailed in-
+structions and derive PS+ prompting. We eval-
+uate our proposed prompting strategy on ten
+datasets across three reasoning problems. The
+experimental results over GPT-3 show that our
+proposed zero-shot prompting consistently out-
+performs Zero-shot-CoT across all datasets by
+a large margin, is comparable to or exceeds
+Zero-shot-Program-of-Thought Prompting, and
+has comparable performance with 8-shot CoT
+prompting on the math reasoning problem. The
+code can be found at https://github.com/AGI-
+Edgerunners/Plan-and-Solve-Prompting.
+1
+Introduction
+Large language models (LLMs) (Brown et al.,
+2020; Thoppilan et al., 2022; Chowdhery et al.,
+2022) have recently proven highly effective in var-
+ious NLP tasks. Unlike the previous pre-trained
+language models (PTMs) (Devlin et al., 2019; Liu
+∗Corresponding author.
+5
+10
+15
+20
+25
+30
+35
+Ratio (%)
+7
+12
+27
+Calculation Error
+Step Missing Error
+Semantic Misunderstanding
+Figure 1: Error analysis of 46 GSM8K problems with in-
+correct answers returned by Zero-shot-CoT using GPT-
+3 LLM. Following Wei et al. (2022b) and Wang et al.
+(2022a), we assign “Calculation Error” (7%), “Step
+Missing Error” (12%), or “Semantic misunderstanding
+Error” (27%) to each incorrect answer.
+et al., 2019), these LLMs are typically provided as
+a service, with no access to model parameters due
+to commercial considerations and potential risks of
+misuse (Sun et al., 2022). Thus, it is challenging
+to fine-tune LLMs for downstream tasks (He et al.,
+2021; Houlsby et al., 2019; Devlin et al., 2019).
+Instead, we leverage LLMs to solve complex rea-
+soning problems by eliciting their strong reasoning
+abilities over their embedded knowledge using in-
+structions (or trigger sentences). So far, LLMs have
+shown impressive abilities to solve new reasoning
+problems by simply conditioning them on a few
+illustrative examples (i.e., few-shot learning) or a
+prompt to solve new problems without illustrative
+examples (i.e., zero-shot learning).
+To tackle multi-step complex reasoning tasks us-
+ing LLMs, Wei et al. (2022b) proposes few-shot
+chain-of-thought (CoT) prompting, which enables
+LLMs to explicitly generate the intermediate rea-
+soning steps before predicting the final answer with
+a few manual step-by-step reasoning demonstra-
+tion examples. In (Kojima et al., 2022), Zero-shot
+CoT eliminates the need for manually crafted ex-
+amples in prompts by appending “Let’s think step
+by step” to the target problem fed to LLMs such
+2609

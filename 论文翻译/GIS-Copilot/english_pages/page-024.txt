@@ -1,0 +1,47 @@
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+23
+
+New York Times. 2024. “Coronavirus (Covid-19) Data in the United States (Archived).” Accessed: Oct. 18, 2024. 
+[Online]. Available: https://github.com/nytimes/covid-19-data.
+Ning, H., Z. Li, T. Akinboyewa, and M. N. Lessani. 2025. “An Autonomous GIS Agent Framework for Geospatial 
+Data Retrieval.” International Journal of Digital Earth 18 (1): 2458688. https://doi.org/10.1080/17538947.2025. 
+2458688.
+OpenAI. 2023. “GPT-4 Technical Report.” arXiv, https://doi.org/10.48550/ARXIV.2303.08774.
+OpenStreetMap. 2024. “OpenStreetMap.” Accessed: Oct. 18, 2024. [Online]. Available: https://www.openstreetmap. 
+org/.
+Parthasarathy, V. B., A. Zafar, A. Khan, and A. Shahid. 2024. “The Ultimate Guide to Fine-Tuning LLMs from Basics 
+to Breakthroughs: An Exhaustive Review of Technologies, Research, Best Practices, Applied Research Challenges 
+and Opportunities.” arXiv:ArXiv:2408.13296, https://doi.org/10.48550/arXiv.2408.13296.
+QChatGPT. 2024. “Python. KIOS Research and Innovation Center of Excellence, University of Cyprus.” Accessed: 
+Oct. 18, 2024. [Online]. Available: https://github.com/KIOS-Research/QChatGPT.
+QGIS. 2024. http://qgis.org.
+QGIS. 2024. “QGIS Documentation v3.34.” Accessed: Oct. 18, 2024. [Online]. Available: https://docs.qgis.org/3.34/ 
+en/docs/user_manual/processing_algs/qgis/index.html.
+Roth, E. 2024. “NASA’s AI Earth Copilot Will Take Your Questions About Our Planet.” [Online]. Available: https:// 
+www.theverge.com/2024/11/14/24296758/nasa-ai-earth-copilot-microsoft.
+Tan, X., X. Wang, Q. Liu, X. Xu, X. Yuan, and W. Zhang. 2024. “Paths-over-Graph: Knowledge Graph Empowered 
+Large Language Model Reasoning.” arXiv, https://doi.org/10.48550/ARXIV.2410.14211.
+Tao, R., and J. Xu. 2023. “Mapping with ChatGPT.” ISPRS International Journal of Geo-Information 12 (7): 284.
+
+https://doi.org/10.3390/ijgi12070284.
+Tlili, A., B. Shehata, M. A. Adarkwah, A. Bozkurt, D. T. Hickey, R. Huang, and B. Agyemang. 2023. “What if the Devil 
+is my Guardian Angel: ChatGPT as a Case Study of Using Chatbots in Education.” Smart Learning Environments 
+10 (1): 15. https://doi.org/10.1186/s40561-023-00237-x.
+US Census Bureau. 2024. “TIGER/Line Shapefiles.” Accessed: Oct. 18, 2024. [Online]. Available: https://www.census. 
+gov/geographies/mapping-files/time-series/geo/tiger-line-file.html.
+USGS. 2024. “Shuttle Radar Topography Mission (SRTM).” Accessed: Oct. 18, 2024. [Online]. Available: https:// 
+www.usgs.gov/publications/shuttle-radar-topography-mission-srtm.
+Wang, S., T. Hu, H. Xiao, Y. Li, C. Zhang, H. Ning, R. Zhu, Z. Li, and X. Ye. 2024. “GPT, Large Language Models 
+(LLMs) and Generative Artificial Intelligence (GAI) Models in Geospatial Science: A Systematic Review.” 
+International Journal of Digital Earth 17 (1): 2353122. https://doi.org/10.1080/17538947.2024.2353122.
+Wei, J., X. Wang, D. Schuurmans, M. Bosma, F. Xia, E. Chi, Q. V. Le, and D. Zhou. 2022. “Chain-of-Thought 
+Prompting Elicits Reasoning in Large Language Models.” Advances in Neural Information Processing Systems, 
+https://doi.org/10.48550/ARXIV.2201.11903.
+Xu, L., S. Zhao, Q. Lin, L. Chen, Q. Luo, S. Wu, X. Ye, H. Feng, and Z. Du. 2024. “Evaluating Large Language Models 
+on Spatial Tasks: A Multi-Task Benchmarking Study.” arXiv, https://doi.org/10.48550/ARXIV.2408.14438.
+Zhang, Y., Z. He, J. Li, J. Lin, Q. Guan, and W. Yu. 2024. “MapGPT: An Autonomous Framework for Mapping by 
+Integrating Large Language Model and Cartographic Tools.” Cartography and Geographic Information Science: 
+717–743. https://doi.org/10.1080/15230406.2024.2404868.
+Zhang, Y., C. Wei, Z. He, and W. Yu. 2024. “GeoGPT: An Assistant for Understanding and Processing Geospatial 
+Tasks.” International Journal of Applied Earth Observation and Geoinformation 131:103976. https://doi.org/10. 
+1016/j.jag.2024.103976.

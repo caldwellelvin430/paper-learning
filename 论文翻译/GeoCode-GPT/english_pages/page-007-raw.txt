@@ -1,0 +1,13 @@
+initial learning rate of 0.0001 to ensure stability and controlled 
+convergence. The global batch size was decreased to 32, resulting in an 
+effective batch size of 128 with gradient accumulation. This stage 
+prioritized task-specific refinements to optimize parameter adjustments, 
+improving the model’s ability to follow complex instructions while 
+leveraging the same input sequence length of 4096 tokens.
+5. Evaluation
+The evaluation was conducted using the GeoCode-Eval dataset. This 
+Fig. 4. Diagram of the “Intermediate Result Generation” Method Based.
+Fig. 5. Diagram of the “One-Shot” Method.
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+7 

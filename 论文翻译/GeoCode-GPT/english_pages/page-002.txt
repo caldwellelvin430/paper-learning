@@ -1,0 +1,51 @@
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456
+
+driving the democratization of programming and significantly boosting 
+productivity, enabling users to focus on higher-level logic and planning.
+
+General-purpose code generation LLMs are predominantly trained on 
+code related to standard programming tasks. In contrast, geospatial code 
+typically handles complex spatiotemporal data, characterized by spe­
+cific data formats (e.g., geographic coordinates, multi-dimensional ras­
+ters, multi-band spectra) and massive datasets (e.g., global remote 
+sensing collections) (Hou et al., 2024b). Since geospatial code is often 
+executed on specialized platforms with unique function syntax and data 
+flow control logic, it significantly differs from general-purpose code 
+(Cinquini et al., 2014). Furthermore, these platforms’ built-in datasets 
+frequently use proprietary internal indexing and naming conventions, 
+which general LLMs are usually unfamiliar with. As a result, when 
+generating geospatial code, models may fail to encode correctly, or 
+produce code with incorrect operator choices, non-compliant syntax, 
+unreasonable parameters, incomplete logic, or mismatched inputs and 
+outputs. These issues, illustrated in Fig. 1, are referred to as “refusal to 
+code” or “coding hallucinations (Hou et al., 2024c).”
+
+In response to the challenges posed by the lack of domain-specific 
+corpora and dedicated models for geospatial code generation in
+
+general LLMs, this study introduces the GeoCode-PT pretraining corpus, 
+the GeoCode-SFT supervised fine-tuning corpus, and the GeoCode-Eval 
+evaluation dataset. GeoCode-PT aggregates multi-source data closely 
+related to geospatial code, including specialized code from platforms 
+like GEE and PIE Engine, as well as geocomputational tool code from 
+platforms such as ArcGIS, Matlab, RStudio, and Python. It comprises a 
+total of 275,374 code snippets, 10,190 operator knowledge entries, 853 
+dataset knowledge entries, and 14 common knowledge documents on 
+platforms and toolsets. GeoCode-SFT, built using a structured traversal 
+algorithm and the Self-Instruct framework, generated 502,047 instruc­
+tion data entries, covering operators, datasets, platform language un­
+derstanding, and code summarization. GeoCode-Eval consists of 3,000 
+multiple-choice questions, 500 code generation tasks, and 500 code 
+summarization tasks.
+
+Based on GeoCode-PT and GeoCode-SFT, this study employs an 
+autoregressive unsupervised approach to conduct lightweight pretrain­
+ing on Code Llama-7B using QLoRA, followed by supervised fine-tuning 
+with instruction-tuning data via LoRA. This process culminated in the 
+release of GeoCode-GPT-7B, the first LLM dedicated to geospatial code 
+generation. Subsequently, GeoCode-GPT underwent comprehensive
+
+Fig. 1. Illustration of “Refusal to Code” or “Coding Hallucinations”.
+
+2

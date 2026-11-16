@@ -1,0 +1,54 @@
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+21
+
+improving efficiency, especially for non-experts who may lack familiarity with data sourcing. 
+Recently, (Ning et al. 2025) introduced an agent for retrieving geospatial data from different 
+sources, implemented as a QGIS plugin. Integrating such an agent could help the Copilot access 
+the data needed for analysis without requiring the user to supply it, which could bring the GIS Copi­
+lot closer to a fully spatial analysis agent.
+
+6.5. Exploring the integration of open-source LLM models
+
+In this study, OpenAI GPT has been used as the primary language model to power the GIS Copilot 
+to demonstrate the potential of the proposed approach. However, integrating open-source LLM 
+models such as Meta’s LlaMA (Meta) could offer notable advantages, especially in terms of custo­
+mization and accessibility, such as fine-tuning on GIS-specific tasks to further improve perform­
+ance and alignment with specialized geospatial needs. Future studies could explore the 
+integration of these open-source models into the GIS Copilot to provide a more accessible and cus­
+tomizable alternative to commercial models.
+
+7. Conclusions
+
+The integration of generative AI into GIS represents a significant advancement in automating 
+spatial analysis tasks. This study presents a framework for integrating LLMs directly into existing 
+GIS platforms. The framework was implemented as a GIS Copilot in the QGIS environment. 
+Through case studies across different levels of task complexity, the GIS Copilot proved effective 
+in automating basic and intermediate geospatial tasks, reducing the need for manual operations 
+and coding. While the Copilot performed well in these simpler tasks, challenges remain in achieving 
+full autonomy for more advanced and multistep processes without explicitly telling it ‘how’.
+
+Despite the limitations, the GIS Copilot represents a promising step toward the development of 
+fully autonomous GIS and opens avenues for future exploration of AI-driven GIS solutions in 
+GIScience. This study contributes to the broader vision of autonomous GIS, where AI-powered 
+agents can autonomously perform spatial analysis to democratize access to geospatial analysis, 
+transforming how users engage with geospatial data and spatial problems. While this approach 
+marks significant progress toward democratizing GIS, we recognize further advancements are 
+necessary to fully realize the vision of autonomous GIS. As advancements in generative AI capabili­
+ties continue, further research will focus on improving the Copilot’s performance in handling com­
+plex workflows, enhancing its error-correction mechanisms, and expanding its adaptability to other 
+GIS platforms or explore standalone desktop or web-based interfaces to further simplify access for 
+non-expert users.
+
+Acknowledgment
+
+We thank the three anonymous reviewers for their insightful suggestions and comments, which significantly 
+improved the manuscript.
+
+Disclosure statement
+
+No potential conflict of interest was reported by the author(s).
+
+Data and source code availability statement
+
+The source code for the GIS Copilot is available on GitHub at https://shorturl.at/vRcm6. The data­
+sets used for testing alongside the testing cases can be accessed through https://shorturl.at/bI4Ep.

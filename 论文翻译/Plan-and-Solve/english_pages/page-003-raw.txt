@@ -1,0 +1,69 @@
+Figure 2: Example inputs and outputs of GPT-3 with (a) Zero-shot-CoT prompting, (b) Plan-and-Solve (PS)
+prompting, and (c) answer extraction prompting. While Zero-shot-CoT encourages LLMs to generate multi-step
+reasoning with “Let’s think step by step”, it may still generate wrong reasoning steps when the problem is complex.
+Unlike Zero-shot-CoT, PS prompting first asks LLMs to devise a plan to solve the problem by generating a step-by-
+step plan and carrying out the plan to find the answer.
+mine subtasks and accomplish the subtasks.
+• The templates should guide LLMs to pay
+more attention to calculations and intermedi-
+ate results and to ensure that they are correctly
+performed as much as possible.
+To meet the first criterion, we follow Zero-shot-
+CoT and first convert the input data example into
+a prompt with a simple template “Q: [X]. A:
+[T]”. Specifically, the input slot [X] contains
+the input problem statement and a hand-crafted
+instruction is specified in the input slot [T] to
+trigger LLMs to generate a reasoning process that
+includes a plan and steps to complete the plan.
+In Zero-shot-CoT, the instruction in the input
+slot [T] includes the trigger instruction ‘Let’s
+think step by step”. Our Zero-shot PS prompting
+method instead includes the instructions “devise
+a plan” and “carry out the plan” as shown in
+Figure 2(b).
+Thus, the prompt would be “Q:
+[X]. A: Let’s first understand the problem and
+devise a plan to solve the problem.
+Then, let’s
+carry out the plan and solve the problem step by
+step.”
+We then pass the above prompt to the LLM
+which subsequently outputs a reasoning process. In
+accordance with Zero-shot-CoT, our method uses
+the greedy decoding strategy (1 output chain) for
+generating output by default.
+To meet the second criterion, we extend the plan-
+based trigger sentence with more detailed instruc-
+tions. Specifically, “pay attention to calculation” is
+added to the trigger sentence to request the LLMs to
+perform calculations as accurately as possible. To
+reduce errors resulting from missing necessary rea-
+soning steps, we include “extract relevant variables
+and their corresponding numerals” to explicitly in-
+struct the LLMs not to ignore relevant information
+in the input problem statement. We hypothesize
+that if the LLMs leave out the relevant and impor-
+tant variables, it is more likely to miss out relevant
+reasoning steps. Correlation analysis of generated
+content of variable and the missing reasoning step
+errors, shown in Figure 5, empirically supports this
+hypothesis (correlation value is less than 0). Ad-
+ditionally, we add “calculate intermediate results”
+to the prompt to enhance LLM’s ability to gener-
+ate relevant and important reasoning steps. The
+specific example is illustrated in Figure 3(b). At
+the end of Step 1, LLM generates the reasoning
+text which includes the answer. For example, the
+generated reasoning text in Figure 3(b) includes
+“Combined weight of Grace and Alex = 125 + 498
+= 623 pounds”. The strategy of adding specific de-
+scriptions to the trigger sentence represents a new
+way to improve zero-shot performance on complex
+reasoning.
+2.2
+Step 2: Prompting for Answer Extraction
+Similar to Zero-shot-CoT, we devise another
+prompt in Step 2 to get the LLM to extract the final
+numerical answer from the reasoning text gener-
+2611

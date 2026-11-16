@@ -1,0 +1,111 @@
+as GPT-3. This simple prompting strategy surpris-
+ingly enables LLMs to yield performance similar
+to few-shot CoT prompting.
+Despite the remarkable success of Zero-shot-
+CoT in solving multi-step reasoning tasks, its re-
+sults on a sample of 100 arithmetic test examples
+still point to three pitfalls (as shown in Figure 1):
+(i) Calculation errors (in 7% of test examples):
+These are errors in the calculation leading to wrong
+answers; (ii) Missing Step errors (in 12% of test
+examples): These occur when some intermediate
+reasoning step(s) is missed-out especially when
+there are many steps involved; (iii) Semantic mis-
+understanding (in 27% of test examples): There
+are other errors in semantic understanding of the
+problem and coherence of reasoning steps likely to
+be caused by the insufficient capability of LLMs.
+To address the issue of Zero-shot-CoT caused
+by missing reasoning steps, we propose Plan-and-
+Solve (PS) Prompting. It consists of two compo-
+nents: first, devising a plan to divide the entire task
+into smaller subtasks, and then carrying out the sub-
+tasks according to the plan. In our experiments, we
+simply replace “Let’s think step by step” of Zero-
+shot-CoT with “Let’s first understand the problem
+and devise a plan to solve the problem. Then, let’s
+carry out the plan and solve the problem step by
+step” (see Figure 2 (b)).
+To address the calculation errors of Zero-shot-
+CoT and improve the quality of generated reason-
+ing steps, we add more detailed instructions to PS
+prompting. Specifically, we extend it with “extract
+relevant variables and their corresponding numer-
+als” and “calculate intermediate results (pay atten-
+tion to calculation and commonsense)” instructions.
+This prompting variant is called the PS+ prompting
+strategy (see Figure 3 (b)). Despite its simplic-
+ity, PS+ strategy greatly improves the quality of
+the generated reasoning process. Moreover, this
+prompting strategy can be easily customized to
+solve a variety of problems other than math reason-
+ing, such as commonsense and symbolic reasoning
+problems.
+We evaluate our proposed prompting on six
+math reasoning datasets, including AQuA (Ling
+et al., 2017), GSM8K (Cobbe et al., 2021), Mul-
+tiArith, AddSub, SingleEq, and SVAMP (Patel
+et al., 2021), two commonsense reasoning datasets
+(CommonsenseQA (Talmor et al., 2019) and Strat-
+egyQA (Geva et al., 2021)), and two symbolic rea-
+soning datasets (Last Letter and Coin Flip (Wei
+
+et al., 2022b)). The results of our experiments
+with GPT-3 show that our proposed Zero-shot-PS+
+prompting consistently outperforms Zero-shot-CoT
+across all reasoning problems and datasets by a
+large margin, and is comparable to or exceeds Zero-
+shot-Program-of-Thought (PoT) Prompting (Chen
+et al., 2022)). Furthermore, although PS+ prompt-
+ing does not require manual demonstration exam-
+ples, it has a performance similar to an 8-shot CoT
+prompting in arithmetic reasoning.
+Overall, our results suggest that (a) Zero-shot PS
+prompting is capable of generating a higher-quality
+reasoning process than Zero-shot-CoT prompting,
+as the PS prompts provide more detailed instruc-
+tions guiding the LLMs to perform correct rea-
+soning tasks; (b) Zero-shot PS+ prompting outper-
+forms Few-shot manual-CoT prompting on some
+datasets, indicating that in some instances it has
+the potential to outperform manual Few-shot CoT
+prompting, which hopefully will spark further de-
+velopment of new CoT prompting approaches to
+elicit reasoning in LLMs.
+
+2
+Plan-and-Solve Prompting
+
+Overview.
+We introduce PS prompting, a new
+zero-shot CoT prompting method, which enables
+LLMs to explicitly devise a plan for solving a given
+problem and generate the intermediate reasoning
+process before predicting the final answer for the
+input problem. As opposed to prior few-shot CoT
+approaches where step-by-step few-shot demon-
+stration examples are included in the prompt, the
+zero-shot PS prompting method does not require
+demonstration examples, and its prompt covers
+the problem itself and a simple trigger sentence.
+Similar to Zero-shot-CoT, Zero-shot PS prompting
+consists of two steps. In step 1, the prompt first
+makes an inference using the proposed prompting
+template to generate the reasoning process and the
+answer to a problem. In step 2, it extracts the an-
+swer for evaluation by using the answer extraction
+prompting, such as “Therefore, the answer (arabic
+numerals) is”.
+
+2.1
+Step 1: Prompting for Reasoning
+Generation
+
+To solve the input problem while avoiding errors
+resulting from incorrect calculation and missing
+reasoning steps, this step aims to construct tem-
+plates to meet the following two criteria:
+
+• The templates should elicit LLMs to deter-
+
+2610

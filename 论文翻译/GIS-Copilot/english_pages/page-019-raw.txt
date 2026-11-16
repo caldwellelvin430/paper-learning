@@ -1,0 +1,81 @@
+(Case 20 in Appendix 9). To achieve this, the agent used the gdal:proximity tool to calculate dis­
+tances to the nearest roads. However, the task failed because the tool requires a raster input, 
+while the agent assigned a vector layer as the input data.
+.
+Field name mismatches and data compatibility: Another common issue arose from mis­
+matches in field names during data joins, particularly when joining CSV files with shapefiles. 
+Shapefiles often truncate field names to 10 characters, causing discrepancies that the agent did 
+not account for, leading to calculation errors. For example, when tasked with calculating the 
+population living in block groups containing hazardous waste sites, the agent needed to join a 
+CSV file containing population data to a shapefile representing block groups. However, the 
+agent encountered issues because the shapefile truncated longer field names to 10 characters. 
+This caused the field names in the shapefile to differ from those in the CSV, leading to a failed 
+join and, consequently, leading to a ‘field name error’.
+.
+Projection issue: During testing, it was observed that the agent frequently omitted essential 
+reprojection steps unless specifically instructed. This oversight led to misaligned spatial data, 
+affecting the accuracy of the results, particularly in tasks that required consistent coordinate sys­
+tems across layers. For instance, when tasked with clipping an image using the extent of a sha­
+pefile where the shapefile and the image were in different coordinate systems, the agent did not 
+reproject the shapefile to match the coordinate system of the image, the resulting clip operation 
+was misaligned, leading to an error (Case 27 in Appendix 8).
+5. Discussion
+This study proposes a novel framework for integrating generative AI (LLMs) into established GIS plat­
+forms, using QGIS as a case study. Based on this framework, we implemented a GIS Copilot through 
+which GIS users interact with the software with natural language. A key feature of this GIS Copilot is 
+the extensive range of tools included, covering a broad spectrum of geoprocessing functions such as 
+vector and raster analyses. Additionally, the framework is designed to be extensible by allowing GIS 
+users to add custom tools following a predefined template. This extensibility ensures that the Copilot 
+remains adaptable to user needs and the continuous development of new GIS tools and analyses. This 
+work aligns with the increasing recognition of the potential for AI-driven systems to automate and 
+streamline geoprocessing workflows. By automating these processes, the framework simplifies spatial 
+analysis, making GIS functionalities more accessible to both expert and non-expert users.
+This GIS Copilot responds to the previous work of Li and Ning (2023), who envisioned the need 
+for a copilot-style system in GIS to enhance automation and interaction with geospatial data. They 
+demonstrated the potential for LLMs to autonomously generate geoprocessing workflows and 
+emphasized the importance of integrating these capabilities directly into existing GIS software to 
+unlock their full potential. By implementing a Copilot system within QGIS, this study illustrates 
+how LLMs can be used to generate executable spatial analysis algorithms using existing well-devel­
+oped GIS tools. A significant benefit of Copilot style integration with GIS platform is that users have 
+direct interaction with the agent directly within the GIS environment, allowing them to load and 
+select datasets, visualize results and select between manual operations and agent-driven workflows 
+based on their preferences. This flexibility enables users to combine traditional manual GIS 
+Table 1.  Performance evaluation of the GIS Copilot.
+Level of 
+complexities
+Total count of 
+tasks
+Count of successful cases
+Count of failed 
+cases
+Overall success 
+rate
+First 
+attempt
+Second 
+attempt
+Third 
+attempt
+Basic
+60
+52
+3
+–
+5
+92%
+Intermediate
+30
+13
+4
+8
+5
+83%
+Advanced
+20
+10
+4
+1
+5
+75%
+18 
+T. AKINBOYEWA ET AL.

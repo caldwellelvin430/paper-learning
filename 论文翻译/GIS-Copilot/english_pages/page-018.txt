@@ -1,0 +1,8 @@
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+17
+
+Figure 12.  Spatial distribution of COVID-19 cases in the USA. (Task: Could you show the spatial distribution of the COVID-19 cases 
+across US counties?).
+
+Figure 13.  Generating the Normalized Difference Vegetation Index (NDVI) of Akure. (Task: Generate the Normalized Difference 
+Vegetation Index (NDVI) of Akure from these satellite imageries).

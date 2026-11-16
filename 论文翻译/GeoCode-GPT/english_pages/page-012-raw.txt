@@ -1,0 +1,116 @@
+prompt engineering, while cross-platform code translation may help 
+lower syntactic barriers, enhancing usability. Additionally, tailoring 
+models for repository-level geospatial code generation—incorporating 
+indexing, contextual information, and memory modules—could address 
+complex tasks more effectively. The establishment of multi-agent 
+collaboration frameworks represents another promising direction, 
+enabling automated workflows for code generation, testing, and opti­
+mization, thereby improving output quality and efficiency. Continued 
+advancements in these areas are expected to drive significant progress in 
+geospatial modeling with LLMs.
+Fig. 9. Prompt for Evaluating the Accuracy Metric in Code Generation.
+Table 6 
+Code Generation Evaluation Data Table (Scores out of 100).
+Model
+Accuracy
+Readability
+Executability
+Overall
+GPT-4
+74.2
+↓3.6
+86.1
+↓16.4
+52.8
+↓2.4
+71
+↓4.8
+GPT-3.5
+69.8
+↑0.8
+80.5
+↓10.7
+43
+↑7.4
+64.4
+↑1.2
+ERNIE 4.0
+62.2
+↑8.4
+58.5
+↑11.3
+30.2
+↑20.2
+50.3
+↑13.3
+LLaMA 2-7B
+43.4
+↑27.2
+62.3
+↑7.4
+22.4
+↑28
+42.7
+↑20.9
+LLaMA 3-8B
+45.6
+↑25
+65.9
+↑3.8
+24.2
+↑26.2
+45.2
+↑18.4
+CodeGemma-7B
+55.2
+↑15.4
+54.3
+↑15.5
+28.2
+↑22.2
+45.9
+↑17.7
+StarCoder 2-7B
+57.4
+↑13.2
+42.5
+↑27.3
+35.4
+↑15
+45.1
+↑18.5
+CodeGeeX 2-6B
+53.7
+↑16.9
+37.8
+↑32
+32.6
+↑17.8
+41.4
+↑22.2
+Code Llama-13B
+56.4
+↑14.2
+48.4
+↑21.4
+35.6
+↑14.8
+46.8
+↑16.8
+Code Llama-7B
+52.8
+↑17.8
+32.5
+↑37.3
+30.2
+↑20.2
+38.5
+↑25.1
+GeoCode-GPT-7B
+70.6
+69.8
+50.4
+63.6
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+12 

@@ -1,0 +1,62 @@
+Figure 3: Example inputs and outputs of GPT-3 with (a) Plan-and-Solve (PS) Prompting and (b) Plan-and-Solve
+prompting with more detailed instructions (PS+ prompting). PS+ prompting greatly improves the quality of the
+generated reasoning process.
+ated in Step 1. This prompt includes the answer ex-
+traction instruction appended to the first prompt fol-
+lowed by the LLM generated reasoning text. This
+way, LLM is expected to return the final answer in
+the desired form.
+Based on the example in Figure 3(b), the
+prompt used in Step 2 will include “Q: Grace
+weighs 125 pounds
+· · · Variables:
+Grace:
+125 pounds · · · Answer:
+Combined weight of
+Grace and Alex = 125 + 498 = 623 pounds.
+Therefore, the answer (arabic numerals) is”.
+For
+this example, the final answer returned by LLM
+is “623”.
+3
+Experimental Setup
+3.1
+Benchmarks
+The proposed method is evaluated on the ten bench-
+mark datasets from three categories of reason-
+ing problems: Arithmetic Reasoning: (1) the
+GSM8K (Cobbe et al., 2021) dataset of high qual-
+ity linguistically diverse grade school math word
+problems created by human problem writers, (2)
+the SVAMP (Patel et al., 2021) benchmark of one-
+unknown arithmetic word problems for up-to-4
+grade level students by making simple changes
+to a set of problems from another existing dataset,
+(3) the MultiArith (Roy and Roth, 2016) dataset
+of math word problems requiring multiple reason-
+ing steps and operations, (4) the AddSub (Hosseini
+et al., 2014) dataset of addition and subtraction
+arithmetic word problems, (5) the AQUA (Ling
+et al., 2017) dataset of algebraic word problems
+with natural language rationales, and (6) the Sin-
+gleEq (Koncel-Kedziorski et al., 2015) dataset of
+single-equation grade-school algebra word prob-
+lems with multiple math operations over non-
+negative rational numbers and one variable; Com-
+monsense Reasoning: (7) the CSQA (Talmor et al.,
+2019) benchmark dataset of multiple-choice ques-
+tions that require different types of commonsense
+knowledge to obtain the correct answers; and (8)
+the StrategyQA (Geva et al., 2021) benchmark
+dataset with questions requiring multi-step reason-
+ing but the reasoning steps are not given. Hence,
+they are to be inferred; Symbolic Reasoning: (9)
+the Last Letter Concatenation (Wei et al., 2022b)
+dataset of questions requiring the last letters of
+words in a name to be concatenated (e.g., “James
+Brown” →“sn”), and (10) the Coin Flip (Wei et al.,
+2022b) dataset of questions on whether a coin is
+still heads up after it is flipped or not flipped based
+on steps given in the questions. Table 1 shows
+dataset statistics.
+2612

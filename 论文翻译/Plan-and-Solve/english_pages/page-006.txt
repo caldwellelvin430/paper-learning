@@ -1,0 +1,179 @@
+Table 2: Accuracy comparison on six math reasoning datasets. The best and second best results are boldfaced and
+underlined respectively.
+
+Setting
+Method (text-davinci-003)
+MultiArith
+GSM8K
+AddSub
+AQuA
+SingleEq
+SVAMP
+Average
+
+CoT
+83.8
+56.4
+85.3
+38.9
+88.1
+69.9
+70.4
+PoT
+92.2
+57.0
+85.1
+43.9
+91.7
+70.8
+73.5
+PS (ours)
+87.2
+58.2
+88.1
+42.5
+89.2
+72.0
+72.9
+PS+ (ours)
+91.8
+59.3
+92.2
+46.0
+94.7
+75.7
+76.7
+
+Zero-Shot
+
+Few-Shot
+Manual-CoT
+93.6
+58.4
+91.6
+48.4
+93.5
+80.3
+77.6
+Auto-CoT
+95.5
+57.1
+90.8
+41.7
+92.1
+78.1
+75.9
+
+Table 3: Accuracy on commonsense reasoning datasets.
+
+Method
+CSQA StrategyQA
+
+Few-Shot-CoT (Manual)
+78.3
+71.2
+
+Zero-shot-CoT
+65.2
+63.8
+Zero-shot-PS+ (ours)
+71.9
+65.4
+
+Table 4: Accuracy on symbolic reasoning datasets.
+
+Method
+Last Letter Coin Flip
+
+Few-Shot-CoT (Manual)
+70.6
+100.0
+
+Zero-shot-CoT
+64.8
+96.8
+Zero-shot-PS+ (ours)
+75.2
+99.6
+
+problem, it consistently outperforms Zero-shot-
+CoT on CommonsenseQA (71.9% vs. 65.2%) and
+StrategyQA (65.4% vs. 63.8%) datasets.
+
+Symbolic Reasoning.
+Table 4 shows the accu-
+racy of PS+ prompting against Zero-shot-CoT
+and Few-shot-CoT on symbolic reasoning datasets:
+Last Letters and Coin Flip. Zero-shot PoT is again
+excluded as it is not designed for the problem. On
+Last Letters, our Zero-shot PS+ prompting (75.2%)
+outperforms Manual-CoT (70.6%) and Zero-shot-
+CoT (65.2%). On Coin Flip, Zero-shot PS+ prompt-
+ing (99.6%) is slightly worse than Manual-CoT
+(100.0%) but outperforms Zero-shot-CoT by a
+good margin (96.8%). More examples from the
+experiment results can be found in Appendix A.2.
+
+4.2
+Analysis
+
+Results of Prompting with Self-Consistency.
+Self-consistency (Wang et al., 2022b) (SC) is pro-
+posed to reduce randomness in LLM’s output by
+generating N reasoning results and determining
+the final answer by majority voting. With SC, the
+methods’ results are usually expected to be con-
+sistent and better. Hence, we evaluate Zero-shot
+PS+ prompting with SC on GSM8K and SVAMP
+datasets. We set the temperature to 0.7 and N to
+10 for experiments with SC. Figure 4 shows that
+PS+ prompting with SC (73.7% and 84.4%) sub-
+stantially outperforms that without SC (58.7% and
+
+Zero-shot-Cot
+Zero-shot-PS+
+
+w/o SC
+w/o SC
+w/ SC
+w/ SC
+
+Figure 4: Results of methods with and without self-
+consistency (SC) on GSM8K and SVAMP.
+
+75.7%) on GSM8K and SVAMP, respectively. The
+former also consistently outperforms Zero-shot-
+CoT with SC (70.7% and 81.7%) on GSM8K and
+SVAMP, respectively, although Zero-shot CoT also
+enjoys improvement with the self consistency ap-
+proach.
+
+Effect of Prompts.
+Table 5 demonstrates a com-
+parison of the performance of 6 different input
+prompts. Prompts 1 and 2 are used in Zero-shot
+CoT and Zero-shot PoT respectively. The rest are
+variations of prompts used in Step 1 of the Zero-
+shot PS+ prompting strategies with greedy decod-
+ing. We observe that Prompt 3 with variables and
+numeral extraction performs worse than Prompt
+1 of Zero-shot-CoT. The reason is that Prompt 3
+doesn’t include instructions for devising and com-
+pleting a plan. However, the other prompts of
+Zero-shot-PS+ perform well as we add more in-
+structions about intermediate results calculation,
+plan design, and implementation. The above re-
+sults conclude that LLMs are capable of generating
+high-quality reasoning text when the prompts in-
+clude more detailed instructions to guide the LLMs.
+More prompts for different reasoning problems can
+be found in Appendix A.1.
+
+Error Analysis.
+To qualitatively evaluate the im-
+pact of the Zero-shot-PS+ prompting on calculation
+errors and reasoning steps missing errors, we ex-
+amine the distribution of errors on the GSM8K
+dataset. We first randomly sample 100 problems
+
+2614

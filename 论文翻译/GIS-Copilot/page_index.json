@@ -1,0 +1,198 @@
+[
+  {
+    "page": 1,
+    "raw_chars": 1009,
+    "paragraph_chars": 1018,
+    "figure_table_captions": [],
+    "image_count": 20
+  },
+  {
+    "page": 2,
+    "raw_chars": 3916,
+    "paragraph_chars": 3922,
+    "figure_table_captions": [],
+    "image_count": 1
+  },
+  {
+    "page": 3,
+    "raw_chars": 4711,
+    "paragraph_chars": 4717,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 4,
+    "raw_chars": 4716,
+    "paragraph_chars": 4720,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 5,
+    "raw_chars": 3997,
+    "paragraph_chars": 4002,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 6,
+    "raw_chars": 2771,
+    "paragraph_chars": 2774,
+    "figure_table_captions": [
+      "Figure-1"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 7,
+    "raw_chars": 4220,
+    "paragraph_chars": 4224,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 8,
+    "raw_chars": 2602,
+    "paragraph_chars": 2606,
+    "figure_table_captions": [
+      "Figure-2"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 9,
+    "raw_chars": 2116,
+    "paragraph_chars": 2122,
+    "figure_table_captions": [
+      "Figure-3"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 10,
+    "raw_chars": 1973,
+    "paragraph_chars": 1975,
+    "figure_table_captions": [
+      "Figure-4"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 11,
+    "raw_chars": 2192,
+    "paragraph_chars": 2197,
+    "figure_table_captions": [
+      "Figure-5"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 12,
+    "raw_chars": 1669,
+    "paragraph_chars": 1671,
+    "figure_table_captions": [
+      "Figure-6"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 13,
+    "raw_chars": 1887,
+    "paragraph_chars": 1890,
+    "figure_table_captions": [
+      "Figure-7"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 14,
+    "raw_chars": 1432,
+    "paragraph_chars": 1433,
+    "figure_table_captions": [
+      "Figure-8"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 15,
+    "raw_chars": 1275,
+    "paragraph_chars": 1276,
+    "figure_table_captions": [
+      "Figure-12",
+      "Figure-9"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 16,
+    "raw_chars": 3178,
+    "paragraph_chars": 3182,
+    "figure_table_captions": [
+      "Figure-10"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 17,
+    "raw_chars": 1206,
+    "paragraph_chars": 1206,
+    "figure_table_captions": [
+      "Figure-11"
+    ],
+    "image_count": 1
+  },
+  {
+    "page": 18,
+    "raw_chars": 390,
+    "paragraph_chars": 391,
+    "figure_table_captions": [
+      "Figure-12",
+      "Figure-13"
+    ],
+    "image_count": 2
+  },
+  {
+    "page": 19,
+    "raw_chars": 4032,
+    "paragraph_chars": 4042,
+    "figure_table_captions": [
+      "Table-1"
+    ],
+    "image_count": 0
+  },
+  {
+    "page": 20,
+    "raw_chars": 4542,
+    "paragraph_chars": 4547,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 21,
+    "raw_chars": 4035,
+    "paragraph_chars": 4041,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 22,
+    "raw_chars": 3295,
+    "paragraph_chars": 3306,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 23,
+    "raw_chars": 4759,
+    "paragraph_chars": 4762,
+    "figure_table_captions": [],
+    "image_count": 0
+  },
+  {
+    "page": 24,
+    "raw_chars": 3834,
+    "paragraph_chars": 3834,
+    "figure_table_captions": [],
+    "image_count": 0
+  }
+]

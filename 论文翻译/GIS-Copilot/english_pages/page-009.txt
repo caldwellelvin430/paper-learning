@@ -1,0 +1,34 @@
+8 
+T. AKINBOYEWA ET AL.
+
+3.3. User interface design
+
+The graphic user interface of this GIS Copilot comprises six main tabs: Request Page, Generated 
+Code, Geoprocessing Workflow, Reports, Settings and Help, as displayed in Figure 3. The Request 
+Page allows users to submit requests, view AI-generated code in real-time, monitor the agent’s sta­
+tus, and select datasets directly from the QGIS layer panel. To enable seamless integration with 
+QGIS, users can select datasets for analysis directly from the QGIS layer panel by checking the layers 
+they want to include and unchecking those to exclude. The Generated Code tab enables users to 
+manually execute the generated code and make edits as needed, save, or load saved code from 
+the local machine-generated code. The Geoprocessing Workflow tab visually outlines the steps 
+for completing tasks. The Reports tab displays outputs like charts, plots, and summaries. The Set­
+tings tab lets users configure the plugin, including API keys and default workspace where results are 
+saved. Finally, the Help tab guides using the plugin.
+
+4. Case studies
+
+To demonstrate the capabilities of the GIS Copilot, spatial tasks were provided directly to the agent 
+in natural language. The test cases were developed by the authors, who are GIS experts with sub­
+stantial experience in geospatial analysis, prompt engineering, and agent development. It is worth 
+noting that the design of the task requests does not require specialized prompt engineering skills, 
+demonstrating that task requests can be composed by users regardless of their level of expertise in 
+GIS or familiarity with LLMS. These cases were categorized into three levels of complexity: basic, 
+intermediate, and advanced.
+
+4.1. Basic level tasks
+
+At this level, the tasks are straightforward, involving a single tool along with one (or occasionally 
+two) data layers. The agent is expected to perform a straightforward operation that usually requires 
+a single step, such as calculating the area of polygons or selecting features based on attributes.
+
+Figure 3.  The graphic user interface of the GIS Copilot.

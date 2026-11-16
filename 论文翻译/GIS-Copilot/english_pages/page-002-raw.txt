@@ -1,0 +1,59 @@
+GIS Copilot: towards an autonomous GIS agent for spatial analysis
+Temitope Akinboyewa 
+, Zhenlong Li 
+, Huan Ning and M. Naser Lessani
+Geoinformation and Big Data Research Lab, Department of Geography, The Pennsylvania State University, 
+University Park, PA, USA
+ABSTRACT  
+Recent advancements in generative artificial intelligence (AI), particularly 
+Large Language Models (LLMs), offer promising capabilities for spatial 
+analysis. However, their integration with established GIS platforms 
+remains underexplored. In this study, we propose a framework that 
+embeds LLMs into existing GIS platforms, using QGIS as a case study. 
+Our approach leverages LLMs’ reasoning and coding abilities to 
+autonomously generate spatial analysis workflows through an informed 
+agent equipped with comprehensive documentation of key GIS tools 
+and parameters. External tools such as GeoPandas are also incorporated 
+to enhance the system’s geoprocessing capabilities. Based on this 
+framework, we developed a ‘GIS Copilot’ that enables users to interact 
+with QGIS using natural language. We evaluated the copilot across over 
+100 tasks of varying complexity including basic (single tool/layer), 
+intermediate (multistep with guidance), and advanced (multistep 
+without guidance). Results show high success rates for basic and 
+intermediate tasks, with challenges remaining in fully autonomous 
+execution of advanced tasks. The GIS Copilot advances the vision of 
+autonomous GIS by enabling non-experts to perform geospatial analysis 
+with minimal prior knowledge. While full autonomy is not yet achieved, 
+the copilot demonstrates significant potential for simplifying GIS 
+workflows and enhancing decision-making processes.
+ARTICLE HISTORY
+Received 3 December 2024 
+Accepted 17 April 2025  
+KEYWORDS  
+Autonomous GIS; spatial 
+analysis; QGIS; Copilot; 
+generative AI; LLM
+1. Introduction
+Recent advancements in generative artificial intelligence (AI), particularly the Large Language Models 
+(LLMs), have gained significant attention in geographic information science (GIScience) through their 
+abilities in natural language understanding, reasoning, and code generation. LLMs offer a wide range of 
+potential applications within geographic information systems (GIS), including spatial data analysis, 
+geoprocessing automation, and geospatial knowledge extraction. A pioneering study by (Li and 
+Ning 2023) introduced autonomous GIS as a next-generation AI-powered GIS, demonstrating the 
+potential of generative AI in generating geoprocessing workflows and conducting spatial analysis 
+autonomously. More studies have further examined the integration of generative AI (LLMs) within 
+GIS. For instance, researchers have explored its applications in cartography (Tao and Xu 2023; 
+Zhang et al. 2024), disaster management (Akinboyewa et al. 2024; Hao et al. 2024), GIS-based question 
+answering (Mooney et al. 2023; Zhang et al. 2024), location descriptions extraction (Hu et al. 2023), and 
+© 2025 The Author(s). Published by Informa UK Limited, trading as Taylor & Francis Group 
+This is an Open Access article distributed under the terms of the Creative Commons Attribution License (http://creativecommons.org/licenses/by/4.0/), 
+which permits unrestricted use, distribution, and reproduction in any medium, provided the original work is properly cited. The terms on which this 
+article has been published allow the posting of the Accepted Manuscript in a repository by the author(s) or with their consent. 
+CONTACT  Zhenlong Li 
+zhenlong@psu.edu
+Geoinformation and Big Data Research Lab, Department of Geography, The 
+Pennsylvania State University, 225 Walker Building, University Park, PA 16802, USA
+Supplemental data for this article can be accessed online at https://doi.org/10.1080/17538947.2025.2497489.
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+2025, VOL. 18, NO. 1, 2497489 
+https://doi.org/10.1080/17538947.2025.2497489

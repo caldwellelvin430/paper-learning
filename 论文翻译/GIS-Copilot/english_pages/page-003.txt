@@ -1,0 +1,59 @@
+2 
+T. AKINBOYEWA ET AL.
+
+geospatial data retrieval (Ning et al. 2025). These efforts collectively demonstrate that generative AI 
+holds promise in enhancing and potentially transforming traditional GIS workflows.
+
+While the integration of generative AI in GIS has shown significant promise, one key limitation is 
+that these existing approaches have not fully embedded LLM capabilities within established GIS plat­
+forms like QGIS (QGIS 2024), ArcGIS Pro (ESRI 2024), and GRASS GIS (GRASS GIS 2024). Li and 
+Ning (2023) suggest that implementing autonomous GIS based on existing GIS platforms as a ‘co- 
+pilot’ is likely the most practical and efficient approach, as established GIS platforms already provide 
+extensive tools for spatial analysis, data management, and visualization. However, the integration of 
+LLMs into GIS platforms like QGIS presents several challenges. First, GIS platforms are inherently 
+complex, supporting diverse tools, libraries, and workflows for data visualization, spatial analysis, 
+geoprocessing, and cartographic rendering. These tools often rely on diverse frameworks, data stan­
+dards, and programming languages, complicating the creation of a single, cohesive workflow that 
+integrates AI smoothly. Second, effective communication between the AI and existing GIS functions 
+requires robust and error-free interaction. This involves translating natural language queries into GIS 
+commands and ensuring that those commands align with GIS native tools and associated tool par­
+ameters. Such a process demands extensive fine-tuning and specialized approaches to understand 
+the full breadth of GIS tools and operations. Additionally, GIS workflows are often highly customized 
+and problem specific. Developing an AI integration that can seamlessly adapt to these custom workfl­
+ows, while being flexible enough to handle various user-defined parameters, is challenging.
+
+To address these challenges, we propose a framework to integrate generative AI into a well-estab­
+lished GIS platform that leverages the advanced capabilities of LLMs to interact with existing geoproces­
+sing tools. To implement this framework, we developed a user-friendly plugin that serves as a ‘Copilot’ in 
+the QGIS software, allowing users to perform spatial analysis through natural language queries. This GIS 
+Copilot provides a graphic user interface where users can input a task (spatial problem), which the agent 
+analyzes by breaking it into steps and selecting suitable GIS tools. It then generates and executes Python 
+code for the task to produce the final result. By leveraging the existing capabilities of GIS platforms and 
+enhancing them with AI-driven reasoning, this framework aims to overcome the limitations of previous 
+efforts and contribute to the advancement of autonomous GIS research.
+
+The key contributions of this study can be summarized as follows: 1) This study introduces an 
+extensible and generalizable framework for integrating LLMs into established GIS platforms, setting 
+a precedent for future developments in GIS Copilot and autonomous GIS across multiple platforms 
+(e.g. ArcGIS, GRASS GIS). 2) This study creates pathways for GIS accessibility and adoption. By 
+enabling natural language interaction and expanding GIS capabilities to non-expert users, this 
+research demonstrates how AI-driven systems can potentially transform geospatial analysis in 
+non-traditional GIS domains like public health, disaster response, and urban planning. 3) To the 
+best of our knowledge, this is the first GIS Copilot deeply integrated into a well-established GIS plat­
+form, supporting diverse geospatial tasks while enhancing transparency, real-time reasoning, and 
+expandability for external tools. While full autonomy is not yet achieved, it brings us closer to rea­
+lizing autonomous GIS systems for complex geospatial tasks with minimal human intervention.
+
+The remainder of this paper is organized in this manner. Section 2 reviews related work on 
+autonomous GIS and the integration of generative AI into geospatial tasks. Section 3 details the pro­
+posed framework and prototype workflow. Section 4 presents the results from case studies and 
+evaluation of the performance of the Copilot at different complexity levels of cases. Section 5 dis­
+cusses the key findings and Section 6 discusses the limitations and potential future research direc­
+tions. Finally, Section 7 concludes the paper.
+
+2. Related work
+
+2.1. Autonomous GIS and the integration of generative AI into geospatial tasks
+
+The recent advancement of generative AI, particularly LLMs such as GPT-4 (OpenAI 2023), Llama 
+(Meta), and Gemini (Gemini Team and Google 2023), has opened the avenue for researchers to

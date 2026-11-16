@@ -1,0 +1,29 @@
+Table 25: Example outputs by Zero-shot-PS+ for Last Letters.
+
+Q: Take the last letters of each words in "Lino Mariel Aditya Elisabeth" and concatenate them
+
+A:Let’s devise a plan and solve the problem step by step.
+
+Output:
+Step 1: Take the last letters of each word in the given string.
+Lino: o
+Mariel: l
+Aditya: a
+Elisabeth: h
+Step 2: Concatenate the last letters.
+Answer: olah
+
+Q: Take the last letters of each words in "Jacky Socorro Mark Wanda" and concatenate them
+
+A:Let’s devise a plan and solve the problem step by step.
+
+Output:
+Step 1: Take the last letters of each word.
+Jacky: y
+Socorro: o
+Mark: k
+Wanda: a
+Step 2: Concatenate the letters.
+Answer: yoka
+
+2631

@@ -1,0 +1,162 @@
+Table 1: Details of datasets being evaluated. Math: arith-
+metic reasoning. CS: commonsense reasoning. Sym.:
+symbolic reasoning.
+
+Dataset
+Domain # Samples Ave. words
+Answer
+
+MultiArith
+Math
+600
+31.8
+Number
+AddSub
+Math
+395
+31.5
+Number
+GSM8K
+Math
+1319
+46.9
+Number
+AQUA
+Math
+254
+51.9
+Option
+SingleEq
+Math
+508
+27.4
+Number
+SVAMP
+Math
+1000
+31.8
+Number
+CSQA
+CS
+1221
+27.8
+Option
+StrategyQA
+CS
+2290
+9.6
+Yes / No
+Last Letters
+Sym.
+500
+15.0
+String
+Coin Flip
+Sym.
+500
+37.0
+Yes / No
+
+3.2
+Zero-shot and Few-shot Baselines
+
+We compare our proposed zero-shot PS and PS+
+prompting methods with three types of prompt-
+ing baselines: (1) Zero-shot baselines. We in-
+clude zero-shot-CoT (Kojima et al., 2022) and zero-
+shot-PoT (Chen et al., 2022). The former appends
+“Let’s think step by step” to the prompt without
+any demonstration examples. The latter uses LLM
+(mainly OpenAI Codex1) to generate a Python pro-
+gram and then derive an answer by executing the
+generated program on a Python interpreter; (2)
+Few-shot with manual demonstrations. Manual-
+CoT (Wei et al., 2022b) creates eight hand-crafted
+examples as demonstrations. (3) Few-shot with au-
+tomatic demonstrations. Auto-CoT (Zhang et al.,
+2022) automatically selected examples by cluster-
+ing with diversity and generates reasoning chains
+using zero-shot-CoT to construct demonstrations.
+
+3.3
+Implementations
+
+Following Auto-CoT (Zhang et al., 2022), we use
+the public GPT-3 (Brown et al., 2020) (175B) as
+the backbone language model, which is one of
+the most widely-used LLMs with public APIs2.
+Since text-davinci-003 is an upgraded ver-
+sion of text-davinci-002, which can pro-
+duce higher-quality writing, accommodate more
+complex instructions, and perform better at longer-
+form content generation, We report the results
+using text-davinci-003 engine for GPT-3
+in the main paper. We set the temperature to 0
+(argmax sampling) throughout our experiments for
+the greedy decoding strategy. We also include two
+few-shot baselines, Manual-CoT and Auto-CoT,
+we use 8 demonstration examples for MultiArith,
+GSM8K, AddSub, SingleEq, and SVAMP, 4 ex-
+
+1https://openai.com/blog/openai-codex/
+2https://beta.openai.com/docs/models/gpt-3
+
+amples for AQuA and Last Letters, 7 examples
+for CSQA, and 6 examples for StrategyQA as sug-
+gested in the original papers, Wei et al. (2022b) and
+Zhang et al. (2022). Evaluation metrics wise, we
+follow Manual-CoT (Wei et al., 2022b) and report
+the accuracy of all methods across datasets.
+
+4
+Experimental Results
+
+4.1
+Main Results
+
+Arithmetic Reasoning.
+Table 2 reports the accu-
+racy comparison of our method and existing zero-
+shot and few-shot methods on the arithmetic rea-
+soning datasets. In the zero-shot setting, our PS+
+prompting (i.e., PS prompting with more detailed
+instructions) consistently outperforms Zero-shot-
+CoT across all arithmetic reasoning datasets by
+a large margin. Specifically, PS+ prompting im-
+proves the accuracy over Zero-shot CoT by at least
+5% for all datasets except GSM8K which sees a
+2.9% improvement. The exception could be due to
+GSM8K being a more challenging dataset from the
+linguistics complexity aspect. PS prompting also
+outperforms Zero-shot-CoT across all datasets, and
+enjoys 2.5% higher average accuracy than that of
+Zero-shot CoT.
+Compared with another competitive Zero-shot
+baseline, PoT, the performance of PS(+) and PS
+promptings are still impressive. PS+ prompting out-
+performs PoT on five out of six arithmetic datasets.
+PS prompting also outperforms PoT on three arith-
+metic datasets. The results suggest that adding
+more detailed instructions to the prompt can ef-
+fectively elicit higher-quality reasoning steps from
+LLMs.
+Compared with the few-shot methods, Manual
+CoT and Auto-CoT, PS+ prompting yields an aver-
+age accuracy (76.7%) slightly lower than Manual-
+CoT (77.6%) but higher than Auto-CoT (75.9%).
+While this is an unfair comparison, this result indi-
+cates that zero-shot prompting can outperform few-
+shot CoT prompting, which hopefully will spark
+further development of new ways with a less man-
+ual effort to effectively elicit reasoning in LLMs.
+
+Commmonsense Reasoning.
+Table 3 shows the
+results on commonsense reasoning datasets: Com-
+monsenseQA and StrategyQA. We only include
+our better zero-shot PS+ prompting strategy in this
+comparison. Zero-shot PoT is excluded as it does
+not work on this problem. While PS+ prompt-
+ing underperforms Few-Shot-CoT(Manual) on this
+
+2613

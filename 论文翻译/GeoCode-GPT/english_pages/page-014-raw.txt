@@ -1,0 +1,92 @@
+– review & editing, Supervision, Funding acquisition.
+Declaration of competing interest
+The authors declare that they have no known competing financial 
+interests or personal relationships that could have appeared to influence 
+the work reported in this paper.
+Appendix 1 
+The attributes of each file type are listed in the table below. For detailed content, please refer to the open-source repository: https://github.com/wh 
+uhsy/GeoCode-GPT.
+Table GeoCode-PT Data Attribute Table
+Type
+Attribute
+Code documents
+Code_id
+Language
+Platform
+Library
+Title
+Description
+Content
+Dataset documents
+Dataset_id
+Name
+Provide
+Snippet
+Tags
+Description
+DOI
+Website
+Operator documents
+Operator_id
+Full_name
+Short_name
+Library_name
+Language
+Platform
+Description
+Usage
+Parameters
+Output_type
+Encyclopedic Documents
+Name
+Text
+Appendix A. Supplementary data
+Supplementary data to this article can be found online at https://doi.org/10.1016/j.jag.2025.104456.
+Data availability
+Data will be made available on request.
+References
+Abdin, M., Jacobs, S.A., Awan, A.A., Aneja, J., Awadallah, A., Awadalla, H., Bach, N., 
+Bahree, A., Bakhtiari, A., Behl, H., 2024. Phi-3 technical report: A highly capable 
+language model locally on your phone. arXiv preprint arXiv:2404.14219. htt 
+ps://doi.org/10.48550/arXiv.2404.14219.
+Arievitch, I.M., 2020. Reprint of: The vision of Developmental Teaching and Learning 
+and Bloom’s Taxonomy of educational objectives. Learn. Cult. Soc. Interact. 27, 
+100473. https://doi.org/10.1016/j.lcsi.2020.100473.
+Chen, L., Guo, Q., Jia, H., Zeng, Z., Wang, X., Xu, Y., Wu, J., Wang, Y., Gao, Q., Wang, J., 
+2024. A survey on evaluating large language models in code generation tasks. arXiv 
+preprint arXiv:2408.16498. https://doi.org/10.48550/arXiv.2408.16498.
+Chen, M., Tworek, J., Jun, H., Yuan, Q., Pinto, H.P.D.O., Kaplan, J., Edwards, H., Burda, 
+Y., Joseph, N., Brockman, G., 2021. Evaluating large language models trained on 
+code. arXiv preprint arXiv:2107.03374. https://doi.org/10.48550/arXiv.2107. 
+03374.
+Cinquini, L., Crichton, D., Mattmann, C., Harney, J., Shipman, G., Wang, F., 
+Ananthakrishnan, R., Miller, N., Denvil, S., Morgan, M., 2014. The Earth System Grid 
+Federation: An open infrastructure for access to distributed geospatial data. Futur. 
+Gener. Comp. Syst. 36, 400–417. https://doi.org/10.1016/j.future.2013.07.002.
+Coetzee, S., Iv´anov´a, I., Mitasova, H., Brovelli, M.A., 2020. Open geospatial software and 
+data: A review of the current state and a perspective into the future. ISPRS Int. J. 
+Geo-Inf. 9, 90. https://doi.org/10.3390/ijgi9020090.
+Cui, J., Li, Z., Yan, Y., Chen, B., Yuan, L., 2023. Chatlaw: Open-source legal large 
+language model with integrated external knowledge bases. arXiv preprint arXiv: 
+2306.16092. https://doi.org/10.48550/arXiv.2306.16092.
+Dubois, Y., Galambosi, B., Liang, P., Hashimoto, T.B., 2024. Length-controlled 
+alpacaeval: A simple way to debias automatic evaluators. arXiv preprint arXiv: 
+2404.04475. https://doi.org/10.48550/arXiv.2404.04475.
+Guo, D., Zhu, Q., Yang, D., Xie, Z., Dong, K., Zhang, W., Chen, G., Bi, X., Wu, Y., Li, Y.K., 
+2024. DeepSeek-Coder: When the Large Language Model Meets Programming–The 
+Rise of Code Intelligence. arXiv preprint arXiv:2401.14196. https://doi.org/10.4855 
+0/arXiv.2401.14196.
+Hou, S., Jiao, H., Shen, Z., Liang, J., Zhao, A., Zhang, X., Wang, J., Wu, H., 2024a. Chain- 
+of-Programming (CoP): Empowering Large Language Models for Geospatial Code 
+Generation. arXiv preprint arXiv:2411.10753. https://doi.org/10.48550/arXiv.2 
+411.10753.
+Hou, S., Liang, J., Zhao, A., Wu, H., 2024b. GEE-OPs: An Operator Knowledge Base for 
+Geospatial Code Generation on the Google Earth Engine Platform Powered by Large 
+Language Models. arXiv preprint arXiv:2412.05587. https://doi.org/10.4855 
+0/arXiv.2412.05587.
+Hou, S., Zhangxiao, S., Jianyuan, L., Anqi, Z., Zhipeng, G., Rui, L., Wu, H., 2024c. Can 
+Large Language Models Generate Geospatial Code? arXiv preprint arXiv: 
+2410.09738. https://doi.org/10.48550/arXiv.2410.09738.
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+14 

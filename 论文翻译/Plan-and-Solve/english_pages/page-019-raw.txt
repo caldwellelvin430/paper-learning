@@ -1,0 +1,34 @@
+Table 21: Example outputs by Zero-shot-PS+ for AddSub.
+Q: There were 28 bales of hay in the barn. Tim stacked bales in the barn today. There are now 54
+bales of hay in the barn. How many bales did he store in the barn ?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numeral calculation and commonsense), solve the problem step by step, and show the answer.
+Output:
+Given:
+Initial number of bales of hay in the barn = 28
+Number of bales of hay in the barn after Tim stacked them = 54
+Plan:
+Calculate the number of bales of hay Tim stored in the barn by subtracting the initial number of bales
+of hay from the number of bales of hay after Tim stacked them.
+Calculation:
+Number of bales of hay Tim stored in the barn = 54 - 28 = 26
+Answer:
+Tim stored 26 bales of hay in the barn.
+Q: There were 6 roses in the vase. Mary cut some roses from her flower garden. There are now 16
+roses in the vase. How many roses did she cut ?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numeral calculation and commonsense), solve the problem step by step, and show the answer.
+Output:
+Given:
+Initial number of roses in the vase = 6
+Final number of roses in the vase = 16
+Plan:
+Subtract the initial number of roses from the final number of roses to calculate the number of roses
+Mary cut.
+Calculation:
+Number of roses Mary cut = 16 - 6 = 10
+Answer:
+Mary cut 10 roses from her flower garden.
+2627

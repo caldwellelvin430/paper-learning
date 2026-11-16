@@ -1,0 +1,85 @@
+Hu, E.J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., Chen, W., 2021. 
+Lora: Low-rank adaptation of large language models. arXiv preprint arXiv: 
+2106.09685. https://doi.org/10.48550/arXiv.2106.09685.
+Huang, A.H., Wang, H., Yang, Y., 2023. FinBERT: A large language model for extracting 
+information from financial text. Contemp. Account. Res. 40, 806–841. https://doi. 
+org/10.1111/1911-3846.12832.
+Jiang, J., Wang, F., Shen, J., Kim, S., Kim, S., 2024. A Survey on Large Language Models 
+for Code Generation. arXiv preprint arXiv:2406.00515. https://doi.org/10.4855 
+0/arXiv.2406.00515.
+Kasneci, E., Seßler, K., Küchemann, S., Bannert, M., Dementieva, D., Fischer, F., 
+Gasser, U., Groh, G., Günnemann, S., Hüllermeier, E., 2023. ChatGPT for good? On 
+opportunities and challenges of large language models for education. Learn. Individ. 
+Differ. 103, 102274. https://doi.org/10.1016/j.lindif.2023.102274.
+Kessel, M., Atkinson, C., 2024. Code search engines for the next generation. J. Syst. 
+Softw. 215, 112065. https://doi.org/10.1016/j.jss.2024.112065.
+Kifetew, F.M., Tiella, R., Tonella, P., 2017. Generating valid grammar-based test inputs 
+by means of genetic programming and annotated grammars. Empir. Softw. Eng. 22, 
+928–961. https://doi.org/10.1007/s10664-015-9422-4.
+Li, L., Jiang, X., Liu, Q., 2019. Pretrained language models for document-level neural 
+machine translation. arXiv preprint arXiv:1911.03110. https://doi.org/10.4855 
+0/arXiv.1911.03110.
+Lirov, Y., 1991. Computer-aided software engineering of expert systems. Expert Syst. 
+Appl. 2, 333–343. https://doi.org/10.1016/0957-4174(91)90039-H.
+Luo, Z., Xu, C., Zhao, P., Sun, Q., Geng, X., Hu, W., Tao, C., Ma, J., Lin, Q., Jiang, D., 
+2023. Wizardcoder: Empowering code large language models with evol-instruct. 
+arXiv preprint arXiv:2306.08568. https://doi.org/10.48550/arXiv.2306.08568.
+Minaee, S., Mikolov, T., Nikzad, N., Chenaghlu, M., Socher, R., Amatriain, X., Gao, J., 
+2024. Large language models: A survey. arXiv preprint arXiv:2402.06196. htt 
+ps://doi.org/10.48550/arXiv.2402.06196.
+Nymeyer, A., Katoen, J.P., 1997. Code generation based on formal BURS theory and 
+heuristic search. Acta Inform. 34, 597–635. https://doi.org/10.1007/ 
+s002360050099.
+Qin, H., Ma, X., Zheng, X., Li, X., Zhang, Y., Liu, S., Luo, J., Liu, X., Magno, M., 2024. 
+Accurate lora-finetuning quantization of llms via information retention. arXiv 
+preprint arXiv:2402.05445. https://doi.org/10.48550/arXiv.2402.05445.
+Roziere, B., Gehring, J., Gloeckle, F., Sootla, S., Gat, I., Tan, X.E., Adi, Y., Liu, J., 
+Sauvestre, R., Remez, T., 2023. Code llama: Open foundation models for code. arXiv 
+preprint arXiv:2308.12950. https://doi.org/10.48550/arXiv.2308.12950.
+Scalabrino, S., Bavota, G., Vendome, C., Linares-Vasquez, M., Poshyvanyk, D., 
+Oliveto, R., 2019. Automatically assessing code understandability. IEEE Trans. 
+Softw. Eng. 47, 595–613. https://doi.org/10.1109/TSE.2019.2901468.
+Tamiminia, H., Salehi, B., Mahdianpari, M., Quackenbush, L., Adeli, S., Brisco, B., 2020. 
+Google Earth Engine for geo-big data applications: A meta-analysis and systematic 
+review. ISPRS-J. Photogramm. Remote Sens. 164, 152–170. https://doi.org/ 
+10.1016/j.isprsjprs.2020.04.001.
+Tao, W., 2013. Interdisciplinary urban GIS for smart cities: advancements and 
+opportunities. Geo-Spat. Inf. Sci. 16, 25–34. https://doi.org/10.1080/ 
+10095020.2013.774108.
+Thirunavukarasu, A.J., Ting, D.S.J., Elangovan, K., Gutierrez, L., Tan, T.F., Ting, D.S.W., 
+2023. Large language models in medicine. Nat. Med. 29, 1930–1940. https://doi. 
+org/10.1038/s41591-023-02448-8.
+Tonmoy, S.M., Zaman, S.M., Jain, V., Rani, A., Rawte, V., Chadha, A., Das, A., 2024. A 
+comprehensive survey of hallucination mitigation techniques in large language 
+models. arXiv preprint arXiv:2401.01313. https://doi.org/10.48550/arXiv.2401. 
+01313.
+Wang, J., Zhang, B., Du, Q., Zhang, J., Chu, D., 2024. A Survey on Data Selection for LLM 
+Instruction Tuning. arXiv preprint arXiv:2402.05123. https://doi.org/10.4855 
+0/arXiv.2402.05123.
+Wang, Y., Kordi, Y., Mishra, S., Liu, A., Smith, N.A., Khashabi, D., Hajishirzi, H., 2022. 
+Self-instruct: Aligning language models with self-generated instructions. arXiv 
+preprint arXiv:2212.10560. https://doi.org/10.48550/arXiv.2212.10560.
+Zhang, X., Tian, C., Yang, X., Chen, L., Li, Z., Petzold, L.R., 2023. Alpacare: Instruction- 
+tuned large language models for medical application. arXiv preprint arXiv: 
+2310.14558. https://doi.org/10.48550/arXiv.2310.14558.
+Zhang, Y., He, Z., Li, J., Lin, J., Guan, Q., Yu, W., 2024a. MapGPT: An autonomous 
+framework for mapping by integrating large language model and cartographic tools. 
+Cartogr. Geogr. Inf. Sci. 51, 717–743. https://doi.org/10.1080/ 
+15230406.2024.2404868.
+Zhang, Y., Wang, Z., He, Z., Li, J., Mai, G., Lin, J., Wei, C., Yu, W., 2024b. BB-GeoGPT: A 
+framework for learning a large language model for geographic information science. 
+Inf. Process. Manage. 61, 103808. https://doi.org/10.1016/j.ipm.2024.103808.
+Zhang, Y., Wei, C., He, Z., Yu, W., 2024c. GeoGPT: An assistant for understanding and 
+processing geospatial tasks. Int. J. Appl. Earth Obs. Geoinf. 131, 103976. https://doi. 
+org/10.1016/j.jag.2024.103976.
+Zhao, W.X., Zhou, K., Li, J., Tang, T., Wang, X., Hou, Y., Min, Y., Zhang, B., Zhang, J., 
+Dong, Z., 2023. A survey of large language models. arXiv preprint arXiv:2303.18223. 
+https://doi.org/10.48550/arXiv.2303.18223.
+Zheng, L., Chiang, W.-L., Sheng, Y., Zhuang, S., Wu, Z., Zhuang, Y., Lin, Z., Li, Z., Li, D., 
+Xing, E., 2023. Judging LLM-as-a-judge with MT-Bench and Chatbot Arena. arXiv 
+preprint arXiv:2306.05685. https://doi.org/10.48550/arXiv.2306.05685.
+Zhuo, T.Y., 2023. ICE-Score: Instructing Large Language Models to Evaluate Code. arXiv 
+preprint arXiv:2304.14317. https://doi.org/10.48550/arXiv.2304.14317.
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+15 

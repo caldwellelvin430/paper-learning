@@ -1,0 +1,269 @@
+“proprietary knowledge” of geospatial platforms, they were not included 
+in the training data of other models, leading to weaker performance in 
+the Datasets Knowledge dimension. The lowest accuracy rates were 
+47.6 % for LLaMA 2-7B and 20.8 % for CodeGemma-7B. In contrast, 
+after domain-specific fine-tuning, GeoCode-GPT-7B’s accuracy rates 
+increased by 6.6 % to 39.7 % (Operator Knowledge) and by 27.2 % to 
+58.4 % (Datasets Knowledge). In the Programming Language Recogni­
+tion task, since geospatial code is wrapped around foundational pro­
+gramming languages, retaining some of the original syntax, most models 
+could easily recognize the underlying languages. Commercial models 
+performed the best, with general-purpose code generation models 
+slightly outperforming general LLMs. GeoCode-GPT-7B showed limited 
+improvement in this task (1.8 %–13.2 %).By comparison, the models 
+performed worse in the Platform or Toolkits Recognition task, likely due 
+to the lower usage of certain platforms and the limited availability of 
+open-source code. While models could identify syntax differences, they 
+struggled to accurately match platform or toolkit names without specific 
+instruction training. However, GeoCode-GPT-7B showed significant 
+improvement in this task due to instruction tuning, outperforming other 
+models by 2.4 % to 31.6 %. Platform or Toolkits Knowledge is generally 
+considered common encyclopedic knowledge, resulting in minimal 
+performance differences across models. Commercial models overall 
+outperformed general LLMs, while general-purpose code generation 
+models performed the worst, possibly because their training focuses 
+more on code content, reducing their geospatial foundational knowl­
+edge. In this task, GeoCode-GPT-7B led by 2 % to 31.2 % points, except 
+for GPT-4. In the Entity Extraction task, where code functions as a 
+specialized form of natural language, stronger semantic understanding is 
+required. As a result, general-purpose LLMs slightly outperformed gen­
+eral code generation models. GeoCode-GPT-7B demonstrated higher 
+accuracy than other models (except GPT-4), with a margin of 10.8 % to 
+52 %. These evaluation results validate the effectiveness of GeoCode- 
+GPT-7B’s training strategy.
+5.2. Subjective questions
+Geospatial code often involves the analysis and processing of 
+spatiotemporal imagery, which is difficult for standard compilers to 
+directly handle or visualize. As a result, evaluation typically relies on 
+experts, which is costly and subjective. Similar challenges arise when 
+assessing the readability, entity accuracy, and completeness of code or 
+summaries. Since the semantic expression of the same entity can vary, 
+string-matching scores lack flexibility. To address this, we designed 
+specific prompts for GPT-4 to act as an “evaluator” for automatic 
+assessment. Given the token cost of LLMs, the prompt template was 
+carefully crafted to emphasize conciseness in scoring, aiming to improve 
+expression efficiency and avoid overly lengthy responses.
+5.2.1. Code summarization
+The evaluation of code summarization is based on three metrics: 
+Completeness, Accuracy, and Readability. Completeness requires the 
+summary to cover six key dimensions: code overview, datasets used, 
+spatial scope, temporal scope, input/output data types, and the func­
+tional implementation process. Accuracy demands that, despite poten­
+tial differences in expression, the semantic content must be correct. 
+Readability focuses on clear logic, smooth phrasing, and concise 
+expression. A prompt was designed to guide GPT-4 to reference the 
+standard answer and assign a score, ranging from 1 to 10, which is then 
+converted to a 0–100 scale for comprehensive evaluation. The prompt 
+design is illustrated in Fig. 7a.
+As shown in Table 5, GeoCode-GPT-7B demonstrated significant 
+improvements across all three evaluation metrics compared to the 
+baseline model, Code Llama-7B, with gains ranging from 14.2 to 25.2 
+points and an overall enhancement of 21.4 points in summarization 
+performance. When compared to other models, GeoCode-GPT-7B 
+showed performance improvements of 1.7 to 25.4 points in summari­
+zation generation. In the Completeness metric, GeoCode-GPT-7B out­
+performed all other models by 3.2 to 16.4 points, except for GPT-4, 
+where it scored 2.6 points lower. This difference may be related to 
+context token length, as larger commercial models can provide more 
+contextual information, leading to better completeness scores. All 
+models scored above 75 points, indicating that they could recognize and 
+cover at least 4.5 out of the six dimensions. However, longer context 
+tokens also introduced issues of information redundancy. Although 
+commercial models generated more comprehensive summaries, their 
+efficiency in information expression decreased, resulting in lower scores 
+for Readability. Code generation models, due to their training focus on 
+code, may have diluted abilities in general text generation, with read­
+ability scores generally around 60 points. GeoCode-GPT-7B, through 
+expert-optimized instruction tuning with the GeoCode-SFT dataset, led 
+the comparison group in readability, outperforming other models by 2.2 
+to 27.4 points. In the Accuracy metric, model performance varied 
+significantly. GPT-4 achieved the highest score at 95.2 points, while 
+CodeGemma-7B performed the worst at 58.2 points. GeoCode-GPT-7B, 
+benefiting from instruction fine-tuning that functioned like multiple 
+few-shot learning iterations, improved accuracy by 6.8 to 34.9 points 
+compared to other models, though it scored slightly lower than GPT-4 
+(by 2.2 points). Overall, the performance of GeoCode-GPT-7B across 
+all summarization metrics validates the effectiveness and advantages of 
+its training strategy.
+Using a code summarization test case as an example, the results 
+generated by GeoCode-GPT-7B and CodeGemma-7B were compared. 
+The summary produced by GeoCode-GPT-7B is complete and accurate, 
+with clear logic and high readability. In contrast, the output from 
+CodeGemma-7B exhibits issues such as excessive irrelevant information, 
+incomplete coverage of key entities, vague expressions, inaccurate 
+functional descriptions, and a lack of logical structure. The corre­
+sponding visualization results are shown in Fig. 8.
+5.2.2. Code generation
+The code generation evaluation is based on three core metrics: Ac­
+curacy, Readability, and Executability. The scoring methodology is 
+Table 4 
+Multiple-choice Question Evaluation Data Table (Values in percentages).
+Model
+Acc-OK
+Acc-DK
+Acc-PTK
+Acc-PTR
+Acc-PLR
+Acc-EE
+Acc-Average
+GPT-4
+80.4
+↑6.9
+52
+↑27.2
+78.4
+↓3.2
+87.8
+↓2.4
+93.6
+↑1.8
+85.2
+↓10.6
+75.7
+↑9.1
+GPT-3.5
+75.2
+↑12.1
+45.2
+↑34
+73.2
+↑2
+85.2
+↑5
+91.4
+↑4
+72.8
+↑10.8
+73.8
+↑11
+ERNIE 4.0
+72.3
+↑15
+40.4
+↑38.8
+60.8
+↑14.4
+80.4
+↑9.8
+89
+↑6.4
+67.8
+↑15.8
+68.5
+↑16.3
+LLaMA 2-7B
+47.6
+↑39.7
+32.8
+↑46.4
+64
+↑11.2
+67.6
+↑22.6
+82.2
+↑13.2
+52.4
+↑31.2
+57.8
+↑27
+LLaMA 3-8B
+52.7
+↑34.6
+37.6
+↑41.6
+65.2
+↑10
+69
+↑21.2
+85
+↑10.4
+53.6
+↑30
+60.6
+↑24.2
+CodeGemma-7B
+58.3
+↑29
+20.8
+↑58.4
+52
+↑23.2
+60.8
+↑29.4
+87.6
+↑7.8
+46.8
+↑36.8
+54.4
+↑30.4
+StarCoder 2-7B
+59.7
+↑27.6
+27.2
+↑52
+57.2
+↑18
+61
+↑29.2
+88
+↑7.4
+31.6
+↑52
+54.1
+↑30.7
+CodeGeeX 2-6B
+54.8
+↑32.5
+25.2
+↑54
+44
+↑31.2
+58.6
+↑31.6
+84.6
+↑10.8
+49.2
+↑34.4
+52.7
+↑32.1
+Code Llama-13B
+60.5
+↑26.8
+31.2
+↑48
+60
+↑15.2
+63.6
+↑26.6
+90.2
+↑5.2
+45.1
+↑38.5
+58.4
+↑26.4
+Code Llama-7B
+64.3
+↑23
+28.4
+↑50.8
+59.2
+↑16
+61.4
+↑28.8
+87.4
+↑8
+42.4
+41.2
+57.2
+↑27.6
+GeoCode-GPT-7B
+0.873
+0.792
+0.752
+0.902
+0.954
+0.746
+0.848
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+9 

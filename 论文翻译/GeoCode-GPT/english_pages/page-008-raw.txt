@@ -1,0 +1,59 @@
+section presents the evaluation methodology and results for GeoCode- 
+GPT-7B, and compares its performance with leading LLMs across 
+various domains. Commercial models included GPT-4, GPT-3.5, and 
+ERNIE 4.0. For general open-source LLMs, we selected LLaMA 2-7B, 
+LLaMA 3-8B, as well as general-purpose code generation models with 
+similar parameter sizes: CodeGemma-7B, StarCoder 2-7B, and Code­
+GeeX 2-6B. The baseline model was Code Llama-7B, with the higher- 
+parameter version, Code Llama-13B, included for reference.
+5.1. Multiple-choice questions
+Each multiple-choice question provides four options, with one cor­
+rect answer, covering six dimensions: Operator Knowledge (OK), Data­
+sets Knowledge (DK), Platform or Toolkits Knowledge (PTK), Platform 
+or Toolkits Recognition (PTR), Programming Language Recognition 
+(PLR), and Entity Extraction (EE). The model’s output was then 
+compared with the correct answer, and the corresponding accuracy was 
+calculated. The evaluation results, expressed as accuracy percentages, 
+are presented in Table 4.
+The evaluation results show that GeoCode-GPT-7B outperformed the 
+baseline model, Code Llama-7B, across all assessed dimensions. The 
+smallest improvement was observed in the Programming Language 
+Recognition dimension (8 %), while the largest improvement was in the 
+Datasets Knowledge dimension (50.8 %), with an overall average in­
+crease of 27.6 %. Compared to other models, GeoCode-GPT-7B scored 
+3.2 % and 10.6 % lower than GPT-4 in the Platform or Toolkits 
+Knowledge and Entity Extraction dimensions, respectively, but demon­
+strated significant superiority in all other dimensions.
+Since Operator Knowledge and Datasets Knowledge pertain to the 
+Fig. 6. GeoCode-Eval Evaluation Framework and Task Hierarchy.
+Table 3 
+GeoCode-Eval Data Inventory.
+Question Type
+Evaluation Dataset
+Quantity
+Cognition & Memory
+Multiple Choice
+Operator Knowledge
+1000
+Dataset Knowledge
+250
+Platform or Toolkit Knowledge
+250
+Platform or Toolkit Recognition
+500
+Programming Language Recognition
+500
+Entity Extraction
+500
+Comprehension & Interpretation
+Subjective
+Code Summarization
+500
+Innovation & Creation
+Subjective
+Code Generation
+500
+Fig. 7. GeoCode-Eval example questions.
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+8 

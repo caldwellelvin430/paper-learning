@@ -1,0 +1,137 @@
+Table 5: Performance comparison of trigger sentences measured on GSM8K and SVAMP datasets with
+text-davinci-003 except for No. 2 (code-davinci-002). (*1) means the trigger sentence used in
+Zero-shot-CoT (Kojima et al., 2022). (*2) means the trigger sentence used in Zero-shot-PoT (Chen et al., 2022).
+
+No.
+Trigger Sentence
+GSM8K
+SVAMP
+
+1
+Let’s think step by step.
+(*1)
+56.4
+69.9
+
+import math
+import numpy as np
+# Question: example[’question’]
+# Answer this question by implementing a solver() function.
+def solver():
+# Let’s write a Python program step by step, and then return the answer
+# Firstly, we need define the following variable:
+
+2
+
+(*2)
+57.0
+70.8
+
+3
+Extract variables and assign their corresponding numerals to these variables
+first and then solve the problem step by step.
+50.5
+69.5
+
+4
+Firstly, extract variables and their corresponding numerals. Then, calculate
+intermediate variables. Finally, solve the problem step by step.
+54.8
+70.8
+
+5
+Let’s first understand the problem and devise a plan to solve the problem.
+Then, let’s carry out the plan and solve the problem step by step.
+58.2
+72.0
+
+Let’s first understand the problem, extract relevant variables and their
+corresponding numerals, and make a plan. Then, let’s carry out the plan,
+calculate intermediate variables (pay attention to correct numerical
+
+6
+
+59.3
+75.7
+
+calculation and commonsense), solve the problem step by step, and show
+the answer.
+
+Table 6: Distribution of error types of 100 examples
+from GSM8K where Zero-shot-CoT, zero-shot PS (Zero-
+shot-PS) prompting, and zero-shot PS+ prompting get
+incorrect final answers.
+
+Method
+Calculation Missing Semantic
+
+Zero-shot-CoT
+7%
+12%
+27%
+
+Zero-shot-PS
+7%
+10%
+26%
+Zero-shot-PS+
+5%
+7%
+27%
+
+from GSM8K, generate the reasoning text, and
+extract answers using Zero-Shot-CoT, Zero-shot-
+PS, and Zero-shot-PS+ prompting strategies. Zero-
+Shot-CoT generated incorrect final answers for 46
+of the problems, 43 for Zero-shot-PS, and 39 for
+Zero-shot-PS+. Subsequently, we analyze and de-
+termine the error types of all these problems as
+shown in Table 6.
+
+The analysis results show that PS+ prompting
+achieves the least calculation (5%) and missing-
+step (7%) errors, and semantic understanding er-
+rors comparable to Zero-shot-CoT. Zero-shot-PS
+has slightly more errors but is still better than Zero-
+shot-CoT. Their plan-and-solve prompts thus ef-
+fectively guide the LLMs to generate clear and
+complete reasoning steps. Moreover, the additional
+detailed instructions in PS+ prompting (i.e., “ex-
+tract relevant variables and their corresponding
+numerals” and “calculate intermediate variables”)
+enable the LLMs to generate high-quality reason-
+
+ing steps leading to fewer calculation errors.
+
+Correlation Analysis of Generated Reasoning
+and Error Types.
+To obtain deeper insight into
+the impact of PS+ prompting on error types, we
+examine the correlation between the sub-parts of
+the generated reasoning and error types. Specifi-
+cally, we analyze the existence of variable defini-
+tion, reasoning plan, and solution in the generated
+reasoning text and correlate them with the three
+error types. The set of problems used for this anal-
+ysis study is the same as that used in the earlier
+error type analysis. Figure 5 shows the correla-
+tion matrix among the existence of variable defi-
+nitions, plans, solutions and three different types
+of errors. It is observed that both variable defini-
+tion and plan existences have a negative correlation
+with calculation errors and missing-reasoning-step
+errors. The Zero-shot-PS+ prompt can further im-
+prove the performance of LLMs on mathematical
+reasoning problems by reducing calculation errors
+and missing-reasoning-step errors.
+
+Exploring the Presence of Plans in PS Predic-
+tions.
+To ascertain the presence of a plan in each
+prediction made by PS, we conducted a random
+sampling of 100 data examples and examined their
+corresponding predictions. Our analysis reveals
+that 90 of the 100 predictions indeed incorporated
+a plan. This observation indicates the emergence
+
+2615

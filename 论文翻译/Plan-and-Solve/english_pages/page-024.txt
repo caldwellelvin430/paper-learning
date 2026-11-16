@@ -1,0 +1,47 @@
+Table 26: Example outputs by Zero-shot-PS+ for Coin Flip.
+
+Q: A coin is heads up. Walter does not flip the coin. Mikayla does not flip the coin. Larry does not flip
+the coin. Ryan does not flip the coin. Is the coin still heads up? Note that "flip" here means "reverse".
+
+A: Let’s first understand the problem and devise a complete plan. Then, let’s carry out the plan and
+reason problem step by step. Every step answer the subquestion, "does the person flip and what is the
+coin’s current state?". According to the coin’s last state, give the final answer (pay attention to every
+flip and the coin’s turning state).
+
+Output:
+Plan:
+Step 1: Walter does not flip the coin.
+Step 2: Mikayla does not flip the coin.
+Step 3: Larry does not flip the coin.
+Step 4: Ryan does not flip the coin.
+Answer: Yes, the coin is still heads up.
+Explanation:
+Step 1: Walter does not flip the coin. Therefore, the coin is still heads up.
+Step 2: Mikayla does not flip the coin. Therefore, the coin is still heads up.
+Step 3: Larry does not flip the coin. Therefore, the coin is still heads up.
+Step 4: Ryan does not flip the coin. Therefore, the coin is still heads up.
+Conclusion: Yes, the coin is still heads up.
+
+Q: A coin is heads up. Lorena does not flip the coin. Shana does not flip the coin. Priscilla does not
+flip the coin. Summer does not flip the coin. Is the coin still heads up? Note that "flip" here means
+"reverse"
+
+A: Let’s first understand the problem and devise a complete plan. Then, let’s carry out the plan and
+reason problem step by step. Every step answer the subquestion, "does the person flip and what is the
+coin’s current state?". According to the coin’s last state, give the final answer (pay attention to every
+flip and the coin’s turning state).
+
+Output:
+Plan:
+Step 1: Lorena does not flip the coin.
+Step 2: Shana does not flip the coin.
+Step 3: Priscilla does not flip the coin.
+Step 4: Summer does not flip the coin.
+Answer:
+Step 1: Lorena does not flip the coin. Therefore, the coin is still heads up.
+Step 2: Shana does not flip the coin. Therefore, the coin is still heads up.
+Step 3: Priscilla does not flip the coin. Therefore, the coin is still heads up.
+Step 4: Summer does not flip the coin. Therefore, the coin is still heads up.
+Final Answer: Yes, the coin is still heads up.
+
+2632

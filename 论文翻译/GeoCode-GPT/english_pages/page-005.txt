@@ -1,0 +1,163 @@
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456
+
+GeoCode-GPT to effectively manage both raster and vector data, facili­
+tating comprehensive geospatial analysis.
+
+The code documentation comprises specialized scripts from cloud 
+platforms like GEE and PIE Engine, along with locally developed code 
+using tools such as ArcGIS, Matlab, RStudio, and Python. A total of 
+275,374 code snippets were sourced from platforms like GitHub, Stack 
+Overflow, and Hugging Face, screened for syntax accuracy, and anno­
+tated with comments. The operator knowledge documents aggregate 
+10,190 commonly used operators and their syntactic details from official 
+geoscience platform documentation, including full names, abbrevia­
+tions, descriptions, output types, and parameters. The dataset knowl­
+edge documents cover 853 built-in datasets from platforms such as GEE 
+and PIE Engine, extracted from official resources. Each entry includes 
+identifiers, names, platforms, directories, tags, DOIs, and links. Addi­
+tionally, 14 encyclopedic documents from Wikipedia provide summaries 
+of geospatial analysis platforms and their tools. Dimensional informa­
+tion for each document category is summarized in Appendix 1.
+
+3.2. GeoCode-SFT
+
+The supervised fine-tuning corpus consists of high-quality, domain- 
+specific instructions following an “Instruct-Input-Output” structure, 
+where the “Instruct” prompts the task, the “Input” provides the input 
+data, and the “Output” generates the correct answer (Wang et al., 2024). 
+These instructions are designed to enhance the model’s ability to 
+generate geospatial code, ensuring that GeoCode-GPT can accurately 
+interpret human instructions and produce natural language outputs. 
+GeoCode-SFT includes both geospatial code-related instructions and 
+natural language-based instructions. The data breakdown is presented in 
+Table 2. The construction of GeoCode-SFT involves the acquisition of 
+open-source data, structured extraction, and Self-Instruct generation 
+based on LLMs.
+
+3.2.1. Rule-based structured extraction
+
+Structured information extraction is achieved using a rule-based 
+traversal algorithm to generate instruction sets, as illustrated in Fig. 3. 
+The first method, rule slicing, applies to structured data formats like 
+JSON and CSV. By defining partitioning rules, instruction sets 
+comprising “instruct,” “input,” and “output” are created. For example, in 
+CSV data, the horizontal axis represents subjects and the vertical axis 
+represents attributes. Matching these axes extracts attribute values for 
+each subject, where “instruct” describes the task, “input” specifies the 
+subject, and “output” provides the attribute value. This method enables 
+the rapid generation of large-scale instruction data, as shown in Fig. 3
+(a). For JSON data, keys represent attributes and values represent data, 
+which are paired to form “input” and “output” fields, as depicted in 
+Fig. 3(b). The second method, rule masking, focuses on completing text 
+or code snippets. A key logical statement within a code snippet is 
+selected as the target for completion. This statement is masked, creating 
+an incomplete snippet as the “input,” while the “output” represents the 
+missing content. The “instruct” field describes the completion task, 
+forming the instruction data, as illustrated in Fig. 3(c).
+
+Table 2 
+GeoCode-SFT Data Inventory.
+
+Production Method
+Dataset Type
+Quantity
+
+Structured
+Operator Knowledge
+26,130
+Dataset Knowledge
+2,511
+Platform or Toolkit Recognition
+18,827
+Programming Language Recognition
+18,827
+Code Completion
+14,817
+Large Model
+Entity Extraction
+18,827
+Code Summarization
+18,827
+Code Generation
+18,827
+Platform or Toolkit Knowledge
+454
+
+Open Source
+Alpaca
+7*52,000
+
+3.2.2. Self-Instruct generation
+
+The instruction tuning data from structured extraction primarily 
+organizes the textual content of the pretraining data in sequence, 
+functioning as a form of “pre-disclosure” for downstream tasks. This 
+method emphasizes surface-level information organization but lacks 
+deeper semantic connections. In contrast, the Self-Instruct framework 
+generates synthetic instruction sets through the model’s reasoning 
+abilities, uncovering the underlying semantic relationships and logical 
+patterns. This approach not only systematically organizes knowledge 
+but also reveals deeper logical relationships, aiming to significantly 
+enhance the model’s understanding and application capabilities in 
+geospatial code generation tasks. The construction process is illustrated 
+in Fig. 4 and Fig. 5.
+
+The Self-Instruct framework centers on guiding LLMs to self- 
+summarize via prompt engineering, enabling the generation of task- 
+specific instruction sets. This process involves two approaches. The 
+first utilizes intermediate results, constructing instruction sets through 
+predefined rules and machine learning algorithms, as illustrated in Fig. 4
+(a). For example, high-quality code from GeoCode-PT is selected to 
+generate summaries, with instructions created by bidirectionally pairing 
+the code and its summary, as shown in Fig. 4(b). The second approach 
+leverages one-shot learning, where a few examples are provided to 
+enable the model to autonomously summarize knowledge and generate 
+instructions. The workflow is depicted in Fig. 5(a). An example is the 
+extraction of cognitive instructions for platforms and toolkits from 
+encyclopedic documents, as demonstrated in Fig. 5(b).
+
+3.2.3. Natural language style instruction tuning data
+
+To prevent pure code-related instruction data from potentially 
+diminishing the general language understanding and coding capabilities 
+of the model during fine-tuning (Zhang et al., 2024b), we collected the 
+multilingual code understanding and generation instruction dataset, 
+Alpaca-GPT-4, from the Hugging Face platform. We filtered the dataset 
+to include multilingual data such as Chinese, English, Japanese, Arabic, 
+and French. These diverse natural language instructions help enhance 
+GeoCode-GPT’s multilingual adaptability and improve the readability of 
+its outputs.
+
+3.3. GeoCode-Eval
+
+The evaluation corpus is designed to test the model’s performance in 
+geospatial code generation tasks. Based on Benjamin Bloom’s taxonomy 
+of cognitive objectives (Arievitch, 2020), we developed the GeoCode- 
+Eval dataset, which covers three key dimensions: “Cognition and 
+Memory,” “Comprehension and Interpretation,” and “Innovation and 
+Creation,” as illustrated in Fig. 6.
+
+At the cognition and memory level, much like literacy is a prereq­
+uisite for writing, GeoCode-Eval assesses the model’s foundational 
+knowledge of geospatial programming through multiple-choice ques­
+tions, focusing on operator knowledge, dataset knowledge, platform 
+recognition, and entity recognition. At the comprehension and inter­
+pretation level, the evaluation measures the model’s ability to summa­
+rize and interpret geospatial code. Similar to how understanding a text is 
+essential before writing one, summarization, as the inverse process of 
+code generation, reflects the model’s deep grasp of code logic and 
+structure, enabling the accurate translation of requirements into high- 
+quality code. Finally, at the innovation and creation level, the model’s 
+code generation capabilities are directly evaluated through coding tasks. 
+The detailed data breakdown is presented in Table 3.
+
+To ensure fairness and prevent knowledge leakage, all multiple- 
+choice questions in GeoCode-Eval were sourced from platforms such 
+as Baidu Wenku, Niuke, and Daoke Wenku, covering university exams 
+and basic programming tests, or generated using the Self-Instruct 
+framework with GeoCode-PT data. Each question underwent manual 
+validation to ensure the uniqueness of correct answers and the plausi­
+bility of distractors, resulting in 3,000 multiple-choice questions.
+
+5

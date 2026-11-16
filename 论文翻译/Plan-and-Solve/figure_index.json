@@ -1,0 +1,622 @@
+[
+  {
+    "kind": "figure",
+    "label": "Figure-1",
+    "no": "1",
+    "desc": "Error analysis of 46 GSM8K problems with in-",
+    "rect": [
+      306.14,
+      345.03,
+      526.07,
+      357.04
+    ],
+    "p": 1,
+    "file": "figure-1-p001.png",
+    "crop": [
+      20.0,
+      30.0,
+      575.3,
+      402.0
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-2",
+    "no": "2",
+    "desc": "Example inputs and outputs of GPT-3 with (a) Zero-shot-CoT prompting, (b) Plan-and-Solve (PS)",
+    "rect": [
+      70.86,
+      279.76,
+      525.09,
+      291.77
+    ],
+    "p": 3,
+    "file": "figure-2-p003.png",
+    "crop": [
+      20.0,
+      30.0,
+      575.3,
+      336.8
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-3",
+    "no": "3",
+    "desc": "Example inputs and outputs of GPT-3 with (a) Plan-and-Solve (PS) Prompting and (b) Plan-and-Solve",
+    "rect": [
+      70.86,
+      350.02,
+      524.43,
+      362.03
+    ],
+    "p": 4,
+    "file": "figure-3-p004.png",
+    "crop": [
+      20.0,
+      30.0,
+      575.3,
+      407.0
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-1",
+    "no": "1",
+    "desc": "Details of datasets being evaluated. Math: arith-",
+    "rect": [
+      70.55,
+      70.01,
+      290.79,
+      82.01
+    ],
+    "p": 5,
+    "file": "table-1-p005.png",
+    "crop": [
+      20.0,
+      61.0,
+      575.3,
+      364.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-2",
+    "no": "2",
+    "desc": "Accuracy comparison on six math reasoning datasets. The best and second best results are boldfaced and",
+    "rect": [
+      70.55,
+      70.01,
+      524.42,
+      82.01
+    ],
+    "p": 6,
+    "file": "table-2-p006.png",
+    "crop": [
+      20.0,
+      61.0,
+      575.3,
+      194.9
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-3",
+    "no": "3",
+    "desc": "Accuracy on commonsense reasoning datasets.",
+    "rect": [
+      70.55,
+      200.89,
+      289.14,
+      212.9
+    ],
+    "p": 6,
+    "file": "table-3-p006.png",
+    "crop": [
+      20.0,
+      177.0,
+      575.3,
+      277.0
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-4",
+    "no": "4",
+    "desc": "Accuracy on symbolic reasoning datasets.",
+    "rect": [
+      78.61,
+      283.0,
+      281.08,
+      295.01
+    ],
+    "p": 6,
+    "file": "table-4-p006.png",
+    "crop": [
+      20.0,
+      274.0,
+      575.3,
+      577.7
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-4",
+    "no": "4",
+    "desc": "Results of methods with and without self-",
+    "rect": [
+      306.14,
+      314.34,
+      526.08,
+      326.35
+    ],
+    "p": 6,
+    "file": "figure-4-p006.png",
+    "crop": [
+      20.0,
+      225.9,
+      575.3,
+      371.4
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-5",
+    "no": "5",
+    "desc": "Performance comparison of trigger sentences measured on GSM8K and SVAMP datasets with",
+    "rect": [
+      70.55,
+      70.01,
+      524.42,
+      82.01
+    ],
+    "p": 7,
+    "file": "table-5-p007.png",
+    "crop": [
+      20.0,
+      61.0,
+      575.3,
+      364.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-6",
+    "no": "6",
+    "desc": "Distribution of error types of 100 examples",
+    "rect": [
+      70.55,
+      367.54,
+      289.14,
+      379.54
+    ],
+    "p": 7,
+    "file": "table-6-p007.png",
+    "crop": [
+      20.0,
+      358.5,
+      575.3,
+      662.2
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-5",
+    "no": "5",
+    "desc": "Correlation analysis of generated reasoning",
+    "rect": [
+      70.86,
+      197.7,
+      289.13,
+      209.71
+    ],
+    "p": 8,
+    "file": "figure-5-p008.png",
+    "crop": [
+      20.0,
+      30.0,
+      575.3,
+      254.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-7",
+    "no": "7",
+    "desc": "",
+    "rect": [
+      70.55,
+      92.94,
+      108.36,
+      104.94
+    ],
+    "p": 12,
+    "file": "table-7-p012.png",
+    "crop": [
+      20.0,
+      83.9,
+      575.3,
+      344.8
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-8",
+    "no": "8",
+    "desc": "",
+    "rect": [
+      70.55,
+      350.82,
+      108.36,
+      362.82
+    ],
+    "p": 12,
+    "file": "table-8-p012.png",
+    "crop": [
+      20.0,
+      341.8,
+      575.3,
+      547.2
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-9",
+    "no": "9",
+    "desc": "",
+    "rect": [
+      70.55,
+      553.18,
+      108.36,
+      565.19
+    ],
+    "p": 12,
+    "file": "table-9-p012.png",
+    "crop": [
+      20.0,
+      544.2,
+      575.3,
+      817.9
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-10",
+    "no": "10",
+    "desc": "",
+    "rect": [
+      70.55,
+      73.72,
+      113.08,
+      85.73
+    ],
+    "p": 13,
+    "file": "table-10-p013.png",
+    "crop": [
+      20.0,
+      64.7,
+      575.3,
+      231.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-11",
+    "no": "11",
+    "desc": "",
+    "rect": [
+      70.55,
+      237.66,
+      113.08,
+      249.67
+    ],
+    "p": 13,
+    "file": "table-11-p013.png",
+    "crop": [
+      20.0,
+      228.7,
+      575.3,
+      395.6
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-12",
+    "no": "12",
+    "desc": "",
+    "rect": [
+      70.55,
+      401.6,
+      113.08,
+      413.61
+    ],
+    "p": 13,
+    "file": "table-12-p013.png",
+    "crop": [
+      20.0,
+      392.6,
+      575.3,
+      524.0
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-13",
+    "no": "13",
+    "desc": "",
+    "rect": [
+      70.55,
+      529.95,
+      113.08,
+      541.95
+    ],
+    "p": 13,
+    "file": "table-13-p013.png",
+    "crop": [
+      20.0,
+      521.0,
+      575.3,
+      642.6
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-14",
+    "no": "14",
+    "desc": "",
+    "rect": [
+      70.55,
+      648.58,
+      113.08,
+      660.59
+    ],
+    "p": 13,
+    "file": "table-14-p013.png",
+    "crop": [
+      20.0,
+      639.6,
+      575.3,
+      817.9
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-15",
+    "no": "15",
+    "desc": "",
+    "rect": [
+      70.55,
+      152.8,
+      113.08,
+      164.8
+    ],
+    "p": 14,
+    "file": "table-15-p014.png",
+    "crop": [
+      20.0,
+      143.8,
+      575.3,
+      387.0
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-16",
+    "no": "16",
+    "desc": "",
+    "rect": [
+      70.55,
+      393.0,
+      113.08,
+      405.0
+    ],
+    "p": 14,
+    "file": "table-16-p014.png",
+    "crop": [
+      20.0,
+      384.0,
+      575.3,
+      687.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-17",
+    "no": "17",
+    "desc": "Example outputs by Zero-shot-PS+ for AQuA.",
+    "rect": [
+      184.36,
+      87.48,
+      410.61,
+      99.49
+    ],
+    "p": 15,
+    "file": "table-17-p015.png",
+    "crop": [
+      20.0,
+      78.5,
+      575.3,
+      382.1
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-18",
+    "no": "18",
+    "desc": "Example outputs by Zero-shot-PS+ for GSM8K.",
+    "rect": [
+      180.48,
+      80.7,
+      414.49,
+      92.71
+    ],
+    "p": 16,
+    "file": "table-18-p016.png",
+    "crop": [
+      20.0,
+      71.7,
+      575.3,
+      375.4
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-19",
+    "no": "19",
+    "desc": "Example outputs by Zero-shot-PS+ for MultiArith.",
+    "rect": [
+      175.78,
+      134.9,
+      419.2,
+      146.91
+    ],
+    "p": 17,
+    "file": "table-19-p017.png",
+    "crop": [
+      20.0,
+      125.9,
+      575.3,
+      429.6
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-20",
+    "no": "20",
+    "desc": "Example outputs by Zero-shot-PS+ for SVAMP.",
+    "rect": [
+      181.43,
+      134.9,
+      413.54,
+      146.91
+    ],
+    "p": 18,
+    "file": "table-20-p018.png",
+    "crop": [
+      20.0,
+      125.9,
+      575.3,
+      429.6
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-21",
+    "no": "21",
+    "desc": "Example outputs by Zero-shot-PS+ for AddSub.",
+    "rect": [
+      181.24,
+      168.78,
+      413.73,
+      180.78
+    ],
+    "p": 19,
+    "file": "table-21-p019.png",
+    "crop": [
+      20.0,
+      159.8,
+      575.3,
+      463.4
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-22",
+    "no": "22",
+    "desc": "Example outputs by Zero-shot-PS+ for SingleEq.",
+    "rect": [
+      179.1,
+      141.68,
+      415.87,
+      153.68
+    ],
+    "p": 20,
+    "file": "table-22-p020.png",
+    "crop": [
+      20.0,
+      132.7,
+      575.3,
+      436.3
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-23",
+    "no": "23",
+    "desc": "Example outputs by Zero-shot-PS+ for CommonsenseQA.",
+    "rect": [
+      160.84,
+      236.53,
+      434.13,
+      248.53
+    ],
+    "p": 21,
+    "file": "table-23-p021.png",
+    "crop": [
+      20.0,
+      227.5,
+      575.3,
+      531.2
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-24",
+    "no": "24",
+    "desc": "Example outputs by Zero-shot-PS+ for StrategyQA.",
+    "rect": [
+      173.64,
+      202.65,
+      421.33,
+      214.66
+    ],
+    "p": 22,
+    "file": "table-24-p022.png",
+    "crop": [
+      20.0,
+      193.7,
+      575.3,
+      497.3
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-25",
+    "no": "25",
+    "desc": "Example outputs by Zero-shot-PS+ for Last Letters.",
+    "rect": [
+      173.71,
+      250.08,
+      421.26,
+      262.08
+    ],
+    "p": 23,
+    "file": "table-25-p023.png",
+    "crop": [
+      20.0,
+      241.1,
+      575.3,
+      544.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-26",
+    "no": "26",
+    "desc": "Example outputs by Zero-shot-PS+ for Coin Flip.",
+    "rect": [
+      178.4,
+      128.13,
+      416.57,
+      140.13
+    ],
+    "p": 24,
+    "file": "table-26-p024.png",
+    "crop": [
+      20.0,
+      119.1,
+      575.3,
+      422.8
+    ]
+  }
+]

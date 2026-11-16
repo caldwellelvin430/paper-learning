@@ -1,0 +1,158 @@
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456
+
+Fig. 7a. Prompt for Code Summarization Evaluation.
+
+Table 5 
+Code Summarization Evaluation Data Table (Scores out of 100).
+
+Model
+Completeness
+Accuracy
+Readability
+Overall
+
+GPT-4
+94.2
+↓2.6
+95.2
+↓2.2
+79.6
+↑10
+89.7
+↑1.7
+GPT-3.5
+88.4
+↑3.2
+86.2
+↑6.8
+74.4
+↑15.2
+82.9
+↑8.5
+ERNIE 4.0
+82.2
+↑9.4
+74.8
+↑18.2
+69.8
+↑19.8
+75.6
+↑15.8
+LLaMA 2-7B
+78
+↑13.6
+69.8
+↑23.2
+85.2
+↑4.4
+77.7
+↑13.7
+LLaMA 3-8B
+81
+↑10.6
+72.6
+↑20.4
+87.4
+↑2.2
+80.4
+↑11
+CodeGemma-7B
+76.2
+↑15.4
+58.2
+↑34.8
+63.4
+↑26.2
+66
+↑25.4
+StarCoder 2-7B
+77.6
+↑14
+64
+↑29
+64
+↑25.6
+68.5
+↑22.9
+CodeGeeX 2-6B
+75.2
+↑16.4
+66
+↑27
+62.2
+↑27.4
+67.8
+↑23.6
+Code Llama-13B
+80.6
+↑11
+70.2
+↑22.8
+67.8
+↑21.8
+72.9
+↑18.5
+Code Llama-7B
+77.4
+↑14.2
+67.8
+↑25.2
+64.8
+↑24.8
+70
+↑21.4
+
+GeoCode-GPT-7B
+91.6
+93
+89.6
+91.4
+
+illustrated in the figure. Accuracy refers to the proportion of key entities 
+(such as data sources, time, space, input/output data) in the generated 
+code that match the requirements of the task. This is calculated by using 
+GPT-4 with a specific prompt template to extract and compare the 
+generated code with the target entities, assessing consistency as shown 
+in Fig. 9. Executability is determined by experts who run the generated 
+code on different platforms; the percentage of successfully executed 
+code represents the executability score. Readability evaluation assesses 
+the clarity of code structure, the appropriateness of comments, and the 
+adherence of variable naming and function lengths to standard con­
+ventions. The evaluation involves 11 models, with their outputs tested 
+across 500 code generation tasks. For each task, all 11 results are 
+simultaneously presented to experts in a blind review process, where the 
+outputs are ranked based on readability from 1 (highest) to 11 (lowest). 
+The ranking for each model across all tasks is recorded and analyzed. 
+The evaluation process consists of two steps: ranking aggregation and 
+score normalization. The average ranking Ri for model i across all tasks
+
+is calculated using the following formula:
+
+∑N
+j=1Ri,j
+
+N
+(1)
+
+Ri =
+
+Here, N = 500 represents the total number of tasks, and Ri,j denotes the 
+ranking of model i for task j. To map the average ranking to a stan­
+dardized readability score Executability on a percentage scale, the 
+following formula is applied:
+
+Executability = 11 −Ri
+
+11
+× 100
+(2)
+
+In this formula, the denominator 11 reflects the range of possible 
+rankings, ensuring normalization to a percentile scale. Higher scores 
+indicate better readability, with a maximum score of 100 and a mini­
+mum score of 0.
+
+As shown in Table 6, GeoCode-GPT-7B demonstrated significant
+
+10

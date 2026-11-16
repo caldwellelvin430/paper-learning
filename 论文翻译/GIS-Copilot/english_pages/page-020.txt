@@ -1,0 +1,56 @@
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+19
+
+processes with the efficiency of AI-driven analysis, resulting in a hybrid approach. For instance, 
+users can load datasets into QGIS and perform analyses, generate results by the agent and further 
+perform analyses using either the Copilot or manual methods.
+
+In evaluating the performance of the GIS Copilot, we analyzed its success rate for 110 tasks 
+across three levels of complexity: basic, intermediate, and advanced level. At the basic level, tasks 
+involved straightforward operations on one or two data layers, such as spatial buffering, calculating 
+areas or filtering features based on attributes. The agent demonstrated high accuracy in selecting the 
+appropriate tools and generating the necessary code. The reliability of the GIS Copilot at this level 
+highlights its competence in automating foundational tasks with minimal intervention, offering an 
+important utility for speeding up routine geospatial operations. At the intermediate level, the tasks 
+require multistep which are described for the agent. Here, the agent not only needed to correctly 
+select tools but also generate and execute the code in sequence. In these scenarios, the agent showed 
+strong performance in generating geoprocessing workflows based on the multistep task description 
+and managing the dependencies between different steps. The success in these tasks suggests that the 
+agent can effectively operate as an assistant to handle more involved geospatial workflows, thereby 
+reducing the need for users to do step-by-step manual coding. The advanced level tasks involve the 
+highest complexity, where the tasks are more natural in nature, presenting the agent of ‘what’ the 
+users want with limited guidance on ‘how’ to do it. Here, the agent needs to understand and reason 
+the question and determine the geoprocessing workflow autonomously. This required the agent to 
+interpret the natural language instructions, decide on an appropriate series of actions, select the cor­
+rect tools, and execute the entire process without explicit guidance. While the agent showed 
+promise at this level, especially in the tool selection and code generation, the success rate for 
+these complex tasks was lower than simpler ones.
+
+Explainability and trustworthiness are two critical concerns in generative AI applications, 
+including GIScience (Kang, Gao, and Roth 2024; Tlili et al. 2023). While LLMs can generate 
+impressive responses, their ‘black box’ nature makes it difficult for users to understand how specific 
+outputs are produced. Without clear explanations of how outputs are generated, users may be reluc­
+tant to fully adopt these models, especially when they play a significant role in data driven analyses 
+and recommendations. To reduce these concerns, GIS Copilot has been designed to enhance trans­
+parency at every step. Unlike traditional black-box models, the Copilot clearly presents each stage of 
+the process, including tool selection and code generation, with generated code displayed in real 
+time. Additionally, the generated code can be further edited and executed manually as needed. 
+This approach allows users to inspect and understand each action taken by the Copilot, so that 
+they can trace how results are achieved. Users are encouraged to review the generated code and 
+results actively, rather than relying on them blindly. This approach highlights the collaborative 
+nature of a ‘copilot’ system that supports rather than replaces expert decision-making in GIS.
+
+We acknowledge that some advanced methods such as knowledge graphs, ontology-based reason­
+ing, and fine-tuning are valuable techniques for enhancing the performance of LLMs in specialized 
+domains. However, these methods are not immediately necessary within the scope of the GIS Copilot 
+framework. By leveraging structured file-based documentation, RAG, the framework achieves sim­
+plicity filling the gap in LLMs’ understanding of domain-specific tools (Luo et al. 2024; Tan et al. 
+2024). Additionally, while fine-tuning may enhance LLM performance for specific tasks, it requires 
+frequent retraining whenever tools or workflows change (Parthasarathy et al. 2024), making it less 
+adaptable compared to the documentation-driven structure of this framework.
+
+6. Limitations and future work
+
+The GIS Copilot shows promising performance across the three levels of task complexities; how­
+ever, certain issues were observed. These challenges point to potential areas for improvement 
+and future research directions.

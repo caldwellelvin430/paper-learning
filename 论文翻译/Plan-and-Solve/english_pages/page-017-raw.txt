@@ -1,0 +1,39 @@
+Table 19: Example outputs by Zero-shot-PS+ for MultiArith.
+Q: The school cafeteria ordered 42 red apples and 7 green apples for students lunches. But, if only 9
+students wanted fruit, how many extra did the cafeteria end up with?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+Variables:
+Red apples = 42
+Green apples = 7
+Students wanting fruit = 9
+Plan:
+Calculate the total number of apples ordered by the cafeteria
+Subtract the total number of apples ordered by the cafeteria from the number of students wanting fruit
+Calculation:
+Total number of apples ordered by the cafeteria = 42 + 7 = 49
+Answer:
+Extra apples = 49 - 9 = 40
+Q: Carol and her mom were picking carrots from their garden. Carol picked 29 and her mother picked
+16. If only 38 of the carrots were good, how many bad carrots did they have?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+Variables:
+Carol: 29
+Mom: 16
+Good Carrots: 38
+Plan:
+We can calculate the number of bad carrots by subtracting the number of good carrots from the total
+number of carrots picked.
+Calculation:
+Total Carrots Picked = Carol + Mom = 29 + 16 = 45
+Bad Carrots = Total Carrots Picked - Good Carrots = 45 - 38 = 7
+Answer:
+There were 7 bad carrots.
+2625

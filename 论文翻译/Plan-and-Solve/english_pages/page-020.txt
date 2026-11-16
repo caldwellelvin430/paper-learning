@@ -1,0 +1,45 @@
+Table 22: Example outputs by Zero-shot-PS+ for SingleEq.
+
+Q: After eating at the restaurant, Sally, Sam, and Alyssa decided to divide the bill evenly. If each
+person paid 45 dollars, what was the total of the bill ?
+
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numeral calculation and commonsense), solve the problem step by step, and show the answer.
+
+Output:
+Problem: After eating at the restaurant, Sally, Sam, and Alyssa decided to divide the bill evenly. If
+each person paid 45 dollars, what was the total of the bill?
+Variables:
+- Total of the bill (T)
+- Number of people (N)
+- Amount paid by each person (A)
+Numerals:
+- N = 3
+- A = 45
+Plan:
+- Calculate the total of the bill (T) by multiplying the number of people (N) by the amount paid by
+each person (A).
+Calculation:
+T = N x A
+T = 3 x 45
+T = 135
+Answer: The total of the bill was 135 dollars.
+
+Q: Mary is baking a cake. The recipe wants 8 cups of flour. She already put in 2 cups. How many
+more cups does she need to add ?
+
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numeral calculation and commonsense), solve the problem step by step, and show the answer.
+
+Output:
+Mary needs to add 8 cups of flour to the cake. She has already put in 2 cups.
+Plan:
+Subtract the amount of flour Mary has already put in from the total amount of flour needed.
+Calculation:
+8 cups (total amount of flour needed) - 2 cups (amount of flour Mary has already put in) = 6 cups
+(amount of flour Mary needs to add)
+Answer: Mary needs to add 6 more cups of flour.
+
+2628

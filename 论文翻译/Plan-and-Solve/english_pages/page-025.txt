@@ -1,0 +1,63 @@
+ACL 2023 Responsible NLP Checklist
+
+A
+For every submission:
+
+□ A1. Did you describe the limitations of your work?
+section 7
+
+□ A2. Did you discuss any potential risks of your work?
+section 8
+
+□ A3. Do the abstract and introduction summarize the paper’s main claims?
+abstract and section 1
+
+□ A4. Have you used AI writing assistants when working on this paper?
+Left blank.
+
+B
+□ Did you use or create scientiﬁc artifacts?
+
+section 3 and 4
+
+□ B1. Did you cite the creators of artifacts you used?
+section 3 and 4
+
+□ B2. Did you discuss the license or terms for use and / or distribution of any artifacts?
+section 8
+
+□ B3. Did you discuss if your use of existing artifact(s) was consistent with their intended use, provided
+that it was speciﬁed? For the artifacts you create, do you specify intended use and whether that is
+compatible with the original access conditions (in particular, derivatives of data accessed for research
+purposes should not be used outside of research contexts)?
+section 8
+
+□ B4. Did you discuss the steps taken to check whether the data that was collected / used contains any
+information that names or uniquely identiﬁes individual people or offensive content, and the steps
+taken to protect / anonymize it?
+section 8
+
+□ B5. Did you provide documentation of the artifacts, e.g., coverage of domains, languages, and
+linguistic phenomena, demographic groups represented, etc.?
+section 3
+
+□ B6. Did you report relevant statistics like the number of examples, details of train / test / dev splits,
+etc. for the data that you used / created? Even for commonly-used benchmark datasets, include the
+number of examples in train / validation / test splits, as these provide necessary context for a reader
+to understand experimental results. For example, small differences in accuracy on large test sets may
+be signiﬁcant, while on small test sets they may not be.
+section 3
+
+C
+□ Did you run computational experiments?
+
+section 4
+
+□ C1. Did you report the number of parameters in the models used, the total computational budget
+(e.g., GPU hours), and computing infrastructure used?
+section 3
+
+The Responsible NLP Checklist used at ACL 2023 is adopted from NAACL 2022, with the addition of a question on AI writing
+assistance.
+
+2633

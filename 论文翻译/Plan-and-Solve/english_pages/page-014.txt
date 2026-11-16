@@ -1,0 +1,66 @@
+Table 15:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on Last Letters.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s devise a plan and solve the problem step by step.
+75.2
+
+Table 16:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on Coin Flip.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s devise a complete plan. Then, let’s carry out the plan, solve the problem step by step,
+and show the answer.
+70.6
+
+2
+Let’s first devise a plan, then solve the problem step by step.
+72.6
+
+3
+Let’s first devise a plan, then solve the problem step by step.(Distinguish between tail up and
+head up)
+84.0
+
+Let’s first understand the problem and devise a complete plan.Then, let’s carry out the plan,
+reason problem step by step. Every step answer the subquestion "does the person flip and
+what is the coin current state?", and according to the last coin state, give the final answer
+(pay attention that the coin turns state at every flip).
+Plan:
+Step 1:
+
+4
+
+94.2
+
+Let’s first understand the problem and devise a complete plan. Then, let’s carry out the plan,
+reason problem step by step. Every step answer the subquestion "does the person flip and what
+is the coin current state?", and according to the coin last state give the final answer(pay attention
+to every flip, the coin turns state).
+Plan:
+Step 1:
+
+5
+
+99.0
+
+Let’s first understand the problem and devise a complete plan. Then, let’s carry out the plan and
+reason problem step by step. Every step answer the subquestion, "does the person flip and what is
+the coin’s current state?". According to the coin’s last state, give the final answer (pay attention to
+every flip and the coin’s turning state).
+
+6
+
+99.6
+
+2622

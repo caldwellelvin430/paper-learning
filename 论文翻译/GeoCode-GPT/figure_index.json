@@ -1,0 +1,312 @@
+[
+  {
+    "kind": "figure",
+    "label": "Fig.-1",
+    "no": "1",
+    "desc": "Illustration of “Refusal to Code” or “Coding Hallucinations”.",
+    "rect": [
+      188.33,
+      732.79,
+      406.93,
+      744.52
+    ],
+    "p": 2,
+    "file": "figure-1-p002.png",
+    "crop": [
+      20.0,
+      407.8,
+      575.3,
+      763.7
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-2",
+    "no": "2",
+    "desc": "Technical Workflow of GeoCode-GPT.",
+    "rect": [
+      224.39,
+      732.79,
+      370.89,
+      744.52
+    ],
+    "p": 3,
+    "file": "figure-2-p003.png",
+    "crop": [
+      20.0,
+      407.8,
+      575.3,
+      763.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-1",
+    "no": "1",
+    "desc": "原稿中的完整表格（截图包含所在页，以避免行列被裁断）",
+    "p": 4,
+    "file": "table-1-p004-full-page.png",
+    "crop": [
+      35.0,
+      48.0,
+      560.2760009765625,
+      763.7009887695312
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-2",
+    "no": "2",
+    "desc": "The construction of GeoCode-SFT involves the acquisition of",
+    "rect": [
+      37.59,
+      356.87,
+      290.97,
+      369.9
+    ],
+    "p": 5,
+    "file": "table-2-p005.png",
+    "crop": [
+      20.0,
+      347.9,
+      575.3,
+      634.7
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-3",
+    "no": "3",
+    "desc": "Diagram of the Rule-based Structured Extraction Method.",
+    "rect": [
+      192.7,
+      376.88,
+      402.58,
+      388.6
+    ],
+    "p": 6,
+    "file": "figure-3-p006.png",
+    "crop": [
+      20.0,
+      51.9,
+      575.3,
+      433.6
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-4",
+    "no": "4",
+    "desc": "Diagram of the “Intermediate Result Generation” Method Based.",
+    "rect": [
+      181.7,
+      402.39,
+      413.58,
+      414.12
+    ],
+    "p": 7,
+    "file": "figure-4-p007.png",
+    "crop": [
+      20.0,
+      77.4,
+      575.3,
+      459.1
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-5",
+    "no": "5",
+    "desc": "Diagram of the “One-Shot” Method.",
+    "rect": [
+      227.57,
+      664.82,
+      367.71,
+      676.55
+    ],
+    "p": 7,
+    "file": "figure-5-p007.png",
+    "crop": [
+      20.0,
+      427.4,
+      575.3,
+      721.5
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-6",
+    "no": "6",
+    "desc": "GeoCode-Eval Evaluation Framework and Task Hierarchy.",
+    "rect": [
+      191.85,
+      190.64,
+      403.47,
+      202.37
+    ],
+    "p": 8,
+    "file": "figure-6-p008.png",
+    "crop": [
+      20.0,
+      30.0,
+      575.3,
+      247.4
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-7",
+    "no": "7",
+    "desc": "GeoCode-Eval example questions.",
+    "rect": [
+      231.25,
+      732.79,
+      364.0,
+      744.52
+    ],
+    "p": 8,
+    "file": "figure-7-p008.png",
+    "crop": [
+      20.0,
+      407.8,
+      575.3,
+      763.7
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-3",
+    "no": "3",
+    "desc": "原稿中的完整表格（截图包含所在页，以避免行列被裁断）",
+    "p": 8,
+    "file": "table-3-p008-full-page.png",
+    "crop": [
+      35.0,
+      48.0,
+      560.2760009765625,
+      763.7009887695312
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-4",
+    "no": "4",
+    "desc": "原稿中的完整表格（截图包含所在页，以避免行列被裁断）",
+    "p": 9,
+    "file": "table-4-p009-full-page.png",
+    "crop": [
+      35.0,
+      48.0,
+      560.2760009765625,
+      763.7009887695312
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-7a",
+    "no": "7",
+    "desc": "Prompt for Code Summarization Evaluation.",
+    "rect": [
+      211.98,
+      376.14,
+      383.32,
+      387.87
+    ],
+    "p": 10,
+    "file": "figure-7-p010.png",
+    "crop": [
+      20.0,
+      51.1,
+      575.3,
+      432.9
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-5",
+    "no": "5",
+    "desc": "原稿中的完整表格（截图包含所在页，以避免行列被裁断）",
+    "p": 10,
+    "file": "table-5-p010-full-page.png",
+    "crop": [
+      35.0,
+      48.0,
+      560.2760009765625,
+      763.7009887695312
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-8",
+    "no": "8",
+    "desc": "Comparison of Code Summarization Test Results.",
+    "rect": [
+      71.6,
+      453.98,
+      254.65,
+      465.71
+    ],
+    "p": 11,
+    "file": "figure-8-p011.png",
+    "crop": [
+      20.0,
+      129.0,
+      575.3,
+      510.7
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-9",
+    "no": "9",
+    "desc": "Prompt for Evaluating the Accuracy Metric in Code Generation.",
+    "rect": [
+      182.72,
+      487.14,
+      412.55,
+      498.87
+    ],
+    "p": 12,
+    "file": "figure-9-p012.png",
+    "crop": [
+      20.0,
+      162.1,
+      575.3,
+      543.9
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-6",
+    "no": "6",
+    "desc": "原稿中的完整表格（截图包含所在页，以避免行列被裁断）",
+    "p": 12,
+    "file": "table-6-p012-full-page.png",
+    "crop": [
+      35.0,
+      48.0,
+      560.2760009765625,
+      763.7009887695312
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Fig.-10",
+    "no": "10",
+    "desc": "Comparison of Code Generation Test Results.",
+    "rect": [
+      210.56,
+      662.55,
+      384.76,
+      674.28
+    ],
+    "p": 13,
+    "file": "figure-10-p013.png",
+    "crop": [
+      20.0,
+      337.5,
+      575.3,
+      719.3
+    ]
+  }
+]

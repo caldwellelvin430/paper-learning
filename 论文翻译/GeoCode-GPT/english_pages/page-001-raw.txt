@@ -1,0 +1,73 @@
+GeoCode-GPT: A large language model for geospatial code generation☆
+Shuyang Hou a, Zhangxiao Shen a, Anqi Zhao a, Jianyuan Liang a, Zhipeng Gui b, Xuefeng Guan a,  
+Rui Li a, Huayi Wu a,*
+a State Key Laboratory of Information Engineering in Surveying, Mapping and Remote Sensing, Wuhan University, Wuhan, China
+b School of Remote Sensing and Information Engineering, Wuhan University, Wuhan, China
+A R T I C L E  I N F O
+Keywords:
+Large language model (LLM)
+Geospatial code generation
+Fine-tuning
+Corpus
+Self-supervision
+Hallucination
+A B S T R A C T
+The increasing demand for spatiotemporal data and modeling tasks in geosciences has made geospatial code 
+generation technology a critical factor in enhancing productivity. Although large language models (LLMs) have 
+demonstrated potential in code generation tasks, they often encounter issues such as refusal to code or hallu­
+cination in geospatial code generation due to a lack of domain-specific knowledge and code corpora. To address 
+these challenges, this paper presents and open-sources the GeoCode-PT and GeoCode-SFT corpora, along with the 
+GeoCode-Eval evaluation dataset. Additionally, by leveraging QLoRA and LoRA for pretraining and fine-tuning, 
+we introduce GeoCode-GPT-7B, the first LLM focused on geospatial code generation, fine-tuned from Code 
+Llama-7B. Furthermore, we establish a comprehensive geospatial code evaluation framework, incorporating 
+option matching, expert validation, and prompt engineering scoring for LLMs, and systematically evaluate 
+GeoCode-GPT-7B using the GeoCode-Eval dataset. Experimental results reveal that GeoCode-GPT significantly 
+outperforms existing models across multiple tasks. For multiple-choice tasks, its accuracy improves by 9.1% to 
+32.1%. In code summarization, it achieves superior scores in completeness, accuracy, and readability, with gains 
+ranging from 1.7 to 25.4 points. For code generation, its performance in accuracy, readability, and executability 
+surpasses benchmarks by 1.2 to 25.1 points. Grounded in the fine-tuning paradigm, this study introduces and 
+validates an approach to enhance LLMs in geospatial code generation and associated tasks. These findings extend 
+the application boundaries of such models in geospatial domains and offer a robust foundation for exploring their 
+latent potential.
+1. Introduction
+Code generation technology translates natural language into source 
+code (NL2Code), which can pertain to general-purpose programming 
+languages such as Python, C, or JavaScript, or domain-specific lan­
+guages for specialized platforms like MATLAB, Bioconductor, or Google 
+Earth Engine (GEE) (Jiang et al., 2024). Geospatial code is specifically 
+designed for geospatial analysis platforms (e.g., GEE, ArcGIS) or 
+modeling tasks, typically implemented through wrappers around 
+general-purpose languages or by invoking specialized geocomputational 
+tools and libraries, such as GDAL and ArcPy in Python, or the Raster and 
+Terra packages in R (Coetzee et al., 2020). With the surge in spatio­
+temporal data, the growing demand for geospatial modeling tasks has 
+made geospatial code generation technology a critical factor in 
+enhancing productivity (Hou et al., 2024a).
+Code generation is fundamentally a subset of natural language pro­
+cessing (NLP). Early research in this area primarily relied on heuristic 
+rules (Nymeyer and Katoen, 1997) and expert systems (Lirov, 1991), 
+such as probabilistic grammar-based frameworks (Kifetew et al., 2017) 
+and small-scale pretrained models (Li et al., 2019). These methods 
+depended on annotated data, had limited applicability, and were diffi­
+cult to scale. With the advent of large language models (LLMs) based on 
+self-attention mechanisms and the Transformer architecture, models 
+trained on vast corpora have demonstrated “emergent” abilities, such as 
+task execution, in-context learning, and reasoning (Zhao et al., 2023). 
+General-purpose LLMs specifically designed for code generation, such as 
+Code LLaMA (Roziere et al., 2023), DeepSeek Coder (Guo et al., 2024), 
+and WizardCoder (Luo et al., 2023), are reshaping the research para­
+digm in this field. These models’ instruction-based code generation ca­
+pabilities allow even programming novices to produce functional code, 
+☆This article is part of a special issue entitled: ‘Foundation models EO’ published in International Journal of Applied Earth Observation and Geoinformation.
+* Corresponding author.
+E-mail address: wuhuayi@whu.edu.cn (H. Wu). 
+Contents lists available at ScienceDirect
+International Journal of Applied Earth  
+Observation and Geoinformation
+journal homepage: www.elsevier.com/locate/jag
+https://doi.org/10.1016/j.jag.2025.104456
+Received 23 October 2024; Received in revised form 24 February 2025; Accepted 27 February 2025  
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+Available online 5 March 2025 
+1569-8432/© 2025 The Authors. Published by Elsevier B.V. This is an open access article under the CC BY-NC license ( http://creativecommons.org/licenses/by- 
+nc/4.0/ ). 

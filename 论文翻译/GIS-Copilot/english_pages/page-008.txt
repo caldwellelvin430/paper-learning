@@ -1,0 +1,37 @@
+3.2.1. Task analysis and tool selection
+
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+7
+
+When a user submits a spatial query in natural language, the agent processes the request to under­
+stand the underlying spatial problem. This is achieved through the query refining module which 
+refines the raw input into a structured and domain-specific GIS task description. The refined 
+task includes clearly defined objectives and identifies the necessary spatial operations. Following 
+task refining, the tool retrieval module performs a search over a vectorized documentation database 
+using RAG technique. These retrieved tools are then passed to a language model, which selects the 
+most suitable tool(s) and generates a structured recommendation. This is achieved through the 
+Query Refining Module, which uses a Chain-of-Thought (CoT) prompting strategy to transform 
+the raw input into a structured and domain-specific GIS task description. The refined task includes 
+clearly defined objectives and identifies the necessary spatial operations. Once selected, the docu­
+mentation for these tools – including parameter definitions and example usage – is passed to the 
+code generation module, which uses it to construct executable Python code tailored to the 
+refined task. This documentation-informed code generation ensures that tool-specific requirements 
+are followed during execution.
+
+3.2.2. Code generation and parameter setting
+Once the appropriate tools have been selected, the GIS Copilot proceeds to generate executable 
+Python code tailored to the task. This process is guided by the documentation associated with 
+the selected tool(s), including their parameter requirements and code examples. The agent custo­
+mizes the generated code to align with task-specific details. For instance, for a query like ‘select 
+counties with a population greater than 50,000’, the agent adjusts the parameters to set the filter 
+condition to ‘Population > 50,000.’
+
+3.2.3. Execution and visualization of results
+The generated code is executed within the QGIS environment, performing the spatial analysis with­
+out leaving the interface. Outputs such as buffer zones, intersected layers, or reclassified rasters are 
+displayed as map layers in QGIS, while summaries, charts, or statistics are shown as tables, images, 
+or reports within the plugin. The plugin can also create visualizations like bar charts or histograms 
+for result interpretation. If errors occur, the self-debugging module reviews, corrects, and re-exe­
+cutes the code to ensure successful task completion.
+
+Figure 2.  Workflow of the GIS Copilot.

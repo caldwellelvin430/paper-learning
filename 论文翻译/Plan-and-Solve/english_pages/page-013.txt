@@ -1,0 +1,110 @@
+Table 10:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on SVAMP.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+72.0
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to correct
+numeral calculation and commonsense), solve the problem step by step, and show the answer.
+75.4
+
+3
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+75.7
+
+Table 11:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on AddSub.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+87.3
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+87.8
+
+3
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to correct
+numeral calculation and commonsense), solve the problem step by step, and show the answer.
+92.2
+
+Table 12:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on SingleEq.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s first understand the problem and devise a plan to solve the problem. Then, let’s carry out the plan
+to solve the problem step by step.
+92.3
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a plan. Then, let’s carry out the plan, calculate intermediate variables (pay attention to correct
+numeral calculation and commonsense), solve the problem step by step, and show the answer.
+94.7
+
+Table 13:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on CSQA.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s devise a plan and solve the problem step by step.
+67.4
+
+2
+Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention to
+correct numerical calculation and commonsense), solve the problem step by step, and show the answer.
+71.9
+
+Table 14:
+Performance comparison of prompts used in Step 1 of Zero-shot-PS+ prompting with
+text-davinci-003 on StrategyQA.
+
+No.
+Trigger Setence
+Accuracy
+
+1
+Let’s devise a plan and solve the problem step by step.
+61.5
+
+2
+Let’s devise a complete plan. Then, let’s carry out the plan, solve the problem step by step, and
+show the answer.
+63.0
+
+3
+Let’s first prepare relevant information and make a plan. Then, let’s answer the question step by step
+(pay attention to commonsense and logical coherence).
+65.4
+
+2621

@@ -1,0 +1,54 @@
+Table 18: Example outputs by Zero-shot-PS+ for GSM8K.
+
+Q: James decides to run 3 sprints 3 times a week. He runs 60 meters each sprint. How many total
+meters does he run a week?
+
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+
+Output:
+Given:
+James runs 3 sprints 3 times a week.
+Each sprint is 60 meters.
+Plan:
+We need to calculate the total meters run by James in a week.
+Calculation:
+Total number of sprints run by James in a week = 3 sprints x 3 times = 9 sprints
+Total meters run by James in a week = 9 sprints x 60 meters = 540 meters
+Answer:
+James runs 540 meters in a week.
+
+Q: In a dance class of 20 students, 20% enrolled in contemporary dance, 25% of the remaining
+enrolled in jazz dance, and the rest enrolled in hip-hop dance. What percentage of the entire students
+enrolled in hip-hop dance?
+
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+make a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+
+Output:
+Given:
+Total number of students = 20
+Percentage of students enrolled in contemporary dance = 20%
+Percentage of students enrolled in jazz dance = 25%
+Plan:
+1. Calculate the number of students enrolled in contemporary dance.
+2. Calculate the number of students remaining after subtracting the number of students enrolled in
+contemporary dance.
+3. Calculate the number of students enrolled in jazz dance.
+4. Calculate the number of students enrolled in hip-hop dance.
+5. Calculate the percentage of students enrolled in hip-hop dance.
+Calculation:
+1. Number of students enrolled in contemporary dance = 20% of 20 = 20% × 20 = 4
+2. Number of students remaining after subtracting the number of students enrolled in contemporary
+dance = 20 - 4 = 16
+3. Number of students enrolled in jazz dance = 25% of 16 = 25% × 16 = 4
+4. Number of students enrolled in hip-hop dance = 16 - 4 = 12
+5. Percentage of students enrolled in hip-hop dance = 12/20 × 100% = 60%
+Answer:
+60% of the entire students enrolled in hip-hop dance.
+
+2624

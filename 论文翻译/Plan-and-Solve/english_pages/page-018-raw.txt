@@ -1,0 +1,39 @@
+Table 20: Example outputs by Zero-shot-PS+ for SVAMP.
+Q: Mom buys 70 white t - shirts in total. If white t - shirts can be purchased in packages and mom
+buys 14 packages. How many white t - shirts does each package have?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and make and device a complete plan.Then, let’s carry out the plan, calculate intermediate variables
+(pay attention to correct numerical calculation and commonsense), solve the problem step by step,
+and show the answer.
+Output:
+Variables:
+Total number of white t-shirts = 70
+Number of packages = 14
+Plan:
+We can use the equation:
+Total number of white t-shirts = Number of packages x Number of t-shirts per package
+Calculation:
+Number of t-shirts per package = 70/14 = 5
+Answer:
+Each package has 5 white t-shirts.
+Q: Jesse’s rooms are 19 feet long and 18 feet wide. If she has 20 rooms in all. How much carpet does
+she need to cover the floors of all rooms?
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals,
+and make and device a complete plan.Then, let’s carry out the plan, calculate intermediate variables
+(pay attention to correct numerical calculation and commonsense), solve the problem step by step,
+and show the answer.
+Output:
+Relevant Variables:
+Number of rooms: 20
+Length of each room: 19 feet
+Width of each room: 18 feet
+Plan:
+Step 1: Calculate the area of each room.
+Step 2: Multiply the area of each room by the number of rooms.
+Step 3: Show the answer.
+Calculation:
+Step 1: Area of each room = Length x Width = 19 feet x 18 feet = 342 square feet
+Step 2: Total area of all rooms = Area of each room x Number of rooms = 342 square feet x 20 rooms
+= 6840 square feet
+Answer: Jesse needs 6840 square feet of carpet to cover the floors of all rooms.
+2626

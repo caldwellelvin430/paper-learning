@@ -23,6 +23,9 @@
 | Earth-Agent | [中文稿](Earth-Agent/中文译文.md) · [阅读说明](Earth-Agent/README_使用说明.md) · [原文 PDF](Earth-Agent/原始论文.pdf) |
 | Evaluation of Code LLMs on Geospatial Code Generation | [中文稿](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/中文译文.md) · [阅读说明](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/README_使用说明.md) · [原文 PDF](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/原始论文.pdf) |
 | GeoAgent | [中文稿](GeoAgent/中文译文.md) · [阅读说明](GeoAgent/README_使用说明.md) · [原文 PDF](GeoAgent/原始论文.pdf) |
+| GeoCode-GPT | [中文稿](GeoCode-GPT/中文译文.md) · [核查说明](GeoCode-GPT/QA_逐页核查.md) · [原文 PDF](GeoCode-GPT/original.pdf) |
+| GIS-Copilot | [中文稿](GIS-Copilot/中文译文.md) · [核查说明](GIS-Copilot/QA_逐页核查.md) · [原文 PDF](GIS-Copilot/original.pdf) |
+| Plan-and-Solve | [中文稿](Plan-and-Solve/中文译文.md) · [核查说明](Plan-and-Solve/QA_逐页核查.md) · [原文 PDF](Plan-and-Solve/original.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

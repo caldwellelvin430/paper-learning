@@ -1,0 +1,46 @@
+6.1. The need for a data validation module to reduce tool and parameter mismatch
+The GIS Copilot shows potential in handling tasks of varying complexity, but issues like incorrect 
+parameter assignment were observed, hindering its performance. For instance, the agent occasion­
+ally assigns vector data to parameters that require raster input. A good example of such is the gdal: 
+proximity tool, where the input layer should be raster; however, the agent assigns a vector layer pro­
+vided by the user without first converting it to raster, resulting in code failure. Improving the align­
+ment between data types and tool requirements is needed to enhance the agent’s reliability. One way 
+this can be achieved is by integrating a data validation module that crosses-references each par­
+ameter with the data type required by the selected tool so that the data will be converted automati­
+cally even if there is a mismatch.
+6.2. Expanding LLMs knowledge in GIScience fundamentals
+LLMs like GPT-4o, while capable of general-purpose reasoning, exhibit limited foundational 
+knowledge in GIScience, particularly in domain-specific requirements such as the need for data 
+reprojection under certain conditions (Li et al. 2025). During the advanced level testing, it was 
+observed that the agent frequently omitted reprojection steps unless specifically instructed. 
+Additionally, the agent occasionally struggles with interpreting certain GIS tools – especially 
+from external providers like GDAL – leading to inaccurate function selection or parameter mis­
+configuration. While the integration of structured documentation and an RAG mechanism effec­
+tively addressed prompt length limitations by allowing the model to retrieve only the most 
+relevant documentation segments on demand, there is still a need to address the challenge of spatial 
+reasoning and tool logic comprehension. To address these, future work could explore fine-tuning 
+approaches, such as adapter-based methods like Low-Rank Adaptation (LoRA) (Hu et al. 2021).
+6.3. Building an experience-based knowledge system
+The agent’s current knowledge is mostly derived from Internet sources, which lack the depth of 
+practical GIS experience necessary for accurately performing specialized tasks. For instance, the 
+agent may not recognize that data types in table join must align across columns, such as ensuring 
+that strings match with strings and integers with integers or that buffer distances should be 
+expressed in metric units rather than degrees. Without this foundational understanding, the 
+agent is prone to errors that are easily detectable by GIS professionals yet may remain undetectable 
+by inexperienced users. To address this issue, implementing an experience-based knowledge system 
+that incorporates feedback loops that learn from user corrections could improve the agent’s prac­
+tical understanding and adaptability. Such a system would act as a database that accumulates 
+instances of errors and their solutions during agent-user interactions. Over time, this ‘experience 
+database’ would function similarly to a repository of case-based learning, enabling the agent to 
+recognize recurring issues, learn corrective actions, and apply these solutions autonomously in 
+future tasks. This approach is one way of achieving the ‘self-growing’ goal of an autonomous 
+GIS, allowing the agent to continuously evolve and improve based on accumulated experience. 
+For example, if the agent encounters a table join error due to incompatible data types, it will refer­
+ence its experience database to identify and implement a solution, such as converting one of the 
+columns to the appropriate type.
+6.4. Integration with a geospatial data retrieval agent
+To advance the GIS Copilot toward full autonomy, integrating an agent capable of retrieving 
+needed geospatial data is essential. An autonomous data retrieval agent would allow the Copilot 
+to access and use relevant datasets directly, thereby reducing user input requirements and 
+20 
+T. AKINBOYEWA ET AL.

@@ -1,0 +1,226 @@
+difficult to rapidly update domain-specific knowledge, which can lead to 
+knowledge gaps (Kasneci et al., 2023). Second, the limited availability of 
+specialized data in general-purpose corpora may result in “knowledge 
+hallucinations (Tonmoy et al., 2024),” where the model generates con­
+tent that appears correct but is factually inaccurate in highly specialized 
+tasks. Thus, advancing the domain specialization of LLMs has become a 
+key research focus, with the goal of enhancing model performance by 
+integrating domain-specific knowledge. While there have been suc­
+cessful applications in fields such as law (Cui et al., 2023), finance 
+(Huang et al., 2023), biomedicine (Thirunavukarasu et al., 2023), and 
+earth sciences (Zhang et al., 2024b), research on domain-specific LLMs 
+for geospatial code generation remains unexplored.
+2.3. Fine-tuning strategies for code generation and instruction data 
+generation
+The use of LLMs for code generation depends on their ability to 
+interpret instructions, learn contextually, and perform reasoning to 
+translate natural language into executable code. High-quality instruc­
+tion datasets are critical to enhancing these capabilities. For instance, 
+LIMA-65B, fine-tuned with only 1,000 carefully curated prompts and 
+responses, achieved performance comparable to GPT-4 in 43 % of 
+evaluation scenarios. However, creating such datasets is constrained by 
+issues of scarcity, cost, and privacy. To address this, the Self-Instruct 
+framework generates synthetic instruction data autonomously, bypass­
+ing the need for manual annotation (Wang et al., 2022). This approach 
+has been successfully implemented in models like Alpaca (Zhang et al., 
+2023) and Phi (Abdin et al., 2024), demonstrating the utility of synthetic 
+data in instruction tuning. LLMs typically undergo pretraining on large- 
+scale unannotated code to capture structural and semantic patterns, 
+followed by supervised fine-tuning. While full fine-tuning achieves 
+substantial performance gains, it demands significant computational 
+resources. PEFT methods, such as LoRA (Hu et al., 2021), mitigate this 
+challenge by reducing the number of trainable parameters. Additionally, 
+QLoRA optimizes fine-tuning efficiency further using int4 quantization, 
+enabling effective training in resource-constrained settings (Qin et al., 
+2024). Despite advancements in code generation, open-source models 
+like Meta AI’s Code LLaMA, DeepSeek Coder, and WizardCoder lack 
+tailored pretraining and instruction datasets for geospatial applications. 
+Fine-tuning strategies specific to geospatial code remain unexplored, 
+and no specialized LLMs have been developed for this domain, high­
+lighting a significant research gap.
+2.4. Evaluation of code generation in LLMs
+In the domain of code generation for LLMs, traditional token- 
+matching metrics, such as Exact Match, BLEU, and ROUGE, fail to 
+adequately capture code executability, syntactic correctness, and func­
+tionality (Chen et al., 2024). Execution-based metrics, such as 
+pass@k—which measures the likelihood of at least one of k generated 
+code samples passing all unit tests—offer a more robust assessment of 
+performance (Chen et al., 2021). However, evaluating geospatial code 
+introduces additional complexity due to its reliance on advanced image 
+processing and platform-specific operations, challenging the scope of 
+automated evaluation. Furthermore, readability, conciseness, and the 
+accuracy of data usage also warrant consideration, further constraining 
+automated approaches (Scalabrino et al., 2019). While human evalua­
+tion provides critical insights into code quality, it is inherently subjec­
+tive and often inconsistent. Recently, LLM-driven evaluation methods, 
+such as AlpacaEval (Dubois et al., 2024) and MT-bench (Zheng et al., 
+2023), have emerged, employing tailored prompts to enable LLMs to act 
+as evaluators. These methods not only generate scores but also articulate 
+reasoning, enhancing interpretability. Despite their promise, their 
+application to code evaluation remains in early stages. Notably, the ICE- 
+Score—a metric combining LLM-based assessments of functionality and 
+human preference—has demonstrated strong alignment with human 
+judgments without relying on additional benchmarks or references 
+(Zhuo, 2023). However, its potential for evaluating geospatial code 
+generation remains unexplored.
+3. Dataset construction
+This section provides a detailed description of the construction 
+methods and processes for the pretraining corpus (GeoCode-PT), the 
+supervised fine-tuning corpus (GeoCode-SFT), and the evaluation corpus 
+(GeoCode-Eval) used in training the GeoCode-GPT model.
+3.1. GeoCode-PT
+During the pretraining phase, the model employs unsupervised 
+learning to autonomously acquire knowledge of code structures and 
+semantic relationships from large-scale, unannotated data, without 
+explicit instructions or labeled inputs. The pretraining corpus, GeoCode- 
+PT, is specifically curated to provide foundational knowledge in geo­
+spatial domains. As outlined in Table 1, GeoCode-PT comprises four 
+primary components: code documentation, operator knowledge docu­
+ments, dataset knowledge documents, and encyclopedic texts. The code 
+documentation encompasses diverse platforms and toolkits, targeting 
+two primary geospatial tasks: remote sensing (RS) imagery processing 
+and GIS spatial analysis. RS tasks include land use/land cover classifi­
+cation, change detection, time-series analysis, and the computation of 
+indices such as NDVI and NDWI. GIS tasks involve buffer creation, 
+spatial overlays, vector and raster operations, terrain analysis, and 
+attribute-based queries. These scripts, together with the GeoCode-PT, 
+GeoCode-SFT, and GeoCode-Eval datasets derived from them, equip 
+Table 1 
+GeoCode-PT Data Inventory.
+Platform/Library
+Language
+Format
+Quantity
+Overall
+Code Documents
+Google Earth 
+Engine
+JavaScript
+JSON
+128,396
+275,374 items 5.57 
+GB
+Google Earth 
+Engine
+Python
+JSON
+107,826
+ArcPy
+Python
+JSON
+30,122
+PIE Engine
+JavaScript
+JSON
+1198
+Mapping Toolbox
+Matlab
+JSON
+3218
+GDAL
+Python
+JSON
+1310
+rasterio
+Python
+JSON
+86
+cartopy
+Python
+JSON
+257
+GeoPandas
+Python
+JSON
+197
+sf
+R
+JSON
+488
+terra
+R
+JSON
+1952
+gstat
+R
+JSON
+324
+Operator Documents
+Google Earth 
+Engine
+JavaScript
+csv
+1374
+10,190 items 13.48 
+MB
+Google Earth 
+Engine
+Python
+csv
+1348
+ArcPy
+Python
+JSON
+2025
+PIE Engine
+JavaScript
+JSON
+962
+Mapping Toolbox
+Matlab
+JSON
+317
+GDAL
+Python
+JSON
+2073
+rasterio
+Python
+JSON
+1538
+cartopy
+Python
+JSON
+16
+GeoPandas
+Python
+JSON
+170
+sf
+R
+JSON
+85
+terra
+R
+JSON
+240
+gstat
+R
+JSON
+42
+Dataset Documents
+GEE
+/
+csv
+645
+853 items 309 KB
+PIE Engine
+/
+csv
+208
+Encyclopedic Documents
+Wikipedia
+Natural 
+Lang.
+JSON
+4
+14 items 102 KB
+Built-in Platform 
+Docs
+Natural 
+Lang.
+JSON
+10
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456 
+4 

@@ -1,0 +1,57 @@
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+3
+
+explore autonomous GIS (Li and Ning 2023; Wang et al. 2024). Researchers have leveraged LLMs to 
+conceptualize and develop various autonomous GIS agents for geospatial data retrieval (Ning et al. 
+2025), geospatial information extraction (Crooks and Chen 2024), and spatial analysis and mapping 
+(Mansourian and Oucheikh 2024; Zhang et al. 2024). Among the pioneering studies, (Li and Ning 
+2023) introduced LLM-Geo, a prototype demonstrating the potential of AI-powered GIS to auton­
+omously perform geospatial operations such as numerical aggregation, chart generation, and map 
+presentations using GPT-4 API. In another study, (Zhang et al. 2024) developed GeoGPT, which 
+integrates the capabilities of LLMs with GIS tools to enhance the efficiency of geospatial operations, 
+including data collection, processing, and analysis. By utilizing the LangChain framework, the LLM 
+interprets user requests, plans the necessary steps, and sequentially executes relevant GIS tools from 
+a predefined tool pool, encompassing tools for data collection, spatial analysis, and cartographic 
+visualization. Additionally, (Lin et al. 2024) proposed a framework designed to automate shapefile 
+processing tasks using a multi-agent approach.
+
+Furthermore, several other studies have integrated LLMs into specific spatial tasks. For instance, (Tao 
+and Xu 2023) explored the integration of ChatGPT into cartography to automate and enhance map- 
+making tasks. Their study conducted experiments on generating thematic and mental maps by using 
+natural language prompts in ChatGPT, which produced Python codes for geospatial visualization. In 
+a relevant study, (Zhang et al. 2024) introduced MapGPT, an LLM-based mapping framework that inte­
+grates GPT-4 with multiple mapping tools that allow users to interact through natural language descrip­
+tions, simplifying the mapping process. (Mai et al. 2024) examine the potential of foundation models, 
+including LLMs, for geospatial artificial intelligence (GeoAI). They evaluated the performance of exist­
+ing pre-trained LLMs on a range of geospatial tasks, such as toponym recognition and location descrip­
+tion, as well as multimodal tasks like urban use classification and remote sensing image analysis. (Xu et al. 
+2024) developed a comprehensive benchmark to evaluate large language models (LLMs) on spatial tasks.
+
+While these studies revealed the potential of generative AI in geospatial operations, one of the 
+key limitations is that these approaches have not fully integrated generative AI capabilities within 
+established GIS platforms.
+
+2.2. Integrating generative AI into existing GIS platforms
+
+Recent efforts have been made to integrate generative AI with established GIS platforms. (Ning et al. 
+2025) introduced an autonomous GIS agent framework and a QGIS plugin to facilitate the auto­
+mated downloading of geospatial data. While this study represents significant progress, it focuses 
+primarily on data retrieval rather than the broader spectrum of spatial analysis tasks. (QChatGPT 
+2024) is another LLM-based QGIS plugin, but its functionality is currently limited to offering gui­
+dance on performing tasks rather than automating the tasks themselves. (IntelliGeo 2024) is a QGIS 
+plugin that leverages LLMs to automate geospatial workflows. It is designed to assist GIS pro­
+fessionals by automatically performing GIS operations through two primary methods: generating 
+PyQGIS scripts or creating graphical models. Although promising, it is limited to generating gen­
+eral code, requiring users to manually configure parameters in the code, reducing the automation 
+level. Recently, (Mansourian and Oucheikh 2024) introduced ChatGeoAI which utilizes a fine- 
+tuned Llama2 model to generate code that can be used to perform spatial tasks.
+
+ESRI, a leading global provider of GIS software, has also taken advances toward integrating gen­
+erative AI into ArcGIS, introducing AI-enhanced tools aimed at improving geoprocessing workfl­
+ows (Crawford, Flater, and Neal 2024). This includes functionality that recommends suitable tools 
+for specific operations, providing guidance but not automating tasks. Additionally, ESRI’s AI 
+Assistant allows users to initiate GIS tasks through natural language inputs (ESRI 2024). However, 
+this development is still in an early stage at the time of writing. ESRI also introduced Copilot for 
+Microsoft 365 which allows users to search, and access maps, apps, and geospatial data within Arc­
+GIS for Teams (ESRI 2024). More recently, NASA and Microsoft have collaborated to develop Earth 
+Copilot, an AI-driven tool designed to simplify and democratize access to NASA’s extensive Earth

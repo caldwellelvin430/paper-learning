@@ -1,0 +1,282 @@
+[
+  {
+    "kind": "figure",
+    "label": "Figure-1",
+    "no": "1",
+    "desc": "Framework of the GIS Copilot.",
+    "rect": [
+      48.02,
+      256.15,
+      177.52,
+      264.15
+    ],
+    "p": 6,
+    "file": "figure-1-p006.png",
+    "crop": [
+      20.0,
+      30.0,
+      473.2,
+      309.1
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-2",
+    "no": "2",
+    "desc": "Workflow of the GIS Copilot.",
+    "rect": [
+      48.02,
+      654.02,
+      172.37,
+      662.02
+    ],
+    "p": 8,
+    "file": "figure-2-p008.png",
+    "crop": [
+      20.0,
+      329.0,
+      473.2,
+      673.0
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-3",
+    "no": "3",
+    "desc": "The graphic user interface of the GIS Copilot.",
+    "rect": [
+      48.02,
+      654.02,
+      224.81,
+      662.02
+    ],
+    "p": 9,
+    "file": "figure-3-p009.png",
+    "crop": [
+      20.0,
+      329.0,
+      473.2,
+      673.0
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-4",
+    "no": "4",
+    "desc": "Health facilities coverage zone (Task: Can you create 2000-feet zones around each health facilities in Washington DC to",
+    "rect": [
+      48.02,
+      645.0,
+      446.77,
+      653.0
+    ],
+    "p": 10,
+    "file": "figure-4-p010.png",
+    "crop": [
+      20.0,
+      320.0,
+      473.2,
+      673.0
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-5",
+    "no": "5",
+    "desc": "Generating contour lines from DEM (Task: Generate contour lines from the DEM of Puerto Rico with a 50-meter interval).",
+    "rect": [
+      48.02,
+      292.94,
+      445.22,
+      300.94
+    ],
+    "p": 11,
+    "file": "figure-5-p011.png",
+    "crop": [
+      20.0,
+      30.0,
+      473.2,
+      345.9
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-6",
+    "no": "6",
+    "desc": "Selection of high population counties in the contiguous U.S. (Task: Select the USA counties that have more than 50,000",
+    "rect": [
+      48.02,
+      394.99,
+      446.6,
+      402.99
+    ],
+    "p": 12,
+    "file": "figure-6-p012.png",
+    "crop": [
+      20.0,
+      70.0,
+      473.2,
+      448.0
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-7",
+    "no": "7",
+    "desc": "Extracting land cover information of Pennsylvania. (Task: Clip the land cover data of the USA to the Pennsylvania",
+    "rect": [
+      48.02,
+      352.24,
+      446.6,
+      360.24
+    ],
+    "p": 13,
+    "file": "figure-7-p013.png",
+    "crop": [
+      20.0,
+      30.0,
+      473.2,
+      405.2
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-8",
+    "no": "8",
+    "desc": "Zonal Statistics of average elevation for counties in South Carolina (Task: Perform the following task: 1) Clip the DEM to",
+    "rect": [
+      48.02,
+      460.47,
+      446.77,
+      468.47
+    ],
+    "p": 14,
+    "file": "figure-8-p014.png",
+    "crop": [
+      20.0,
+      135.5,
+      473.2,
+      513.5
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-9",
+    "no": "9",
+    "desc": "Richland County raster analysis. (Task: Merge the four DEMs into a single raster and perform terrain characteristic",
+    "rect": [
+      48.02,
+      475.27,
+      446.81,
+      483.27
+    ],
+    "p": 15,
+    "file": "figure-9-p015.png",
+    "crop": [
+      20.0,
+      150.3,
+      473.2,
+      528.3
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-10",
+    "no": "10",
+    "desc": "County-level obesity risk behavior index analysis (Task: Generate an obesity risk behavior index of each county in the",
+    "rect": [
+      48.02,
+      247.47,
+      446.79,
+      255.47
+    ],
+    "p": 16,
+    "file": "figure-10-p016.png",
+    "crop": [
+      20.0,
+      30.0,
+      473.2,
+      300.5
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-11",
+    "no": "11",
+    "desc": "Fast-food accessibility analysis for each county in Pennsylvania. (Task: Could you analyze and visualize the fast food",
+    "rect": [
+      48.02,
+      501.4,
+      446.83,
+      509.4
+    ],
+    "p": 17,
+    "file": "figure-11-p017.png",
+    "crop": [
+      20.0,
+      176.4,
+      473.2,
+      554.4
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-12",
+    "no": "12",
+    "desc": "Spatial distribution of COVID-19 cases in the USA. (Task: Could you show the spatial distribution of the COVID-19 cases",
+    "rect": [
+      48.02,
+      273.27,
+      446.82,
+      281.27
+    ],
+    "p": 18,
+    "file": "figure-12-p018.png",
+    "crop": [
+      20.0,
+      30.0,
+      473.2,
+      326.3
+    ]
+  },
+  {
+    "kind": "figure",
+    "label": "Figure-13",
+    "no": "13",
+    "desc": "Generating the Normalized Difference Vegetation Index (NDVI) of Akure. (Task: Generate the Normalized Difference",
+    "rect": [
+      48.02,
+      629.58,
+      446.8,
+      637.58
+    ],
+    "p": 18,
+    "file": "figure-13-p018.png",
+    "crop": [
+      20.0,
+      304.6,
+      473.2,
+      673.0
+    ]
+  },
+  {
+    "kind": "table",
+    "label": "Table-1",
+    "no": "1",
+    "desc": "Performance evaluation of the GIS Copilot.",
+    "rect": [
+      48.02,
+      52.79,
+      213.98,
+      60.79
+    ],
+    "p": 19,
+    "file": "table-1-p019.png",
+    "crop": [
+      20.0,
+      43.8,
+      473.2,
+      298.8
+    ]
+  }
+]

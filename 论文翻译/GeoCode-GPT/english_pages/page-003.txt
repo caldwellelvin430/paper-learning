@@ -1,0 +1,89 @@
+S. Hou et al.                                                                                                                                                                                                                                     
+International Journal of Applied Earth Observation and Geoinformation 138 (2025) 104456
+
+evaluation using GeoCode-Eval, across eight key dimensions closely 
+related to geospatial code generation: Operator Knowledge, Dataset 
+Knowledge, Platform or Toolkit Knowledge, Platform or Toolkit 
+Recognition, Programming Language Recognition, Entity Extraction, 
+Code Summarization, and Code Generation. The evaluation was con­
+ducted through option matching, expert validation, and prompt engi­
+neering scoring. With the enrichment of extensive geospatial 
+knowledge, GeoCode-GPT outperforms general-purpose models in 
+several capabilities, and despite having significantly fewer parameters 
+than commercial models, it approaches their performance in certain 
+metrics. This achievement advances the application and development of 
+LLMs in geospatial code generation. The overall research framework is 
+illustrated in Fig. 2.
+
+Our contributions are summarized as follows:
+
+• We introduce GeoCode-GPT-7B, the first LLM specifically designed 
+for geospatial code generation tasks.
+• We developed and open-sourced the GeoCode-PT and GeoCode-SFT 
+corpora, as well as the GeoCode-Eval evaluation set, providing a 
+systematic corpus foundation and evaluation tools for pretraining 
+and fine-tuning LLMs in geospatial code generation tasks. https:// 
+github.com/whuhsy/GeoCode-GPT.
+• We propose a novel pretraining and fine-tuning strategy that com­
+
+bines QLoRA and LoRA, offering a new approach to balancing 
+computational resources and training efficiency.
+• We established a comprehensive evaluation framework for geo­
+
+spatial code, incorporating option matching, expert validation, and 
+prompt engineering scoring for LLMs, providing insights for the 
+holistic evaluation of domain-specific models.
+
+The structure of this paper is as follows: Section 2 reviews related 
+research on geospatial modeling, domain-specific challenges for LLMs, 
+fine-tuning strategies for code generation, and instruction data genera­
+tion. Section 3 outlines the construction of the GeoCode-PT, GeoCode- 
+SFT, and GeoCode-Eval corpora. Section 4 presents the selection of the 
+base model and the parameter settings for pretraining and fine-tuning. 
+Section 5 discusses the evaluation framework, methods, and results 
+based on GeoCode-Eval. Finally, Section 6 summarizes the contributions 
+of GeoCode-GPT, highlights its limitations, and suggests directions for
+
+future research.
+
+2. Related work
+
+2.1. Geospatial modeling
+
+Geospatial modeling, a core method in geographic information sci­
+ence, employs mathematical models and simulations to analyze dynamic 
+geographic phenomena, supporting applications such as environmental 
+monitoring, resource management, and urban planning (Tao, 2013). 
+Platforms like GEE and ArcGIS have popularized GUI-based modeling, 
+which, while user-friendly, is constrained by reliance on manual in­
+teractions and prebuilt functions, limiting efficiency and scalability 
+(Tamiminia et al., 2020). In response, code-driven modeling has 
+emerged, allowing users to leverage APIs for more flexible analyses, 
+function extensions, and reusable scripts (Kessel and Atkinson, 2024). 
+Tools like Python’s GDAL library and Matlab’s Mapping Toolbox 
+exemplify this paradigm, offering specialized support for geospatial data 
+processing. Despite these advancements, the technical demands of 
+scripting—requiring both programming expertise and geospatial 
+knowledge—limit accessibility for non-experts and pose challenges for 
+interdisciplinary use. Recent progress in LLMs presents new possibilities 
+for geospatial modeling. Studies like GeoGPT (Zhang et al., 2024c) and 
+MapGPT (Zhang et al., 2024a) have shown how LLMs can facilitate 
+natural language interactions, enhancing user engagement with geo­
+spatial tools, particularly in GUI-based workflows. However, these ef­
+forts largely focus on improving GUI functionalities and offer limited 
+support for code-driven modeling. Addressing this gap, this study in­
+troduces a fine-tuned LLM framework specifically for geospatial code 
+generation, aiming to expand the scope and capabilities of advanced 
+geospatial modeling tasks.
+
+2.2. Challenges in domain specialization for LLMs
+
+LLMs, based on the Transformer architecture and self-attention 
+mechanisms, exhibit remarkable NLP capabilities due to their large- 
+scale parameters and diverse training corpora (Minaee et al., 2024). 
+However, they face two major challenges in domain adaptation: first, 
+retraining requires significant computational resources, making it
+
+Fig. 2. Technical Workflow of GeoCode-GPT.
+
+3

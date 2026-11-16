@@ -1,0 +1,54 @@
+6 
+T. AKINBOYEWA ET AL.
+
+When a spatial analysis task is defined – after being structured by the query refining module – a 
+similarity search is performed against this vector database to identify tools whose descriptions 
+align most closely with the user’s intent. The top most relevant tool(s) are retrieved and passed 
+to a language model, which generates a structured recommendation that includes the selected 
+tool(s). In addition to supporting tool selection, the embedded documentation enables targeted 
+retrieval of specific components, such as parameter definitions or example usage. This selective 
+retrieval is particularly important given the token limitations of LLMs: for instance, the GPT models 
+used in this implementation have a context window ranging from 8,000–32,000 tokens (Lin et al. 
+2023). By retrieving only the relevant parts of a tool’s documentation, the system ensures that 
+the prompt remains within token limits while still providing the model with the essential context 
+needed for accurate and executable code generation.
+
+3.1.4. Data understanding module
+The data understanding module leverages the GPT-4 API to identify key attributes of the input 
+data. This module enables the agent to extract and interpret the structure and attributes of spatial 
+data before being used for any analysis. It functions similarly to the initial step a human analyst 
+would take when approaching a spatial analysis task – understanding the data to be analyzed. 
+Specifically, it collects a wide range of critical information on the data for spatial analysis, such 
+as file format, field names of the attribute table, coordinate reference system, geographic extent, 
+and raster resolution. This information provides the GIS Copilot with a thorough overview and 
+understanding of the data inputs, which guides it in selecting appropriate tools and attributes for 
+performing geospatial operations. As a result, users are not required to specify data details such 
+as field names in their task requests, making the Copilot more user-friendly.
+
+3.1.5. Code review/debugging module
+The code review/debugging module is an essential component designed to enhance the reliability 
+and accuracy of generated code. This module enables the GIS Copilot to actively review the gener­
+ated code and monitor the execution of the generated code in real-time to capture any errors that 
+may arise. The implementation leverages GPT-4 API for code review, where a structured prompt 
+guides evaluating the code against predefined requirements and examples from documentation. 
+Real-time monitoring of code execution is performed by dynamically capturing output. Upon 
+detecting an error, the module generates a debug prompt enriched with context, including the 
+task, error details, and associated data, which is sent to GPT-4 for analysis and correction. The cor­
+rected code undergoes further review and execution to increase the chances of successful execution. 
+Appendix 5 and Appendix 6 provide samples of the prompt used for the code review and debugging 
+operation respectively.
+
+3.2. Workflow of the GIS copilot
+
+The GIS Copilot is implemented as a plugin within QGIS. It interprets user requests in natural 
+language and translates them into executable geoprocessing commands. As shown in Figure 2, 
+the overall workflow begins by breaking down the user’s task into detailed steps. Once the task 
+is well understood, the system identifies the appropriate geoprocessing tool(s) from a wide range 
+of options, including QGIS native tools, GDAL, or customized tools. The tools are selected 
+based on the steps analyzed during the task breakdown to ensure each step of the process is 
+addressed by the most suitable tool. Based on the selected tool(s), the system generates executable 
+Python code that is specifically designed to solve the spatial task. Throughout these steps, the system 
+is guided by a set of predefined instructions, automatically generated metadata, and a comprehen­
+sive tool list to ensure reliable task analysis, tool selection, and code generation. Finally, the code is 
+executed, and the results are either loaded as map layers into QGIS or presented as reports, includ­
+ing tables and charts.

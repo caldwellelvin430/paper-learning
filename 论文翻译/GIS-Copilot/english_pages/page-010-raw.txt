@@ -1,0 +1,24 @@
+4.1.1. Health facilities coverage zone in Washington D.C., USA
+This case involves creating service zones around health facilities in Washington D.C, United States. 
+The input data was a vector layer of health facilities (hospitals, clinics, and pharmacies) obtained 
+from OpenStreetMap (OpenStreetMap 2024). In this task, the agent was prompted to create 
+2,000-foot zones around each health facility to identify areas of service coverage (Figure 4). The 
+agent successfully selected the appropriate spatial analysis tool (the buffer tool) and generated 
+executable code, which includes setting the required parameters (e.g. distance) based on the user 
+query and executing the operation.
+4.1.2. Generating contour lines from the digital elevation model (DEM)
+In this case, the agent is tasked with generating contour lines from a Digital Elevation Model (DEM) 
+dataset, a raster data layer that represents terrain elevation. This is a foundational spatial analysis 
+task that is frequently used in geographic studies, such as topographical mapping, environmental 
+modeling, and landscape visualization. The agent selected the tool gdal:contour from the available 
+geoprocessing tools within the system. This tool is specifically designed to convert elevation data 
+(raster) into contour lines (vector), based on user-defined intervals. In our case study, the output 
+in vector format is shown in Figure 5.
+4.1.3. Selection of high population counties in the US
+This case demonstrates attribute query by selecting the US counties with a population exceeding 
+50,000. The input dataset is a single vector layer that contains the population of all counties in 
+the contiguous US states. In response to the task, the agent effectively identified the correct tool 
+Figure 4.  Health facilities coverage zone (Task: Can you create 2000-feet zones around each health facilities in Washington DC to 
+identify areas of service coverage?).
+INTERNATIONAL JOURNAL OF DIGITAL EARTH 
+9

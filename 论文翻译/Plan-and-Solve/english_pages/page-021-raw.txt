@@ -1,0 +1,24 @@
+Table 23: Example outputs by Zero-shot-PS+ for CommonsenseQA.
+Q: What is a place that has a bench nestled in trees? Answer Choices: (A) state park (B) bus stop (C)
+bus depot (D) statue (E) train station
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+The question is asking for a place that has a bench nestled in trees. The answer choices are (A) state
+park, (B) bus stop, (C) bus depot, (D) statue, and (E) train station.
+The answer is (A) state park. State parks are typically located in natural areas with trees, and they
+often have benches for visitors to sit and enjoy the scenery.
+Q: Where is a good idea but not required to have a fire extinguisher? Answer Choices: (A) school bus
+(B) boat (C) house (D) hospital (E) school
+A: Let’s first understand the problem, extract relevant variables and their corresponding numerals, and
+devise a complete plan.Then, let’s carry out the plan, calculate intermediate variables (pay attention
+to correct numerical calculation and commonsense), solve the problem step by step, and show the
+answer.
+Output:
+The question is asking for a good idea to have a fire extinguisher, but it is not required. The answer
+choices are (A) school bus, (B) boat, (C) house, (D) hospital, and (E) school.
+The best answer is (C) house. Having a fire extinguisher in a house is a good idea, but it is not
+required. Fire extinguishers are not typically required in school buses, boats, hospitals, or schools.
+2629
