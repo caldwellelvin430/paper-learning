@@ -1,0 +1,86 @@
+Published as a conference paper at ICLR 2026
+calc batch image mean mean
+Statistics
+Compute the average of mean pixel values
+across a batch of images.
+calc batch image mean max
+Statistics
+Compute the mean pixel values of a batch of
+images and return the maximum mean.
+calc batch image mean max min
+Statistics
+Compute the batch-wise statistics across mul-
+tiple images, including: Mean of mean values,
+Maximum of maximum values, Minimum of
+minimum values.
+calc batch image mean threshold
+Statistics
+Calculate the percentage or count of images
+whose mean pixel values (in a specified band)
+are above or below a given threshold.
+calculate multi band threshold
+ratio
+Statistics
+Calculate the percentage of pixels that simul-
+taneously satisfy multiple band threshold con-
+ditions.
+count pixels satisfying conditions
+Statistics
+Count the number of pixels that simultane-
+ously satisfy multiple band threshold condi-
+tions.
+count images exceeding threshold
+ratio
+Statistics
+Count how many images have a percentage of
+pixels above or below a threshold that exceeds
+a specified ratio.
+average ratio exceeding threshold
+Statistics
+Calculate the average percentage of pixels ex-
+ceeding a value threshold, considering only
+images where the ratio is greater than a speci-
+fied ratio threshold.
+count images exceeding mean
+multiplier
+Statistics
+Count how many images have a mean pixel
+value above or below a multiple of the over-
+all mean pixel value across all images.
+calculate band mean by condition Statistics
+Calculate the mean value of a target band
+over pixels where a condition band satisfies a
+threshold.
+calc threshold value mean
+Statistics
+Calculate the mean value of corresponding
+raster pixels in path2 where the raster values
+in path1 exceed the given threshold.
+calculate tif difference
+Statistics
+Calculate difference between two tif files (im-
+age b - image a) and save result.
+subtract
+Statistics
+Subtract two images and save result.
+calculate area
+Statistics
+This function calculates the area of non-zero
+pixels in the input image and returns the result.
+grayscale to colormap
+Statistics
+Apply a colormap to a grayscale image and
+save as a color image.
+get filelist
+Statistics
+Returns a list of files in the specified directory.
+radiometric correction sr
+Statistics
+Apply Landsat 8 surface reflectance (SR B*)
+radiometric correction.
+apply cloud mask
+Statistics
+Apply cloud / shadow mask to a single Landsat
+8 surface reflectance band using QA PIXEL
+band.
+36

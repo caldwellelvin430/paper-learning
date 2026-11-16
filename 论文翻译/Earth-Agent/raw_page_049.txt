@@ -1,0 +1,99 @@
+Published as a conference paper at ICLR 2026
+v
+Question:Based on the sur_refl_b01 and sur_refl_b04 data of the Arctic Ocean, calculate the NDTI and 
+compute the average NDTI values for July 2012 and July 2022. Determine whether ocean turbidity in the 
+Arctic Ocean increased or decreased over this period, and report the magnitude of the change.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question182"}
+"output": [\"Arctic_Ocean_sur_refl_b01_2012-07-01.tif\",…, \"Arctic_Ocean_sur_refl_b04_2022-07-29.tif\"]
+"name": calculate_batch_ndti
+"input":"input_red_paths": ["benchmark/data/question182/Arctic_Ocean_sur_refl_b04_2012-07-
+01.tif",…,"benchmark/data/question182/Arctic_Ocean_sur_refl_b04_2022-07-29.tif"], "input_green_paths": 
+["benchmark/data/question182/Arctic_Ocean_sur_refl_b01_2012-07-01.tif",…,
+"benchmark/data/question182/Arctic_Ocean_sur_refl_b01_2022-07-29.tif"], "output_paths": ["question182/ndti_2012-
+07-01.tif",..., "question182/ndti_2022-07-29.tif"]
+"output": [\"Result save at out/question182/ndti_2012-07-01.tif\",…, \"Result save at 
+out/question182/ndti_2022-07-29.tif\"]
+Products:
+[Pollution Regulation]
+"final answer": "B"
+Final
+Step 1
+Step 11
+Step 2-3
+Tool 1: get_filelist
+Tool 4: difference
+GT
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> B
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: calculate_ndti
+Tool 5: calculate_batch_ndti
+->
+Tool 4
+Tool 3: calc_batch_image_mean
+Tool 7: calc_batch_image_mean_mean
+Tool 6: get_list_object_via_indexes
+×𝟐
+×𝟐
+Tool 1
+Tool 6
+->
+Tool 5
+->
+-> A
+->
+Tool 4
+×𝟒
+×𝟐
+Tool 1
+Tool 5
+->
+Tool 7
+->
+-> B
+×𝟐
+×𝟐
+Tool 1
+Tool 3
+->
+-> A
+Tool 7
+×𝟑->
+Step-by-Step:
+TAO: 0.5
+End-to-End:          Efficiency: 0.3548
+TIO: 0.03 
+TEM: 0.03 
+Param.: 0.03 
+Acc: 100% 
+Instruction Following
+…
+B4 × 72
+… …
+B1 × 72
+A. The average NDTI decreased slightly from about -0.0472 in July 2012 to about -0.0502 in July 2022, 
+meaning turbidity weakened and the magnitude of change was roughly 0.0030.
+B. The average NDTI increased from about -0.050162 in July 2012 to about -0.047156 in July 2022, so 
+ocean turbidity increased (less negative NDTI) with a magnitude of about 0.003006.
+C. The average NDTI increased from about -0.0472 to -0.0502, indicating much clearer water, with a magnitude 
+near 0.0030.
+D. Average NDTI values of roughly -0.0502 and -0.0472 show no detectable change in turbidity between 2012 
+and 2022.
+E. Average NDTI stayed at about -0.05 for both years, so there was virtually zero change.
+GPT-5
+"name": mean
+"input": ["-13.095973014831543",..."-5.5260844230651855"]
+"output": "-15.605616776148478"
+Figure 22:
+Example of Pollution Regulation with Products Data under the Instruction-
+Following Regime.
+49

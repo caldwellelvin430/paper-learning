@@ -1,0 +1,150 @@
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+Piotr Gramacki, Bruno Martins, and Piotr Szymański
+Table 1: Summary of task categories.
+Operation type
+Single
+Multi-step
+Not used
+Input type
+GeoPandas
+4
+5
+11
+Shapefile
+4
+2
+14
+GeoJSON
+4
+5
+11
+LatLon points
+4
+2
+14
+Shapely points
+3
+2
+15
+Tools usage
+OSMNX
+3
+1
+16
+H3
+2
+1
+17
+Shapely
+4
+-
+16
+MovingPandas
+-
+3
+17
+Task framing
+Operation
+7
+5
+8
+Semantic
+7
+5
+8
+3.3
+Samples creation process
+Each task can be seen from the perspective of multiple dimensions
+in our categorisation - complexity of a task, instruction framing,
+format of the input, and tools required. We made sure that there
+are multiple samples for each possible class in any dimension. We
+start with defining a task which falls under the first dimension
+of our categorisation - single-step or multi-step operation. Having
+done that, we augment this task by changing the format of input
+parameters or framing of the task. For example we can take a
+task "calculate mean area of polygons" and have three variants for
+different input formats. Then we reformulate the instruction to
+use the semantic framing and we already have 3 × 2 = 6 samples,
+after manually writing just two of them. We also swap used tools if
+possible. This way, we are able to obtain more hand-crafted samples
+in our dataset. Through our procedure, we obtained a larger dataset,
+at the same time having the possibility to assess performance on a
+single tool/data type. Another advantage of this approach is that we
+can calculate model performance on a single dimension, to better
+assess individual capabilities. An example of this an approach and
+its obtained samples is presented in Listing 1.
+3.4
+Test Cases for Automated Evaluation
+We use automated testing to check correctness of a generated solu-
+tion. An alternative approach would be to use a reference solution
+together with either the BLEU [22] or the ROUGE [13] evaluation
+scores. However, having in mind how many different solutions
+may be functionally equivalent, we decided against this approach.
+Another benefit of test-driven evaluation is that it is easier to create
+instances for the dataset. This approach is also better to test edge
+cases for a specific problem, because we can specify multiple test
+cases for each instance. Finally, as raised by Chen et al. [4], func-
+tional correctness evaluation is closer to how human developers
+verify code correctness.
+For each example, we provide between 1 and 4 test cases, in-
+cluding corner cases. All of the test cases contain valid inputs. We
+do not check incorrect inputs in this version of our benchmark.
+Provided test cases are meant to check correct execution of the
+main branch in function logic. We made this decision based on our
+history of working with AI coding assistants. From our experience,
+they are more likely to generate useful code if they only generate
+main operations in the first go. Handling of incorrect input can be
+then added in next iterations. This, however, is a code infilling task,
+which we do not cover in this version of our benchmark.
+# operation , lat/lon , gdf
+def check_point(lat: float , lon: float , polygons: gpd.
+GeoDataFrame) -> bool:
+""" Check if a point is within any of the polygons.
+Polygons are stored in a GeoDataFrame."""
+---
+# operation , lat/lon , shp
+def check_point(lat: float , lon: float , polygons: str) ->
+bool:
+""" Check if a point is within any of the polygons.
+Polygons are stored in the shapefile at given path.
+"""
+---
+# operation , shapely , gdf
+def check_point(point: shapely.geometry.Point , polygons:
+gpd.GeoDataFrame) -> bool:
+""" Check if a point is within any of the polygons.
+Polygons are stored in a GeoDataFrame."""
+---
+# operation , shapely , shp
+def check_point(point: shapely.geometry.Point , polygons:
+str) -> bool:
+""" Check if a point is within any of the polygons.
+Polygons are stored in the shapefile at given path.
+"""
+---
+# semantic , lat/lon , gdf
+def check_location(lat: float , lon: float , cities: gpd.
+GeoDataFrame) -> bool:
+""" Check if a given location is in any of the cities.
+Cities are stored in a GeoDataFrame."""
+---
+# semantic , lat/lon , shp
+def check_point(lat: float , lon: float , cities: str) ->
+bool:
+""" Check if a given location is in any of the cities.
+Cities are stored in the shapefile at given path.
+"""
+---
+# semantic , shapely , gdf
+def check_point(location: shapely.geometry.Point , cities:
+gpd.GeoDataFrame) -> bool:
+""" Check if a given location is in any of the cities.
+Cities are stored in a GeoDataFrame."""
+---
+# semantic , shapely , shp
+def check_point(location: shapely.geometry.Point , cities:
+str) -> bool:
+""" Check if a given location is in any of the cities.
+Cities are stored in the shapefile at given path.
+"""
+Listing 1: Example of augmentation used in samples creation.

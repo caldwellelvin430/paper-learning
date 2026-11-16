@@ -1,0 +1,99 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Process Lake Geneva's NDVI data (August 2022) to determine peak vegetation coverage and NDVI 
+extremes.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question125"}
+"output": [\"Geneva-Lake_sur_refl_b01_2022-08-01.tif\",…, \"Geneva-Lake_sur_refl_b01_2022-08-30.tif\", 
+\"Geneva-Lake_sur_refl_b02_2022-08-01.tif\",\"Geneva-Lake_sur_refl_b02_2022-08-30.tif\" ]
+"name": calculate_ndvi
+"input": "red_band_file": ["benchmark/data/question125/Geneva-Lake_sur_refl_b01_2022-08-01.tif",…,
+"benchmark/data/question125/Geneva-Lake_sur_refl_b01_2022-08-30.tif"]
+"nir_band_file": ["benchmark/data/question125/Geneva-Lake_sur_refl_b02_2022-08-
+01.tif",...,"benchmark/data/question125/Geneva-Lake_sur_refl_b02_2022-08-30.tif"]
+"output": ["geneva_ndvi_2022-08-01.tif",...,"geneva_ndvi_2022-08-30.tif"]
+"name": calc_batch_image_mean
+"input": {"file_list": ["geneva_ndvi_2022-08-01.tif",…, "geneva_ndvi_2022-08-30.tif"]}
+"output":  [0.5636, 0.4441,0.5443,..., 0.0733]
+Products:
+[Water Mangement]
+A.2022-08-01 (NDVI: 0.5636)
+B. 2022-08-03 (NDVI: 0.5443)
+C. 2022-08-12 (NDVI: 0.4755)
+D. 2022-08-29 (NDVI: 0.4958)
+Step-by-Step:
+TAO: 0.67  
+End-to-End:          Efficiency: 1.2500
+TIO: 0.5 
+TEM: 0.25 
+Param.: 0.0 
+Acc: 100% 
+"final answer": “A"
+Kimi-K2
+Final
+Tool 1: get_filelist
+Tool 4: max_value_and_index  Tool 5: calc_batch_image_max  Tool 6: calc_batch_image_median
+Tool 7: get_percentile_value_from_image  Tool 8: calc_batch_image_hotspot_percentage 
+GT
+Tool 1
+Tool 2
+->
+Tool 4
+->
+-> A
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: calculate_ndvi
+Tool 3: calc_batch_image_mean
+Tool 2
+Tool 3
+Tool 5
+Tool 5
+Tool 1
+->
+->
+->
+->
+A
+Tool 3
+×𝟑->
+×𝟒
+×𝟐
+Tool 6
+Tool 7
+Tool 8
+->
+->
+-->
+Tool 1
+Tool 2
+-> C
+->
+->
+Tool 6
+Tool 1
+Tool 4
+-> A
+->
+->
+Tool 3
+Tool 6
+Tool 9
+->
+->
+Step 1
+Step 5
+Autonomous Planning
+Step 2
+…
+B2 × 31
+B4 × 31
+…
+×𝟑
+-->
+Figure 24: Example of Water Management with Products Data under the Auto-Planning
+Regime.
+51

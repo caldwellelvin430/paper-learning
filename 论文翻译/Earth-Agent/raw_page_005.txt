@@ -1,0 +1,166 @@
+Published as a conference paper at ICLR 2026
+Folder
+Query
+Perception
+Index
+Inversion
+Analysis Statistics
+12
+18
+15
+10
+49
+...
+Action
+Memory
+...
+Updata
+②
+④
+Think
+③
+Things happen before step t+1
+Things happen after step t+1
+Dual-level Evaluation
+...
+...
+“name”(t)
+“input”(t) “output”(t)
+Annotations
+Reference steps
+name
+input params
+output params
+Tool
+Trajectory
+Step-by-Step
+Tools_any_order
+Tools_in_order
+Tools_exact_match
+Parameters
+Expected Tools: [A,B,C]
+[A,D,C,B]
+[A,D,B,F] √
+×Not include all tools
+[A,D,B,C]
+[A,D,C,B]
+Not call in order
+[A,B,C]
+[A,D,B,C]
+Not exact match
+A(input,output) = GT
+B(input,output) = GT
+C(input,output) ≠ GT
+0.67 Score
+End-to-End
+Annotations
+Final Answer
+Efficiency
+Accuracy
+√×√×
+Folder
+Query
+Perception
+Index
+Inversion
+Analysis Statistics
+12
+18
+15
+10
+49
+...
+Action
+Memory
+...
+Updata
+②
+④
+Think
+③
+Things happen before step t+1
+Things happen after step t+1
+Dual-level Evaluation
+...
+...
+“name”(t)
+“input”(t) “output”(t)
+Annotations
+Reference steps
+name
+input params
+output params
+Tool
+Trajectory
+Step-by-Step
+Tools_any_order
+Tools_in_order
+Tools_exact_match
+Parameters
+Expected Tools: [A,B,C]
+[A,D,C,B]
+[A,D,B,F] √
+×Not include all tools
+[A,D,B,C]
+[A,D,C,B]
+Not call in order
+[A,B,C]
+[A,D,B,C]
+Not exact match
+A(input,output) = GT
+B(input,output) = GT
+C(input,output) ≠ GT
+0.67 Score
+End-to-End
+Annotations
+Final Answer
+Efficiency
+Accuracy
+√×√×
+Figure 3: Earth-Agent Framework: The left part illustrates the ReAct-style workflow, where
+Earth-Agent iteratively performs tool calling, memory update, thinking, and action using domain-
+specific toolkits. The right panel presents the dual-level evaluation protocol, assessing both step-by-
+step reasoning trajectories and end-to-end outcomes.
+The action distribution is modeled as:
+at ∼π(at | g, mt).
+The full agent trajectory τ = [s0, o0, a0, s1, o1, a1, . . . , sT , oT ] is determined jointly by the policy
+π and the environment dynamics:
+pπ(τ) = p(s0) Z(o0 | s0)
+|
+{z
+}
+Initial state
+T −1
+Y
+t=0
+π(at | g, mt)
+①Tool calling
+z
+}|
+{
+Z(ot+1 | st+1) T (st+1 | st, at)
+|
+{z
+}
+③Think & ④Action
+.
+where Z denotes the observation distribution induced by tool outputs.
+In this formulation, the LLM controller functions as the policy π, reasoning over the history mt
+and task goal g to decide the next tool calling, while the Toolkit provides executable atomic actions
+categorized into Index, Inversion, Perception, Analysis, and Statistics. Concretely, as illustrated
+in Figure 3, each loop proceeds as follows: ①Tool calling At step t, the agent invokes the most
+suitable tool conditioned on the current memory mt and task goal g, which yields the tool response
+for observation ot+1. ②Memory update At step t, the agent appends the pair (ot, at) together with
+the resulting observation ot+1 into the memory stack, ensuring that the complete interaction history
+is preserved for subsequent reasoning. ③Think At step t+1, the LLM controller reasons over the
+updated memory mt together with the task goal g to plan the next action, determining which tool to
+invoke and how to configure its inputs. ④Action Selecting and executing the subsequent tool call
+at+1 that produces ot+2. The ReAct loop continues until the stopping condition is satisfied, yielding
+both the final answer and a reproducible sequence of tool calling trajectory.
+3.2
+TOOL KIT
+To enable comprehensive EO analysis, Earth-Agent integrates 104 specialized tools organized into
+five functional kits. The Index kit provides implementations of widely used EO indices (e.g., NDVI,
+NDWI, NBR) (Montero et al., 2023) for rapid environmental characterization. The Inversion kit fo-
+cuses on geophysical parameter retrieval, including land surface temperature (LST) (Li et al., 2013),
+5

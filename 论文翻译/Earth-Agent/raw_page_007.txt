@@ -1,0 +1,117 @@
+Published as a conference paper at ICLR 2026
+et al., 2024d; Team, 2024; OpenAI, 2024), without requiring external tool use for scientific quantita-
+tive analysis (e.g., spatiotemporal trend estimation), not to mention reasoning trajectory evaluation.
+On the other hand, Earth-Bench advances beyond prior Agent-based EO benchmarks, such as
+PEACE (Huang et al., 2025), Thinkgeo (Shabbir et al., 2025) and UnivEarth (Kao et al., 2025), by
+incorporating 13K+ images across spectrum, product and RGB modalities, while requiring inter-
+action with 104 domain tools. It consists of 248 expert-curated questions, requiring an average of
+5.4 reasoning steps of quantitative analysis. Even with the state-of-the-art (SOTA) LLM backbones,
+performance remains limited, which underscores not only the benchmark’s difficulty and diagnostic
+value but also the necessity of reasoning trajectory evaluation. Therefore, we need to annotate on
+both trajectories and final answers in section 4.2.
+4.2
+DATA ANNOTATION PIPELINE
+To construct Earth-Bench, we collected raw data from platforms such as Google Earth Engine,
+NASA EarthData, and public remote sensing datasets (Xia et al., 2017; Zhan et al., 2023; Xia et al.,
+2018; Su et al., 2019). From these data sources, a team of domain experts curated 248 problems that
+require multi-step quantitative reasoning. The annotation team was composed of 2 computer science
+experts, 7 remote sensing specialists, and 3 Earth science specialists. Each problem is accompanied
+by a step-by-step Python solution and is designed to reflect the complexity of real-world Earth
+science workflows, which demand the coordinated use of multiple tool kits.
+In prior benchmarks, queries have been designed either as step-implicit, where no intermediate
+step guidance is provided (Mialon et al., 2023; Wang et al., 2024a), or as step-explicit, where the
+query itself contains step guidance (Guo et al., 2024b; Ma et al., 2024). Motivated by the com-
+plexity of EO workflows, which often require multi-step processing, Earth-Bench incorporates both
+regimes: Auto-Planning corresponds to the step-implicit setting and evaluates the agent’s ability
+to autonomously plan its solution trajectory, while Instruction-Following corresponds to the step-
+explicit setting and evaluates the agent’s ability to follow and translate human instructions into ex-
+ecutable actions. Both regimes contain 248 complete questions for evaluation. Together, these two
+regimes provide a comprehensive assessment of both autonomous reasoning and guided execution
+in EO contexts. Details can refer to Appendix A.4.
+Google Earth 
+Engine
+Question Construction
+Data Annotation
+Python Solution
+Python Result
+Json Annotation
+Func.1
+Func.2
+Func.3
+def：
+NASA Earth 
+Data
+AID
+DIOR-
+RSVG
+DOTA
+NWPU-
+VHR10
+Question Generation
+Remote Sensing Image
+Data
+& Task
+Func.1
+Func.2
+Func.3
+Main()
+Param.
+Result
+Img_Path
+Img_List
+Calculation 
+result
+<tool>
+Input
+Output
+Answer
+Example
+Figure
+Using Landsat 8 Band 10 
+brightness temperature data for 
+2021, how many days did more 
+than 25% of the Chicago 
+metropolitan area exceed 300 K?
+Query
+Choice
+A. 7 days
+C. 15 Days
+B. 12days
+D. 18 Days
+Step 1
+Tool 1
+Step 2
+Tool 2
+Path
+Input
+“xx/xx/xx”
+Chicago 
+Landset
+data
+”xx_1.tif”
+“xx_2.tif”
+“xx_3.tif”
+Output/Input
+bt_path”xx/xx”
+red_path“xx/xx”
+nir_path“xx/xx”
+Output/Input
+Calculate
+bt + Red
+nir
+Step 3
+Tool 3
+Value: 12
+Output
+Answer:
+12 days
+Figure 5: Construction and Annotation of Earth-Bench. The left shows question generation from
+EO data, the right illustrates the data annotation pipeline that simulates ReAct-style trajectories, and
+the bottom provides an example explaining the multi-step annotation process.
+To enable dual-level evaluation, we explicitly annotated both the final answers and the full reason-
+ing trajectories. As illustrated in Fig. 5, the annotation process was designed to mimic the ReAct
+loop of agents: Python Solution. Annotators first identify the domain tools such as compute ndwi
+and split window) required to solve a problem and then assemble them into a step-by-step main()
+program. Each tool is represented as a Python function, and the functions are planned in the correct
+order to form an executable workflow that mirrors the agent’s reasoning trajectory. Python Result.
+7

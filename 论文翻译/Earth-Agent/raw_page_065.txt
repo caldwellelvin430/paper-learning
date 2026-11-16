@@ -1,0 +1,31 @@
+Published as a conference paper at ICLR 2026
+Figure 41: A Question Case of the Detection Task using RGB Data with Responses from Dif-
+ferent Agent.
+v
+Manus
+:C
+Coze
+:FAIL
+Ground Truth
+:A
+:FAIL
+MGX
+Operator
+:D
+Earth-Agent(DeepSeek-V3.1)
+:B
+Earth-Agent(GPT5)
+:A
+Question: Based on the following images, calculate the centroid-to-centroid 
+distance between the two farthest plane in the image? (GSD = 0.14 m/px).
+A.“About 265 m.",
+B.“About 270 m. ",
+C.“About 275 m. ",
+D.“About 280 m."
+RGB:
+[detection]
+RGB:
+[Visual Grounding]
+Figure 42: A Question Case of the Visual Grounding Task using RGB Data with Responses
+from Different Agent.
+65

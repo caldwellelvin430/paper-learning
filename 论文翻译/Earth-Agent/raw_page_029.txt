@@ -1,0 +1,79 @@
+Published as a conference paper at ICLR 2026
+calculate batch evi
+Index
+Batch-calculate EVI from multiple sets of
+NIR/Red/Blue raster files and save results.
+calculate batch nbr
+Index
+Batch-calculate NBR from multiple pairs of
+NIR/SWIR raster files and save results.
+calculate batch fvc
+Index
+Batch-calculate FVC from multiple pairs of
+NIR/Red raster files and save results.
+calculate batch wri
+Index
+Batch-calculate WRI from multiple sets of
+Green/Red/NIR/SWIR raster files and save re-
+sults.
+calculate batch ndti
+Index
+Batch-calculate NDTI from multiple pairs of
+Red/Green raster files and save results.
+calculate batch frp
+Index
+Batch-calculate Fire Radiative Power (FRP)
+masks from multiple raster files and save re-
+sults.
+calculate batch ndsi
+Index
+Calculate NDSI for multiple pairs of Green
+and SWIR band images.
+calc extreme snow loss
+percentage from binary map
+Index
+Calculate the percentage of extreme snow and
+ice loss areas from a binary map.
+compute tvdi
+Index
+Compute TVDI (Temperature Vegetation Dry-
+ness Index) using NDVI and LST from local
+raster files.
+The Inversion Toolkit integrates a collection of algorithms for retrieving key geophysical and envi-
+ronmental parameters from optical, thermal infrared, and microwave remote sensing data. It sup-
+ports multiple retrieval methods for parameters such as land surface temperature (LST), land surface
+emissivity, and precipitable water vapor (PWV), including single-channel, multi-channel, and split-
+window approaches. By enabling flexible, efficient, and reproducible parameter estimation across
+multi-source Earth Observation data, the toolkit provides a versatile foundation for quantitative re-
+mote sensing applications. A detailed list of the implemented algorithms is provided in Table 14.
+Table 14: List of detailed information of Inversion Toolkit.
+Tool Name
+Category
+Description Summary
+band ratio
+Inversion
+Compute Precipitable Water Vapor (PWV) im-
+age from local MODIS surface reflectance
+band files using the band ratio method.
+lst single channel
+Inversion
+Estimate Land Surface Temperature (LST) us-
+ing the Single-Channel method, with NDVI-
+based emissivity estimation from RED and
+NIR bands.
+lst multi channel
+Inversion
+Estimate Land Surface Temperature (LST) us-
+ing the multi-channel algorithm.
+split window
+Inversion
+Estimate Land Surface Temperature (LST) or
+Precipitable Water Vapor (PWV) using the
+split-window algorithm.
+temperature emissivity separation
+Inversion
+Estimate Land Surface Temperature (LST) us-
+ing an enhanced Temperature Emissivity Sep-
+aration (TES) algorithm with empirical emis-
+sivity estimation.
+29

@@ -1,0 +1,55 @@
+Published as a conference paper at ICLR 2026
+David Montero, Cesar Aybar, Miguel D. Mahecha, Sebastian Wieneke, et al. A standardized cata-
+logue of spectral indices to advance the use of remote sensing in earth system research. Scientific
+Data, 10(1):197, 2023. doi: 10.1038/s41597-023-02096-0. URL https://doi.org/10.
+1038/s41597-023-02096-0.
+Dilxat Muhtar, Zhenshi Li, Feng Gu, Xueliang Zhang, and Pengfeng Xiao. Lhrs-bot: Empowering
+remote sensing with vgi-enhanced large multimodal language model. In European Conference on
+Computer Vision, pp. 440–457. Springer, 2024.
+OpenAI. Hello gpt-4o. https://openai.com/index/hello-gpt-4o/, 2024.
+OpenAI. Gpt-5 is here. https://openai.com/gpt-5/, 2025a.
+OpenAI.
+Introducingoperator.
+https://openai.com/index/
+introducing-operator/, 2025b.
+Chao Pang, Xingxing Weng, Jiang Wu, Jiayu Li, Yi Liu, Jiaxing Sun, Weijia Li, Shuai Wang, Litong
+Feng, Gui-Song Xia, et al. Vhm: Versatile and honest vision language model for remote sensing
+image analysis. In Proceedings of the AAAI Conference on Artificial Intelligence, volume 39, pp.
+6381–6388, 2025.
+Dmitrii Pantiukhin, Boris Shapkin, Ivan Kuznetsov, Antonia Anna Jost, and Nikolay Koldunov. Ac-
+celerating earth science discovery via multi-agent llm systems. arXiv preprint arXiv:2503.05854,
+2025.
+Chen Qian and Xin Cong.
+Communicative agents for software development.
+arXiv preprint
+arXiv:2307.07924, 6(3):1, 2023.
+Nikhila Ravi, Valentin Gabeur, Yuan-Ting Hu, Ronghang Hu, Chaitanya Ryali, Tengyu Ma, Haitham
+Khedr, Roman R¨adle, Chloe Rolland, Laura Gustafson, et al. Sam 2: Segment anything in images
+and videos. arXiv preprint arXiv:2408.00714, 2024.
+Partha Pratim Ray. A survey on model context protocol: Architecture, state-of-the-art, challenges
+and future directions. Authorea Preprints, 2025.
+Xubin Ren, Lingrui Xu, Long Xia, Shuaiqiang Wang, Dawei Yin, and Chao Huang.
+Vide-
+orag:
+Retrieval-augmented generation with extreme long-context videos.
+arXiv preprint
+arXiv:2502.01549, 2025.
+Farhad Samadzadegan, Ahmad Toosi, and Farzaneh Dadrass Javan. A critical review on multi-
+sensor and multi-platform remote sensing data fusion approaches: current status and prospects.
+International journal of remote sensing, 46(3):1327–1402, 2025.
+Akashah Shabbir, Muhammad Akhtar Munir, Akshay Dudhane, Muhammad Umer Sheikh, Muham-
+mad Haris Khan, Paolo Fraccaro, Juan Bernabe Moreno, Fahad Shahbaz Khan, and Salman
+Khan. Thinkgeo: Evaluating tool-augmented agents for remote sensing tasks. arXiv preprint
+arXiv:2505.23752, 2025.
+Ahmed Shaker, Wai Yeung Yan, and Paul E LaRocque. Automatic land-water classification using
+multispectral airborne lidar data for near-shore and river environments. ISPRS journal of pho-
+togrammetry and remote sensing, 152:94–108, 2019.
+Minjie Shen, Yanshu Li, Lulu Chen, and Qikai Yang. From mind to machine: The rise of manus ai
+as a fully autonomous digital agent. arXiv preprint arXiv:2505.02024, 2025.
+Zhenwei Shi and Zhengxia Zou. Can a machine generate humanlike language descriptions for a
+remote sensing image?
+IEEE Transactions on Geoscience and Remote Sensing, 55(6):3623–
+3634, 2017.
+Chenglei Si, Diyi Yang, and Tatsunori Hashimoto. Can llms generate novel research ideas? a large-
+scale human study with 100+ nlp researchers. arXiv preprint arXiv:2409.04109, 2024.
+14

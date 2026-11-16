@@ -1,0 +1,77 @@
+Published as a conference paper at ICLR 2026
+process was as follows: experts first designed solution steps based on their expertise, then selected
+appropriate tools from the Agent Toolkit, implemented the steps by writing Python code to invoke
+the selected tools for data processing, and finally generated the corresponding answers. In total, the
+expert team annotated 1345 solution steps and produced 71,664 lines of verification code for the 248
+benchmark questions.
+A.3
+QUESTION TYPES AND CATEGORY
+As shown in Figure 5, Earth-Bench questions are categorized into three types based on their data
+sources: Spectrum, Products, and RGB. The Table 6 below summarizes the number and proportion
+of questions within each category:
+Table 6: Distribution of Question Types and Their Proportions
+Question Types
+Number
+Proportion (%)
+Temperature Monitoring
+44
+17.74
+Weather Forecasting
+11
+4.44
+Climate Analysis
+20
+8.06
+Water Management
+22
+8.87
+Pollution Regulation
+14
+5.65
+Vegetation Monitoring
+28
+11.29
+Disaster Judgement
+24
+9.68
+Urban Management
+25
+10.08
+Classification
+15
+6.05
+Detection
+15
+6.05
+Grounding
+7
+2.82
+Segmentation
+3
+1.21
+Counting
+7
+2.82
+Change Detection
+13
+5.24
+This table provides a detailed distribution of question types within Earth-Bench, reflecting the vari-
+ety of Earth observation tasks addressed by the dataset.
+A.4
+QUERY REGIMES
+Earth-Bench categorizes each task into two regimes: Auto-Planning and Instruction-Following. The
+key distinction is that in Instruction-Following, the query explicitly provides the Agent with a solu-
+tion approach, while preserving the original intent of the task. As shown in Table 5, the statistics
+of query length highlight this difference: on average, queries in the Instruction-Following regime
+are about 150 characters longer than those in Auto-Planning, due to the inclusion of solution guid-
+ance. For illustration, Appendix H presents examples of the same task under both regimes, along
+with the performance of different LLMs. In summary, Instruction-Following emphasizes LLMs’
+instruction-following and tool-use capabilities, whereas Auto-Planning additionally evaluates their
+ability to decompose and plan Earth observation tasks.
+A.5
+DATASET QUALITY CONTROL
+Our annotation team was composed of 2 computer science experts, 7 remote sensing specialists
+(including one professor) and 3 Earth science specialists (including one professor).
+Three core authors who served as senior reviewers led the pipeline of dataset construction. Each
+senior reviewer was responsible for guiding the development of the question sets and templates for
+18

@@ -1,0 +1,152 @@
+Published as a conference paper at ICLR 2026
+precipitable water vapor (PWV) (He & Liu, 2020), vegetation water content (Ceccato et al., 2001),
+sea ice concentration (DiGirolamo et al., 2022), and others. The Perception kit supports vision-
+oriented tasks such as scene classification (Ma et al., 2025), object detection (Li et al., 2024e), and
+segmentation (Ravi et al., 2024). The Analysis kit targets spatiotemporal reasoning, offering trend
+detection, seasonality decomposition, change point analysis, and spatial autocorrelation. Finally,
+the Statistics kit provides large-scale data preprocessing and statistical computation (e.g., variance,
+skewness, batch operations, cloud masking). Together, these tool kits cover the diverse types of EO
+tasks from perceptual to spectral, and from descriptive to quantitative analysis. The detailed list and
+description of tools can be found in Appendix G.
+3.3
+EVALUATION PROTOCOL
+Prior benchmarks have primarily emphasized final accuracy, overlooking the reasoning trajectory
+that leads to the final output (Mialon et al., 2023; Jimenez et al., 2024; Chen et al., 2025). To
+address this, we adopt a dual-level evaluation protocol: agents are assessed in a step-by-step mode
+to capture the quality of their reasoning trajectories, and in an end-to-end mode to measure final
+task performance. This dual perspective enables fine-grained diagnostics of both reasoning and
+outcomes. The detailed calculation formulas can be found in Appendix B.2.
+End-to-End evaluation measures task-level performance, including Accuracy of the final answer
+and Efficiency of the trajectory relative to expert solutions.
+Step-by-Step evaluation assesses the quality of intermediate reasoning. We consider four com-
+plementary aspects: Tool-Any-Order, which checks whether all necessary tools are used in LLM
+planning; Tool-In-Order, which evaluates whether tools are invoked in the correct sequence; Tool-
+Exact-Match, which evaluates the exact prefix-level accuracy between the predicted and expert tra-
+jectories; and Parameter Accuracy, which verifies whether both tool identifiers and their arguments
+are correctly matched.
+4
+EARTH-AGENT BENCHMARK
+4.1
+OVERVIEW OF EARTH-AGENT BENCHMARK
+We introduce Earth-Agent Benchmark (Earth-Bench), a dataset designed to evaluate tool-
+augmented EO agents in realistic Earth science analysis scenarios. The benchmark integrates three
+major types of Earth observation data: RGB Imagery (RGB), Raw Spectral Data (Spectrum), and
+Processed Earth Products (Products). It supports 14 representative tasks, including classification,
+detection, temperature monitoring, weather forecasting, etc., with a particular emphasis on scientific
+analysis that requires quantitative reasoning rather than qualitative description.
+Temperature 
+Monitoring
+Weather 
+Forecasting
+Climate 
+Analysis
+Water 
+Management
+Pollution 
+Regulation
+Vegetation 
+Monitoring
+Urban 
+Management
+Disaster 
+Judgement
+Classification
+Segmentation
+Grounding
+Detection
+Counting
+Change
+Detection
+Spectrum
+Products
+RGB
+30
+40
+50
+60
+70
+80
+      Specturm
+ Products
+RGB
+GPT-5
+Gemini-2.5
+Kimik2
+Deepseek-V3.1
+Qwen3-max
+Questions
+248
+Images
+13729
+Average per Question
+55.4
+Maximum per Ques.
+670
+Steps
+1345
+Average per Ques.
+5.42
+Maximum per Ques.
+19
+Dataset
+Cross 
+Modality
+Image 
+Samples
+Requiring 
+Tools
+Reasoning 
+Steps
+Quantitative 
+Analysis
+Trajectory 
+Eval.
+RSVQA-HR
+1.7M
+1
+EarthVQA
+6K
+1
+VRSBench
+103K
+1
+Geo-Bench
+1.5M
+1
+PEACE
+0.12K
+1
+Thinkgeo
+0.3K
+14
+<3
+Univearth
+-
+1
+Earth-Bench
+(Ours)
+13K
+104
+>5
+61
+74
+60
+52
+55
+46
+38
+61
+55
+47
+50
+55
+45
+59
+48
+Figure 4: Dataset Comparison and Overview: The left panel compares Earth-Bench with prior
+MLLM and agentbased EO benchmarks. The right panel presents the statistics of Earth-Bench and
+its evaluation with SOTA LLMs using Earth-Agent, highlighting the difficulty of Earth-Bench.
+As shown in Figure 4, MLLM-based benchmarks including RSVQA-HR (Lobry et al., 2020),
+EarthVQA (Wang et al., 2024b), VRSBench (Li et al., 2024d) and Geo-Bench (Lacoste et al.,
+2023) are mainly limited to single-step perceptual for RGB data using pretrained MLLMs (Liu
+6

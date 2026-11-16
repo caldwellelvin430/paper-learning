@@ -1,0 +1,59 @@
+Published as a conference paper at ICLR 2026
+2
+RELETED WORK
+MLLM-based Earth Observation Research
+The rise of multimodal large language models
+(MLLMs) has stimulated growing interest in their use for Earth observation (EO) (Aleissaee et al.,
+2023; Lu et al., 2025; Li et al., 2024b). Early studies mainly explored captioning (Hu et al., 2025b)
+and question answering (Kuckreja et al., 2024) for single remote sensing images (Shi & Zou, 2017;
+Wang et al., 2020), aiming to align visual features with natural language. With the availability of
+larger datasets (Xiong et al., 2022; Zhou et al., 2025) and stronger backbones (Team, 2024; Liu
+et al., 2024d), subsequent works extended this paradigm to broader perception tasks: for instance,
+GeoChat (Kuckreja et al., 2024) enabled interactive scene understanding, while RS-GPT (Hu et al.,
+2025b) combined captioning with visual question answering. More recently, simple temporal rea-
+soning has been introduced, with ChangeCLIP (Dong et al., 2024) addressing bi-temporal change
+captioning and SkyEye-GPT (Zhan et al., 2025) extending to video-based analysis. However, the
+scope of MLLM-based EO research remains narrow: existing approaches are still centered on RGB
+imagery and struggle with complex multi-step reasoning without domain-specific tool integration.
+Agent-based Earth Observation Research.
+Tool-augmented agents have gained traction in gen-
+eral AI, achieving remarkable progress in domains such as code generation (Qian & Cong, 2023;
+Zhang et al., 2024a), web search (Xu et al., 2024b), and video understanding (Ren et al., 2025;
+Wang et al., 2024d), but their application to Earth observation (EO) is still at an early stage (Kao
+et al., 2025). Early systems such as Change-Agent (Liu et al., 2024b) focus on bi-temporal change
+detection, while RS-ChatGPT (Guo et al., 2024a) and RS-Agent (Xu et al., 2024a) combine LLMs
+with pretrained detectors or tool suites for scene classification, detection, and segmentation. More
+recently, ThinkGeo (Shabbir et al., 2025) introduces agentic workflows for simple geospatial calcu-
+lations on perceptual data, and UnivEarth (Kao et al., 2025) requires LLMs to generate GEE code
+for spectral analysis, with high execution failure rates. Despite these advances, existing EO agents
+remain constrained: they operate mainly on RGB perception tasks, rely on remote sensing models
+for simple reasoning that does not extend to multi-step analysis, and lack a predefined tool ecosys-
+tem, making them insufficient for complex real-world geoscientific workflows. Moreover, current
+benchmarks cover limited task types and annotations, lacking systematic evaluation protocols that
+assess both the correctness of outcomes and the quality of reasoning trajectories. As a result, cur-
+rent frameworks remain limited in modality coverage, constrained to shallow reasoning with remote
+sensing models, and hindered by the absence of a predefined tool ecosystem, highlighting the neces-
+sity for EO agents and benchmarks that support diverse data, multi-step analytical workflows, and
+systematic evaluation.
+3
+EARTH-AGENT FRAMEWORK
+In this section, we detail the operation mechanisms of Earth-Agent. We first formulate its opera-
+tion pipeline as a ReAct-style (Yao et al., 2023) Partially Observable Markov Decision Processes
+(POMDP) formulation (Huang et al., 2024; Chala et al., 2025) in section 3.1 , including the ob-
+servation process, policy reasoning and memory update, as shown in Figure 3. Then we introduce
+the functionality of the specialized tool kits that enable EO analysis across perceptual and spectral
+data in section 3.2. Finally, we define the dual-level evaluation protocol, which assesses EO agents
+in both end-to-end and step-by-step modes to evaluate not only final accuracy but also reasoning
+trajectories in section 3.3.
+3.1
+OPERATION MECHANISMS
+Earth-Agent receives a task goal g, interprets user queries and intermediate tool outputs, and se-
+lects actions from a modular toolkit to progressively solve the task. This process is formulated as
+a POMDP, defined by the tuple ⟨g, S, A, O, T ⟩, where g is the task goal, S is the state space (un-
+observable environment status such as geospatial data files or raster values), A is the action space
+(tool calls in the kit), O is the observation space (outputs returned by tools, including text, numerical
+values, and images), and T : S × A →S is the state transition function.
+At each time step t, given a policy π, the agent selects an action conditioned on the goal g and its
+interaction history, which records past observations and actions:
+mt = (o0, a0, o1, a1, . . . , ot),
+4

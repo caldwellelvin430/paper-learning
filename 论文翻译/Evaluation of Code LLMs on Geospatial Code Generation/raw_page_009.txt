@@ -1,0 +1,51 @@
+Evaluation of Code LLMs on Geospatial Code Generation
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+[22] Kishore Papineni, Salim Roukos, Todd Ward, and Wei-Jing Zhu. 2002. Bleu:
+a Method for Automatic Evaluation of Machine Translation. In Proceedings of
+the 40th Annual Meeting of the Association for Computational Linguistics, Pierre
+Isabelle, Eugene Charniak, and Dekang Lin (Eds.). Association for Computational
+Linguistics, Philadelphia, Pennsylvania, USA, 311–318. https://doi.org/10.3115/
+1073083.1073135
+[23] Jonathan Roberts, Timo Lüddecke, Sowmen Das, Kai Han, and Samuel Al-
+banie. 2023. GPT4GEO: How a Language Model Sees the World’s Geography.
+arXiv:2306.00020 [cs.CL] https://arxiv.org/abs/2306.00020
+[24] Baptiste Rozière, Jonas Gehring, Fabian Gloeckle, Sten Sootla, Itai Gat, Xiao-
+qing Ellen Tan, Yossi Adi, Jingyu Liu, Romain Sauvestre, Tal Remez, Jérémy
+Rapin, Artyom Kozhevnikov, Ivan Evtimov, Joanna Bitton, Manish Bhatt, Cris-
+tian Canton Ferrer, Aaron Grattafiori, Wenhan Xiong, Alexandre Défossez, Jade
+Copet, Faisal Azhar, Hugo Touvron, Louis Martin, Nicolas Usunier, Thomas
+Scialom, and Gabriel Synnaeve. 2024. Code Llama: Open Foundation Models for
+Code. arXiv:2308.12950 [cs.CL] https://arxiv.org/abs/2308.12950
+[25] Simon Scheider, Enkhbold Nyamsuren, Han Kruiger, and Haiqi Xu. 2021. Geo-
+analytical question-answering with GIS. International Journal of Digital Earth 14
+(2021), 1–14. Issue 1. https://doi.org/10.1080/17538947.2020.1738568
+[26] Siqin Wang, Tao Hu, Huang Xiao, Yun Li, Ce Zhang, Huan Ning, Rui Zhu,
+Zhenlong Li, and Xinyue Ye. 2024. GPT, large language models (LLMs) and
+generative artificial intelligence (GAI) models in geospatial science: a sys-
+tematic review. International Journal of Digital Earth 17 (12 2024). Issue 1.
+https://doi.org/10.1080/17538947.2024.2353122
+[27] Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue,
+Anthony Moi, Pierric Cistac, Tim Rault, Remi Louf, Morgan Funtowicz, Joe
+Davison, Sam Shleifer, Patrick von Platen, Clara Ma, Yacine Jernite, Julien Plu,
+Canwen Xu, Teven Le Scao, Sylvain Gugger, Mariama Drame, Quentin Lhoest,
+and Alexander Rush. 2020. Transformers: State-of-the-Art Natural Language
+Processing. In Proceedings of the 2020 Conference on Empirical Methods in Natural
+Language Processing: System Demonstrations, Qun Liu and David Schlangen (Eds.).
+Association for Computational Linguistics, Online, 38–45. https://doi.org/10.
+18653/v1/2020.emnlp-demos.6
+[28] Daoguang Zan, Bei Chen, Dejian Yang, Zeqi Lin, Minsu Kim, Bei Guan, Yongji
+Wang, Weizhu Chen, and Jian Guang Lou. 2022. CERT: Continual Pre-Training on
+Sketches for Library-Oriented Code Generation. In Proceedigns of the IJCAI Inter-
+national Joint Conference on Artificial Intelligence. International Joint Conferences
+on Artificial Intelligence, 2369–2375. https://doi.org/10.24963/ijcai.2022/329
+[29] Daoguang Zan, Bei Chen, Fengji Zhang, Dianjie Lu, Bingchao Wu, Bei Guan,
+Wang Yongji, and Jian-Guang Lou. 2023. Large Language Models Meet NL2Code:
+A Survey. In Proceedings of the 61st Annual Meeting of the Association for Compu-
+tational Linguistics (Volume 1: Long Papers), Anna Rogers, Jordan Boyd-Graber,
+and Naoaki Okazaki (Eds.). Association for Computational Linguistics, Toronto,
+Canada, 7443–7464. https://doi.org/10.18653/v1/2023.acl-long.411
+[30] Yifan Zhang, Cheng Wei, Zhengting He, and Wenhao Yu. 2024. GeoGPT: An
+assistant for understanding and processing geospatial tasks. International Journal
+of Applied Earth Observation and Geoinformation 131 (2024), 103976.
+https:
+//doi.org/10.1016/j.jag.2024.103976

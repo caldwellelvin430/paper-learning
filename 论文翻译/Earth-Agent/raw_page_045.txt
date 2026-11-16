@@ -1,0 +1,67 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Using TES-derived land surface temperature from ASTER Bands 10–14 on June 15, 2022, over the 
+Los Angeles metropolitan area, first list the input TIFF files, then apply the Temperature and Emissivity 
+Separation (TES) algorithm to estimate land surface temperature. Finally, calculate the percentage of urban 
+pixels where LST exceeds 300 K and emissivity is below 0.96, indicating the intensity of the urban heat island 
+during early summer.
+Spectrum:
+[Urban Management]
+A. 15.34%
+B. 28.67%
+C. 37.93%
+D. 41.13%
+Step-by-Step:
+TAO: 0.67  
+End-to-End:          Efficiency: 0.6667 
+TIO: 0.33 
+TEM: 0.33 
+Param.: 0.0 
+Acc: 100% 
+Tool 1: get_filelist
+Tool 2: calc_batch_image_std
+Tool 3: calculate_multi_band_threshold_ratio
+GT
+Tool 1
+Tool 4
+->
+Tool 3
+->
+-> D
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 4: temperature_emissivity_separation
+Tool 6:calc_batch_image_skewness
+Tool 8: calc_batch_image_mean_max_min
+Tool 1
+Tool 5: calc_batch_image_mean
+×𝟑->
+Tool 3
+-> D
+Tool 1
+->
+Tool 3
+-> D
+Tool 1
+->
+Tool 3
+-> D
+"name": get_filelist  
+"input": { "dir_path":"benchmark/supported_data/question21"}
+"output": [\"answer_21.py\",\"lst_tes_result.tif\"]
+"name": calculate_multi_band_threshold_ratio
+"input": "image_path": "benchmark/supported_data/question21/lst_tes_result.tif",
+"band_conditions": [[0,300,"above"],[1,0.96,"below"]]}
+"output": "41.13315833506345"
+"final answer": "C"
+Final
+Step 1
+Step 2
+GPT-5
+Instruction Following
+Figure 18: Example of Urban Management with Spectrum Data under the Instruction-
+Following Regime.
+45

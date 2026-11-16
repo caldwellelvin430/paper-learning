@@ -1,0 +1,54 @@
+Published as a conference paper at ICLR 2026
+Xiang Li, Jian Ding, and Mohamed Elhoseiny. Vrsbench: A versatile vision-language benchmark
+dataset for remote sensing image understanding. Advances in Neural Information Processing
+Systems, 37:3229–3242, 2024d.
+Yuxuan Li, Xiang Li, Yunheng Li, Yicheng Zhang, Yimian Dai, Qibin Hou, Ming-Ming Cheng, and
+Jian Yang. Sm3det: A unified model for multi-modal remote sensing object detection. arXiv
+preprint arXiv:2412.20665, 2024e.
+Zhao-Liang Li, Bo-Hui Tang, Hua Wu, Huazhong Ren, Guangjian Yan, Zhengming Wan, Isabel F.
+Trigo, and Jos´e A. Sobrino. Satellite-derived land surface temperature: Current status and per-
+spectives. Remote Sensing of Environment, 131:14–37, 2013. ISSN 0034-4257. doi: https://doi.
+org/10.1016/j.rse.2012.12.008.
+URL https://www.sciencedirect.com/science/
+article/pii/S0034425712004749.
+Ziyi Lin, Chris Liu, Renrui Zhang, Peng Gao, Longtian Qiu, Han Xiao, Han Qiu, Chen Lin, Wenqi
+Shao, Keqin Chen, et al. Sphinx: The joint mixing of weights, tasks, and visual embeddings for
+multi-modal large language models. arXiv preprint arXiv:2311.07575, 2023.
+Aixin Liu, Bei Feng, Bing Xue, Bingxuan Wang, Bochao Wu, Chengda Lu, Chenggang Zhao,
+Chengqi Deng, Chenyu Zhang, Chong Ruan, et al. Deepseek-v3 technical report. arXiv preprint
+arXiv:2412.19437, 2024a.
+Chenyang Liu, Keyan Chen, Haotian Zhang, Zipeng Qi, Zhengxia Zou, and Zhenwei Shi. Change-
+agent: Toward interactive comprehensive remote sensing change interpretation and analysis. IEEE
+Transactions on Geoscience and Remote Sensing, 62:1–16, 2024b. doi: 10.1109/TGRS.2024.
+3425815.
+Fan Liu, Delong Chen, Zhangqingyun Guan, Xiaocong Zhou, Jiale Zhu, Qiaolin Ye, Liyong Fu,
+and Jun Zhou.
+Remoteclip: A vision language foundation model for remote sensing.
+IEEE
+Transactions on Geoscience and Remote Sensing, 2024c.
+Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. Improved baselines with visual instruction
+tuning. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition,
+pp. 26296–26306, 2024d.
+Zhuoran Liu, Danpei Zhao, Bo Yuan, and Zhiguo Jiang. Rescueadi: adaptive disaster interpretation
+in remote sensing images with autonomous agents. IEEE Transactions on Geoscience and Remote
+Sensing, 2025.
+Sylvain Lobry, Diego Marcos, Jesse Murray, and Devis Tuia. Rsvqa: Visual question answering for
+remote sensing data. IEEE Transactions on Geoscience and Remote Sensing, 58(12):8555–8566,
+2020.
+Siqi Lu, Junlin Guo, James R Zimmer-Dauphinee, Jordan M Nieusma, Xiao Wang, Steven A
+Wernke, Yuankai Huo, et al. Vision foundation models in remote sensing: A survey. IEEE
+Geoscience and Remote Sensing Magazine, 2025.
+Jingjing Ma, Wei Jiang, Xu Tang, Xiangrong Zhang, Fang Liu, and Licheng Jiao. Multiscale sparse
+cross-attention network for remote sensing scene classification. IEEE Transactions on Geoscience
+and Remote Sensing, 2025.
+Zixian Ma, Weikai Huang, Jieyu Zhang, Tanmay Gupta, and Ranjay Krishna. m & m’s: A bench-
+mark to evaluate tool-use for m ulti-step m ulti-modal tasks. In European Conference on Com-
+puter Vision, pp. 18–34. Springer, 2024.
+Utkarsh Mall, Cheng Perng Phoo, Meilin Kelsey Liu, Carl Vondrick, Bharath Hariharan, and Kavita
+Bala. Remote sensing vision-language foundation models without annotations via ground remote
+alignment. arXiv preprint arXiv:2312.06960, 2023.
+Gr´egoire Mialon, Cl´ementine Fourrier, Thomas Wolf, Yann LeCun, and Thomas Scialom. Gaia:
+a benchmark for general ai assistants.
+In The Twelfth International Conference on Learning
+Representations, 2023.
+13

@@ -1,0 +1,79 @@
+Published as a conference paper at ICLR 2026
+v
+Question: As part of a regional sports infrastructure audit, you are tasked with identifying all baseball 
+diamonds visible in the satellite imagery and estimating their total area using bounding boxes (GSD = 0.13 m/px).
+RGB:
+[detection]
+A.“About 500 m^2"
+B.“About 1500 m^2"
+C.“About 3500 m^2 "
+D.“About 80119 m^2 "
+Step-by-Step:
+TAO: 1.0  
+End-to-End:          Efficiency: 1.33 
+TIO: 1.0 
+TEM: 0.0 
+Param.: 0.0 
+Acc: 100% 
+Instruction Following
+“output”:
+"name": get_filelist  
+"input": { "dir_path":"benchmark/data/question210"}
+Step 1
+"name": InstructSAM
+"input": "input_image_path": "benchmark/data/question210/P0382.png",
+"text_prompt": "baseball diamond"
+"output": Failed to call model
+"output": [\"P0382.png\"]
+"name": calculate_bbox_area
+"input": "bboxes": [[324.6867656820466, 226.69173840553316, 533.4624042398284, 413.52994128196684],
+[820.7124196099571, 522.3619154364535, 1027.0236643744179, 721.6341783135465]]
+"output": "961738.0548508337"
+"final answer": “B"
+Final
+Step 4
+Step 2
+…
+Kimi-K2
+Tool 1: get_filelist
+GT
+Tool 1
+Tool 2
+->
+-> B
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: SM3Det
+Tool 3: calculate_bbox_area
+Tool 4: InstructSAM
+Tool 3
+->
+Tool 1
+Tool 2
+->
+-> C
+Tool 3
+->
+Tool 4
+->
+×𝟐
+Tool 1
+Tool 4
+->
+-> B
+Tool 2
+->
+×𝟐
+Tool 1
+Tool 2
+->
+-> B
+Tool 3
+->
+Tool 4
+->
+Figure 33: Example of Detection with RGB Data under the Instruction-Following Regime.
+60

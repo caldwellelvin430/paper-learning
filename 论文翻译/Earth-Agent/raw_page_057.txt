@@ -1,0 +1,3 @@
+Published as a conference paper at ICLR 2026
+Figure 30: Example of Classification with RGB Data under the Auto-Planning Regime.
+57

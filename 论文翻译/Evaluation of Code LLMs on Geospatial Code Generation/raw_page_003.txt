@@ -1,0 +1,102 @@
+Evaluation of Code LLMs on Geospatial Code Generation
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+Finally, we provide detailed statistics for our benchmark dataset,
+along with examples of tasks for each category.
+A first consideration was to select a programming language to be
+used in our benchmark. Two popular options in the GIS community
+are Python and the R language for statistical computing. Both would
+correspond good candidates for this benchmark, but we went with
+Python primarily because it is present at larger scale in existing
+code corpora, which makes the available models better at handling
+this particular language [10].
+3.1
+Categorisation of Geospatial Problems
+We organise our benchmark around a four-dimensional classifica-
+tion of problems: (1) the complexity of the task, (2) input type for
+geospatial information, (3) the required tools and knowledge to
+solve it, and (4) the framing of a task.
+Task complexity. This is the main criterion by which we classify
+the considered test cases. It is defined as one of two possible values:
+single-step operation or multi-step analysis. The first one fits the
+tasks that require only a correct selection of a single geospatial
+operation. The second one covers complex tasks which require
+multi-step operations.
+Input type. This dimension specifies different formats for geospa-
+tial data, which are used in a test case. We use primitive geospatial
+data types (such as points) either as just numbers or using dedi-
+cated objects. This could be further extended with polygons upon
+extending our dataset. We also cover collections of geospatial data
+using different file and data formats. In total, this dimension covers:
+• the GeoPandas library and GeoDataFrames usage [6];
+• GeoJSON files;
+• Shapefiles;
+• the shapely library for geometries management;
+Tools usage. In this dimension, we specify different resources to
+solve each task. We cover basic tools to perform geospatial queries
+and analysis. In this version of our dataset, we cover:
+• the OSMNX library for geocoding;
+• the H3 library for spatial indexing;
+• the shapely library for geometries management;
+• the MovingPandas library for trajectory data;
+Task framing. Finally, we propose this dimension to test the
+understanding of spatial operations by an LLM. We propose two
+approaches to frame the task description: operation and semantic.
+The operation framing clearly describes which spatial operations
+are expected to happen to obtain a result. We describe the desired
+operation using concrete geometry types and geospatial operations.
+The semantic framing poses a more general question and frames the
+task, in natural language, as a general goal to reach. We aim to use
+real-life examples there to see if the model knows which operations
+should be used to achieve this. An example of the difference between
+the two types could be "counting points that intersect polygons"
+(operation) framed also as "counting bus stops in districts" (semantic).
+We propose to frame tasks that are identical in term of operations
+required as either operation or semantic framing. The resulting
+code would be identical in both of those situations. We use this
+dimension to see if the change in training affects the capability of
+Figure 1: Example of a prompt from the dataset, with an
+example solution generated (the highlighted part).
+the LLM to complete a given task, which would mean that it does
+not understand the underlying spatial operations.
+The aforementioned categories are not comprehensive but offer
+broad coverage of different operations specific to geospatial data
+and tasks. (i) GeoJSON and Shapefile are two of the most popular
+types of geospatial data storage. Loading spatial data formats and
+correctly interpreting the results is crucial for all spatial analysis
+tasks. That is why we included this category in our benchmark. (ii)
+The shapely library offers a low-level API for geometrical operations.
+Geometries are the foundation of GIS, which is why construction
+and basic operations on geometries have found their way into our
+benchmark. (iii) GeoPandas is a high-level library for geospatial
+data processing, which extends the popular Pandas library. It is
+the main tool for loading spatial data in Python and processing
+them. It is also one of the most popular formats in which other
+geospatial libraries return results. (iv) OSMNX is a library which
+handles access to data from the OpenStreetMap (OSM), which is the
+primary source of open data in the geospatial domain. It also enables
+geocoding via the Nominatim service. Geocoding is often tested as a
+geospatial capability of LLMs, and recent studies suggest that LLMs
+tend to be biased towards better performance on higher developed
+countries [18]. That is why we argue that testing those models’
+capabilities to use specific geocoding tools is essential. (v) H3 is a
+spatial index proposed by Uber. It has become very popular because
+it allows for deterministic tessellation of space for analytical tasks.
+We include it in our benchmark as an example of a more specific
+library, to see if existing code models know its syntax and basic
+operations. Coding assistants for geospatial tasks should be able
+to use these libraries. If existing models fail to do so, this would
+be a valuable insight towards future improvements of geospatial
+code generation models. (vi) MovingPandas is a library designed to
+process trajectory data, which is widely used in geospatial analysis.
+This library is very capable and offers compatibility with GeoPandas,
+which makes it a complementary fit for this benchmark.
+3.2
+Format for Code Prompts
+Each sample in our dataset has the same prompt format, which
+also remains unchanged between tested models. The prompts are
+human-written to ensure that they were not present in any training
+data for existing models. We provide a function signature with
+typing, and a docstring with the task description. This is consistent
+with other studies proposing code generation datasets [2, 4, 8, 14].
+Some samples have an import of libraries used in typing. An exam-
+ple of the prompt format for our dataset is presented in Figure 1.

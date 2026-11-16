@@ -1,0 +1,199 @@
+Published as a conference paper at ICLR 2026
+F
+SCALABILITY DISCUSSION
+Understanding the performance trends as the number of tool calls increases is crucial for evalu-
+ating the system’s behavior, particularly in terms of latency and scalability under increasing task
+complexity.
+F.1
+PERFORMANCE WITH RESPECT TO TOOL NUMBER
+To address this, we conducted an ablation study examining the relationship between the number of
+tools used and the system’s performance across three SOTA models: GPT5, DeepSeek-V3.1, and
+Kimik2. The following Table 12 presents the results, highlighting the high performance range for
+each model:
+Table 12: Performance of Earth-Agent Models with respect to Tool Numbers. The high perfor-
+mance range is highlighted.
+Tool Numbers
+GPT5
+DeepSeek-V3.1
+Kimik2
+Questions
+Accuracy (%)
+Questions
+Accuracy (%)
+Questions
+Accuracy (%)
+0
+25
+8.00
+-
+-
+25
+4.00
+1
+3
+66.67
+2
+0.00
+1
+0.00
+2
+8
+75.00
+-
+-
+5
+40.00
+3
+42
+80.95
+23
+73.91
+17
+76.47
+4
+29
+89.66
+23
+86.96
+21
+66.67
+5
+30
+60.00
+19
+68.42
+21
+71.43
+6
+7
+85.71
+15
+60.00
+27
+70.37
+7
+10
+90.00
+15
+40.00
+16
+56.25
+8
+10
+80.00
+8
+87.50
+20
+65.00
+9
+4
+75.00
+10
+60.00
+4
+25.00
+10
+10
+70.00
+11
+54.55
+5
+40.00
+11
+4
+50.00
+8
+75.00
+11
+54.55
+12
+3
+33.33
+8
+75.00
+9
+66.67
+13
+6
+100.00
+17
+70.59
+20
+80.00
+14
+4
+75.00
+4
+50.00
+3
+33.33
+15
+2
+0.00
+5
+100.00
+4
+50.00
+16
+2
+100.00
+3
+66.67
+1
+0.00
+17
+4
+50.00
+4
+25.00
+3
+66.67
+18
+4
+50.00
+4
+25.00
+2
+50.00
+19
+3
+0.00
+3
+0.00
+1
+0.00
+20
+3
+33.33
+3
+33.33
+1
+100.00
+...
+...
+...
+...
+...
+...
+...
+159
+1
+100.00
+-
+-
+-
+-
+From the results, we observe distinct performance trends for each model:
+• For Earth-Agent driven by GPT5, high accuracy is primarily concentrated within the tool
+number range of 1 to 14.
+• For Earth-Agent driven by DeepSeek-V3.1, the high-performance range is within the tool
+number range of 3 to 15.
+• For Earth-Agent driven by Kimik2, the high-performance range falls within the tool num-
+ber range of 3 to 13.
+These high performance ranges align with expectations and indicate that task complexity plays a
+key role in system performance. Using too few tools (with the extreme case being zero tools) results
+in low accuracy, as the agent is unable to solve the task effectively, often leading to early errors.
+Conversely, performance tends to degrade when too many tools are employed, suggesting that the
+current capabilities of the base LLMs may not be sufficient to handle long chains of reasoning
+efficiently.
+26

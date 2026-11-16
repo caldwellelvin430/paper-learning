@@ -1,0 +1,82 @@
+Published as a conference paper at ICLR 2026
+modis day night lst
+Inversion
+Estimate land surface temperature (LST) from
+local MODIS Day and Night brightness tem-
+peratures using a single-channel correction
+method.
+ttm lst
+Inversion
+Estimate land surface temperature (LST) and
+emissivity using improved Three-Temperature
+Method (TTM) from three local thermal band
+GeoTIFF files. Uses all three bands to form a
+system of equations and solves per-pixel with
+physical constraints.
+calculate mean lst by ndvi
+Inversion
+Calculate the average Land Surface Temper-
+ature (LST) across multiple images where
+NDVI is either above or below a given thresh-
+old.
+calculate max lst by ndvi
+Inversion
+Calculate the maximum Land Surface Temper-
+ature (LST) in areas where NDVI is above or
+below a given threshold.
+ATI
+Inversion
+Estimate Apparent Thermal Inertia (ATI) us-
+ing the Thermal Inertia Method. This method
+calculates ATI as (1 −albedo)/(day temp −
+night temp), which serves as a proxy for land
+surface temperature stability over diurnal cy-
+cles.
+dual polarization differential
+Inversion
+Dual-Polarization
+Differential
+Method
+(DPDM) for microwave remote sensing pa-
+rameter inversion. Supports soil moisture and
+vegetation index estimation with improved
+data handling and flexible parameters.
+dual frequency diff
+Inversion
+Dual-frequency Differential Method (DDM)
+for parameter inversion using local raster data.
+Supports inversion of multiple parameters via
+empirical linear models: Soil Moisture (SM):
+param = alpha*(band1 - band2) + beta; Veg-
+etation Index (VI): param = alpha*(band1 -
+band2) + beta; Leaf Area Index (LAI): param
+= alpha*(band1 - band2) + beta
+multi freq bt
+Inversion
+Multi-frequency
+Brightness
+Temperature
+Method for parameter inversion using local
+raster data.
+chang single param inversion
+Inversion
+Chang algorithm for inversion of a single pa-
+rameter using multi-frequency dual-polarized
+microwave brightness temperatures from local
+raster files.
+nasa team sea ice concentration
+Inversion
+Estimate Sea Ice Concentration using NASA
+Team Algorithm from local passive microwave
+brightness temperature GeoTIFF files.
+dual polarization ratio
+Inversion
+Estimate Vegetation Water Content (VWC) or
+Soil Moisture (SM) using Dual-Polarization
+Ratio Method (PRM) from local passive
+microwave brightness temperature GeoTIFF
+files. The polarization ratio is computed as: (V
+- H) / (V + H), where V and H are brightness
+temperatures of vertical and horizontal polar-
+izations.
+30

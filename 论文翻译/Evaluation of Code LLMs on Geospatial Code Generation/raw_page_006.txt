@@ -1,0 +1,167 @@
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+Piotr Gramacki, Bruno Martins, and Piotr Szymański
+Table 2: Results with greedy decoding , also including HumanEval scores for reference.
+HumanEval
+Accuracy
+Pass@1
+Pass_any@1
+bigcode/starcoder2-7b
+34.09%1
+38.92%
+32.47%
+37.66%
+meta-llama/CodeLlama-7b-hf
+29.98%1
+28.74%
+22.08%
+31.17%
+meta-llama/CodeLlama-7b-Python-hf
+40.48%1
+30.54%
+24.68%
+31.17%
+meta-llama/Meta-Llama-3-8B
+33.50%2
+25.75%
+15.58%
+28.57%
+mistralai/Mistral-7B-v0.1
+28.70%2
+19.16%
+14.29%
+20.78%
+google/gemma-7b
+35.40%2
+11.98%
+9.09%
+11.69%
+google/codegemma-7b
+40.13%1
+17.37%
+12.99%
+15.58%
+1 According to Big Code Leaderboard: https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard (7.06.2024)
+2 According to EvalPlus Leaderboard: https://evalplus.github.io/leaderboard.html (7.06.2024),
+4.2
+Experimental Results
+Combined results. We report combined results over our dataset
+in Table 2. This table shows all of the metrics used in our experi-
+ments (accuracy, pass@1, pass_any@1) alongside HumanEval per-
+formance. We can see that there are differences regarding the per-
+formance on generic programming tasks compared to geospatial
+tasks. The best results have been achieved by the bigcode/starcoder2-
+7b model, which was only 4th on generic programming. On the
+other hand, the gemma and codegemma models, which report high
+performance on HumanEval, work poorly on code generation for
+the geospatial domain. Upon examination of generated code, we
+found that these models tend to hallucinate and start to generate
+repetitive blocks of code in the middle of a function.
+Edge cases in testing. We included two metrics - pass@1 and
+pass_any@1 - to see if models can generate code that is at least
+partially correct. As expected if we expect only at least one test case
+to pass, we get higher scores across all models. This result indicates
+that, for some cases, an incorrect piece of code may still result in
+correct results for some test cases. This shows that our approach
+to provide multiple test cases for each sample is correct, and we
+should further extend our test scenarios.
+Table 3: Results for different task complexity (pass@1).
+simple
+complex
+bigcode_starcoder2-7b
+45.45%
+15.15%
+mistralai_Mistral-7B-v0.1
+20.45%
+6.06%
+meta-llama_CodeLlama-7b-hf
+29.55%
+12.12%
+google_gemma-7b
+13.64%
+3.03%
+google_codegemma-7b
+20.45%
+3.03%
+meta-llama_CodeLlama-7b-Python-hf
+38.64%
+6.06%
+meta-llama_Meta-Llama-3-8B
+22.73%
+6.06%
+Task complexity. Before running the experiments we speculated
+that multi step (complex) tasks would be more challenging for
+code generating models. The experimental results backed this as-
+sumption. We can observe a significant drop in performance when
+comparing results based on task complexity. This is consistent
+across all models and higher if a model records lower performance
+overall. This means that models that are worse at geospatial code
+generation find it especially difficult to solve multi-step tasks. We
+report these results in Table 3.
+Table 4: Results for different task framings (pass@1).
+operation
+semantic
+bigcode_starcoder2-7b
+36.36%
+24.24%
+mistralai_Mistral-7B-v0.1
+12.12%
+15.15%
+meta-llama_CodeLlama-7b-hf
+18.18%
+24.24%
+google_gemma-7b
+9.09%
+9.09%
+google_codegemma-7b
+12.12%
+9.09%
+meta-llama_CodeLlama-7b-Python-hf
+27.27%
+21.21%
+meta-llama_Meta-Llama-3-8B
+15.15%
+12.12%
+Task framing. We have also compared the models’ performance
+based on the task framing dimension. In this case, the results are
+not as straightforward as with task complexity. The difference in
+performance is smaller, but most models work better when the
+instruction clearly states which spatial operation are expected to
+be used. However, two models work better on tasks with semantic
+framing. For the worse performing gemma model, there was no
+difference between the framing types. Based on these results, we
+can say that models have a weak understanding of the geospatial
+aspect of the problems and data, because they do not always choose
+correct operations, even if they can solve this task when framed
+more clearly. The full results are presented in Table 4.
+Table 5: Results for different input formats (pass@1).
+gdf
+shp
+geojson
+bigcode_starcoder2-7b
+27.27%
+31.25%
+22.73%
+mistralai_Mistral-7B-v0.1
+13.64%
+6.25%
+4.55%
+meta-llama_CodeLlama-7b-hf
+27.27%
+18.75%
+4.55%
+google_gemma-7b
+9.09%
+0.00%
+0.00%
+google_codegemma-7b
+13.64%
+0.00%
+0.00%
+meta-llama_CodeLlama-7b-Python-hf
+27.27%
+12.50%
+13.64%
+meta-llama_Meta-Llama-3-8B
+18.18%
+12.50%
+0.00%

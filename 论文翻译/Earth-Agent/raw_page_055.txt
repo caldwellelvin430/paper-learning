@@ -1,0 +1,3 @@
+Published as a conference paper at ICLR 2026
+Figure 28: Example of Change Detection with RGB Data under the Auto-Planning Regime.
+55

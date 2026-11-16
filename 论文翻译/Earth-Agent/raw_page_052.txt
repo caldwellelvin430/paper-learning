@@ -1,0 +1,100 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Define the area where NDVI is greater than 0.3 as vegetation cover. Based on the multispectral 
+remote sensing data of Lake Geneva in August 2022, calculate the NDVI vegetation index, determine the daily 
+vegetation coverage proportion of the lake area, and identify the date with the highest NDVI value during this 
+month.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question125"}
+Products:
+[Water Mangement]
+A.2022-08-01 (NDVI: 0.5636)
+B. 2022-08-03 (NDVI: 0.5443)
+C. 2022-08-12 (NDVI: 0.4755)
+D. 2022-08-29 (NDVI: 0.4958)
+"final answer": “A"
+Kimi-K2
+Final
+Step 1
+Step 2-5
+Step 14
+Step-by-Step:
+TAO: 0.33  
+End-to-End:          Efficiency:  3.7500
+TIO: 0.25 
+TEM: 0.25 
+Param.: 0.0 
+Acc: 100% 
+GT
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2
+Tool 8
+Tool 3
+Tool 4
+Tool 1
+->
+->
+->
+->
+-> B
+Tool 1
+Tool 3
+-> C
+->
+->
+Tool 6
+Tool 1
+-> A
+->
+->
+->
+->
+Tool 12
+×𝟒
+Tool 6
+Tool 12
+×𝟒
+Tool 6
+×𝟒
+"name": calc_batch_image_max
+"input": {"file_list": ["benchmark/data/question125/geneva_ndwi_2022-08-01.tif",…,
+"benchmark/data/question125/geneva_ndwi_2022-08-04.tif"]}
+"output": ["43.874401612496854","22.91341227849164"]
+Instruction Following
+…
+B2 × 31
+B4 × 31
+…
+"output": [\"Geneva-Lake_sur_refl_b01_2022-08-01.tif\",…, \"Geneva-Lake_sur_refl_b01_2022-08-30.tif\", 
+\"Geneva-Lake_sur_refl_b02_2022-08-01.tif\",\"Geneva-Lake_sur_refl_b02_2022-08-30.tif\" ]
+"name": calculate_ndvi
+"input": "red_band_file": ["benchmark/data/question125/Geneva-Lake_sur_refl_b01_2022-08-01.tif",…,
+"benchmark/data/question125/Geneva-Lake_sur_refl_b01_2022-08-30.tif"]
+"nir_band_file": ["benchmark/data/question125/Geneva-Lake_sur_refl_b02_2022-08-
+01.tif",...,"benchmark/data/question125/Geneva-Lake_sur_refl_b02_2022-08-30.tif"]
+"output": ["geneva_ndvi_2022-08-01.tif",...,"geneva_ndvi_2022-08-30.tif"]
+Tool 1: get_filelist
+Tool 4: max_value_and_index
+Tool 2: calculate_ndvi
+Tool 3: calc_batch_image_mean
+Tool 1
+Tool 2
+->
+Tool 4
+->
+-> A
+Tool 3
+×𝟑->
+×𝟒
+×𝟐
+Tool 1: get_filelist
+Tool 4: max_value_and_index  Tool 5: calc_batch_image_max  Tool 6: calc_batch_image_median
+Tool 7: get_percentile_value_from_image  Tool 8: calc_batch_image_hotspot_percentage 
+Figure 25:
+Example of Water Management with Products Data under the Instruction-
+Following Regime.
+52

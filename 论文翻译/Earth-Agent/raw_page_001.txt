@@ -1,0 +1,203 @@
+Published as a conference paper at ICLR 2026
+EARTH-AGENT:
+UNLOCKING THE FULL LAND-
+SCAPE OF EARTH OBSERVATION WITH AGENTS
+Peilin Feng1∗‡
+Zhutao Lv2,1∗‡
+Junyan Ye2,1‡
+Xiaolei Wang2
+Xinjie Huo2
+Jinhua Yu2
+Wanghan Xu1
+Wenlong Zhang1
+Lei Bai1
+Conghui He1
+Weijia Li3,2,1†
+1 Shanghai Artificial Intelligence Laboratory
+2 Sun Yat-sen University
+3 Tsinghua Shenzhen International Graduate School, Tsinghua University
+Github:
+https://github.com/opendatalab/Earth-Agent
+Dataset:
+https://huggingface.co/datasets/Sssunset/Earth-Bench
+Project Page:
+https://opendatalab.github.io/Earth-Agent/
+MLLM-Based EO Research
+Existing Agent-Based EO Research
+Earth-Agent (Ours)
+ThinkGeo
+RSAgent
+ChangeAgent
+1. Only support processing RGB images
+2. Only process one/ a few images at a time
+Drawbacks
+Advantages
+1. Able to process Multi-Spetral and RGB images
+2. Able to process numerous images
+3. Limited to single-step and shallow reasoning
+3. Complex & multi-step interactive reasoning
+4. Can’t integrate external tools or expert models
+4. Interact with external tools/models, extensible
+Describe/Classify this image<image>
+Spec-
+trum
+RGB
+Spec-
+trum
+RGB
+248 expert-curated 
+Questions
+Folder
+13729 Images
+Query
+LLM
+Toolkit
+Call
+Response
+Answer
+Steps
+Annotations
+Final Answer
+Reference steps
+name
+input params
+output params
+Step by Step
+End to End
+Efficiency
+Accuracy
+Tools_any_order
+Tools_in_order
+Tools_exact_match
+Parameters
+ReAct
+Earth-Bench
+Earth-Agent
+Evaluation
+Drawbacks
+1. Still limited to remote sensing datasets(RGB)
+2. Tool usage remains shallow and limited
+4. Evaluation  overlooking  reasoning trajectory
+RGB
+Pretrained-
+MLLM
+Final
+Answer
+RGB
+Model 1
+Model n
+...
+Final
+Answer
+Calculate the trend of building volume
+Tool 1
+Tool 2
+Tool n
+...
+Final
+Answer
+5. Systemic evaluation: trajectory & result
+Is the second car classified as a Sedan?
+3. Lack of the predefined tool ecosystem
+GEE, EarthData
+ RS Dataset
+MLLM-Based EO Research
+Existing Agent-Based EO Research
+Earth-Agent (Ours)
+ThinkGeo
+RSAgent
+ChangeAgent
+1. Only support processing RGB images
+2. Only process one/ a few images at a time
+Drawbacks
+Advantages
+1. Able to process Multi-Spetral and RGB images
+2. Able to process numerous images
+3. Limited to single-step and shallow reasoning
+3. Complex & multi-step interactive reasoning
+4. Can’t integrate external tools or expert models
+4. Interact with external tools/models, extensible
+Describe/Classify this image<image>
+Spec-
+trum
+RGB
+Spec-
+trum
+RGB
+248 expert-curated 
+Questions
+Folder
+13729 Images
+Query
+LLM
+Toolkit
+Call
+Response
+Answer
+Steps
+Annotations
+Final Answer
+Reference steps
+name
+input params
+output params
+Step by Step
+End to End
+Efficiency
+Accuracy
+Tools_any_order
+Tools_in_order
+Tools_exact_match
+Parameters
+ReAct
+Earth-Bench
+Earth-Agent
+Evaluation
+Drawbacks
+1. Still limited to remote sensing datasets(RGB)
+2. Tool usage remains shallow and limited
+4. Evaluation  overlooking  reasoning trajectory
+RGB
+Pretrained-
+MLLM
+Final
+Answer
+RGB
+Model 1
+Model n
+...
+Final
+Answer
+Calculate the trend of building volume
+Tool 1
+Tool 2
+Tool n
+...
+Final
+Answer
+5. Systemic evaluation: trajectory & result
+Is the second car classified as a Sedan?
+3. Lack of the predefined tool ecosystem
+GEE, EarthData
+ RS Dataset
+Figure 1: Overview of our work: The top panel contrasts prior paradigms: MLLM-based EO
+research (left), Existing agent-based EO research (middle), and our Earth-Agent (right). The bottom
+panel illustrates our contributions, including Earth-Bench construction, Earth-Agent ReAct with the
+predefined toolkit, and dual-level evaluation of both reasoning trajectories and final results.
+ABSTRACT
+Earth observation (EO) is essential for understanding the evolving states of the
+Earth system. Although recent MLLMs have advanced EO research, they still lack
+the capability to tackle complex tasks that require multi-step reasoning and the
+use of domain-specific tools. Agent-based methods offer a promising direction,
+but current attempts remain in their infancy, confined to RGB perception, shallow
+reasoning, and lacking systematic evaluation protocols. To overcome these lim-
+itations, we introduce Earth-Agent, the first agentic framework that unifies RGB
+and spectral EO data within an MCP-based tool ecosystem, enabling cross-modal,
+multi-step, and quantitative spatiotemporal reasoning beyond pretrained MLLMs.
+Earth-Agent supports complex scientific tasks such as geophysical parameter re-
+trieval and quantitative spatiotemporal analysis by dynamically invoking expert
+*Equal contribution.
+‡This work was done during their internship at OpenDataLab of Shanghai AI Lab.
+†Corresponding author. E-mail: liweijia@sz.tsinghua.edu.cn
+1
+arXiv:2509.23141v3  [cs.CV]  3 Mar 2026

@@ -1,0 +1,226 @@
+Published as a conference paper at ICLR 2026
+Table 10: Performance of different LLM-based agents on the RGB subset of Earth-Bench. We bold
+the best results and underline the runner-ups.
+Model
+Accuracy
+Efficiency
+Tool-Any-Order
+Tool-In-Order
+Tool-Exact-Match
+Parameters
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+GPT-5
+59.32
+49.15↓
+1.5312
+1.5784↓
+76.61
+72.09↓
+75.04
+67.08↓
+59.60
+52.71↓
+46.15
+40.73↓
+Gemini-2.5
+47.46
+47.46
+0.7926
+0.8878↓
+48.70
+60.11↑
+29.38
+50.11↑
+21.33
+45.54↑
+19.07
+36.75↑
+GPT-4o
+45.76
+35.59↓
+0.8779
+0.8939↓
+71.86
+66.89↓
+66.60
+61.13↓
+64.76
+60.00↓
+46.65
+47.54↑
+Kimik2
+54.24
+62.71↑
+1.5341
+1.4104↑
+75.65
+80.62↑
+71.37
+79.90↑
+51.48
+63.32↑
+43.12
+52.19↑
+DeepSeek-V3.1
+55.93
+54.24↓
+1.6895
+1.7966↓
+88.98
+89.21↑
+85.49
+87.64↑
+71.54
+74.05↑
+53.57
+57.22↑
+Qwen3-Max
+49.15
+38.98↓
+0.8601
+0.9785↓
+65.25
+68.14↑
+50.28
+56.58↑
+47.88
+51.55↑
+34.04
+43.93↑
+Seed-1.6
+55.93
+52.54↓
+1.1948
+0.9589↑
+57.99
+57.59↓
+44.00
+47.30↑
+34.11
+43.74↑
+29.93
+39.02↑
+LLaMA-4
+37.29
+27.12↓
+0.3464
+0.3790↓
+27.20
+36.52↑
+0.47
+15.61↑
+0.47
+12.43↑
+0.47
+11.25↑
+Qwen-Plus
+42.37
+38.98↓
+0.9721
+1.0488↓
+51.89
+60.11↑
+29.51
+42.80↑
+24.18
+41.07↑
+23.62
+36.89↑
+GLM-4.5v
+16.95
+28.81↑
+1.3070
+1.4535↓
+47.91
+48.42↑
+27.36
+33.54↑
+21.93
+27.38↑
+19.73
+24.98↑
+Mistral
+30.51
+30.51
+0.7215
+0.7531↓
+36.16
+45.59↑
+22.46
+40.11↑
+21.89
+37.71↑
+19.97
+31.84↑
+Qwen3-32B
+25.42
+27.12↑
+0.7767
+1.0891↓
+45.93
+56.47↑
+27.54
+41.69↑
+26.41
+41.69↑
+25.28
+37.74↑
+InternVL-3.5
+25.42
+27.12↑
+0.2398
+0.2606↓
+16.95
+29.92↑
+7.23
+13.58↑
+6.67
+13.58↑
+4.75
+11.88↑
+Overall, the comparative analysis across subsets highlights both the strengths and limitations of
+LLM-based Agents in Earth Observation. While LLMs achieve relatively strong performance on
+Product tasks, where success relies more on general reasoning and statistical skills, they remain less
+effective on tasks that demand specialized knowledge, such as those in the Spectrum subset, which
+involve interpreting raw spectral data. Moreover, Earth-Agent incorporates expert models within the
+Perception Toolkit for tasks such as segmentation and object detection, which significantly improves
+performance in the corresponding scenarios. However, the generalization ability of these expert
+models remains limited, as their outputs do not always align with ground-truth answers, even when
+the correct tools are selected. These findings suggest that future progress in EO Agents will depend
+not only on enhancing LLMs with domain-specific knowledge, but also on developing more robust
+and versatile expert models to ensure reliable performance across the diverse spectrum of Earth
+Observation tasks.
+D
+ERROR ANALYSIS
+To analyze the errors made by Agents with different LLM backbones on Earth-Bench tasks, we
+selected GPT-5 as a representative closed-source model, and Kimi-K2, Qwen3-Max, and Deepseek-
+V3.1 as representative open-source models. We counted the number of errors and categorized them
+into five types:
+• Unaware of Termination Conditions: failure to recognize the task’s termination condition,
+leading to repeated tool calls until reaching the maximum step limit;
+• Tool Hallucination: attempts to invoke non-existent tools;
+• File Hallucination: attempts to process non-existent files, i.e., providing invalid file or
+folder paths as tool inputs;
+• Invalid Parameters: inputs that do not conform to the expected parameter format or are
+otherwise invalid;
+• System Error: system-level failures caused by the runtime environment or external depen-
+dencies.
+Figure 7 presents the frequency and distribution of these error types. Results show that GPT-5
+produced the largest number of errors, while Kimi-K2 had the fewest. Except for GPT-5, the other
+models exhibited similar error counts across different regimes, and their error distributions did not
+vary significantly, suggesting that providing more detailed execution steps does not substantially
+improve tool-use proficiency.
+In terms of error types, GPT-5 errors were dominated by Invalid Parameters, with occasional Sys-
+tem Errors and File Hallucinations, but no Tool Hallucinations. In contrast, the three open-source
+23

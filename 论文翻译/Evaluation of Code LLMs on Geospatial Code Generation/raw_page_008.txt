@@ -1,0 +1,154 @@
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+Piotr Gramacki, Bruno Martins, and Piotr Szymański
+difficult benchmark for code generation LLMs. However, the cur-
+rent of version of the benchmark should be expanded to cover more
+typical tasks and tools from the geospatial domain. Due to com-
+putational constraints we limited ourselves to 7B/8B scale LLMs,
+which we also aim to extend in the future.
+Future Work. Based on the results described in this paper, we
+can see several directions for future work. Firstly, we will extend
+the dataset to cover more tasks and tools. We have seen that edge
+case testing is very important, so we plan to add more test cases
+for each sample. We may follow the approach presented by Liu
+et al. [14], and use larger LLMs for this part. Secondly, we would
+like to include more models and create a leaderboard, which would
+be easily extendable when new models are released. This would
+allow the community to keep track of the current performance
+of code LLMs on geospatial tasks, and see the areas that are the
+most problematic. Finally, we plan to use the insights from this
+comparison to train a code LLM specific to the geospatial domain.
+REFERENCES
+[1] AI@Meta. 2024. Llama 3 Model Card. https://github.com/meta-llama/llama3/
+blob/main/MODEL_CARD.md
+[2] Jacob Austin, Augustus Odena, Maxwell Nye, Maarten Bosma, Henryk
+Michalewski, David Dohan, Ellen Jiang, Carrie Cai, Michael Terry, Quoc Le,
+and Charles Sutton. 2021. Program Synthesis with Large Language Models.
+arXiv:2108.07732 [cs.PL] https://arxiv.org/abs/2108.07732
+[3] Prabin Bhandari, Antonios Anastasopoulos, and Dieter Pfoser. 2023. Are Large
+Language Models Geospatially Knowledgeable?. In Proceedings of the 31st ACM
+International Conference on Advances in Geographic Information Systems (Ham-
+burg, Germany) (SIGSPATIAL ’23). Association for Computing Machinery, New
+York, NY, USA, Article 75, 4 pages. https://doi.org/10.1145/3589132.3625625
+[4] Mark Chen, Jerry Tworek, Heewoo Jun, Qiming Yuan, Henrique Ponde de
+Oliveira Pinto, Jared Kaplan, Harri Edwards, Yuri Burda, Nicholas Joseph, Greg
+Brockman, Alex Ray, Raul Puri, Gretchen Krueger, Michael Petrov, Heidy Khlaaf,
+Girish Sastry, Pamela Mishkin, Brooke Chan, Scott Gray, Nick Ryder, Mikhail
+Pavlov, Alethea Power, Lukasz Kaiser, Mohammad Bavarian, Clemens Winter,
+Philippe Tillet, Felipe Petroski Such, Dave Cummings, Matthias Plappert, Fo-
+tios Chantzis, Elizabeth Barnes, Ariel Herbert-Voss, William Hebgen Guss, Alex
+Nichol, Alex Paino, Nikolas Tezak, Jie Tang, Igor Babuschkin, Suchir Balaji, Shan-
+tanu Jain, William Saunders, Christopher Hesse, Andrew N. Carr, Jan Leike,
+Josh Achiam, Vedant Misra, Evan Morikawa, Alec Radford, Matthew Knight,
+Miles Brundage, Mira Murati, Katie Mayer, Peter Welinder, Bob McGrew, Dario
+Amodei, Sam McCandlish, Ilya Sutskever, and Wojciech Zaremba. 2021. Eval-
+uating Large Language Models Trained on Code.
+arXiv:2107.03374 [cs.LG]
+https://arxiv.org/abs/2107.03374
+[5] CodeGemma Team. 2024.
+CodeGemma: Open Code Models Based on
+Gemma. https://storage.googleapis.com/deepmind-media/gemma/codegemma_
+report.pdf
+[6] Joris Van den Bossche, Kelsey Jordahl, Martin Fleischmann, Matt Richards, James
+McBride, Jacob Wasserman, Adrian Garcia Badaracco, Alan D. Snow, Brendan
+Ward, Jeff Tratner, Jeffrey Gerard, Matthew Perry, cjqf, Geir Arne Hjelle, Mike
+Taves, Ewout ter Hoeven, Micah Cochran, Ray Bell, rraymondgh, Matt Bar-
+tos, Pieter Roggemans, Lucas Culbertson, Giacomo Caria, Nicholas YS Tan, Nick
+Eubank, sangarshanan, John Flavin, Sergio Rey, and James Gardiner. 2024. geopan-
+das/geopandas: v1.0.1. https://doi.org/10.5281/zenodo.12625316
+[7] Gemma Team. 2024. Gemma: Open Models Based on Gemini Research and
+Technology. https://storage.googleapis.com/deepmind-media/gemma/gemma-
+report.pdf
+[8] Dan Hendrycks, Steven Basart, Saurav Kadavath, Mantas Mazeika, Akul Arora,
+Ethan Guo, Collin Burns, Samir Puranik, Horace He, Dawn Song, and Jacob
+Steinhardt. 2021. Measuring Coding Challenge Competence With APPS. In
+Proceedings of the Neural Information Processing Systems Track on Datasets
+and Benchmarks, J. Vanschoren and S. Yeung (Eds.), Vol. 1. Neural Informa-
+tion Processing Systems Foundation, Inc. (NeurIPS), San Diego, California,
+USA. https://datasets-benchmarks-proceedings.neurips.cc/paper_files/paper/
+2021/file/c24cd76e1ce41366a4bbe8a49b02a028-Paper-round2.pdf
+[9] Albert Q. Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, De-
+vendra Singh Chaplot, Diego de las Casas, Florian Bressand, Gianna Lengyel,
+Guillaume Lample, Lucile Saulnier, Lélio Renard Lavaud, Marie-Anne Lachaux,
+Pierre Stock, Teven Le Scao, Thibaut Lavril, Thomas Wang, Timothée Lacroix,
+and William El Sayed. 2023.
+Mistral 7B.
+arXiv:2310.06825 [cs.CL] https:
+//arxiv.org/abs/2310.06825
+[10] Denis Kocetkov, Raymond Li, Loubna Ben Allal, Jia Li, Chenghao Mou, Car-
+los Muñoz Ferrandis, Yacine Jernite, Margaret Mitchell, Sean Hughes, Thomas
+Wolf, Dzmitry Bahdanau, Leandro von Werra, and Harm de Vries. 2022. The
+Stack: 3 TB of permissively licensed source code.
+arXiv:2211.15533 [cs.CL]
+https://arxiv.org/abs/2211.15533
+[11] Yuhang Lai, Chengxi Li, Yiming Wang, Tianyi Zhang, Ruiqi Zhong, Luke Zettle-
+moyer, Wen-tau Yih, Daniel Fried, Sida Wang, and Tao Yu. 2023. DS-1000: a
+natural and reliable benchmark for data science code generation. In Proceedings
+of the 40th International Conference on Machine Learning (ICML’23). JMLR.org,
+Honolulu, Hawaii, USA, Article 756, 27 pages.
+[12] Zhenlong Li and Huan Ning. 2023. Autonomous GIS: the next-generation AI-
+powered GIS. International Journal of Digital Earth 16 (12 2023), 4668–4686. Issue
+2. https://doi.org/10.1080/17538947.2023.2278895
+[13] Chin-Yew Lin. 2004. ROUGE: A Package for Automatic Evaluation of Summaries.
+In Text Summarization Branches Out. Association for Computational Linguistics,
+Barcelona, Spain, 74–81. https://aclanthology.org/W04-1013
+[14] Jiawei Liu, Chunqiu Steven Xia, Yuyao Wang, and LINGMING ZHANG.
+2023.
+Is Your Code Generated by ChatGPT Really Correct? Rigorous
+Evaluation of Large Language Models for Code Generation. In Advances
+in Neural Information Processing Systems, A. Oh, T. Naumann, A. Glober-
+son, K. Saenko, M. Hardt, and S. Levine (Eds.), Vol. 36. Neural Informa-
+tion Processing Systems Foundation, Inc. (NeurIPS), San Diego, California,
+USA, 21558–21572. https://proceedings.neurips.cc/paper_files/paper/2023/file/
+43e9d647ccd3e4b7b5baab53f0368686-Paper-Conference.pdf
+[15] Anton Lozhkov, Raymond Li, Loubna Ben Allal, Federico Cassano, Joel Lamy-
+Poirier, Nouamane Tazi, Ao Tang, Dmytro Pykhtar, Jiawei Liu, Yuxiang Wei,
+Tianyang Liu, Max Tian, Denis Kocetkov, Arthur Zucker, Younes Belkada, Zi-
+jian Wang, Qian Liu, Dmitry Abulkhanov, Indraneil Paul, Zhuang Li, Wen-Ding
+Li, Megan Risdal, Jia Li, Jian Zhu, Terry Yue Zhuo, Evgenii Zheltonozhskii, Nii
+Osae Osae Dade, Wenhao Yu, Lucas Krauß, Naman Jain, Yixuan Su, Xuanli He,
+Manan Dey, Edoardo Abati, Yekun Chai, Niklas Muennighoff, Xiangru Tang, Muh-
+tasham Oblokulov, Christopher Akiki, Marc Marone, Chenghao Mou, Mayank
+Mishra, Alex Gu, Binyuan Hui, Tri Dao, Armel Zebaze, Olivier Dehaene, Nicolas
+Patry, Canwen Xu, Julian McAuley, Han Hu, Torsten Scholak, Sebastien Paquet,
+Jennifer Robinson, Carolyn Jane Anderson, Nicolas Chapados, Mostofa Patwary,
+Nima Tajbakhsh, Yacine Jernite, Carlos Muñoz Ferrandis, Lingming Zhang, Sean
+Hughes, Thomas Wolf, Arjun Guha, Leandro von Werra, and Harm de Vries. 2024.
+StarCoder 2 and The Stack v2: The Next Generation. arXiv:2402.19173 [cs.SE]
+https://arxiv.org/abs/2402.19173
+[16] Gengchen Mai, Weiming Huang, Jin Sun, Suhang Song, Deepak Mishra, Ninghao
+Liu, Song Gao, Tianming Liu, Gao Cong, Yingjie Hu, Chris Cundy, Ziyuan Li,
+Rui Zhu, and Ni Lao. 2024. On the Opportunities and Challenges of Foundation
+Models for GeoAI (Vision Paper). ACM Trans. Spatial Algorithms Syst. 10, 2,
+Article 11 (July 2024), 46 pages. https://doi.org/10.1145/3653070
+[17] Gengchen Mai, Krzysztof Janowicz, Rui Zhu, Ling Cai, and Ni Lao. 2021. Geo-
+graphic Question Answering: Challenges, Uniqueness, Classification, and Future
+Directions. AGILE: GIScience Series 2 (5 2021), 1–21. https://doi.org/10.5194/agile-
+giss-2-8-2021
+[18] Rohin Manvi, Samar Khanna, Marshall Burke, David B. Lobell, and Stefano Ermon.
+2024. Large Language Models are Geographically Biased. In Proceedings of the 41st
+International Conference on Machine Learning (Proceedings of Machine Learning
+Research, Vol. 235), Ruslan Salakhutdinov, Zico Kolter, Katherine Heller, Adrian
+Weller, Nuria Oliver, Jonathan Scarlett, and Felix Berkenkamp (Eds.). PMLR,
+Vienna, Austria, 34654–34669. https://proceedings.mlr.press/v235/manvi24a.html
+[19] Rohin Manvi, Samar Khanna, Gengchen Mai, Marshall Burke, David B. Lobell,
+and Stefano Ermon. 2024. GeoLLM: Extracting Geospatial Knowledge from
+Large Language Models. In Proceedings of the 12th International Conference on
+Learning Representations. ICLR, Vienna, Austria. https://openreview.net/forum?
+id=TqL2xBwXP3
+[20] Mayank Mishra, Matt Stallone, Gaoyuan Zhang, Yikang Shen, Aditya Prasad,
+Adriana Meza Soria, Michele Merler, Parameswaran Selvam, Saptha Surendran,
+Shivdeep Singh, Manish Sethi, Xuan-Hong Dang, Pengyuan Li, Kun-Lung Wu,
+Syed Zawad, Andrew Coleman, Matthew White, Mark Lewis, Raju Pavuluri,
+Yan Koyfman, Boris Lublinsky, Maximilien de Bayser, Ibrahim Abdelaziz, Kinjal
+Basu, Mayank Agarwal, Yi Zhou, Chris Johnson, Aanchal Goyal, Hima Patel,
+Yousaf Shah, Petros Zerfos, Heiko Ludwig, Asim Munawar, Maxwell Crouse,
+Pavan Kapanipathi, Shweta Salaria, Bob Calio, Sophia Wen, Seetharami Seelam,
+Brian Belgodere, Carlos Fonseca, Amith Singhee, Nirmit Desai, David D. Cox,
+Ruchir Puri, and Rameswar Panda. 2024. Granite Code Models: A Family of
+Open Foundation Models for Code Intelligence. arXiv:2405.04324 [cs.AI] https:
+//arxiv.org/abs/2405.04324
+[21] Peter Mooney, Wencong Cui, Boyuan Guan, and Levente Juhász. 2023. Towards
+Understanding the Geospatial Skills of ChatGPT: Taking a Geographic Informa-
+tion Systems (GIS) Exam. In Proceedings of the 6th ACM SIGSPATIAL International
+Workshop on AI for Geographic Knowledge Discovery. Association for Computing
+Machinery, Inc, 85–94. https://doi.org/10.1145/3615886.3627745

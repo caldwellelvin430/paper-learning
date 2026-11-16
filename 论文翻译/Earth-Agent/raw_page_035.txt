@@ -1,0 +1,93 @@
+Published as a conference paper at ICLR 2026
+calc batch image sum
+Statistics
+Compute the sum of pixel values for a batch of
+images.
+calc batch image hotspot
+percentage
+Statistics
+Compute the hotspot percentage (fraction of
+pixels above a threshold) for a batch of images.
+calc batch image hotspot tif
+Statistics
+Create binary hotspot maps for a batch of im-
+ages, where pixels below a specified threshold
+are set to 1 (hotspot) and others set to 0. The
+output is saved as GeoTIFF files, preserving
+georeference metadata from the input images.
+difference
+Statistics
+Compute the absolute difference between two
+numbers.
+division
+Statistics
+Perform division between two numbers.
+percentage change
+Statistics
+Calculate the percentage change between two
+numbers, useful for comparing relative growth
+or decline.
+kelvin to celsius
+Statistics
+Convert temperature from Kelvin to Celsius.
+celsius to kelvin
+Statistics
+Convert temperature from Celsius to Kelvin.
+max value and index
+Statistics
+Find the maximum value in a list and return
+both the maximum value and its index.
+min value and index
+Statistics
+Find the minimum value in a list and return
+both the minimum value and its index.
+ceil number
+Statistics
+Return the ceiling (rounded up integer) of a
+given number.
+multiply
+Statistics
+Multiply two numbers and return their prod-
+uct.
+get list object via indexes
+Statistics
+Retrieve elements from a list using a list or tu-
+ple of indices.
+mean
+Statistics
+Compute the arithmetic mean (average) of a
+dataset.
+calculate threshold ratio
+Statistics
+Calculate the average percentage of pixels
+above a given threshold for one or more im-
+ages and a specified band.
+calc batch fire pixels
+Statistics
+Compute the number of fire pixels (FRP ¿
+threshold) for a batch of images.
+create fire increase map
+Statistics
+Create a binary map highlighting areas where
+fire increase exceeds a specified threshold.
+identify fire prone areas
+Statistics
+Identify fire-prone areas from a hotspot map
+based on a given percentile threshold.
+get percentile value from image
+Statistics
+Calculate the N-th percentile value of pixel
+values in a raster image, and return it as a
+native Python type matching the image’s data
+type.
+image division mean
+Statistics
+Calculate the mean of pixel-wise division be-
+tween two images or between two bands of the
+same image.
+calculate intersection percentage
+Statistics
+Calculate the percentage of pixels that simul-
+taneously satisfy threshold conditions in two
+raster images.
+35

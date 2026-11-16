@@ -1,0 +1,112 @@
+Published as a conference paper at ICLR 2026
+A
+DATASET ILLUSTRATION
+A.1
+DATASET COMPOSITION
+The remote sensing imagery used in our dataset primarily comes from Landsat and MODIS, with
+additional high-resolution imagery sourced from open datasets. All the remote sensing data prod-
+ucts are obtained through Google Earth Engine (GEE). The following Table 4 is a more detailed
+breakdown of the data sources, products, and their distribution:
+Table 4: Sensor and Data Source Statistics
+Category
+Sensor/Data Source
+Dataset
+Samples
+Spectrum
+Landsat
+Landsat 8 / 9
+1684
+MODIS
+-
+10273
+ASTER
+-
+110
+Products
+GEE
+LST
+183
+NDVI
+369
+GPM
+160
+VIIRS
+164
+GHSL
+68
+QA PIXEL
+212
+NDWI
+69
+fire MaxFRP
+194
+RGB
+Public Datasets
+AID
+169
+DIOR-RSVG
+7
+DOTA
+22
+NWPU-VHR-10
+21
+xBD
+32
+Total
+-
+-
+13737
+This table provides an overview of the data sources and the distribution of samples across three
+categories (Spectrum, Product, RGB). It includes a diverse set of remote sensing products, such as
+Landsat, MODIS, ASTER, and various other publicly available high-resolution datasets, ensuring
+comprehensive coverage for a wide range of Earth observation tasks.
+A.2
+BENCHMARK STATISTICS
+Table 5: Statistics of the benchmark dataset, including average verification code length, number of
+images, query length, reasoning steps, and question counts for different task types.
+Type
+Avg. Code Lines
+Avg. Images
+Avg. Query Length
+Avg. Steps
+Question Count
+AP
+IF
+Spectrum
+361.19
+96.82
+331.54
+497.94
+4.38
+100
+Products
+283.64
+43.23
+505.72
+648.09
+6.35
+88
+RGB
+176.42
+4.18
+333.80
+464.70
+5.77
+60
+Avg.
+288.97
+55.39
+393.89
+543.18
+5.42
+-
+Total
+71664
+13737
+97685
+134708
+1343
+248
+As illustrated in Table 5, Earth-Bench consists of 248 questions associated with approximately
+13.7K images. We recruited a team of domain experts to annotate these questions. The annotation
+17

@@ -1,0 +1,4 @@
+Published as a conference paper at ICLR 2026
+Figure 16: Example of Temperature Monitoring with Spectrum Data under the Instruction-
+Following Regime.
+43

@@ -1,0 +1,57 @@
+Published as a conference paper at ICLR 2026
+Yangyu Huang, Tianyi Gao, Haoran Xu, Qihao Zhao, Yang Song, Zhipeng Gui, Tengchao Lv, Hao
+Chen, Lei Cui, Scarlett Li, et al. Peace: Empowering geologic map holistic understanding with
+mllms. In Proceedings of the Computer Vision and Pattern Recognition Conference, pp. 3899–
+3908, 2025.
+Zhiyu Huang, Chen Tang, Chen Lv, Masayoshi Tomizuka, and Wei Zhan. Learning online belief
+prediction for efficient pomdp planning in autonomous driving. arXiv preprint arXiv:2401.15315,
+2024.
+Carlos E Jimenez, John Yang, Alexander Wettig, Shunyu Yao, Kexin Pei, Ofir Press, and Karthik R
+Narasimhan. SWE-bench: Can language models resolve real-world github issues? In The Twelfth
+International Conference on Learning Representations, 2024. URL https://openreview.
+net/forum?id=VTF8yNQM66.
+Karen E Joyce, Kim C Wright, Sergey V Samsonov, and Vincent G Ambrosia. Remote sensing
+and the disaster management cycle. Advances in geoscience and remote sensing, 48(7):317–346,
+2009.
+Chia Hsiang Kao, Wenting Zhao, Shreelekha Revankar, Samuel Speas, Snehal Bhagat, Rajeev Datta,
+Cheng Perng Phoo, Utkarsh Mall, Carl Vondrick, Kavita Bala, et al. Towards llm agents for earth
+observation. arXiv preprint arXiv:2504.12110, 2025.
+Ioannis P. Kokkoris, Bruno Smets, Lars Hein, Giorgos Mallinis, Marcel Buchhorn, Stefano
+Balbi, J´an ˇCerneck´y, Marc Paganini, and Panayotis Dimopoulos.
+The role of earth ob-
+servation in ecosystem accounting: A review of advances, challenges and future directions.
+Ecosystem Services, 70:101659, 2024. ISSN 2212-0416. doi: https://doi.org/10.1016/j.ecoser.
+2024.101659.
+URL https://www.sciencedirect.com/science/article/pii/
+S2212041624000664.
+Kartik Kuckreja, Muhammad Sohail Danish, Muzammal Naseer, Abhijit Das, Salman Khan, and
+Fahad Shahbaz Khan.
+Geochat: Grounded large vision-language model for remote sensing.
+In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp.
+27831–27840, 2024.
+Alexandre Lacoste, Nils Lehmann, Pau Rodriguez, Evan Sherwin, Hannah Kerner, Bj¨orn L¨utjens,
+Jeremy Irvin, David Dao, Hamed Alemohammad, Alexandre Drouin, et al. Geo-bench: Toward
+foundation models for earth monitoring. Advances in Neural Information Processing Systems,
+36:51080–51093, 2023.
+Jinpeng Li, Jun He, Weijia Li, Jiabin Chen, and Jinhua Yu.
+Roadcorrector: A structure-aware
+road extraction method for road connectivity and topology correction. IEEE Transactions on
+Geoscience and Remote Sensing, 62:1–18, 2024a.
+Ming Li, Keyu Chen, Ziqian Bi, Ming Liu, Benji Peng, Qian Niu, Junyu Liu, Jinlang Wang, Sen
+Zhang, Xuanhe Pan, et al. Surveying the mllm landscape: A meta-review of current surveys.
+arXiv preprint arXiv:2409.18991, 2024b.
+Weijia Li, Runmin Dong, Haohuan Fu, Jie Wang, Le Yu, and Peng Gong. Integrating google earth
+imagery with landsat data to improve 30-m resolution land cover mapping. Remote Sensing of
+Environment, 237:111563, 2020.
+Weijia Li, Yawen Lai, Linning Xu, Yuanbo Xiangli, Jinhua Yu, Conghui He, Gui-Song Xia, and
+Dahua Lin. Omnicity: Omnipotent city understanding with multi-level and multi-view images.
+In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp.
+17397–17407, 2023a.
+Weijia Li, Wenqian Zhao, Jinhua Yu, Juepeng Zheng, Conghui He, Haohuan Fu, and Dahua Lin.
+Joint semantic–geometric learning for polygonal building segmentation from high-resolution re-
+mote sensing images. ISPRS Journal of Photogrammetry and Remote Sensing, 201:26–37, 2023b.
+Weijia Li, Haote Yang, Zhenghao Hu, Juepeng Zheng, Gui-Song Xia, and Conghui He. 3d building
+reconstruction from monocular remote sensing images with multi-level supervisions. In Pro-
+ceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition, pp. 27728–
+27737, 2024c.
+12

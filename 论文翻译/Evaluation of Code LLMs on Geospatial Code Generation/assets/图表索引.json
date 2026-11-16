@@ -1,0 +1,178 @@
+[
+  {
+    "kind": "Figure",
+    "number": 1,
+    "y": 150.17396545410156,
+    "x": 317.9549865722656,
+    "bbox": [
+      317.95,
+      150.17,
+      558.2,
+      159.23
+    ],
+    "caption_head": "Figure 1: Example of a prompt from the dataset, with an",
+    "page": 3,
+    "file": "./images/figure-01-p003.jpg",
+    "crop": [
+      306.0,
+      65.0,
+      584.0,
+      200.2
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 1,
+    "y": 84.58238220214844,
+    "x": 99.61700439453125,
+    "bbox": [
+      99.62,
+      84.58,
+      247.93,
+      93.55
+    ],
+    "caption_head": "Table 1: Summary of task categories.",
+    "page": 4,
+    "file": "./images/table-01-p004.jpg",
+    "crop": [
+      65.0,
+      78.0,
+      307.0,
+      320.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 2,
+    "y": 84.58238220214844,
+    "x": 129.9860076904297,
+    "bbox": [
+      129.99,
+      84.58,
+      481.72,
+      93.55
+    ],
+    "caption_head": "Table 2: Results with greedy decoding , also including HumanEval scores for reference.",
+    "page": 6,
+    "file": "./images/table-02-p006.jpg",
+    "crop": [
+      118.0,
+      80.0,
+      503.0,
+      220.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 4,
+    "y": 295.9053649902344,
+    "x": 330.32098388671875,
+    "bbox": [
+      330.32,
+      295.91,
+      545.54,
+      304.87
+    ],
+    "caption_head": "Table 4: Results for different task framings (pass@1).",
+    "page": 6,
+    "file": "./images/table-04-p006.jpg",
+    "crop": [
+      310.0,
+      291.0,
+      561.0,
+      422.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 3,
+    "y": 502.2413635253906,
+    "x": 61.75699996948242,
+    "bbox": [
+      61.76,
+      502.24,
+      285.79,
+      511.21
+    ],
+    "caption_head": "Table 3: Results for different task complexity (pass@1).",
+    "page": 6,
+    "file": "./images/table-03-p006.jpg",
+    "crop": [
+      53.0,
+      476.0,
+      302.0,
+      627.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 5,
+    "y": 576.2413940429688,
+    "x": 330.22698974609375,
+    "bbox": [
+      330.23,
+      576.24,
+      545.64,
+      585.21
+    ],
+    "caption_head": "Table 5: Results for different input formats (pass@1).",
+    "page": 6,
+    "file": "./images/table-05-p006.jpg",
+    "crop": [
+      310.0,
+      567.0,
+      563.0,
+      705.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 6,
+    "y": 84.58238220214844,
+    "x": 203.89100646972656,
+    "bbox": [
+      203.89,
+      84.58,
+      407.81,
+      93.55
+    ],
+    "caption_head": "Table 6: Results for different tools usage (pass@1).",
+    "page": 7,
+    "file": "./images/table-06-p007.jpg",
+    "crop": [
+      130.0,
+      81.0,
+      483.0,
+      213.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 7,
+    "y": 369.3763732910156,
+    "x": 57.071998596191406,
+    "bbox": [
+      57.07,
+      369.38,
+      290.48,
+      378.34
+    ],
+    "caption_head": "Table 7: Results for different formats for points (pass@1).",
+    "page": 7,
+    "file": "./images/table-07-p007.jpg",
+    "crop": [
+      54.0,
+      367.0,
+      302.0,
+      502.0
+    ],
+    "extracted": true
+  }
+]

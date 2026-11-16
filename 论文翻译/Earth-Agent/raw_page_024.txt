@@ -1,0 +1,57 @@
+Published as a conference paper at ICLR 2026
+models demonstrated different error patterns: while Invalid Parameters remained a notable factor,
+it was not the primary source of errors. Instead, nearly 60% of their errors stemmed from Halluci-
+nations and Unaware of Termination Conditions. We hypothesize that this difference is related to
+training strategies. Open-source models are often trained with reinforcement learning, which may
+encourage more exploratory outputs, thereby increasing the likelihood of hallucinations. Moreover,
+their reward functions are typically designed to shape behavioral style and output preferences rather
+than enhance factual knowledge, which could make models more prone to generating divergent or
+repetitive outputs and to overlooking termination conditions.
+81.8%
+6.8%
+2.3%
+9.1%
+76.0%
+7.7%
+3.0%
+13.3%
+35.4%
+0.9%
+23.9%
+29.2%
+10.6%
+14.7%
+33.7%
+3.2%
+24.2%
+24.2%
+50.0%
+22.9%
+22.3%
+4.8%
+29.5%
+26.5%
+36.1%
+7.8%
+26.8%
+43.2%
+24.2%
+5.8%
+42.4%
+8.9%
+18.2%
+30.5%
+Figure 7: Error analysis.
+E
+LATENCY EXPERIMENT
+E.1
+BREAKDOWN RESULTS ON LATENCY
+We further break down the latency into LLM Latency and Tool Latency. It is evident that the
+majority of the latency is spent on model calls (LLM Latency), rather than on external tool calls
+(Tool Latency). This suggests that reducing the frequency of model calls could further improve
+latency. The results are shown in Table 11.
+We observe that the majority of the latency is attributed to LLM Latency, while the impact of Tool
+Latency is relatively minimal. Therefore, reducing the frequency of model calls could significantly
+improve overall latency. This suggests that optimizing the model call frequency would further en-
+hance system performance.
+24

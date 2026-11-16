@@ -1,0 +1,92 @@
+Published as a conference paper at ICLR 2026
+v
+Spectrum:
+[Disaster Judgement]
+A. The proportion of pixels with TVDI values exceeding 0.7 surpassed 40% occurred 10 times
+B. The proportion of pixels with TVDI values exceeding 0.7 surpassed 40% occurred 8 times
+C. The proportion of pixels with TVDI values exceeding 0.7 surpassed 40% occurred 4 times
+D. The proportion of pixels with TVDI values exceeding 0.7 surpassed 40% occurred 2 times
+Question: Based on temperature and vegetation indices (NDVI and LST) in the Central Valley of California, U.S., 
+from May to October 2021, first list the input TIFF files, then calculate the Temperature-Vegetation Dryness 
+Index (TVDI) for each date, compute the proportion of pixels with TVDI values exceeding 0.7 for each image, and 
+finally count the number of times this proportion surpassed 40%, indicating widespread extreme drought.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question5"}
+"output": ["Central Valley_2021-05-09_LST.tif","Central Valley_2021-05-09_NDVI.tif","Central Valley_2021-10-
+16_LST.tif\",...,"Central Valley_2021-10-16_NDVI.tif"]
+"name": compute_tvdi
+"input": {
+“ndvi_path”: ["Central Valley_2021-05-09_NDVI.tif",…, "Central Valley_2021-10-16_NDVI.tif "], 
+“lst_path”: ["Central Valley_2021-05-09_LST.tif",…,"Central Valley_2021-10-16_LST.tif "]
+"output_path": ["question5/tvdi_2021-05-09.tif”,…,"question5/tvdi_2021-10-16.tif"]
+}
+Step 1
+"output": ["Result saved at out/question5/tvdi_2021-05-09.tif", …,"Result saved at out/question5/tvdi_2021-10-16.tif"]
+"name": count_images_exceeding_threshold_ratio
+"input":{
+“image_paths”: [“out/question5/tvdi_2021-05-09.tif ”,…, "out/question5/tvdi_2021-10-16.tif"]
+"mode": "above ",
+"ratio_threshold": 40,
+"value_threshold": 0.7,
+}
+"output": "4"
+Step 2-12
+Step 13
+GPT-5
+"final answer": "C"
+Final
+Tool 1: get_filelist
+Tool 2: compute_tvdi
+GT
+Tool 1
+Tool 2
+->
+× 12
+Tool 4
+->
+Tool 1
+Tool 2
+->
+Tool 3
+->
+Tool 1
+Tool 2
+->
+Tool 3
+->
+->  C
+-> C
+-> C
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+×11
+×11
+Tool 3: 
+count_images_exceeding_threshold_ratio
+Tool 4: calculate_threshold_ratio
+×11
+Tool 1
+Tool 2
+->
+Tool 4
+->
+->  C
+Tool 3
+->
+Step-by-Step: TAO: 1.0  
+End-to-End:     Efficiency: 4.33     
+TIO: 1.0 
+TEM: 0.67 
+Param.: 0.33 
+Acc: 100%
+Instruction Following
+LST × 11
+…
+NDVI × 11
+Figure 14:
+Example of Disaster Judgement with Spectrum Data under the Instruction-
+Following Regime.
+41

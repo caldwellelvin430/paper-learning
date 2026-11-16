@@ -1,0 +1,106 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Based on TES output from ASTER thermal bands on March 24, 2020 in the Sahara Desert region 
+near Tamanrasset, Algeria, calculate the proportion of the area where emissivity variation (Δε) exceeds 0.05, 
+indicating possible land cover heterogeneity.
+d
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question23"}
+"output": [\“2020_03_24_BT_10.tif\”,…, \"2020_03_24_BT_14.tif\"]
+"name": temperature_emissivity_separation
+"input": "tir_band_paths": ["benchmark/data/question23/2020_03_24_BT_10.tif",…, 
+"benchmark/data/question23/2020_03_24_BT_14.tif“],
+"representative_band_index": 3,
+"output_path":"question23/tes_output.tif"
+"output": ["Result saved at out/question23/tes_output.tif“]
+"name": calculate_area
+"input": "input_image_path": "out/question23/tes_output.tif",
+"gsd": 1
+“output":  "2351880.0" 
+Spectrum:
+[Vegetation Monitoring]
+A. 7.63%
+B. 11.13%
+C. 21.85%
+D. 29.39%
+Step-by-Step:
+TAO: 1.0  
+End-to-End:          Efficiency:3.3333 
+TIO: 1.0 
+TEM: 0.67 
+Param.: 0.33 
+Acc: 0% 
+Tool 1: get_filelist
+Tool 4: calculate_threshold_ratio
+Tool 7: temperature_emissivity_separation
+GT
+Tool 1
+Tool 7
+->
+Tool 4
+->
+-> B
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: calc_batch_image_hotspot_percentage
+Tool 3: threshold_segmentation
+Tool 7
+Tool 5
+Tool 3
+Tool 8
+Tool 10
+Tool 6
+Tool 1
+Tool 4
+Tool 9
+->
+->
+->
+->
+--
+->
+->
+->
+-> C
+->
+--
+->
+-> Fail
+Tool 10: calc_batch_image_sum
+Tool 11: calc_extreme_snow_loss_percentage_from_binary_map
+Tool 8: calc_batch_image_hotspot_tif
+Tool 13: calculate_multi_band_threshold_ratio
+Tool 12: count_pixels_satisfying_conditions
+Tool 14: get_percentile_value_from_image
+Tool 5: identify_fire_prone_areas
+Tool 1
+Tool 7
+Tool 4
+×𝟐
+Tool 13
+->
+->
+->
+->
+×𝟐
+×𝟑
+Tool 4
+Tool 13
+×𝟑
+->
+-> C
+Deepseek
+V3.1
+"final answer": "C"
+Step 1
+Final
+Step 10
+…
+Step 2
+Autonomous Planning
+Figure 19: Example of Vegetation Monitoring with Spectrum Data under the Auto-Planning
+Regime.
+46

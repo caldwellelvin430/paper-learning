@@ -1,0 +1,57 @@
+Published as a conference paper at ICLR 2026
+tools and models across modalities. To support comprehensive evaluation, we fur-
+ther propose Earth-Bench, a benchmark of 248 expert-curated tasks with 13,729
+images, spanning spectrum, products and RGB modalities, and equipped with
+a dual-level evaluation protocol that assesses both reasoning trajectories and fi-
+nal outcomes. We conduct comprehensive experiments varying different LLM
+backbones, comparisons with general agent frameworks, and comparisons with
+MLLMs on remote sensing benchmarks, demonstrating both the effectiveness and
+potential of Earth-Agent. Earth-Agent establishes a new paradigm for EO analy-
+sis, moving the field toward scientifically grounded, next-generation applications
+of LLMs in Earth observation. More information about Earth-Agent can be found
+at https://github.com/opendatalab/Earth-Agent
+1
+INTRODUCTION
+Earth observation (EO) (Transon et al., 2018; Kokkoris et al., 2024; Li et al., 2023a) plays a critical
+role in understanding the evolving states of the Earth system in spatial and temporal dimensions (An-
+derson et al., 2017; Li et al., 2024a; Brown et al., 2025), and has been successfully applied to urban
+planning (Shaker et al., 2019), agriculture (W´ojtowicz et al., 2016), resources management (Li et al.,
+2020; Wang et al., 2025a), building extraction (Li et al., 2023b; 2024c), disaster monitoring (Joyce
+et al., 2009; Van Westen, 2000), etc. Typically, EO data is categorized into two types (Samadzade-
+gan et al., 2025): Perceptual data, such as RGB Imagery (RGB) aligned with human vision, and
+Raw Observational Data, including Raw Spectral Data (Spectrum) and Processed Earth Prod-
+ucts (Products) stored in geodatabases such as Google Earth Engine (GEE)* and NASA Earth-
+data†. Both types of data are indispensable for EO research: perceptual data provides intuitive and
+human-interpretable insights, while raw observational data offers rich spectral and spatiotemporal
+information that enables quantitative analysis (Valipour et al., 2025; Xiong et al., 2022).
+In recent years, multimodal large language models (MLLMs) have achieved excellent performance
+on classical remote sensing perceptual tasks such as VQA (Kuckreja et al., 2024; Muhtar et al.,
+2024), scene classification (Kuckreja et al., 2024; Muhtar et al., 2024; Liu et al., 2024c; Wang et al.,
+2024e; Hu et al., 2025b; Zhan et al., 2025), object detection (Zhang et al., 2024b), and semantic
+segmentation (Mall et al., 2023; Guo et al., 2024a). However, despite their promising results, exist-
+ing MLLM-based EO research still faces several fundamental drawbacks: (1) they cannot process
+diverse EO modalities beyond RGB, such as thermal infrared (TIR), synthetic aperture radar (SAR),
+or hyperspectral imagery (Zhang et al., 2024b); (2) they typically operate on only one or a few im-
+ages at a time (Li et al., 2024b), making it difficult to scale to large EO corpora; (3) they are limited
+to executing only single-step or shallow reasoning like VQA and classification, struggling with com-
+plex multi-hop analytical tasks; and (4) their reasoning is bounded by the static knowledge encoded
+in pretrained parameters, without the ability to integrate external scientific tools or expert models,
+making it difficult to extend beyond the generic capabilities of the foundation model; This naturally
+raises the question: how can we move beyond basic RGB perception and single-step reasoning to de-
+sign models that integrate diverse EO modalities and support complex multi-step scientific analysis?
+Tool-augmented LLM agents represent a promising trajectory beyond MLLMs (Xi et al., 2025; Sun
+et al., 2025; Si et al., 2024; Tian et al., 2024; Tang et al., 2025). Unlike MLLMs that are restricted
+to RGB inputs, simple reasoning, and limited image contexts, agents are not inherently constrained
+by input modality or data volume (Xie et al., 2024; Gao et al., 2024). By leveraging the reasoning
+capabilities of LLMs and dynamically interacting with external tools (Xu et al., 2025), they can flex-
+ibly process diverse EO modalities, perform multi-step analytical reasoning, and integrate domain-
+specific tools and expert models that go beyond the scope of the pretrained MLLM model (Ding
+et al., 2025; Wang et al., 2024c). This mechanism directly tackles the core weaknesses of MLLMs,
+extending beyond RGB to diverse modalities, scaling from single-image inputs to tasks involving
+hundreds of images, advancing from shallow perception to multi-step reasoning, and bridging LLMs
+with external scientific tools for domain-specific analysis.
+However, existing agent-based research in Earth science is still at an early stage (Pantiukhin et al.,
+2025), with existing attempts largely confined to perceptual tasks such as change detection (Liu
+*https://earthengine.google.com
+†https://search.earthdata.nasa.gov
+2

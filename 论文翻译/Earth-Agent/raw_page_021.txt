@@ -1,0 +1,87 @@
+Published as a conference paper at ICLR 2026
+Given a policy π, the agent generates an output trajectory
+τ =
+
+(o0, a0), (o1, a1), . . . , (on, an)
+
+,
+together with a predicted final answer y.
+To comprehensively evaluate the performance of the Agent on the Earth Benchmark, we assess
+its execution process from two perspectives: End-to-End and Step-by-Step. The corresponding
+evaluation metrics are defined as follows:
+End-to-End protocol. End-to-end metrics evaluate the task-level performance of the agent, inde-
+pendent of its intermediate reasoning. We consider two complementary measures:
+(1) Accuracy. The correctness of the final answer is computed as
+Acc = Eg∼G
+
+I{y = y⋆}
+
+,
+(1)
+where I{·} is the indicator function and G is the distribution of benchmark tasks.
+(2) Efficiency. To penalize unnecessarily long trajectories, we measure the relative optimality of tool
+usage:
+Eff(τ, τ ⋆) =
+|τ|
+|τ ⋆|,
+(2)
+where |τ| and |τ ⋆| denote the number of tool calls in the predicted and ground-truth trajectories,
+respectively.
+Step-by-Step protocol. In addition to outcome-based metrics, we also evaluate the fidelity of the
+reasoning trajectory relative to expert annotations. Let t⋆= (t⋆
+1, . . . , t⋆
+m) and t = (t1, . . . , tn)
+denote the tool sequences, and in⋆= (in⋆
+1, . . . , in⋆
+m), in = (in1, . . . , inn) the corresponding
+parameter sequences. We define four metrics:
+(1) Tools-Any-Order (TAO). Coverage of required tools, ignoring order and duplicates:
+TAO(τ, τ ⋆) =
+ Set(t⋆) ∩Set(t)
+
+| Set(t⋆) |
+,
+(3)
+where Set(·) extracts the set of unique tools.
+(2) Tools-In-Order(TIO). Fraction of ground-truth tools matched as a subsequence in the predicted
+sequence:
+k⋆= max
+
+k : ∃1≤j1 < · · · < jk ≤n, tji = t⋆
+i , ∀i ≤k
+	
+,
+TIO(τ, τ ⋆) = k⋆
+m .
+(4)
+(3) Tool-Exact-Match(TEM). Length of the longest common prefix (LCP), normalized by the
+ground-truth length:
+ℓlcp = max
+
+ℓ≤min(m, n) : ti = t⋆
+i , ∀i ≤ℓ
+	
+,
+TEM(τ, τ ⋆) = ℓlcp
+m .
+(5)
+(4) Parameter Accuracy. Exact match of both tool identifiers and arguments under the prefix rule:
+ℓparam = max
+
+ℓ≤min(m, n) : ti = t⋆
+i ∧ini ≡in⋆
+i , ∀i ≤ℓ
+	
+,
+Sparam = ℓparam
+m .
+(6)
+Here ini ≡in⋆
+i denotes structural equality of arguments (e.g., dictionary match).
+C
+BREAKDOWN RESULTS ON DIFFERENT MODALITIES
+Table 8, Table 9, and Table 10 present the detailed evaluation results on different subsets of Earth-
+Bench. In the main analysis, we report only the overall performance across the entire benchmark to
+ensure clarity and comparability. Nevertheless, the breakdown results of individual subsets provide
+valuable insights into potential directions for improving LLMs in Earth Observation tasks.
+21

@@ -1,0 +1,55 @@
+Published as a conference paper at ICLR 2026
+Zhecheng Wang, Rajanie Prabha, Tianyuan Huang, Jiajun Wu, and Ram Rajagopal. Skyscript: A
+large and semantically diverse vision-language dataset for remote sensing. In Proceedings of the
+AAAI Conference on Artificial Intelligence, volume 38, pp. 5805–5813, 2024e.
+Marek W´ojtowicz, Andrzej W´ojtowicz, Jan Piekarczyk, et al. Application of remote sensing meth-
+ods in agriculture. Communications in biometry and crop science, 11(1):31–50, 2016.
+Zhiheng Xi, Wenxiang Chen, Xin Guo, Wei He, Yiwen Ding, Boyang Hong, Ming Zhang, Junzhe
+Wang, Senjie Jin, Enyu Zhou, et al. The rise and potential of large language model based agents:
+A survey. Science China Information Sciences, 68(2):121101, 2025.
+Gui-Song Xia, Jingwen Hu, Fan Hu, Baoguang Shi, Xiang Bai, Yanfei Zhong, Liangpei Zhang, and
+Xiaoqiang Lu. Aid: A benchmark data set for performance evaluation of aerial scene classifica-
+tion. IEEE Transactions on Geoscience and Remote Sensing, 55(7):3965–3981, 2017.
+Gui-Song Xia, Xiang Bai, Jian Ding, Zhen Zhu, Serge Belongie, Jiebo Luo, Mihai Datcu, Marcello
+Pelillo, and Liangpei Zhang. Dota: A large-scale dataset for object detection in aerial images. In
+Proceedings of the IEEE conference on computer vision and pattern recognition, pp. 3974–3983,
+2018.
+Junlin Xie, Zhihong Chen, Ruifei Zhang, Xiang Wan, and Guanbin Li. Large multimodal agents: A
+survey. arXiv preprint arXiv:2402.15116, 2024.
+Zhitong Xiong, Fahong Zhang, Yi Wang, Yilei Shi, and Xiao Xiang Zhu. Earthnets: Empowering
+ai in earth observation. arXiv preprint arXiv:2210.04936, 2022.
+Weikai Xu, Chengrui Huang, Shen Gao, and Shuo Shang. Llm-based agents for tool learning: A
+survey: W. xu et al. Data Science and Engineering, pp. 1–31, 2025.
+Wenjia Xu, Zijian Yu, Boyang Mu, Zhiwei Wei, Yuanben Zhang, Guangzuo Li, and Mugen
+Peng.
+Rs-agent: Automating remote sensing tasks through intelligent agent.
+arXiv preprint
+arXiv:2406.07089, 2024a.
+Yiheng Xu, Dunjie Lu, Zhennan Shen, Junli Wang, Zekun Wang, Yuchen Mao, Caiming Xiong,
+and Tao Yu. Agenttrek: Agent trajectory synthesis via guiding replay with web tutorials. arXiv
+preprint arXiv:2412.09605, 2024b.
+An Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu,
+Chang Gao, Chengen Huang, Chenxu Lv, et al.
+Qwen3 technical report.
+arXiv preprint
+arXiv:2505.09388, 2025.
+Shunyu Yao, Jeffrey Zhao, Dian Yu, Nan Du, Izhak Shafran, Karthik Narasimhan, and Yuan Cao.
+React: Synergizing reasoning and acting in language models. In International Conference on
+Learning Representations (ICLR), 2023.
+Yang Zhan, Zhitong Xiong, and Yuan Yuan. Rsvg: Exploring data and models for visual grounding
+on remote sensing data. IEEE Transactions on Geoscience and Remote Sensing, 61:1–13, 2023.
+Yang Zhan, Zhitong Xiong, and Yuan Yuan. Skyeyegpt: Unifying remote sensing vision-language
+tasks via instruction tuning with large language model. ISPRS Journal of Photogrammetry and
+Remote Sensing, 221:64–77, 2025.
+Kechi Zhang, Jia Li, Ge Li, Xianjie Shi, and Zhi Jin.
+Codeagent: Enhancing code generation
+with tool-integrated agent systems for real-world repo-level coding challenges. arXiv preprint
+arXiv:2401.07339, 2024a.
+Wei Zhang, Miaoxin Cai, Tong Zhang, Yin Zhuang, and Xuerui Mao. Earthgpt: A universal multi-
+modal large language model for multi-sensor image comprehension in remote sensing domain.
+IEEE Transactions on Geoscience and Remote Sensing, 2024b.
+Baichuan Zhou, Haote Yang, Dairong Chen, Junyan Ye, Tianyi Bai, Jinhua Yu, Songyang Zhang,
+Dahua Lin, Conghui He, and Weijia Li. Urbench: A comprehensive benchmark for evaluating
+large multimodal models in multi-view urban scenarios. In Proceedings of the AAAI Conference
+on Artificial Intelligence, volume 39, pp. 10707–10715, 2025.
+16

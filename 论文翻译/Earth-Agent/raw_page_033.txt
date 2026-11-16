@@ -1,0 +1,68 @@
+Published as a conference paper at ICLR 2026
+The Analysis Toolkit provides a suite of statistical and spatiotemporal analysis methods tailored for
+remote sensing and geoscience data. Its functionalities include classical time-series trend detection
+and decomposition techniques such as linear regression, the Mann–Kendall test, Sen’s slope estima-
+tion, and STL decomposition. It also supports change-point detection and seasonal analysis based
+on autocorrelation. In addition, the toolkit integrates spatial statistical approaches, including hotspot
+direction analysis, as well as methods for spike detection in numerical sequences. A detailed list of
+the implemented tools is provided in Table 16.
+Table 16: List of detailed information of Analysis Toolkit.
+Tool Name
+Category
+Description Summary
+compute linear trend
+Analysis
+Computes the linear trend (slope and intercept)
+of a time series by fitting a line of the form:
+y = a · x + b using the least squares method.
+mann kendall test
+Analysis
+Perform the non-parametric Mann-Kendall
+trend test on a univariate time series. The test
+evaluates whether there is a monotonic upward
+or downward trend without requiring the data
+to conform to any particular distribution.
+sens slope
+Analysis
+Compute Sen’s Slope estimator for a univari-
+ate time series. Sen’s Slope is a robust non-
+parametric method for estimating the median
+rate of change over time, often used with the
+Mann-Kendall test to assess both trend and
+magnitude.
+stl decompose
+Analysis
+Apply Seasonal-Trend decomposition using
+LOESS (STL) to a univariate time series. De-
+composes the series into trend, seasonal, and
+residual components.
+detect change points
+Analysis
+Detect structural change points in a univariate
+time series using the ruptures library with the
+PELT algorithm. A change point marks a loca-
+tion where the statistical properties of the sig-
+nal shift (e.g., mean or variance).
+autocorrelation function
+Analysis
+Compute the Autocorrelation Function (ACF)
+for a univariate time series. The ACF measures
+the correlation of the series with its own lags,
+which is useful for detecting seasonality, per-
+sistence, and lag dependence.
+detect seasonality acf
+Analysis
+Detect the dominant seasonality (period) in a
+univariate time series using the Autocorrela-
+tion Function (ACF). The method searches for
+significant peaks in the ACF beyond lag=1 to
+identify repeating cycles.
+getis ord gi star
+Analysis
+Compute the Getis-Ord Gi* statistic for local
+spatial autocorrelation on a raster image. This
+method identifies statistically significant spa-
+tial clusters of high (hot spots) or low (cold
+spots) values using a user-specified spatial
+weight kernel.
+33

@@ -1,0 +1,93 @@
+Published as a conference paper at ICLR 2026
+G.1
+TOOL PROMPT
+To better illustrate the functionality of the toolkits, we provide a representative example. Specif-
+ically, we focus on the lst multi channel tool, which estimates LST using a multi-channel
+algorithm. This method leverages multiple thermal infrared bands from remote sensing imagery
+and applies empirical formulas to derive accurate LST values. The corresponding implementation
+is provided below:
+Tool Example
+1 @mcp.tool(description=’’’
+2 Estimate Land Surface Temperature (LST) using the multi-channel algorithm.
+3 Requires local input files:
+4 - Two thermal infrared bands (e.g., Band 31 and Band 32) as GeoTIFF files.
+5
+6 Parameters:
+7
+band31_path (str): Path to local GeoTIFF file for thermal band 31 (˜11 \mu m}).
+8
+band32_path (str): Path to local GeoTIFF file for thermal band 32 (˜12 \mu m).
+9
+output_path (str): Relative path for the output raster file, e.g. "question17/
+lst_2022-01-16.tif"
+10
+11 Returns:
+12
+str: Local file path of the exported LST image.
+13 ’’’)
+14 def lst_multi_channel(band31_path: str, band32_path: str, output_path: str) -> str:
+15
+"""
+16
+Description:
+17
+Estimate Land Surface Temperature (LST) using the multi-channel algorithm.
+18
+This method combines two thermal infrared bands to reduce atmospheric effects.
+19
+20
+Parameters:
+21
+band31_path (str): Path to GeoTIFF file for thermal band 31 (˜11 \mu m)
+22
+band32_path (str): Path to GeoTIFF file for thermal band 32 (˜12 \mu m)
+23
+output_path (str): Relative path for the output LST GeoTIFF
+24
+25
+Returns:
+26
+str: Full path to the saved LST GeoTIFF
+27
+"""
+28
+import os, rasterio
+29
+import numpy as np
+30
+31
+with rasterio.open(band31_path) as src31:
+32
+band31 = src31.read(1).astype(np.float32)
+33
+profile = src31.profile
+34
+35
+with rasterio.open(band32_path) as src32:
+36
+band32 = src32.read(1).astype(np.float32)
+37
+38
+a = 1.022
+39
+b = 0.47
+40
+c = 0.43
+41
+42
+lst = a * band31 + b * (band31 - band32) + c
+43
+44
+profile.update(dtype=rasterio.float32, count=1, compress=’lzw’)
+45
+46
+os.makedirs((TEMP_DIR / output_path).parent, exist_ok=True)
+47
+48
+with rasterio.open(TEMP_DIR / output_path, ’w’, **profile) as dst:
+49
+dst.write(lst.astype(np.float32), 1)
+50
+51
+return f’Result saved at {TEMP_DIR / output_path}’
+37

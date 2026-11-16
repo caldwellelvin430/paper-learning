@@ -1,0 +1,53 @@
+Published as a conference paper at ICLR 2026
+calculate water turbidity ntu
+Inversion
+Calculate water turbidity in NTU (Nephelo-
+metric Turbidity Units) from red band raster
+file and save the result to a specified output
+path.
+The Perception Toolkit provides a comprehensive set of remote sensing perception tools, covering a
+wide range of tasks such as scene classification, object detection, and change detection. In addition,
+it supports threshold-based segmentation and offers a series of post-processing utilities for bounding
+box and contour refinement. Overall, the toolkit enables diverse perception tasks on RGB remote
+sensing imagery, including scene recognition, semantic segmentation, and spatiotemporal change
+detection. A detailed list of the implemented tools is provided in Table 15.
+Table 15: List of detailed information of Perception Toolkit.
+Tool Name
+Category
+Description Summary
+MSCN
+Perception
+MSCN is a scene and land-use image classi-
+fier, effective for categories such as Airport,
+BareLand, BaseballField, Beach, Bridge, Cen-
+ter, Church, Commercial, DenseResidential,
+Desert, Farmland, Forest, Industrial, Meadow,
+MediumResidential, Mountain, Park, Parking,
+Playground, Pond, Port, RailwayStation, Re-
+sort, River, School, SparseResidential, Square,
+Stadium, StorageTanks, and Viaduct.
+RemoteCLIP
+Perception
+RemoteCLIP is a scene and land-use image
+classifier, specialized for categories such as
+Airport, Beach, Bridge, Commercial, Desert,
+Farmland, FootballField, Forest, Industrial,
+Meadow, Mountain, Park, Parking, Pond,
+Port, RailwayStation, Residential, River, and
+Viaduct.
+Strip R CNN
+Perception
+Strip R CNN is a remote sensing object de-
+tection model with a strong focus on mar-
+itime and ship-related targets. Compared to
+SM3Det, it is particularly specialized in de-
+tecting and localizing different types of ships
+and naval vessels. This model is highly effec-
+tive at detecting the following categories: L3
+ship, L3 warcraft, L3 merchant ship, L3 air-
+craft carrier, Arleigh Burke, Container, Ticon-
+deroga, Perry, Tarawa, WhidbeyIsland, Com-
+manderA, Austen, Nimitz, Sanantonio, Con-
+tainer, Car carrierB, Enterprise, Car carrierA,
+Medical
+31

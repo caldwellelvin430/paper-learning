@@ -1,0 +1,55 @@
+Published as a conference paper at ICLR 2026
+Pietro Ceccato, St´ephane Flasse, Stefano Tarantola, St´ephane Jacquemoud, and Jean-Marie
+Gr´egoire. Detecting vegetation leaf water content using reflectance in the optical domain. Re-
+mote Sensing of Environment, 77(1):22–33, 2001.
+ISSN 0034-4257.
+doi: https://doi.org/10.
+1016/S0034-4257(01)00191-2.
+URL https://www.sciencedirect.com/science/
+article/pii/S0034425701001912.
+Olena Chala, Vladyslav Yevsieiev, Svitlana Maksymova, and Amer Abu-Jassar.
+Mathematical
+model based on multi-agent reinforcement learning (marl) and partially observable markov deci-
+sion process (pomdp) for modeling cargo movement for a mobile robots group. Multidisciplinary
+Journal of Science and Technology, 5(4):480–489, 2025.
+Chen Chen, Xinlong Hao, Weiwen Liu, Xu Huang, Xingshan Zeng, Shuai Yu, Dexun Li, Shuai
+Wang, Weinan Gan, Yuefeng Huang, et al. Acebench: Who wins the match point in tool usage?
+arXiv preprint arXiv:2501.12851, 2025.
+Jun Chen, Deyao Zhu, Xiaoqian Shen, Xiang Li, Zechun Liu, Pengchuan Zhang, Raghuraman
+Krishnamoorthi, Vikas Chandra, Yunyang Xiong, and Mohamed Elhoseiny. Minigpt-v2: large
+language model as a unified interface for vision-language multi-task learning. arXiv preprint
+arXiv:2310.09478, 2023.
+Gheorghe Comanici, Eric Bieber, Mike Schaekermann, Ice Pasupat, Noveen Sachdeva, Inderjit
+Dhillon, Marcel Blistein, Ori Ram, Dan Zhang, Evan Rosen, et al. Gemini 2.5: Pushing the
+frontier with advanced reasoning, multimodality, long context, and next generation agentic capa-
+bilities. arXiv preprint arXiv:2507.06261, 2025.
+N. DiGirolamo, C. L. Parkinson, D. J. Cavalieri, P. Gloersen, and H. J. Zwally. Sea ice concentrations
+from nimbus-7 smmr and dmsp ssm/i-ssmis passive microwave data, 2022. URL https://
+doi.org/10.5067/MPYG15WAA4WX. NSIDC-0051. [Data Set]. Accessed: 2025-09-23.
+Keyan Ding, Jing Yu, Junjie Huang, Yuchen Yang, Qiang Zhang, and Huajun Chen. Scitoolagent: a
+knowledge-graph-driven scientific agent for multitool integration. Nature Computational Science,
+pp. 1–11, 2025.
+Sijun Dong, Libo Wang, Bo Du, and Xiaoliang Meng. Changeclip: Remote sensing change detection
+with multimodal vision-language representation learning. ISPRS Journal of Photogrammetry and
+Remote Sensing, 208:53–69, 2024.
+Chen Gao, Xiaochong Lan, Nian Li, Yuan Yuan, Jingtao Ding, Zhilun Zhou, Fengli Xu, and Yong
+Li. Large language models empowered agent-based modeling and simulation: A survey and
+perspectives. Humanities and Social Sciences Communications, 11(1):1–24, 2024.
+Haonan Guo, Xin Su, Chen Wu, Bo Du, Liangpei Zhang, and Deren Li. Remote sensing chat-
+gpt: Solving remote sensing tasks with chatgpt and visual models. In IGARSS 2024-2024 IEEE
+International Geoscience and Remote Sensing Symposium, pp. 11474–11478. IEEE, 2024a.
+Zhicheng Guo, Sijie Cheng, Hao Wang, Shihao Liang, Yujia Qin, Peng Li, Zhiyuan Liu, Maosong
+Sun, and Yang Liu. Stabletoolbench: Towards stable large-scale benchmarking on tool learning
+of large language models. arXiv preprint arXiv:2403.07714, 2024b.
+Jia He and Zhizhao Liu. Water vapor retrieval from modis nir channels using ground-based gps data.
+IEEE Transactions on Geoscience and Remote Sensing, 58(5):3726–3737, 2020. doi: 10.1109/
+TGRS.2019.2962057.
+Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang. Model context protocol (mcp): Land-
+scape, security threats, and future research directions. arXiv preprint arXiv:2503.23278, 2025.
+Huiyang Hu, Peijin Wang, Yingchao Feng, Kaiwen Wei, Wenxin Yin, Wenhui Diao, Mengyu Wang,
+Hanbo Bi, Kaiyue Kang, Tong Ling, et al. Ringmo-agent: A unified remote sensing foundation
+model for multi-platform and multi-modal reasoning. arXiv preprint arXiv:2507.20776, 2025a.
+Yuan Hu, Jianlong Yuan, Congcong Wen, Xiaonan Lu, Yu Liu, and Xiang Li. Rsgpt: A remote
+sensing vision language model and benchmark. ISPRS Journal of Photogrammetry and Remote
+Sensing, 224:272–286, 2025b.
+11

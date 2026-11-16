@@ -1,0 +1,81 @@
+Published as a conference paper at ICLR 2026
+SM3Det
+Perception
+SM3Det is a remote sensing object detection
+model.
+Given an input image and a natu-
+ral language prompt specifying the target ob-
+ject (e.g., “plane”, “ship”, “storage tank”),
+it detects all instances of that object and re-
+turns their bounding boxes.
+This model is
+particularly strong at detecting and localizing
+the following categories:plane, ship, storage
+tank, baseball diamond, tennis court, basket-
+ball court, ground track field, harbor, bridge,
+large vehicle, small vehicle, helicopter, round-
+about, soccer ball field, swimming pool.
+RemoteSAM
+Perception
+RemoteSAM is a remote sensing visual
+grounding model. Given an input image and
+a text prompt describing a region of interest
+(e.g., “the football field located on the west-
+ernmost side”), it outputs the corresponding
+bounding box coordinates.
+InstructSAM
+Perception
+InstructSAM is an instruction-guided counting
+model for remote sensing images. Given an in-
+put image and a natural language prompt spec-
+ifying the target object (e.g., “storage tank”,
+“football field”), it detects and counts the num-
+ber of instances matching the description.
+SAM2
+Perception
+Use SAM2 to segment the input image and re-
+turn the path of the segmented image.
+ChangeOS
+Perception
+Use ChangeOS to detect the change between
+two images and return the change mask. Can
+also be used to segment building by provid-
+ing same image path in pre image path and
+post image path.
+threshold segmentation
+Perception
+Perform threshold-based segmentation on a
+single-band raster image. The function reads a
+raster image from the specified path, converts
+it to a binary mask by applying a fixed thresh-
+old, and writes the resulting binary image to a
+new file. Pixel values greater than the thresh-
+old are set to 255 (white), and values less than
+or equal to the threshold are set to 0 (black).
+bbox expansion
+Perception
+Expands bounding boxes by a given radius and
+returns the expanded bounding boxes.
+count above threshold
+Perception
+Count the number of pixels in an image whose
+values are greater than the specified threshold.
+count connected components
+Perception
+Read a binary image and return the count of
+connected components.
+bboxes2centroids
+Perception
+Convert bounding boxes from [x min, y min,
+x max, y max] format to centroid coordinates
+(x, y).
+centroid distance extremes
+Perception
+Compute pairwise distances between centroids
+and return both the closest and farthest pairs
+with their indices and distances.
+calculate bbox area
+Perception
+Calculate the total area of a list of bounding
+boxes in [x, y, w, h] format.
+32

@@ -1,0 +1,48 @@
+Published as a conference paper at ICLR 2026
+across diverse EO tasks: for example, LHRS-Bot achieves strong results in classification but strug-
+gles on detection and grounding, while VHM attains high classification accuracy but cannot even
+handle detection or segmentation tasks. In contrast, Earth-Agent interacts with a predefined toolkit
+of 104 geoscience functions and expert models, allowing it to adaptively invoke specialized tools or
+models for each task type. This modular design enables Earth-Agent to maintain robust performance
+across modalities, overcoming the limited extensibility of previous MLLM-based EO systems.
+6
+CONCLUSION
+Earth-Agent marks a significant advancement in applying (M)LLMs to EO analysis, extending RGB
+perception to Spectrum, Products and RGB modalities. By shifting from single-step inference with
+pretrained MLLMs to multi-step reasoning through external tool/model integration, it overcomes
+key limitations of prior MLLM-based approaches, such as handling numerous image inputs and
+quantitative spatiotemporal analysis. To support rigorous evaluation, we introduced Earth-Bench,
+which requires multi-step quantitative reasoning and dual-level evaluation, which evaluate both rea-
+soning trajectories and final outcomes. Our experiments further reveal the current bottlenecks of
+Earth-Agent in EO applications and provide detailed diagnostics. Finally, by comparing with both
+general agents and domain MLLMs, we highlight the transformative potential of Earth-Agent as a
+foundation for the revolutio of LLM applications in Earth observation.
+ETHICS STATEMENT
+This work adheres to the ICLR Code of Ethics. In this study, no human subjects or animal ex-
+perimentation was involved. All datasets used, including GEE, NASA EarthData, AID, DOTA,
+HRSC2016, DIOR-RSVG, were sourced in compliance with relevant usage guidelines, ensuring no
+violation of privacy. We have taken care to avoid any biases or discriminatory outcomes in our
+research process. No personally identifiable information was used, and no experiments were con-
+ducted that could raise privacy or security concerns. We are committed to maintaining transparency
+and integrity throughout the research process.
+REPRODICIBILITY STATEMENT
+We are committed to ensuring the full reproducibility of our work. The proposed Agent framework
+is described in Section 3, while the evaluated models and metrics are detailed in Appendix B. To
+further support transparency, we will release our codebase, which includes the Agent framework,
+evaluation scripts, and other relevant components, and we will also provide the evaluation logs from
+the agent experiments, enabling the community to replicate our results and build upon them.
+ACKNOWLEDGEMENTS
+This project was funded by National Natural Science Foundation of China (Grant No. 62571560)
+and Shanghai AI Laboratory.
+REFERENCES
+Abdulaziz Amer Aleissaee, Amandeep Kumar, Rao Muhammad Anwer, Salman Khan, Hisham
+Cholakkal, Gui-Song Xia, and Fahad Shahbaz Khan. Transformers in remote sensing: A survey.
+Remote Sensing, 15(7):1860, 2023.
+Katherine Anderson, Barbara Ryan, William Sonntag, Argyro Kavvada, and Lawrence Friedl. Earth
+observation in service of the 2030 agenda for sustainable development. Geo-spatial Information
+Science, 20(2):77–96, 2017.
+Christopher F Brown, Michal R Kazmierski, Valerie J Pasquarella, William J Rucklidge,
+Masha Samsikova, Chenhui Zhang, Evan Shelhamer, Estefania Lahera, Olivia Wiles, Simon
+Ilyushchenko, et al. Alphaearth foundations: An embedding field model for accurate and effi-
+cient global mapping from sparse label data. arXiv preprint arXiv:2507.22291, 2025.
+10

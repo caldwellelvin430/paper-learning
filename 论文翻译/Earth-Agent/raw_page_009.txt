@@ -1,0 +1,137 @@
+Published as a conference paper at ICLR 2026
+Obs.3. Across nearly all models, the ability to identify the correct set of tools, as reflected in
+Tool-Any-Order and Tool-In-Order metrics, remains consistently strong. However, models often
+introduce irrelevant steps during reasoning, which undermines their accuracy on Tool-Exact-Match
+and parameter execution. Crucially, these two fine-grained capabilities are indispensable in real EO
+analysis workflows. For example, if additional transformations are mistakenly applied to the EO
+data process, it becomes extremely difficult to obtain correct results in the subsequent steps. Their
+weakness therefore exposes a key bottleneck that prevents EO Agents from achieving higher final
+accuracy in EO data processing.
+5.3
+COMPARISON WITH GENERAL AGENTS
+Since many Earth-Bench tasks involve processing hundreds of images, existing open-source agent
+frameworks cannot handle these questions due to input size constraints. To enable fair comparison,
+we construct Earth-Bench-Lite, a reduced yet representative subset that preserves modality diver-
+sity while remaining within the capacity of general-purpose agents. It consists of 60 questions evenly
+distributed across the three EO modalities: Spectrum, Products, and RGB. As shown in Table 2, we
+report results across three modalities: Spectrum, Products, and RGB.
+Table 2: Comparison with general agents on Earth-Bench-Lite. Results are reported across Spec-
+trum, Products, RGB modalities. We bold the best results and underline the runner-ups.
+Method
+Spectrum
+Products
+RGB
+Avg.
+Latency
+GPT-Agent
+45.00
+31.60
+45.26
+40.42
+≈300 min
+MGX
+40.00
+15.80
+0.00
+18.60
+≈60 min
+Manus
+15.00
+15.80
+47.62
+26.14
+≈150 min
+Coze
+35.00
+10.50
+0.00
+15.30
+≈120 min
+Earth-Agent(GPT5)
+65.00
+36.84
+65.71
+55.83
+158 min
+Earth-Agent(Deepseek-V3.1)
+50.00
+42.11
+51.43
+47.84
+79 min
+Earth-Agent(Kimik2)
+36.84
+50.00
+50.00
+45.95
+131 min
+By comparison, general agents show limited modality coverage. They can handle relatively simple
+Spectrum tasks by writing ad-hoc code, but perform poorly on Products tasks due to the lack of
+domain-specific spatiotemporal analysis tools. For the RGB modality, MGX and Coze even fail to
+complete any tasks. In contrast, by interacting with 104 predefined geoscience tools, Earth-Agent
+consistently achieves superior performance across all three modalities, whether driven by the closed-
+source GPT-5 or the open-source DeepSeek-V3.1. We also compared the latency of our Earth-Agent
+framework with that of the baseline agents. The latency remains within a reasonable range when
+compared to existing general agents. The substantial performance improvements in task completion
+more than justify the additional computational cost. A detailed discussion can be found in the
+Appendix E.
+5.4
+COMPARISON WITH MLLM-BASED EO METHODS
+We further compare Earth-Agent with remote sensing large models on classification, detection, and
+segmentation tasks. The results are summarized in Table 3.
+Table 3: Comparison with MLLMs on Remote sense benchmarks. Results are reported on classifi-
+cation, detection, and segmentation tasks. We bold the best results and underline the runner-ups.
+Model
+Classification
+Detection
+Grounding
+AID
+WHU-RS19
+DOTA
+HRSC2016
+DIOR-RSVG
+MiniGPT-v2 (Chen et al., 2023)
+32.96
+64.80
+14.8
+24.8
+29.892
+LLaVA-1.5 (Liu et al., 2024d)
+51.00
+74.52
+17.5
+22.1
+12.085
+Sphinx (Lin et al., 2023)
+58.20
+-
+15.1
+25.7
+0.939
+Geochat (Kuckreja et al., 2024)
+72.03
+86.47
+16.5
+24.0
+10.024
+VHM (Pang et al., 2025)
+91.70
+95.80
+-
+-
+-
+LHRS-Bot (Muhtar et al., 2024)
+91.26
+93.17
+17.1
+24.4
+11.826
+Earth-Agent (ours)
+93.42
+96.12
+60.88
+65.60
+60.46
+Earth-Agent demonstrates clear superiority over existing MLLMs across classification, detection,
+and segmentation benchmarks (Table 3). Prior MLLM-based approaches often lack generalization
+9

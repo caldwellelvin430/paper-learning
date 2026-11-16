@@ -1,0 +1,64 @@
+Published as a conference paper at ICLR 2026
+v
+Manus
+:B
+Coze
+:FAIL
+Ground Truth
+:A
+:FAIL
+MGX
+Operator
+:B
+Earth-Agent(DeepSeek-V3.1)
+:A
+Earth-Agent(GPT5)
+:A
+Question: Based on the following images, every image belongs to Airport, BareLand, 
+BaseballField, Beach, Bridge, Center, Church, Commercial, DenseResidential, Desert, 
+Farmland, Forest, Industrial, Meadow, MediumResidential, Mountain, Park, Parking, 
+Playground, Pond, Port, RailwayStation, Resort, River, School, SparseResidential, 
+Square, Stadium, StorageTanks, Viaduct, determine the number of images captured in 
+bareland areas.
+A."3",
+B.“8",
+C."10",
+D."6"
+RGB:
+[classification]
+…
+RBG×12
+Figure 39: A Question Case of the Classification Task using RGB Data with Responses from
+Different Agent.
+v
+Manus
+:B
+Coze
+:FAIL
+Ground Truth
+:B
+:FAIL
+MGX
+Operator
+:B
+Earth-Agent(DeepSeek-V3.1)
+:B
+Earth-Agent(GPT5)
+:B
+Question:Based on the following images, every image belongs to {Airport, 
+BareLand, BaseballField, Beach, Bridge, Center, Church, Commercial, 
+DenseResidential, Desert, Farmland, Forest, Industrial, Meadow, 
+MediumResidential, Mountain, Park, Parking, Playground, Pond, Port, RailwayStation, 
+Resort, River, School, SparseResidential, Square, Stadium, StorageTanks, Viaduct}, 
+determine the number of images captured in mountain areas.
+A.“11",
+B.“3",
+C.“2",
+D.“7"
+RGB:
+[classification]
+…
+RGB×11
+Figure 40: A Question Case of the Classification Task using RGB Data with Responses from
+Different Agent.
+64

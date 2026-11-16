@@ -1,0 +1,85 @@
+Published as a conference paper at ICLR 2026
+I
+CASE STUDY: COMPARE WITH OTHER AGENTS
+v
+Question: Analyze the nighttime light intensity trend in Leon (2013-2024) 
+using linear regression.
+A."Slope: 0.10; Intercept: 1.85",
+B."Slope: 0.12; Intercept: 1.96",
+C."Slope: 0.14; Intercept: 2.05",
+D."Slope: 0.16; Intercept: 2.12"
+Manus
+:FAIL
+Coze
+:B
+Ground Truth
+:C
+:B
+MGX
+Operator
+:A
+Earth-Agent(DeepSeek-V3.1)
+:B
+Earth-Agent(GPT5)
+:B
+Products:
+[Urban Management]
+...
+avg_rad×12
+Figure 36: A Question Case of the Urban Management Task using Products Data with Re-
+sponses from Different Agent.
+v
+Question: Compare the nighttime light intensity between Mtwara and Santiago 
+de Chile from January to March 2015, and calculate their average intensity 
+difference.
+A."4.87",
+B."5.02",
+C."5.21",
+D."5.36"
+Manus
+:C
+Coze
+:C
+Ground Truth
+:B
+:C
+MGX
+Operator
+:C
+Earth-Agent(DeepSeek-V3.1)
+:C
+Earth-Agent(GPT5)
+:C
+Products:
+[Urban Management]
+Figure 37: A Question Case of the Urban Management Task using Products Data with Re-
+sponses from Different Agent.
+v
+Manus
+:B
+Coze
+:FAIL
+Ground Truth
+:B
+:FAIL
+MGX
+Operator
+:C
+Earth-Agent(DeepSeek-V3.1)
+:FAIL
+Earth-Agent(GPT5)
+:A
+Question:Based on satellite imagery before and after the natural disaster, 
+determine how many buildings were completely destroyed using pre- and post-
+disaster satellite images.
+A.“None building was completely destroyed.",
+B.“1 building was completely destroyed. ",
+C.“2 building was completely destroyed. ",
+D.“3 building was completely destroyed."
+RGB:
+[detection]
+RGB:
+[change detection]
+Figure 38: A Question Case of the Change Detection Task using RGB Data with Responses
+from Different Agent.
+63

@@ -1,0 +1,88 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Analyze the precipitation index of the Congo Rainforest from May 1 to May 31, 2025. Calculate the 
+daily average rainfall of the region during this period, and use a linear trend to determine the rainfall trend over 
+these 31 days.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question145"}
+"output": [\"Congo_precipitation_2025-05-01.tif\",…, \"Congo_precipitation_2025-05-30.tif"]
+"name": calc_batch_image_mean
+"input": "file_list": ["benchmark/data/question145/Congo_precipitation_2025-05-01.tif",..., 
+"benchmark/data/question145/Congo_precipitation_2025-05-30.tif"]
+"output": [16.150558471679688,…, 12.77880573272705]
+Products:
+[Weather Forecasting]
+A. The daily average rainfall is 6.18 mm, and the rainfall shows a slightly increasing trend.
+B. The daily average rainfall is 6.18 mm, and the rainfall shows a slightly decreasing trend.
+C. The daily average rainfall is 8.25 mm, and the rainfall shows a slightly increasing trend. 
+D. The daily average rainfall is 8.25 mm, and the rainfall shows a slightly decreasing trend.
+E. The daily average rainfall is 5.03 mm, and the rainfall shows a slightly decreasing trend.
+"final answer": “A"
+Final
+Kimi-K2
+Step 1-2
+Step 4
+"name": compute_linear_trend
+"input":"y": [16.150558471679688,…, 12.77880573272705]
+"output": [0.02519952430077995,6.181187635467897]
+Step-by-Step:
+TAO: 1.0
+End-to-End:          Efficiency:  1.2500
+TIO: 1.0 
+TEM: 0.25 
+Param.: 0.25 
+Acc: 100% 
+Tool 1: get_filelist
+Tool 4: compute_linear_trend
+GT
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> C
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: calc_batch_image_mean
+Tool 5: calc_batch_image_mean_mean
+->
+Tool 4
+Tool 3: mean
+Tool 1
+Tool 2
+->
+Tool 4
+->
+-> A
+Tool 5
+->
+Tool 1
+Tool 3
+->
+Tool 5
+->
+-> A
+Tool 2
+->
+×𝟐
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> A
+->
+Tool 4
+Tool 4
+->
+×𝟐
+Instruction Following
+Step 3
+… 
+precipitation × 30
+Figure 27: Example of Weather Management with Products Data under the Instruction-
+Following Regime.
+54

@@ -1,0 +1,101 @@
+Evaluation of Code LLMs on Geospatial Code Generation
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+3.5
+Dataset Summary
+In total, our dataset consists of 20 unique geospatial tasks of varius
+types. After augmentations within the dimensions described above,
+we obtained 77 samples to form our dataset. In the first dimension
+of categorisation, we have 13 single-step and 7 multi-step tasks.
+Separately, we can summarise the tasks according to the other
+dimensions - used input, tools, and framing. This is presented in
+Table 1. Every sample can fit into multiple categories, because it
+may use more than one tool. Examples of the considered tasks are
+presented in Listings 2 and 3.
+def check_country(
+point: shapely.geometry.Point ,
+countries: str ,
+) -> str:
+""" Check in which country a point is. The countries
+is the path to the geojson with countries boundaries
+with `name ` feature."""
+Listing 2: Single operation task with Shapely and GeoJSON.
+import geopandas as gpd
+def building_to_parcel_ratio(
+buildings_gdf: gpd.GeoDataFrame ,
+parcels_gdf: gpd.GeoDataFrame ,
+) -> float:
+""" Calculate the mean ratio of the buliding area
+compared to the parcel it stands on."""
+Listing 3: Multi-step task using GeoPandas.
+4
+AN EVALUATION OF EXISTING CODE LLMS
+IN GEOSPATIAL TASKS
+This section describes an evaluation of generic code generation
+models on our newly created dataset covering geospatial coding
+problems. The section first describes the experimental setup, where
+we highlight the models selection and evaluation metrics. Then we
+present the results of our experiments.
+4.1
+Experimental Setup
+Models. We decided to use a combination of code specific models
+and base LLMs. All of the models are available on HuggingFace [27]
+We used the transformers library to load the models and the bit-
+sandbytes library2 to run them efficiently, considering 4-bits per
+parameter. We selected 7 models for our experiments:
+• bigcode/starcoder2-7b [15];
+• meta-llama/CodeLlama-7b-hf [24];
+• meta-llama/CodeLlama-7b-Python-hf [24];
+• meta-llama/Meta-Llama-3-8B [1];
+• mistralai/Mistral-7B-v0.1 [9];
+• google/gemma-7b [7];
+• google/codegemma-7b [5].
+2https://github.com/TimDettmers/bitsandbytes
+We argue that 7B/8B parameter versions of the models are worth
+testing in this scenario, because they can be efficiently used on
+personal machines. This makes them good candidates as the foun-
+dation to fine-tuned versions designed for geospatial tasks, which
+could be used as AI coding assistants.
+Evaluation metrics. When testing the correctness of generated
+code, we used three metrics:
+• Accuracy - A simple percentage of passed test cases, summed
+across all samples in our dataset.
+• Pass@1 - A percentage of completely correct solutions (i.e.,
+passing all test cases) among all samples in our dataset.
+• Pass_any@1 - A percentage of solutions which pass at least
+one test case, again over all dataset instances.
+We also report pass@1 on the HumanEval dataset according
+to the Big Code Models Leaderboard3 (for code models) and the
+EvalPlus Leadeboard4 (for generic LLMs). This gives us a reference
+on how those models compare on generic programming tasks.
+Hyperparameters. Since we evaluate our models via the pass@1
+metric, we used greedy decoding to produce a single output. We set
+the 𝑚𝑎𝑥_𝑙𝑒𝑛𝑔𝑡ℎ= 200, which we verified to be enough to generate
+a complete function for all of the models and test cases.
+Evaluation pipeline. For testing, we first have to clean the gener-
+ated code. We trim the response to only contain a single function.
+We do this by searching for the second occurrence of the "def "
+string. To avoid errors which may be a result of missing imports,
+we searched through the generated answers in search for all li-
+braries that the models wanted to use. We then install them in a
+virtual environment in their most recent versions. Before running
+tests, we import them all. By doing this, we make the task easier
+(i.e., the model does not have to generate imports). However, this is
+consistent with the prompt format which we selected. Since we gen-
+erate the code after the docstring, and since it is very uncommon
+to put imports inside functions, it would be highly unlikely that
+models generate imports there. We aim to test the capabilities to
+solve geospatial tasks, not the abilities to generate correct imports
+in unorthodox places.
+Computational resources. Experiments were conducted on two
+different machines. First, we used a machine with an Nvidia GTX
+1080 with 8GB of VRAM. For running models, we used the trans-
+formers library and we loaded them in 4-bits quantization using
+bitsandbytes. All of the models fit on this GPU, which means that
+our experiments could be easily recreated on consumer grade hard-
+ware. However, to speed up the computation of final experiments,
+we used a machine with a single Nvidia A100 80GB card, which
+allowed us to run code generation in parallel. We made sure to
+keep the same configuration as on the first machine, to ensure
+reproducibility.
+3https://huggingface.co/spaces/bigcode/bigcode-models-leaderboard (7.06.2024)
+4https://evalplus.github.io/leaderboard.html (7.06.2024)

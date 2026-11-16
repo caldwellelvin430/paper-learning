@@ -1,0 +1,231 @@
+Published as a conference paper at ICLR 2026
+When executed, the program produces explicit input and output arguments for each function call, as
+well as the final output of the main() function. JSON Annotation. Each function call is then trans-
+lated into a structured JSON record to align with the ReAct-style trajectory annotation. The function
+name corresponds to the action tool name, the function input arguments corresponds to the action
+passed by the agent, and the function output arguments corresponds to the tool responses returned
+to the agent. The final output of the main() function is recorded as the ground-truth answer for the
+problem. This provides a complete record of both the reasoning trajectory and the final answer.
+5
+EXPERIMENTS
+5.1
+EXPERIMENTAL SETUP
+Evaluated Models. We evaluate 3 closed-source and 10 leading open-source LLMs. For closed-
+source models, we consider GPT-5 (OpenAI, 2025a), GPT-4o (OpenAI, 2024), and Gemini-
+2.5 (Comanici et al., 2025).
+For open-source models, including Deepseek-V3.1 (Liu et al.,
+2024a), Kimik2 (Team et al., 2025), Qwen3-max-Preview, Qwen3-32B (Yang et al., 2025), and
+InternVL3.5 (Wang et al., 2025b), which represent the smartest open LLMs available to date.
+5.2
+EARTH-AGENT WITH DIFFERENT LLM BACKBONES
+As shown in Table 1, we evaluate the impact of different LLM backbones on Earth-Bench. Results
+are reported under both step-by-step and end-to-end evaluation protocols, allowing us to jointly
+assess the quality of reasoning trajectories and final outcomes. The following observations can be
+made:
+Table 1: Performance of different LLM backbones on Earth-Bench under both Auto-Planning (AP)
+and Instruction-Following (IF) regimes. Results are reported with dual-level evaluation, covering
+Accuracy, Efficiency for final outcomes and Tool-Any-Order, Tool-In-Order, Tool-Exact-Match, Pa-
+rameters for trajectory quality. We bold the best results and underline the runner-ups.
+Model
+Accuracy
+Efficiency
+Tool-Any-Order
+Tool-In-Order
+Tool-Exact-Match
+Parameters
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+AP
+IF
+GPT-5
+65.99
+62.35↓
+2.3560
+2.9093
+68.74
+71.41↑
+57.71
+61.06↑
+44.97
+46.01↑
+26.11
+25.91↓
+Gemini-2.5
+52.23
+53.04↑
+2.9958
+2.4595
+58.04
+61.63↑
+45.31
+50.72↑
+31.32
+41.04↑
+17.26
+23.43↑
+GPT-4o
+43.72
+44.94↑
+2.1211
+2.6007
+65.65
+67.02↑
+50.76
+53.04↑
+46.26
+47.41↑
+26.55
+27.92↑
+Kimik2
+50.61
+56.68↑
+1.8542
+2.1793
+71.03
+78.86↑
+57.57
+68.83↑
+42.11
+51.15↑
+25.90
+30.45↑
+DeepSeek-V3.1
+51.42
+52.23↑
+2.6116
+2.6303
+78.31
+78.66↑
+62.73
+64.50↑
+48.54
+49.58↑
+30.81
+31.36↑
+Qwen3-Max
+50.20
+47.37↓
+1.8810
+1.9511↓
+69.56
+70.14↑
+53.28
+56.02↑
+37.02
+42.74↑
+21.83
+26.27↑
+Seed-1.6
+52.48
+59.51↑
+1.3110
+1.3408↓
+55.43
+59.44↑
+40.67
+46.79↑
+28.39
+35.47↑
+18.32
+23.13↑
+LLaMA-4
+44.94
+38.46↓
+0.2886
+0.3211↓
+16.51
+22.41↑
+2.45
+12.05↑
+1.70
+9.05↑
+1.30
+6.46↑
+Qwen-Plus
+42.51
+38.46↓
+1.5119
+1.5854↓
+52.04
+55.96↑
+30.75
+39.77↑
+11.69
+25.51↑
+9.12
+16.95↑
+GLM-4.5v
+32.86
+35.25↑
+1.7123
+2.0129↓
+42.48
+46.69↑
+28.57
+35.24↑
+14.12
+19.95↑
+11.02
+15.37↑
+Mistral
+29.96
+22.67↓
+0.9552
+0.8802↑
+27.73
+29.64↑
+11.78
+20.90↑
+9.13
+18.13↑
+7.24
+11.66↑
+Qwen3-32B
+20.65
+24.80↑
+2.7274
+1.9010↑
+39.76
+42.39↑
+21.56
+33.79↑
+9.51
+26.10↑
+8.17
+17.73↑
+InternVL-3.5
+26.72
+26.72
+0.1206
+0.1750↓
+8.83
+16.62↑
+3.87
+10.59↑
+2.02
+9.32↑
+1.46
+5.32↑
+Obs.1. LLM models pretrained with tool calling, such as GPT-5, Gemini-2.5, DeepSeek-V3.1,
+Kimik2, and Qwen3, demonstrate strong performance across both step-by-step and end-to-end eval-
+uations. Further, closed-source models like GPT-5 typically achieve higher final accuracy, while
+open-source models, particularly DeepSeek-V3.1 and Kimik2, outperform GPT-5 in tool-use ac-
+curacy, demonstrating superior performance in reasoning trajectory alignment. We have provided
+a detailed analysis of the LLMs’ performance across the Spectrum, Products, and RGB modalities,
+which can be found in Appendix C.
+Obs.2. Instruction-following regimes enhance tool calling by providing explicit step guidance in the
+query, leading to improved tool calling accuracy across nearly all models. Interestingly, despite the
+improved reasoning trajectories, this does not necessarily lead to higher final accuracy. In fact, for
+some advanced models, this added complexity may even result in a decrease in final accuracy. We
+have conducted a detailed error analysis of Earth-Agent’s performance in the Earth-Bench bench-
+mark, focusing on representative models such as GPT-5, DeepSeek-V3.1, Kimik2, and Qwen3-max.
+This can be found in Appendix D.
+8

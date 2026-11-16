@@ -1,0 +1,51 @@
+Published as a conference paper at ICLR 2026
+Hao Su, Shunjun Wei, Min Yan, Chen Wang, Jun Shi, and Xiaoling Zhang. Object detection and
+instance segmentation in remote sensing imagery based on precise mask r-cnn. In IGARSS 2019-
+2019 IEEE International Geoscience and Remote Sensing Symposium, pp. 1454–1457. IEEE,
+2019.
+Qiushi Sun, Zhoumianze Liu, Chang Ma, Zichen Ding, Fangzhi Xu, Zhangyue Yin, Haiteng Zhao,
+Zhenyu Wu, Kanzhi Cheng, Zhaoyang Liu, et al.
+Scienceboard: Evaluating multimodal au-
+tonomous agents in realistic scientific workflows. arXiv preprint arXiv:2505.19897, 2025.
+Jiabin Tang, Lianghao Xia, Zhonghang Li, and Chao Huang. Ai-researcher: Autonomous scientific
+innovation. arXiv preprint arXiv:2505.18705, 2025.
+Kimi Team, Yifan Bai, Yiping Bao, Guanduo Chen, Jiahao Chen, Ningxin Chen, Ruijue Chen,
+Yanru Chen, Yuankun Chen, Yutian Chen, et al. Kimi k2: Open agentic intelligence. arXiv
+preprint arXiv:2507.20534, 2025.
+Qwen Team. Qwen2 technical report. arXiv preprint arXiv:2407.10671, 2, 2024.
+Minyang Tian, Luyu Gao, Shizhuo Zhang, Xinan Chen, Cunwei Fan, Xuefei Guo, Roland Haas,
+Pan Ji, Kittithat Krongchon, Yao Li, et al. Scicode: A research coding benchmark curated by
+scientists. Advances in Neural Information Processing Systems, 37:30624–30650, 2024.
+Julie Transon, Rapha¨el D’Andrimont, Alexandre Maugnard, and Pierre Defourny. Survey of hy-
+perspectral earth observation applications from space in the sentinel-2 context. Remote Sensing,
+10(2), 2018. ISSN 2072-4292. doi: 10.3390/rs10020157. URL https://www.mdpi.com/
+2072-4292/10/2/157.
+Mojtaba Valipour, Kelly Zheng, James Lowman, Spencer Szabados, Mike Gartner, and Bobby
+Braswell. Agi for the earth, the path, possibilities and how to evaluate intelligence of models
+that work with earth observation data? arXiv preprint arXiv:2508.06057, 2025.
+CJ Van Westen. Remote sensing for natural disaster management. International archives of pho-
+togrammetry and remote sensing, 33(B7/4; PART 7):1609–1617, 2000.
+Jize Wang, Ma Zerun, Yining Li, Songyang Zhang, Cailian Chen, Kai Chen, and Xinyi Le. Gta:
+a benchmark for general tool agents. Advances in Neural Information Processing Systems, 37:
+75749–75790, 2024a.
+Junjue Wang, Zhuo Zheng, Zihang Chen, Ailong Ma, and Yanfei Zhong.
+Earthvqa: Towards
+queryable earth via relational reasoning-based remote sensing visual question answering. In Pro-
+ceedings of the AAAI conference on artificial intelligence, volume 38, pp. 5481–5489, 2024b.
+Lei Wang, Chen Ma, Xueyang Feng, Zeyu Zhang, Hao Yang, Jingsen Zhang, Zhiyuan Chen, Jiakai
+Tang, Xu Chen, Yankai Lin, et al. A survey on large language model based autonomous agents.
+Frontiers of Computer Science, 18(6):186345, 2024c.
+Luting Wang, Yinghao Xiang, Hongliang Huang, Dongjun Li, Chen Gao, and Si Liu. Towards
+realistic earth-observation constellation scheduling: Benchmark and methodology. arXiv preprint
+arXiv:2510.26297, 2025a.
+Qi Wang, Wei Huang, Xueting Zhang, and Xuelong Li.
+Word–sentence framework for remote
+sensing image captioning. IEEE Transactions on Geoscience and Remote Sensing, 59(12):10532–
+10543, 2020.
+Weiyun Wang, Zhangwei Gao, Lixin Gu, Hengjun Pu, Long Cui, Xingguang Wei, Zhaoyang Liu,
+Linglin Jing, Shenglong Ye, Jie Shao, et al. Internvl3. 5: Advancing open-source multimodal
+models in versatility, reasoning, and efficiency. arXiv preprint arXiv:2508.18265, 2025b.
+Xiaohan Wang, Yuhui Zhang, Orr Zohar, and Serena Yeung-Levy. Videoagent: Long-form video
+understanding with large language model as agent. In European Conference on Computer Vision,
+pp. 58–76. Springer, 2024d.
+15

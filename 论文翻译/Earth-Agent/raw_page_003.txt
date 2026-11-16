@@ -1,0 +1,105 @@
+Published as a conference paper at ICLR 2026
+et al., 2024b; 2025) and classification (Xu et al., 2024a; Hu et al., 2025a), often emphasizing caption
+ability rather than scientific analysis. Efforts on Raw Observational Data are even more limited. Uni-
+vEarth (Kao et al., 2025) considers EO data from GEE but operates essentially as a code generation
+agent, without implementing genuine tool calling, making it difficult to handle complex and realistic
+geoscientific analysis tasks that require professional tool use. These efforts reveal several key limita-
+tions: (1) current EO agents support only limited data modalities, with most efforts still centered on
+conventional remote sensing datasets dominated by RGB imagery (Xu et al., 2024a); (2) their tool
+usage remains shallow, limited to a few expert models and reasoning steps, even some agents lack
+a predefined tool ecosystem, making them insufficient for complex analytical workflows (Shabbir
+et al., 2025); and (3) their evaluation remains unsystematic, with emphasis only on final answers
+while overlooking reasoning trajectory. This raises another question: how can we design an EO
+agent with a structured tool ecosystem and systematic evaluation, capable of bridging perceptual
+and spectral data like Earth scientists?
+Based on the temperature and vegetation
+indicators (LST and NDVI) in the Yellow
+River Basin region from June to
+September 2023, calculate the number
+of spikes in the drought index, which may
+correspond to severe drought events.
+A. 1
+B. 2
+C. 5
+D. 6
+Analyze
+the
+nighttime
+light
+intensity
+trend in Leon (2013-2024) using linear
+regression.
+A. Slope: 0.10; Intercept: 1.85
+B. Slope: 0.12; Intercept: 1.96
+C. Slope: 0.14; Intercept: 2.05
+D. Slope: 0.16; Intercept: 2.12
+To
+support
+international
+maritime
+planning,
+calculate
+the
+difference
+between the harbor areas of the
+two images (GSD: A = 0.50m/px, B =
+0.30m/px).
+A. 10000
+Spectrum
+Products
+RGB
+get_filelist
+compute_tvdi
+calc_batch_
+image_mean
+count_spikes
+_from_values
+Final Answer : B
+get_filelist
+calc_batch_
+image_mean
+compute_
+linear_trend
+Final Answer: 
+B
+B. 15000
+C. 20000
+D. 30000
+get_filelist
+SM3Det
+SAM2
+calculate_area
+Final Answer : D
+difference
+Figure 2: Earth-Agent solving tasks across Spectrum, Products, and RGB data through multi-step
+reasoning with expert tool calls.
+To address these questions and unlock the full landscape of EO, we propose Earth-Agent, an agen-
+tic framework that unifies perceptual and spectral EO data within a single architecture in section 3.
+By coupling LLM reasoning with a structured toolkit in 3.2, Earth-Agent supports diverse modali-
+ties and complex multi-step analysis, enabling agents to tackle real-world geoscientific tasks beyond
+the limits of existing MLLMs and EO agents. Concretely, Earth-Agent integrates 104 specialized
+tools, built upon the Model Context Protocol (MCP) (Hou et al., 2025; Ray, 2025) for interop-
+erability, and grouped into five domain-specific tool kits: Index, Inversion, Perception, Analysis,
+and Statistics. This structured design not only enables the agent to go beyond classical percep-
+tual tasks toward quantitative analysis and spatiotemporal reasoning, but also makes the framework
+easily extensible with additional domain-specific tools. To systematically evaluate its effectiveness,
+we further introduce Earth-Agent Benchmark (Earth-Bench) in section 4, which reflects real-
+istic EO workflows and supports both Auto-Planning and Instruction-Following query regimes,
+together with a dual-level evaluation protocol that measures reasoning trajectories as well as final
+outcomes. We comprehensively evaluate Earth-Agent by varying LLM backbones on Earth-Bench,
+comparing with general agents, and benchmarking against MLLMs on remote sensing datasets.
+To sum up, our main contributions are summarized as follows:
+• We propose Earth-Agent, the first agentic framework for EO, built upon the MCP and
+a ReAct (Yao et al., 2023) reasoning, integrating 104 specialized tools and expert mod-
+els within predefined tool ecosystem, while remaining easily extensible with additional
+domain-specific tools and models.
+• We construct Earth-Bench, a benchmark of 248 expert-curated questions with 13,729 im-
+ages, spanning perceptual and spectral modalities beyond RGB. Each question requires
+multi-step reasoning with explicit tool use, and the benchmark supports a dual-level evalu-
+ation protocol that assesses both reasoning trajectories and final answers.
+• Through comprehensive evaluation, we show that Earth-Agent substantially outperforms
+general agents such as Operator (OpenAI, 2025b) and Manus (Shen et al., 2025) on Earth-
+specific tasks in Earth-Bench, and also surpasses remote sensing MLLMs on remote sens-
+ing benchmarks, demonstrating both its effectiveness and potential for advancing EO re-
+search.
+3

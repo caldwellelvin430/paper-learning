@@ -1,0 +1,3 @@
+Published as a conference paper at ICLR 2026
+Figure 32: Example of Detection with RGB Data under the Auto-Planning Regime.
+59

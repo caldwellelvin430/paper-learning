@@ -1,0 +1,66 @@
+Published as a conference paper at ICLR 2026
+the Spectrum, Products, and RGB categories. They played a key role in providing strategic direction
+for the overall question pool.
+The remaining 7 team members, consisting of graduate students and senior undergraduates, con-
+tributed in the following areas:
+• Creation of initial questions (approximately 400 questions)
+• Raw data collection
+• Development of Python-based solution scripts
+Once the questions were created, they were thoroughly reviewed by the 3 senior reviewers. The
+review process focused on two key criteria:
+1. Data Integrity: Ensuring that the raw data involved (e.g., Landsat or MODIS) has com-
+plete band information within the task’s time range and does not contain anomalies. Any
+questions and TIF files with missing or anomalous large values were discarded.
+2. Task Difficulty Assessment: Senior reviewers assessed the difficulty of questions based
+on the number and complexity of the functions defined in the Python solutions. For simpler
+tasks (e.g., only calculating NDVI index to finish a task), these were removed to ensure an
+appropriate challenge across questions.
+This collaborative structure ensured that the dataset was curated by a diverse team with expertise
+from the full landscape of Earth observation fields, enabling a well-rounded and comprehensive
+dataset for evaluation.
+A.6
+BIAS ABLATION EXPERIMENT
+To examine whether Earth-Bench exhibits bias toward specific models, i.e., whether certain models
+inherently find its tasks easier and thus risk skewing conclusions, we conducted an ablation study.
+Specifically, we removed all tools and allowed LLMs to directly answer questions given only the
+Query and Folder, then compared the results with those of tool-augmented Agents that had access
+to both Query and Data.
+GPT5-A
+GPT5-B
+Gemini-2.5-A
+Gemini-2.5-B
+GPT-4o-A
+GPT-4o-B
+DeepSeek-V3.1-A
+DeepSeek-V3.1-B
+Kimik2-A
+Kimik2-B
+Qwen3-max-A
+Qwen3-max-B
+0
+10
+20
+30
+40
+50
+60
+70
+80
+Accuracy
+Model Performance: No tool vs Tool use
+ Band
+ Product
+ RGB
+ Base64 Encoding
+Accuracy
+No Tool
+Tool Use
+Large Improvement
+Moderate improvement
+Weak improvement
+Figure 6: Dataset Ablation Experiment
+As shown in Fig. 6, without tool access, mainstream LLMs achieved comparable performance across
+the three task types, with an overall Accuracy of about 37%. This indicates that the dataset is fair
+in its raw form and that models cannot rely solely on parametric knowledge to solve all benchmark
+questions. In contrast, with tool access, different models exhibited varying degrees of improvement:
+19

@@ -1,0 +1,95 @@
+Published as a conference paper at ICLR 2026
+v
+Question: Based on Landsat 8 thermal band 10 and reflectance bands (Red and NIR) data over New York City 
+in 2022, first list the input TIFF files, then calculate NDVI and estimate land surface temperature (LST) using 
+the single-channel NDVI-based method. Classify the images into four seasons (spring, summer, autumn, winter) 
+based on acquisition dates, compute the average LST for summer and autumn, and finally calculate the mean LST 
+difference between these two seasons to analyze seasonal temperature variation.
+"name": get_filelist
+"input": { "dir_path": "benchmark/data/question51"}
+"output": [\"New York_2022-01-10_BT10.tif\“,…, \"New York_2022-12-28_b5.tif\"]
+"name": lst_single_channel
+"input": "bt_path": ["benchmark/data/question51/New York_2022-06-03_BT10.tif,…, 
+"benchmark/data/question51/New York_2022-11-26_BT10.tif“], "nir_path": ["benchmark/data/question51/New 
+York_2022-06-03_b5.tif",…, "benchmark/data/question51/New York_2022-11-26_b5.tif"], "output_path": 
+["question51/lst_2022-06-03.tif",…, "question51/lst_2022-11-26.tif"], "red_path": ["benchmark/data/question51/New 
+York_2022-06-03_b4.tif",…, "benchmark/data/question51/New York_2022-11-26_b4.tif"]
+"output": ["Result saved at out/question51/lst_2022-11-26.tif",…, "Result saved at out/question51/lst_2022-06-03.tif"]
+Spectrum:
+[Climate Analysis]
+A. 8.65K
+B. 10.89K
+C. 12.42K
+D. 14.75K
+GPT-5
+"final answer": "C"
+Final
+Step 1
+Step 24
+Step-by-Step:
+TAO: 0.75  
+End-to-End:          Efficiency: 4.8000 
+TIO: 0.8 
+TEM: 0.4 
+Param.: 0.0 
+Acc: 100% 
+Tool 1: get_filelist
+Tool 4: difference
+GT
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> C
+Agent
+GPT-5
+Kimi-K2
+Deepseek
+V3.1
+Tool 2: lst_single_channel
+Tool 5: calculate_batch_ndvi
+->
+Tool 4
+×𝟐
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> C
+×𝟐
+×𝟐𝟏
+Tool 1
+Tool 2
+->
+Tool 3
+->
+-> FAIL
+×𝟐
+×𝟐𝟏
+->
+Tool 5
+->
+Tool 2
+->
+Tool 6
+-> C
+Tool 1
+->
+×𝟐
+×𝟐
+Tool 4
+"name": calc_batch_image_mean_mean
+"input": {"file_list": [out/question51/lst_2022-06-03.tif",…, "out/question51/lst_2022-11-26.tif"}
+"output":  ["298.8459999778054","286.42960357666016"]
+Step 2-22
+…
+Instruction Following
+B5 × 21
+BT10 × 21
+B4 × 21
+… 
+Figure 12: Example of Climate Analysis with Spectrum Data under the Instruction-Following
+Regime.
+39

@@ -1,0 +1,125 @@
+Published as a conference paper at ICLR 2026
+Table 11: Latency Breakdown for Different Models on Earth-Bench-Lite
+Model
+Latency
+Tool Call Number
+LLM Latency
+Tool Latency
+Earth-Agent (GPT)
+9494.92s
+669
+6969.26s
+2525.66s
+Earth-Agent (DeepSeek-V3.1)
+4716.99s
+540
+3066.76s
+1650.23s
+Earth-Agent (Kimik2)
+7903.07s
+502
+6306.59s
+1596.47s
+E.2
+OUR PROPOSED STRATEGY
+We addressed this issue in the design of the Earth-Agent architecture. Specifically, we optimized the
+tool design to minimize unnecessary interactions with the model. For instance, by leveraging batch
+calculations for Earth indices, such as the NDVI calculation, we significantly reduce the frequency
+of model interactions, thereby lowering the overall latency. Below is an example of our approach:
+Batch Computing Strategy
+1 def calculate_ndvi(input_nir_path, input_red_path, output_path):
+2
+with rasterio.open(input_nir_path) as nir_src:
+3
+nir_band = nir_src.read(1)
+# Read the first band (assuming single-band rasters
+)
+4
+nir_profile = nir_src.profile
+# Get the metadata profile
+5
+with rasterio.open(input_red_path) as red_src:
+6
+red_band = red_src.read(1)
+# Read the first band (assuming single-band rasters
+)
+7
+nir_band = np.array(nir_band, dtype=np.float32)
+8
+red_band = np.array(red_band, dtype=np.float32)
+9
+nir_band = np.clip(nir_band, 0, 10000)
+10
+red_band = np.clip(red_band, 0, 10000)
+11
+valid_mask = (nir_band >= 0) & (nir_band <= 10000) & (red_band >= 0) & (red_band <=
+10000)
+12
+denominator = nir_band + red_band + 1e-6
+13
+ndvi = (nir_band - red_band) / denominator
+14
+# Set invalid pixels to -9999
+15
+ndvi[˜valid_mask] = -9999
+16
+ndvi_profile = nir_profile.copy()
+17
+ndvi_profile.update(
+18
+dtype=rasterio.float32,
+# NDVI values are floating-point numbers
+19
+nodata=-9999,
+# Set a NoData value
+20
+compress=’lzw’
+# Optional: compress the output file
+21
+)
+22
+# Save the NDVI result to the specified output path
+23
+os.makedirs((TEMP_DIR / output_path).parent, exist_ok=True)
+24
+with rasterio.open(TEMP_DIR / output_path, ’w’, **ndvi_profile) as dst:
+25
+dst.write(ndvi.astype(rasterio.float32), 1)
+26
+27
+return f’Result save at {TEMP_DIR / output_path}’
+28 @mcp.tool(description="""
+29 Batch-calculate NDVI from multiple pairs of NIR/Red raster files and save results.
+30
+31 Parameters:
+32
+input_nir_paths (list[str]): Paths to Near-Infrared (NIR) band raster files.
+33
+input_red_paths (list[str]): Paths to Red band raster files.
+34
+output_paths (list[str]): Relative output paths (e.g., "question17/ndvi_2022-01-16.
+tif") for each pair.
+35
+36 Returns:
+37
+list[str]: A list of result messages (one per output), as returned by ‘
+calculate_ndvi‘.
+38 """)
+39 def calculate_batch_ndvi(
+40
+input_nir_paths: list[str],
+41
+input_red_paths: list[str],
+42
+output_paths: list[str]
+43 ) -> list[str]:
+44
+return [
+45
+calculate_ndvi(nir_path, red_path, out_path)
+46
+for nir_path, red_path, out_path in zip(input_nir_paths, input_red_paths,
+output_paths)
+47
+]
+25

@@ -1,0 +1,13 @@
+Published as a conference paper at ICLR 2026
+F.2
+PERFORMANCE WITH RESPECT TO UNIQUE TOOL NUMBER
+We also investigated the relationship between the unique number of tools used and performance
+trends. Below is a visual representation using a bubble chart, where the size of each bubble is
+proportional to the number of questions.
+High Performance Range
+High Performance Range
+Figure 8: GPT5: Performance with respect to Unique Tool Number
+High Performance Range
+High Performance Range
+Figure 9: DeepSeek-V3.1: Performance with respect to Unique Tool Number
+27

@@ -1,0 +1,4 @@
+Published as a conference paper at ICLR 2026
+Figure 15: Example of Temperature Monitoring with Spectrum Data under the Auto-Planning
+Regime.
+42

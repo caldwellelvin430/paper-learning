@@ -1,0 +1,76 @@
+Published as a conference paper at ICLR 2026
+analyze hotspot direction
+Analysis
+Analyze the main directional concentration of
+hotspots in a binary hotspot map. The function
+counts the number of hotspot pixels (value=1)
+in each cardinal direction relative to the map
+center, and returns the dominant direction.
+count spikes from values
+Analysis
+Count the number of upward spikes in a se-
+quence of numerical values. A spike is defined
+as a positive difference between consecutive
+valid values greater than the given threshold.
+The Statistics Toolkit offers a comprehensive set of functions for descriptive statistics, image-based
+statistical analysis, and geospatial data processing. Its capabilities cover the calculation of classical
+statistical measures such as mean, variance, and skewness, as well as the extraction of statistical
+information from imagery and intersection-based threshold analysis. In addition, the toolkit provides
+fundamental arithmetic operations, temperature unit conversions, and image differencing functions.
+It also supports essential preprocessing tasks, including radiometric correction and cloud masking.
+Overall, the toolkit enables flexible and efficient extraction and analysis of statistical features from
+geoscience and remote sensing data. A detailed list of the implemented tools is provided in Table 17.
+Table 17: List of detailed information of Statistics Toolkit.
+Tool Name
+Category
+Description Summary
+coefficient of variation
+Statistics
+Compute the Coefficient of Variation (CV) for
+a dataset. The CV is defined as the ratio of
+the standard deviation to the mean and is com-
+monly used as a normalized measure of disper-
+sion.
+skewness
+Statistics
+Compute the skewness of a dataset, which
+measures the asymmetry of the probability dis-
+tribution.
+kurtosis
+Statistics
+Compute the kurtosis of a dataset, which mea-
+sures the ¨tailedness¨of the distribution.
+calc batch image mean
+Statistics
+Compute mean value of an batch of images.
+calc batch image std
+Statistics
+Compute the standard deviation (spread of
+pixel values) for a batch of images.
+calc batch image median
+Statistics
+Compute the median pixel value for a batch of
+images.
+calc batch image min
+Statistics
+Compute the minimum pixel value for a batch
+of images.
+calc batch image max
+Statistics
+Compute the maximum pixel value for a batch
+of images.
+calc batch image skewness
+Statistics
+Compute the skewness of pixel value distribu-
+tions for a batch of images. Skewness quanti-
+fies the asymmetry of the distribution:1. Posi-
+tive skew →longer right tail; 2. Negative skew
+→longer left tail; 3. Zero skew →symmetric
+distribution.
+calc batch image kurtosis
+Statistics
+Compute the kurtosis of pixel value distribu-
+tions for a batch of images. Kurtosis measures
+the ¨tailedness¨of the distribution relative to a
+normal distribution.
+34

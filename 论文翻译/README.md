@@ -20,9 +20,13 @@
 | API-Bank | [中文稿](API-Bank/中文全文.md) · [阅读说明](API-Bank/README.md) · [原文 PDF](API-Bank/原始论文.pdf) |
 | Autonomous GIS | [中文稿](Autonomous%20GIS/中文全文.md) · [阅读说明](Autonomous%20GIS/README.md) · [原文 PDF](Autonomous%20GIS/原始论文.pdf) |
 | DS-1000 | [中文稿](DS-1000/中文全文.md) · [阅读说明](DS-1000/README.md) · [原文 PDF](DS-1000/原始论文.pdf) |
+| Earth-Agent | [中文稿](Earth-Agent/中文译文.md) · [阅读说明](Earth-Agent/README_使用说明.md) · [原文 PDF](Earth-Agent/原始论文.pdf) |
+| Evaluation of Code LLMs on Geospatial Code Generation | [中文稿](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/中文译文.md) · [阅读说明](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/README_使用说明.md) · [原文 PDF](Evaluation%20of%20Code%20LLMs%20on%20Geospatial%20Code%20Generation/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 
 ## 使用教程
 
 - [GitHub 上传与克隆教程（Windows）](../教学/GitHub上传与克隆教程.md)
+
+> GeoAgent 的资料正在补传，尚缺 9 张表格图片；补齐后再加入阅读目录。

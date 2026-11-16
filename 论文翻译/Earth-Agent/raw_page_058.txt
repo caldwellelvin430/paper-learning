@@ -1,0 +1,3 @@
+Published as a conference paper at ICLR 2026
+Figure 31: Example of Classification with RGB Data under the Instruction-Following Regime.
+58

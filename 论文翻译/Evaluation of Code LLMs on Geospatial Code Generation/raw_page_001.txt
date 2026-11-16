@@ -1,0 +1,109 @@
+Evaluation of Code LLMs on Geospatial Code Generation
+Piotr Gramacki
+Wrocław University
+of Science and Technology
+Department of Artificial Intelligence
+Kraina.AI
+Wrocław, Poland
+piotr.gramacki@pwr.edu.pl
+Bruno Martins
+INESC-ID & LUMLIS (Lisbon ELLIS Unit)
+Instituto Superior Técnico
+University of Lisbon
+Lisbon, Portugal
+bruno.g.martins@tecnico.ulisboa.pt
+Piotr Szymański
+Wrocław University
+of Science and Technology
+Department of Artificial Intelligence
+Kraina.AI
+Wrocław, Poland
+piotr.szymanski@pwr.edu.pl
+ABSTRACT
+Software development support tools have been studied for a long
+time, with recent approaches using Large Language Models (LLMs)
+for code generation. These models can generate Python code for
+data science and machine learning applications. LLMs are helpful
+for software engineers because they increase productivity in daily
+work. An LLM can also serve as a “mentor” for inexperienced soft-
+ware developers, and be a viable learning support. High-quality
+code generation with LLMs can also be beneficial in geospatial data
+science. However, this domain poses different challenges, and code
+generation LLMs are typically not evaluated on geospatial tasks.
+Here, we show how we constructed an evaluation benchmark for
+code generation models, based on a selection of geospatial tasks. We
+categorised geospatial tasks based on their complexity and required
+tools. Then, we created a dataset with tasks that test model capa-
+bilities in spatial reasoning, spatial data processing, and geospatial
+tools usage. The dataset consists of specific coding problems that
+were manually created for high quality. For every problem, we pro-
+posed a set of test scenarios that make it possible to automatically
+check the generated code for correctness. In addition, we tested
+a selection of existing code generation LLMs for code generation
+in the geospatial domain. We share our dataset and reproducible
+evaluation code on a public GitHub repository1, arguing that this
+can serve as an evaluation benchmark for new LLMs in the future.
+Our dataset will hopefully contribute to the development new mod-
+els capable of solving geospatial coding tasks with high accuracy.
+These models will enable the creation of coding assistants tailored
+for geospatial applications.
+CCS CONCEPTS
+• Computing methodologies →Natural language process-
+ing; • Information systems →Geographic information systems; •
+Human-centered computing →Natural language interfaces.
+KEYWORDS
+geospatial data science, code generation, large language models
+1https://github.com/kraina-ai/geospatial-code-llms-dataset
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+© 2024 Copyright held by the owner/author(s).
+This is the author’s version of the work. It is posted here for your personal use. Not for
+redistribution. The definitive Version of Record was published in 7th ACM SIGSPATIAL
+International Workshop on AI for Geographic Knowledge Discovery (GeoAI’24), October
+29-November 1, 2024, Atlanta, GA, USA, https://doi.org/10.1145/3687123.3698286.
+ACM Reference Format:
+Piotr Gramacki, Bruno Martins, and Piotr Szymański. 2024. Evaluation
+of Code LLMs on Geospatial Code Generation. In 7th ACM SIGSPATIAL
+International Workshop on AI for Geographic Knowledge Discovery (GeoAI’24),
+October 29-November 1, 2024, Atlanta, GA, USA. ACM, New York, NY, USA,
+9 pages. https://doi.org/10.1145/3687123.3698286
+1
+INTRODUCTION
+Large Language Models (LLMs) can nowadays be effectively used in
+tasks related to code generation, particularly when considering pop-
+ular programming languages and domains, such as Python code for
+data science and machine learning [29]. These capabilities can make
+programmers’ daily work more accessible, for instance increasing
+expert productivity through assistance in writing code. They can
+also offer learning support to novice developers, returning code ex-
+amples from problem descriptions in natural language. The benefits
+mentioned above can also extend to specialised problem domains
+such as geospatial data science, where problems often involve gener-
+ating repetitive code for performing particular geospatial analyses
+and data visualisations.
+Although using code LLMs for geospatial data science seems like
+a trivial application, we argue that there are several challenging
+aspects to consider. For instance, the understanding of the natural
+language problem descriptions can involve geospatial reasoning
+and world knowledge [3]. Geospatial data analyses also frequently
+involve using specialised software libraries (e.g., for geo-coding
+data into/from place names, performing geometric operations over
+geospatial regions, analysing raster data, producing map-based
+visualisations, etc.). The amount of code examples using these li-
+braries, as available in the public repositories from which data are
+crawled to support the training of code LLMs, is probably also much
+smaller than the number of examples using generic data science
+and machine learning libraries (which are also covered in dedicated
+datasets used in previous work, like DS-1000 [11]).
+Noting the challenges mentioned earlier, our research sought
+answers to the following three main research questions:
+RQ1: Are code generation LLMs capable of solving different types
+of geospatial tasks?
+RQ2: Can code generation LLMs use spatial reasoning and world
+knowledge when solving geospatial tasks?
+RQ3: Considering a broad categorisation of geospatial tasks, what
+types of problems are currently more challenging for code
+generation LLMs?
+We specifically conducted an evaluation of existing models for code
+generation on a selection of geospatial tasks that test knowledge
+about spatial reasoning, spatial data processing, and available tools.
+arXiv:2410.04617v2  [cs.CL]  13 Dec 2024

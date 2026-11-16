@@ -1,0 +1,93 @@
+Published as a conference paper at ICLR 2026
+GPT-5 achieved the largest gain, whereas GPT-4o showed a more modest increase. These results
+highlight differences in problem decomposition and tool-use capabilities among LLMs, and further
+corroborate the conclusions presented in the main experiments.
+In the No Tool setting, LLMs/MLLMs were restricted from using any tools, and base64 encoding
+was not applied in RGB tasks specifically. To ensure integrity in the comparison, we added exper-
+iments with base64 encoding for RGB tasks. We observed that while models like GPT-5 showed
+some improvement in accuracy (compared with not applying base64 encoding), the performance
+remained at relatively low levels. DeepSeek and Kimik2 were unable to handle RGB tasks yet. The
+conclusions derived from the ablation study remain unchanged.
+B
+EVALUATION
+B.1
+EVALUATION MODEL
+Our evaluation covers 13 recent LLMs, including both closed-source and open-source ones, to un-
+derstand their capabilities across multiple Earth observation tasks. The baseline models are listed in
+Table 7.
+Table 7: Models evaluated in our benchmark and their corresponding API references.
+Model
+Model Version
+API Links
+GPT5
+GPT-5
+https://platform.openai.com/docs/models/
+gpt-5
+GPT4
+GPT-4o
+https://platform.openai.com/docs/models/
+gpt-4o
+Gemini
+Gemini-2.5-Flash
+https://ai.google.dev/gemini-api/docs/
+models#gemini-2.5-flash
+Mistral
+Mistral-Large
+https://docs.mistral.ai/getting-started/
+models/
+Qwen
+Qwen3-Max-Previous
+https://www.alibabacloud.
+com/help/en/model-studio/
+use-qwen-by-calling-api
+Qwen3-32B
+Qwen-Plus
+Kimi
+Kimi-K2
+https://platform.moonshot.ai/docs/guide/
+start-using-kimi-api
+Deepseek
+Deepseek-V3.1
+https://api-docs.deepseek.com
+Seed
+Seed-1.6
+https://www.volcengine.com/docs/82379/
+1099455
+LLaMA
+LLaMA-4-Maverick
+https://www.llama.com/products/llama-api/
+GLM
+GLM-4.5v
+https://docs.z.ai/guides/vlm/glm-4.5v
+InternVL
+InternVL-3.5
+https://internlm.intern-ai.org.cn/api/
+document
+B.2
+EVALUATION METRIC
+Formally, for each task goal g, our geoscience experts provide (i) a ground-truth final answer y⋆,
+and (ii) an expert-annotated reasoning trajectory.
+τ ⋆=
+
+(o⋆
+0, a⋆
+0), (o⋆
+1, a⋆
+1), . . . , (o⋆
+m, a⋆
+m)
+
+,
+where each action is defined as
+a⋆
+k = (t⋆
+k, in⋆
+k, out⋆
+k),
+with t⋆
+k ∈V denoting the tool identifier (from the tool vocabulary), in⋆
+k ∈X the input arguments,
+and out⋆
+k ∈O the corresponding output. In other words, each tool is characterized by its name in
+the vocabulary, its input arguments, and its output results.
+20

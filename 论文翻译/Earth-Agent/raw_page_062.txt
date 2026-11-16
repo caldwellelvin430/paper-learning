@@ -1,0 +1,4 @@
+Published as a conference paper at ICLR 2026
+Figure 35: Example of Visual Grounding with RGB Data under the Instruction-Following
+Regime.
+62

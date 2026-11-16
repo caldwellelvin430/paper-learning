@@ -1,0 +1,1300 @@
+[
+  {
+    "kind": "Figure",
+    "number": 1,
+    "y": 483.6395263671875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      483.64,
+      504.0,
+      493.69
+    ],
+    "caption_head": "Figure 1: Overview of our work: The top panel contrasts prior paradigms: MLLM-based EO",
+    "page": 1,
+    "file": "./images/figure-01-p001.jpg",
+    "crop": [
+      75.0,
+      153.6,
+      537.0,
+      517.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 2,
+    "y": 364.512451171875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      364.51,
+      504.0,
+      374.48
+    ],
+    "caption_head": "Figure 2: Earth-Agent solving tasks across Spectrum, Products, and RGB data through multi-step",
+    "page": 3,
+    "file": "./images/figure-02-p003.jpg",
+    "crop": [
+      75.0,
+      55.0,
+      537.0,
+      398.5
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 3,
+    "y": 337.4065246582031,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      337.41,
+      504.0,
+      347.46
+    ],
+    "caption_head": "Figure 3: Earth-Agent Framework: The left part illustrates the ReAct-style workflow, where",
+    "page": 5,
+    "file": "./images/figure-03-p005.jpg",
+    "crop": [
+      75.0,
+      55.0,
+      537.0,
+      371.4
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 4,
+    "y": 659.8165283203125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      659.82,
+      504.0,
+      669.87
+    ],
+    "caption_head": "Figure 4: Dataset Comparison and Overview: The left panel compares Earth-Bench with prior",
+    "page": 6,
+    "file": "./images/figure-04-p006.jpg",
+    "crop": [
+      75.0,
+      329.8,
+      537.0,
+      693.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 5,
+    "y": 625.0325317382812,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      625.03,
+      504.0,
+      635.09
+    ],
+    "caption_head": "Figure 5: Construction and Annotation of Earth-Bench. The left shows question generation from",
+    "page": 7,
+    "file": "./images/figure-05-p007.jpg",
+    "crop": [
+      75.0,
+      295.0,
+      537.0,
+      659.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 1,
+    "y": 341.17584228515625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      341.18,
+      504.0,
+      351.31
+    ],
+    "caption_head": "Table 1: Performance of different LLM backbones on Earth-Bench under both Auto-Planning (AP)",
+    "page": 8,
+    "file": "./images/table-01-p008.jpg",
+    "crop": [
+      83.0,
+      330.2,
+      529.0,
+      606.2
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 2,
+    "y": 264.8392333984375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      264.84,
+      504.0,
+      274.8
+    ],
+    "caption_head": "Table 2: Comparison with general agents on Earth-Bench-Lite. Results are reported across Spec-",
+    "page": 9,
+    "file": "./images/table-02-p009.jpg",
+    "crop": [
+      83.0,
+      253.8,
+      529.0,
+      545.2
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 3,
+    "y": 555.21630859375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      555.22,
+      504.0,
+      565.18
+    ],
+    "caption_head": "Table 3: Comparison with MLLMs on Remote sense benchmarks. Results are reported on classifi-",
+    "page": 9,
+    "file": "./images/table-03-p009.jpg",
+    "crop": [
+      83.0,
+      544.2,
+      529.0,
+      758.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 4,
+    "y": 182.4093780517578,
+    "x": 221.42800903320312,
+    "bbox": [
+      221.43,
+      182.41,
+      390.57,
+      192.37
+    ],
+    "caption_head": "Table 4: Sensor and Data Source Statistics",
+    "page": 17,
+    "file": "./images/table-04-p017.jpg",
+    "crop": [
+      83.0,
+      171.4,
+      529.0,
+      482.4
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 5,
+    "y": 578.9934692382812,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      578.99,
+      504.0,
+      588.96
+    ],
+    "caption_head": "Table 5: Statistics of the benchmark dataset, including average verification code length, number of",
+    "page": 17,
+    "file": "./images/table-05-p017.jpg",
+    "crop": [
+      83.0,
+      568.0,
+      529.0,
+      758.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 6,
+    "y": 223.1293487548828,
+    "x": 181.7969970703125,
+    "bbox": [
+      181.8,
+      223.13,
+      430.2,
+      233.09
+    ],
+    "caption_head": "Table 6: Distribution of Question Types and Their Proportions",
+    "page": 18,
+    "file": "./images/table-06-p018.jpg",
+    "crop": [
+      83.0,
+      212.1,
+      529.0,
+      488.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 6,
+    "y": 659.0164794921875,
+    "x": 228.22300720214844,
+    "bbox": [
+      228.22,
+      659.02,
+      383.78,
+      668.98
+    ],
+    "caption_head": "Figure 6: Dataset Ablation Experiment",
+    "page": 19,
+    "file": "./images/figure-06-p019.jpg",
+    "crop": [
+      75.0,
+      329.0,
+      537.0,
+      693.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 7,
+    "y": 272.9173583984375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      272.92,
+      139.85,
+      282.88
+    ],
+    "caption_head": "Table 7.",
+    "page": 20,
+    "file": "./images/table-07-p020.jpg",
+    "crop": [
+      83.0,
+      261.9,
+      529.0,
+      537.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 8,
+    "y": 81.88652801513672,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      81.89,
+      504.0,
+      91.94
+    ],
+    "caption_head": "Table 8: Performance of different LLM-based agents on the Spectrum subset of Earth-Bench. We",
+    "page": 22,
+    "file": "./images/table-08-p022.jpg",
+    "crop": [
+      83.0,
+      70.9,
+      529.0,
+      381.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 9,
+    "y": 433.0304260253906,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      433.03,
+      504.0,
+      443.08
+    ],
+    "caption_head": "Table 9: Performance of different LLM-based agents on the Products subset of Earth-Bench. We",
+    "page": 22,
+    "file": "./images/table-09-p022.jpg",
+    "crop": [
+      83.0,
+      422.0,
+      529.0,
+      698.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 10,
+    "y": 81.88652801513672,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      81.89,
+      504.0,
+      91.94
+    ],
+    "caption_head": "Table 10: Performance of different LLM-based agents on the RGB subset of Earth-Bench. We bold",
+    "page": 23,
+    "file": "./images/table-10-p023.jpg",
+    "crop": [
+      83.0,
+      70.9,
+      529.0,
+      346.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 7,
+    "y": 561.1124267578125,
+    "x": 257.27801513671875,
+    "bbox": [
+      257.28,
+      561.11,
+      354.72,
+      571.08
+    ],
+    "caption_head": "Figure 7: Error analysis.",
+    "page": 24,
+    "file": "./images/figure-07-p024.jpg",
+    "crop": [
+      75.0,
+      231.1,
+      537.0,
+      595.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 11,
+    "y": 81.97749328613281,
+    "x": 160.89500427246094,
+    "bbox": [
+      160.9,
+      81.98,
+      451.11,
+      91.94
+    ],
+    "caption_head": "Table 11: Latency Breakdown for Different Models on Earth-Bench-Lite",
+    "page": 25,
+    "file": "./images/table-11-p025.jpg",
+    "crop": [
+      83.0,
+      71.0,
+      529.0,
+      347.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 12,
+    "y": 236.98046875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      236.98,
+      504.0,
+      247.03
+    ],
+    "caption_head": "Table 12: Performance of Earth-Agent Models with respect to Tool Numbers. The high perfor-",
+    "page": 26,
+    "file": "./images/table-12-p026.jpg",
+    "crop": [
+      83.0,
+      226.0,
+      529.0,
+      502.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 8,
+    "y": 420.20550537109375,
+    "x": 164.36199951171875,
+    "bbox": [
+      164.36,
+      420.21,
+      447.64,
+      430.26
+    ],
+    "caption_head": "Figure 8: GPT5: Performance with respect to Unique Tool Number",
+    "page": 27,
+    "file": "./images/figure-08-p027.jpg",
+    "crop": [
+      75.0,
+      90.2,
+      537.0,
+      454.2
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 9,
+    "y": 715.8494873046875,
+    "x": 144.86099243164062,
+    "bbox": [
+      144.86,
+      715.85,
+      467.14,
+      725.9
+    ],
+    "caption_head": "Figure 9: DeepSeek-V3.1: Performance with respect to Unique Tool Number",
+    "page": 27,
+    "file": "./images/figure-09-p027.jpg",
+    "crop": [
+      75.0,
+      385.8,
+      537.0,
+      749.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 10,
+    "y": 351.7655029296875,
+    "x": 158.5489959716797,
+    "bbox": [
+      158.55,
+      351.77,
+      453.45,
+      361.82
+    ],
+    "caption_head": "Figure 10: Kimik2: Performance with respect to Unique Tool Number",
+    "page": 28,
+    "file": "./images/figure-10-p028.jpg",
+    "crop": [
+      75.0,
+      55.0,
+      537.0,
+      385.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 13,
+    "y": 602.8303833007812,
+    "x": 195.38800048828125,
+    "bbox": [
+      195.39,
+      602.83,
+      414.78,
+      612.79
+    ],
+    "caption_head": "Table 13: List of detailed information of Index Toolkit.",
+    "page": 28,
+    "file": "./images/table-13-p028.jpg",
+    "crop": [
+      83.0,
+      591.8,
+      529.0,
+      758.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 14,
+    "y": 463.535400390625,
+    "x": 188.11599731445312,
+    "bbox": [
+      188.12,
+      463.54,
+      422.06,
+      473.5
+    ],
+    "caption_head": "Table 14: List of detailed information of Inversion Toolkit.",
+    "page": 29,
+    "file": "./images/table-14-p029.jpg",
+    "crop": [
+      83.0,
+      452.5,
+      529.0,
+      728.5
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 15,
+    "y": 226.25843811035156,
+    "x": 185.3509979248047,
+    "bbox": [
+      185.35,
+      226.26,
+      424.82,
+      236.22
+    ],
+    "caption_head": "Table 15: List of detailed information of Perception Toolkit.",
+    "page": 31,
+    "file": "./images/table-15-p031.jpg",
+    "crop": [
+      83.0,
+      215.3,
+      529.0,
+      491.3
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 16,
+    "y": 171.8053741455078,
+    "x": 189.2220001220703,
+    "bbox": [
+      189.22,
+      171.81,
+      420.95,
+      181.77
+    ],
+    "caption_head": "Table 16: List of detailed information of Analysis Toolkit.",
+    "page": 33,
+    "file": "./images/table-16-p033.jpg",
+    "crop": [
+      83.0,
+      160.8,
+      529.0,
+      436.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Table",
+    "number": 17,
+    "y": 307.973388671875,
+    "x": 188.66400146484375,
+    "bbox": [
+      188.66,
+      307.97,
+      421.51,
+      317.94
+    ],
+    "caption_head": "Table 17: List of detailed information of Statistics Toolkit.",
+    "page": 34,
+    "file": "./images/table-17-p034.jpg",
+    "crop": [
+      83.0,
+      297.0,
+      529.0,
+      573.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 11,
+    "y": 691.988525390625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      691.99,
+      504.0,
+      702.04
+    ],
+    "caption_head": "Figure 11: Example of Climate Analysis with Spectrum Data under the Auto-Planning Regime.",
+    "page": 38,
+    "file": "./images/figure-11-p038.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      723.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 12,
+    "y": 704.9744873046875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      704.97,
+      504.0,
+      715.03
+    ],
+    "caption_head": "Figure 12: Example of Climate Analysis with Spectrum Data under the Instruction-Following",
+    "page": 39,
+    "file": "./images/figure-12-p039.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      736.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 13,
+    "y": 715.4385375976562,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      715.44,
+      504.0,
+      725.49
+    ],
+    "caption_head": "Figure 13: Example of Disaster Judgement with Spectrum Data under the Auto-Planning",
+    "page": 40,
+    "file": "./images/figure-13-p040.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      746.4
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 14,
+    "y": 717.8054809570312,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      717.81,
+      151.83,
+      727.77
+    ],
+    "caption_head": "Figure 14:",
+    "page": 41,
+    "file": "./images/figure-14-p041.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      748.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 15,
+    "y": 696.700439453125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      696.7,
+      504.0,
+      706.66
+    ],
+    "caption_head": "Figure 15: Example of Temperature Monitoring with Spectrum Data under the Auto-Planning",
+    "page": 42,
+    "file": "./images/figure-15-p042.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      727.7
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 16,
+    "y": 696.6094970703125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      696.61,
+      504.0,
+      706.66
+    ],
+    "caption_head": "Figure 16: Example of Temperature Monitoring with Spectrum Data under the Instruction-",
+    "page": 43,
+    "file": "./images/figure-16-p043.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      727.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 17,
+    "y": 685.0145263671875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      685.01,
+      504.0,
+      695.07
+    ],
+    "caption_head": "Figure 17: Example of Urban Management with Spectrum Data under the Auto-Planning",
+    "page": 44,
+    "file": "./images/figure-17-p044.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      716.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 18,
+    "y": 695.925537109375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      695.93,
+      504.0,
+      705.98
+    ],
+    "caption_head": "Figure 18: Example of Urban Management with Spectrum Data under the Instruction-",
+    "page": 45,
+    "file": "./images/figure-18-p045.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      726.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 19,
+    "y": 712.8305053710938,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      712.83,
+      504.0,
+      722.88
+    ],
+    "caption_head": "Figure 19: Example of Vegetation Monitoring with Spectrum Data under the Auto-Planning",
+    "page": 46,
+    "file": "./images/figure-19-p046.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      743.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 20,
+    "y": 712.3815307617188,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      712.38,
+      504.0,
+      722.44
+    ],
+    "caption_head": "Figure 20: Example of Vegetation Monitoring with Spectrum Data under the Instruction-",
+    "page": 47,
+    "file": "./images/figure-20-p047.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      743.4
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 21,
+    "y": 724.2445068359375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      724.24,
+      504.0,
+      734.3
+    ],
+    "caption_head": "Figure 21: Example of Pollution Regulation with Products Data under the Auto-Planning",
+    "page": 48,
+    "file": "./images/figure-21-p048.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      755.2
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 22,
+    "y": 731.3614501953125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      731.36,
+      151.85,
+      741.32
+    ],
+    "caption_head": "Figure 22:",
+    "page": 49,
+    "file": "./images/figure-22-p049.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      760.0
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 23,
+    "y": 690.103515625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      690.1,
+      504.0,
+      700.16
+    ],
+    "caption_head": "Figure 23: Example of Urban Management with Products Data under the Auto-Planning",
+    "page": 50,
+    "file": "./images/figure-23-p050.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      721.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 24,
+    "y": 679.29150390625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      679.29,
+      504.0,
+      689.35
+    ],
+    "caption_head": "Figure 24: Example of Water Management with Products Data under the Auto-Planning",
+    "page": 51,
+    "file": "./images/figure-24-p051.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      710.3
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 25,
+    "y": 702.615478515625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      702.62,
+      152.06,
+      712.58
+    ],
+    "caption_head": "Figure 25:",
+    "page": 52,
+    "file": "./images/figure-25-p052.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 26,
+    "y": 683.5795288085938,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      683.58,
+      504.0,
+      693.63
+    ],
+    "caption_head": "Figure 26: Example of Weather Management with Products Data under the Auto-Planning",
+    "page": 53,
+    "file": "./images/figure-26-p053.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      714.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 27,
+    "y": 685.5855102539062,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      685.59,
+      504.0,
+      695.64
+    ],
+    "caption_head": "Figure 27: Example of Weather Management with Products Data under the Instruction-",
+    "page": 54,
+    "file": "./images/figure-27-p054.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      716.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 28,
+    "y": 702.0885009765625,
+    "x": 113.76300048828125,
+    "bbox": [
+      113.76,
+      702.09,
+      498.24,
+      712.14
+    ],
+    "caption_head": "Figure 28: Example of Change Detection with RGB Data under the Auto-Planning Regime.",
+    "page": 55,
+    "file": "./images/figure-28-p055.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 29,
+    "y": 696.6094970703125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      696.61,
+      504.0,
+      706.66
+    ],
+    "caption_head": "Figure 29: Example of Change Detection with RGB Data under the Instruction-Following",
+    "page": 56,
+    "file": "./images/figure-29-p056.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      727.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 30,
+    "y": 702.0885009765625,
+    "x": 123.02300262451172,
+    "bbox": [
+      123.02,
+      702.09,
+      488.98,
+      712.14
+    ],
+    "caption_head": "Figure 30: Example of Classification with RGB Data under the Auto-Planning Regime.",
+    "page": 57,
+    "file": "./images/figure-30-p057.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 31,
+    "y": 702.0885009765625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      702.09,
+      504.0,
+      712.14
+    ],
+    "caption_head": "Figure 31: Example of Classification with RGB Data under the Instruction-Following Regime.",
+    "page": 58,
+    "file": "./images/figure-31-p058.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 32,
+    "y": 702.0885009765625,
+    "x": 131.33700561523438,
+    "bbox": [
+      131.34,
+      702.09,
+      480.67,
+      712.14
+    ],
+    "caption_head": "Figure 32: Example of Detection with RGB Data under the Auto-Planning Regime.",
+    "page": 59,
+    "file": "./images/figure-32-p059.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 33,
+    "y": 697.5795288085938,
+    "x": 116.04399871826172,
+    "bbox": [
+      116.04,
+      697.58,
+      495.96,
+      707.63
+    ],
+    "caption_head": "Figure 33: Example of Detection with RGB Data under the Instruction-Following Regime.",
+    "page": 60,
+    "file": "./images/figure-33-p060.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      728.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 34,
+    "y": 702.0885009765625,
+    "x": 113.46399688720703,
+    "bbox": [
+      113.46,
+      702.09,
+      498.54,
+      712.14
+    ],
+    "caption_head": "Figure 34: Example of Visual Grounding with RGB Data under the Auto-Planning Regime.",
+    "page": 61,
+    "file": "./images/figure-34-p061.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      733.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 35,
+    "y": 696.6094970703125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      696.61,
+      504.0,
+      706.66
+    ],
+    "caption_head": "Figure 35: Example of Visual Grounding with RGB Data under the Instruction-Following",
+    "page": 62,
+    "file": "./images/figure-35-p062.jpg",
+    "crop": [
+      82.0,
+      53.0,
+      530.0,
+      727.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 36,
+    "y": 269.71453857421875,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      269.71,
+      504.0,
+      279.77
+    ],
+    "caption_head": "Figure 36: A Question Case of the Urban Management Task using Products Data with Re-",
+    "page": 63,
+    "file": "./images/figure-36-p063.jpg",
+    "crop": [
+      87.0,
+      60.0,
+      525.0,
+      302.7
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 37,
+    "y": 461.8215026855469,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      461.82,
+      504.0,
+      471.88
+    ],
+    "caption_head": "Figure 37: A Question Case of the Urban Management Task using Products Data with Re-",
+    "page": 63,
+    "file": "./images/figure-37-p063.jpg",
+    "crop": [
+      87.0,
+      299.7,
+      525.0,
+      494.8
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 38,
+    "y": 653.9285278320312,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      653.93,
+      504.0,
+      663.98
+    ],
+    "caption_head": "Figure 38: A Question Case of the Change Detection Task using RGB Data with Responses",
+    "page": 63,
+    "file": "./images/figure-38-p063.jpg",
+    "crop": [
+      87.0,
+      491.8,
+      525.0,
+      686.9
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 39,
+    "y": 318.5675048828125,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      318.57,
+      504.0,
+      328.62
+    ],
+    "caption_head": "Figure 39: A Question Case of the Classification Task using RGB Data with Responses from",
+    "page": 64,
+    "file": "./images/figure-39-p064.jpg",
+    "crop": [
+      87.0,
+      60.0,
+      525.0,
+      351.6
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 40,
+    "y": 646.1005249023438,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      646.1,
+      504.0,
+      656.15
+    ],
+    "caption_head": "Figure 40: A Question Case of the Classification Task using RGB Data with Responses from",
+    "page": 64,
+    "file": "./images/figure-40-p064.jpg",
+    "crop": [
+      87.0,
+      348.6,
+      525.0,
+      679.1
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 41,
+    "y": 411.468505859375,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      411.47,
+      504.0,
+      421.52
+    ],
+    "caption_head": "Figure 41: A Question Case of the Detection Task using RGB Data with Responses from Dif-",
+    "page": 65,
+    "file": "./images/figure-41-p065.jpg",
+    "crop": [
+      87.0,
+      60.0,
+      525.0,
+      444.5
+    ],
+    "extracted": true
+  },
+  {
+    "kind": "Figure",
+    "number": 42,
+    "y": 673.1715087890625,
+    "x": 108.0,
+    "bbox": [
+      108.0,
+      673.17,
+      504.0,
+      683.23
+    ],
+    "caption_head": "Figure 42: A Question Case of the Visual Grounding Task using RGB Data with Responses",
+    "page": 65,
+    "file": "./images/figure-42-p065.jpg",
+    "crop": [
+      87.0,
+      441.5,
+      525.0,
+      706.2
+    ],
+    "extracted": true
+  }
+]

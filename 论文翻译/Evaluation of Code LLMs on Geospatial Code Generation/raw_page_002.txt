@@ -1,0 +1,112 @@
+GeoAI’24, October 29-November 1, 2024, Atlanta, GA, USA
+Piotr Gramacki, Bruno Martins, and Piotr Szymański
+To do this, we started by defining a broad categorisation of
+geospatial data science tasks, considering dimensions such as the
+complexity of the task (e.g., single-step operations involving the
+processing of different representations for spatial data, versus com-
+plex analyses involving multiple steps) or the tools that can be
+used. We then compiled a dataset of specific coding problems, man-
+ually curating the tasks and test scenarios to match the proposed
+categorisation of problems.
+Using the proposed dataset, we can automatically check the gen-
+erated code’s correctness. Therefore, we argue that one of our main
+contributions is a carefully designed (and extensible) benchmark
+for assessing code generation LLMs in the geospatial domain. We
+also report on a comparative study that covers a representative
+set of modern code generation LLMs, with results highlighting the
+capabilities and limitations of current state-of-the-art models.
+The remainder of this paper is organised as follows. Section 2
+describes related work, covering code LLMs and existing generalist
+benchmarks, as well as the use of LLMs for geospatial tasks. Section
+3 describes the benchmark proposed in this work, detailing the
+proposed categorisation of problems and the construction of the
+dataset. Section 4 presents the results of experiments comparing
+different code LLMs using the proposed benchmark. Finally, Sec-
+tion 5 summarises the paper’s main contributions and highlights
+possible directions for future work.
+2
+RELATED WORK
+In this section, we investigate previous work relevant to our re-
+search questions. We focus on Large Language Model (LLM) ap-
+plications for general code generation tasks, to find out how such
+evaluations were performed in prior work. We focus primarily on
+work presenting code generation benchmarks, since these studies
+are more relevant to our research. Apart from that, we investi-
+gate the application of LLMs to problems related to the geospatial
+domain. This should give us a better understanding of the applica-
+tions of LLMs in this domain, and their main limitations. We aim
+to address those issues in our benchmark.
+2.1
+Large Language Models (LLMs) for Code
+Large Language Models (LLMs) have been successfully applied to
+code generation tasks, and early approaches have been summarised
+in a survey by Zan et al. [29]. Since then, multiple models for
+code generation have been introduced, sometimes as small as 3B
+parameters [5, 15, 20, 24]. Also, some of the more recent generic
+models are also capable of solving code generation tasks [1, 7, 9].
+Evaluation of code generation capabilities requires dedicated
+datasets. HumanEval [4] was proposed from the need to consider
+an evaluation dataset of handcrafted samples which were unseen
+by the LLM during pre-training. It was later followed by several
+similar datasets, either for generic programming tasks [2, 8, 14] or
+for specific domains or libraries [11, 28]. All these datasets share
+a couple of principles, e.g. stressing the importance of human val-
+idation of samples. They also provide test cases to evaluate the
+functional correctness of the generated code.
+2.2
+LLMs for Geospatial Tasks
+In a recent survey, Wang et al. [26] summarised studies on LLM
+and Generative AI (GAI) applications to the geospatial domain. The
+authors found a variety of applications handling raster, vector, and
+spatio-temporal data. The most common applications involve the
+use of text-based models, which we also cover in our work.
+Solving geospatial tasks with LLMs was approached differently
+in existing studies. For instance Zhang et al. [30] proposed GeoGPT,
+which suggests a set of tools which extend LLM capabilities to
+perform spatial queries and analysis. Li and Ning [12] used the
+code generation capabilities of an LLM to split a task into sub-tasks
+and generate code snippets to solve them separately. These authors
+proposed a vision of autonomous-GIS, where non-programmers
+can solve complex geospatial tasks.
+Another area of research on the boundary between LLMs and
+GeoAI concerns assessing the geospatial awareness and knowledge
+obtained by the models. Bhandari et al. [3] showed that recent
+LLMs have gathered geospatial knowledge, which can be extracted
+using proper prompting. Roberts et al. [23] evaluated the spatial
+knowledge of GPT-4 on tasks that require both factual knowledge
+(e.g., country population or boundaries) and reasoning (e.g., routing
+and navigation). Manvi et al. [19] assessed the basic geographic
+knowledge of LLMs and how to extract it, by enriching text prompts
+with OpenStreetMap data. Finally, Mooney et al. [21] tested the
+geospatial capabilities of GPT models using a real GIS exam, report-
+ing that both GPT-3 and GPT-4 passed the exam with the respective
+grades of D and B, on the US letter scale.
+The need for dedicated models for the geospatial domain was
+also highlighted in multiple vision and outlook papers. The studies
+by Scheider et al. [25] and Mai et al. [17] focused on geospatial
+question answering. The authors highlighted the unique charac-
+teristics of geospatial data, and the fact that complex questions
+cannot be answered using direct knowledge retrieval solutions.
+These questions require some level of analytical creativity, but can
+yield valuable insights for users - for example, a doctor could ask
+for potential environmental factors influencing a patient’s health.
+In a different study, Mai et al. [16] argued that versatile models for
+the geospatial domain should focus on the multi-modal character-
+istics of geospatial data and tasks. The authors show that existing
+single-modality models can perform well on the geospatial domain,
+but the majority of tasks depend on multi-modal inputs.
+To summarise, LLMs have been adopted in the geospatial domain,
+with many studies showing that those models have potential in
+GIS applications. Autonomous-GIS can leverage the capabilities of
+LLMs to understand text instructions and use tools or code to solve
+different tasks. However, there are still some unique challenges in
+the geospatial domain, and we argue that the evaluation of the code
+generation capabilities of modern LLMs is an essential step in the
+development of assistants helpful in geospatial tasks.
+3
+PROPOSED BENCHMARK
+This section describes the design process of our geospatial bench-
+mark. We propose a categorisation of geospatial problems which
+takes into consideration both the complexity of the problem and the
+tools or geospatial knowledge required to solve them. We also de-
+scribe our dataset in terms of prompt format and test case creation.
