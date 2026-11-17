@@ -1,0 +1,317 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "page": 2,
+    "bbox": [
+      114.07,
+      228.33,
+      497.93,
+      238.3
+    ],
+    "caption_en": "Figure 1: Five stages of the benchmark lifecycle. A detailed description can be found in App. C.",
+    "image": "./images/figure-1-p002.png",
+    "source_page": "./source_pages/page-002.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      250.3
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "page": 5,
+    "bbox": [
+      158.02,
+      519.55,
+      453.98,
+      529.51
+    ],
+    "caption_en": "Figure 2: Overview of assessment criteria for the benchmark design stage.",
+    "image": "./images/figure-2-p005.png",
+    "source_page": "./source_pages/page-005.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      159.55,
+      578.0,
+      541.51
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "page": 6,
+    "bbox": [
+      139.75,
+      210.42,
+      472.24,
+      220.39
+    ],
+    "caption_en": "Figure 3: Overview of assessment criteria for the benchmark implementation stage.",
+    "image": "./images/figure-3-p006.png",
+    "source_page": "./source_pages/page-006.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      232.39
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "page": 6,
+    "bbox": [
+      141.41,
+      551.91,
+      470.58,
+      561.87
+    ],
+    "caption_en": "Figure 4: Overview of assessment criteria for the benchmark documentation stage.",
+    "image": "./images/figure-4-p006.png",
+    "source_page": "./source_pages/page-006.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      229.39,
+      578.0,
+      573.87
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "5",
+    "page": 7,
+    "bbox": [
+      145.85,
+      147.74,
+      466.15,
+      157.7
+    ],
+    "caption_en": "Figure 5: Overview of assessment criteria for the benchmark maintenance stage.",
+    "image": "./images/figure-5-p007.png",
+    "source_page": "./source_pages/page-007.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      40.0,
+      578.0,
+      417.7
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "1",
+    "page": 8,
+    "bbox": [
+      315.65,
+      143.41,
+      495.81,
+      186.03
+    ],
+    "caption_en": "Table 1: Benchmark lifecycle scores averaged over the 24 assessed benchmarks separated for FM, non-FM, and All benchmarks com- bined.",
+    "image": "./images/table-1-p008.png",
+    "source_page": "./source_pages/page-008.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      456.03
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "page": 8,
+    "bbox": [
+      315.65,
+      244.26,
+      495.81,
+      297.93
+    ],
+    "caption_en": "Table 2: Pearson correlation coefﬁcient for FM, Non-FM, and All benchmarks between the design and usability (weighted average of implementation, documentation, and mainte- nance stages) score as in Fig. 7.",
+    "image": "./images/table-2-p008.png",
+    "source_page": "./source_pages/page-008.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      193.03,
+      578.0,
+      567.93
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "6",
+    "page": 8,
+    "bbox": [
+      108.0,
+      276.99,
+      307.64,
+      297.93
+    ],
+    "caption_en": "Figure 6: Average and individual scores of all as- sessed benchmarks per lifecycle stage.",
+    "image": "./images/figure-6-p008.png",
+    "source_page": "./source_pages/page-008.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      309.93
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "7",
+    "page": 9,
+    "bbox": [
+      107.64,
+      257.18,
+      504.0,
+      299.94
+    ],
+    "caption_en": "Figure 7: Design and usability score for all 24 assessed benchmarks. The usability score is the weighted average of the implementation, documentation, and maintenance scores. Benchmarks were split into foundation model and non-foundation model benchmarks, depending on the model group they’re targeting.",
+    "image": "./images/figure-7-p009.png",
+    "source_page": "./source_pages/page-009.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      311.94
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "8",
+    "page": 23,
+    "bbox": [
+      108.0,
+      655.96,
+      504.01,
+      687.64
+    ],
+    "caption_en": "Figure 8: Calculating the difference between the mean Usability and Design score between foundation model (FM) and non-foundation model (Non-FM) benchmarks with the data in Fig. 8. We show the lack of statistical signiﬁcance of the difference using bootstrap resampling at a 95% conﬁdence level.",
+    "image": "./images/figure-8-p023.png",
+    "source_page": "./source_pages/page-023.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      295.96,
+      578.0,
+      699.64
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "9",
+    "page": 24,
+    "bbox": [
+      108.0,
+      365.23,
+      504.67,
+      386.03
+    ],
+    "caption_en": "Figure 9: In ascending order, design scores for each benchmark, separated for foundation model (FM) and non-foundation model (Non-FM) benchmarks.",
+    "image": "./images/figure-9-p024.png",
+    "source_page": "./source_pages/page-024.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      398.03
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "10",
+    "page": 24,
+    "bbox": [
+      108.0,
+      610.39,
+      504.0,
+      631.25
+    ],
+    "caption_en": "Figure 10: In ascending order, implementation scores for each benchmark, separated for foundation model (FM) and non-foundation model (Non-FM) benchmarks.",
+    "image": "./images/figure-10-p024.png",
+    "source_page": "./source_pages/page-024.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      395.03,
+      578.0,
+      643.25
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "11",
+    "page": 25,
+    "bbox": [
+      108.0,
+      277.03,
+      504.0,
+      297.93
+    ],
+    "caption_en": "Figure 11: In ascending order, documentation scores for each benchmark, separated for foundation model (FM) and non-foundation model (Non-FM) benchmarks.",
+    "image": "./images/figure-11-p025.png",
+    "source_page": "./source_pages/page-025.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      309.93
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "12",
+    "page": 25,
+    "bbox": [
+      108.0,
+      518.2,
+      504.0,
+      539.14
+    ],
+    "caption_en": "Figure 12: In ascending order, maintenance scores for each benchmark, separated for foundation model (FM) and non-foundation model (Non-FM) benchmarks.",
+    "image": "./images/figure-12-p025.png",
+    "source_page": "./source_pages/page-025.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      306.93,
+      578.0,
+      551.14
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "13",
+    "page": 27,
+    "bbox": [
+      108.0,
+      307.98,
+      504.16,
+      328.93
+    ],
+    "caption_en": "Figure 13: Flow diagram showing our detailed process how we derived the best practices for benchmarks.",
+    "image": "./images/figure-13-p027.png",
+    "source_page": "./source_pages/page-027.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      340.93
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  }
+]

@@ -1,0 +1,380 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "page": 2,
+    "bbox": [
+      48.96,
+      251.57,
+      563.04,
+      277.54
+    ],
+    "caption_en": "Fig. 1. Overview of our work. Existing EO benchmarks rely on pre-collected data and multiple-choice evaluation, while existing EO agents suffer from unconstrained tool use and redundant planning. Our work introduces an open-ended EO benchmark (Earth-Bench-Pro) and a trained skill-guided agent (Earth- Agent-Pro) for full-chain EO task planning and execution.",
+    "image": "./images/figure-1-p002.png",
+    "source_page": "./source_pages/page-002.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      289.54
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "page": 2,
+    "bbox": [
+      48.96,
+      451.16,
+      300.02,
+      468.17
+    ],
+    "caption_en": "Fig. 2. LLM-as-Judge accuracy across Earth-Bench-Pro’s three regimes. Ours is our role-specialized Qwen3.5-9B.",
+    "image": "./images/figure-2-p002.png",
+    "source_page": "./source_pages/page-002.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      286.54,
+      578.0,
+      480.17
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "page": 3,
+    "bbox": [
+      48.96,
+      241.93,
+      563.04,
+      249.97
+    ],
+    "caption_en": "Fig. 3. Earth-Bench-Pro Overview. (a) Task composition across application domains and task families. (b) Global spatial distribution and temporal coverage.",
+    "image": "./images/figure-3-p003.png",
+    "source_page": "./source_pages/page-003.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      261.97
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "I",
+    "page": 4,
+    "bbox": [
+      51.03,
+      58.39,
+      560.98,
+      84.3
+    ],
+    "caption_en": "TABLE I COMPARISON WITH RECENT EARTH-OBSERVATION AGENT BENCHMARKS. VALUES MARKED WITH ∗ARE NOT EXPLICITLY REPORTED IN THE ORIGINAL PAPERS AND ARE COMPUTED FROM THE CORRESPONDING OFFICIAL OPEN-SOURCE RELEASES.",
+    "image": "./images/table-I-p004.png",
+    "source_page": "./source_pages/page-004.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      354.3
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "page": 5,
+    "bbox": [
+      48.96,
+      283.53,
+      563.04,
+      327.44
+    ],
+    "caption_en": "Fig. 4. Earth-Agent-Pro Framework. (a) Skill-guided workflow planning uses a shared expert specification to constrain both workflow construction and runtime argument grounding. (b) Workflow-centered structured memory couples the evolving workflow with provenance-aware accepted evidence, preventing failed attempts from contaminating downstream execution. (c) Evidence-grounded execution and repair performs node-local correction and, upon persistent failure or an evidence gap, preserves the successful prefix while revising only the affected workflow suffix. Together, these mechanisms enable traceable and bounded adaptation without discarding valid execution progress.",
+    "image": "./images/figure-4-p005.png",
+    "source_page": "./source_pages/page-005.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      339.44
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "5",
+    "page": 6,
+    "bbox": [
+      311.98,
+      309.65,
+      563.04,
+      335.62
+    ],
+    "caption_en": "Fig. 5. With vs. Without Skills. The top shows an unscoped tool space and ambiguous workflows without skills, while the bottom shows focused tool selection and a coherent workflow enabled by skill guidance.",
+    "image": "./images/figure-5-p006.png",
+    "source_page": "./source_pages/page-006.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      347.62
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "6",
+    "page": 8,
+    "bbox": [
+      48.96,
+      262.8,
+      563.04,
+      279.81
+    ],
+    "caption_en": "Fig. 6. Synthetic training data generation. An LLM identifies replaceable slots for each seed sample and writes a sample-specific Python program. Human experts verify that the program preserves workflow structure and dependency constraints before it generates consistent training instances.",
+    "image": "./images/figure-6-p008.png",
+    "source_page": "./source_pages/page-008.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      291.81
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "II",
+    "page": 10,
+    "bbox": [
+      49.16,
+      58.39,
+      562.84,
+      93.26
+    ],
+    "caption_en": "TABLE II PERFORMANCE OF DIFFERENT LLM BACKBONES WITH EARTH-AGENT-PRO ON EARTH-BENCH-PRO. ALL QUALITY METRICS ARE PERCENTAGES. EFFICIENCY IS A RATIO FOR WHICH VALUES CLOSER TO 1 ARE BETTER. AMONG OPEN-SOURCE MODELS, BEST RESULTS ARE BOLDED AND RUNNER-UPS ARE UNDERLINED.",
+    "image": "./images/table-II-p010.png",
+    "source_page": "./source_pages/page-010.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      363.26
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "III",
+    "page": 11,
+    "bbox": [
+      51.26,
+      58.39,
+      560.74,
+      93.26
+    ],
+    "caption_en": "TABLE III COMPARISON WITH GENERAL RS MLLMS ACROSS THE TERRASCOPE TASK CATEGORIES. A NUMERICAL PREDICTION IS COUNTED AS CORRECT IF ITS RELATIVE ERROR FROM THE GROUND-TRUTH VALUE IS LESS THAN 15%. THE AVG. COLUMN REPORTS SAMPLE-WEIGHTED ACCURACY ACROSS THE FIVE TASK CATEGORIES. BEST RESULTS ARE IN BOLD, AND SECOND-BEST ARE UNDERLINED.",
+    "image": "./images/table-III-p011.png",
+    "source_page": "./source_pages/page-011.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      266.79
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "IV",
+    "page": 11,
+    "bbox": [
+      49.16,
+      274.79,
+      562.85,
+      309.66
+    ],
+    "caption_en": "TABLE IV FRAMEWORK COMPARISON ON THE OPENEARTHAGENT BENCHMARK. WE REPORT TOOL-SELECTION F1 SCORES FOR PERCEPTION (PER.), OPERATION (OP.), LOGIC, AND GIS; TOOL-ORDER FIDELITY UNDER ANYORDER, SAMEORDER, AND UNIQUE; AND TASK-LEVEL ACCURACY FOR NONGENERATIVE ANSWERING (ANS.) AND IMAGE GENERATION (GEN.). BEST RESULTS ARE IN BOLD, AND SECOND-BEST RESULTS ARE UNDERLINED.",
+    "image": "./images/table-IV-p011.png",
+    "source_page": "./source_pages/page-011.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      100.26,
+      578.0,
+      579.66
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "V",
+    "page": 12,
+    "bbox": [
+      57.9,
+      58.39,
+      554.1,
+      84.3
+    ],
+    "caption_en": "TABLE V COMPARISON WITH GENERAL-PURPOSE AGENTS. ACCURACY VALUES ARE REPORTED AS PERCENTAGES, AND AVERAGE LATENCY IS MEASURED IN SECONDS. BEST RESULTS ARE BOLDED AND RUNNER-UPS ARE UNDERLINED.",
+    "image": "./images/table-V-p012.png",
+    "source_page": "./source_pages/page-012.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      207.8
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "VI",
+    "page": 12,
+    "bbox": [
+      49.16,
+      215.8,
+      562.84,
+      250.67
+    ],
+    "caption_en": "TABLE VI FRAMEWORK COMPARISON ON EARTH-BENCH-PRO USING A SHARED GPT-5 BACKBONE. ALL QUALITY METRICS ARE REPORTED AS PERCENTAGES. EFFICIENCY IS MEASURED AS A RATIO, WHERE VALUES CLOSER TO 1 INDICATE BETTER PERFORMANCE. BEST RESULTS ARE BOLDED AND RUNNER-UPS ARE UNDERLINED.",
+    "image": "./images/table-VI-p012.png",
+    "source_page": "./source_pages/page-012.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      91.3,
+      578.0,
+      347.43
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "VII",
+    "page": 12,
+    "bbox": [
+      50.57,
+      355.43,
+      561.44,
+      381.33
+    ],
+    "caption_en": "TABLE VII ABLATION STUDY OF DOMAIN SKILLS. ALL QUALITY METRICS ARE REPORTED AS PERCENTAGES, WHILE EFFICIENCY IS MEASURED AS A RATIO. BOLD VALUES INDICATE THE BETTER RESULT WITHIN EACH ADJACENT PAIR.",
+    "image": "./images/table-VII-p012.png",
+    "source_page": "./source_pages/page-012.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      257.67,
+      578.0,
+      651.33
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "VIII",
+    "page": 13,
+    "bbox": [
+      49.27,
+      58.39,
+      562.74,
+      84.3
+    ],
+    "caption_en": "TABLE VIII ADAPTER COMPOSITION FOR ROLE-SPECIALIZED TRAINING ON EARTH-BENCH-PRO. ALL QUALITY METRICS ARE PERCENTAGES, WHILE EFFICIENCY IS A RATIO.",
+    "image": "./images/table-VIII-p013.png",
+    "source_page": "./source_pages/page-013.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      187.83
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "IX",
+    "page": 13,
+    "bbox": [
+      54.88,
+      195.83,
+      294.11,
+      221.73
+    ],
+    "caption_en": "TABLE IX PLANNING-ONLY EVALUATION ON EARTH-BENCH-PRO. BOLD VALUES INDICATE THE BETTER RESULT WITHIN THE BASE/TUNED PAIR.",
+    "image": "./images/table-IX-p013.png",
+    "source_page": "./source_pages/page-013.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      91.3,
+      578.0,
+      348.54
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "table",
+    "number": "X",
+    "page": 13,
+    "bbox": [
+      55.76,
+      356.54,
+      293.22,
+      391.41
+    ],
+    "caption_en": "TABLE X ORACLE-PLAN EXECUTOR EVALUATION ON EARTH-BENCH-PRO. EFF. DENOTES EFFICIENCY. BOLD VALUES INDICATE THE BETTER RESULT WITHIN THE BASE/TUNED PAIR.",
+    "image": "./images/table-X-p013.png",
+    "source_page": "./source_pages/page-013.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      228.73,
+      578.0,
+      661.41
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "7",
+    "page": 14,
+    "bbox": [
+      48.96,
+      448.56,
+      563.04,
+      474.53
+    ],
+    "caption_en": "Fig. 7. Representative execution cases on Earth-Bench-Pro. From top to bottom: Spectrum-based UHII estimation, RGB-based tennis-court area estimation, and Product-based vegetation-coverage change analysis. The first two cases show that our agent preserves the required tool dependencies and matches the reference answers, whereas the third illustrates errors caused by incorrect downstream tool selection.",
+    "image": "./images/figure-7-p014.png",
+    "source_page": "./source_pages/page-014.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      88.56,
+      578.0,
+      486.53
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  },
+  {
+    "type": "figure",
+    "number": "8",
+    "page": 15,
+    "bbox": [
+      311.98,
+      229.5,
+      563.04,
+      300.31
+    ],
+    "caption_en": "Fig. 8. Skills reduce operational error counts. Each run contains 248 trajectories. Bars count logged operational errors, and one trajectory may contribute multiple events. Panel A compares with-skills (WS) counts across models, while Panel B compares no-skills (NS) with WS for the two 9B configurations. Panel C compares Earth-Agent-Pro and ReAct under the shared Qwen3.5-9B backbone. Colors denote repeated no-progress calls until the step limit, calls to nonexistent tools, accesses to nonexistent files or paths, and parameter schema, format, or value violations.",
+    "image": "./images/figure-8-p015.png",
+    "source_page": "./source_pages/page-015.jpg",
+    "crop_pdf_bbox": [
+      34.0,
+      38.0,
+      578.0,
+      312.31
+    ],
+    "crop_note": "根据图题位置自动截图。对于跨页、长表或标题置顶的图表，请同时核对原稿页图；截图不替代原 PDF。"
+  }
+]

@@ -1,0 +1,1817 @@
+                                                                                                                                                                              1
+
+
+
+
+                                            Earth-Agent-Pro: Towards Real-World Full-Chain
+                                                    Earth Observation with Agents
+                                                              Zhutao Lv1,2 , Chenhao Dang3,4* , Yi Feng5* , Yanpei Gong6* , Xiaolei Wang2 ,
+                                                                                  Junyan Ye2 , Conghui He4 , Weijia Li1,4†
+                                                   1
+                                                     Tsinghua Shenzhen International Graduate School, Tsinghua University, 2 Sun Yat-Sen University,
+                                                              3
+                                                                Shanghai Jiao Tong University, 4 Shanghai Artificial Intelligence Laboratory,
+                                                                          5
+                                                                            Tianjin University, 6 Harbin Institute of Technology
+arXiv:2609.12533v1 [cs.CV] 11 Sep 2026
+
+
+
+
+                                            Abstract—Real-world Earth observation (EO) analysis requires       by matching the target phenomenon, region, and period to
+                                         agents to be capable of translating high-level scientific questions   suitable observations. Analysts then choose the data source,
+                                         into executable workflows for acquiring observations, preparing       product, bands, and sampling parameters before acquiring and
+                                         data, performing domain computations, and deriving conclusions
+                                         from runtime evidence. However, existing EO agents and bench-         preprocessing the data. The prepared observations enter a
+                                         marks generally cover only part of this chain: agents typically       domain-specific computation pipeline that yields the requested
+                                         start from supplied observations, whereas benchmarks typically        scientific quantities. Completing this workflow requires ex-
+                                         provide prepared inputs or candidate answers, leaving full-chain      pertise in sensors, data products, geospatial processing, and
+                                         open-world EO execution largely untested. We present Earth-           domain science, which raises the entry barrier for users outside
+                                         Agent-Pro, an execution-adaptive Plan-and-Execute framework
+                                         that uses expert-authored skills to constrain workflow planning       the EO community and limits access to reproducible analysis.
+                                         and runtime tool use. It records planned steps, accepted evidence,       Recent work has expanded EO capabilities beyond inter-
+                                         and their dependency links in workflow-centered structured            preting supplied observations to include multistep analysis
+                                         memory, then repairs only the affected workflow suffix when           execution. Vision-language models interpret supplied images
+                                         runtime evidence invalidates a step. Role-specific training adapts    and image sequences [19]–[21], while tool-augmented agents
+                                         the underlying large language model (LLM) through separate
+                                         planner and executor adapters: sequence-level supervised fine-        select operations, execute code, and construct multistep work-
+                                         tuning targets planner workflow composition, while node-level         flows [22]–[26]. Benchmarks now span fixed-input question
+                                         group relative policy optimization with locally verifiable rewards    answering, multistep geographic information system (GIS)
+                                         targets executor tool-argument grounding. To evaluate full-chain      tool use, and open-environment pipeline construction [27]–
+                                         open-world EO execution, we introduce Earth-Bench-Pro, a 744-         [30]. Together, these methods and benchmarks cover more
+                                         question EO agent benchmark that instantiates 248 expert-
+                                         curated task cores under three matched regimes. Across RGB            of the request-to-answer chain, but evaluations differ in their
+                                         imagery, spectral observations, and remote sensing products, its      scientific tasks, input assumptions, and answer formats. Mea-
+                                         248 Open-World Execution questions pair high-level requests           suring progress toward autonomy therefore requires a matched
+                                         with runtime data requirements, executable trajectories, and          evaluation that removes expert scaffolding while keeping the
+                                         open-ended answers grounded in execution evidence. Under a            scientific objective fixed.
+                                         shared GPT-5 backbone, Earth-Agent-Pro reaches 66.13% LLM-
+                                         as-Judge accuracy, outperforming ReAct by 20.95 points in LLM-           Our prior Earth-Agent and Earth-Bench provide the task and
+                                         as-Judge accuracy and 24.44 points in Tools-In-Order. Jointly         evaluation foundation for this comparison [31]. Earth-Agent
+                                         tuning the Planner and Executor adapters raises Qwen3.5-9B            connects a language model to EO tools through the Model
+                                         LLM-as-Judge accuracy from 38.31% to 50.00%, an 11.69-point           Context Protocol, while Earth-Bench evaluates final answers
+                                         gain over the untuned configuration. Planning-only evaluation         and reference trajectories across red-green-blue (RGB) im-
+                                         and execution with the reference workflow further show that the
+                                         adapters improve workflow composition and argument ground-            agery, spectral observations, and remote sensing products. This
+                                         ing, respectively. In conclusion, Earth-Bench-Pro and Earth-          pairing evaluates both the scientific result and the execution
+                                         Agent-Pro support evaluation and training of EO agents from           path. Earth-Bench, however, begins with expert-prepared local
+                                         user requests to evidence-grounded scientific answers. The code       inputs and multiple-choice questions, leaving runtime data
+                                         and datasets of this work will be released soon.                      discovery and open-ended answer generation outside its eval-
+                                           Index Terms—Earth observation, remote sensing agents, open-         uation boundary. We build on this foundation by preserving
+                                         world execution                                                       each of Earth-Bench’s 248 scientific objectives as a fixed
+                                                                                                               task core and moving runtime data discovery, acquisition, and
+                                                                   I. I NTRODUCTION                            open-ended answer generation into the evaluated workflow.
+                                            Earth observation (EO) turns satellite and aerial measure-            The resulting request-to-answer setting, which we call open-
+                                         ments into quantitative evidence for agricultural monitoring,         world EO execution, starts from a request that specifies
+                                         disaster assessment, urban analysis, and environmental change         a phenomenon, region, and period. The agent must locate
+                                         research [1]–[15]. Producing such evidence from an EO ques-           runtime inputs, acquire suitable observations when required,
+                                         tion remains expert-intensive [16]–[18]. An EO analysis begins        prepare them, perform domain computations, and derive an
+                                                                                                               answer from runtime evidence. Files, intermediate artifacts,
+                                           * Equal contribution.   † Corresponding author.                     and tool results appear only during execution, so later op-
+                                                                                                                                                                                                                                                     2
+
+
+
+
+                  Existing EO Benchmarks                                         Existing EO Agents                                                              Ours (Earth-Bench-Pro & Earth-Agent-Pro)
+
+                  Q: Calculate the distance between A and B.                                 Local Tools                                                         Earth-Bench-Pro 744 expert-curated open-ended tasks
+
+
+
+
+                                                                                                                            tools / information
+                                                                                                                                                  Unrestricted
+                  Same        Pre-collected                                                                                                                             Introduce     Search
+                                                                                                                                                                        Data                                Download Series
+                  Workflow        data                                                                                                                                                Data Source
+                                                                                        External Knowledge                                                              Download
+                   Multiple Choice
+                                                      Pick from options                                                                                          Earth-Agent-Pro
+                  (A) 0m (B) 30m
+                  (C) 80m (D) 200m                    Easier                                                                                                                                            Skill-guided Agent
+                                                                                                                                                                                   Open EO task
+                                                                                                                                                                                                                  Skill 1     Executor
+
+
+
+
+                                                                                                                                                                                                                                            Answer
+                                                                                                                                                                  Extra
+                                                                                                                                                                                                                  Skill 2
+                      Open-ended                                           Tool A        Tool B          Tool C         Answer                                    Generated
+                   The distance
+                                                    No reference options
+                                                                                                                                                                  Data for                          Planner       Skill 3
+                                                                                                                                                                                                                                Workflow
+
+                                                    Much Harder
+                                                                                                                                                                                                                   …
+                                                                                                                                                                                          ?
+                                                                                                                                                                                                                              Lightweight
+                   between A and B                                                                                                                                Model Training
+                   is 79.95 meters.                                            Tool D      Tool B           !Redundant Path                                                                                       Skill n     Model
+
+
+
+
+                                       Drawbacks                                              Drawbacks                                                                                             Advantages
+                   1. Data acquisition is skipped
+                                                                           1. Tool selection lacks systematic constraints                                           1. Open-world benchmark with open-ended EO tasks
+                   2. Answers are reduced to multiple choice
+                                                                           2. Planning paths become redundant or indirect                                           2. Skill-guided agent for full-chain EO workflows
+                   3. Actual numeric/date/unit errors can be hidden
+                                                                           3. General-purpose models lack EO-specialized training                                   3. Trained lightweight agent for planning and execution
+                   4. Has a gap from the real-world EO needs
+
+
+
+
+Fig. 1. Overview of our work. Existing EO benchmarks rely on pre-collected data and multiple-choice evaluation, while existing EO agents suffer from
+unconstrained tool use and redundant planning. Our work introduces an open-ended EO benchmark (Earth-Bench-Pro) and a trained skill-guided agent (Earth-
+Agent-Pro) for full-chain EO task planning and execution.
+
+
+             70
+                                       Instruction                Autonomous            Open-World                    percentage points above ReAct, and leads ReAct by 24.44
+                                       Following                  Planning              Execution
+             60                                                                                                       points on Tools-In-Order. Combining the Planner and Executor
+                                                                                                                      adapters raises Qwen3.5-9B LLM-as-Judge accuracy by 11.69
+             50
+                                                                                                                      points; planning-only and oracle-plan evaluations separately
+ Score (%)
+
+
+
+
+             40                                                                                                       measure workflow composition and argument grounding.
+                                                                                                                        Our contributions are:
+             30
+                                                                                                                        • Open-world execution task and benchmark. We for-
+             20                                                                                                            mulate open-world EO execution and operationalize it
+             10
+                                                                                                                           with 248 Open-World Execution questions in Earth-
+                                                                                                                           Bench-Pro. Product and Spectrum tasks require runtime
+             0
+                      Ours
+                                GEMMA-4 Mistralai- InternLM3 Qwen3.5- Llama-33-70B GPT-oss-                                observation acquisition and preparation, and all questions
+                                 (E4B-it) v03-7B       -8B     9B       -Instruct   120b
+                                                                                                                           require open-ended answers grounded in execution evi-
+Fig. 2. LLM-as-Judge accuracy across Earth-Bench-Pro’s three regimes. Ours
+                                                                                                                           dence. Together with 496 matched Instruction-Following
+is our role-specialized Qwen3.5-9B.                                                                                        and Autonomous-Planning questions, the released suite
+                                                                                                                           contains over 700 evaluation questions.
+                                                                                                                        • Open-world EO agent framework. Earth-Agent-Pro
+
+erations depend on accepted upstream evidence. The agent                                                                   uses expert skill guidance to constrain workflow con-
+must track workflow dependencies, ground each operation in                                                                 struction and runtime tool use, while its execution-
+the evolving state, and revise affected future operations when                                                             adaptive dynamic workflow maintains the plan, accepted
+evidence invalidates the current plan.                                                                                     evidence, and their dependencies. Under a shared back-
+   We develop Earth-Bench-Pro and Earth-Agent-Pro as                                                                       bone, tool set, and skill set, Earth-Agent-Pro outperforms
+a paired benchmark and agent for open-world EO execu-                                                                      ReAct, AFlow, and OpenEarthAgent on final-answer and
+tion. Earth-Bench-Pro holds each scientific objective fixed                                                                workflow-order metrics in controlled comparisons.
+                                                                                                                        • Dependency-preserving data and role training. From
+across matched regimes that progressively remove the refer-
+ence workflow and prepared inputs. Earth-Agent-Pro separates                                                               248 seed workflows, we construct 2,480 dependency-
+workflow planning from runtime operation grounding and                                                                     preserving trajectories and combine them with examples
+constrains both stages with expert-authored skills. Workflow-                                                              from the public OpenEarthAgent training set [25] to form
+centered structured memory links pending operations to ac-                                                                 a balanced mixture for Planner SFT and Executor GRPO.
+cepted evidence, allowing the agent to preserve a valid prefix                                                             Combining the two adapters raises Qwen3.5-9B LLM-as-
+and repair only an invalidated workflow suffix. The training                                                               Judge accuracy by 11.69 points on Earth-Bench-OW.
+pipeline specializes the Planner for workflow composition and
+the Executor for runtime argument grounding.                                                                                                                                       II. R ELATED W ORK
+   Earth-Bench-Pro exposes a consistent difficulty gap: Open-                                                         A. Earth Observation Benchmarks and Datasets
+World Execution remains the hardest regime across backbones                                                            Earth observation (EO) datasets provide perception and
+(Figure 2). On Earth-Bench-OW, with a shared GPT-5 back-                                                              multimodal evaluation on fixed inputs [32]. RSVQA [27] and
+bone, tool set, and skill set, Earth-Agent-Pro reaches 66.13%                                                         VRSBench [28] assess visual question answering; GeoBench-
+accuracy under a large language model (LLM) judge, 20.95                                                              VLM [33] and CHOICE [34] evaluate geospatial multimodal
+                                                                                                                                                                              3
+
+
+
+     (a) Benchmark Composition                                                                              (b) Global Spatiotemporal&Temporal Coverage
+
+
+
+
+                                                                                                        n
+                                                                                .
+
+
+
+
+                                                                                                      io
+                                                              s.
+
+                                                              x
+                                                                             tr
+
+
+
+
+                                                           de
+                                                           at
+
+
+
+
+                                                                                                   pt
+                                                                           Re
+
+
+
+
+                                                                                             es
+                                                        St
+
+                                                        In
+
+
+
+
+                                                                                                     e
+                                                                                           ri
+                                                                      al
+
+
+
+
+                                                                                                  rc
+                                                                                  p.
+
+
+                                                                                         Se
+                                                     al
+
+
+
+
+                                                                                 m
+                                                     t
+
+
+
+
+                                                                                              Pe
+                                                                  m
+
+
+
+
+                                                   uc
+                                                                er
+
+
+
+
+                                                  tr
+
+
+
+
+                                                                               Te
+
+
+                                                                                       e-
+
+                                                                                               B
+                                                od
+
+                                                ec
+                                                              Th
+
+
+
+
+                                                                                       m
+
+                                                                                            RG
+                                                                            BT
+                                             Pr
+
+
+
+
+                                                                                    Ti
+                                             Sp
+                             Agriculture &
+                                Drought
+                                  Urban &
+      Application domain
+
+
+
+
+                           Infrastructure
+                           Water & Marine
+                             Vegetation &
+                              Ecosystems
+                       Cryosphere & Snow
+                            Atmosphere &
+                                Climate                                                                                                                  Task uses
+                               Hazards &
+                                Disasters                                                                                                                   1    3     6
+                            Land Cover &
+                           Object Mapping                                                                                            Relative task density: lower - higher
+
+                                               Lower share                 Higher share
+                                                                                                            1980         1990        2000         2010          2020   2025
+
+
+
+
+Fig. 3. Earth-Bench-Pro Overview. (a) Task composition across application domains and task families. (b) Global spatial distribution and temporal coverage.
+
+
+
+capabilities; VLEO-Bench [35], XLRS-Bench [36], URBench                                                       or products but generally do not discover external data, coor-
+[4], DisasterM3 [37], and TerraScope [21] extend evaluation to                                                dinate tool use, or maintain evidence through long-horizon EO
+fine-grained, ultra-high-resolution, urban, disaster, and pixel-                                              analysis.
+grounded reasoning. These benchmarks mainly score final                                                          Agent-based EO Methods. General agents establish plan-
+outputs rather than agent interactions, tool-use trajectories, or                                             ning and tool-use paradigms through reasoning-action inter-
+intermediate artifacts. Complementary EO benchmarks target                                                    leaving in ReAct [66], API-grounded tool use in Gorilla [67]
+specific agentic operations: RescueADI [38] evaluates se-                                                     and ToolLLM [68], reusable skills in Voyager [69], and work-
+quential disaster interpretation; GeoLLM-Engine [39] provides                                                 flow optimization in AFlow [70]. Early EO agents, including
+analyst-style API and interface interactions; GeoBenchX [29]                                                  RS-ChatGPT [71], RS-Agent [72], and Change-Agent [73],
+tests multistep GIS tool calling; AEOS-Bench [40] considers                                                   connect LLMs with visual models or expert tools for percep-
+constrained constellation scheduling. Agent-oriented bench-                                                   tion tasks. Subsequent systems organize broader workflows
+marks formalize these capabilities in their protocols: ThinkGeo                                               through EO code generation in UnivEarth [23], tool use in
+[22] assesses tool use, Earth-Bench [31] evaluates trajectory-                                                ThinkGeo [22], MCP-based tool integration in Earth-Agent
+level EO tasks, and HTAM/GeoPlan-Bench [24] targets hi-                                                       [31], knowledge-flow fusion in CangLing-KnowFlow [74],
+erarchical task abstraction. More recently, EO-Gym [41] and                                                   and hierarchical abstraction in HTAM [24]. Recent directions
+TerraBench [42] introduce interactive heterogeneous data; Ge-                                                 extend to multi-platform reasoning with RingMo-Agent [75],
+oMMBench [43] and TerraLogic [44] target complex geosci-                                                      climate science with EarthLink [76], open geospatial environ-
+entific reasoning; and GeoAgentBench [45] and DORA [46]                                                       ments with OpenEarthAgent [25] and OpenEarth-Agent [30],
+assess GIS execution verification and emergency geospatial                                                    workflow automation with GeoFlow [77], experience-driven
+reasoning. OpenEarth-Bench [30] evaluates open-environment                                                    cooperation with GeoEvolver [78], vague-intent handling with
+EO pipelines and tool creation, whereas NASA-EO-Bench                                                         RemoteAgent [79], and expert-level reasoning with GeoM-
+[47] focuses on data and tool discovery. Yet evaluations often                                                MAgent [43]. However, existing systems commonly plan over
+start from curated cases or treat discovery separately, leaving                                               broad or predefined tool spaces and optimize planning and
+open the joint assessment of data-source selection, acquisition,                                              execution as a unified policy. They rarely use expert task
+intermediate evidence, and final natural-language answers.                                                    skills to constrain both workflow construction and runtime
+                                                                                                              tool scope, or explicitly maintain accepted evidence and
+                                                                                                              dependencies as execution evolves. Role-specific alignment
+B. Earth Observation Methods
+                                                                                                              of workflow composition and node-level argument grounding
+   MLLM-based EO Methods. EO representation and per-                                                          therefore remains largely underexplored.
+ception methods, including SpectralGPT [48], RingMo-Aerial
+[49], REST [50], RingMoE [51], CrossEarth [52], and Hyper-                                                              III. E ARTH -B ENCH -P RO B ENCHMARK
+SIGMA [53], have strengthened representation learning and
+visual interpretation across spectral, aerial, and hyperspectral                                              A. Benchmark Overview
+observations [54]. In parallel, RSGPT [55], SkySenseGPT                                                          Earth-Bench-Pro builds a 744-question EO agent benchmark
+[56], GeoChat [19], LHRS-Bot [20], EarthGPT [57], Earth-                                                      from 248 matched scientific task cores. Earth-Bench-Pro com-
+Marker [58], EarthGPT-X [59], EarthDial [60], VHM [61],                                                       prises three matched sub-benchmarks: Earth-Bench-IF, Earth-
+GeoPixel [62], and SkyEyeGPT [63], extend captioning and                                                      Bench-AP, and Earth-Bench-OW. Earth-Bench-IF provides an
+visual question answering to scene understanding, grounding,                                                  ordered reference tool sequence and prepared inputs. Earth-
+multi-sensor dialogue, and pixel-level reasoning [64], [65].                                                  Bench-AP hides the sequence while retaining prepared inputs.
+These advances strengthen understanding of provided imagery                                                   Earth-Bench-OW requires agents to acquire or discover data
+                                                                                                                                             4
+
+
+
+                                                           TABLE I
+C OMPARISON WITH RECENT E ARTH - OBSERVATION AGENT BENCHMARKS . VALUES MARKED WITH ∗ ARE NOT EXPLICITLY REPORTED IN THE ORIGINAL
+                       PAPERS AND ARE COMPUTED FROM THE CORRESPONDING OFFICIAL OPEN - SOURCE RELEASES .
+
+
+                                                       Multi-     Open-ended Executable       Real Data PreprocessingQuantitative Intermediate
+      Benchmark         Tasks   Steps   Avg. Tools     source        QA      Trajectory       Acquisition Required    Answer      Observations
+                                                      EO Data
+
+       Ours          744 5,295 7.1 112                   ✓               ✓            ✓           ✓           ✓           ✓            ✓
+    OpenEarth-
+                     596     –    –    –                 ✓               ×            ✓           ✓           ✓           ✓          Part.
+    Bench [30]
+OpenEarthAgent [25] 1,169 7,064 6.04 24                  ✓               ✓            ✓          Part.       Part.        ✓            ✓
+    KnowFlow-
+                     324     –    –    –                 ✓               ×            ✓          Part.        ✓           ✓          Part.
+    Bench [74]
+  TerraBench [42]    403 ∼24,500 ∼60.8 77                ✓               ✓            ✓           ✓          Part.        ✓            ✓
+   EO-Gym [41]      1,436 5,323∗ 3.7∗ 35                 ✓               ✓            ✓          Part.       Part.       Part.         ✓
+GeoPlan-Bench [24] 996 10,619∗ 10.7∗ 104∗                ×               ×            ×           ×           ✓           ×            ×
+
+
+
+at runtime and subsequently generate an open-ended answer                    these tools in order alongside the scientific query. Instruction
+grounded in execution evidence.                                              following uses the resulting instruction q IF = ϕ(q, π ⋆ ) and
+   As illustrated in Figure 3, Earth-Bench-Pro covers eight                  prepared inputs cprep . Autonomous planning uses the query
+application domains and six analysis types. The applica-                     without reference tools and the same prepared inputs. Open-
+tion domains include agriculture and drought [80], urban                     world execution provides runtime input requirements creq ,
+areas and infrastructure, water and marine systems, vegetation               leaving the agent to acquire or discover data during execution:
+and ecosystems [81], cryosphere and snow, atmosphere and                                          IF
+climate, hazards and disasters, and land cover and object                                           q = ϕ(q, π ⋆ ),
+                                                                                                 
+mapping. The analysis types include product statistics, spec-                                     I = (q IF , cprep ),
+                                                                                                 
+                                                                                                      IF
+                                                                                                                                          (2)
+tral indices, thermal retrieval, brightness-temperature analysis,                                
+                                                                                                   IAP = (q, cprep ),
+time-series analysis, and RGB perception. The tasks also                                         
+                                                                                                   IOW = (q, creq ).
+                                                                                                 
+span regions across all six inhabited continents and requested
+observation periods from 1980 to 2025, covering a broad range                   In the open-world execution, f denotes the tool-selection
+of geographic settings and temporal extents.                                 policy, g denotes the runtime argument generator, and h
+   Recent EO agent benchmarks cover only parts of the                        denotes the evidence-conditioned answer function. The tool
+end-to-end workflow. OpenEarth-Bench [30] and KnowFlow-                      and arguments for call i depend on the query, runtime re-
+Bench [74] include acquisition or preprocessing but omit open-               quirements, and preceding accepted execution trace. The en-
+ended answers. OpenEarthAgent [25], TerraBench [42], and                     vironment returns a new observation, and the agent generates
+EO-Gym [41] evaluate open-ended answers and tool trajecto-                   its answer from the completed trajectory:
+ries but provide partial coverage of acquisition, preprocessing,                                                    L
+or quantitative analysis. GeoPlan-Bench [24] isolates workflow                                 
+                                                                                                 τ = (ti , θi , oi ) i=1 ,
+                                                                                               
+planning without executable reference trajectories or runtime                                               req
+                                                                                                ti = f (q, c , τ<i ),
+                                                                                               
+                                                                                               
+acquisition. As shown in Table I, Earth-Bench-Pro is the
+                                                                                                 θi = g(q, creq , ti , τ<i ),         (3)
+only benchmark in this comparison that covers all seven                                        
+                                                                                                 oi = E(ti , θi ),
+                                                                                               
+                                                                                               
+dimensions. This design evaluates both final answers and the                                   
+                                                                                               
+                                                                                               
+                                                                                                  ŷ = h(q, creq , τ ).
+                                                                                               
+complete execution processes that produce them.
+                                                                             Execution therefore directly determines the selected data,
+B. Problem Formulation                                                       intermediate dependencies, and ultimately the final answer.
+   Earth-Bench-Pro represents each benchmark sample as z =
+(q, c, τ ⋆ , y ⋆ ), where q is a scientific query, c encodes the input
+context or runtime data requirements, and y ⋆ is the reference               C. Data Curation
+answer. Let Nz denote the number of steps in the reference                      Earth-Bench-Pro treats a complete executable evidence
+trajectory τ ⋆ . The EO environment E executes these steps.                  chain as the unit of annotation, linking each scientific re-
+Each step records tool t⋆i , arguments θi⋆ , and the resulting               quest to its answer through tool execution. We assembled
+observation o⋆i :                                                            an eight-member annotation team with two computer science
+                                     Nz                                     experts, three remote sensing specialists, and three Earth
+             τ ⋆ = (t⋆i , θi⋆ , o⋆i ) i=1 ,  o⋆i = E(t⋆i , θi⋆ ).  (1)
+                                                                             science specialists. The team jointly reviews tool executability,
+  The three evaluation regimes expose different information                  remote sensing data requirements, scientific interpretation, and
+to the agent. Let π ⋆ = (t⋆1 , . . . , t⋆Nz ) denote the reference           answer correctness, bringing technical constraints and domain
+tool sequence, and let ϕ construct an instruction that states                judgment into the same annotation process.
+                                                                                                                                                                                                                                      5
+
+
+
+
+                                      Earth-Agent-Pro                                 Fine-
+                                                                                      tuning
+                                                                                                        Shared by Planner
+                                                                                                        and Executor
+                                                                                                                                  Expert Skills
+                                                                                                                                      𝒜ₛ
+                                                                                                                                                            Tool Catalog
+                                                                                                                                                                 𝒯
+                                                                                                                                                                                       EO
+                                                                                                                                                                                  Environment
+
+
+
+                                       (a) Skill-Guided Workflow Planning                                                              (c) Evidence-Grounded Execution & Repair
+
+        Open-World EO                                             4-role Sequential               Catalog                                               Executor: ReAct loop                                   Verified EO
+         Task & Input                                              Debate Planner                Validator                                           constrained to current node                                 Answer
+                                                               EO workflow specialist
+                                                               -> Tool schema specialist
+                                                                                             Tool exists ?
+            User Request                                                                    Skill-allowed ?
+                                                               -> Benchmark minimalist                            Workflow                        Ground & Execute current node
+       On 12 Jul 2021, what               Skill Routing        -> Skeptical moderator      Valid sequence ?                                Node Vᵢ : compute_tvdi(lst_path, ndvi_path)
+                                                                                                                 Skeleton π:
+       percentage of the Chengdu                                      -> Final candidate   valid -> accept                                          Mᵢ -> NDVI / LST paths；
+                                         ->Active Skill ：                                                       Download×2 ->
+       Plain had TVDI > 0.75?            earth-acquire-               workflow             error -> retry       Scale×2 -> TVDI                    Execute -> TVDI candidate
+                                         thermal-retrieval                       error retry                    -> Threshold
+
+                                                                                                                                                       Hybrid Verification                                  accepted results only √
+         Download Context                                                                                                                            • Deterministic Gates
+       Download-first                  (b) Workflow-Centered Structured Memory                                𝒮𝑖 = 𝑊𝑖 , 𝑀𝑖                           • LLM Checker                                           evidence complete √
+       Initial files: none
+       MOD11A1 LST | scale 0.02
+       MOD13Q1 NDVI | scale 1e-4        Dynamic workflow Wᵢ                                                                                        Accept              In-node correction                   traceable provenance √
+       2021-07-12 | GSD 30 m                                                                                                                                            fix arguments ->
+                                                                                                                                              If Terminal:
+                                        Successful Prefix                  Current Node Vᵢ              Revisable Suffix                    Update Memory->             retry current node
+                                                                                                                                                                                                Retries
+                                                                                                                                            Answer Controller
+                                        Download×2 : LST, NDVI                 Compute TVDI            Calculate threshold                                             Structural Repair        exhausted    Scientific response
+          Task Constraints              Scale×2 : 0.02 / 0.0001                                        ratio : TVDI > 0.75                  If Non-terminal:                Preserve Prefix                      TVDI > 0.75
+       AOI bbox:                                                                                                                            Update Memory->                -> Revise Suffix
+                                                                                                                                               Next Node
+                                                                                                                                                                                                              Affected cropland
+       [103.800, 30.300,                Accepted evidence Mᵢ                                                                                                                                                       28.00%
+        104.500, 30.501]
+       Criterion: TVDI > 0.75                 accepted call    Reuseable artifacts & provenance       Derived grounding view:                                                      Evidence gap
+       Required output: area ratio             Download LST
+                                               Download NDVI
+                                                                   Scaled LST:    Scaled NDVI:
+                                                                                                    ⚫ lst_path<- Scaled LST                             Answer Controller:                                  grounded in verified
+                                                                   MOD11A1        MOD13Q1
+                                               Scale LST                                            ⚫ ndvi_path<- Scaled NDVI                            Task evidence sufficient?
+                                               Scale NDVI
+                                                                   2021-07-12     2021-07-12                                                                                                                     execution
+            specified by user query                                                                                                                      Yes -> Answer
+            and task context                                                                                                                             No -> Resume workflow
+
+
+
+
+Fig. 4. Earth-Agent-Pro Framework. (a) Skill-guided workflow planning uses a shared expert specification to constrain both workflow construction and
+runtime argument grounding. (b) Workflow-centered structured memory couples the evolving workflow with provenance-aware accepted evidence, preventing
+failed attempts from contaminating downstream execution. (c) Evidence-grounded execution and repair performs node-local correction and, upon persistent
+failure or an evidence gap, preserves the successful prefix while revising only the affected workflow suffix. Together, these mechanisms enable traceable and
+bounded adaptation without discarding valid execution progress.
+
+
+
+   Experts transform 248 scientific task cores into open-world                                                        Quality control checks three relations along the evidence
+workflows for which execution determines the inputs, inter-                                                        chain: queries against input requirements, data dependencies
+mediate dependencies, and answers. These tasks retain the                                                          across tool calls, and final answers against execution evidence.
+scientific objectives of Earth-Bench [31]. Experts re-execute                                                      Experts retain and inspect intermediate rasters, files, numerical
+the original solutions in a shared EO execution environment                                                        outputs, detections, masks, and statistics. They also verify
+and correct inconsistencies among the question, tool selection,                                                    answer values, units, precision, temporal references, and trend
+call arguments, intermediate dependencies, and answer. For                                                         descriptions. The 248 verified Open-World Execution work-
+188 Product and Spectrum tasks, experts replace fixed local                                                        flows contain 1,765 tool calls, average 7.1 calls per task, and
+inputs with online acquisition and required preprocessing,                                                         use 84 distinct tools. We derive matched Instruction-Following
+authoring 323 task-level acquisition specifications. Each spec-                                                    and Autonomous-Planning variants from each verified task
+ification encodes the required source, product, bands, spatial                                                     core, yielding 744 questions and 5,295 reference tool calls.
+extent, observation period, resolution, sampling interval, and                                                     Every answer retains a traceable execution basis, and every
+scaling information. The remaining 60 RGB tasks retain user-                                                       intermediate result records its upstream source.
+provided visual inputs, while concrete files still require runtime
+discovery. After reconstruction, file paths and intermediate                                                             IV. E ARTH -AGENT-P RO : A N E XECUTION -A DAPTIVE
+artifacts become execution outcomes, and downstream calls                                                                              AGENT F RAMEWORK
+must bind the outputs returned by upstream tools.                                                                  A. Framework Overview
+   Each reconstructed task pairs an open-ended query with
+                                                                                                                      Earth-Agent-Pro is a Plan-and-Execute-style agent that sep-
+reference evidence regenerated through execution. Experts
+                                                                                                                   arates scientific workflow planning from runtime operation
+remove all answer choices and rewrite each question as a
+                                                                                                                   grounding. Before concrete files and intermediate results be-
+self-contained request specifying the scientific objective, study
+                                                                                                                   come available, the Planner constructs an ordered workflow
+region, observation period, and task constraints. They rerun
+                                                                                                                   skeleton. As data and intermediate artifacts emerge, the Ex-
+the workflow in the same environment, record every call
+                                                                                                                   ecutor grounds each node, invokes its tool, and updates the
+and returned observation, and recompute the answer from the
+                                                                                                                   state. The dynamic workflow and accepted execution memory
+outputs. Each sample retains the representation introduced in
+                                                                                                                   form the workflow-centered structured memory shared by both
+Section III:
+                                                                                                                   roles throughout the entire execution process. The Planner and
+                                                                      Nz                                          workflow controller operationalize the abstract tool-selection
+           z = (q, c, τ ⋆ , y ⋆ ),            τ ⋆ = (t⋆i , θi⋆ , o⋆i ) i=1 .                             (4)
+                                                                                                                   policy f in Eq. (3), the argument generator Gexec implements
+  Here, context c records runtime input requirements, and                                                          g, and the Answer Controller implements h.
+each reference step records tool t⋆i , arguments θi⋆ , and obser-                                                     Figure 4 presents the complete control process. Let Rskill
+vation o⋆i . This representation preserves artifact provenance,                                                    and Rtool denote skill and tool routing, let T denote the global
+data dependencies, and answer evidence along the complete                                                          tool catalog, and let As denote the tools allowed by skill s.
+execution path.                                                                                                    The two routing stages reduce the catalog to the candidate set
+                                                                                                                                                                                         6
+
+
+
+Ps , after which the Planner generates the tool sequence π plan                                               (a) Without Skills
+through sequential debate. The initialization operator converts                       Unscoped Toolscape                          Ambiguous Workflow
+this sequence into dynamic workflow W0 and creates the initial                                       117 Tools                                                   Spectral
+                                                                            Data                     download_product
+                                                                                                                               Acquire        Preprocess
+                                                                                                                                                                  Index
+state S0 with empty memory M0 :
+                                                                            Index                         calculate_ndvi
+                                                                                                                                                                 Thermal
+                                                                                                                              Preprocess        Acquire
+                                                                                                                                                                 Retrieval
+                  s = Rskill (q, c),
+           
+                                                                                           extract_modis_bt
+                                                                           Inversion
+                                                                                                                                            Thermal        Spectral
+           
+            Ps = Rtool (q, c, s, T ∩ As ),                                                                                   Acquire                                       Statistics
+           
+                                                                                                                                            Retrieval       Index
+                                                                            Analysis                   compute_tvdi
+                                                            (5)
+           
+            π plan = Plan(q, c, s, Ps ),                                   Statistics                         RemoteSAM
+                                                                                                                              Acquire      Preprocess      Perception       Statistics
+           
+                S0 = (W0 , M0 ) = Init(π plan ), ∅ .
+                                                  
+                                                                             Perception                                       Preprocess      Spectral      Acquire         Statistics
+                                                                                                                                               Index
+
+
+The Executor advances node by node over this structured state
+                                                                                                                  (b) With Skills
+and exposes only verified results to subsequent operations.
+                                                                             Skill-Scoped Toolscape                             Skill-Guided Workflow
+When a node fails or the final evidence remains incomplete,                                                                                       Spectral
+                                                                             BT                               Shortlist                            Index
+the Planner proposes a local replacement suffix and the Ex-              Temperature
+                                                                                                               download
+                                                                          Thermal                              product
+                                                                          Retrieval
+ecutor installs it while retaining the successful prefix.                                                     apply_scale   Acquire        Preprocess
+                                                                                                                                                             Spectral
+                                                                                                                                                              Index              ...
+                                                                          Spectral                            _offset
+                                                                           Index
+                                                                                                              apply_cloud
+                                                                                                                                      ✓             ✓                   ✓
+                                                                                                              _mask
+                                                                             RGB
+B. Skill-Guided Workflow Planning                                         Perception                           calculate
+                                                                                                                            download      apply_scale      calculate
+                                                                         Time-Series                           _ndvi
+                                                                            Trend                                            product        _offset          _ndvi
+   Expert skills encode EO procedure knowledge as task-level              Thermal
+                                                                          Retrieval
+                                                                                                              calc_image
+                                                                                                              _mean
+                                                                                                                                      Skills enable focused tool selection and
+specifications shared by the Planner and Executor. We author           Skill-guided      112 Tools
+                                                                                                         20~30                                  reliable workflows.
+                                                                                                         Allowed Tools
+six skills covering spectral analysis, product-based computa-
+tion, and RGB perception. Each skill describes its tool scope,
+                                                                    Fig. 5. With vs. Without Skills. The top shows an unscoped tool space and
+operation order, argument constraints, and repetition rules         ambiguous workflows without skills, while the bottom shows focused tool
+across acquisition, preprocessing, domain computation, and          selection and a coherent workflow enabled by skill guidance.
+aggregation. As illustrated in Figure 5, skill guidance removes
+irrelevant tools before workflow generation and continues to
+constrain node realization during execution.                        collection of evidence records. Each record eu stores invoked
+   The Skill Router and Tool Router implement the two               tool t̄u , arguments θu , observation ou , and provenance νu :
+constraints in Eq. (5). The full catalog T contains 112 callable
+                                                                                Sk = (Wk , Mk ),
+                                                                           
+tools and their schemas. The Skill Router selects a skill                  
+                                                                           
+                                                                           W = (V , R ),
+                                                                           
+from the query and input context, then excludes inapplicable                     k      k       k
+                                                                                        k             k
+                                                                                                                                         (6)
+tools through As . The Tool Router retrieves Ps for the task               
+                                                                           
+                                                                               Vk = (v1  , . . . , v n k
+                                                                                                          ),
+objective, leaving the Planner to compose a workflow over                  
+                                                                               Mk = (e1 , . . . , emk ),     eu = (t̄u , θu , ou , νu ).
+legal and task-relevant tools for subsequent execution.
+   The candidate tools must form a scientifically valid and            Each node records its planned tool, invoked tool, execution
+interface-compatible operation sequence. The Planner uses a         status, grounded arguments, result summary, failure diagnosis,
+four-role sequential debate that examines the EO procedure,         and revision identifier. Execution memory accumulates only
+tool schemas, sequence parsimony, and final executability in        verified calls. Provenance for file artifacts also records vari-
+order. Each role revises the candidate sequence using the           ables, time, region, bands, and batches, allowing the Executor
+preceding discussion. A catalog validator then checks tool ex-      to resolve concrete files, numerical series, and cross-input
+istence and active-skill membership. It returns validation errors   correspondence for the later nodes.
+with the candidate sequence for another planning attempt until         The structured state limits the information exposed to sub-
+the Planner obtains π plan .                                        sequent operations at each step. Argument generation uses the
+   The selected skill remains active after initial planning. For    query, current node and schema, active skill, and previously
+the current operation, the Executor combines the skill instruc-     accepted call history. Rejected attempts provide retry feedback
+tions with the tool schema, query constraints, and accepted         for the current node and leave the accepted history unchanged.
+upstream results to generate arguments. When deterministic          The Executor therefore avoids repeatedly recovering the valid
+rules cannot resolve a tool result, the language-model checker      evidence, failed attempts, and pending operations from an
+uses the same skill to assess whether the result follows the        expanding free-form interaction transcript.
+task procedure. The Planner and Executor therefore share one
+task-level specification for operation selection and runtime        D. Evidence-Grounded Execution and Workflow Repair
+argument grounding.
+                                                                        The Executor advances the workflow through a ReAct loop
+                                                                    constrained to the current node. For node vik in state Sk , let tki
+C. Workflow-Centered Structured Memory                              denote its planned tool, let a index in-node attempts, and let
+   Earth-Agent-Pro represents runtime step k using the struc-       tki,a denote the invoked tool. The first attempt sets e
+                                                                    e                                                      tki,1 = tki .
+tured state Sk = (Wk , Mk ). The dynamic workflow Wk                σ(t) returns the schema of tool t. Argument generator Gexec
+contains the active node sequence Vk and the revision archive       combines this schema, the current node, and accepted memory
+Rk . The execution memory Mk is a chronologically ordered           to generate arguments. Execution environment E returns an
+                                                                                                                                                       7
+
+
+
+observation, after which hybrid verification gate Vhyb produces                                  V. ROLE -S PECIALIZED T RAINING
+           k
+decision δi,a    and feedback bki,a :                                             A. Training Overview
+                   k
+                                            tki,a ), vik , Wk , Mk ),
+    
+    
+               θ̂i,a  = Gexec (q, c, s, σ(e                                         The Planner and Executor expose different prediction in-
+                                                                                 terfaces. The Planner composes an ordered tool sequence
+                ôki,a = E(e
+                           tki,a , θ̂i,a
+                                     k
+    
+                                        ),
+                                                                            (7)   from expert skill guidance and candidate tool schemas. The
+         k      k
+    
+    
+      (δi,a , bi,a ) = Vhyb (q, s, Wk , Mk , e   tki,a , θ̂i,a
+                                                            k
+                                                                , ôki,a ),       Executor grounds a prescribed node from accepted runtime
+    
+                   k                                                              evidence. A monolithic trajectory objective would mix work-
+                δi,a   ∈ {accept, retry, replace}.
+    
+                                                                                  flow errors with argument errors and spread credit across long
+   The hybrid gate first applies deterministic checks for struc-                  tool chains. Role-specialized training isolates these errors at
+tural errors, error markers, and batch coverage. The language-                    their respective prediction interfaces.
+model checker evaluates cases that these rules cannot resolve                        The training pipeline expands instances through
+using the query, grounded arguments, active skill, and remain-                    dependency-aware trajectory instantiation and then extracts
+ing workflow. Retry updates the arguments and feedback for                        role-specific supervision from complete trajectories. Let DP
+the current tool. Replace selects another tool from Ps and                        and DE denote the Planner and Executor records. Parameters
+updates the feedback. Both actions remain local to the current                    ψP and ψE are the trainable low-rank adaptation (LoRA)
+attempt and leave persistent state Sk unchanged. Accept in-                       parameters of the two role-specific adapters. Planner context
+stead commits the node result to the dynamic workflow and                         xP contains the query, inputs, skill guidance, and candidate
+                                                              k
+appends its evidence record to execution memory. Let νi,a                         tool schemas. Executor context xE        i contains the prescribed
+denote call provenance, let Uacc denote node commitment, and                      node and accepted reference-trajectory prefix. For a Planner
+let append add an item to an ordered collection. After all in-                    record, ω P tokenizes reference tool sequence π ⋆ . For Executor
+node attempts fail, the Executor writes the final diagnosis to                    sample j at node i, ω E  i,j is the response token sequence.
+the failed node and then triggers localized workflow repair:                         Supervised fine-tuning (SFT) optimizes workflow compo-
+                                                                                  sition, while on-policy group relative policy optimization
+     eki,a = (e
+              tk , θ̂i,a
+                     k
+                         , ôki,a , νi,a
+                                     k
+                                         ),                                       (GRPO) [82] optimizes runtime argument grounding. Let Âi,j
+             i,a
+               
+              Uacc (Wk , i, ei,a ),   k
+                                                                                 denote group-relative advantage, and let ρi,j,ℓ and ρ̄i,j,ℓ denote
+                                                    k
+                                              , if δi,a = accept,          (8)    the raw and clipped token-level importance ratios. The frozen
+    Sk+1 =        append(Mk , eki,a )
+                         k
+               Sk , if δi,a ∈ {retry, replace}.                                   reference distribution is pref . Coefficients β and η weight
+                                                                                  the Kullback–Leibler (KL) regularizer and entropy bonus,
+   The Planner generates candidate suffix V     ei: from failed node              respectively. The total objective combines the two role losses,
+i, where dki denotes the final failure diagnosis stored by that                   and we optimize a separate adapter for each role:
+node. The Executor validates candidate operations against                                                      X
+the active skill and tool catalog. It rejects candidates that                         
+                                                                                       Lplan (ψP ) = −EDP          log pψP (ωℓP | xP , ω P  <ℓ ),
+                                                                                      
+                                                                                                                 ℓ
+repeat an earlier repair, show no execution progress, have                            
+                                                                                      
+                                                                                                                h                              i
+                                                                                        L               −E
+                                                                                      
+abnormal length, or contain excessive operation repetition.                           
+                                                                                       exec E
+                                                                                              (ψ   ) =    i,j,ℓ  min   ρ     Â
+                                                                                                                         i,j,ℓ i,j , ρ̄     Â
+                                                                                                                                       i,j,ℓ i,j
+After a candidate passes these checks, the Executor uses ⊕ to                                                                                       (10)
+                                                                                           + β DKL (pψE ∥ pref ) − η H(pψE ),
+                                                                                                  b
+concatenate the successful prefix and new suffix in execution                         
+                                                                                      
+                                                                                      
+                                                                                        Ltrain (ψP , ψE ) = Lplan (ψP ) + Lexec (ψE ),
+                                                                                      
+order, then records the old suffix with its diagnosis in Rk+1 .                       
+                                                                                      
+                                                                                      
+                                                                                           ⋆    ⋆
+                                                                                      
+The repair leaves Mk unchanged and re-executes only the                               
+                                                                                       (ψ
+                                                                                       P    , ψE ) ∈ arg min Ltrain .
+failed position and subsequent operations:                                                             ψP ,ψE
+
+             ei: = Planrepair (q, c, s, Wk , Mk , i, dk ),
+          
+          
+            V                                            i                       B. Dependency-Preserving Training Data Construction
+          
+             V     = V   [1:i − 1] ⊕   V   ,
+          
+          
+           k+1        k                i:
+                                       e
+                                                                                    Training data follow the executable sample representation
+                                                 e k              (9)             of Earth-Bench-Pro. A seed sample is z = (q, c, τ ⋆ , y ⋆ ) with
+                                                            
+             R k+1 =  append    R  k , (Vk [i:], Vi: , di ) ,
+                                                                                  τ ⋆ = ((t⋆i , θi⋆ , o⋆i ))N
+                                                                                                             z
+                                                                                                            i=1 . We decompose it into an immutable
+          
+          
+          
+            Wk+1 = (Vk+1 , Rk+1 ),
+          
+                                                                                 execution skeleton κ(z) and a mutable instance state u(z).
+             Mk+1 = Mk .
+                                                                                  The skeleton retains the reference tool sequence π ⋆ , the
+   The Answer Controller extends the same repair mechanism                        corresponding tool schemas, and dependency structure Gz , a
+to workflows whose tools succeed but whose evidence remains                       mathematical abstraction of the dependencies encoded by slot
+incomplete. It checks required computations, spatiotemporal                       groups and cross-node references. The instance state contains
+coverage, aggregation, units, numerical scale, and non-finite                     locations, spatial extents, temporal ranges, sample identifiers,
+results. With sufficient evidence, the controller generates the                   file references, and replaceable intermediate observations.
+final answer only from Mk . Incomplete evidence produces                             For each seed sample, a language model represents the
+an actionable diagnosis, after which the Executor reopens the                     mutable state as typed slots, groups repeated references and
+specified node or defaults to the final node when the diagnosis                   dependent fields, and generates a sample-specific instantiation
+identifies none. Earth-Agent-Pro therefore uses a node as the                     program Fz . Given root-slot values u        e root , the program prop-
+boundary for runtime correction and a workflow suffix as the                      agates replacements along these dependencies to produce ze
+boundary for structural revision, respectively.                                   while preserving κ(e      z ) = κ(z). It therefore instantiates coupled
+                                                                                                                                                             8
+
+
+
+
+               LLM Replaceable-Slot Discovery                                                              Training data generation
+               for per Source Question                                Generate
+                                                                      Python scripts
+                                                                      to make training                        Joint Slot Substitution
+               [P]             [I]         [T]              [F]       data through
+                          Interim          Time            File
+              Place
+                         Parameter                      References    substitution
+                                                                                                   [P]                   [T]                     [I]
+                                                                                                                                          (-101.84, 20.98,
+      Quetion: Use [T]January VIIRS nighttime-light data over [P]                                 Leon                 2013-2024          -101.54, 21.23)
+      Leon from [T] 2013-2024, calculate annual mean intensity, and
+                                                                            Experts                                                      (31.12, 29.95,
+      fit a linear trend.
+                                                                            Review              Paris              2015-2026              31.40, 30.16)
+
+              download_product
+              base_save_name: [P] Leon                                  Slot definitions            [T]+[F]                [P]+[T]+[F]
+              bbox: [I] (-101.84, 20.98, -101.54, 21.23)                are reasonable              Leon_avg_rad_202        Leon_avg_rad_2024-
+
+              time_range: [T] 2013-01-01 ... 2024-01-01                   Workflow
+                                                                                                    4-01-01.tif             01-01.tif               ···
+              source: VIIRS nighttime lights                                                     Leon_RAD_AVG_2026          CARIO_RAD_AVG_
+                                                                       remains the same                                     20050101.tif
+                                                                                                 -01-01.tif
+                                                                          Constraint
+            [F] Leon_avg_rad_                [F] Leon_avg_rad_
+                                                                         relationships
+              2013-01-01.tif         ...          2024-01-01.tif
+                                                                          are correct                 Model Training Data
+
+Fig. 6. Synthetic training data generation. An LLM identifies replaceable slots for each seed sample and writes a sample-specific Python program. Human
+experts verify that the program preserves workflow structure and dependency constraints before it generates consistent training instances.
+
+
+
+fields such as a place and its bounding box together and                          π ⋆ . This response contains no tool arguments or observations,
+propagates changed node outputs to all downstream arguments                       so the objective matches the Planner’s inference interface.
+and observations. Human reviewers inspect the slot specifica-                        Each Planner example uses a single-turn conversation for-
+tion and program before batch synthesis. Figure 6 shows the                       mat. The system and user messages form xP and provide the
+process from a seed sample through a reviewed instantiation                       scientific query, input context, skill guidance, and candidate
+program to dependency-consistent training instances. Let R                        tools. The assistant target serializes π ⋆ as a JSON object
+denote the number of mutable slots. Operator Compose re-                          containing only the tool_sequence field. We mask prompt
+constructs a sample from its execution skeleton and instance                      tokens, so Lplan supervises only the assistant response and
+state. We formalize this construction as follows:                                 focuses adaptation on tool selection and ordering.
+                                                                                     Parameter-efficient adaptation focuses the Planner’s learning
+                 κ(z) = π ⋆ , {σ(t⋆i )}N
+                                                 
+                                          z
+                                         i=1 , Gz ,
+               
+                                                                                 signal on its role-specific workflow decisions. We freeze
+               u(z) = (u1 , . . . , uR ),
+               
+               
+               
+                                                                                 the pretrained backbone throughout the entire optimization
+                 z = Compose κ(z), u(z) ,               (11)                      process and update only a Planner-specific low-rank adaptation
+               
+                                                                                  (LoRA) module [83] to learn EO tool-selection and ordering
+                                       
+                 ze = Fz κ(z), ue root ,
+               
+               
+               
+               
+                                                                                 patterns. At inference, the sequential debate and catalog vali-
+                 κ(ez ) = κ(z).
+               
+                                                                                  dation described in Section IV enforce procedure, schema, and
+   The reviewed programs fix the sensor or data product,                          active-skill constraints beyond the learned workflow prior.
+selected bands, ordered tools, argument schemas, processing
+operations, and dependency structure. They then instantiate                       D. Executor GRPO for Runtime Argument Grounding
+samples under a fixed random seed and apply quality filtering.                       Executor training treats the current workflow node as a local
+This process yields 2,480 instantiated trajectories derived from                  decision interface. Given node context xE  i and the schema of
+248 seed workflows across RGB imagery, spectral observa-                          prescribed tool t⋆i , policy pψE generates argument dictionary
+tions, and remote sensing products. We add examples from                          θ̂i at inference and sampled dictionaries θ̂i,j during GRPO.
+the OpenEarthAgent training set [25] to cover GIS analysis,                       The reward evaluates only argument structure and values
+object-centric visual perception, and geometric reasoning, then                   because the workflow already fixes the tool identity. This node-
+carefully balance the two sources to form the final trajectory                    level interface isolates feedback for argument grounding from
+set Ztrain . The Planner extractor creates one sequence-level                     workflow decisions at other nodes.
+record per trajectory with target π ⋆ . The Executor extractor                       The Executor reward compares each parsed response di-
+creates one argument record per node with target θi⋆ :                            rectly with the reference argument dictionary θi⋆ and requires
+                                                                                  no learned reward model. Let parse denote the JSON parser,
+   (
+     DP = {(xP (z), π ⋆ (z)) | z ∈ Ztrain },
+                                                             (12)                 let ⊥ denote parse failure, let J denote the set of valid
+     DE = {(xE          ⋆
+                i (z), θi (z)) | z ∈ Ztrain , 1 ≤ i ≤ Nz }.                       JSON values, and let D+ ⊂ J denote the set of nonempty
+                                                                                  dictionaries. For candidate j at node i, ω E i,j denotes the raw
+C. Planner SFT for Workflow Composition                                                                              E
+                                                                                  token sequence, ξi,j = parse(ω i,j ) denotes its parsed value,
+  Planner SFT maps domain-constrained context xP to refer-                        and we set θ̂i,j = ξi,j when ξi,j ∈ D+ . For a nonempty
+ence workflow π ⋆ . In Eq. (10), Lplan computes autoregressive                    dictionary, K ⋆ and K̂ denote the reference and predicted
+negative log-likelihood over the assistant response serializing                   key sets, Kc = K ⋆ ∩ K̂ and Kd = K ⋆ △K̂ denote the
+                                                                                                                                           9
+
+
+
+common and discrepant keys, and m = |K ⋆ | > 0. Value-                    converts Earth-Bench into open-ended, end-to-end Earth-
+agreement term Aval counts type-aware matches over common                 observation tasks that require data acquisition, preprocess-
+keys under relation ≡, which recursively compares nested                  ing, analysis, and evidence-grounded answer generation. We
+values and their types with a tolerance of 10−6 for floating-             additionally evaluate transfer to the OpenEarthAgent bench-
+point values. The following equation combines key coverage,               mark [25], compare against remote-sensing MLLMs on the
+a symmetric-difference penalty, and value agreement in Sarg ,             categories used by TerraScope [21], and compare with general-
+then defines complete reward ri,j . A missing key incurs                  purpose agents across Spectrum, Products, and RGB tasks.
+a larger penalty than a superfluous key because it reduces                      b) Baselines and Models: We first evaluate Earth-Agent-
+coverage and increases the symmetric difference. Runtime                  Pro with three closed-weight LLM backbones, GPT-5, Gemini-
+verification separately determines execution validity:                    3.5-flash, and Claude-4.6-sonnet, and open-weight backbones
+                      X
+                                        ⋆                                 from the GLM, Llama, InternLM, GPT-oss, Qwen, Gemma,
+              Aval =       I[θ̂i,j,k ≡ θi,k ],
+                                                                          and Mistral families. We also include fine-tuned Qwen3.5-
+                       k∈Kc
+                                                                        9B and Qwen3.5-4B variants. We conduct this training and
+                                    |Kc | − |Kd | + Aval                  all open-weight model evaluations on eight NVIDIA H200
+    Sarg (θ̂i,j , θi⋆ ) = max   −1,                            ,
+                                             m                     (13)   graphics processing units (GPUs), use vLLM for model
+                     
+                     −2,
+                                          ξi,j = ⊥,                      serving, and query the three closed-weight models through
+               ri,j = −1,                  ξi,j ∈ J \ D+ ,                their official APIs. The remote-sensing comparison includes
+                                     ⋆                                   GeoChat [19], TeoChat [84], EarthDial [60], LHRS-Bot [20],
+                       Sarg (θ̂i,j , θi ), ξi,j ∈ D+ .
+                     
+                                                                          EarthMind [85], and TerraScope [21]. For framework-level
+   For each node input, we sample G = 4 candidate argument                evaluation on the OpenEarthAgent benchmark [25], we com-
+dictionaries from the current policy and standardize their                pare ReAct [66], AFlow [70], OpenEarthAgent [25], and
+rewards within the group. Let ri,j denote the reward for                  Earth-Agent-Pro under a shared GPT-5 backbone. We next
+candidate j, let pold denote the policy that generated it, and let        compare against the general-purpose agents Codex and Manus.
+ϵc denote the GRPO clipping radius. Relative advantage Âi,j              Finally, we repeat the framework comparison on Earth-Bench-
+supplies a quality signal under the same node context without a           Pro using the same GPT-5 backbone to more clearly isolate
+separate critic. In Eq. (10), the KL regularizer limits deviation         the specific effect of the agent framework itself.
+from the reference model, and the entropy bonus discourages                     c) Metrics: We adopt benchmark-specific evaluation pro-
+premature collapse. During training, we freeze the pretrained             tocols. On Earth-Bench-Pro, we mainly follow the dual-level
+backbone and update only the Executor-specific LoRA adapter.              evaluation protocol of Earth-Agent [31]. Final-answer quality
+The trained policy grounds arguments for the current node,                is evaluated using LLM-as-Judge accuracy, ROUGE-L [86],
+while explicit runtime mechanisms control environment inter-              and embedding-based semantic matching (EM), which respec-
+action, observation verification, retries, and workflow repair.           tively measure judged correctness, lexical overlap, and seman-
+The group-relative advantage, token-level importance ratio,               tic similarity to the reference answer. Execution trajectories are
+and its clipped form define the GRPO surrogate term:                      evaluated using Efficiency, Tools-Any-Order (TAO), Tools-In-
+              
+                           ri,j − meanj ′ (ri,j ′ )                       Order (TIO), Tool-Exact-Match (TEM), and Parameter Ac-
+                 Âi,j =                              ,                  curacy. These trajectory metrics collectively characterize tool
+                            stdj ′ (ri,j ′ ) + 10−6
+              
+              
+              
+              
+              
+                                    E                                     coverage, tool ordering, strict agreement with the reference
+                           pψE (ωi,j,ℓ     | xE     E
+                                              i , ω i,j,<ℓ )   (14)
+                 ρ i,j,ℓ =                                   ,            workflow, and the correctness of tool arguments.
+              
+                           p     (ω E      | xE , ωE       )                 For the OpenEarthAgent benchmark [25], we retain its offi-
+                            old
+              
+              
+                                   i,j,ℓ     i     i,j,<ℓ
+                                                                          cial evaluation protocol, including category-wise tool-selection
+              
+                 ρ̄i,j,ℓ = clip[1−ϵc , 1+ϵc ] (ρi,j,ℓ ).
+                                                                          F1, tool-order fidelity, and task-level accuracy. For the final-
+                    VI. E XPERIMENTS                                      result comparisons in Tables III and V, we report accuracy
+   We evaluate Earth-Agent-Pro from seven perspectives. We                only. A non-numerical prediction is counted as correct when
+first examine its sensitivity to LLM backbones and com-                   it matches the reference answer, while a numerical prediction
+pare it with remote-sensing MLLMs. We then assess cross-                  is considered correct when its relative error with respect to
+benchmark transfer on the OpenEarthAgent benchmark [25]                   the ground truth is below 15%. All reported accuracy values
+and compare Earth-Agent-Pro with general-purpose agents.                  are computed as the percentage of correct predictions over the
+Next, we isolate the effect of the agent framework through                evaluated samples for each corresponding comparison.
+controlled comparisons on Earth-Bench-Pro. Finally, we ablate
+domain skills and disentangle the contributions of Planner                B. Main Results on Earth-Bench-Pro
+SFT and Executor GRPO [82] through adapter composition,                        a) Backbone and Fine-Tuning Results: We first exam-
+planning-only evaluation, and oracle-plan execution. Together,            ine how the policy backbone affects Earth-Agent-Pro on
+these experiments evaluate the effectiveness and transferability          the open-ended Earth-Bench-Pro tasks. We take the off-the-
+of Earth-Agent-Pro and identify the mechanisms.                           shelf Qwen3.5-4B and Qwen3.5-9B models as our baselines,
+                                                                          enabling direct comparison with our fine-tuned variants at the
+A. Experimental Setup                                                     same model scales. Table II reports final answer quality, tra-
+     a) Benchmarks and Comparison Groups: Our main eval-                  jectory length, and step-level agreement with expert workflows
+uation is conducted on Earth-Bench-Pro (Section III), which               under the same unified evaluation protocol.
+                                                                                                                                     10
+
+
+
+                                                                TABLE II
+    P ERFORMANCE OF DIFFERENT LLM BACKBONES WITH E ARTH -AGENT-P RO ON E ARTH -B ENCH -P RO . A LL QUALITY METRICS ARE PERCENTAGES .
+E FFICIENCY IS A RATIO FOR WHICH VALUES CLOSER TO 1 ARE BETTER . A MONG OPEN - SOURCE MODELS , BEST RESULTS ARE BOLDED AND RUNNER - UPS
+                                                           ARE UNDERLINED .
+
+
+
+    Model                                  LLM-as- ROUGE-           EM      Efficiency    TAO        TIO        TEM       Param.
+                                            Judge    L
+
+    GPT-5                                   66.13       21.68      13.31      1.0911     87.61       71.97      60.14      27.28
+    Gemini-3.5-flash                        63.31       25.43      20.56      1.0752     89.28       73.90      64.49      32.19
+    Claude-4.6-sonnet                       56.85       29.09      29.03      1.1911     90.17       76.59      63.52      28.02
+    GLM-4.5-Air                             48.39       20.45      20.16      1.0063     85.46       72.76      62.30      27.01
+    Llama-3.1-8B-Instruct                   13.71        5.15       2.02      0.9811     75.34       60.81      44.95      22.04
+    Llama-3.2-3B-Instruct                    4.44        2.25       2.42      0.6873     51.09       44.26      36.62      13.96
+    Llama-3.3-70B-Instruct                  33.87        8.69       6.45      1.0526     85.17       73.51      56.69      27.39
+    Llama-4-Scout                           32.66        9.91       7.66      0.9335     81.81       70.47      57.57      25.88
+    InternLM3-8B                            19.35        6.86       5.24      0.7617     69.33       58.49      48.85      20.73
+    Intern-S1                               40.73       15.49      13.71      1.0022     85.44       73.62      60.24      31.26
+    GPT-oss-20B                             38.71       14.10      10.48      1.1510     85.94       71.08      59.59      28.62
+    GPT-oss-120B                            48.39       13.54       8.87      1.0415     86.16       71.62      61.61      29.84
+    Qwen3.5-27B                             49.60       19.12      15.32      1.0017     87.67       75.27      68.71      29.86
+    Gemma-4 (E4B-it)                        31.45       12.49       9.68      0.7841     69.33       61.36      55.13      23.26
+    Gemma-4 (26B-A4B-it)                    47.58       18.49      14.52      1.0766     84.19       72.62      61.80      31.23
+    MistralAI-v0.3-7B                       14.11        6.32       4.44      0.5876     54.31       46.18      42.18      15.61
+
+    Qwen3.5-4B                              32.26       16.61      14.52      0.9447     79.21       66.87      57.99      21.58
+    Qwen3.5-9B                              38.31       16.33      15.73      1.0129     85.59       74.57      67.29      25.05
+    Ours (4B, fine-tuned)                   43.15       22.42      21.77      1.1117     87.93       77.52      68.96      28.98
+    Ours (9B, fine-tuned)                   50.00       20.65      19.76      1.1571     91.28       81.11      71.01      32.77
+
+
+
+   Observation 1: answer and trajectory metrics reveal               moderate accuracy, which suggests that these models can
+different model strengths. GPT-5 obtains the highest LLM-            often recognize coarse land-cover semantics and compare
+as-Judge score (66.13%), whereas the fine-tuned 4B model             visible regions. However, their performance drops sharply on
+leads on ROUGE-L and EM. In contrast, the fine-tuned 9B              coverage estimation, area measurement, and distance measure-
+model achieves the strongest TAO, TIO, TEM, and parameter            ment, indicating that remote-sensing MLLMs still lack reliable
+accuracy, showing that final-answer quality and workflow             metric grounding when exact numerical answers are required.
+fidelity do not necessarily improve together.                           Observation 2. Earth-Agent-Pro achieves the highest
+   Observation 2: role-specialized training consistently             overall accuracy. Earth-Agent-Pro obtains the best aver-
+strengthens small backbones. Relative to Qwen3.5-9B, the             age accuracy among compared methods, reaching 50.58%
+fine-tuned 9B variant improves LLM-as-Judge accuracy from            with Qwen3.5-9B and 50.41% with GPT-5. Compared with
+38.31% to 50.00% and raises parameter accuracy by 7.72               the strongest baseline, TerraScope (42.60%), these results
+points. The 4B model exhibits similarly broad gains, including       correspond to improvements of 7.98 and 7.81 percentage
+increases of 10.89 points in Judge accuracy and 10.97 points         points, respectively. The advantage is most pronounced in area
+in TEM. These results indicate that the training procedure im-       measurement, where both Earth-Agent-Pro variants achieve
+proves both answer generation and structured tool execution.         31.58%, compared with at most 4.65% among the remote-
+                                                                     sensing MLLMs. Earth-Agent-Pro maintains strong semantic
+C. Comparisons with Existing Methods and Agents                      performance, achieving 66.43% on boundary detection and up
+                                                                     to 71.35% on comparative ranking. These results demonstrate
+     a) Remote-Sensing MLLM Comparison: Table III re-
+                                                                     its effectiveness across both semantic understanding and quan-
+ports the performance of Earth-Agent-Pro and representative
+                                                                     titative reasoning tasks in open-ended evaluation settings.
+remote-sensing MLLMs on five TerraScope task categories,
+including boundary detection, comparative ranking, coverage               b) Cross-Benchmark Comparison on OpenEarthAgent:
+estimation, area measurement, and distance measurement. The          We further evaluate the cross-benchmark transferability of
+evaluation uses open-ended questions instead of multiple-            Earth-Agent-Pro on the OpenEarthAgent benchmark [25]. To
+choice options, requiring models to directly produce semantic        isolate the effect of the agent framework, we first compare
+or numerical answers without candidate guidance.                     ReAct, AFlow, OpenEarthAgent, and Earth-Agent-Pro using
+   Observation 1. Remote-sensing MLLMs remain weak                   the same GPT-5 backbone and the official OpenEarthAgent
+on quantitative reasoning. Across boundary detection and             benchmark [25] evaluation protocol. We additionally evaluate
+comparative ranking, existing remote-sensing MLLMs achieve           the role-specialized 9B and 4B variants to examine whether
+                                                                                                                                         11
+
+
+
+                                                             TABLE III
+C OMPARISON WITH GENERAL RS MLLM S ACROSS THE T ERRA S COPE TASK CATEGORIES . A NUMERICAL PREDICTION IS COUNTED AS CORRECT IF ITS
+ RELATIVE ERROR FROM THE GROUND - TRUTH VALUE IS LESS THAN 15%. T HE AVG . COLUMN REPORTS SAMPLE - WEIGHTED ACCURACY ACROSS THE
+                       FIVE TASK CATEGORIES . B EST RESULTS ARE IN BOLD , AND SECOND - BEST ARE UNDERLINED .
+
+
+                                      Boundary           Comparative      Coverage             Area              Distance
+   Model                              Detection           Ranking         Estimation        Measurement         Measurement      Avg.
+                                        (855)               (855)            (855)             (855)               (129)
+   GeoChat [19]                          57.54              58.83               12.16            0.12              0.78         31.02
+   TeoChat [84]                          56.14              65.85                7.25            0.12              0.00         31.16
+   EarthDial [60]                        55.09              52.98                7.02            0.00              0.00         27.73
+   LHRS-Bot [20]                         55.20              56.73                8.07            1.55              0.00         28.97
+   EarthMind [85]                        54.85              59.77               12.28            4.65              0.00         30.74
+   TerraScope [21]                       66.20              69.94               40.70            0.00              0.00         42.60
+
+   Earth-Agent-Pro (GPT-5)               66.43              70.64               40.35           31.58              1.55         50.41
+   Earth-Agent-Pro
+                                         66.43              71.35               40.35           31.58              1.55         50.58
+   (Qwen3.5-9B)
+
+
+                                                                   TABLE IV
+F RAMEWORK C OMPARISON ON THE O PEN E ARTH AGENT B ENCHMARK . W E REPORT TOOL - SELECTION F1 SCORES FOR P ERCEPTION (P ER .), O PERATION
+(O P.), L OGIC , AND GIS; TOOL - ORDER FIDELITY UNDER A NYO RDER , S AME O RDER , AND U NIQUE ; AND TASK - LEVEL ACCURACY FOR NONGENERATIVE
+           ANSWERING (A NS .) AND IMAGE GENERATION (G EN .). B EST RESULTS ARE IN BOLD , AND SECOND - BEST RESULTS ARE UNDERLINED .
+
+
+                                                  Tool Selection F1                     Tool-Order Fidelity          Task Accuracy
+    Framework
+                                        Per.       Op.       Logic      GIS        AnyOr.    SameOr.     Uni.        Ans.      Gen.
+    ReAct (GPT-5)                      40.87      66.90      17.18      88.41       46.71     46.71      48.59      39.45      80.69
+    AFlow (GPT-5)                      32.54      67.69      36.30      86.75       51.11     50.56      54.17      45.38      65.12
+    OpenEarthAgent (GPT-5)             16.88      47.00       6.26      91.50       46.96     46.79      47.81      43.88      46.21
+    OpenEarthAgent-4B                  57.49      49.12      44.80      94.51       61.50     60.65      67.32      43.25      71.55
+    Earth-Agent-Pro (GPT-5)            62.30      55.68      35.15      95.59       64.23     64.80      70.97      56.54      74.01
+    Ours (4B, fine-tuned)              56.16      63.23      42.92      95.12       70.13     69.77      75.87      46.86      72.26
+    Ours (9B, fine-tuned)              57.70      44.79      44.80      96.12       70.58     68.70      73.95      47.06      72.99
+
+
+
+backbones can retain competitive workflow-planning ability.            advantage appears on RGB tasks, where it completes all evalu-
+   Observation 1: Earth-Agent-Pro improves cross-                      ated examples. The simultaneous gains in accuracy and latency
+benchmark workflow fidelity. Under the shared GPT-5 back-              indicate that improved task completion does not necessarily
+bone and evaluation protocol, Earth-Agent-Pro achieves the             require higher execution cost.
+strongest Perception, GIS, and all three tool-order scores.                 d) Framework Comparison on Earth-Bench-Pro: We
+It also improves answering accuracy by 11.16 points over               now directly isolate the effect of the Earth-Agent-Pro frame-
+the strongest GPT-5 baseline, indicating that the framework            work in a strictly controlled setting by comparing it with
+advantage transfers beyond Earth-Bench-Pro.                            ReAct, AFlow, and OpenEarthAgent under the same GPT-5
+   Observation 2: compact fine-tuned models retain strong              backbone. Table VI provides evidence for the framework’s
+procedural capabilities. The fine-tuned 9B model leads on              effectiveness on our target benchmark.
+GIS and AnyOrder, while the 4B model achieves the best                    Observation 1: Earth-Agent-Pro leads seven of eight
+SameOrder and Unique scores. These results suggest that role-          framework-comparison metrics. It improves LLM-as-Judge
+specialized training enables small backbones to learn transfer-        accuracy by 20.95 points over the strongest baseline and raises
+able workflow patterns across distinct benchmark settings.             TAO from 70.47% to 87.61%. The corresponding gains in TIO,
+     c) General-Purpose Agent Comparison: We compare                   TEM, and parameter accuracy show that the improvement
+Earth-Agent-Pro with Codex and Manus across Spectrum,                  extends beyond selecting a plausible tool set to preserving
+Products, and RGB tasks. Table V reports both task accuracy            more of the expert workflow structure.
+and mean wall-clock latency, exposing the trade-off between
+accuracy and execution cost.
+   Observation 1: a domain-specific workflow improves                  D. Ablation Studies
+overall completion. Earth-Agent-Pro (GPT-5) obtains 75.00%                  a) Domain-Skill Ablation: We remove the retrieved do-
+average accuracy, 28.33 points above Codex, while also re-             main skill while keeping the framework and model fixed
+ducing average latency from 268.73 s to 208.64 s. Its largest          within each pair. Table VII reports the result for ReAct,
+                                                                                                                                                  12
+
+
+
+                                                              TABLE V
+  C OMPARISON WITH GENERAL - PURPOSE AGENTS . ACCURACY VALUES ARE REPORTED AS PERCENTAGES , AND AVERAGE LATENCY IS MEASURED IN
+                                SECONDS . B EST RESULTS ARE BOLDED AND RUNNER - UPS ARE UNDERLINED .
+
+
+                                                                                 Accuracy (%)                                      Avg. Latency
+    Framework
+                                                                                                                                        (s)
+                                                     Spectrum             Products             RGB                 Avg.
+    Codex                                                40.00             75.00               25.00               46.67              268.73
+    Manus                                                40.00             45.00               45.00               43.33              291.00
+    Earth-Agent-Pro (GPT-5)                              70.00             55.00               100.00              75.00              208.64
+    Earth-Agent-Pro (Qwen3.5-9B)                         45.00             40.00                65.00              50.00               67.83
+    Earth-Agent-Pro (Qwen3.5-9B, fine-tuned)             70.00             40.00               65.00               58.33              111.79
+
+
+                                                               TABLE VI
+  F RAMEWORK COMPARISON ON E ARTH -B ENCH -P RO USING A SHARED GPT-5 BACKBONE . A LL QUALITY METRICS ARE REPORTED AS PERCENTAGES .
+E FFICIENCY IS MEASURED AS A RATIO , WHERE VALUES CLOSER TO 1 INDICATE BETTER PERFORMANCE . B EST RESULTS ARE BOLDED AND RUNNER - UPS
+                                                           ARE UNDERLINED .
+
+
+    Framework                      LLM-as-    ROUGE-L            EM        Efficiency      TAO             TIO             TEM         Param.
+                                    Judge
+    ReAct                            45.18       19.75           26.60       0.8636        57.83           47.53           43.33        24.33
+    AFlow                            40.16       10.80           36.70       0.8511        70.47           45.46           37.18        20.33
+    OpenEarthAgent                   41.53       13.83           25.00       0.8101        60.06           42.62           39.32        22.67
+    Earth-Agent-Pro                  66.13       21.68           13.31       1.0911        87.61           71.97           60.14        27.28
+
+
+                                                             TABLE VII
+A BLATION STUDY OF DOMAIN SKILLS . A LL QUALITY METRICS ARE REPORTED AS PERCENTAGES , WHILE E FFICIENCY IS MEASURED AS A RATIO . B OLD
+                                    VALUES INDICATE THE BETTER RESULT WITHIN EACH ADJACENT PAIR .
+
+
+   Framework         Model           Skills   LLM-as- ROUGE-L             EM       Efficiency      TAO         TIO           TEM        Param.
+                                               Judge
+                                       ×        34.27       13.97        10.08        2.1549       56.46      31.39          21.55       10.44
+   ReAct             Qwen3.5-9B
+                                       ✓        39.92       14.00        11.69        2.2145       57.13      37.66          29.76       12.14
+                                       ×        35.08       15.99        15.32        0.9955       75.61      61.94          51.71       24.84
+                     Qwen3.5-9B
+                                       ✓        38.31       16.33        15.73        1.0129       85.59      74.57          67.29       25.05
+   Earth-Agent-Pro
+                     Ours (9B,         ×        37.10       15.11        14.92        1.1405       82.41      70.93          55.92       30.00
+                     fine-tuned)       ✓        50.00       20.65        19.76        1.1571       91.28      81.11          71.01       32.77
+
+
+
+Earth-Agent-Pro with the base 9B model, and Earth-Agent-                 at different levels: training strengthens the learned planning
+Pro with the fine-tuned 9B model. Bold values indicate the               and execution policies, whereas skills provide explicit domain
+better result within each with/without-skill pair; for Efficiency,       procedures that constrain workflow construction. Their com-
+better means closer to 1.                                                bination consequently achieves the strongest answer-quality
+   Observation 1: domain skills improve reported quality                 and trajectory-fidelity results, confirming that training does not
+metric. The improvement is particularly strong for trajectory            make external skill guidance redundant.
+fidelity. For the base Earth-Agent-Pro model, adding skills                   b) Role-Specialized Training Ablation: Finally, we dis-
+raises TIO from 61.94% to 74.57% and TEM from 51.71% to                  entangle the effects of Planner SFT and Executor GRPO
+67.29%. This pattern is consistent with skills constraining the          through adapter composition, planning-only evaluation, and
+workflow search space toward expert processing procedures.               oracle-plan execution under carefully controlled component
+                                                                         substitutions. Base and Tuned denote the pretrained and role-
+   Observation 2: skills and role-specialized training are
+                                                                         specialized variants, respectively.
+complementary. For the fine-tuned model, adding skills im-
+proves LLM-as-Judge accuracy by 12.90 points, ROUGE-L                       Adapter composition. Table VIII evaluates all four com-
+by 5.54 points, and EM by 4.84 points. It also raises TAO,               binations of the Planner and Executor adapters. Bold values
+TIO, TEM, and parameter accuracy by 8.87, 10.18, 15.09,                  indicate the best result and underlined values indicate the
+and 2.77 points, respectively. These simultaneous gains across           runner-up; for Efficiency, values closer to 1 are better.
+all metrics show that the external skill prior remains effective            Observation 1: Planner and Executor tuning provide
+after role-specialized training. The two components operate              complementary benefits. Planner tuning produces the larger
+                                                                                                                                        13
+
+
+
+                                                             TABLE VIII
+A DAPTER COMPOSITION FOR ROLE - SPECIALIZED TRAINING ON E ARTH -B ENCH -P RO . A LL QUALITY METRICS ARE PERCENTAGES , WHILE E FFICIENCY IS
+                                                                A RATIO .
+
+
+    Planner        Executor           LLM-as-    ROUGE-L              EM     Efficiency    TAO          TIO       TEM        Param.
+                                       Judge
+    Base           Base                38.31        16.33          15.73      1.0129       85.59       74.57      67.29       25.05
+    Base           Tuned               43.15        17.31          18.15      0.9865       85.44       72.24      65.64       28.34
+    Tuned          Base                44.76        20.67          18.55      1.1839       89.47       78.78      70.09       30.33
+    Tuned          Tuned               50.00        20.65          19.76      1.1571       91.28       81.11      71.01       32.77
+
+
+
+                            TABLE IX                                       execution, while the complete system records only verified tool
+ P LANNING - ONLY EVALUATION ON E ARTH -B ENCH -P RO . B OLD VALUES        calls. Planning-only scores can therefore exceed end-to-end
+     INDICATE THE BETTER RESULT WITHIN THE BASE /T UNED PAIR .
+                                                                           trajectory scores when execution failures shorten the accepted
+  Planner                 TAO            TIO               TEM
+                                                                           trace.
+                                                                              Observation 3: Planner SFT improves workflow com-
+  GPT-5                   88.86         76.38              70.03           position. The tuned Planner reaches 92.51% TAO, 83.35%
+  InternLM3-8B            72.15         55.38              46.87           TIO, and 76.14% TEM, improving over the base Planner
+  GEMMA-4                                                                  by 5.81, 11.48, and 9.18 percentage points, respectively. It
+                          83.75         71.34              61.80           also exceeds GPT-5 by 3.65, 6.97, and 6.11 points on the
+  (E4B-it)
+  MiniMax-M2.7            87.90         71.89              67.66           same metrics. These gains isolate improved prediction of the
+  Base                    86.70         71.87              66.96           reference tool set and order; end-to-end completion remains
+  Tuned                   92.51         83.35              76.14           subject to subsequent execution.
+                                                                              Oracle-plan execution isolates argument grounding.
+                                                                              The oracle-plan evaluation isolates the Executor by fixing
+                            TABLE X
+ O RACLE - PLAN E XECUTOR EVALUATION ON E ARTH -B ENCH -P RO . E FF .      the workflow structure. We replace the predicted plan with
+ DENOTES E FFICIENCY. B OLD VALUES INDICATE THE BETTER RESULT              the reference tool order and disable tool replacement, early
+                   WITHIN THE BASE /T UNED PAIR .
+                                                                           termination, suffix replanning, and workflow editing. Each
+                 LLM-as-
+                                                                           node still generates arguments, invokes the specified tool,
+ Executor                   ROUGE-L     EM         Eff.      Parm.
+                  Judge                                                    verifies the returned observation, and retries the same tool
+ GPT-5            68.95       24.31     18.15     0.9872      39.58        when needed. This protocol fixes tool selection and ordering
+                                                                           while preserving runtime argument grounding and environ-
+ InternLM3-8B     38.71       12.04     10.48     0.8620      31.13
+ GEMMA-4                                                                   ment interaction throughout the complete execution process.
+                  33.87       12.74     10.89     0.7109      33.66
+ (E4B-it)                                                                     Observation 4: Executor GRPO improves argument
+ MiniMax-M2.7     51.21       19.44     18.15     0.8309      35.72
+                                                                           grounding. Relative to the base Executor, the tuned Execu-
+ Base             46.37       21.92     20.16     0.9081      34.19
+ Tuned            52.82       25.92     23.39     0.9274      37.20        tor raises LLM-as-Judge accuracy from 46.37% to 52.82%,
+                                                                           ROUGE-L from 21.92% to 25.92%, EM from 20.16% to
+                                                                           23.39%, and parameter accuracy from 34.19% to 37.20%.
+gains in workflow metrics, whereas Executor tuning primarily               Efficiency also moves from 0.9081 to 0.9274, closer to the
+improves final-answer quality and parameter grounding. Their               ideal value of 1. GPT-5 still reaches 68.95% LLM-as-Judge
+combination achieves the strongest overall Judge, EM, TAO,                 accuracy and 39.58% parameter accuracy, indicating a remain-
+TIO, TEM, and parameter scores.                                            ing gap associated with backbone capability.
+                                                                              Together with the adapter-composition results in Table VIII,
+   Observation 2: end-to-end parameter accuracy also
+                                                                           these isolated evaluations show that Planner SFT improves
+depends on planning. The tuned-Planner/base-Executor con-
+                                                                           workflow composition and Executor GRPO improves argu-
+figuration has higher parameter accuracy than the base-
+                                                                           ment grounding under a fixed workflow. The combined system
+Planner/tuned-Executor configuration. This occurs because the
+                                                                           benefits from these distinct interface-specific gains.
+end-to-end metric also depends on workflow alignment and
+execution progress, motivating the isolated evaluations below.
+                                                                                                   VII. D ISCUSSION
+   Planning-only isolates workflow composition.
+   The planning-only evaluation isolates the Planner’s pre-                A. Qualitative Case Studies
+diction of workflow structure. We run only the four-role                     We further analyze three representative execution traces
+sequential debate and compare its output tool sequence directly            covering spectral observations, RGB imagery, and remote-
+with the reference workflow. This setting omits tool execu-                sensing products, as shown in Figure 7. These examples
+tion and Executor-side tool replacement, early termination,                complement the aggregate results by illustrating three factors
+same-node retries, suffix replanning, and workflow editing.                that determine successful open-world EO execution: workflow
+The resulting metrics measure static workflow composition                  completeness, preservation of intermediate dependencies, and
+because the planning-only trace retains proposed tools without             correct grounding of tools and arguments.
+                                                                                                                                                                                                                                                                                                14
+
+
+
+                                                                                                            Execution Trace · Ours with skills
+       Task1: Urban Heat Island Index Estimation
+                                                                                                                         Step 1 ·Acquire ASTER Products                                                                   GT UHII = 43.3131 K
+
+
+
+
+                                                                                                          Step 1
+                                                                                                                           aster_l1t = search( dataset="ASTER L1T", roi=paris_polygon,
+        Query: Calculate the Urban Heat Island Index (UHII) over Paris on June 28,                                                             date="2020-06-28", bands=[10,11,12] )
+        2020, using ASTER TTM-derived LST (Bands 10–12) by comparing mean                                                Output: paired ASTER thermal bands (B10–B12)
+        urban LST (>295K) and rural LST (≤290K).                                                                                                                                            Step-by-Step          TAO 1           TIO 1              TEM 1             Parm 0.4
+                                                                                                                         Step 2 ·Band Extraction And Radiometric Calibration
+
+
+
+
+                                                                                                           Step 2
+                                                                                                                           bt10 = extract_bt(band10)
+                                                                                                                           bt11 = extract_bt(band11)                                         End-to-End           Rouge-L 0.6667          EM 0.7394               Efficiency 1
+        Annotation                                                                                                         bt12 = extract_bt(band12)
+                                                                                                                         Output: calibrated brightness temperature (BT10–BT12)
+                                                                                                                                                                                         Agent Comparison             Tool & Parm are          Correct Tool &                   Incorrect
+                                                                                                                         Step 3 ·Compute TTM-derived LST
+
+
+
+
+                                                                                                           Step 3
+                                                     bt10                                                                                                                                                             correct                  Incorrect Parm                   Tool
+                                                                                                                            lst = ttm_lst( bt10, bt11, bt12 )                                                                           mean
+                                                                                                                                                                                                   download            TTM                         difference          24.25 K
+                                                                                                                         Output: land surface temperature (LST) map                                                                      ×2
+                              Extract                       TTM                             Urban LST                                                                                     GPT-5
+                                                     bt11                                   Rural LST                    Step 4 ·Aggregate & calculate UHII
+
+
+
+
+                                                                                                          Step 4
+                                                                                               UHII                        urban_mean = mean( lst > 295 K )
+                                                                                                                                                                                                                                                   mean
+                                                                                                                           rural_mean = mean( lst <= 290 K )                                       download           extract           TTM
+                                                                                                                                                                                                                                                    ×2
+                                                                                                                                                                                                                                                                   difference          0K
+                                                                                                                           uhii = urban_mean - rural_mean
+       Download ASTER Products                       bt12              LST                                               Output: urban mean, rural mean, and UHII                        Qwen-9B
+                                                                                                                          Final                                                                                                                    mean
+
+
+
+
+                                                                                                           Step 5
+                                                                                                                           Urban LST : 295.4807 K                                                  download           extract           TTM                       difference      43.3131 K
+                                                               mean                                                                                                                                                                                 ×2
+            GT     download          extract       TTM
+                                                                ×2
+                                                                               difference     43.3131 K                    Rural LST : 252.1676 K
+                                                                                                                           UHII = 43.3131 K                                                Ours
+
+
+       Task2: Tennis Court Area Estimation                                                                  Execution Trace · Ours with skills
+
+                                                                                                                           Step 1 ·Acquire image files                                                                    GT = About 880 m²
+        Query: As part of a city's sports infrastructure audit, estimate the total
+
+
+
+
+                                                                                                          Step 1
+                                                                                                                            image_files = get_filelist( "benchmark/data/question213" )
+        area occupied by tennis courts. Use aerial imagery and a ground
+        resolution of 0.13 meters per pixel to identify all courts and report the                                         Output: Image list obtained (P0377.png).
+                                                                                                                                                                                           Step-by-Step       TAO 1               TIO 1            TEM 1              Parm 0.5
+        total built-up area.                                                                                              Step 2 ·Detect tennis courts
+
+
+
+
+                                                                                                          Step 2
+                                                                                                                            detections = SM3Det(prompt="tennis court")                     End-to-End          Rouge-L 0                 EM 0.3103               Efficiency 1
+         Annotation                                                                                                       Output: Detected tennis court bounding boxes.
+                                                                                                                                                                                          Agent Comparison            Tool & Parm are           Correct Tool &                   Incorrect
+                                                                                                                         Step 3 ·Generate segmentation mask
+                                                                                                          Step 3
+                                                                                                                                                                                                                      correct                   Incorrect Parm                   Tool
+                                                                                                                            segmentation = SAM2(image, detected_boxes)
+                                                                                                                                                                                                   get_filelist       SM3Det            calculate_area      1584.74 m²
+                                                                                                                          Output: Segmented tennis court mask image.
+                                  SM3Det                                                                                                                                                  GPT-5
+                                                                                       About 880 m²
+                                  SAM2                              calculate_area                                        Step 4 ·Calculate built-up area
+                                                                                                          Step 4
+
+
+
+
+                                                                                                                            area = calculate_area(segmented_image, gsd=0.13)                       get_filelist        SM3Det           calculate_area         1584.74 m²
+
+                                                                                                                          Output: Total tennis court area = 879.3746 m²                  Qwen-9B
+             P0377.png                          tennis court mask
+                                                                                                                           Final
+                                                                                                          Step 5
+
+
+
+
+                                                                                                                                                                                                   get_filelist        SM3Det           SAM2         calculate_area         879.3746 m²
+            GT     get_filelist     SM3Det         SAM2       calculate_area        About 880 m²                    Output:Result:
+                                                                                                                             72.17%879.3746(2021-04-23
+                                                                                                                                            m²         → 2021-05-09)
+                                                                                                                                                                                           Ours
+
+
+                                                                                                            Execution Trace · GPT-5 with skills
+       Task3: Vegetation Coverage Change Analysis                                                                                                                                                                                 GT = 72.1%
+                                                                                                                        Step 1 ·Acquire MODIS NDVI products
+                                                                                                          Step 1
+
+
+
+
+        Query: Using the vegetation coverage data of the Northeast Plain from                                            download_product(collection="MODIS/061/MOD13Q1", band="NDVI",
+        April 1 to August 31, 2021, calculate the percentage change in vegetation                                        region="Northeast Plain", time="2021-04-01 ~ 2021-08-29")
+
+        coverage between consecutive dates, and report the maximum percentage
+                                                                                                                        Output: NDVI time series (10 images)                               Step-by-Step       TAO 1               TIO 1            TEM 1              Parm 0.2
+
+        increase.                                                                                                         Step 2 ·Radiometric Calibration
+                                                                                                          Step 2
+
+
+
+
+                                                                                                                                                                                           End-to-End             Rouge-L 0              EM 0.2483               Efficiency 1
+                                                                                                                            apply_scale_offset(scale=0.0001)
+
+        Annotation                                                                                                        Output: calibrated NDVI images
+                                                                                                                                                                                          Agent Comparison            Tool & Parm are           Correct Tool &                  Incorrect
+                                                                                                                                                                                                                      correct                   Incorrect Parm                  Tool
+                                                                                                                         Step 3 ·Compute regional mean
+                                                                                                          Step 3
+
+
+
+
+                                                                                                                            calc_batch_image_mean(images=NDVI_series)                               download          calibrate         mean      difference        max_value          72.17%
+                                                                                                                         Output: mean vegetation coverage for each date
+                                  calibrate                         percentage_change                                                                                                     GPT-5
+                                                                                       72.1%                              Step 4 ·Compute percentage changes
+                                                                                                          Step 4
+
+
+
+
+                                   mean                             find maximum increase                                                                                                           download          calibrate         mean       percentage         max_value        14.1%
+                                                                                                                            percentage_change(values=mean_series)
+
+        Download MODIS-NDVI products                                                                                      Output: consecutive percentage changes                         Qwen-9B
+
+                                                                                                                          Step 5 ·Find maximum increase                                             download          calibrate         mean       percentage        max_value         5.49%
+                                                                                                          Step 5
+
+
+
+
+            GT     download         calibrate      mean        difference         max_value      72.1%              Output:max_value_and_index(values=change_series)
+                                                                                                                            72.17% (2021-04-23 → 2021-05-09)                               Ours
+                                                                                                                          Output: 72.17% (2021-04-23 → 2021-05-09)
+
+
+
+
+Fig. 7. Representative execution cases on Earth-Bench-Pro. From top to bottom: Spectrum-based UHII estimation, RGB-based tennis-court area estimation,
+and Product-based vegetation-coverage change analysis. The first two cases show that our agent preserves the required tool dependencies and matches the
+reference answers, whereas the third illustrates errors caused by incorrect downstream tool selection.
+
+
+
+   In the Spectrum case, the agent must acquire ASTER prod-                                                                                            of approximately 880 m2 . The difference arises not from the
+ucts, extract Bands 10–12, retrieve land-surface temperature                                                                                           final measurement tool alone, but from whether the correct
+using TTM, aggregate the urban and rural temperatures, and                                                                                             intermediate artifact is constructed and passed downstream.
+calculate their difference. GPT-5 skips the band extraction                                                                                               The Product case exposes a limitation. All three agents
+stage and applies the operations to incorrectly prepared in-                                                                                           perform MODIS acquisition, radiometric calibration, and
+puts, producing 24.25 K. Qwen-9B includes extraction but                                                                                               regional-mean calculation. GPT-5 follows the reference
+incorrectly grounds the thermal-processing and aggregation                                                                                             change-analysis and maximum-value operations, obtaining
+operations, resulting in 0 K. In contrast, our agent preserves                                                                                         72.17%, close to the reference value of 72.1%. Qwen-9B and
+the executable dependency chain and recovers the reference                                                                                             our agent instead select incorrect downstream operations, pro-
+UHII of 43.3131 K. This case shows that selecting plausible                                                                                            ducing 14.1% and 5.49%, respectively. Thus, correct upstream
+tools is insufficient when their inputs and arguments are not                                                                                          data preparation does not guarantee a correct answer when the
+grounded in the preceding observations.                                                                                                                scientific meaning of a downstream operation is mismatched.
+   The RGB case further demonstrates the importance of                                                                                                    Taken together, these cases show that open-world EO
+intermediate representations. GPT-5 and Qwen-9B detect the                                                                                             execution requires more than individually reasonable tool
+tennis courts but proceed directly from the detections to area                                                                                         calls. Reliable quantitative answers depend on maintaining
+calculation. Without converting the coarse detections into a                                                                                           the complete workflow, constructing the intended intermediate
+pixel-level mask, both agents overestimate the occupied area                                                                                           representations, and grounding every downstream operation
+as 1584.74 m2 . Our agent inserts SAM2 segmentation between                                                                                            in both the accepted execution evidence and the scientific
+detection and measurement and calculates the area from the                                                                                             objective. The Product failure also indicates that skill guidance
+resulting mask using the specified ground resolution. It there-                                                                                        improves workflow reliability but does not fully eliminate
+fore obtains 879.3746 m2 , consistent with the reference answer                                                                                        semantic tool-selection errors.
+                                                                                                                                                                                15
+
+
+
+B. Limitations and Trade-offs                                                                                       Error Analysis
+
+                                                                            Unaware of termination conditions      Tool hallucination   File hallucination     Invalid parameters
+   Open-world EO execution remains limited by exact work-
+flow fidelity and numerical grounding. Even the strongest                             A1 · MODELS WITH SKILLS · SCALE 0–60                                   A2 · SCALE 0–300
+                                                                       60                                                                            300                  280
+TEM and parameter scores in Table II are 71.01% and 32.77%,                                                                             44
+                                                                       40                                              34                            200
+respectively. The gap between reliable tool-set coverage and                                                                                                 138
+                                                                       20                  16        18                                              100
+                                                                               9
+much lower parameter accuracy suggests that selecting rele-             0                                                                              0
+vant tools is easier than instantiating a fully faithful executable          GPT-5    Ours 9B   Qwen3.5-9B      Llama-4-Scout     GPT-oss-20B          Mistral-7B    Llama-3.2-3B
+                                                                                                 (baseline)
+workflow. Open-ended QA removes answer candidates and                                  B · SKILLS EFFECT                                     C · FRAMEWORK × SKILLS
+requires the model or agent to directly produce a calibrated           60                                                     500
+                                                                                                     46                                                             405
+                                                                       45                                                     400                                         349
+numerical value, which more closely reflects real EO requests                                                                 300
+                                                                       30      25
+                                                                                                              18              200
+for measurements. It also requires target localization, metric         15
+                                                                                      16
+                                                                                                                               100      46      18
+reasoning, unit handling, and correct answer formatting. The            0                                                        0
+                                                                               NS    WS              NS    WS                           NS      WS                  NS    WS
+zero and near-zero Distance accuracy across most methods in                     Ours 9B         Qwen3.5-9B baseline                  Earth-Agent-Pro                 ReAct
+
+Table III shows that precise open-ended spatial measurement
+remains an unresolved challenge for both remote-sensing               Fig. 8. Skills reduce operational error counts. Each run contains 248
+MLLMs and current agent systems.                                      trajectories. Bars count logged operational errors, and one trajectory may
+                                                                      contribute multiple events. Panel A compares with-skills (WS) counts across
+   Workflow fidelity and final-task accuracy remain distinct,         models, while Panel B compares no-skills (NS) with WS for the two 9B
+and capability profiles vary across models and modalities.            configurations. Panel C compares Earth-Agent-Pro and ReAct under the
+In Table IV, AFlow leads Operation F1 and ReAct leads                 shared Qwen3.5-9B backbone. Colors denote repeated no-progress calls until
+                                                                      the step limit, calls to nonexistent tools, accesses to nonexistent files or paths,
+image-generation accuracy. The fine-tuned 4B and 9B models            and parameter schema, format, or value violations.
+achieve higher tool-order fidelity than Earth-Agent-Pro (GPT-
+5) but remain below it in answering accuracy, suggesting that
+final-answer synthesis remains more dependent on backbone             60.9% for the base model. The larger base-model gain shows
+capability. On Product tasks in Table V, Codex reaches 75.00%         that skills transfer across configurations and remain effective
+accuracy, compared with 55.00% for the strongest Earth-               without role-specific training. Panel C holds Qwen3.5-9B fixed
+Agent-Pro variant. This modality-specific result limits any           and shows that Earth-Agent-Pro records fewer events than
+claim of uniform superiority across all task families.                ReAct in every error category under NS and WS, lowering
+   Accuracy improvements also incur additional execution              the total by 88.6% and 94.8%, respectively.
+cost. Table V shows that fine-tuning the 9B variant raises
+                                                                                             VIII. C ONCLUSION
+average accuracy from 50.00% to 58.33% and latency from
+67.83 s to 111.79 s. The fine-tuned small model remains faster           This work studies open-world EO execution, where an
+than Earth-Agent-Pro (GPT-5), whose latency is 208.64 s,              agent must locate runtime inputs, acquire observations when
+while closing part of the accuracy gap. In Table VI, Earth-           required, prepare data, perform domain computations, and
+Agent-Pro achieves an Efficiency ratio of 1.0911, whose               generate an open-ended answer from runtime evidence given a
+distance to the ideal value of 1 is smaller than that of ReAct,       high-level scientific question. Earth-Bench-Pro instantiates 248
+AFlow, or OpenEarthAgent. Its trajectories are slightly longer        expert-curated task cores as 744 matched questions, supporting
+than the reference on average, whereas the baselines tend to          comparisons across instruction following, autonomous plan-
+terminate with fewer calls. Table VII further shows that adding       ning, and open-world execution through executable evidence
+skills moves Efficiency farther from 1 in all three ablations,        chains. Earth-Agent-Pro connects workflow planning with
+increasing the absolute deviation by 0.0596 for ReAct, 0.0084         runtime operation grounding through expert skill guidance,
+for the base Earth-Agent-Pro model, and 0.0166 for the fine-          workflow-centered structured memory, and localized suffix
+tuned model. This modest length overhead accompanies con-             repair. Role-specialized training uses sequence-level SFT for
+sistent improvements in answer quality and trajectory fidelity        Planner workflow composition and node-level GRPO for
+and may reflect additional domain-recommended processing              Executor argument grounding. On Earth-Bench-OW, Earth-
+or verification steps, exposing a quality–length trade-off.           Agent-Pro leads seven of eight framework-comparison metrics
+                                                                      under a shared GPT-5 backbone and reaches 66.13% LLM-
+                                                                      as-Judge accuracy. Adapter composition and isolated evalua-
+C. Error Analysis                                                     tions record higher workflow-composition scores for the tuned
+   Figure 8 shows how training, skill guidance, and framework         Planner and higher answer and parameter scores for the tuned
+design affect operational reliability. In Panel A1, role-specific     Executor under a fixed workflow.
+training reduces file-hallucination events from nine to seven,           The experiments also expose remaining constraints for
+while our fine-tuned Qwen3.5-9B model matches GPT-5 at                open-world EO agents. Even the strongest configurations
+nine logged invalid-parameter events. Panel A2 shows the              achieve higher tool coverage than exact workflow matching
+backbone gap: Mistral-7B and Llama-3.2-3B retain 138 and              and parameter accuracy, while final-answer quality remains
+280 errors under WS, dominated by tool hallucinations and             sensitive to backbone capability. Future work should improve
+invalid parameters. Panel B shows that skills eliminate logged        argument grounding under runtime uncertainty, reduce the
+tool-hallucination events in both Qwen3.5-9B configurations           trajectory overhead introduced by skill-guided execution, and
+and reduce total errors by 36.0% for the fine-tuned model and         strengthen evidence synthesis in compact models.
+                                                                                                                                                            16
+
+
+
+                              R EFERENCES                                         [17] K. Weise, R. Höfer, J. Franke, A. Guelmami, W. Simonson,
+                                                                                       J. Muro, B. O’Connor, A. Strauch, S. Flink, J. Eberle, E. Mino,
+                                                                                       S. Thulin, P. Philipson, E. van Valkengoed, J. Truckenbrodt,
+ [1] J. Transon, R. d’Andrimont, A. Maugnard, and P. Defourny, “Survey of              F. Zander, A. Sánchez, C. Schröder, F. Thonfeld, E. Fitoka, E. Scott,
+     hyperspectral earth observation applications from space in the sentinel-2         M. Ling, M. Schwarz, I. Kunz, G. Thürmer, A. Plasmeijer, and
+     context,” Remote Sensing, vol. 10, no. 2, p. 157, 2018.                           L. Hilarides, “Wetland extent tools for sdg 6.6.1 reporting from the
+ [2] J. Ye, J. He, X. Zhang, Y. Lin, H. Lin, C. He, and W. Li, “Satellite image        satellite-based wetland observation service (swos),” Remote Sensing
+     synthesis from street view with fine-grained spatial textual guidance: A          of Environment, vol. 247, p. 111892, 2020. [Online]. Available:
+     novel framework,” IEEE Geoscience and Remote Sensing Magazine,                    https://www.sciencedirect.com/science/article/pii/S0034425720302625
+     vol. 13, no. 3, pp. 395–414, 2025.                                           [18] Y. Feng, P. Zhang, G. Xiao, L. Ding, and L. Meng, “Towards a
+ [3] K. Anderson, B. Ryan, W. Sonntag, A. Kavvada, and L. Friedl, “Earth               barrier-free geoqa portal: Natural language interaction with geospatial
+     observation in service of the 2030 agenda for sustainable development,”           data using multi-agent llms and semantic search,” International
+     Geo-spatial Information Science, vol. 20, no. 2, pp. 77–96, 2017.                 Journal of Applied Earth Observation and Geoinformation, vol. 144,
+ [4] B. Zhou, H. Yang, D. Chen, J. Ye, T. Bai, J. Yu, S. Zhang, D. Lin, C. He,         p. 104825, 2025. [Online]. Available: https://www.sciencedirect.com/
+     and W. Li, “Urbench: A comprehensive benchmark for evaluating large               science/article/pii/S1569843225004728
+     multimodal models in multi-view urban scenarios,” in Proceedings of          [19] K. Kuckreja, M. S. Danish, M. Naseer, A. Das, S. Khan, and F. S. Khan,
+     the AAAI Conference on Artificial Intelligence, vol. 39, no. 10, 2025,            “Geochat: Grounded large vision-language model for remote sensing,”
+     pp. 10 707–10 715.                                                                in Proceedings of the IEEE/CVF Conference on Computer Vision and
+ [5] I. P. Kokkoris, B. Smets, L. Hein, G. Mallinis, M. Buchhorn, S. Balbi,            Pattern Recognition, 2024, pp. 27 831–27 840.
+     J. Černeckỳ, M. Paganini, and P. Dimopoulos, “The role of earth            [20] D. Muhtar, Z. Li, F. Gu, X. Zhang, and P. Xiao, “Lhrs-bot: Empowering
+     observation in ecosystem accounting: A review of advances, challenges             remote sensing with vgi-enhanced large multimodal language model,”
+     and future directions,” Ecosystem Services, vol. 70, p. 101659, 2024.             in European Conference on Computer Vision. Springer, 2024, pp. 440–
+ [6] W. Li, J. He, J. Ye, H. Zhong, Z. Zheng, Z. Huang, D. Lin, and C. He,             457.
+     “Crossviewdiff: A cross-view diffusion model for satellite-to-street view    [21] Y. Shu, B. Ren, Z. Xiong, X. X. Zhu, B. Demir, N. Sebe, and P. Rota,
+     synthesis,” arXiv preprint arXiv:2408.14765, 2024.                                “Terrascope: Pixel-grounded visual reasoning for earth observation,” in
+ [7] J. Li, J. He, W. Li, J. Chen, and J. Yu, “Roadcorrector: A structure-aware        Proceedings of the IEEE/CVF Conference on Computer Vision and
+     road extraction method for road connectivity and topology correction,”            Pattern Recognition, 2026, pp. 16 712–16 722.
+     IEEE Transactions on Geoscience and Remote Sensing, vol. 62, pp.             [22] A. Shabbir, M. A. Munir, A. Dudhane, M. U. Sheikh, M. H. Khan,
+     1–18, 2024.                                                                       P. Fraccaro, J. B. Moreno, F. S. Khan, and S. Khan, “Thinkgeo:
+ [8] C. F. Brown, M. R. Kazmierski, V. J. Pasquarella, W. J. Ruck-                     Evaluating tool-augmented agents for remote sensing tasks,” arXiv
+     lidge, M. Samsikova, C. Zhang, E. Shelhamer, E. Lahera, O. Wiles,                 preprint arXiv:2505.23752, 2025.
+     S. Ilyushchenko et al., “Alphaearth foundations: An embedding field          [23] C. H. Kao, W. Zhao, C. Lam, A. Umap, S. Revankar, S. Speas,
+     model for accurate and efficient global mapping from sparse label data,”          S. Bhagat, R. Datta, C. P. Phoo, U. Mall et al., “Towards llm agents
+     arXiv preprint arXiv:2507.22291, 2025.                                            for earth observation,” in Findings of the Association for Computational
+ [9] J. Ye, J. He, W. Li, Z. Lv, Y. Lin, J. Yu, H. Yang, and C. He,                    Linguistics: ACL 2026, 2026, pp. 2597–2611.
+     “Leveraging BEV paradigm for ground-to-aerial image synthesis,”              [24] K. Li, J. Wang, Z. Wang, H. Qiao, W. Zhang, D. Meng, and X. Cao,
+     in Proceedings of the IEEE/CVF International Conference on                        “Designing domain-specific agents via hierarchical task abstraction
+     Computer Vision, 2025, pp. 28 451–28 461. [Online]. Available:                    mechanism,” arXiv preprint arXiv:2511.17198, 2025.
+     https://openaccess.thecvf.com/content/ICCV2025/html/Ye Leveraging            [25] A. Shabbir, M. U. Sheikh, M. A. Munir, H. Debary, M. Fiaz, M. Z.
+     BEV Paradigm for Ground-to-Aerial Image Synthesis ICCV 2025                       Zaheer, P. Fraccaro, F. S. Khan, M. H. Khan, X. X. Zhu et al.,
+     paper.html                                                                        “Openearthagent: A unified framework for tool-augmented geospatial
+                                                                                       agents,” arXiv preprint arXiv:2602.17665, 2026.
+[10] X. Liu, H. Zhai, Y. Shen, B. Lou, C. Jiang, T. Li, S. B. Hussain, and
+                                                                                  [26] C. Dang, S. Xiong, C. He, and W. Li, “Skiller: Language-level reinforce-
+     G. Shen, “Large-scale crop mapping from multisource remote sensing
+                                                                                       ment learning for reusable skill extraction in small language models,”
+     images in google earth engine,” IEEE Journal of Selected Topics in
+                                                                                       arXiv preprint arXiv:2608.10538, 2026.
+     Applied Earth Observations and Remote Sensing, vol. 13, pp. 414–427,
+                                                                                  [27] S. Lobry, D. Marcos, J. Murray, and D. Tuia, “Rsvqa: Visual question
+     2020.
+                                                                                       answering for remote sensing data,” IEEE Transactions on Geoscience
+[11] J. Ye, Q. Luo, J. Yu, H. Zhong, Z. Zheng, C. He, and W. Li, “Sg-
+                                                                                       and Remote Sensing, vol. 58, no. 12, pp. 8555–8566, 2020.
+     bev: Satellite-guided bev fusion for cross-view semantic segmenta-
+                                                                                  [28] X. Li, J. Ding, and M. Elhoseiny, “Vrsbench: A versatile vision-language
+     tion,” in 2024 IEEE/CVF Conference on Computer Vision and Pattern
+                                                                                       benchmark dataset for remote sensing image understanding,” Advances
+     Recognition (CVPR). IEEE, 2024, pp. 27 748–27 757.
+                                                                                       in Neural Information Processing Systems, vol. 37, pp. 3229–3242,
+[12] W. Li, H. Yang, Z. Hu, J. Zheng, G.-S. Xia, and C. He,                            2024.
+     “3D building reconstruction from monocular remote sensing images             [29] V. Krechetova and D. Kochedykov, “Geobenchx: Benchmarking llms
+     with multi-level supervisions,” in Proceedings of the IEEE/CVF                    in agent solving multistep geospatial tasks,” in Proceedings of the 1st
+     Conference on Computer Vision and Pattern Recognition (CVPR).                     ACM SIGSPATIAL International Workshop on Generative and Agentic
+     IEEE, Jun. 2024, pp. 27 728–27 737. [Online]. Available: https:                   AI for Multi-Modality Space-Time Intelligence, 2025, pp. 27–35.
+     //doi.org/10.1109/CVPR52733.2024.02619                                       [30] S. Zhao, F. Liu, X. Zhang, H. Chen, X. Gu, Z. Jiang, F. Ling, B. Fei,
+[13] W. Li, W. Zhao, J. Yu, J. Zheng, C. He, H. Fu, and D. Lin, “Joint                 W. Zhang, J. Wang et al., “Openearth-agent: From tool calling to
+     semantic–geometric learning for polygonal building segmentation                   tool creation for open-environment earth observation,” arXiv preprint
+     from high-resolution remote sensing images,” ISPRS Journal of                     arXiv:2603.22148, 2026.
+     Photogrammetry and Remote Sensing, vol. 201, pp. 26–37, Jul. 2023.           [31] P. Feng, Z. Lv, J. Ye, X. Wang, X. Huo, J. Yu, W. Xu,
+     [Online]. Available: https://doi.org/10.1016/j.isprsjprs.2023.05.010              W. Zhang, L. Bai, C. He, and W. Li, “Earth-Agent: Unlocking
+[14] W. Li, R. Dong, H. Fu, J. Wang, L. Yu, and P. Gong, “Integrating Google           the full landscape of earth observation with agents,” in International
+     Earth imagery with Landsat data to improve 30-m resolution land cover             Conference on Learning Representations, 2026. [Online]. Available:
+     mapping,” Remote Sensing of Environment, vol. 237, p. 111563, Feb.                https://openreview.net/forum?id=dkIXAbWuxO
+     2020. [Online]. Available: https://doi.org/10.1016/j.rse.2019.111563         [32] F. Wang, M. Chen, X. He, Y.-F. Zhang, Y. Li, F. Liu, Z. Guo, Z. Hu,
+[15] W. Li, Y. Lai, L. Xu, Y. Xiangli, J. Yu, C. He, G.-S. Xia,                        J. Wang, J. Xu et al., “Omniearth-bench: Towards holistic evaluation
+     and D. Lin, “OmniCity: Omnipotent city understanding with multi-                  of earth’s six spheres and cross-spheres interactions with multimodal
+     level and multi-view images,” in Proceedings of the IEEE/CVF                      observational earth data,” arXiv preprint arXiv:2505.23522, 2025.
+     Conference on Computer Vision and Pattern Recognition (CVPR).                [33] M. Danish, M. A. Munir, S. R. A. Shah, K. Kuckreja, F. S. Khan,
+     IEEE, Jun. 2023, pp. 17 397–17 407. [Online]. Available: https:                   P. Fraccaro, A. Lacoste, and S. Khan, “Geobench-vlm: Benchmarking
+     //doi.org/10.1109/CVPR52729.2023.01669                                            vision-language models for geospatial tasks,” in Proceedings of the
+[16] M. Sudmanns, D. Tiede, S. Lang, and A. Baraldi, “Semantic                         IEEE/CVF International Conference on Computer Vision, 2025, pp.
+     and syntactic interoperability in online processing of big earth                  7132–7142.
+     observation data,” International Journal of Digital Earth, vol. 11,          [34] X. An, J. Sun, Z. Gui, and W. He, “Choice: benchmarking the remote
+     no. 1, pp. 95–112, 2018, pMID: 29387171. [Online]. Available:                     sensing capabilities of large vision-language models,” Advances in
+     https://doi.org/10.1080/17538947.2017.1332112                                     Neural Information Processing Systems, vol. 38, 2026.
+                                                                                                                                                           17
+
+
+
+[35] C. Zhang and S. Wang, “Good at captioning bad at counting: Bench-           [54] L. Zhang, Y. Zhao, R. Dong, J. Zhang, S. Yuan, S. Cao, M. Chen,
+     marking gpt-4v on earth observation data,” in Proceedings of the                 J. Zheng, W. Li, W. Zhang et al., “A 2-mae: A spatial-temporal-spectral
+     IEEE/CVF Conference on Computer Vision and Pattern Recognition,                  unified remote sensing pre-training method based on anchor-aware
+     2024, pp. 7839–7849.                                                             masked autoencoder,” IEEE Transactions on Geoscience and Remote
+[36] F. Wang, H. Wang, Z. Guo, D. Wang, Y. Wang, M. Chen, Q. Ma,                      Sensing, 2026.
+     L. Lan, W. Yang, J. Zhang et al., “Xlrs-bench: Could your multimodal        [55] Y. Hu, J. Yuan, C. Wen, X. Lu, Y. Liu, and X. Li, “Rsgpt: A remote
+     llms understand extremely large ultra-high-resolution remote sensing             sensing vision language model and benchmark,” ISPRS Journal of
+     imagery?” in Proceedings of the IEEE/CVF Conference on Computer                  Photogrammetry and Remote Sensing, vol. 224, pp. 272–286, 2025.
+     Vision and Pattern Recognition, 2025, pp. 14 325–14 336.                    [56] J. Luo, Z. Pang, Y. Zhang, T. Wang, L. Wang, B. Dang, J. Lao, J. Wang,
+[37] J. Wang, W. Xuan, H. Qi, Z. Liu, K. Liu, Y. Wu, H. Chen, J. Song,                J. Chen, Y. Tan et al., “Skysensegpt: A fine-grained instruction tuning
+     J. Xia, Z. Zheng et al., “Disasterm3: A remote sensing vision-language           dataset and model for remote sensing vision-language understanding,”
+     dataset for disaster damage assessment and response,” Advances in                arXiv preprint arXiv:2406.10100, 2024.
+     Neural Information Processing Systems, vol. 38, 2026.                       [57] W. Zhang, M. Cai, T. Zhang, Y. Zhuang, and X. Mao, “Earthgpt:
+[38] Z. Liu, D. Zhao, B. Yuan, and Z. Jiang, “Rescueadi: Adaptive disaster            A universal multimodal large language model for multisensor im-
+     interpretation in remote sensing images with autonomous agents,” IEEE            age comprehension in remote sensing domain,” IEEE Transactions on
+     Transactions on Geoscience and Remote Sensing, vol. 63, pp. 1–14,                Geoscience and Remote Sensing, vol. 62, pp. 1–20, 2024.
+     2025.                                                                       [58] W. Zhang, M. Cai, T. Zhang, Y. Zhuang, J. Li, and X. Mao, “Earth-
+[39] S. Singh, M. Fore, and D. Stamoulis, “Geollm-engine: A realistic                 marker: A visual prompting multimodal large language model for
+     environment for building geospatial copilots,” in 2024 IEEE/CVF                  remote sensing,” IEEE Transactions on Geoscience and Remote Sensing,
+     Conference on Computer Vision and Pattern Recognition Workshops                  vol. 63, pp. 1–19, 2024.
+     (CVPRW). IEEE, 2024, pp. 585–594.                                           [59] W. Zhang, M. Cai, Y. Ning, T. Zhang, Y. Zhuang, S. Lu, H. Chen, J. Li,
+[40] L. Wang, Y. Xiang, H. Huang, D. Li, C. Gao, and S. Liu, “To-                     and X. Mao, “EarthGPT-X: A spatial MLLM for multilevel multisource
+     wards realistic earth-observation constellation scheduling: Benchmark            remote sensing imagery understanding with visual prompting,” IEEE
+     and methodology,” Advances in Neural Information Processing Systems,             Transactions on Geoscience and Remote Sensing, vol. 63, pp. 1–21,
+     vol. 38, pp. 85 923–85 944, 2026.                                                2025. [Online]. Available: https://doi.org/10.1109/TGRS.2025.3626941
+[41] S. Ma, Z. Li, S. Li, X. Xu, R. Zhu, T. Boston, and J. A. Taylor, “Eo-gym:   [60] S. Soni, A. Dudhane, H. Debary, M. Fiaz, M. A. Munir, M. S.
+     A multimodal, interactive environment for earth observation agents,”             Danish, P. Fraccaro, C. D. Watson, L. J. Klein, F. S. Khan et al.,
+     arXiv preprint arXiv:2605.01250, 2026.                                           “Earthdial: Turning multi-sensory earth observations to interactive dia-
+[42] D. T. Nguyen, T. Nguyen, F. A. Maani, H. M. Le, M. U.                            logues,” in Proceedings of the Computer Vision and Pattern Recognition
+     Sheikh, N. Saeed, M. H. Khan, and S. Khan, “Terrabench: Can                      Conference, 2025, pp. 14 303–14 313.
+     agents reason over heterogeneous earth-system data?” arXiv preprint         [61] C. Pang, X. Weng, J. Wu, J. Li, Y. Liu, J. Sun, W. Li, S. Wang, L. Feng,
+     arXiv:2606.13148, 2026.                                                          G.-S. Xia et al., “Vhm: Versatile and honest vision language model for
+[43] A. Xiao, S. Cheng, Y. Xu, Y. Ren, H. Chen, and N. Yokoya, “Geomm-                remote sensing image analysis,” in Proceedings of the AAAI Conference
+     bench and geommagent: Toward expert-level multimodal intelligence                on Artificial Intelligence, vol. 39, no. 6, 2025, pp. 6381–6388.
+     in geoscience and remote sensing,” in Proceedings of the IEEE/CVF           [62] A. Shabbir, M. Zumri, M. Bennamoun, F. S. Khan, and S. Khan,
+     Conference on Computer Vision and Pattern Recognition, 2026, pp.                 “Geopixel: Pixel grounding large multimodal model in remote sensing,”
+     34 843–34 853.                                                                   Proceedings of the International Conference on Machine Learning, 2025.
+[44] Y. Yan, L. Mou, B. Yang, and Q. Li, “Terralogic: A benchmark for            [63] Y. Zhan, Z. Xiong, and Y. Yuan, “Skyeyegpt: Unifying remote sensing
+     hierarchical geospatial reasoning in earth observation,” arXiv preprint          vision-language tasks via instruction tuning with large language model,”
+     arXiv:2607.12497, 2026.                                                          ISPRS Journal of Photogrammetry and Remote Sensing, vol. 221, pp.
+[45] B. Yu, C. Yang, D. Hou, C. Liu, J. Liu, C. Wang, Z. Zhang, H. Li, and            64–77, 2025.
+     W. Yang, “Geoagentbench: A dynamic execution benchmark for tool-            [64] J. Ye, H. Lin, L. Ou, D. Chen, Z. Wang, Q. Zhu, C. He, and
+     augmented agents in spatial analysis,” arXiv preprint arXiv:2604.13888,          W. Li, “Where am i? cross-view geo-localization with natural language
+     2026.                                                                            descriptions,” in 2025 IEEE/CVF International Conference on Computer
+[46] J. Wang, W. Xuan, H. Qi, P. Dai, K. Liu, H. Chen, Z. Zheng, J. Xia,              Vision (ICCV). IEEE, 2025, pp. 5890–5900.
+     S. Ermon, and N. Yokoya, “Can LLM Agents Respond to Disasters?              [65] J. Ye, Z. Lv, W. Li, J. Yu, H. Yang, H. Zhong, and C. He, “Cross-
+     Benchmarking Heterogeneous Geospatial Reasoning in Emergency Op-                 view image geo-localization with panorama-bev co-retrieval network,”
+     erations,” arXiv preprint arXiv:2605.11633, 2026.                                in European Conference on Computer Vision. Springer, 2024, pp. 74–
+[47] M. Yu, Y. Sun, C. Yi, Y. Wen, and H. Yang, “Bringing agentic search              90.
+     to earth observation data discovery,” arXiv preprint arXiv:2607.02387,      [66] S. Yao, J. Zhao, D. Yu, N. Du, I. Shafran, K. Narasimhan, and Y. Cao,
+     2026.                                                                            “ReAct: Synergizing reasoning and acting in language models,” in
+[48] D. Hong, B. Zhang, X. Li, Y. Li, C. Li, J. Yao, N. Yokoya, H. Li,                International Conference on Learning Representations, 2023. [Online].
+     P. Ghamisi, X. Jia et al., “Spectralgpt: Spectral remote sensing foun-           Available: https://openreview.net/forum?id=WE vluYUL-X
+     dation model,” IEEE Transactions on Pattern Analysis and Machine            [67] S. G. Patil, T. Zhang, X. Wang, and J. E. Gonzalez, “Gorilla: Large
+     Intelligence, vol. 46, no. 8, pp. 5227–5244, 2024.                               language model connected with massive apis,” Advances in Neural
+[49] W. Diao, H. Yu, K. Kang, T. Ling, D. Liu, Y. Feng, H. Bi, L. Ren,                Information Processing Systems, vol. 37, pp. 126 544–126 565, 2024.
+     X. Li, Y. Mao et al., “Ringmo-aerial: An aerial remote sensing foun-        [68] Y. Qin, S. Liang, Y. Ye, K. Zhu, L. Yan, Y. Lu, Y. Lin, X. Cong,
+     dation model with affine transformation contrastive learning,” IEEE              X. Tang, B. Qian et al., “Toolllm: Facilitating large language models to
+     Transactions on Pattern Analysis and Machine Intelligence, 2025.                 master 16000+ real-world apis,” in International Conference on Learning
+[50] W. Chen, L. Bruzzone, B. Dang, Y. Gao, Y. Deng, J.-G. Yu, L. Yuan,               Representations, vol. 2024, 2024, pp. 9695–9717.
+     and Y. Li, “Rest: Holistic learning for end-to-end semantic segmentation    [69] G. Wang, Y. Xie, Y. Jiang, A. Mandlekar, C. Xiao, Y. Zhu, L. Fan, and
+     of whole-scene remote sensing imagery,” IEEE Transactions on Pattern             A. Anandkumar, “Voyager: An open-ended embodied agent with large
+     Analysis and Machine Intelligence, 2025.                                         language models,” Transactions on Machine Learning Research, 2024.
+[51] H. Bi, Y. Feng, B. Tong, M. Wang, H. Yu, Y. Mao, H. Chang,                       [Online]. Available: https://openreview.net/forum?id=ehfRiF0R3a
+     W. Diao, P. Wang, Y. Yu et al., “Ringmoe: Mixture-of-modality-experts       [70] J. Zhang, J. Xiang, Z. Yu, F. Teng, X. Chen, J. Chen, M. Zhuge,
+     multi-modal foundation models for universal remote sensing image                 X. Cheng, S. Hong, J. Wang et al., “Aflow: Automating agentic workflow
+     interpretation,” IEEE Transactions on Pattern Analysis and Machine               generation,” in International Conference on Learning Representations,
+     Intelligence, 2025.                                                              vol. 2025, 2025, pp. 34 040–34 077.
+[52] Z. Gong, Z. Wei, D. Wang, X. Hu, X. Ma, H. Chen, Y. Jia, Y. Deng,           [71] H. Guo, X. Su, C. Wu, B. Du, L. Zhang, and D. Li, “Remote sensing
+     Z. Ji, X. Zhu et al., “Crossearth: Geospatial vision foundation model            chatgpt: Solving remote sensing tasks with chatgpt and visual models,”
+     for domain generalizable remote sensing semantic segmentation,” IEEE             in IGARSS 2024–2024 IEEE International Geoscience and Remote
+     Transactions on Pattern Analysis and Machine Intelligence, 2025.                 Sensing Symposium. IEEE, 2024, pp. 11 474–11 478.
+[53] D. Wang, M. Hu, Y. Jin, Y. Miao, J. Yang, Y. Xu, X. Qin, J. Ma, L. Sun,     [72] W. Xu, Z. Yu, B. Mu, J. Wang, Z. Wei, and M. Peng, “RS-Agent:
+     C. Li et al., “Hypersigma: Hyperspectral intelligence comprehension              Automating remote sensing tasks through intelligent agent,” Science
+     foundation model,” IEEE Transactions on Pattern Analysis and Machine             China Information Sciences, vol. 69, no. 8, p. 180302, 2026. [Online].
+     Intelligence, 2025.                                                              Available: https://doi.org/10.1007/s11432-026-5026-5
+                                                                                18
+
+
+
+[73] C. Liu, K. Chen, H. Zhang, Z. Qi, Z. Zou, and Z. Shi, “Change-agent:
+     Toward interactive comprehensive remote sensing change interpretation
+     and analysis,” IEEE Transactions on Geoscience and Remote Sensing,
+     vol. 62, pp. 1–16, 2024.
+[74] Z. Chen, H. Wang, J. Yao, J. Zhang, P. Ghamisi, J. Zhou, P. M.
+     Atkinson, and B. Zhang, “Cangling-knowflow: A unified knowledge-
+     and-flow-fused agent for comprehensive remote sensing applications,”
+     arXiv preprint arXiv:2512.15231, 2025.
+[75] H. Hu, P. Wang, Y. Feng, K. Wei, W. Yin, W. Diao, M. Wang,
+     H. Bi, K. Kang, T. Ling, K. Fu, and X. Sun, “RingMo-Agent:
+     A unified remote sensing foundation model for multi-platform
+     and multi-modal reasoning,” IEEE Transactions on Pattern Analysis
+     and Machine Intelligence, 2026, early Access. [Online]. Available:
+     https://doi.org/10.1109/TPAMI.2026.3718699
+[76] Z. Guo, J. Wang, X. Yue, W. Wei, Z. Jiang, W. Xu, B. Fei, W. Zhang,
+     X. Gu, L. Cheng et al., “Earthlink: A self-evolving ai agent for climate
+     science,” arXiv preprint arXiv:2507.17311, 2025.
+[77] A. Bhattaram, J. Chung, S. Chung, R. Gupta, J. Ramamoorthy, K. Gul-
+     lapalli, D. Marculescu, and D. Stamoulis, “Geoflow: Agentic work-
+     flow automation for geospatial tasks,” in Proceedings of the 33rd
+     ACM International Conference on Advances in Geographic Information
+     Systems, 2025, pp. 1150–1153.
+[78] P. Dai, W. Xuan, J. Wang, H. Chen, J. Song, Y. Ou, and N. Yokoya,
+     “Experience-driven multi-agent systems are training-free context-aware
+     earth observers,” arXiv preprint arXiv:2602.02559, 2026.
+[79] L. Yao, S. Xu, F. Liu, C. Zhang, B. Yao, R. Min, Y. Li, C. Ouyang,
+     S. Di, and M.-L. Zhang, “Remoteagent: Bridging vague human intents
+     and earth observation with rl-based agentic mllms,” arXiv preprint
+     arXiv:2604.07765, 2026.
+[80] Q. Li, Y. Zhang, Z. Mai, Y. Chen, H. Huang, J. Zhang, Z. Zhang,
+     Y. Wen, W. Li, H. Fu et al., “Can large multimodal models understand
+     agricultural scenes? benchmarking with agromind,” Advances in Neural
+     Information Processing Systems, vol. 38, 2026.
+[81] J. Zheng, S. Yuan, W. Li, H. Fu, L. Yu, and J. Huang, “A review
+     of individual tree crown detection and delineation from optical remote
+     sensing images: Current progress and future,” IEEE Geoscience and
+     Remote Sensing Magazine, vol. 13, no. 1, pp. 209–236, 2025. [Online].
+     Available: https://doi.org/10.1109/MGRS.2024.3479871
+[82] Z. Shao, P. Wang, Q. Zhu, R. Xu, J. Song, X. Bi, H. Zhang, M. Zhang,
+     Y. K. Li, Y. Wu, and D. Guo, “Deepseekmath: Pushing the limits
+     of mathematical reasoning in open language models,” 2024. [Online].
+     Available: https://arxiv.org/abs/2402.03300
+[83] E. J. Hu, Y. Shen, P. Wallis, Z. Allen-Zhu, Y. Li, S. Wang, L. Wang, and
+     W. Chen, “LoRA: Low-rank adaptation of large language models,” in
+     International Conference on Learning Representations, 2022. [Online].
+     Available: https://openreview.net/forum?id=nZeVKeeFYf9
+[84] J. Irvin, E. Liu, J. Chen, I. Dormoy, J. Kim, S. Khanna, Z. Zheng,
+     and S. Ermon, “Teochat: A large vision-language assistant for tem-
+     poral earth observation data,” in International Conference on Learning
+     Representations, vol. 2025, 2025, pp. 68 883–68 911.
+[85] Y. Shu, B. Ren, Z. Xiong, D. Pani Paudel, L. Van Gool, B. Demir,
+     N. Sebe, and P. Rota, “Earthmind: Towards multi-granular and multi-
+     sensor earth observation with large multimodal models,” arXiv e-prints,
+     pp. arXiv–2506, 2025.
+[86] C.-Y. Lin, “Rouge: A package for automatic evaluation of summaries,”
+     in Text summarization branches out, 2004, pp. 74–81.
+
