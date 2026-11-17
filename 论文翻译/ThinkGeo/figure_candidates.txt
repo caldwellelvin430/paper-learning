@@ -1,0 +1,22 @@
+P01 y362 ✓ ✓ ✓ ✓ ✓ Table 1. Comparison of agentic benchmarks across key dimensions. ThinkGeo is the only benchmark designed specifically for rem
+P02 y393 on Solver Figure 1. Representative samples from the ThinkGeo benchmark. Each row illustrates a user query grounded in real RS imagery, 
+P02 y482  shown in Fig 1. • Executable Tool Set: An extended suite of 14 tools designed to simulate real-world RS workflows. This includes perce
+P04 y319  checking Figure 2. Use case taxonomy. The benchmark spans seven major domains: Urban Planning, Disaster Assessment & Change Analy- sis
+P05 y259  ThinkGeo Figure 3. End-to-end dataflow for constructing the ThinkGeo benchmark. We begin with expert-curated samples from remote sensi
+P05 y521  imagery. Figure 4. Reasoning vs Tool Usage. The barplot visualizes the complexity of agentic reasoning compared to the diversity of to
+P06 y 73 Table 2. Remote sensing datasets used as image sources in the construction of the ThinkGeo benchmark. These datasets span a w
+P07 y 73 Table 3. Evaluation results across models on the ThinkGeo benchmark. The table reports step-by-step (left) and end-to-end eva
+P07 y472 5.16 5.63 Figure 5. Plot of Pearson correla- tion between step-by-step execution metrics and final answer accuracy on ThinkGeo. Figure 
+P07 y472 ThinkGeo. Figure 6. The plot of total number of tool calls made by each model and the corresponding number of tool call errors. The lar
+P08 y353  estimate Figure 7. Examples of typical failure cases in GPT-4o and Qwen3 during ThinkGeo benchmark queries. On the left, GPT-4o strugg
+P08 y532 vocation. Figure 8. Number of correctly answered queries per model by difficulty level. It highlights how LLMs increasingly struggle wi
+P11 y131  Material Table A1. Evaluation results across models on the ThinkGeo SAR benchmark. The table reports step-by-step execution metrics (l
+P11 y131 ported in Table A1. Proprietary models like GPT-4 variants lead in instruction and tool usage accuracy on SAR imagery, showing strong g
+P11 y131 , respec- Table A2. Breakdown of errors made by models on the ThinkGeo benchmark. Errors are grouped into planning and format-related c
+P11 y608  shown in Fig. A2. The most fre- quently invoked tools are Calculator, TextToBbox, and RegionAttributeDescription, reflecting the bench
+P12 y463 ar  chart Figure A1. Representative examples from the ThinkGeo benchmark. Each row shows a user query (left), the corresponding ReAct-s
+P12 y673 cenarios. Figure A2. Tool-wise usage distribution in the ThinkGeo bench- mark. S5. Category-wise Sample Statistics Tab. A3 summarizes t
+P13 y 73 Table A3. Category-wise count of easy and hard tasks, including totals. Main Category Combined Easy-level Hard-level Disaster
+P13 y539 al tasks. Table A4. Average runtime per query across evaluated models. Step-by-step latency corresponds to the time required to execute
+P14 y364 Figure A3. Example of a tool-augmented reasoning in ThinkGeo benchmark query. The illustration shows a multi-step task where 
+P14 y677 clusions. Figure A4. Example of change detection in ThinkGeo Post-disaster damage assessment and resource planning. The figure illustra
