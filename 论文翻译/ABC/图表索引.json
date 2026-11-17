@@ -1,0 +1,431 @@
+[
+  {
+    "page": 3,
+    "type": "figure",
+    "num": 1,
+    "caption": "Figure 1: Operational and conceptual processes of agentic evaluation. An agentic benchmark measures the capability of AI agents via agentic tasks. It determines the success of a task by evaluating the task outcomes. Establishing task validity (e.g., equivalence between the target capability and the task success) and outcome validity (e.g., equivalence between the task success and positive evaluation results) are keys to ensure rigorous agentic evaluation.",
+    "rect": [
+      108.0,
+      185.95529174804688,
+      504.25152587890625,
+      239.62905883789062
+    ],
+    "file": "figure-01-p003.png"
+  },
+  {
+    "page": 5,
+    "type": "figure",
+    "num": 2,
+    "caption": "Figure 2: Checks in ABC to assess the task validity of an agentic benchmark.",
+    "rect": [
+      151.9739990234375,
+      154.84950256347656,
+      460.0275573730469,
+      164.81210327148438
+    ],
+    "file": "figure-02-p005.png"
+  },
+  {
+    "page": 6,
+    "type": "figure",
+    "num": 3,
+    "caption": "Figure 3: Checks in ABC to assess the outcome validity of an agentic benchmark. We group items by the types of the outcome and the methods of evaluation.",
+    "rect": [
+      108.0,
+      275.2694091796875,
+      504.3531799316406,
+      296.0650634765625
+    ],
+    "file": "figure-03-p006.png"
+  },
+  {
+    "page": 7,
+    "type": "figure",
+    "num": 4,
+    "caption": "Figure 4: Checks in ABC to assess the benchmark reporting.",
+    "rect": [
+      185.05499267578125,
+      192.5924835205078,
+      426.9468994140625,
+      202.55508422851562
+    ],
+    "file": "figure-04-p007.png"
+  },
+  {
+    "page": 8,
+    "type": "table",
+    "num": 1,
+    "caption": "Table 1: Agentic benchmarks we assessed using ABC.",
+    "rect": [
+      197.20399475097656,
+      79.05445861816406,
+      414.48834228515625,
+      89.01705932617188
+    ],
+    "file": "table-01-p008.png"
+  },
+  {
+    "page": 8,
+    "type": "figure",
+    "num": 5,
+    "caption": "Figure 5: Assessment results of selected benchmarks. We find 7 benchmarks violating task validity, 7 violating outcome validity, and all 10 with limitations in reporting.",
+    "rect": [
+      107.7509994506836,
+      338.8694152832031,
+      504.4995422363281,
+      359.6650695800781
+    ],
+    "file": "figure-05-p008.png"
+  },
+  {
+    "page": 10,
+    "type": "figure",
+    "num": 6,
+    "caption": "Figure 6: Demonstration of using our checklist to improve the evaluation rigor of CVE-Bench.",
+    "rect": [
+      117.38400268554688,
+      193.9674835205078,
+      494.61773681640625,
+      203.93008422851562
+    ],
+    "file": "figure-06-p010.png"
+  },
+  {
+    "page": 17,
+    "type": "table",
+    "num": 2,
+    "caption": "Table 2: Benchmarks used by major AI providers between 1 January 2024 and 18 March 2025. Duplicate benchmarks are listed only once.",
+    "rect": [
+      113.31099700927734,
+      513.9301147460938,
+      502.35858154296875,
+      520.9039306640625
+    ],
+    "file": "table-02-p017.png"
+  },
+  {
+    "page": 18,
+    "type": "table",
+    "num": 2,
+    "caption": "Table 2: Benchmarks used by major AI providers between 1 January 2024 and 18 March 2025. Duplicate benchmarks are listed only once. (Continued)",
+    "rect": [
+      107.78399658203125,
+      72.38251495361328,
+      508.887451171875,
+      87.37995147705078
+    ],
+    "file": "table-02-p018-part2.png"
+  },
+  {
+    "page": 19,
+    "type": "table",
+    "num": 2,
+    "caption": "Table 2: Benchmarks used by major AI providers between 1 January 2024 and 18 March 2025. Duplicate benchmarks are listed only once. (Continued)",
+    "rect": [
+      107.78399658203125,
+      72.38251495361328,
+      508.887451171875,
+      87.37995147705078
+    ],
+    "file": "table-02-p019-part3.png"
+  },
+  {
+    "page": 19,
+    "type": "table",
+    "num": 3,
+    "caption": "Table 3: Collected agentic benchmarks. Assessed benchmarks are highlighted in blue.",
+    "rect": [
+      185.30799865722656,
+      285.23614501953125,
+      426.6922607421875,
+      292.2099304199219
+    ],
+    "file": "table-03-p019.png"
+  },
+  {
+    "page": 19,
+    "type": "table",
+    "num": 4,
+    "caption": "Table 4: Sources of items in ABC",
+    "rect": [
+      257.27099609375,
+      677.5101318359375,
+      352.9864501953125,
+      684.4839477539062
+    ],
+    "file": "table-04-p019.png"
+  },
+  {
+    "page": 20,
+    "type": "table",
+    "num": 4,
+    "caption": "Table 4: Sources of items in ABC (Continued)",
+    "rect": [
+      239.5469970703125,
+      72.43514251708984,
+      372.4537353515625,
+      79.40894317626953
+    ],
+    "file": "table-04-p020-part2.png"
+  },
+  {
+    "page": 21,
+    "type": "table",
+    "num": 5,
+    "caption": "Table 5: Estimated difficulty levels of checklist items.",
+    "rect": [
+      198.62399291992188,
+      79.05445861816406,
+      413.0689697265625,
+      89.01705932617188
+    ],
+    "file": "table-05-p021.png"
+  },
+  {
+    "page": 21,
+    "type": "table",
+    "num": 4,
+    "caption": "Table 4: Sources of items in ABC (Continued)",
+    "rect": [
+      239.5469970703125,
+      191.48916625976562,
+      372.4537353515625,
+      198.4629669189453
+    ],
+    "file": "table-04-p021-part3.png"
+  },
+  {
+    "page": 21,
+    "type": "table",
+    "num": 6,
+    "caption": "Table 6: Assessment Report of SWE-Bench-Lancer (paper, code)",
+    "rect": [
+      213.9980010986328,
+      509.7271423339844,
+      398.00177001953125,
+      516.700927734375
+    ],
+    "file": "table-06-p021.png"
+  },
+  {
+    "page": 22,
+    "type": "table",
+    "num": 6,
+    "caption": "Table 6: Assessment Report of SWE-Bench-Lancer (paper, code) (Continued)",
+    "rect": [
+      196.27499389648438,
+      72.43514251708984,
+      415.72662353515625,
+      79.40894317626953
+    ],
+    "file": "table-06-p022-part2.png"
+  },
+  {
+    "page": 22,
+    "type": "table",
+    "num": 7,
+    "caption": "Table 7: Assessment Report of Bird-Bench (paper, code)",
+    "rect": [
+      226.0,
+      377.1541442871094,
+      385.9999084472656,
+      384.1279296875
+    ],
+    "file": "table-07-p022.png"
+  },
+  {
+    "page": 23,
+    "type": "table",
+    "num": 7,
+    "caption": "Table 7: Assessment Report of Bird-Bench (paper, code) (Continued)",
+    "rect": [
+      208.2760009765625,
+      72.43514251708984,
+      403.7237854003906,
+      79.40894317626953
+    ],
+    "file": "table-07-p023-part2.png"
+  },
+  {
+    "page": 23,
+    "type": "table",
+    "num": 8,
+    "caption": "Table 8: Assessment Report of CyBench (paper, code)",
+    "rect": [
+      229.29200744628906,
+      205.79714965820312,
+      382.7086486816406,
+      212.7709503173828
+    ],
+    "file": "table-08-p023.png"
+  },
+  {
+    "page": 23,
+    "type": "table",
+    "num": 9,
+    "caption": "Table 9: Assessment Report of SWE-Bench-Verified (paper, code)",
+    "rect": [
+      212.63900756835938,
+      594.7001342773438,
+      399.36260986328125,
+      601.6739501953125
+    ],
+    "file": "table-09-p023.png"
+  },
+  {
+    "page": 24,
+    "type": "table",
+    "num": 9,
+    "caption": "Table 9: Assessment Report of SWE-Bench-Verified (paper, code) (Continued)",
+    "rect": [
+      194.9149932861328,
+      72.43514251708984,
+      417.08642578125,
+      79.40894317626953
+    ],
+    "file": "table-09-p024-part2.png"
+  },
+  {
+    "page": 24,
+    "type": "table",
+    "num": 10,
+    "caption": "Table 10: Assessment Report of tau-Bench (paper, code)",
+    "rect": [
+      224.43600463867188,
+      404.88873291015625,
+      387.567138671875,
+      412.02392578125
+    ],
+    "file": "table-10-p024.png"
+  },
+  {
+    "page": 25,
+    "type": "table",
+    "num": 10,
+    "caption": "Table 10: Assessment Report of tau-Bench (paper, code) (Continued)",
+    "rect": [
+      206.71200561523438,
+      72.27375793457031,
+      405.291015625,
+      79.40894317626953
+    ],
+    "file": "table-10-p025-part2.png"
+  },
+  {
+    "page": 25,
+    "type": "table",
+    "num": 11,
+    "caption": "Table 11: Assessment Report of MLE-Bench (paper, code)",
+    "rect": [
+      223.0959930419922,
+      293.4681396484375,
+      388.9050598144531,
+      300.4419250488281
+    ],
+    "file": "table-11-p025.png"
+  },
+  {
+    "page": 26,
+    "type": "table",
+    "num": 12,
+    "caption": "Table 12: Assessment Report of WebArena (paper, code)",
+    "rect": [
+      225.70399475097656,
+      72.43514251708984,
+      386.2967224121094,
+      79.40894317626953
+    ],
+    "file": "table-12-p026.png"
+  },
+  {
+    "page": 26,
+    "type": "table",
+    "num": 13,
+    "caption": "Table 13: Assessment Report of GAIA (paper, code)",
+    "rect": [
+      231.81300354003906,
+      628.7111206054688,
+      380.1875915527344,
+      635.6849365234375
+    ],
+    "file": "table-13-p026.png"
+  },
+  {
+    "page": 27,
+    "type": "table",
+    "num": 13,
+    "caption": "Table 13: Assessment Report of GAIA (paper, code) (Continued)",
+    "rect": [
+      214.08900451660156,
+      72.43514251708984,
+      397.91143798828125,
+      79.40894317626953
+    ],
+    "file": "table-13-p027-part2.png"
+  },
+  {
+    "page": 27,
+    "type": "table",
+    "num": 14,
+    "caption": "Table 14: Assessment Report of OSWorld (paper, code)",
+    "rect": [
+      227.44000244140625,
+      420.9901428222656,
+      384.55975341796875,
+      427.96392822265625
+    ],
+    "file": "table-14-p027.png"
+  },
+  {
+    "page": 28,
+    "type": "table",
+    "num": 14,
+    "caption": "Table 14: Assessment Report of OSWorld (paper, code) (Continued)",
+    "rect": [
+      209.71600341796875,
+      72.43514251708984,
+      402.28363037109375,
+      79.40894317626953
+    ],
+    "file": "table-14-p028-part2.png"
+  },
+  {
+    "page": 28,
+    "type": "table",
+    "num": 15,
+    "caption": "Table 15: Assessment Report of KernelBench (paper, code)",
+    "rect": [
+      222.2169952392578,
+      237.67715454101562,
+      389.78350830078125,
+      244.6509552001953
+    ],
+    "file": "table-15-p028.png"
+  },
+  {
+    "page": 34,
+    "type": "table",
+    "num": 16,
+    "caption": "Table 16: Modified Leaderboards of BIRD [38] with Confidence Intervals.",
+    "rect": [
+      201.2919921875,
+      393.82012939453125,
+      410.7082214355469,
+      400.7939147949219
+    ],
+    "file": "table-16-p034.png"
+  },
+  {
+    "page": 35,
+    "type": "table",
+    "num": 16,
+    "caption": "Table 16: Modified Leaderboards of BIRD [38] with Confidence Intervals. (Continued)",
+    "rect": [
+      183.35899353027344,
+      72.43514251708984,
+      428.6415100097656,
+      79.40894317626953
+    ],
+    "file": "table-16-p035-part2.png"
+  }
+]

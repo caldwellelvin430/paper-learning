@@ -31,6 +31,9 @@
 | BetterBench | [中文稿](BetterBench/中文译文.md) · [阅读说明](BetterBench/README_阅读说明.md) · [原文 PDF](BetterBench/原始论文.pdf) |
 | Earth-Agent-Pro | [中文稿](Earth-Agent-Pro/中文译文.md) · [阅读说明](Earth-Agent-Pro/README_阅读说明.md) · [原文 PDF](Earth-Agent-Pro/原始论文.pdf) |
 | AgentBoard | [中文稿](AgentBoard/中文译文.md) · [阅读说明](AgentBoard/README_阅读说明.md) · [原文 PDF](AgentBoard/原始论文.pdf) |
+| ABC | [中文稿](ABC/中文译文.md) · [阅读说明](ABC/README_目录说明.md) · [原文 PDF](ABC/原始论文.pdf) |
+| Fantastic Bugs | [中文稿](Fantastic%20Bugs/中文译文.md) · [阅读说明](Fantastic%20Bugs/README_目录说明.md) · [原文 PDF](Fantastic%20Bugs/原始论文.pdf) |
+| GeoNatureAgent | [中文稿](GeoNatureAgent/中文译文.md) · [阅读说明](GeoNatureAgent/README_目录说明.md) · [原文 PDF](GeoNatureAgent/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

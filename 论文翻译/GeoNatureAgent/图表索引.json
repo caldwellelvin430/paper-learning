@@ -1,0 +1,171 @@
+[
+  {
+    "page": 3,
+    "type": "table",
+    "num": 1,
+    "caption": "Table 1: Comparison of structured tool-calling geospatial benchmarks. Accuracies are not same-protocol: GeoBenchX uses an LLM judge, GNA strict all-checks scoring (best per- check partial credit: 89.6%).",
+    "rect": [
+      53.50199890136719,
+      326.2519836425781,
+      295.6476135253906,
+      368.206787109375
+    ],
+    "file": "table-01-p003.png"
+  },
+  {
+    "page": 3,
+    "type": "figure",
+    "num": 1,
+    "caption": "Figure 1: GNA system architecture. The LLM agent interacts with a production API serving COG data; the eval harness logs all tool calls and scores responses. NL denotes natural language.",
+    "rect": [
+      317.6050109863281,
+      488.4563293457031,
+      558.2059936523438,
+      530.2657470703125
+    ],
+    "file": "figure-01-p003.png"
+  },
+  {
+    "page": 4,
+    "type": "table",
+    "num": 2,
+    "caption": "Table 2: Principal agent tools. The first eight are domain- specific; the last four are adapted from GeoBenchX [15]. The agent additionally exposes four auxiliary tools not listed here (layer discovery and erosion statistics).",
+    "rect": [
+      53.50199890136719,
+      84.51496887207031,
+      295.6534118652344,
+      126.42579650878906
+    ],
+    "file": "table-02-p004.png"
+  },
+  {
+    "page": 4,
+    "type": "table",
+    "num": 3,
+    "caption": "Table 3: GeoNatureAgent Benchmark main-suite (v5) task categories (93 of the 103 tasks, 18 categories).",
+    "rect": [
+      317.65899658203125,
+      84.51496887207031,
+      558.4843139648438,
+      104.55278015136719
+    ],
+    "file": "table-03-p004.png"
+  },
+  {
+    "page": 5,
+    "type": "table",
+    "num": 4,
+    "caption": "Table 4: Scoring checks. Binary capability pass requires every applicable check except max_cost_usd to pass.",
+    "rect": [
+      53.50199890136719,
+      251.7234649658203,
+      294.29412841796875,
+      271.58074951171875
+    ],
+    "file": "table-04-p005.png"
+  },
+  {
+    "page": 5,
+    "type": "table",
+    "num": 5,
+    "caption": "Table 5: Models evaluated. Six via Vertex AI (five MaaS plus Gemini native), two via OpenRouter, Claude via the An- thropic Messages API.",
+    "rect": [
+      317.65899658203125,
+      312.07647705078125,
+      559.8047485351562,
+      342.977783203125
+    ],
+    "file": "table-05-p005.png"
+  },
+  {
+    "page": 6,
+    "type": "table",
+    "num": 6,
+    "caption": "Table 6: Capability leaderboard (accuracy in %, combined rank): nine models on the combined 103-task suite and the 93-task v5 main suite (Section 6.5). Per-seed mean ± one sd, decoupled from cost (Section 5); cost is the mean per-seed main-suite run total, $/case the per-call mean.",
+    "rect": [
+      53.50199890136719,
+      84.51496887207031,
+      295.13555908203125,
+      137.38478088378906
+    ],
+    "file": "table-06-p006.png"
+  },
+  {
+    "page": 6,
+    "type": "figure",
+    "num": 2,
+    "caption": "Figure 2: Cost-accuracy trade-off (bubble size ∝total to- kens). The Pareto frontier (dashed) runs Scout →Qwen3- 235B →DeepSeek V3.2 →Claude Sonnet 4; three of the four are open-weight.",
+    "rect": [
+      317.9549865722656,
+      597.9741821289062,
+      559.8070068359375,
+      640.4227905273438
+    ],
+    "file": "figure-02-p006.png"
+  },
+  {
+    "page": 7,
+    "type": "table",
+    "num": 7,
+    "caption": "Table 7: Estimated energy and carbon per case (tokens × 0.40 Wh/1k; 400 gCO2/kWh). Order-of-magnitude estimate; footprint is token-driven.",
+    "rect": [
+      53.50199890136719,
+      517.114990234375,
+      294.7393798828125,
+      548.0667724609375
+    ],
+    "file": "table-07-p007.png"
+  },
+  {
+    "page": 7,
+    "type": "table",
+    "num": 8,
+    "caption": "Table 8: Failure-mode distribution over all 1,429 failed runs (nine models).",
+    "rect": [
+      317.65899658203125,
+      522.122802734375,
+      558.1997680664062,
+      544.019775390625
+    ],
+    "file": "table-08-p007.png"
+  },
+  {
+    "page": 8,
+    "type": "table",
+    "num": 9,
+    "caption": "Table 9: v6 expansion (10 comparison-heavy tasks, 3 seeds) and the combined 103-task suite. Cap. is capability scoring (budget/round gates excused; the v5 leaderboard excuses cost only); raw is strict pass. 103-task comb. is capability accuracy over the full v5+v6 suite (per-seed mean), the inclusive head- line metric for this paper.",
+    "rect": [
+      317.65899658203125,
+      84.5317611694336,
+      559.8110961914062,
+      148.34376525878906
+    ],
+    "file": "table-09-p008.png"
+  },
+  {
+    "page": 9,
+    "type": "figure",
+    "num": 3,
+    "caption": "Figure 3: v6 comparison tasks. Left: pooled comparison accuracy vs. value gap, raw and capability scoring—flat in the gap, and the 45 pp control is no easier, so difficulty is not near-equal discrimination. Right: per-model comparison accuracy, capability vs. raw; the bar gap is round/budget exhaustion while composing repeated analyze_area calls.",
+    "rect": [
+      53.564998626708984,
+      237.27813720703125,
+      558.4553833007812,
+      268.1387939453125
+    ],
+    "file": "figure-03-p009.png"
+  },
+  {
+    "page": 9,
+    "type": "figure",
+    "num": 4,
+    "caption": "Figure 4: Accuracy by category across the nine models.",
+    "rect": [
+      63.46500015258789,
+      405.63238525390625,
+      284.3792419433594,
+      414.5987854003906
+    ],
+    "file": "figure-04-p009.png"
+  }
+]

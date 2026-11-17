@@ -1,0 +1,80 @@
+[
+  {
+    "page": 6,
+    "type": "figure",
+    "num": 1,
+    "caption": "Figure 1: Left: Sensitivity curves on GSM8K for our three measurement-theoretic methods, two baselines, and four ensemble methods: Gaussian Rank Mean, OR Vote, AND Vote, and Majority Vote. Our methods significantly outperform the baselines. No single method uncovers all invalid questions, and each method flags different sets of questions. Right: Precision@50 across the nine benchmarks reviewed by human experts, where questions are examined in the order of the anomaly scores produced by our method. The number of truly invalid questions among the 50 inspected is shown to the right of each bar (2% corresponds to one question). Expert review confirms that up to 84% of the flagged questions exhibit substantive flaws.",
+    "rect": [
+      108.0,
+      217.88504028320312,
+      504.003173828125,
+      304.3459777832031
+    ],
+    "file": "figure-01-p006.png"
+  },
+  {
+    "page": 7,
+    "type": "figure",
+    "num": 2,
+    "caption": "Figure 2: (a) Precision@50 as a function of the number of LLMs on GSM8K, repeated over 10 random seeds; error bars denote one standard deviation. (b) Precision@50 as a function of the number of organizations, repeated over 10 random seeds; error bars denote one standard deviation. (c) Precision@50 versus model size cutoff. (d) Precision@50 versus release data cutoff. The performance of our methods increases as the number and diversity of LLMs increase.",
+    "rect": [
+      107.99996948242188,
+      174.08901977539062,
+      503.9988708496094,
+      227.82296752929688
+    ],
+    "file": "figure-02-p007.png"
+  },
+  {
+    "page": 7,
+    "type": "table",
+    "num": 1,
+    "caption": "Table 1: Overview of the nine benchmarks used. Benchmark Description Num. LLMs Num. Items License",
+    "rect": [
+      114.35096740722656,
+      248.8623809814453,
+      500.7625732421875,
+      267.1885681152344
+    ],
+    "file": "table-01-p007.png"
+  },
+  {
+    "page": 10,
+    "type": "figure",
+    "num": 3,
+    "caption": "Figure 3: Procedure of the LLM-judge first pass.",
+    "rect": [
+      208.77000427246094,
+      147.51734924316406,
+      403.22998046875,
+      157.47994995117188
+    ],
+    "file": "figure-03-p010.png"
+  },
+  {
+    "page": 14,
+    "type": "figure",
+    "num": 4,
+    "caption": "Figure 4: Each row is a benchmark, each column is an LLM. The blue entry indicates that the LLM is evaluated in the benchmark.",
+    "rect": [
+      108.0,
+      176.4353790283203,
+      504.0033264160156,
+      197.30697631835938
+    ],
+    "file": "figure-04-p014.png"
+  },
+  {
+    "page": 14,
+    "type": "table",
+    "num": 2,
+    "caption": "Table 2: Assumptions and known critiques of the three measurement-theoretic methods for identifying potentially invalid benchmark items.",
+    "rect": [
+      108.0,
+      264.3076477050781,
+      504.0014953613281,
+      285.10296630859375
+    ],
+    "file": "table-02-p014.png"
+  }
+]
