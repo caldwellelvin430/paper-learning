@@ -1,0 +1,301 @@
+{
+  "title": "When Agent Evaluation Becomes Unreliable：评估预言机故障与配置依赖测量",
+  "original": "/mnt/data/Chen - 2026 - When Agent Evaluation Becomes Unreliable An Empirical Study of Oracle Failures and Configuration-De.pdf",
+  "page_count": 29,
+  "pages": [
+    {
+      "page": 1,
+      "chars": 1981,
+      "words": 289,
+      "figures": [],
+      "page_image": "./source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars": 3364,
+      "words": 559,
+      "figures": [],
+      "page_image": "./source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars": 3423,
+      "words": 545,
+      "figures": [],
+      "page_image": "./source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars": 2921,
+      "words": 478,
+      "figures": [],
+      "page_image": "./source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars": 3237,
+      "words": 517,
+      "figures": [],
+      "page_image": "./source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars": 3183,
+      "words": 497,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "1",
+          "bbox": [
+            124.59500122070312,
+            86.09874725341797,
+            490.0749816894531,
+            94.09874725341797
+          ],
+          "text": "Table 1 Three audits of agent evaluation, by object. The rows are complementary: a record-level",
+          "path": "./images/table-1-p006.png"
+        }
+      ],
+      "page_image": "./source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars": 2924,
+      "words": 493,
+      "figures": [],
+      "page_image": "./source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars": 2937,
+      "words": 491,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "1",
+          "bbox": [
+            124.59500122070312,
+            303.79510498046875,
+            495.15643310546875,
+            311.76519775390625
+          ],
+          "text": "Fig. 1 The evaluation harness as the system under test. (a) An agent benchmark is a pipeline:",
+          "path": "./images/figure-1-p008.png"
+        }
+      ],
+      "page_image": "./source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars": 3178,
+      "words": 509,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "2",
+          "bbox": [
+            100.07099914550781,
+            267.29510498046875,
+            470.6126708984375,
+            275.26519775390625
+          ],
+          "text": "Fig. 2 The oracle-integrity auditing workﬂow. The unit under test is the oracle, taken as a",
+          "path": "./images/figure-2-p009.png"
+        }
+      ],
+      "page_image": "./source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars": 3128,
+      "words": 500,
+      "figures": [],
+      "page_image": "./source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars": 3384,
+      "words": 509,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "2",
+          "bbox": [
+            102.94000244140625,
+            74.09874725341797,
+            467.7019348144531,
+            82.09874725341797
+          ],
+          "text": "Table 2 Analysis, frozen source, entry point and scope of reproduction. Commands are run from",
+          "path": "./images/table-2-p011.png"
+        }
+      ],
+      "page_image": "./source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars": 3275,
+      "words": 535,
+      "figures": [],
+      "page_image": "./source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars": 3258,
+      "words": 550,
+      "figures": [],
+      "page_image": "./source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars": 3165,
+      "words": 509,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "3",
+          "bbox": [
+            128.70700073242188,
+            73.97491455078125,
+            490.61480712890625,
+            82.09874725341797
+          ],
+          "text": "Table 3 Defect class × detector, computed from the released fault matrix over all three targets.",
+          "path": "./images/table-3-p014.png"
+        }
+      ],
+      "page_image": "./source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars": 3187,
+      "words": 516,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "4",
+          "bbox": [
+            115.25,
+            74.09874725341797,
+            454.8897705078125,
+            82.09874725341797
+          ],
+          "text": "Table 4 Archived and replay-corrected success by agent (4,320 episodes, 1,080 per agent).",
+          "path": "./images/table-4-p015.png"
+        }
+      ],
+      "page_image": "./source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars": 3496,
+      "words": 561,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "5",
+          "bbox": [
+            131.7010040283203,
+            74.09874725341797,
+            472.124755859375,
+            82.09874725341797
+          ],
+          "text": "Table 5 Component ablation of the environment localisation (retail; 1,080 paired cells per",
+          "path": "./images/table-5-p016.png"
+        }
+      ],
+      "page_image": "./source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars": 3347,
+      "words": 537,
+      "figures": [],
+      "page_image": "./source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars": 3111,
+      "words": 530,
+      "figures": [],
+      "page_image": "./source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars": 3262,
+      "words": 525,
+      "figures": [],
+      "page_image": "./source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars": 3282,
+      "words": 547,
+      "figures": [],
+      "page_image": "./source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars": 3117,
+      "words": 512,
+      "figures": [],
+      "page_image": "./source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars": 3159,
+      "words": 508,
+      "figures": [],
+      "page_image": "./source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars": 3279,
+      "words": 541,
+      "figures": [],
+      "page_image": "./source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars": 3232,
+      "words": 501,
+      "figures": [],
+      "page_image": "./source_pages/page-024.jpg"
+    },
+    {
+      "page": 25,
+      "chars": 3139,
+      "words": 487,
+      "figures": [],
+      "page_image": "./source_pages/page-025.jpg"
+    },
+    {
+      "page": 26,
+      "chars": 2263,
+      "words": 286,
+      "figures": [],
+      "page_image": "./source_pages/page-026.jpg"
+    },
+    {
+      "page": 27,
+      "chars": 2542,
+      "words": 312,
+      "figures": [],
+      "page_image": "./source_pages/page-027.jpg"
+    },
+    {
+      "page": 28,
+      "chars": 2469,
+      "words": 314,
+      "figures": [],
+      "page_image": "./source_pages/page-028.jpg"
+    },
+    {
+      "page": 29,
+      "chars": 134,
+      "words": 22,
+      "figures": [],
+      "page_image": "./source_pages/page-029.jpg"
+    }
+  ]
+}

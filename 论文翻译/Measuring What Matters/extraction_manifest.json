@@ -1,0 +1,736 @@
+{
+  "title": "Measuring What Matters：大语言模型基准中的构念效度",
+  "original": "/mnt/data/Bean 等 - 2026 - Measuring what Matters Construct Validity in Large Language Model Benchmarks.pdf",
+  "page_count": 82,
+  "pages": [
+    {
+      "page": 1,
+      "chars": 2781,
+      "words": 385,
+      "figures": [],
+      "page_image": "./source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars": 4699,
+      "words": 680,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "1",
+          "bbox": [
+            108.0,
+            200.31503295898438,
+            505.7414245605469,
+            210.4586639404297
+          ],
+          "text": "Figure 1: Systematic review process. (A) Identification and screening from relevant proceedings.",
+          "path": "./images/figure-1-p002.png"
+        }
+      ],
+      "page_image": "./source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars": 4459,
+      "words": 686,
+      "figures": [],
+      "page_image": "./source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars": 3863,
+      "words": 561,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "2",
+          "bbox": [
+            108.0,
+            230.25343322753906,
+            504.2471008300781,
+            240.40704345703125
+          ],
+          "text": "Figure 2: Summary of reviewed articles. (A) Three most common categories of benchmark",
+          "path": "./images/figure-2-p004.png"
+        }
+      ],
+      "page_image": "./source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars": 3374,
+      "words": 496,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "3",
+          "bbox": [
+            108.0,
+            263.9926452636719,
+            504.0034484863281,
+            274.0210266113281
+          ],
+          "text": "Figure 3: Key codebook results. The distribution of codebook responses on selected items. In each",
+          "path": "./images/figure-3-p005.png"
+        }
+      ],
+      "page_image": "./source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars": 3614,
+      "words": 530,
+      "figures": [],
+      "page_image": "./source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars": 3994,
+      "words": 599,
+      "figures": [],
+      "page_image": "./source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars": 3297,
+      "words": 481,
+      "figures": [],
+      "page_image": "./source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars": 4121,
+      "words": 622,
+      "figures": [],
+      "page_image": "./source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars": 3947,
+      "words": 568,
+      "figures": [],
+      "page_image": "./source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars": 1990,
+      "words": 287,
+      "figures": [],
+      "page_image": "./source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars": 3663,
+      "words": 542,
+      "figures": [],
+      "page_image": "./source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars": 4247,
+      "words": 608,
+      "figures": [],
+      "page_image": "./source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars": 4245,
+      "words": 625,
+      "figures": [],
+      "page_image": "./source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars": 513,
+      "words": 71,
+      "figures": [],
+      "page_image": "./source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars": 3184,
+      "words": 504,
+      "figures": [],
+      "page_image": "./source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars": 3688,
+      "words": 600,
+      "figures": [],
+      "page_image": "./source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars": 3178,
+      "words": 484,
+      "figures": [],
+      "page_image": "./source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars": 3039,
+      "words": 475,
+      "figures": [],
+      "page_image": "./source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars": 3430,
+      "words": 552,
+      "figures": [],
+      "page_image": "./source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars": 2904,
+      "words": 451,
+      "figures": [],
+      "page_image": "./source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars": 836,
+      "words": 132,
+      "figures": [],
+      "page_image": "./source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars": 192,
+      "words": 30,
+      "figures": [],
+      "page_image": "./source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars": 2862,
+      "words": 402,
+      "figures": [],
+      "page_image": "./source_pages/page-024.jpg"
+    },
+    {
+      "page": 25,
+      "chars": 617,
+      "words": 87,
+      "figures": [],
+      "page_image": "./source_pages/page-025.jpg"
+    },
+    {
+      "page": 26,
+      "chars": 4590,
+      "words": 703,
+      "figures": [],
+      "page_image": "./source_pages/page-026.jpg"
+    },
+    {
+      "page": 27,
+      "chars": 3913,
+      "words": 628,
+      "figures": [],
+      "page_image": "./source_pages/page-027.jpg"
+    },
+    {
+      "page": 28,
+      "chars": 3770,
+      "words": 689,
+      "figures": [],
+      "page_image": "./source_pages/page-028.jpg"
+    },
+    {
+      "page": 29,
+      "chars": 3188,
+      "words": 571,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "1",
+          "bbox": [
+            150.60899353027344,
+            483.197509765625,
+            491.9678039550781,
+            493.2510681152344
+          ],
+          "text": "Table 1: Descriptive Taxonomy of LLM Benchmark Target General Capabilities.",
+          "path": "./images/table-1-p029.png"
+        }
+      ],
+      "page_image": "./source_pages/page-029.jpg"
+    },
+    {
+      "page": 30,
+      "chars": 3441,
+      "words": 622,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "2",
+          "bbox": [
+            149.3489990234375,
+            581.3795166015625,
+            493.2283630371094,
+            591.4330444335938
+          ],
+          "text": "Table 2: Descriptive Taxonomy of LLM Benchmark Target General Applications.",
+          "path": "./images/table-2-p030.png"
+        }
+      ],
+      "page_image": "./source_pages/page-030.jpg"
+    },
+    {
+      "page": 31,
+      "chars": 3960,
+      "words": 627,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "3",
+          "bbox": [
+            150.17599487304688,
+            275.9245300292969,
+            492.4015808105469,
+            285.97808837890625
+          ],
+          "text": "Table 3: Descriptive Taxonomy of LLM Benchmark Target Specific Applications.",
+          "path": "./images/table-3-p031.png"
+        }
+      ],
+      "page_image": "./source_pages/page-031.jpg"
+    },
+    {
+      "page": 32,
+      "chars": 2452,
+      "words": 506,
+      "figures": [],
+      "page_image": "./source_pages/page-032.jpg"
+    },
+    {
+      "page": 33,
+      "chars": 3563,
+      "words": 723,
+      "figures": [],
+      "page_image": "./source_pages/page-033.jpg"
+    },
+    {
+      "page": 34,
+      "chars": 3421,
+      "words": 695,
+      "figures": [],
+      "page_image": "./source_pages/page-034.jpg"
+    },
+    {
+      "page": 35,
+      "chars": 4305,
+      "words": 883,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "4",
+          "bbox": [
+            175.3159942626953,
+            682.4755249023438,
+            467.2603454589844,
+            692.529052734375
+          ],
+          "text": "Table 4: Descriptive Taxonomy of LLM Benchmark Task Definitions.",
+          "path": "./images/table-4-p035.png"
+        }
+      ],
+      "page_image": "./source_pages/page-035.jpg"
+    },
+    {
+      "page": 36,
+      "chars": 1254,
+      "words": 205,
+      "figures": [],
+      "page_image": "./source_pages/page-036.jpg"
+    },
+    {
+      "page": 37,
+      "chars": 3937,
+      "words": 807,
+      "figures": [],
+      "page_image": "./source_pages/page-037.jpg"
+    },
+    {
+      "page": 38,
+      "chars": 4434,
+      "words": 894,
+      "figures": [],
+      "page_image": "./source_pages/page-038.jpg"
+    },
+    {
+      "page": 39,
+      "chars": 3857,
+      "words": 787,
+      "figures": [],
+      "page_image": "./source_pages/page-039.jpg"
+    },
+    {
+      "page": 40,
+      "chars": 1913,
+      "words": 392,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "5",
+          "bbox": [
+            170.9980010986328,
+            349.9975280761719,
+            471.57891845703125,
+            360.05108642578125
+          ],
+          "text": "Table 5: Descriptive Taxonomy of LLM Benchmark Metric Definitions.",
+          "path": "./images/table-5-p040.png"
+        }
+      ],
+      "page_image": "./source_pages/page-040.jpg"
+    },
+    {
+      "page": 41,
+      "chars": 2330,
+      "words": 336,
+      "figures": [],
+      "page_image": "./source_pages/page-041.jpg"
+    },
+    {
+      "page": 42,
+      "chars": 1976,
+      "words": 254,
+      "figures": [],
+      "page_image": "./source_pages/page-042.jpg"
+    },
+    {
+      "page": 43,
+      "chars": 2550,
+      "words": 357,
+      "figures": [],
+      "page_image": "./source_pages/page-043.jpg"
+    },
+    {
+      "page": 44,
+      "chars": 2270,
+      "words": 318,
+      "figures": [],
+      "page_image": "./source_pages/page-044.jpg"
+    },
+    {
+      "page": 45,
+      "chars": 2479,
+      "words": 316,
+      "figures": [],
+      "page_image": "./source_pages/page-045.jpg"
+    },
+    {
+      "page": 46,
+      "chars": 2031,
+      "words": 264,
+      "figures": [],
+      "page_image": "./source_pages/page-046.jpg"
+    },
+    {
+      "page": 47,
+      "chars": 826,
+      "words": 104,
+      "figures": [],
+      "page_image": "./source_pages/page-047.jpg"
+    },
+    {
+      "page": 48,
+      "chars": 2049,
+      "words": 331,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "4",
+          "bbox": [
+            108.0,
+            219.91720581054688,
+            505.2413024902344,
+            230.01589965820312
+          ],
+          "text": "Figure 4: Flowchart of the systematic review process. Searching across EMNLP, NAACL, ACL,",
+          "path": "./images/figure-4-p048.png"
+        }
+      ],
+      "page_image": "./source_pages/page-048.jpg"
+    },
+    {
+      "page": 49,
+      "chars": 2620,
+      "words": 437,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "12",
+          "bbox": [
+            107.69100189208984,
+            450.71343994140625,
+            504.00457763671875,
+            460.8670349121094
+          ],
+          "text": "Table 12: LLM Filtering Steps. The prompts used for progressive filtering of the articles to be",
+          "path": "./images/table-12-p049.png"
+        },
+        {
+          "kind": "table",
+          "number": "13",
+          "bbox": [
+            107.69100189208984,
+            647.9173583984375,
+            503.9992370605469,
+            657.869873046875
+          ],
+          "text": "Table 13: LLM Filtering Human Validation. A comparison between human and LLM filtering on a",
+          "path": "./images/table-13-p049.png"
+        }
+      ],
+      "page_image": "./source_pages/page-049.jpg"
+    },
+    {
+      "page": 50,
+      "chars": 3089,
+      "words": 459,
+      "figures": [],
+      "page_image": "./source_pages/page-050.jpg"
+    },
+    {
+      "page": 51,
+      "chars": 1368,
+      "words": 140,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "14",
+          "bbox": [
+            210.45899963378906,
+            211.2115020751953,
+            401.23284912109375,
+            221.17410278320312
+          ],
+          "text": "Table 14: Inter-rater agreement across all fields.",
+          "path": "./images/table-14-p051.png"
+        }
+      ],
+      "page_image": "./source_pages/page-051.jpg"
+    },
+    {
+      "page": 52,
+      "chars": 4225,
+      "words": 611,
+      "figures": [],
+      "page_image": "./source_pages/page-052.jpg"
+    },
+    {
+      "page": 53,
+      "chars": 4461,
+      "words": 655,
+      "figures": [],
+      "page_image": "./source_pages/page-053.jpg"
+    },
+    {
+      "page": 54,
+      "chars": 4315,
+      "words": 642,
+      "figures": [],
+      "page_image": "./source_pages/page-054.jpg"
+    },
+    {
+      "page": 55,
+      "chars": 4532,
+      "words": 683,
+      "figures": [],
+      "page_image": "./source_pages/page-055.jpg"
+    },
+    {
+      "page": 56,
+      "chars": 4139,
+      "words": 618,
+      "figures": [],
+      "page_image": "./source_pages/page-056.jpg"
+    },
+    {
+      "page": 57,
+      "chars": 4169,
+      "words": 619,
+      "figures": [],
+      "page_image": "./source_pages/page-057.jpg"
+    },
+    {
+      "page": 58,
+      "chars": 4290,
+      "words": 649,
+      "figures": [],
+      "page_image": "./source_pages/page-058.jpg"
+    },
+    {
+      "page": 59,
+      "chars": 4125,
+      "words": 615,
+      "figures": [],
+      "page_image": "./source_pages/page-059.jpg"
+    },
+    {
+      "page": 60,
+      "chars": 4281,
+      "words": 634,
+      "figures": [],
+      "page_image": "./source_pages/page-060.jpg"
+    },
+    {
+      "page": 61,
+      "chars": 4391,
+      "words": 646,
+      "figures": [],
+      "page_image": "./source_pages/page-061.jpg"
+    },
+    {
+      "page": 62,
+      "chars": 4429,
+      "words": 641,
+      "figures": [],
+      "page_image": "./source_pages/page-062.jpg"
+    },
+    {
+      "page": 63,
+      "chars": 4313,
+      "words": 638,
+      "figures": [],
+      "page_image": "./source_pages/page-063.jpg"
+    },
+    {
+      "page": 64,
+      "chars": 4507,
+      "words": 665,
+      "figures": [],
+      "page_image": "./source_pages/page-064.jpg"
+    },
+    {
+      "page": 65,
+      "chars": 4557,
+      "words": 658,
+      "figures": [],
+      "page_image": "./source_pages/page-065.jpg"
+    },
+    {
+      "page": 66,
+      "chars": 4238,
+      "words": 608,
+      "figures": [],
+      "page_image": "./source_pages/page-066.jpg"
+    },
+    {
+      "page": 67,
+      "chars": 4504,
+      "words": 659,
+      "figures": [],
+      "page_image": "./source_pages/page-067.jpg"
+    },
+    {
+      "page": 68,
+      "chars": 4402,
+      "words": 646,
+      "figures": [],
+      "page_image": "./source_pages/page-068.jpg"
+    },
+    {
+      "page": 69,
+      "chars": 4435,
+      "words": 650,
+      "figures": [],
+      "page_image": "./source_pages/page-069.jpg"
+    },
+    {
+      "page": 70,
+      "chars": 4596,
+      "words": 670,
+      "figures": [],
+      "page_image": "./source_pages/page-070.jpg"
+    },
+    {
+      "page": 71,
+      "chars": 4301,
+      "words": 619,
+      "figures": [],
+      "page_image": "./source_pages/page-071.jpg"
+    },
+    {
+      "page": 72,
+      "chars": 4128,
+      "words": 606,
+      "figures": [],
+      "page_image": "./source_pages/page-072.jpg"
+    },
+    {
+      "page": 73,
+      "chars": 4339,
+      "words": 638,
+      "figures": [],
+      "page_image": "./source_pages/page-073.jpg"
+    },
+    {
+      "page": 74,
+      "chars": 4440,
+      "words": 657,
+      "figures": [],
+      "page_image": "./source_pages/page-074.jpg"
+    },
+    {
+      "page": 75,
+      "chars": 4601,
+      "words": 681,
+      "figures": [],
+      "page_image": "./source_pages/page-075.jpg"
+    },
+    {
+      "page": 76,
+      "chars": 4120,
+      "words": 606,
+      "figures": [],
+      "page_image": "./source_pages/page-076.jpg"
+    },
+    {
+      "page": 77,
+      "chars": 4480,
+      "words": 654,
+      "figures": [],
+      "page_image": "./source_pages/page-077.jpg"
+    },
+    {
+      "page": 78,
+      "chars": 4200,
+      "words": 627,
+      "figures": [],
+      "page_image": "./source_pages/page-078.jpg"
+    },
+    {
+      "page": 79,
+      "chars": 4528,
+      "words": 653,
+      "figures": [],
+      "page_image": "./source_pages/page-079.jpg"
+    },
+    {
+      "page": 80,
+      "chars": 4459,
+      "words": 644,
+      "figures": [],
+      "page_image": "./source_pages/page-080.jpg"
+    },
+    {
+      "page": 81,
+      "chars": 4257,
+      "words": 628,
+      "figures": [],
+      "page_image": "./source_pages/page-081.jpg"
+    },
+    {
+      "page": 82,
+      "chars": 466,
+      "words": 64,
+      "figures": [],
+      "page_image": "./source_pages/page-082.jpg"
+    }
+  ]
+}

@@ -34,6 +34,9 @@
 | ABC | [中文稿](ABC/中文译文.md) · [阅读说明](ABC/README_目录说明.md) · [原文 PDF](ABC/原始论文.pdf) |
 | Fantastic Bugs | [中文稿](Fantastic%20Bugs/中文译文.md) · [阅读说明](Fantastic%20Bugs/README_目录说明.md) · [原文 PDF](Fantastic%20Bugs/原始论文.pdf) |
 | GeoNatureAgent | [中文稿](GeoNatureAgent/中文译文.md) · [阅读说明](GeoNatureAgent/README_目录说明.md) · [原文 PDF](GeoNatureAgent/原始论文.pdf) |
+| ToolSandbox | [中文稿](ToolSandbox/中文译文.md) · [阅读说明](ToolSandbox/README_使用说明.md) · [原文 PDF](ToolSandbox/original.pdf) |
+| Measuring What Matters | [中文稿](Measuring%20What%20Matters/中文译文.md) · [阅读说明](Measuring%20What%20Matters/README_使用说明.md) · [原文 PDF](Measuring%20What%20Matters/original.pdf) |
+| Oracle Failures | [中文稿](Oracle%20Failures/中文译文.md) · [阅读说明](Oracle%20Failures/README_使用说明.md) · [原文 PDF](Oracle%20Failures/original.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

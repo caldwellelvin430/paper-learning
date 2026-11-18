@@ -1,0 +1,562 @@
+{
+  "title": "ToolSandbox：面向大模型工具使用能力的有状态对话式交互评估基准",
+  "original": "/mnt/data/Lu 等 - 2025 - ToolSandbox A Stateful, Conversational, Interactive Evaluation Benchmark for LLM Tool Use Capabilit.pdf",
+  "page_count": 24,
+  "pages": [
+    {
+      "page": 1,
+      "chars": 4150,
+      "words": 635,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "1",
+          "bbox": [
+            70.54752349853516,
+            611.9901123046875,
+            289.30706787109375,
+            623.99560546875
+          ],
+          "text": "Table 1: A comparison of TOOLSANDBOX and other",
+          "path": "./images/table-1-p001.png"
+        }
+      ],
+      "page_image": "./source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars": 2701,
+      "words": 409,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "1",
+          "bbox": [
+            70.85653686523438,
+            420.3285217285156,
+            524.418212890625,
+            432.33404541015625
+          ],
+          "text": "Figure 1: An example evaluation trajectory from TOOLSANDBOX. Some message contents and milestones were",
+          "path": "./images/figure-1-p002.png"
+        }
+      ],
+      "page_image": "./source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars": 4039,
+      "words": 623,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "2",
+          "bbox": [
+            70.85653686523438,
+            664.2467041015625,
+            289.13385009765625,
+            676.2522583007812
+          ],
+          "text": "Figure 2: Interaction between the User, Agent and",
+          "path": "./images/figure-2-p003.png"
+        }
+      ],
+      "page_image": "./source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars": 4550,
+      "words": 724,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "2",
+          "bbox": [
+            305.8352966308594,
+            141.51956176757812,
+            524.4178466796875,
+            153.5251007080078
+          ],
+          "text": "Table 2: Percentage of user simulation failures in each",
+          "path": "./images/table-2-p004.png"
+        },
+        {
+          "kind": "table",
+          "number": "3",
+          "bbox": [
+            305.8352966308594,
+            272.3100891113281,
+            524.4178466796875,
+            284.31561279296875
+          ],
+          "text": "Table 3: Percentage of user simulation failures in each",
+          "path": "./images/table-3-p004.png"
+        }
+      ],
+      "page_image": "./source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars": 4140,
+      "words": 637,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "3",
+          "bbox": [
+            70.85653686523438,
+            433.1611633300781,
+            290.7919006347656,
+            445.16668701171875
+          ],
+          "text": "Figure 3: Example GPT-4 trajectory for Insufficient In-",
+          "path": "./images/figure-3-p005.png"
+        },
+        {
+          "kind": "table",
+          "number": "4",
+          "bbox": [
+            305.8352966308594,
+            152.64212036132812,
+            524.592041015625,
+            164.6476593017578
+          ],
+          "text": "Table 4: Statistics between TOOLSANDBOX and other",
+          "path": "./images/table-4-p005.png"
+        }
+      ],
+      "page_image": "./source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars": 4609,
+      "words": 717,
+      "figures": [],
+      "page_image": "./source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars": 5231,
+      "words": 829,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "5",
+          "bbox": [
+            70.54752349853516,
+            202.56460571289062,
+            524.4195556640625,
+            214.5701446533203
+          ],
+          "text": "Table 5: Comparing the average similarity score broken down by scenario category and tool augmentations. Columns",
+          "path": "./images/table-5-p007.png"
+        }
+      ],
+      "page_image": "./source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars": 4769,
+      "words": 702,
+      "figures": [],
+      "page_image": "./source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars": 652,
+      "words": 86,
+      "figures": [],
+      "page_image": "./source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars": 2593,
+      "words": 399,
+      "figures": [],
+      "page_image": "./source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars": 4825,
+      "words": 668,
+      "figures": [],
+      "page_image": "./source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars": 3602,
+      "words": 506,
+      "figures": [],
+      "page_image": "./source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars": 3996,
+      "words": 631,
+      "figures": [],
+      "page_image": "./source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars": 2728,
+      "words": 439,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "4",
+          "bbox": [
+            306.144287109375,
+            528.409912109375,
+            524.4218139648438,
+            540.4154663085938
+          ],
+          "text": "Figure 4: Example Message Bus and corresponding",
+          "path": "./images/figure-4-p014.png"
+        }
+      ],
+      "page_image": "./source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars": 1617,
+      "words": 275,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "5",
+          "bbox": [
+            70.85653686523438,
+            220.61654663085938,
+            290.7882995605469,
+            232.62208557128906
+          ],
+          "text": "Figure 5: Example Prompts for user simulator instruc-",
+          "path": "./images/figure-5-p015.png"
+        },
+        {
+          "kind": "figure",
+          "number": "6",
+          "bbox": [
+            70.85653686523438,
+            409.094970703125,
+            290.7869567871094,
+            421.1004943847656
+          ],
+          "text": "Figure 6: Example Prompts for user simulator hallucina-",
+          "path": "./images/figure-6-p015.png"
+        },
+        {
+          "kind": "figure",
+          "number": "7",
+          "bbox": [
+            306.144287109375,
+            473.71417236328125,
+            526.079345703125,
+            485.7196960449219
+          ],
+          "text": "Figure 7: Example Prompts for user simulator. Demon-",
+          "path": "./images/figure-7-p015.png"
+        },
+        {
+          "kind": "figure",
+          "number": "8",
+          "bbox": [
+            350.2294921875,
+            565.9237060546875,
+            480.3375244140625,
+            577.9292602539062
+          ],
+          "text": "Figure 8: Prompt for Agent role.",
+          "path": "./images/figure-8-p015.png"
+        },
+        {
+          "kind": "figure",
+          "number": "9",
+          "bbox": [
+            306.144287109375,
+            720.4354248046875,
+            524.4218139648438,
+            732.4409790039062
+          ],
+          "text": "Figure 9: Conversion from JSON tool call format to",
+          "path": "./images/figure-9-p015.png"
+        }
+      ],
+      "page_image": "./source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars": 4348,
+      "words": 709,
+      "figures": [],
+      "page_image": "./source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars": 1939,
+      "words": 305,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "10",
+          "bbox": [
+            70.85653686523438,
+            434.6502380371094,
+            524.4231567382812,
+            446.65576171875
+          ],
+          "text": "Figure 10: Example GPT-4o Trajectory with partially matched milestones. Some messages are elided for visual",
+          "path": "./images/figure-10-p017.png"
+        }
+      ],
+      "page_image": "./source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars": 4049,
+      "words": 638,
+      "figures": [],
+      "page_image": "./source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars": 1905,
+      "words": 247,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "6",
+          "bbox": [
+            70.54752349853516,
+            175.18130493164062,
+            289.139892578125,
+            187.1868438720703
+          ],
+          "text": "Table 6: Number of test scenarios per category. Note",
+          "path": "./images/table-6-p019.png"
+        },
+        {
+          "kind": "table",
+          "number": "7",
+          "bbox": [
+            70.54752349853516,
+            618.0113525390625,
+            289.133056640625,
+            630.0169067382812
+          ],
+          "text": "Table 7: Number of milestones defined per world state",
+          "path": "./images/table-7-p019.png"
+        },
+        {
+          "kind": "table",
+          "number": "8",
+          "bbox": [
+            305.8352966308594,
+            319.0004577636719,
+            524.4176025390625,
+            331.0059814453125
+          ],
+          "text": "Table 8: Number of milestones defined per tool. Note",
+          "path": "./images/table-8-p019.png"
+        },
+        {
+          "kind": "figure",
+          "number": "11",
+          "bbox": [
+            306.144287109375,
+            748.100830078125,
+            524.67578125,
+            760.1063842773438
+          ],
+          "text": "Figure 11: Example trajectory where Mistral mistook",
+          "path": "./images/figure-11-p019.png"
+        }
+      ],
+      "page_image": "./source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars": 559,
+      "words": 83,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "12",
+          "bbox": [
+            70.85653686523438,
+            293.6722106933594,
+            289.13385009765625,
+            305.677734375
+          ],
+          "text": "Figure 12: Example trajectory with Single Tool Call",
+          "path": "./images/figure-12-p020.png"
+        },
+        {
+          "kind": "figure",
+          "number": "13",
+          "bbox": [
+            70.85653686523438,
+            748.100830078125,
+            289.1347961425781,
+            760.1063842773438
+          ],
+          "text": "Figure 13: Example trajectory with Multiple Tool Call",
+          "path": "./images/figure-13-p020.png"
+        },
+        {
+          "kind": "figure",
+          "number": "14",
+          "bbox": [
+            306.144287109375,
+            328.99896240234375,
+            526.0782470703125,
+            341.0044860839844
+          ],
+          "text": "Figure 14: Example trajectories where GPT-4 incor-",
+          "path": "./images/figure-14-p020.png"
+        },
+        {
+          "kind": "figure",
+          "number": "15",
+          "bbox": [
+            306.144287109375,
+            736.1444091796875,
+            526.07958984375,
+            748.14990234375
+          ],
+          "text": "Figure 15: Example trajectories where GPT-4o halluci-",
+          "path": "./images/figure-15-p020.png"
+        }
+      ],
+      "page_image": "./source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars": 978,
+      "words": 149,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "16",
+          "bbox": [
+            70.85653686523438,
+            327.89691162109375,
+            289.1338806152344,
+            339.9024353027344
+          ],
+          "text": "Figure 16: Disambiguation failure from GPT-4o. The",
+          "path": "./images/figure-16-p021.png"
+        },
+        {
+          "kind": "figure",
+          "number": "17",
+          "bbox": [
+            70.85653686523438,
+            688.3218994140625,
+            289.4787292480469,
+            700.3274536132812
+          ],
+          "text": "Figure 17: GPT-4 incorrect parallel tool call trajectory",
+          "path": "./images/figure-17-p021.png"
+        },
+        {
+          "kind": "figure",
+          "number": "18",
+          "bbox": [
+            306.144287109375,
+            404.2477111816406,
+            524.767578125,
+            416.25323486328125
+          ],
+          "text": "Figure 18: GPT-4 inefficient nested State Dependency",
+          "path": "./images/figure-18-p021.png"
+        }
+      ],
+      "page_image": "./source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars": 1642,
+      "words": 239,
+      "figures": [
+        {
+          "kind": "figure",
+          "number": "19",
+          "bbox": [
+            70.85653686523438,
+            420.78155517578125,
+            290.79034423828125,
+            432.7870788574219
+          ],
+          "text": "Figure 19: Example trajectory for nested state depen-",
+          "path": "./images/figure-19-p022.png"
+        },
+        {
+          "kind": "figure",
+          "number": "20",
+          "bbox": [
+            70.85653686523438,
+            724.188720703125,
+            289.1331481933594,
+            736.1942138671875
+          ],
+          "text": "Figure 20: Example trajectories where GPT-3.5 failed",
+          "path": "./images/figure-20-p022.png"
+        },
+        {
+          "kind": "table",
+          "number": "9",
+          "bbox": [
+            305.8352966308594,
+            748.100830078125,
+            524.422119140625,
+            760.1063842773438
+          ],
+          "text": "Table 9: A comparison between default prompting and",
+          "path": "./images/table-9-p022.png"
+        }
+      ],
+      "page_image": "./source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars": 1507,
+      "words": 224,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "10",
+          "bbox": [
+            70.54752349853516,
+            302.6026306152344,
+            290.8782653808594,
+            314.608154296875
+          ],
+          "text": "Table 10: A comparison between model feature support.",
+          "path": "./images/table-10-p023.png"
+        }
+      ],
+      "page_image": "./source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars": 2238,
+      "words": 364,
+      "figures": [
+        {
+          "kind": "table",
+          "number": "11",
+          "bbox": [
+            70.54752349853516,
+            437.3893737792969,
+            524.4212646484375,
+            449.3948974609375
+          ],
+          "text": "Table 11: Comparing the average turn count broken down by scenario category and tool augmentations. Columns",
+          "path": "./images/table-11-p024.png"
+        }
+      ],
+      "page_image": "./source_pages/page-024.jpg"
+    }
+  ]
+}
