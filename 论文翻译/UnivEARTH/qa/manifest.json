@@ -1,0 +1,30 @@
+{
+  "name": "UnivEARTH",
+  "source_file": "Kao 等 - 2026 - Towards LLM Agents for Earth Observation.pdf",
+  "sha256": "00edb6cebf823b520b78f724dc6bbe6a4d77aefec988a7c3f19669d68ac4dcb8",
+  "pages": 15,
+  "page_text_characters": [
+    5862,
+    5304,
+    4591,
+    6488,
+    5370,
+    6777,
+    7811,
+    6599,
+    6156,
+    6368,
+    6439,
+    5637,
+    2695,
+    4116,
+    3709
+  ],
+  "figure_table_captures": 11,
+  "figures": 5,
+  "tables": 6,
+  "source_page_images": 15,
+  "source_pdf_bytes": 1082496,
+  "method": "Poppler pdftotext -layout; PyMuPDF 1.6x page render and 2.0x caption-anchored crop",
+  "generated_at": "2026-11-23"
+}

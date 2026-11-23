@@ -1,0 +1,233 @@
+[
+  {
+    "type": "figure",
+    "num": "1",
+    "caption": "Figure 1: We propose UnivEARTH for benchmarking AI agents in Earth Observation.",
+    "bbox": [
+      124.3,
+      293.6,
+      470.9,
+      306.6
+    ],
+    "label": "图1",
+    "page": 2,
+    "source_page": "./source_pages/page-002.jpg",
+    "image": "./images/figure-1-p002.png",
+    "clip_rect": [
+      27.0,
+      18.6,
+      568.3,
+      334.6
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "2",
+    "caption": "Figure 2: Hierarchical distribution of Earth science top- ics and sub-categories in UnivEARTH . The inner ring represents the parent domain, while the outer ring de- tails specific phenomena.",
+    "bbox": [
+      306.1,
+      271.1,
+      526.1,
+      318.9
+    ],
+    "label": "图2",
+    "page": 3,
+    "source_page": "./source_pages/page-003.jpg",
+    "image": "./images/figure-2-p003.png",
+    "clip_rect": [
+      291.7,
+      0.0,
+      573.3,
+      346.9
+    ]
+  },
+  {
+    "type": "table",
+    "num": "1",
+    "caption": "Table 1: Distribution of the main data sources grouped by sensing modality and instrument type.",
+    "bbox": [
+      70.5,
+      70.0,
+      289.1,
+      94.0
+    ],
+    "label": "表1",
+    "page": 4,
+    "source_page": "./source_pages/page-004.jpg",
+    "image": "./images/table-1-p004.png",
+    "clip_rect": [
+      22.0,
+      0.0,
+      303.6,
+      359.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "2",
+    "caption": "Table 2: Examples of UnivEARTH .",
+    "bbox": [
+      223.4,
+      69.7,
+      371.6,
+      82.6
+    ],
+    "label": "表2",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-2-p005.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      347.6
+    ]
+  },
+  {
+    "type": "table",
+    "num": "3",
+    "caption": "Table 3: Performance Comparison of Code LLMs on Earth Engine Tasks. The table reports the distribution of outcomes across distinct categories. Execution Success indicates the code ran without errors (Correct vs. Wrong Answer). Failed Execution/Logic indicates specific failure modes: Empty Collection or Images (C1), No Valid Pixels (C2), Calculation Failure (C3), or Syntax Error (D).",
+    "bbox": [
+      70.5,
+      70.0,
+      524.4,
+      117.9
+    ],
+    "label": "表3",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/table-3-p006.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      382.9
+    ]
+  },
+  {
+    "type": "table",
+    "num": "4",
+    "caption": "Table 4: Comparison of hallucinated vs. correct GEE Collection IDs. Models often struggle with specific naming conventions (e.g., version numbers, tiers, or provider prefixes).",
+    "bbox": [
+      70.5,
+      283.4,
+      289.3,
+      331.3
+    ],
+    "label": "表4",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/table-4-p006.png",
+    "clip_rect": [
+      22.0,
+      128.4,
+      303.6,
+      596.3
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "3",
+    "caption": "Figure 3: Performance in Python against JavaScript.",
+    "bbox": [
+      311.3,
+      736.2,
+      519.2,
+      748.2
+    ],
+    "label": "图3",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/figure-3-p006.png",
+    "clip_rect": [
+      291.7,
+      461.2,
+      573.3,
+      776.2
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "4",
+    "caption": "Figure 4: Impact of providing ground-truth Collection IDs (documentation) on performance, stratified by instrument.",
+    "bbox": [
+      70.9,
+      282.7,
+      524.4,
+      294.7
+    ],
+    "label": "图4",
+    "page": 7,
+    "source_page": "./source_pages/page-007.jpg",
+    "image": "./images/figure-4-p007.png",
+    "clip_rect": [
+      27.0,
+      7.7,
+      568.3,
+      322.7
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "5",
+    "caption": "Figure 5: Reflexion improves performance. We observe a consistent increase in correctness across all agents. This gain is primarily driven by the effective mitigation of code and syntax errors (Category D).",
+    "bbox": [
+      70.9,
+      291.8,
+      524.4,
+      315.7
+    ],
+    "label": "图5",
+    "page": 8,
+    "source_page": "./source_pages/page-008.jpg",
+    "image": "./images/figure-5-p008.png",
+    "clip_rect": [
+      27.0,
+      16.8,
+      568.3,
+      343.7
+    ]
+  },
+  {
+    "type": "table",
+    "num": "5",
+    "caption": "Table 5: Error taxonomy for Gemini-2.5-Pro under the zero-shot baseline.",
+    "bbox": [
+      150.0,
+      214.5,
+      445.0,
+      226.5
+    ],
+    "label": "表5",
+    "page": 14,
+    "source_page": "./source_pages/page-014.jpg",
+    "image": "./images/table-5-p014.png",
+    "clip_rect": [
+      27.0,
+      59.5,
+      568.3,
+      491.5
+    ]
+  },
+  {
+    "type": "table",
+    "num": "6",
+    "caption": "Table 6: Error profile shift after iterative re-planning (OSCAR, 3 rounds).",
+    "bbox": [
+      152.2,
+      355.8,
+      442.8,
+      367.9
+    ],
+    "label": "表6",
+    "page": 14,
+    "source_page": "./source_pages/page-014.jpg",
+    "image": "./images/table-6-p014.png",
+    "clip_rect": [
+      27.0,
+      200.8,
+      568.3,
+      632.9
+    ]
+  }
+]

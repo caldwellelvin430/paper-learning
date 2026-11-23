@@ -1,0 +1,1945 @@
+========= PAGE 001 / 28 =========
+                                                     Ge        Disaster: Benchmarking Orchestrated Agents for
+                                                                 Operational Disaster Geo-Intelligence
+                                                  Maram Hasan1, * † Aman Verma1, * Savitra Roy1 Hariseetharam Gunduboina1
+                                                  Daksh Jain1 Muhammad Haris Khan2 Subhasis Chaudhuri1 Biplab Banerjee1
+                                                                                1
+                                                                               Indian Institute of Technology Bombay
+                                                                     2
+                                                                         Mohamed bin Zayed University of Artificial Intelligence
+arXiv:2606.17246v1 [cs.CV] 15 Jun 2026
+
+
+
+
+                                                                                                 Abstract
+                                                       Remote-sensing vision-language models (RS-VLMs) have advanced Earth-observation analysis
+                                                   toward visual interpretation and instruction-following, yet fall short of operational geo-intelligence,
+                                                   which demands tool-grounded spatial reasoning and structured, evidence-backed decisions. We
+                                                   introduce GeoDisaster, an operational geospatial disaster reasoning benchmark with 2,921 verified
+                                                   instances across 43 question types and five task families: deforestation monitoring, multi-hazard
+                                                   analysis, building-damage assessment, flood-safe routing, and Sentinel-1 SAR flood monitoring.
+                                                   Instances integrate heterogeneous EO/GIS evidence—optical and SAR imagery, raster masks, vector
+                                                   geometries, road networks, and exposure layers—spanning hazard detection, damage assessment, ex-
+                                                   posure estimation, and diagnostic report generation. Ground-truth answers are grounded in executable
+                                                   geospatial workflows and deterministic consistency checks, removing the need for language-model
+                                                   annotation. We further propose an orchestrated multi-agent framework with 18 disaster-oriented
+                                                   tools, where role-specialized agents coordinate through explicit execution contracts, aligned via
+                                                   Role-Contract Expectation Alignment (RCEA): failure-aware supervised fine-tuning combined
+                                                   with contract-grounded reinforcement learning over dense step-level signals. Experiments show
+                                                   that GeoDisaster challenges existing RS-VLMs and agentic systems, while RCEA improves tool
+                                                   use, evidence grounding, state consistency, and decision generation. https://github.com/VIMAGE-
+                                                   IITB/GeoDisaster
+
+
+                                         1        Introduction
+                                         Earth observation from satellites and aerial sensors has become a cornerstone of modern disaster man-
+                                         agement, enabling rapid assessment of floods, wildfires, building damage, and deforestation across
+                                         large geographic areas. Recent remote-sensing vision-language models (RS-VLMs) have advanced this
+                                         capability by supporting natural-language interaction, visual interpretation, and instruction-following
+                                         over Earth-observation (EO) data [1, 2]. Yet these models are fundamentally perception-oriented: they
+                                         recognize what is visible in an image, answer isolated questions, or generate scene-level descriptions.
+                                             Operational disaster analysis demands considerably more. A field analyst responding to a flood event
+                                         must not only detect inundated areas, but also cross-reference satellite and radar observations, estimate
+                                         exposed infrastructure and population, compute safe evacuation routes, and produce structured situation
+                                         reports—all under time pressure and across heterogeneous data sources [3, 4]. This requires agents
+                                         to execute multi-step spatial workflows: selecting tools, passing valid inputs, maintaining consistent
+                                         intermediate state, and synthesizing grounded decisions. Existing RS benchmarks do not evaluate
+                                         this capacity. Static visual QA datasets assess final outputs from single images, missing procedural
+                                         correctness, tool-use validity, and multi-step reasoning coherence [5, 6]. Recent tool-augmented agentic
+                                         benchmarks [4, 6] advance but remain limited to monolithic single-agent execution, terminal-outcome
+                                             * Equal contribution.
+                                             †
+                                                 Corresponding author: maram h@iitb.ac.in.
+
+
+                                                                                                     1
+
+========= PAGE 002 / 28 =========
+evaluation, and free-form delegation without verifiable role obligations—leaving a gap in evaluating and
+aligning orchestrated multi-agent geospatial reasoning.
+ Research Gap: No existing benchmark evaluates whether AI agents can transform heterogeneous
+ EO/GIS evidence into grounded operational disaster decisions through valid multi-step tool use, and
+ no alignment method explicitly supervises the role-conditioned obligations that arise at each step of
+ orchestrated multi-agent execution.
+
+     To address this, we introduce GeoDisaster, an operational geospatial disaster reasoning benchmark
+with 2,921 verified instances across 43 question types and five task families: deforestation monitoring,
+multi-hazard analysis, building-damage assessment, flood-safe routing, and SAR flood monitoring. As
+illustrated in Figure 1, each instance is constructed from public EO/GIS sources, standardized into task-
+specific inputs, validated through executable geospatial workflows, and converted into agentic trajectories.
+Ground-truth answers are grounded in deterministic spatial consistency checks, removing reliance on
+language-model annotation and enabling evaluation of both final correctness and intermediate reasoning
+validity.
+     Building on GeoDisaster, we propose an orches-
+trated multi-agent framework in which role-specialized Table 1: GeoDisaster vs. prior work. ✓: sup-
+agents—for visual reasoning, geospatial analysis, and ported; ✗: not supported; ˜: partial.
+planning—coordinate through explicit execution con-
+
+
+
+
+                                                                                                  eo
+                                                                                        A
+
+                                                                                             A
+
+
+
+                                                                                                        rs
+                                                                                      VQ
+
+                                                                                            OE
+
+                                                                                                 TG
+tracts issued by a central orchestrator. Table 1 posi-
+
+
+
+
+                                                                                                       Ou
+                                                              Property
+tions our work against prior benchmarks and systems:
+                                                              Multi-step tool use        ✗     ✓ ✓ ✓
+unlike existing approaches that rely on monolithic
+                                                              Multi-agent orchestration ✗      ✗ ✗ ✓
+agents, free-form delegation, and terminal-outcome
+                                                              Execution contracts        ✗     ✗ ✗ ✓
+alignment, our framework introduces typed contracts           Step-level evaluation      ✗     ✓ ✓ ✓
+that specify verifiable obligations enabling dense role-      Grounded trajectory GT     ✗     ˜ ˜ ✓
+conditioned grounded supervision. While recent agen-          Contract-aligned RL        ✗     ✗ ✗ ✓
+tic RS systems demonstrate the value of tool-mediated         Disaster task families     ˜     ✗ ✗ ✓
+planning [4, 7], multi-agent execution remains vulnera-       Heterogeneous EO/GIS       ˜     ˜ ✗ ✓
+ble to tool-use errors, role inconsistency, state loss, and   VQA: disaster VQA benchmarks [5]
+premature termination [8]. Existing alignment strate-         OEA: OpenEarthAgent [4]
+gies—supervised trace imitation or terminal-reward            TGeo: ThinkGeo [6]
+RL—do not supervise the role-conditioned obligations
+that arise at each step [9, 10]. We address this with Role-Contract Expectation Alignment (RCEA),
+which combines failure-aware role-conditioned supervised fine-tuning with contract-grounded rein-
+forcement learning over dense, step-level signals—directly optimizing each agent’s behavior against its
+assigned contract obligations rather than the trajectory’s terminal outcome alone.
+Our contributions are:
+
+   1. GeoDisaster benchmark. 2,921 verified instances across 43 question types and five disaster task
+      families, evaluating agentic reasoning over heterogeneous EO/GIS evidence at both final-answer
+      and trajectory levels.
+   2. Contract-driven multi-agent framework. A multi-agent system with 18 disaster-oriented geospa-
+      tial tools, where role-specialized agents interact through typed execution contracts enforcing
+      verifiable role obligations at each step.
+   3. Role-Contract Expectation Alignment (RCEA). A failure-aware two-stage protocol combin-
+      ing role-conditioned SFT with contract-grounded RL over step-level signals, resolving credit
+      misattribution and reward scale heterogeneity in multi-agent execution.
+   4. Execution-aware evaluation. End-to-end and step-wise metrics covering task success, tool-use
+      fidelity, artifact grounding, state consistency, and trajectory efficiency across single- and multi-agent
+      settings.
+
+
+
+                                                      2
+
+========= PAGE 003 / 28 =========
+Figure 1: Overview of the GeoDisaster pipeline. Public EO/GIS sources are ingested and standardized
+into five disaster task families, validated through executable geospatial workflows, and converted into
+agentic trajectories comprising orchestrator plans, specialist-agent actions, tool calls, and structured
+outputs. The resulting benchmark supports both end-to-end task evaluation and step-level trajectory
+assessment across single and multi-agent settings.
+
+
+2    Related Work
+Disaster Geospatial Benchmarks. Early disaster remote-sensing benchmarks focused on static percep-
+tion: damage labels in xBD/xView2 [11, 12], flood masks in Sen1Floods11 [13], post-flood segmentation
+in FloodNet [5], scene parsing in RescueNet [14], and flooded-road extraction in SpaceNet 8 [15].
+Subsequent benchmarks expanded to multimodal question answering and geospatial interpretation, in-
+cluding FloodNet-VQA [5], VQA-Aid [16], DisasterM3 [17], HRVQA [18], RSVLM-QA [19], and
+GeoMMBench [20]. However, these datasets evaluate final outputs only, missing procedural errors,
+tool-use validity, and execution coherence [21]. Recent work has therefore moved toward tool-augmented
+agentic evaluation: ThinkGeo [6] for step-wise tool-augmented RS reasoning, OpenEarthAgent [4] for
+supervised geospatial reasoning traces, and GeoMMAgent [20] for multi-agent geoscience interpretation.
+RescueADI [2] introduced adaptive disaster interpretation, while GeoLLM-QA [22] studied UI-grounded
+geospatial interaction. GeoDisaster extends this direction to fully operational disaster analysis—covering
+evacuation routing, damage inventory, SAR/optical deforestation assessment, and multi-temporal flood
+evolution—where each instance includes structured tool-use trajectories, intermediate state summaries,
+and raster/vector artifacts, enabling evaluation of both final correctness and the validity of the underlying
+reasoning process.
+Tool-Augmented and Agentic Geospatial Reasoning. Recent RS agentic systems augment LLMs
+with domain-specific tools for scene classification and counting [23], change interpretation [24], wildfire
+monitoring [25], and cross-modal observation analysis [26]. ThinkGeo [6] evaluates ReAct-style agents
+on structured RS tasks, while OpenEarthAgent [4] trains geospatial agents with supervised multi-step
+reasoning trajectories. Despite these advances, such systems rely on a monolithic agent to plan, select
+
+
+                                                     3
+
+========= PAGE 004 / 28 =========
+                                                       Question: Generate candidate routes from the origin to the selected shelter in the Sweden                                                              Question: What population is exposed to unhealthy NO2 during the peak for
+                                                       flood scene. Identify the fastest, safest, and balanced routes, and explain the travel-time vs                                                         the Los Angeles pollution episode in this area of interest?
+                                                       flood-risk trade-off
+
+                                                        1. ORC plan: {"goal":"compare routes", "steps":[{"agent":"GA", "subtask":"prepare                                                                     1. ORC plan: {"goal":"estimate NO2 exposure", "steps":[{"agent":"GA", "subtask":                         "prepare
+                                                        context"}, {"agent":"PA", "subtask":"plan candidates"}, {"agent":"PA",                                                                                context"}, {"agent":"PA", "subtask":"estimate exposed population"}, {"agent":"PA",
+                                                        "subtask":"compare metrics"}, {"agent":"GA", "subtask":"render map"}]}                                                                                "subtask":"validate agreement"}]}
+                                                        2. ORC → GA: CallAgent(agent=GA, contract="{task:
+                                                                                                       Open routing context, evidence: [RGB,                                                                  2. ORC → GA: CallAgent(agent=GA, contract="{task: Open pollution exposure context,
+                                                        origin, shelter, flood extent, roads, risk graph], stop criteria: routing context                                                                     evidence: [S2 RGB, NO2 peak raster, AOI mask, population grid, exposure artifact], stop
+                                                        prepared as work_1}")                                                                                                                                 criteria: pollution context prepared as work_1}")
+    (a) Raw context       (b) Flood routing evidence                                                                                                                                                          3. GA tool: LoadCachedRaster(aoi_id=la_pollution_aoi, handle=no2_peak_event);
+                                                        3. GA tool: ReadData(input=route_context_1, role=roads_shelters_flood); PrepareScene
+                                                                                                                                                                                                              PrepareScene(inputs={pollution:scene_1}, mode=no2_exposure_assessment)
+                                                        (inputs={routing:scene_1}, mode=flood_safe_routing)
+                                                                                                                                                                                                              4. GA Tool Output: scene_1 resolved with S2 RGB context, NO2 peak surface, AOI mask, and population grid. work_1
+                                                        4. GA Tool Output: scene_1 resolved with RGB, origin, shelter, flood extent, roads, and risk graph. work_1 prepared;                                  prepared for exposure estimation.
+                                                        shelter = Tjärnstugan.
+                                                                                                                                                                                                              5. ORC → PA: CallAgent(agent=PA, contract="{task:    Estimate population exposed to unhealthy
+                                                        5. ORC → PA: CallAgent(agent=PA, contract="{task:
+                                                                                                      Plan alternatives avoiding                                                       S2 RGB Context         NO2, evidence:        [work_1, NO2 raster, population grid, AOI mask, threshold= unhealthy],
+                                                        flood-affected roads, evidence: [roads, shelter, flood extent, risk graph], stop                                                                      stop criteria:        exposed population and exposure footprint computed}")
+                                                        criteria: fastest, safest, and balanced candidate routes computed}")                                                                                  6. PA tool: ComputeExposure(work=work_1, pollutant=NO2, threshold=unhealthy, overlay=
+                                                        6. PA tool: PlanRoutes(work=work_1, objective=candidate_routes, avoid={flood_affected_                                                                population_grid ); CompareAcrossSources(handles=[no2_peak_raster, population_grid],
+                                                        roads:true}); CompareRoutes(work=routes_1, prefer={fastest:true, safest:true,                                                                         metric=exposed_population)
+                                                        balanced:true})                                                                                                                                       7. PA Tool Output: exposure_1; unhealthy NO2 footprint = A_exposed; exposed population = P_exposed; peak class =
+                                                                                                                                                                                                              unhealthy. Agreement class: high.
+                                                        7. PA Tool Output: F1 fast: 1173.9m, 15.6min, risk 0.50; S1 safe: 1807.9m, 24.1min, risk 0.14; B1 balanced:
+                                                        1379.7m, 18.4min, risk 0.25. All routes have 0 blocked edges.                                                                                         8. ORC → PA: CallAgent(agent=PA, contract="{task: Validate exposure estimate, evidence:
+                                                                                                                                                                                                              [exposure_1, NO2 mask, population overlay, AOI boundary], stop criteria: consistency
+                                                        8. ORC → GA: CallAgent(agent=GA, contract="{task:
+                                                                                                        Render route overlay, evidence:                                                                       checks and final exposure summary produced}")
+                                                        [routes_1 with selected route alternatives and flood-risk layers], stop criteria:                                                                     9. PA tool: ValidateExposure(work=exposure_1, checks=[mask_overlap, population_sum,
+                                                        route comparison overlay rendered as image_1}")                                                                                                       threshold_consistency]); SummarizeExposure(work=exposure_1,
+                                                        9. GA tool: RenderMap(work=routes_1, layers={rgb:true, roads:true, flood:true,                                                                        output=population_risk_summary)
+                                                        routes:true}, style=route_overlay)                                                                                                                    10. PA Tool Output: population_risk_summary; AOI coverage valid, threshold mask consistent, and
+                                                        10. GA Tool Output: image_1; route overlay rendered.                                                                                                  exposed-population aggregation completed.
+                                                                                                                                                                                                              11. ORC: Terminate: {"pollutant":"NO2", "threshold":"unhealthy",
+                                                        11. ORC: Terminate: {"recommended":"S1", "evidence":"S1 reduces risk by 0.36 compared
+                                                                                                                                                                                                              "exposed_population":"P_exposed", "exposure_area":"A_exposed", "evidence":"NO2 peak
+                                                        with F1, with no blocked edges, at the cost of +634m and +8.5min."}
+           (c) Route Comparison Overlay                                                                                                                                                                       raster + population overlay + AOI mask"}
+                                                                                                                                                                                   GT NO2 Exposure Artifact
+
+
+
+
+Figure 2: Examples from GeoDisaster task families. Left: A flood-safe routing example in Sweden,
+where satellite context and flood-routing evidence are used to generate a route overlay and compare
+fastest, safest, and balanced routes. Right: A multi-hazard NO2 exposure example in Los Angeles, where
+satellite context and exposure artifacts support population-exposure estimation. The traces illustrate
+representative compressed agentic workflows.
+
+
+tools, execute analysis, and synthesize responses—limiting modularity and robustness on complex
+workflows. Multi-agent frameworks partially address this: GeoLLM-Squad [27] separates orchestration
+from task execution via specialized sub-agents, and GeoMMAgent [20] combines retrieval, perception,
+and reasoning agents for geoscience interpretation. Our framework follows this direction but specializes
+it for operational disaster reasoning, supporting multi-turn structured execution over 18 disaster-specific
+tools with evaluation of both final answers and intermediate multi-agent trajectories.
+Trajectory Optimization and Multi-Agent Alignment. LLMs remain unreliable on long-horizon tasks
+involving tool use and intermediate artifacts [4]. Post-training approaches address this through supervised
+trajectory tuning—ToolLLM [28], AgentTuning [29]—and preference-based alignment via PPO [30, 31],
+DPO [32], and GRPO [33]. Recent extensions target trajectory-level optimization: GiGPO [34] improves
+credit assignment through episode- and step-level grouping, SELAUR [35] introduces uncertainty-aware
+rewards for multi-step exploration, and GeoReason [7] enforces logical consistency between reasoning
+traces and outputs. In multi-agent settings, failures additionally arise from coordination breakdowns and
+inconsistent role execution [8]. MAGRPO [36], M-GRPO [10], and MHGPO [37] extend GRPO-style
+optimization to collaborative and hierarchical agent systems, while Dr. MAS [38] stabilizes training
+through agent-wise normalization. Our Role-Contract Expectation Alignment builds on these foundations
+by combining failure-aware SFT with contract-conditioned reinforcement learning, explicitly supervising
+role-conditioned obligations at each step of orchestrated execution—a dimension not addressed by prior
+trajectory optimization methods.
+
+
+3          Dataset Construction
+GeoDisaster is a multi-task agentic benchmark for operational geospatial disaster reasoning, constructed
+from five public EO/GIS source families, each converted into standardized task instances with visible
+inputs, structured answer targets, and executable geospatial workflows.
+Source ingestion and standardization. We ingest and normalize public EO/GIS sources into standard-
+ized sample units per task family. Deforestation monitoring combines Sentinel-2 optical, Sentinel-1 SAR,
+and Hansen GFC products [40]. Multi-hazard analysis integrates raster and exposure products across
+wildfire, urban expansion, drought, and air pollution, using Dynamic World and ESA WorldCover for
+land cover, WorldPop for population exposure, and OSM for infrastructure context. Building-damage
+assessment uses xBD/xView2 pre/post imagery with building polygons and damage labels [41]. Flood-
+safe routing combines Sentinel-2 with Copernicus EMS flood extents [42] and OSM road graphs [39].
+SAR flood monitoring uses Sentinel-1 chips, water references, and Sen1Floods11 labels [13]. This
+
+                                                                                                                                                                               4
+
+========= PAGE 005 / 28 =========
+Table 2: GeoDisaster task families. Each family is derived from public EO/GIS sources and targets a
+distinct stage of operational disaster geospatial reasoning, spanning five disaster families, with heteroge-
+neous input modalities and structured answer targets.
+
+ Task Family       N   Task Nature                       Inputs & Artifacts                Sources & Products
+
+ Deforestation  384 Forest-loss detection, area esti- Sentinel-2 optical, Sentinel-1 SAR Sentinel-1/2, Hansen GFC,
+ Monitoring          mation, temporal change, false- VV/VH, Hansen tree-cover/loss GEE.
+                     positive rejection, canopy assess- masks, optical/SAR time series,
+                     ment, optical–SAR concordance. forest-change reports.
+ Multi-Hazard 432 Hazard measurement, severity la- Raster hazard stacks, opti- MODIS, VIIRS/FIRMS,
+ Analysis            beling, cross-source agreement, ex- cal indices, land-cover, cli- Landsat,        Sentinel-2/5P,
+                     posure estimation across wildfire, mate/atmospheric layers, popula- Dynamic World, GHSL,
+                     urban expansion, drought, air pol- tion and OSM layers, exposure WorldCover,          CHIRPS,
+                     lution.                              summaries.                       ERA5-Land,     WorldPop,
+                                                                                           OSM.
+ Building-      1005 Damage inventory, severe-building Pre/post RGB imagery, building xBD/xView2 [11].
+ Damage              extraction, region ranking, cross- polygons, damage labels, masks,
+ Assessment          scene comparison, spatial concen- 4×4 grids, damage summaries.
+                     tration, scene-level reporting.
+ Flood-Safe     600 Reachable-shelter             search, Sentinel-2 RGB, flood extents, Sentinel-2,     Copernicus
+ Routing             fastest/safest route compari- OSM road graphs, shelter and EMS, OSM, OSMnx [39].
+                     son, flood-aware routing, visual route candidates, blocked-road lay-
+                     overlay rendering.                   ers, rendered overlays.
+ SAR      Flood 500 Flood inventory, polygon geome- Sentinel-1 SAR chips, Sentinel-2 Sen1Floods11               [13],
+ Monitoring          try, spatial concentration, known- previews, JRC water references, Sentinel-1/2, JRC GSW.
+                     water separation, diagnostic report- flood masks, polygon components,
+                     ing.                                 grid summaries.
+
+
+
+unifies raster, vector, graph, image, and metadata evidence under a common format while preserving
+family-specific reasoning requirements (Table 2).
+Quality control and derived evidence. Each sample is filtered for complete imagery, valid geometries,
+usable metadata, and sufficient spatial content. Retained samples yield family-specific supervision targets:
+forest-loss statistics and cross-modal agreement for deforestation; hazard summaries and exposure
+statistics for multi-hazard; damage inventories and grid rankings for building assessment; route-risk
+scores and map overlays for flood routing; and flood masks and diagnostic reports for SAR monitoring.
+Building footprint areas are computed from image-space polygons using scene ground-sampling distance,
+avoiding unreliable projection assumptions at chip level. GeoDisaster improves geographic coverage by
+combining curated AOIs from multiple public EO/GIS datasets spanning different hazard types, sensors,
+and regional contexts, while not claiming globally uniform coverage.
+Structured task and trajectory generation. For
+each sample, we construct a natural-language task,              Table 3: GeoDisaster statistics.
+a structured answer schema, and a tool-grounded                 Statistic                      Value
+reasoning trajectory. Tasks require multi-step spa-
+                                                                Total instances                2,921
+tial reasoning executed through 18 disaster-oriented
+                                                                Task families / Q-types        5 / 43
+geospatial tools covering evidence access, spatial
+                                                                Train / Test split          2,629 / 292
+analysis, damage assessment, exposure estimation,
+and structured reporting. Reference answers are                 Avg. GT tool calls              5.00
+grounded in deterministic geospatial workflows and              Avg. conv.  turns              29.10
+consistency checks, eliminating language-model                  Avg. plan steps                 2.52
+                                                                All-specialists trajectories 42.07%
+annotation. Each instance is converted into an
+                                                                Avg. artifact handles           3.51
+agentic trajectory comprising orchestrator planning,
+                                                                Avg. path references           16.72
+specialist-agent actions, tool calls, observations, in-
+termediate state summaries, and final structured re-
+sponses, supporting failure-aware SFT and execution-level evaluation. Figure 2 shows sample tasks and
+
+
+                                                         5
+
+========= PAGE 006 / 28 =========
+trajectories.
+Scale and complexity. Table 3 summarizes key benchmark statistics. The trajectory complexity metrics
+reveal that GeoDisaster demands genuinely non-trivial multi-step reasoning: tasks require coordinated
+subgoal decomposition across specialist agents rather than repetitive single-tool queries, instances are
+grounded in rich multi-source EO/GIS evidence, and 42.07% of trajectories activate all three specialist
+agents—confirming that coordinated visual, geospatial, and planning reasoning is genuinely required
+rather than incidental. Full statistics are in the supplementary.
+
+
+4     Proposed Methodology
+We formulate disaster geospatial reasoning as an orchestrated multi-agent decision process. Given an
+input task q—comprising a natural-language query, remote-sensing observations, and geospatial context—
+the objective is to produce a grounded final response y through intermediate planning, tool use, artifact
+generation, and state-aware synthesis. We define the agent set and trajectory as
+                 \mathcal {A}=\{A_i \mid i\in \{\mathrm {ORC},\mathrm {GA},\mathrm {VRA},\mathrm {PA}\}\}, \qquad \tau =\{(s_t,\beta _t,a_t,o_t,\gamma _t)\}_{t=1}^{T}. \label {eq:agent_trajectory}                                    (1)
+     where st is the shared execution state, βt ∈ A is the active agent at step t, at is its action, ot is the
+resulting observation, and γt is the execution contract governing the current decision. Each role-specific
+policy is conditioned on the current state and active role instructions, and the final response is generated
+from the completed trajectory as y = f (τ, q).
+     We propose a two-stage methodology for operational disaster geospatial reasoning. In the first
+stage, a contract-driven orchestrated multi-agent framework decomposes complex geospatial tasks across
+role-specialized agents, where every orchestrator–specialist interaction is governed by a typed execution
+contract γti that specifies verifiable obligations at each step. In the second stage, Role-Contract Expectation
+Alignment (RCEA) optimizes agent behavior through failure-aware supervised fine-tuning followed
+by contract-grounded reinforcement learning over dense, step-level signals. The key insight is that
+execution contracts—unlike free-form delegation—produce observable, step-level violations vti that
+enable role-conditioned credit assignment; a property that terminal-reward methods structurally cannot
+exploit. Together, these stages address the two principal failure modes of existing multi-agent RS systems:
+(i) unverifiable role execution leading to silent spatial errors, and (ii) misattributed learning signals that
+destabilize joint optimization.
+
+4.1   Contract-Driven Orchestrated Agentic Framework
+Our framework adopts a centralized orchestration design in which the orchestrator AORC governs the full
+execution lifecycle—task decomposition, agent routing, state tracking, recovery, and termination—while
+three role-specialized agents provide complementary capabilities. Think of AORC as a project manager
+that assigns subtasks to specialists but never executes them directly. AGA executes geospatial operations
+(boundary retrieval, distance computation, map rendering); AVRA handles image and raster reasoning
+(visual interpretation, object localization, segmentation, spectral index analysis); and APA supports
+numerical computation, filtering, planning logic, and response synthesis. Specialists do not communicate
+directly—all information exchange is mediated through AORC via a shared, mutable execution state st
+that encodes task context, plan status, available artifacts, tool outputs, and execution history.
+Execution contracts as the core design primitive. The central novelty is not multi-agent decomposition
+per se—which prior systems also employ [20, 27]—but the formalization of every orchestrator–specialist
+interaction as a typed execution contract. In prior RS multi-agent systems, the orchestrator issues free-
+form instructions: a specialist receives a text description of its task and is free to produce any response.
+This gives specialists no verifiable obligations—an agent may produce a plausible-sounding but spatially
+invalid output with no mechanism for detection. Our contracts eliminate this ambiguity structurally.
+When AORC invokes specialist Ai at step t, it issues a six-tuple
+                                                                 \gamma _t^i = \bigl ( g_t^i,\; \mathcal {I}_t^i,\; \mathcal {Y}_t^i,\; \mathcal {E}_t^{\mathrm {req},i},\; \Sigma _t^i,\; \kappa _t^i \bigr ), \label {eq:contract}    (2)
+
+                                                                                                                                               6
+
+========= PAGE 007 / 28 =========
+where gti is the assigned subgoal, Iti is the task context, Yti ∈ {field, layer, artifact, text} is the
+required output type, Etreq,i specifies required evidence and artifact dependencies, Σit is the output schema,
+and κit defines completion and failure conditions. Crucially, γti does not prescribe a unique tool—it
+specifies what must be produced and under what constraints, preserving specialist flexibility while
+making accountability formally checkable.
+    Given γti , the set of admissible actions for agent Ai at step t is
+
+                                             \mathcal {F}_t^i = \bigl \{a \in \mathcal {U}_i \;\big |\; (a,\,s_t) \models (\mathcal {Y}_t^i,\,\mathcal {E}_t^{\mathrm {req},i},\,\Sigma _t^i) \bigr \}, \label {eq:admissible}              (3)
+
+where Ui is the full action space of agent Ai . A contract violation occurs whenever the specialist’s output
+falls outside this admissible set:
+                                              v_t^i = \mathbb {1}\bigl [a_t^i \notin \mathcal {F}_t^i\bigr ], \label {eq:violation}  (4)
+covering invalid action types, malformed arguments, missing evidence, schema violations, and premature
+completion. Violations are observable at every step—the structural property that makes dense, role-
+conditioned alignment tractable, and the key advantage over terminal-reward methods that observe only
+the trajectory endpoint. The full execution pipeline is
+
+                                                                                                                                                                                                                                            (5)
+
+4.2     Failure-Aware Supervised Fine-Tuning
+Before reinforcement learning, each agent requires a stable execution prior. Directly imitating raw
+successful trajectories is insufficient: a trajectory may satisfy Rtask (τ ) = 1 while containing local
+contract violations (vti = 1) that were compensated by downstream actions. Imitating such trajectories
+instills violation-tolerant behavior that degrades under distribution shift. We instead construct failure-
+corrected supervision data: development rollouts are analyzed to identify the most frequent failure
+types—repeated plans and actions, invalid tool calls, stale state references, missing artifacts, contract
+violations, and premature termination—and each erroneous action is replaced, under the same state and
+contract, with a recovery action verifiable against the task schema, state validator, and reference artifacts.
+The corrected dataset for agent Ai is
+
+                                                   \mathcal {D}_i=\bigl \{(s_t,\,\gamma _t^i,\,a_t^{*}) \;\big |\; \beta _t=A_i,\; a_t^* \in \mathcal {F}_t^i\bigr \}, \label {eq:sft_dataset}                                              (6)
+
+where a∗t ∈ Fti is the corrected target action guaranteed to satisfy the active contract (Eq. 3). The
+per-agent SFT objective is
+
+                                        \mathcal {L}_{\mathrm {SFT}}^{(i)} = -\,\mathbb {E}_{(s_t,\,\gamma _t^i,\,a_t^{*})\sim \mathcal {D}_i} \!\left [\log \pi _{\theta _i}(a_t^{*}\mid s_t,\gamma _t^i)\right ]. \label {eq:sft_loss}    (7)
+
+AORC is trained on planning, routing, and recovery; specialists are trained on valid tool use, artifact-aware
+reasoning, and schema-compliant outputs. This stage is necessary: without a competent execution prior,
+E[Rtask (τ )] ≈ 0 under random initialization due to combinatorial action spaces and long horizons,
+making RL gradient estimation intractable. SFT alone, however, is imitation-bound and cannot optimize
+trajectory-level behavior or recover from states outside Di . We address this with RCEA.
+
+4.3     Role-Contract Expectation Alignment (RCEA)
+Why terminal rewards fail in multi-agent systems. Standard agentic alignment combines supervised
+imitation with terminal-outcome RL [9, 32, 33]. When a trajectory succeeds or fails, every agent that
+participated receives the same scalar reward—regardless of whether its individual actions were correct.
+This creates two structural failures.
+(i) Credit misattribution. Under standard policy gradient, the gradient update for agent Ai is
+
+                                     \nabla _{\theta _i} \mathcal {L} \propto R_{\mathrm {task}}(\tau ) \sum _{t:\,\beta _t=A_i} \nabla _{\theta _i}\log \pi _{\theta _i}(a_t \mid s_t, \gamma _t^i), \label {eq:terminal_gradient}         (8)
+
+
+                                                                                                                                    7
+
+========= PAGE 008 / 28 =========
+where Rtask (τ ) ∈ {0, 1} is the binary terminal reward. This scales every action of Ai by the same
+terminal scalar, regardless of whether individual actions satisfied γti . An agent that committed contract
+violations but was compensated by other agents still receives a positive gradient—a fundamentally
+incorrect credit signal.
+(ii) Reward scale heterogeneity. Agents differ in activation frequency fi = |{t : βt = AP    i }|/T , action
+space cardinality |Ui |, and accumulated reward magnitude. A global baseline R̄ = K1 k Rtask (τk )
+conflates reward distributions across roles with different execution contexts, which can obscure role-
+specific failures and produce poorly scaled advantage estimates [38].
+     Recent multi-agent GRPO extensions [10, 37] reduce variance through grouped sampling but still
+operate on terminal outcomes and introduce neither per-step role obligations nor contract-level verification.
+RCEA resolves both failures by replacing the terminal scalar in Eq. 8 with a dense, per-step, per-agent
+contract satisfaction signal, and replacing global normalization with role-specific advantage statistics.
+
+4.3.1             Step-Level Contract Satisfaction Reward
+At each step t, contract γti (Eq. 2) induces a constraint set Cti = {ϕ1 , . . . , ϕ|Cti | } for agent Ai , where each
+ϕj is a deterministic check over (ait , ot , st+1 ). The violation indicator and step-level satisfaction score
+are
+
+                                     z_{t,j}^{i} = \mathbb {1}\!\left [\phi _j(a_t^i,o_t,s_{t+1})=\texttt {False}\right ], \qquad R_{\mathcal {C},t}^{i} = 1 - \frac {1}{|\mathcal {C}_t^i|} \sum _{j=1}^{|\mathcal {C}_t^i|} z_{t,j}^{i}\;\in [0,1]. \label {eq:step_reward}                 (9)
+
+  i = 1 iff all constraints are satisfied; Ri = 0 iff all are violated. Since each ϕ is decidable at the
+RC,t                                         C,t                                        j
+step where the action is produced, this yields a dense, local signal unavailable to terminal-reward methods.
+The trajectory-level contract reward, accumulated only over steps where Ai was active, is
+
+
+                                                                                                         R_{\mathcal {C}}^i(\tau ) = \sum _{t=1}^{T} R_{\mathcal {C},t}^{i}\cdot \mathbb {1}[\beta _t = A_i]. \label {eq:contract_reward}                                                  (10)
+
+
+This replaces the uniform terminal scalar in Eq. 8 with a role-localized, step-decomposed signal: credit is
+strictly proportional to each agent’s contract compliance at each step.
+
+4.3.2             Trajectory Efficiency Penalty
+A specialist could satisfy its local contract while contributing to redundant or unstable trajectories—for
+instance, by producing valid but uninformative tool calls that force unnecessary replanning. We therefore
+add a trajectory-level efficiency penalty. Let Lτ = |τ | be the trajectory length and Nrep , Nreplan ,
+Nloop count repeated actions, unnecessary replanning steps, and recovery loops. The penalty and total
+role-conditioned reward for agent Ai are
+
+    R_{\mathcal {E}}(\tau ) = -\alpha _1 L_\tau -\alpha _2(N_{\mathrm {rep}}+N_{\mathrm {replan}}+N_{\mathrm {loop}}), \quad R_i(\tau ) = R_{\mathrm {task}}(\tau ) +\lambda _{\mathcal {C}} R_{\mathcal {C}}^i(\tau ) +\lambda _{\mathcal {E}} R_{\mathcal {E}}(\tau ), \label {eq:total_reward}  (11)
+
+with α1 , α2 , λC , λE > 0. The three components operate at different granularities and are complementary
+by construction: Rtask supervises episode-level correctness; RCi supervises step-level role compliance;
+and RE penalizes trajectory instability. No single component subsumes the others.
+Role-wise Advantage Normalization. To resolve reward scale heterogeneity, advantages are normalized
+role-specifically rather than globally. Given K sampled trajectories {τk }K   k=1 , the role-specific mean,
+standard deviation, and group-relative advantage are
+
+
+                                \mu _i=\frac {1}{K}\!\sum _{k=1}^{K}R_i(\tau _k), \quad \varsigma _i=\sqrt {\frac {1}{K}\sum _{k=1}^{K}(R_i(\tau _k)-\mu _i)^2}, \quad \hat {A}_i(\tau _k)=\frac {R_i(\tau _k)-\mu _i}{\varsigma _i+\epsilon }, \label {eq:advantage}                      (12)
+
+
+
+
+                                                                                                                                                                     8
+
+========= PAGE 009 / 28 =========
+where ϵ > 0 is a small stability constant. The per-agent policy objective uses a clipped importance-ratio
+with KL regularization. For agent Ai , let rti = πθi (at | st , γti ) / πold (at | st , γti ) be the importance ratio
+between the current and reference policy. The objective is
+
+
+
+      \mathcal {L}_{\mathrm {RL}}^{(i)} = - \mathbb {E}_{\tau _k} \!\left [ \sum _{t:\,\beta _t=A_i} \min \!\left ( r_t^i\,\hat {A}_i(\tau _k),\; \mathrm {clip}(r_t^i,\,1{-}\delta ,\,1{+}\delta )\, \hat {A}_i(\tau _k) \right ) \right ] + \beta _{\mathrm {KL}}\, D_{\mathrm {KL}}\!\left ( \pi _{\theta _i}\,\|\,\pi _{\mathrm {ref}} \right ). \label {eq:rl_objective}    (13)
+
+
+     where δ > 0 is the clipping threshold and βKL > 0 controls the deviation from the reference policy
+πref . Each policy is updated exclusively on the actions it produced, with advantages normalized within its
+own role’s reward distribution. This preserves role-specific failure signals in the advantage estimates and
+yields appropriately scaled gradients for stable joint optimization across heterogeneous agents.
+
+
+5           Experimental Evaluations
+Benchmarks. We evaluate on two agentic RS benchmarks. GeoDisaster assesses disaster-oriented
+geospatial reasoning under multi-step tool use, constraint satisfaction, and operational decision-making.
+OpenEarthAgent [4] evaluates generalization on an existing tool-augmented RS benchmark with broad
+geospatial task coverage.
+Baselines. We compare closed- and open-source LLMs, the OpenEarthAgent agentic baseline, where
+applicable, and three variants of our framework. Single-model baselines use structured prompting with
+tool descriptions but without role decomposition or delegation. Our variants are: MAS—vanilla multi-
+agent system without alignment; MAS+SFT—with failure-aware supervised fine-tuning applied per
+agent; and MAS+SFT+GRPO—the full proposed framework with RCEA.
+Fairness Protocol. All methods share the same train/validation/test split, tool registry, tool documentation,
+execution budget, maximum tool calls, prompts, and stopping criteria. We use Qwen2.5-7B-Inst as the
+default agent backbone. Both SFT and GRPO are trained on GeoDisaster training instances plus a
+balanced subset of OpenEarthAgent training data.
+Evaluation Metrics. We report both end-to-end and step-wise metrics to evaluate full trajectory quality
+beyond final-answer correctness. End-to-end metrics cover tool-sequence fidelity under order-agnostic,
+exact-order, and unique-tool matching (ToolAnyOr, ToolSameO, ToolUni), task success (TSR), answer
+correctness (Ans), generative output quality (Gen), contract satisfaction (CSR), and strict episode comple-
+tion (ESR). Step-wise metrics cover instruction following (Inst.), tool selection (Tool), argument-name
+completeness (ArgN), argument-value correctness (ArgV), and execution summarization (Summa). All
+metrics are scored using GPT-5.5 as an LLM-as-judge; Deeper description provided in the supplementary.
+
+5.1              Main Results
+Table 4 reveals a stark capability gap between standalone LLMs and our aligned framework on GeoDis-
+aster. Open-source LLMs fail almost entirely—near-zero tool-sequence fidelity and answer accuracy
+confirm that multi-step geospatial reasoning, structured tool invocation, and constraint satisfaction cannot
+emerge from prompting alone. Closed-source models perform better: GPT-5.5 achieves the strongest
+single-model answer accuracy (61.99) but still exhibits low tool-chain fidelity (ToolAnyOr: 20.93), indi-
+cating that correct final answers often arise despite—not because of—valid tool execution. o4-mini shows
+the inverse: reasonable tool coverage but poor answer accuracy, suggesting aggressive but imprecise tool
+use.
+    Among our variants, MAS already surpasses all open-source baselines without any alignment, con-
+firming that role-based orchestration improves tool selection and argument construction over monolithic
+prompting. However, low Summa (30.03) and CSR (18.26) expose that decomposition alone cannot
+enforce contract compliance or grounded evidence synthesis. MAS+SFT delivers the largest single
+gain—pushing tool fidelity above 98 and answer accuracy to 82.43—by instilling role-specific execution
+
+
+                                                                                                                                                                                              9
+
+========= PAGE 010 / 28 =========
+Table 4: GeoDisaster benchmark results. Tool-use fidelity: order-agnostic (ToolAnyOr), exact-order
+(ToolSameO), and unique-tool (ToolUni) matching. TSR: task success rate; Ans: answer accuracy; CSR:
+contract satisfaction; ESR: strict episode resolution. Step-wise: instruction following (Inst.), tool selection
+(Tool), argument names (ArgN), argument values (ArgV), summarization (Summa). Best results in bold.
+
+ Model              Type                   End-to-end Metrics                                     Step-wise Metrics
+                             ToolAnyOr ToolSameO ToolUni   TSR     Ans     CSR    ESR     Inst.     Tool   ArgN       ArgV    Summa
+
+ Closed-source LLMs
+ GPT-5.5          Single       20.93     20.93     30.23   55.06   61.99   71.44 100.00 100.00     95.86   95.86      95.86   82.32
+ GPT-5            Single       11.99     11.99     13.70   46.27   60.48   65.37 81.51 81.51       69.71   71.56      69.71   69.27
+ GPT-4o           Single        3.44     3.44      3.78    42.65   60.19   65.43 80.76 80.76       78.53   78.53      78.53   71.23
+ o4-mini          Single       23.26     20.93     23.26   29.12   26.64   30.59 44.19 44.19       86.97   86.97      86.97   47.10
+
+ Open-source LLMs
+ Qwen2.5-7B-Inst. Single       2.40      0.34      4.45    3.11    2.53    4.45   5.82    5.82     42.06   77.05      36.52    6.45
+ Qwen3-4B-Inst.     Single     0.00      0.00      0.00    1.16    1.16    2.33   2.33    6.98     40.00   23.26      9.30     3.72
+ Llama-3.1-8B-Inst. Single     0.00      0.00      0.00    0.15    0.25    0.25   0.25    0.25      0.00    0.70       0.35    0.35
+ Mistral-7B-Inst.   Single     0.00      0.00      0.00    0.15    0.25    0.25   0.25    0.25     0.00     0.70      0.35     0.35
+ Qwen2.5-VL-7B      Single     0.00      0.00      0.00    0.95    1.50    2.10   1.16    3.49      0.00   12.40       5.81    3.10
+
+ Ours
+ MAS                Multi       6.85     4.11      10.62   20.36 22.93 18.26      49.66    90.88 81.71 95.46 62.57            30.03
+ MAS+SFT            Multi      98.75     98.26     98.41   92.46 82.43 88.16      94.69    99.43 99.58 99.58 99.58            91.01
+ MAS+SFT+GRPO       Multi      98.56     97.76     98.72   94.24 90.11 88.88      95.89   100.00 100.00 100.00 100.00         91.59
+
+
+
+priors and contract-compliant action patterns. MAS+SFT+GRPO further refines trajectory-level behavior:
+answer accuracy improves to 90.11, TSR to 94.24, and step-wise metrics reach 100.00 across Inst.,
+Tool, ArgN, and ArgV—demonstrating that dense, contract-grounded RL substantially reduces residual
+execution failures that imitation alone cannot resolve.
+Table 5 evaluates generalization and gain transferability of our framework on OpenEarthAgent; baseline
+results are taken from the original paper as the benchmark agent is not publicly available. Open-source
+LLMs perform relatively better here than on GeoDisaster, corroborating that GeoDisaster imposes stricter
+demands on tool-call construction and constraint satisfaction. Single models nonetheless remain limited:
+even the strongest closed-source model (GPT-4o) reaches only 45.80 ArgV, exposing a persistent gap
+between instruction-following and correct argument execution.
+    Our aligned framework outperforms both single-model LLMs and the OpenEarthAgent agentic
+baseline across all primary metrics. Against OpenEarthAgent, MAS+SFT+GRPO improves answer
+accuracy by +39.9 points (45.26→85.16), generative output by +18.5 points (75.86→94.39), unique-tool
+fidelity by +20.6 points (72.71→93.33), and argument-value correctness by +33.4 points (62.10→95.45).
+MAS+SFT drives the primary gains in tool use and argument construction; GRPO subsequently reduces
+residual loops, replanning errors, and execution instability. Crucially, ArgN reaches 100.00 after SFT
+and is maintained by GRPO, indicating that contract-conditioned fine-tuning was able to fully resolve
+argument-name errors. These results confirm that role-specialized orchestration and RCEA transfer
+effectively beyond GeoDisaster to a structurally different RS agentic benchmark.
+
+5.2      Further Analysis
+Beyond aggregate results, we conduct four targeted analyses to understand where failures originate,
+which agents benefit most from alignment, how robust the framework is across backbones, and what the
+computational cost of reliability is.
+Agent-Specific Execution Analysis. Table 6 breaks down step-wise metrics by agent role. MAS
+establishes valid execution structure—high ArgN across all roles confirms that orchestration correctly
+scaffolds argument naming—but exposes critical gaps in tool selection (ORC: 57.49, VRA: 84.72) and
+argument-value correctness (ORC: 62.14, GA: 72.75), showing that role decomposition alone cannot
+enforce semantic correctness. MAS+SFT pushes most metrics to saturation: VRA and PA reach 100.00
+
+
+                                                            10
+
+========= PAGE 011 / 28 =========
+Table 5: OpenEarthAgent benchmark results. Tool-use fidelity: order-agnostic (ToolAnyOr), exact-
+order (ToolSameO), unique-tool (ToolUni) matching. Ans: non-generative accuracy; Gen: generative
+accuracy. Step-wise: instruction following (Inst.), tool selection (Tool), argument names (ArgN), argument
+values (ArgV), summarization (Summa).
+
+ Model                        Type                           End-to-end Metrics                                            Step-wise Metrics
+                                        ToolAnyOr ToolSameO ToolUni                       Ans       Gen         Inst.    Tool       ArgN       ArgV      Summa
+
+ Closed-source LLMs
+ GPT-5             Single                    46.96            46.79          47.81        43.88 46.21 97.54 82.69                   73.28      37.28      87.02
+ GPT-4o            Single                    50.81            50.38          55.52        39.22 77.93 99.18 93.88                   85.48      45.80      86.76
+ o4-mini           Single                    40.12            39.95          41.49        35.18 55.17 83.68 68.33                   64.17      37.95      89.48
+
+ Open-source LLMs
+ Qwen2.5-7B-Inst.   Single                   31.57            30.02          36.61        15.85    41.38        94.08   85.51       78.46      38.00      80.08
+ Qwen3-4B-Inst.     Single                   16.00            14.71          21.47        13.72    15.86        97.34   86.94       84.12      33.55      83.28
+ Qwen2.5-3B-Inst.   Single                    9.24             8.72          12.40         1.83    24.14        85.07   72.13       64.87      24.12      68.75
+ Llama-3.1-8B-Inst. Single                   39.01            37.72          44.91        12.70    55.17        47.07   39.30       34.11      17.49      79.08
+ InternLM3-8B-Inst. Single                    2.22             1.88           3.16         0.24     2.76        44.54   38.46       27.82      13.25      29.84
+ Mistral-7B-Inst.   Single                    2.65             2.57           2.91         0.39     5.52        64.14   35.12       26.11      12.45      24.04
+
+ Agentic Baseline
+ OpenEarthAgent               Multi          67.75            67.24          72.71        45.26 75.86 99.51 97.18                   96.08      62.10      83.64
+
+ Ours
+ MAS+SFT                      Multi          73.89            65.56          85.00        80.24 85.46 99.57 96.92 100.00 94.70                            81.17
+ MAS+SFT+GRPO                 Multi          80.56            75.56          93.33        85.16 94.39 99.80 96.76 100.00 95.45                            86.80
+
+
+Table 6: Agent-specific step-wise metrics on GeoDisaster. ORC: orchestrator; VRA: visual reasoning;
+GA: geospatial analysis; PA: planning. Inst: instruction following; Tool: tool selection; ArgN/ArgV:
+argument name/value correctness; Summa: summarization.
+
+Model                          ORC                                  VRA                                  GA                                     PA
+                Inst   Tool   ArgN    ArgV   Summa    Inst   Tool   ArgN   ArgV   Summa    Inst   Tool   ArgN    ArgV   Summa    Inst   Tool   ArgN    ArgV   Summa
+
+MAS           94.85 57.49 94.85 62.14        30.03    99.66 84.72 99.50 67.36 66.37        99.50 96.11 99.50 72.75 30.02        99.90 88.51 99.50 78.97       60.98
+MAS+SFT       99.77 97.24 99.77 97.46        91.01   100.00 100.00 100.00 100.00 100.00    99.07 99.32 99.32 99.32 99.07        100.00 100.00 100.00 100.00   91.58
+MAS+SFT+GRPO 100.00 97.95 100.00 97.95       91.59   100.00 100.00 100.00 100.00 100.00   100.00 100.00 100.00 100.00 100.00    100.00 100.00 100.00 100.00   91.59
+
+
+
+
+across all step-wise metrics, confirming that failure-corrected supervision teaches contract-compliant
+execution per role. The main residual is summarization quality (ORC: 91.01, PA: 91.58), reflecting the
+difficulty of grounded synthesis beyond local action correctness. MAS+SFT+GRPO eliminates remaining
+tool and argument errors in ORC and GA, reaching 100.00 for VRA and GA on all metrics—with
+summarization as the sole persistent gap and primary target for future work.
+Backbone Sensitivity Analysis. Table 7 evaluates RCEA across four LLM backbones. Key finding:
+orchestration-level metrics (PlanAcc, DelegAcc) saturate above 97 for all backbones, confirming the
+protocol is backbone-agnostic for subgoal assignment. Performance diverges on metrics requiring
+grounded reasoning: Qwen2.5-7B achieves the best balance (Ans: 90.11, TSR: 94.24, Summa: 91.59);
+Qwen3-4B remains competitive despite its smaller size (Ans: 77.28, near-saturated Tool and ArgN),
+confirming alignment effectiveness on lighter backbones. Mistral attains the highest PlanAcc (99.44) and
+perfect ToolUni (100.00) but lags in Ans (73.97) and Summa (78.96)—a dissociation between structural
+execution and grounded synthesis. Llama shows the largest tool-chain fidelity drop (ToolAnyOr: 76.74).
+Takeaway: framework design is robust across backbones; backbone reasoning capacity is the binding
+constraint for answer accuracy and summarization.
+Failure-Wise Analysis. Table 8 reports per-category error rates (lower is better). Open-source LLMs
+fail catastrophically—ToolErr, FormatErr, TermErr, and ConstraintErr all exceed 90—confirming that
+prompting alone cannot sustain structured geospatial workflows. Closed-source models eliminate for-
+
+                                                                              11
+
+========= PAGE 012 / 28 =========
+Table 7: Backbone sensitivity on GeoDisaster (MAS+SFT+GRPO). PlanAcc/DelegAcc: planning and
+delegation accuracy; ToolAnyOr/SameO/Uni: tool-use fidelity; TSR: task success; Ans: answer accuracy;
+CSR: constraint satisfaction. Step-wise as in Table 6.
+
+ Backbone                                               End-to-end Metrics                                             Step-wise Metrics
+                             PlanAcc DelegAcc ToolAnyOr ToolSameO ToolUni           TSR     Ans       CSR     Inst.   Tool    ArgN      ArgV   Summa
+
+ Qwen2.5-7B-Instruct          97.95    97.95       98.56        97.76     98.72     94.24   90.11   88.88 100.00 100.00 100.00 100.00          91.59
+ Qwen3-4B-Instruct            97.93    97.92       95.89        95.89     95.89     90.34   77.28   86.76 99.62 99.40 99.78 99.57              90.03
+ Llama-3.1-8B-Instruct        98.37    97.11       76.74        76.74     81.40     77.22   67.41   71.00 99.54 96.86 99.94 99.89              72.40
+ Mistral-7B-Instruct-v0.3     99.44    99.44       90.70        90.70    100.00     85.90   73.97   77.56 99.33 99.98 99.94 99.89              78.96
+
+
+Table 8: Failure-wise error rates on GeoDisaster (lower is better). Each cell: % of trajectories where
+the error materially affected execution. PlanErr: planning; AgentErr: agent selection; ToolErr: tool
+selection; ArgErr: arguments; FormatErr: output format; TermErr: termination; LoopErr: repeated calls;
+ReplanErr: replanning; SynthErr: synthesis; ConstraintErr: constraint violation; ToolExecErr: tool
+execution; AbortErr: aborted trajectory.
+
+ Model              Type     PlanErr AgentErr ToolErr ArgErr FormatErr TermErr LoopErr ReplanErr SynthErr ConstraintErr ToolExecErr AbortErr
+
+ Closed-source LLMs
+ GPT-5.5          Single       –        –      79.07     4.14    0.00     0.00      0.00       0.00         17.68     28.56           4.14      0.00
+ GPT-5            Single       –        –      88.01    30.29    0.00    18.49      18.49     18.49         30.73     34.63          30.29     18.49
+ GPT-4o           Single       –        –      96.56    21.47   13.40    19.24      5.84       5.84         28.77     34.57          21.47     19.24
+ o4-mini          Single       –        –      76.74    13.03   25.58    55.81      30.23     30.23         52.90     69.41          13.03     55.81
+
+ Open-source LLMs
+ Qwen2.5-7B-Inst. Single       –        –       97.60   63.48   94.18    94.18      0.00       0.00         93.55     95.55           57.94    94.18
+ Qwen3-4B-Inst.     Single     –        –      100.00   90.70   93.02    97.67      0.00       0.00         96.28     97.67           60.00    97.67
+ Llama-3.1-8B-Inst. Single     –        –      100.00   99.65   99.75    99.75      0.00       0.00         99.65     99.75          100.00    99.75
+ Mistral-7B-Inst.   Single     –        –      100.00   99.65   99.75    99.75      0.00       0.00         99.65     99.75          100.00    99.75
+ Qwen2.5-VL-7B      Single     –        –      100.00   94.19   96.51    98.84      0.00       0.00         96.90     97.90          100.00    98.84
+
+ Ours
+ MAS                Multi     39.33   37.86    93.15    37.43    9.12    50.34      36.99     77.74         69.97     81.74          17.50     50.34
+ MAS+SFT            Multi     2.76    2.54      1.37    0.00     0.00    5.31        0.00     0.34           8.99     11.84          1.37       1.03
+ MAS+SFT+GRPO       Multi     2.05    2.05      1.24    0.00     0.00    4.11        0.00     0.00           8.41     11.12          0.00       0.00
+
+ Ours with Different Backbones (SFT+GRPO)
+ Qwen3-4B-Inst.      Multi  2.07     2.08       4.11    0.43     0.38        4.14   0.00       0.00          9.97     13.24           0.60     4.14
+ Llama-3.1-8B-Inst. Multi   1.63     2.89      23.26    0.11     0.46        5.77   0.00       6.98         27.60     29.00           3.14     5.77
+ Mistral-7B-Inst.    Multi  0.56     0.56       9.30    0.11     0.67        3.45   0.00       0.00         21.04     22.44           0.02     3.45
+
+
+
+
+matting and loop errors but maintain high ToolErr (GPT-4o: 96.56, GPT-5: 88.01), showing persistent
+failure to recover the required tool chain regardless of model scale. MAS substantially reduces FormatErr
+but amplifies coordination failures: PlanErr (39.33), AgentErr (37.86), LoopErr (36.99), and ReplanErr
+(77.74) all increase—confirming that decomposition without alignment worsens coordination. MAS+SFT
+surgically resolves the highest-impact categories: PlanErr (39.33→2.76), ToolErr (93.15→1.37), ArgErr
+(37.43→0.00), FormatErr and LoopErr reach zero. MAS+SFT+GRPO eliminates residual ReplanErr,
+ToolExecErr, and AbortErr via trajectory-level optimization.
+Efficiency Analysis. Table 9 examines the accuracy–cost trade-off. Near-zero Ans with zero Avg.
+Tools in weak models reflects execution collapse, not efficiency. Among high-performing variants,
+MAS+SFT vs MAS+SFT+GRPO is the critical comparison: despite identical Avg. Agents (3.42) and near-
+identical tool and token usage (∼28K tokens), GRPO reduces Tokens/Succ. by 8.4% (34,790→31,859),
+Latency/Succ. by 46.8% (57.64→30.67), and Calls/Succ. by 8.9% (5.96→5.43) while improving Ans
+by +7.7 points. Takeaway: GRPO improves trajectory discipline so more executions succeed, reducing
+success-normalized cost rather than adding overhead. Across SFT+GRPO backbones, Qwen2.5-7B
+achieves the best Latency/Succ. (30.67) and Tokens/Succ. (31,859); Mistral incurs the highest latency,
+consistent with its weaker synthesis in the backbone analysis.
+
+
+
+
+                                                                        12
+
+========= PAGE 013 / 28 =========
+Table 9: Efficiency analysis on GeoDisaster. ↑/↓: higher/lower is better. Per-trajectory averages: Agents,
+Tools, Tokens. Success-normalized: Tokens/Succ., Latency/Succ. (s), Calls/Succ. Dashes: unavailable or
+undefined (zero successes).
+
+ Model                Type     Ans↑ Avg. Agents↓ Avg. Tools↓ Avg. Tokens↓ Tokens/Succ.↓ Latency (s)↓ Latency/Succ.↓ Calls/Succ.↓
+
+ Single-agent
+ Qwen2.5-7B-Inst.     Single   2.53      1.00        5.33        13328        526819          –             –          210.67
+ Qwen3-4B-Inst.       Single   1.16      1.00        0.23         824         71072           –             –          19.83
+ Llama-3.1-8B-Inst.   Single   0.25      1.00        0.00         379         151684          –             –            –
+ Mistral-7B-Inst.     Single   0.25      1.00        0.00         379         151684          –             –            –
+ Qwen2.5-VL-7B        Single   1.50      1.00        0.00         379          25280          –             –            –
+
+ Multi-agent (no alignment)
+ Qwen2.5-7B-Inst.     Multi 22.93        2.88        6.55        28635        124880        46.22        201.57         28.57
+ Qwen3-4B-Inst.       Multi 17.91        2.44        4.70        28813        160881        69.36        387.27         26.24
+ Qwen2.5-VL-7B        Multi 9.21         1.00        0.00         1134         12322          –            –              –
+
+ Multi-agent (SFT)
+ Qwen2.5-7B-Inst.     Multi    82.43     3.42        4.91        28677         34790        47.51         57.64         5.96
+ Qwen3-4B-Inst.       Multi    83.29     3.21        4.58        25324         30404        36.49         43.81         5.50
+ Mistral-7B-Inst.     Multi    82.56     3.21        4.56        25241         30574        35.84         43.41         5.52
+
+ Multi-agent (SFT+GRPO)
+ Qwen2.5-7B-Inst.   Multi      90.11     3.42        4.89        28708         31859        27.64         30.67         5.43
+ Qwen3-4B-Inst.     Multi      77.28     3.40        5.06        29644         38359        38.44         49.74         6.55
+ Llama-3.1-8B-Inst. Multi      67.41     3.16        4.44        24127         35792        38.51         57.13         6.59
+ Mistral-7B-Inst.   Multi      73.97     3.21        4.49        25100         33932        50.99         68.93         6.07
+
+ Ours
+ MAS+SFT              Multi    82.43     3.42        4.91        28677         34790        47.51         57.64         5.96
+ MAS+SFT+GRPO         Multi    90.11     3.42        4.89        28708         31859        27.64         30.67         5.43
+
+
+
+6    Conclusions
+We presented GeoDisaster, an operational geospatial disaster reasoning benchmark with 2,921 verified
+instances grounded in executable geospatial workflows, and RCEA, a two-stage alignment protocol
+for orchestrated multi-agent execution. RCEA combines failure-aware SFT with contract-grounded
+reinforcement learning to address credit misattribution and reward-scale heterogeneity through dense
+step-level signals. Experiments show that existing RS-VLMs fall substantially short of operational
+geo-intelligence, while our aligned framework achieves strong performance across final-answer and
+trajectory-level metrics on both GeoDisaster and an established remote-sensing agentic benchmark.
+Failure-wise analysis further shows that SFT improves contract-compliant execution, while GRPO
+enhances trajectory stability and decision consistency. Overall, the gains across both benchmarks indicate
+that RCEA supports reliable tool-grounded multi-agent reasoning beyond the proposed dataset. Future
+work should further improve uncertainty-aware reasoning over multi-source and multi-evidence geospatial
+settings.
+
+
+References
+ [1] Kartik Kuckreja, Muhammad Sohail Danish, Muzammal Naseer, Abhijit Das, Salman Khan, and
+     Fahad Shahbaz Khan. Geochat: Grounded large vision-language model for remote sensing. In
+     CVPR, 2024.
+
+ [2] Zhuoran Liu, Danpei Zhao, Bo Yuan, and Zhiguo Jiang. Rescueadi: Adaptive disaster interpretation
+     in remote sensing images with autonomous agents. IEEE Transactions on Geoscience and Remote
+     Sensing, 2025.
+
+ [3] Wei Zhang, Miaoxin Cai, Tong Zhang, Yin Zhuang, and Xuerui Mao. Earthgpt: A universal
+
+
+                                                                13
+
+========= PAGE 014 / 28 =========
+     multimodal large language model for multisensor image comprehension in remote sensing domain.
+     IEEE Transactions on Geoscience and Remote Sensing, 2024.
+
+ [4] Akashah Shabbir, Muhammad Umer Sheikh, Muhammad Akhtar Munir, Hiyam Debary, Mustansar
+     Fiaz, Muhammad Zaigham Zaheer, Paolo Fraccaro, Fahad Shahbaz Khan, Muhammad Haris Khan,
+     Xiao Xiang Zhu, and Salman Khan. Openearthagent: A unified framework for tool-augmented
+     geospatial agents. arXiv preprint arXiv:2602.17665, 2026.
+
+ [5] Maryam Rahnemoonfar, Tashnim Chowdhury, Argho Sarkar, Debvrat Varshney, Masoud Yari, and
+     Robin Roberson Murphy. Floodnet: A high resolution aerial imagery dataset for post flood scene
+     understanding. IEEE Access, 2021.
+
+ [6] Akashah Shabbir, Muhammad Akhtar Munir, Akshay Dudhane, Muhammad Umer Sheikh, Muham-
+     mad Haris Khan, Paolo Fraccaro, Juan Bernabe Moreno, Fahad Shahbaz Khan, and Salman
+     Khan. Thinkgeo: Evaluating tool-augmented agents for remote sensing tasks. arXiv preprint
+     arXiv:2505.23752, 2025.
+
+ [7] Wenshuai Li, Xiantai Xiang, Zixiao Wen, Guangyao Zhou, Ben Niu, Feng Wang, Lijia Huang,
+     Qiantong Wang, and Yuxin Hu. Georeason: Aligning thinking and answering in remote sens-
+     ing vision-language models via logical consistency reinforcement learning. arXiv preprint
+     arXiv:2601.04118, 2026.
+
+ [8] Mert Cemri, Melissa Z. Pan, Shuyi Yang, Lakshya A. Agrawal, Bhavya Chopra, Rishabh Tiwari,
+     Kurt Keutzer, Aditya Parameswaran, Dan Klein, Kannan Ramchandran, Matei Zaharia, Joseph E.
+     Gonzalez, and Ion Stoica. Why do multi-agent llm systems fail? In Advances in Neural Information
+     Processing Systems, 2025.
+
+ [9] John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, and Oleg Klimov. Proximal policy
+     optimization algorithms. arXiv preprint arXiv:1707.06347, 2017.
+
+[10] Haoyang Hong, Jiajun Yin, Yuan Wang, Jingnan Liu, Zhe Chen, Ailing Yu, Ji Li, Zhiling Ye,
+     Hansong Xiao, Yefei Chen, Hualei Zhou, Yun Yue, Minghui Yang, Chunxiao Guo, Junwei Liu,
+     Peng Wei, and Jinjie Gu. Multi-agent deep research: Training multi-agent systems with m-grpo.
+     arXiv preprint arXiv:2511.13288, 2025.
+
+[11] Ritwik Gupta, Richard Hosfelt, Sandra Sajeev, Nirav Patel, Bryce Goodman, Jigar Doshi, Eric
+     Heim, Howie Choset, and Matthew Gaston. xbd: A dataset for assessing building damage from
+     satellite imagery. arXiv preprint arXiv:1911.09296, 2019.
+
+[12] Defense Innovation Unit. xView2: Assessing building damage from satellite imagery, 2019. xView2
+     Challenge.
+
+[13] Derrick Bonafilia, Beth Tellman, Tyler Anderson, and Erica Issenberg. Sen1floods11: A georefer-
+     enced dataset to train and test deep learning flood algorithms for sentinel-1. In Proceedings of the
+     IEEE/CVF Conference on Computer Vision and Pattern Recognition Workshops, 2020.
+
+[14] Maryam Rahnemoonfar, Tashnim Chowdhury, and Robin Murphy. Rescuenet: A high resolution
+     uav semantic segmentation dataset for natural disaster damage assessment. Scientific Data, 2023.
+
+[15] Ronny Hänsch, Jacob Arndt, Dalton Lunga, Matthew Gibb, Tyler Pedelose, Arnold Boedihardjo,
+     Desiree Petrie, and Todd M. Bacastow. Spacenet 8 - the detection of flooded roads and buildings. In
+     CVPRW, 2022.
+
+[16] Argho Sarkar and Maryam Rahnemoonfar. Vqa-aid: Visual question answering for post-disaster
+     damage assessment and analysis. IEEE International Geoscience and Remote Sensing Symposium
+     (IGARSS), 2021.
+
+                                                   14
+
+========= PAGE 015 / 28 =========
+[17] Junjue Wang, Weihao Xuan, Heli Qi, Zhihao Liu, Kunyi Liu, Yuhan Wu, Hongruixuan Chen, Jian
+     Song, Junshi Xia, Zhuo Zheng, and Naoto Yokoya. Disasterm3: A remote sensing vision-language
+     dataset for disaster damage assessment and response. Advances in Neural Information Processing
+     Systems 38 (NeurIPS 2025), 2025.
+[18] Kun Li, George Vosselman, and Michael Ying Yang. Hrvqa: A visual question answering benchmark
+     for high-resolution aerial images. ISPRS Journal of Photogrammetry and Remote Sensing, 2024.
+[19] Xing Zi, Jinghao Xiao, Yunxiao Shi, Xian Tao, Jun Li, Ali Braytee, and Mukesh Prasad. Rsvlm-
+     qa: A benchmark dataset for remote sensing vision language model-based question answering.
+     Proceedings of the 33rd ACM International Conference on Multimedia, 2025.
+[20] Aoran Xiao, Shihao Cheng, Yonghao Xu, Yexian Ren, Hongruixuan Chen, and Naoto Yokoya.
+     Geommbench and geommagent: Toward expert-level multimodal intelligence in geoscience and
+     remote sensing. CVPR, 2026.
+[21] Panagiotis Michelakis, Yiannis Hadjiyiannis, and Dimitrios Stamoulis. Core: Full-path evaluation
+     of llm agents beyond final state. Workshop on Large Agentic Workflows (LAW), NeurIPS, 2025.
+[22] Simranjit Singh, Michael Fore, and Dimitrios Stamoulis. Evaluating tool-augmented agents in
+     remote sensing platforms. ICLR Workshop on Machine Learning for Remote Sensing (ML4RS),
+     2024.
+[23] Wenjia Xu, Zijian Yu, Boyang Mu, Zhiwei Wei, Yuanben Zhang, Guangzuo Li, Jiuniu Wang, and
+     Mugen Peng. Rs-agent: Automating remote sensing tasks through intelligent agents. arXiv preprint
+     arXiv:2406.07089, 2024.
+[24] Chenyang Liu, Keyan Chen, Haotian Zhang, Zipeng Qi, Zhengxia Zou, and Zhenwei Shi. Change-
+     agent: Toward interactive comprehensive remote sensing change interpretation and analysis. IEEE
+     Transactions on Geoscience and Remote Sensing, 2024.
+[25] Yiheng Chen, Lingyao Li, Zihui Ma, Qikai Hu, Yilun Zhu, Min Deng, and Runlong Yu. Empowering
+     llm agents with geospatial awareness: Toward grounded reasoning for wildfire response. arXiv
+     preprint arXiv:2510.12061, 2025.
+[26] Peilin Feng, Zhutao Lv, Junyan Ye, Xiaolei Wang, Xinjie Huo, Jinhua Yu, Wanghan Xu, Wenlong
+     Zhang, Lei Bai, Conghui He, and Weijia Li. Earth-agent: Unlocking the full landscape of earth
+     observation with agents. ICLR, 2026.
+[27] Chaehong Lee, Varatheepan Paramanayakam, Andreas Karatzas, Yanan Jian, Michael Fore, Heming
+     Liao, Fuxun Yu, Ruopu Li, Iraklis Anagnostopoulos, and Dimitrios Stamoulis. Multi-agent geospa-
+     tial copilots for remote sensing workflows. IEEE International Geoscience and Remote Sensing
+     Symposium (IGARSS), 2025.
+[28] Yujia Qin, Shihao Liang, Yining Ye, Kunlun Zhu, Lan Yan, Yaxi Lu, Yankai Lin, Xin Cong, Xiangru
+     Tang, Bill Qian, Sihan Zhao, Lauren Hong, Runchu Tian, Ruobing Xie, Jie Zhou, Mark Gerstein,
+     Dahai Li, Zhiyuan Liu, and Maosong Sun. Toolllm: Facilitating large language models to master
+     16000+ real-world apis. International Conference on Learning Representations 2024 (ICLR 2024),
+     2024.
+[29] Aohan Zeng, Mingdao Liu, Rui Lu, Bowen Wang, Xiao Liu, Yuxiao Dong, and Jie Tang. Agenttun-
+     ing: Enabling generalized agent abilities for llms. Findings of the Association for Computational
+     Linguistics: ACL 2024, 2024.
+[30] Daniel M. Ziegler, Nisan Stiennon, Jeffrey Wu, Tom B. Brown, Alec Radford, Dario Amodei, Paul
+     Christiano, and Geoffrey Irving. Fine-tuning language models from human preferences. arXiv
+     preprint arXiv:1909.08593, 2019.
+
+                                                 15
+
+========= PAGE 016 / 28 =========
+[31] Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong
+     Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton,
+     Luke Miller, Maddie Simens, Amanda Askell, Peter Welinder, Paul Christiano, Jan Leike, and Ryan
+     Lowe. Training language models to follow instructions with human feedback. In Advances in
+     Neural Information Processing Systems, volume 35, pages 27730–27744, 2022.
+
+[32] Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, and
+     Chelsea Finn. Direct preference optimization: Your language model is secretly a reward model.
+     Advances in Neural Information Processing Systems, 36, 2023.
+
+[33] Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang,
+     Mingchuan Zhang, Y. K. Li, Y. Wu, and Daya Guo. Deepseekmath: Pushing the limits of mathemat-
+     ical reasoning in open language models. arXiv preprint arXiv:2402.03300, 2024.
+
+[34] Lang Feng, Zhenghai Xue, Tingcong Liu, and Bo An. Group-in-group policy optimization for
+     LLM agent training. In Advances in Neural Information Processing Systems, volume 38, pages
+     46375–46408, 2025.
+
+[35] Dengjia Zhang, Xiaoou Liu, Lu Cheng, Yaqing Wang, Kenton Murray, and Hua Wei. Selaur: Self
+     evolving llm agent via uncertainty-aware rewards. Pacific-Asia Conference on Knowledge Discovery
+     and Data Mining (PAKDD), 2026.
+
+[36] Shuo Liu, Zeyu Liang, Xueguang Lyu, and Christopher Amato. Llm collaboration with multi-agent
+     reinforcement learning. AAAI, 2026.
+
+[37] Guanzhong Chen, Shaoxiong Yang, Chao Li, Wei Liu, Jian Luan, and Zenglin Xu. End-to-end
+     optimization of llm-driven multi-agent search systems via heterogeneous-group-based reinforcement
+     learning. Association for Computational Linguistics, 2026.
+
+[38] Lang Feng, Longtao Zheng, Shuo He, Fuxiang Zhang, and Bo An. Dr. mas: Stable reinforcement
+     learning for multi-agent llm systems. arXiv preprint arXiv:2602.08847, 2026.
+
+[39] Geoff Boeing. Osmnx: New methods for acquiring, constructing, analyzing, and visualizing
+     complex street networks. Computers, Environment and Urban Systems, 65:126–139, 2017. doi:
+     10.1016/j.compenvurbsys.2017.05.004.
+
+[40] Matthew C. Hansen, Peter V. Potapov, Rebecca Moore, Matt Hancher, Svetlana A. Turubanova,
+     Alexandra Tyukavina, David Thau, Stephen V. Stehman, Scott J. Goetz, Thomas R. Loveland, et al.
+     High-resolution global maps of 21st-century forest cover change. Science, 342(6160):850–853,
+     2013. doi: 10.1126/science.1244693.
+
+[41] Ritwik Gupta, Bryce Goodman, Nirav Patel, Richard Hosfelt, Sandra Sajeev, Eric Heim, Jigar Doshi,
+     Keane Lucas, Howie Choset, and Matthew Gaston. Creating xbd: A dataset for assessing building
+     damage from satellite imagery. arXiv preprint arXiv:1911.09296, 2019.
+
+[42] Copernicus Emergency Management Service. Copernicus emergency management service. https:
+     //emergency.copernicus.eu/, 2026. Flood extent and emergency mapping products.
+
+
+
+
+                                                 16
+
+========= PAGE 017 / 28 =========
+SUPPLEMENTARY MATERIAL
+
+S1      Dataset Details and Statistics
+GeoDisaster contains 2,921 verified instances across five disaster task families and 43 question types.
+Beyond dataset size, its complexity comes from executable geospatial workflows: instances require an
+average of 5.00 GT tool calls, 29.10 conversation turns, and 2.52 orchestrator plan steps. The benchmark
+also includes substantial artifact grounding, with an average of 3.51 initial artifact handles and 16.72
+underlying path references per case. Moreover, 42.07% of the trajectories activate all three specialist
+agents, indicating that many tasks require coordinated visual, geospatial, and planning reasoning rather
+than single-step tool use.
+
+
+
+
+Figure S1: GeoDisaster task taxonomy, summarizing the five disaster task families and their associated sub-task categories,
+highlighting the benchmark’s coverage across geo-intelligence tasks.
+
+
+
+S1.1     Task Taxonomy
+GeoDisaster is organized around five disaster-oriented families that capture different forms of operational
+geo-intelligence: deforestation monitoring, multi-hazard analysis, building-damage assessment, flood-safe
+routing, and Sentinel-1 flood monitoring. Table S1 provides the full taxonomy, covering 43 task categories
+with representative questions that illustrate the expected reasoning behavior in each category. Figure S1
+provides a compact visual summary of these families and their associated sub-task categories, highlighting
+the benchmark’s coverage from monitoring and damage assessment to routing and multi-hazard reasoning.
+GT tool-chain lengths. Beyond category diversity, the taxonomy also reflects heterogeneous execu-
+tion complexity. As shown in Figure S2, the distribution of executable GT tool-chain lengths varies
+substantially across task families. Sentinel-1 flood monitoring and building-damage assessment include
+longer trajectories due to polygon extraction, grid-level reasoning, spatial concentration analysis, and
+diagnostic reporting. Multi-hazard analysis contains the largest diversity of question types, covering
+measurement, severity classification, source agreement, and exposure estimation across several hazard
+domains. Deforestation monitoring exhibits high artifact density, as tasks require coordinated reasoning
+over optical, SAR, temporal, and forest-change evidence. Together, this shows that GeoDisaster is diverse
+not only in task categories, but also in reasoning depth, evidence structure, and tool-chain requirements.
+
+
+
+
+                                                            17
+
+========= PAGE 018 / 28 =========
+ Family          Task category                   N     Representative question
+                 Baseline Canopy Density         48    What is the baseline tree-cover percentage, and is the canopy dense, open, or
+                                                       sparse?
+                 Change Window Timing            48    In which pre/post interval does clearing first become visible?
+ Deforestation   Deforested Area Estimation      48    How many hectares were deforested, and is the loss supported by vegetation-
+ Monitoring                                            index change?
+                 False Positive Screening        48    Is this suspected change true deforestation or a false positive?
+                 Forest Loss Detection           48    Did real forest loss occur based on optical, SAR, and Hansen evidence?
+                 Loss Year Attribution           48    Which year has the largest forest-loss area, and how many hectares were lost?
+                 Optical–SAR Concordance         48    Do optical vegetation change and SAR backscatter change agree?
+                 SAR Severity Proxy              48    What is the SAR VH change, and what severity level does it indicate?
+                 Air Pollution Class             20    What severity class best describes the peak NO2 condition?
+                 Air Pollution Peak              20    What is the peak NO2 value and unit?
+                 Drought Anomaly Score           21    What is the NDVI anomaly or z-score for this drought location?
+                 Drought Asset Exposure          21    How many key assets fall inside the severe-drought footprint?
+                 Drought Severity Class          21    What is the dominant drought severity class and fraction?
+                 Drought Source Agreement        21    Do precipitation, NDVI anomaly, and soil moisture agree?
+                 Forest Loss Area                23    What is the forest-loss area in hectares for the specified year?
+                 Forest Road Proximity           23    How far is the clearing centroid from the nearest road?
+                 Forest Severity Class           23    What is the dominant forest-loss severity class and fraction?
+ Multi-hazard    Forest Source Agreement         23    Do Hansen, TMF, and RADD agree on the forest-loss signal?
+ Analysis        Pollution Exposure Analysis     20    What population or assets are exposed to unhealthy NO2 ?
+                 Pollution Source Agreement      20    Do Sentinel-5P, CAMS, and MODIS AOD agree on the footprint?
+                 Urban Expansion Class           29    What is the dominant urban-expansion intensity class?
+                 Urban Gain Area                 29    How many hectares became newly built-up?
+                 Urban Population Gain           29    How much population was added inside the built-up footprint?
+                 Urban Source Agreement          29    Do Dynamic World, GHSL, and WorldCover agree on built-up gain?
+                 Wildfire Burned Area            15    How many hectares were burned from the burn layers?
+                 Wildfire Exposure Buffer        15    How many assets or people fall within the wildfire buffer?
+                 Wildfire Severity Class         15    What is the dominant burn-severity class and fraction?
+                 Wildfire Source Agreement       15    Do burn products, dNBR, and hotspots agree on the footprint?
+                 Comprehensive Damage Summary    177   What is the scene-level damage summary from labels, masks, and severe area?
+                 Damage Concentration Analysis   121   Is severe damage concentrated or dispersed across the scene?
+ Building        Grid Severity Ranking           177   Which 4×4 grid cell has the highest damage severity?
+ Damage          Quadrant Severe Damage          177   Which quadrant contains the largest severe-damage footprint?
+ Assessment      Scene Damage Inventory          177   How many buildings fall in each damage class?
+                 Scene Pair Comparison            55   Which of two disaster scenes shows greater structural destruction?
+                 Severe Building Footprint       121   How many buildings are severely damaged, and what is their area?
+                 Flood Route Overlay             200   Can flood extent, blocked roads, shelters, and routes be rendered together?
+ Flood-Safe
+                 Nearest Reachable Shelter       200   Which shelter is nearest without crossing flooded roads?
+ routing
+                 Route Tradeoff Selection        200   Which routes are fastest, safest, and most balanced?
+                 Complete Flood Diagnostic       100   What is the SAR flood diagnostic, including mask, area, polygons, and grid
+ Sentinel-1                                            concentration?
+ Flood           Flood Emergency Inventory       100   What are the flood percentage, area, connected regions, and centroid?
+ Monitoring      Flood Polygon Geometry          100   What are the polygon counts, largest polygon, bounding box, and centroid?
+                 Grid Concentration Analysis     100   Which 4×4 grid cells are most flooded?
+                 Known Water Separation          100   How much predicted flood overlaps known water versus new flood?
+
+
+
+Table S1: Geo Disaster task taxonomy. The benchmark contains 43 task categories across five disaster-
+oriented families. Each category is associated with a representative compact question illustrating the
+expected reasoning behavior.
+
+
+
+
+                                                           18
+
+========= PAGE 019 / 28 =========
+                                                                                          700
+
+                                  Deforestation     0     144        48    192       0
+                                    Monitoring                                            600
+
+
+
+
+                                                                                                Number of Cases
+                                   Multi-hazard    216    108        108    0        0    500
+                                       analysis
+                                                                                          400
+                                Building damage     0      0         707   298       0
+                                     assessment
+                                                                                          300
+
+
+                                     Flood-safe     0     400        200    0        0    200
+                                        routing
+
+                                                                                          100
+                                Sentinel-1 flood    0      0         200   200      100
+                                     monitoring
+                                                                                          0
+                                                    3      4          5     6        9
+                                                         Executable GT Tool Calls
+
+
+
+
+Figure S2: Distribution of executable GT tool-chain lengths across GeoDisaster task families. Darker cells indicate more
+cases, showing how trajectory depth varies across domains.
+
+
+S1.2     Geospatial Tool Suite
+To support tool-grounded disaster reasoning, GeoDisaster defines a compact suite of 18 geospatial
+tools, summarized in Table S2. These tools abstract dataset-specific operations into reusable reasoning
+functions covering evidence loading, spatial measurement, temporal and cross-source comparison, impact
+assessment, route planning, and artifact synthesis. This design serves two purposes. First, it encourages
+evidence-grounded problem solving, where agents must issue valid tool calls, pass correct handles
+and arguments, and use intermediate observations rather than relying only on direct answer generation.
+Second, it enables fine-grained evaluation of where an agent fails: evidence access, spatial computation,
+tool choice, argument construction, cross-source reasoning, decision planning, or final synthesis. Thus, the
+tool suite provides both the operational substrate for GeoDisaster tasks and the basis for trajectory-level
+evaluation beyond final-answer correctness.
+
+S1.3     Representative Error Types
+Beyond task-family diversity, GeoDisaster provides trajectory-level supervision for both single-agent
+and multi-agent execution. Prior agentic systems commonly suffer from structural and semantic failures
+that are not fully captured by final-answer accuracy, such as invalid planning, wrong tool selection,
+incorrect argument passing, premature termination, and inconsistent synthesis. By analyzing trajectories
+across different stages of training, fine-tuning, and alignment, we identify the recurring failure modes
+summarized in Table S3.
+    These failures occur at different levels of the execution process. Planning and delegation errors affect
+the global workflow before tool execution begins, while tool, argument, and format errors arise during
+local action generation. Termination, loop, and replanning errors reflect failures in state tracking and
+control-flow management. This taxonomy motivates our alignment strategy: failure-aware SFT provides
+corrected recovery actions under the same state and contract, while GRPO encourages contract-consistent
+execution and penalizes invalid or inefficient trajectories. While our framework significantly reduces
+these errors quantitatively, several challenges remain, especially for ambiguous visual evidence, invalid
+geospatial arguments, and premature stopping. These examples suggest that future improvements should
+focus on uncertainty-aware replanning, stronger argument validation, and better use of multi-temporal
+evidence.
+
+
+S2      Alignment and Implementation Details
+S2.1     Failure-Aware SFT
+We use the error taxonomy in Table S3 to construct failure-aware supervision. Development trajectories
+are replayed and inspected for recurring structural errors, such as invalid tool calls, stale or missing
+
+
+                                                                19
+
+========= PAGE 020 / 28 =========
+ Reasoning role                    Tool          Agent   Main function and usage
+
+                                 ReadData         GA     Opens the relevant visible input evidence for a question and prepares a scene-
+ Evidence grounding
+                                                         level reference for downstream geospatial analysis.
+                                PrepareScene      GA     Builds an aligned work context from one or more opened evidence sources,
+                                                         enabling subsequent spatial, visual, or tabular operations.
+
+                               ComputeStats       PA     Computes numerical summaries such as areas, counts, means, class histograms,
+                                                         footprint statistics, or anomaly scores.
+ Spatial measurement and        MeasureArea       GA     Measures the area of selected masks, objects, or extracted regions in the re-
+ transformation                                          quested units.
+                               ExtractObjects     GA     Extracts geospatial objects such as forest-loss patches, severe buildings, flood
+                                                         polygons, or connected flood components.
+                                 MapFlood         GA     Produces a flood-mask representation from SAR flood evidence or related flood-
+                                                         monitoring inputs.
+                               DescribeFlood     VRA     Summarizes flood masks and components using flood percentage, area, polygon
+                                                         geometry, centroid, grid concentration, or water-overlap diagnostics.
+
+                              CompareSources      PA     Compares evidence across modalities or products, such as optical–SAR agree-
+ Cross-source and temporal                               ment, multi-source hazard agreement, or known-water overlap.
+ reasoning                     DetectChange       PA     Identifies temporal change patterns, dominant disturbance events, or coarse
+                                                         change windows from multi-temporal evidence.
+                               ClassifyChange     PA     Assigns semantic labels to measured evidence, including canopy state, concor-
+                                                         dance status, false-positive category, or change severity.
+                              CompareScenes      VRA     Compares paired scenes or summaries to determine which case has greater
+                                                         damage, risk, or severity.
+
+                                ScoreHazard       PA     Converts hazard evidence into severity, concentration, or impact scores used
+                                                         for disaster assessment and prioritization.
+ Impact and risk assessment
+                              EstimateExposure    PA     Estimates exposed population, roads, facilities, or infrastructure from hazard
+                                                         footprints and contextual GIS layers.
+                               AssessDamage      VRA     Aggregates building-damage evidence into scene-level, grid-level, quadrant-
+                                                         level, severe-only, or pairwise damage summaries.
+                                RankRegions       PA     Ranks candidate regions, components, grid cells, quadrants, or routes according
+                                                         to task-specific risk or severity criteria.
+
+ Decision and response          PlanRoutes        PA     Computes or selects flood-aware shelter routes under avoidance, safety, or
+ planning                                                reachability objectives.
+                              CompareRoutes       PA     Compares fastest, safest, and balanced route candidates using travel cost, flood
+                                                         risk, and trade-off criteria.
+ Artifact synthesis and         RenderMap         GA     Generates map or image artifacts such as flood overlays, route overlays, grid
+ reporting                                               visualizations, or diagnostic figures.
+
+
+
+Table S2: GeoDisaster geospatial tool suite. The 18 tools are organized by their role in the operational
+reasoning workflow, with each tool assigned to the specialist agent responsible for its execution.
+
+
+
+
+                                                               20
+
+========= PAGE 021 / 28 =========
+ Failure type   Error explanation                                           Wrong trace            Correct trace
+
+ PlanErr        The model fails to decompose the task into required         CallAgent(VRA) →       Plan → ReadData
+                intermediate steps or omits an essential subgoal before     ClassifyChange         → DetectChange →
+                execution.                                                                         CompareSources →
+                                                                                                   ClassifyChange
+
+ AgentErr       The orchestrator assigns a subtask to an unsuitable         CallAgent(VRA,         CallAgent(GA,
+                specialist agent, causing the correct reasoning module      MeasureArea)           MeasureArea)
+                to be bypassed.
+
+ ToolErr        The selected agent chooses an unsuitable tool for the       ToolName = RenderMap   ToolName =
+                current subtask, although the required tool exists in the                          AssessDamage
+                registry.
+
+ ArgErr         The agent selects the correct tool but provides invalid, MeasureArea(mask =        MeasureArea(mask =
+                incomplete, or inconsistent arguments.                   null, unit = ha)          flood mask, unit = ha)
+
+ FormatErr      The model violates the required action schema, such         ‘‘I will compute the   {action: MeasureArea,
+                as returning free-form text instead of a structured tool    flooded area.’’        args: {mask:
+                call.                                                                              flood mask, unit:
+                                                                                                   ha}}
+
+ TermErr        The system terminates before all constraints are veri- ReadData → Terminate        ReadData → MapFlood
+                fied or before sufficient evidence has been collected.                             → DescribeFlood →
+                                                                                                   Terminate
+
+ LoopErr        The system repeats the same action with identical or ReadData(x) →                 ReadData(x) →
+                near-identical arguments without using the returned ReadData(x) →                  PrepareScene(x) →
+                evidence.                                            ReadData(x)                   ComputeStats
+
+ ReplanErr      The system performs unnecessary replanning after the DescribeFlood → Plan          DescribeFlood →
+                current evidence is already sufficient to answer the → Plan                        ComputeStats →
+                query.                                                                             Terminate
+
+
+
+Table S3: Representative error traces. Common failure modes in GeoDisaster agent execution. Each
+row gives the failure definition with schematic wrong and correct traces.
+
+
+handles, incorrect arguments, repeated actions, premature termination, and unnecessary replanning. For
+each failed base-policy trajectory, a teacher model proposes candidate recovery actions conditioned on
+the task schema, role–tool ownership rules, shared state, and reference artifacts. A candidate is retained
+only if it passes deterministic validation, including schema correctness, legal role–tool assignment,
+canonical-handle use, successful tool/state replay, and agreement with the ground-truth answer artifact.
+Thus, Di contains programmatically verifiable recovery actions rather than unchecked teacher outputs,
+converting observed execution failures into role-specific supervision. As a result, SFT primarily improves
+handle discipline, valid tool invocation, argument construction, and structured handoff behavior, which
+explains the large post-SFT gains in Figure S4 across all task families.
+
+S2.2       Role-Contract GRPO Alignment
+After SFT, GRPO is used to refine trajectory-level decisions that are difficult to capture through imitation
+alone. The reward combines final task success with role-specific contract satisfaction, robustness,
+and efficiency terms. Contract checks include schema validity, handle existence, spatial overlap or
+containment, route–flood intersection, area/count tolerances, and required-field coverage, with borderline
+spatial cases resolved using dataset-resolution and task-specific tolerance thresholds. Rewards are
+normalized within each role, so the orchestrator and specialist agents are updated according to their own
+execution distributions rather than a shared global scale. This is important because ORC, GA, PA, and
+VRA differ in activation frequency, action type, and failure modes.
+    Figure S3 shows that role-wise rewards increase and then stabilize during GRPO alignment, indicating
+that the policy improves without collapsing the distinct behavior of different agents. GA and PA obtain
+higher rewards because many tasks involve measurable geospatial operations and analytic decisions, while
+ORC and VRA show more moderate but stable improvements in coordination and evidence interpretation.
+The task-wise results in Figure S4 further show that the vanilla MAS remains limited across families,
+
+
+                                                                     21
+
+========= PAGE 022 / 28 =========
+                                                                      3.0
+
+
+
+
+                                Per-adapter reward Ri (group mean)
+                                                                      2.5
+
+
+                                                                      2.0
+
+
+                                                                      1.5
+
+
+                                                                      1.0
+
+                                                                                                                                                             ORC           GA           PA        VRA
+                                                                                             100                    200                         300                        400                         500
+                                                                                                                        Training prompt index
+
+
+
+Figure S3: Smoothed role-wise reward curves during GRPO alignment. Rewards increase across all agent roles and stabilize
+over training, indicating that the alignment objective improves role-specific execution while preserving distinct reward profiles
+for ORC, GA, PA, and VRA.
+
+                                                                                                                                                                                    Plain (pre-SFT)
+                                                                                                                                                                                    Post-SFT
+                                                                                                                                                                                    Post-SFT + GRPO
+                                            Answer Success (Ans, %)
+
+
+
+
+                                                                                                                                                                                               100.0
+                                                                      100                 97.4                                                                                          96.1
+                                                                                   94.0                          92.0
+                                                                                                          86.5                           87.4
+                                                                                                                                  78.7                              80.2
+                                                                       80
+                                                                                                                                                             66.9
+
+                                                                       60
+
+
+                                                                       40   36.5
+                                                                                                                                                                                 32.0
+
+                                                                                                                           17.3                       19.8
+                                                                       20                          17.1
+
+
+
+                                                                        0
+                                                                            Deforestation           Multi-hazard          Building damage               Flood-safe               Sentinel-1 flood
+                                                                             Monitoring              analysis               assessment                    routing                  monitoring
+
+
+
+
+Figure S4: Task-wise answer success on GeoDisaster before and after alignment. SFT provides the dominant improvement
+across all families, while GRPO adds consistent gains, especially on decision-sensitive tasks such as flood-safe routing and
+building-damage assessment.
+
+
+indicating that role decomposition alone does not ensure reliable execution. SFT provides the major
+improvement by correcting common procedural failures, such as invalid tool use, weak handle discipline,
+and incomplete response structure. GRPO then adds consistent gains, most clearly in flood-safe routing
+and building-damage assessment, where tasks involve longer dependent tool chains, ranking decisions,
+and stricter constraint handling. In contrast, deforestation and Sentinel-1 flood monitoring show smaller
+post-GRPO gains because many of their errors are already addressed by supervised recovery trajectories.
+Overall, SFT improves execution validity, while GRPO complements it by refining trajectory-level
+decisions in tasks where imitation alone is less sufficient.
+    Overall, while SFT and GRPO substantially improve execution reliability, remaining errors are mainly
+linked to ambiguous evidence, metric-selection mistakes, and constraint-aware synthesis. This suggests
+that future work should strengthen uncertainty-aware multi-source geospatial reasoning, especially when
+modalities provide incomplete, noisy, or partially inconsistent evidence.
+
+S2.3     Training Setup
+Training is implemented in PyTorch/CUDA, while geospatial execution uses rasterio, osmnx,
+earthengine-api, geemap, and FastAPI-based tool workers. Experiments are run on an AMD
+EPYC 9654 server with 96 cores / 192 threads, 251 GiB RAM, 119 GiB swap, and 3 NVIDIA RTX
+PRO 6000 Blackwell Max-Q GPUs, each with approximately 98 GB VRAM. For GRPO alignment, we
+use 2,064 rollout episodes with group size K = 4, temperature T = 0.7, and top-p = 0.95 sampling.
+The PPO-style clip is ϵ = 0.2 and the KL coefficient is βKL = 0.04 to keep the policy close to the SFT
+reference. We train LoRA adapters with rank r = 32, α = 64, learning rate 1 × 10−6 , and gradient
+clipping at 1.0.
+
+
+
+
+                                                                                                                             22
+
+========= PAGE 023 / 28 =========
+S3     Qualitative Examples and Failure Analysis
+S3.1    Alignment Success and Failure Cases
+To better understand how the proposed framework behaves on GeoDisaster, we examine selected trajecto-
+ries that expose both the effect of alignment and the remaining challenges. Figure S5 presents a successful
+alignemt case on SAR flood-monitoring task. The vanilla MAS obtains partial flood evidence but fails
+to convert it into the required structured response, while MAS + SFT still suffers from incorrect handle
+usage. After GRPO, the agent follows the declared evidence handles, opens the SAR and water-reference
+inputs correctly, performs the required comparison, and produces the requested connected-region report.
+This example illustrates how the alignment pipeline improves not only final correctness, but also evidence
+access, tool sequencing, and inter-agent coordination.
+     Figure S6 shows a contrasting damage-assessment case where the framework partially fails after
+alignment. Here, SFT and GRPO both improve the execution process by recovering valid image and label
+evidence, preparing the quadrant context, and extracting the relevant damage statistics. However, the
+final decision uses the wrong ranking criterion, selecting the quadrant with the highest severe-building
+count rather than the largest severe-damage footprint area requested in the query. This case shows that
+alignment substantially improves procedural reliability, but criterion-sensitive synthesis remains difficult
+when multiple valid metrics are available.
+
+S3.2    Qualitative Results
+We provide representative GeoDisaster task examples from two task families to illustrate how the
+benchmark captures full conversational trajectories among agents rather than only final answers. Figure S7,
+shows a building-damage assessment task, where all agents contribute to the successful completion. The
+orchestrator decomposes the query into subtasks of evidence preparation, damage interpretation, and
+spatial summary steps. The trajectory shows how agents use pre/post imagery, damage labels, and spatial
+overlays to produce a grounded scene-level report with damage counts, severe-area estimates, spatial
+dispersion, and mask-based validation. Figure S8 presents an example of wildfire analysis, where the
+agents estimate burned area from pre/post fire evidence and a burn-mask product. The conversation
+illustrates the flow from evidence loading to area measurement and final reporting, showing how specialist
+agents contribute intermediate observations that are consolidated into a grounded answer. Together, these
+examples show that GeoDisaster evaluates the complete reasoning process, including orchestration, tool
+execution, evidence grounding, and final synthesis.
+
+S3.3    LLM-as-Judge Evaluation Protocol
+We use GPT-5.5 as an LLM-assisted evaluator for GeoDisaster trajectories. The evaluator is given the
+complete saved case, including the user question, visible input context, expected answer, reference
+tool chain or plan, predicted final answer, full predicted trajectory, tool calls, tool observations, runner
+metrics, and failure metadata. Importantly, the judge is instructed to inspect the full execution trace and
+separate deterministic trace-based metrics from semantic and hybrid judgments. To check reliability,
+we manually reviewed a subset of 50 evaluated cases and revised the prompt until the produced metric
+judgments were consistent with human inspection. Figure S9 shows condensed LLM-as-judge prompt
+used for our evaluations.
+    The evaluation uses two main metric groups. End-to-end metrics measure whether the full trajectory
+reaches the intended task outcome. ToolAnyOr, ToolSameO, and ToolUni evaluate tool-chain fidelity under
+order-agnostic multiset matching, exact ordered matching, and unique-tool coverage, respectively. TSR
+summarizes overall task success by combining final-answer quality, episode completion, tool coverage,
+and tool-order fidelity. Ans measures task-level correctness for non-generative outputs, while Gen
+measures artifact-generation quality when the task requires a map, image, or visual output. CSR measures
+whether the final answer satisfies schema, grounding, units, source, temporal, and task-specific constraints.
+
+
+                                                     23
+
+========= PAGE 024 / 28 =========
+ESR captures clean episode completion, penalizing premature stopping, unresolved failures, harmful
+loops, weak synthesis, and invalid plans. For multi-agent settings, PlanAcc measures the quality of the
+orchestrator’s decomposition, and DelegAcc evaluates whether subtasks are assigned to the appropriate
+specialist agents.
+    Step-wise execution metrics evaluate the internal quality of the trajectory. Inst measures whether
+actions are syntactically valid, logically executable, and consistent with the required control format.
+Tool measures local tool or control-action correctness at each step, which differs from whole-trajectory
+tool-chain fidelity. ArgN measures the presence of required tool parameters, while ArgV measures the
+correctness of parameter values, including handles, regions, modalities, timestamps, source selectors,
+thresholds, and task-specific options. Summ measures the quality of grounded intermediate completion
+or handoff, including whether the produced summary is concrete, evidence-supported, schema-aware,
+and useful for downstream reasoning. It is therefore distinct from Ans, which measures final-answer
+correctness against the expected answer.
+    The prompt further distinguishes three scoring modes. Deterministic/trace metrics are computed
+directly from the reference chain, predicted tool calls, runner events, and visible observations; these in-
+clude tool-chain fidelity, strict correctness, most instruction/tool/argument checks, raw episode resolution,
+and explicit failure tags. Semantic metrics, such as Ans, Summ, CSR, PlanAcc, and DelegAcc, require
+interpretation of the final answer, evidence use, schema compliance, and trajectory meaning. Hybrid
+metrics, such as TSR, final ESR, final Tool, final ArgV, and role-level scores, combine trace verification
+with semantic judgment when valid equivalent actions, partial execution, or backend/tool failures require
+contextual interpretation. The judge returns a structured JSON object containing case-level metrics,
+role-level scores for ORC, GA, PA, and VRA or MAIN for single-agent runs, deterministic audit fields,
+failure tags, a dominant failure type, and a concise justification.
+
+
+
+
+                                                     24
+
+========= PAGE 025 / 28 =========
+               💬  Message : Separate predicted flood into known-water overlap vs outside-reference flood for
+               Ghana_1078550; report total flood percentage and largest connected flood region.
+
+
+
+
+        MAS                                                  SFT                                                GRPO
+
+ 💬  Message -> 🧭 ORC: SAR + JRC known-water split
+ task.
+                                                  💬  Message -> 🧭 ORC: SAR + JRC known-
+                                                  water split task.
+                                                                                         💬   Message -> 🧭 ORC: SAR + JRC known-water
+                                                                                         split task.
+
+ 🧭 ORC plan: {"goal":"generate SAR flood          🧭 ORC plan: {"goal":"resolve SAR flood 🧭  ORC plan: {"goal":"resolve SAR flood
+                                                                                         diagnostic D","steps":
+ report with known-water split","steps":                 diagnostic D","steps":
+ [{"agent":"GA","subtask":"prepare                       [{"agent":"GA","subtask":"prepare SAR                 [{"agent":"GA","subtask":"prepare SAR
+ sar_chip_1 + water_reference_1"},                       flood evidence from s1_overlay.png                    flood evidence from sar_chip_1 and
+ {"agent":"VRA","subtask":"describe                      and h1_work_or_reference_1"},                         water_reference_1"},
+ overlap/outside-reference flood"},                      {"agent":"PA","subtask":"compare                      {"agent":"PA","subtask":"compare
+ {"agent":"PA","subtask":"calculate                      flood with reference"},                               known-water overlap vs new flood"},
+ percentage and largest region"}]}                       {"agent":"VRA","subtask":"describe                    {"agent":"VRA","subtask":"describe
+
+ 🧭 ORC: CallAgent(agent=GA,                              report"}]}                                            final flood report"}]}
+
+ contract="prepare SAR and JRC reference                 🧭 ORC: CallAgent(agent=GA,                            🧭 ORC: CallAgent(agent=GA, contract="open
+ evidence").                                             contract="prepare SAR flood                           SAR chip and JRC reference, then map
+                                                                                                               flood").
+ 🛰 GA action: PrepareScene(inputs=                       evidence").
+
+                                                                                                               🛰 GA action: ReadData(input=sar_chip_1,
+ {sar:sar_chip_1,                                        🛰 GA action:
+
+                                                                                                               💬 Message -> 🛰 GA: scene_1: SAR chip opened
+                                                                                                               role=primary).
+ 💬             🛰
+ water:water_reference_1}, mode=sar_flood).              ReadData(input=s1_overlay.png,
+    Message ->    GA: error: raw source handles
+                                                         💬               🛰
+                                                         role=primary).
+ passed; SAR and water reference must be opened first.       Message ->        GA: error: s1_overlay.png       with preview/overlay products for Ghana_1078550.
+
+ 🛰 GA action: ReadData(input=sar_chip_1).                is a file reference, not a registered input handle.
+                                                                                                               🛰
+ 💬 Message -> 🛰 GA: scene_1: SAR chip opened             Valid handle is sar_chip_1.
+                                                                                                                   GA action:
+ with previews s1_preview.png, s1_overlay.png,           🛰 GA action:
+                                                                                                               ReadData(input=water_reference_1,
+
+                                                                                                               💬 Message -> 🛰 GA: scene_2: JRC known-water
+                                                                                                               role=jrc_optional).
+ s2_rgb_optional.png,                                    ReadData(input=s1_overlay.png,
+
+                                                         💬               🛰
+ jrc_preview_optional.png.                               role=primary).
+                                                                                                               reference opened for overlap/new-flood separation.
+ 🛰 GA action: PrepareScene(inputs=
+                                                            Message ->      GA: same invalid-handle error
+                                                         repeats; no SAR scene, no water-reference
+                                                                                                               🛰 GA action: PrepareScene(inputs=
+ 💬 Message -> 🛰 GA: work_1: SAR flood context
+ {sar:scene_1}, mode=sar_flood_reference).               scene, and no flood map are created.
+                                                                                                               {sar:scene_1, water:scene_2},
+
+ prepared, but JRC water reference is missing.           🧭 ORC: Terminate/abort: Repeated                      💬               🛰
+                                                                                                               mode=sar_flood_reference).
+                                                                                                                  Message ->       GA: work_1: SAR flood-reference
+ 🧭 ORC: CallAgent(agent=VRA,
+                                                         failing tool call ReadData with the
+                                                                                                               context ready with spatial alignment between SAR flood
+                                                         same args; stopping to avoid a loop.
+                                                                                                               mask and JRC water.
+ contract="describe known-water overlap").
+
+ 👁 VRA action: DescribeFlood(work=work_1,                ✗ Worse than partial: SFT chooses an artifact
+                                                                                                               🛰 GA action: MapFlood(work=work_1,
+                                                                                                               💬 Message -> 🛰 GA: flood_1: computed flood
+                                                                                                               method=auto).
+ question=flood_overlap_1, metrics=                      filename instead of the declared handle and never
+                                                         reaches the flood-analysis tools.
+ 💬              👁
+ {known_water:true}).                                                                                          percentage 0.536728; flood area 137447.476 m2;
+    Message ->  VRA: error: unknown                                                                            polygon count 104; largest component area
+ flood_overlap_1; no flood map/overlap artifact
+                                                                                                               34386.291 m2; centroid [-1.110888,10.641263].
+ exists yet.
+
+ 🧭 ORC replans: returns to GA.                                                                                 🧭 ORC: CallAgent(agent=PA, contract="split
+ 🛰 GA action: MapFlood(work=work_1,
+                                                                                                               flood by known-water reference").
+
+
+ 💬 Message -> 🛰 GA: flood_1: flood percentage
+ method=sar_flood).                                                                                            🧮 PA action: CompareSources(work=flood_1,
+                                                                                                               compare={reference:known_water,
+ 0.536728; flood area 137447.476 m2;
+                                                                                                               💬               🧮
+                                                                                                               criterion:overlap_vs_new_flood}).
+ polygon/component count 104; largest component                                                                   Message ->       PA: compare_1: known-water
+ 34386.291 m2; centroid [-1.110888,10.641263];                                                                 overlap 0.0%; outside-reference flood 100.0%;
+ top grid includes R3_C4.                                                                                      overlap pixels 0; outside-reference pixels 1407.
+
+ 🛰 GA action: PrepareScene(inputs=                                                                             🧭 ORC: CallAgent(agent=VRA,
+ {sar:sar_chip_1,
+ water:water_reference_1}, mode=sar_flood)                                                                     contract="produce compact report fields").
+
+ 💬           🛰
+ and repeats with new SAR scenes.
+     Message ->     GA: repeated raw-water-reference
+ errors; JRC handle is never opened as scene_2.
+                                                                                                               👁 VRA action: DescribeFlood(work=flood_1,
+                                                                                                               metrics={known_water_overlap:true,
+
+ 🧭 ORC: Terminate: predicted flood                                                                             💬               👁
+                                                                                                               new_flood_area:true, percentage:true}).
+                                                                                                                   Message ->        VRA: flood_report_1: report
+ percentage: 53.67%, largest connected                                                                         fields align with polygon count, largest component, and
+ flood region: R3_C4.                                                                                          known-water split.
+
+ ✗ Wrong: tool found useful flood evidence, but final
+ synthesis converts 0.536728 into 53.67%, reports a
+                                                                                                               🧭 ORC: Terminate: {"largest_component_area_
+                                                                                                               m2":34386.291,"largest_component_centroid":
+ grid cell instead of the connected-region fields, and                                                         [-1.11088819,10.64126315],"polygon_count":
+ misses the JRC split.                                                                                         104}.
+                                                                                                               ✓ Correct: GRPO uses the declared handles, opens
+                                                                                                               the optional JRC reference, computes the
+                                                                                                               flood/reference split, and emits the GT connected-
+                                                                                                               region fields.
+
+
+
+
+Figure S5: Example of successful alignment on a GeoDisaster SAR flood task. The vanilla MAS extracts useful intermediate evidence but
+fails to project it into the final answer. MAS + SFT still fails due to an invalid filename/handle, while MAS + SFT + GRPO corrects the handle
+usage and produces a clean completed report.
+
+
+
+
+                                                                                  25
+
+========= PAGE 026 / 28 =========
+               💬 Message : For a post-disaster wind scene (hurricane-michael), the 1024x1024 image is
+               divided into four quadrants (Q0-Q3). Which quadrant contains the highest severe-damage
+               footprint area? Report the quadrant ID, severe-building count, and severe footprint area in m2.
+
+
+
+        MAS                                                  SFT                                                   GRPO
+
+ Message ->  🧭   ORC: Identify the quadrant with the
+ highest severe-damage footprint area; report quadrant
+                                                         💬  Message -> 🧭 ORC: Resolve the same xBD               💬  Message -> 🧭 ORC: Resolve the same
+                                                                                                                 hurricane-michael xBD quadrant question: select
+                                                         quadrant task using post image and damage
+ ID, severe count, and footprint area.                   labels.                                                 the quadrant with highest severe-damage footprint area.
+
+ 🧭 ORC plan: {"goal":"identify highest                   🧭  ORC plan: {"goal": "resolve xBD Q2                   🧭  ORC plan: {"goal":"resolve xBD Q2
+ severe-damage footprint                                 quadrant severe-area task", "steps":                    quadrant severe-area task","steps":
+ quadrant","steps":                                      [{"agent":"GA","subtask": "prepare                      [{"agent":"GA","subtask":"prepare image_1
+ [{"agent":"GA","subtask":"extract                       image_1 and damage_labels_1 as                          and damage_labels_1 as xbd_quadrants"},
+ quadrants and severe footprint areas from               xbd_quadrants"}, {"agent":"VRA",                        {"agent":"VRA","subtask":"summarize
+ damage_labels_1"},                                      "subtask": "summarize severe quadrant                   severe quadrant evidence"},
+ {"agent":"PA","subtask":"rank quadrants                 evidence"},                                             {"agent":"PA","subtask":"rank requested
+                                                         {"agent":"PA","subtask":"rank                           quadrant"}]}
+                                                                                                                 🧭
+ by severe footprint area"},
+ {"agent":"VRA","subtask":"count severe                  requested quadrant"}]}                                     ORC: CallAgent(agent=GA,
+
+                                                         🧭
+ buildings in selected quadrant"}]}                                                                              contract="prepare reusable xBD quadrant
+
+ 🧭 ORC: CallAgent(agent=GA,                                 ORC: CallAgent(agent=GA,                             context").
+
+                                                                                                                 🛰 GA action: ReadData(input=image_1,
+                                                         contract="open xBD image and building
+ contract="extract 4 quadrants and severe                labels, preserve units and quadrant
+
+                                                                                                                 💬 Message -> 🛰 GA: scene_1: post-disaster wind
+ footprint areas from damage_labels_1").                 metadata").                                             role=post_disaster).
+
+ 🛰 GA action: PrepareScene(inputs=                       🛰 GA action: ReadData(input=image_1,                    scene opened; image size 1024x1024.
+
+                                                         💬 Message -> 🛰 GA: scene_1: post-disaster               🛰
+ {image:damage_labels_1},                                role=post_disaster).
+
+ 💬               🛰
+ mode=xbd_quadrants).                                                                                               GA action:
+    Message ->     GA: error: raw damage_labels_1        hurricane-michael_00000247 image opened                 ReadData(input=damage_labels_1,
+
+                                                                                                                 💬                🛰
+ passed as an image scene; xBD quadrants require         with pre-image reference.                               role=buildings).
+ opened image/label scene_N handles.
+                                                         🛰                                                          Message ->     GA: scene_2: damage labels
+
+ 🛰 GA action: PrepareScene(inputs=
+                                                            GA action:                                           opened with 178 building polygons and quadrant
+                                                         ReadData(input=damage_labels_1,                         summaries.
+
+                                                         💬 Message -> 🛰 GA: scene_2: damage                      🛰
+ {image:damage_labels_1},                                role=buildings).
+
+ 💬            🛰                                                                                                     GA action: PrepareScene(inputs=
+ mode=xbd_quadrants).
+    Message ->    GA: same failing call repeats; no      polygons, quadrants.geojson,                            {image:scene_1, labels:scene_2},
+
+                                                                                                                 💬 Message -> 🛰 GA: work_1: four-quadrant xBD
+ work_1, no quadrant table, no severe-area evidence.     grid_4x4.geojson, xy-area fields, and damage            mode=xbd_quadrants, checks={grid:2x2}).
+
+ 🧭 ORC replan: {"goal":"extract quadrants
+                                                         classes opened.
+
+ and calculate severe damage footprint                   🛰  GA action: PrepareScene(inputs=
+                                                                                                                 context ready with damage class counts and xy footprint
+                                                                                                                 areas.
+ areas","steps":
+ [{"agent":"GA","subtask":"extract
+                                                         {image:scene_1, labels:scene_2},
+                                                         mode=xbd_quadrants, checks=                             🧭  ORC: CallAgent(agent=VRA,
+                                                                                                                 contract="report quadrant severe
+                                                         💬               🛰
+ quadrants from damage_labels_1"},                       {grid:2x2}).
+                                                             Message ->     GA: work_1: quadrant                 evidence").
+ {"agent":"PA","subtask":"rank by severe
+ footprint area"},                                       evidence prepared for Q0-Q3 with xy footprint
+                                                         units.                                                  👁  VRA action: AssessDamage(work=work_1,
+
+                                                         🧭 ORC: CallAgent(agent=VRA, contract=
+ {"agent":"VRA","subtask":"count severe
+                                                                                                                 aggregation=quadrant_2x2,
+ buildings"}]}
+                                                                                                                 💬               👁
+                                                                                                                 severity=severe).
+ 🧭 ORC: Terminate/abort: Repeated failing                "interpret quadrant severe-damage
+                                                         evidence").
+                                                                                                                    Message ->     VRA: damage_1: Q1: count 18,
+                                                                                                                 area 68108.159 m2, severe pct 54.5455; Q2: count
+
+                                                         👁 VRA action: AssessDamage(work=work_1,
+ tool call PrepareScene with the same
+                                                                                                                 20, area 43614.425 m2, severe pct 42.5532; Q3:
+ args; stopping to avoid a loop.
+                                                                                                                 count 16, area 30635.963 m2; Q0: count 11, area
+ ✗ Wrong: plain MAS knows the intended criterion, but    aggregation=quadrant_2x2,
+                                                                                                                 27526.182 m2.
+
+                                                         💬               👁                                       🧭
+ never opens the xBD image/label handles and cannot      severity=severe).
+ produce evidence                                           Message ->    VRA: damage_1: Q1 has severe              ORC: CallAgent(agent=PA, contract="rank
+                                                         area 68108.159 m2, severe count 18; Q2 has              requested quadrant by the requested
+                                                         severe area 43614.425 m2, severe count 20; Q3           metric").
+                                                         area 30635.963 m2; Q0 area 27526.182 m2.
+                                                                                                     🧮 PA action: RankRegions(work=damage_1,
+                                                         🧭 ORC: CallAgent(agent=PA, contract= by=severe_damage_count,
+                                                         🧮 PA action: RankRegions(work=damage_1, 💬severe_count=20;
+                                                                                                        Message -> 🧮 PA: rank_1: selected Q2 because
+                                                         "rank the requested quadrant").             candidates=quadrants_2x2, top_k=1).
+
+                                                                                                                        the tool payload still shows Q1 has
+                                                         by= severe_damage_count,                    the maximum severe footprint area 68108.159 m2.
+
+                                                         💬 Message -> 🧮 PA: rank_1: ranked Q2 first 🧭[{"cell_id":"Q2","severe_count":20,"severe
+                                                         candidates=quadrants_2x2, top_k=1).            ORC: Terminate: {"ranked":
+
+                                                         because count 20 is greater than Q1 count 18,           _area_m2" :43614.425}] ,"all_candidates":
+                                                         even though Q1 has the larger footprint area.           [{"cell_id":"Q2",...},{"cell_id":"Q1",
+
+                                                         🧭 ORC: Terminate: {"ranked":
+                                                                                                                 "severe_area_m2":68108.159,...}]}.
+                                                                                                                 ! Concrete GRPO failure: all tools succeed and the
+                                                         [{"cell_id":"Q2","severe_count":20,                     correct evidence is present, but the final ranking is by
+                                                         "severe_area_m2":43614.425,...}],                       count rather than the requested footprint area. The
+                                                         "by":"severe_damage_count"}.                            correct answer should be Q1, not Q2.
+                                                         ! Residual failure: SFT fixes execution and obtains
+                                                         the correct quadrant table, but PA changes the
+                                                         criterion from severe footprint area to severe count.
+
+
+
+
+Figure S6: Failure-case comparison on a GeoDisaster damage-assessment task. The plain MAS fails to access valid evidence handles. SFT
+fixes evidence extraction but still ranks by building count instead of footprint area. GRPO preserves the improved execution, but the final answer
+retains the same metric-selection error.
+
+
+
+
+                                                                                26
+
+========= PAGE 027 / 28 =========
+     (A) Pre-disaster RGB    (B) Post-disaster RGB      Question: What is the overall building-damage condition in the post-disaster scene, of
+                                                        damage counts, class percentages, spatial concentration, and target-mask validation?
+
+                                                         1. ORC plan: {"goal":"xBD summary", "steps":[{"agent":"GA", "subtask":"prepare evidence"},
+                                                         {"agent":"VRA", "subtask":"assess damage"}, {"agent":"PA", "subtask":"compute statistics"}]}
+                                                         2. ORC → GA: CallAgent(agent=GA, contract="{task:       Prepare xBD evidence, evidence: [post-disaster
+                                                         RGB, mask], stop criteria:           work_1 prepared with polygons, severe mask, and quadrant grid}")
+                                                         3. GA tool: ReadData(inputs=image_1); PrepareScene(mode=xbd_scene_summary, grid=2x2)
+                                                         4. GA Tool Output: scene_1; 271 polygons and 288k severe pixels loaded. work_1 prepared with 2×2 quadrant grid.
+                                                         5. ORC → VRA: CallAgent(agent=VRA, contract="{task:
+                                                                                                          Assess scene-level building damage, evidence:
+      (C) Damage poly-           (D) Quadrant            [work_1, building polygons, post-disaster RGB, target mask], stop criteria: damage_1 produced
+         gon overlay              grid overlay
+                                                         with per-building and scene-level damage class}")
+                                                         6. VRA tool: AssessDamage(work=work_1, aggregation=scene)
+                                                         7. VRA Tool Output: damage_1; 271/271 buildings destroyed, corresponding to 100% severe damage.
+                                                         8. ORC → PA: CallAgent(agent=PA, contract="{task:
+                                                                                                        Compute area, mask validation, and spatial
+                                                         concentration, evidence: [work_1, damage_1, severe mask, quadrant grid], stop criteria: stats_1
+                                                         produced with area, dispersion score, and worst quadrant}")
+                                                         9. PA tool: ComputeStats(work=work_1, metrics=[area, mask_validation, dispersion, worst_quadrant])
+                                                         10. PA Tool Output: stats_1; severe area = 954,478 m2 ; dispersion score = 0.34; worst quadrant = Q0. Scene is spatially dispersed
+                                                         with complete severe-damage dominance.
+                                                         11. ORC: Terminate: {"destroyed":271, "severe_pct":100, "severe_m2":954478, "dispersion":"dispersed",
+                                                         "worst_Q":"Q0"}
+
+
+
+
+Figure S7: Example GeoDisaster for scene-level building-damage assessment. The task combines pre/post imagery, damage
+polygons, quadrant overlays, and role-specialized tool calls to produce a structured damage summary with counts, severe-area
+estimates, spatial dispersion, and mask validation.
+
+
+
+
+                                                                      Question: What is the burned area in hectares for Dixie Fire in this area of
+                                                                      interest?
+
+                                                                       1. ORC plan: {"goal":"estimate burned area", "steps":[{"agent":"GA",
+                                                                       "subtask":"prepare burned-area context"}, {"agent":"PA", "subtask":"measure
+                                                                       footprint area"}, {"agent":"PA", "subtask":"validate agreement"}]}
+                                                                       2. ORC→GA: CallAgent(agent=GA, contract="{task:
+                                                                                                                     Open burned-area product for
+                                                                       AOI, evidence: [pre-fire image, post-fire image, burn product, AOI
+                                                                       boundary], stop criteria: work_1 prepared with burn mask and scene
+                                                                       context}")
+      Pre-Fire(2021-06-15)                  Post-Fire(2021-09-20)
+                                                                       3. GA tool: LoadCachedRaster(aoi_id=dixie_fire_aoi, handle=mcd64a1_event);
+                                                                       PrepareScene(inputs={burned_area:scene_1}, mode=burned_area_assessment)
+                                                                       4. GA Tool Output: scene_1; MODIS MCD64A1 BurnDate loaded for 2021-07-01 to 2021-09-29;
+                                                                       modality = burned_area_mask; scale = 500m. work_1 prepared with binary burn mask.
+                                                                       5. ORC→PA: CallAgent(agent=PA, contract="{task:
+                                                                                                                     Compute burned footprint
+                                                                       area, evidence: [work_1, burn mask, AOI boundary, post-fire overlay], stop
+                                                                       criteria: burned-area estimate produced in hectares with source
+                                                                       agreement}")
+                                                                       6. PA tool: ComputeArea(work=work_1, mask=burned_area_mask, unit=ha);
+                                                                       CompareAcrossSources(handles=[mcd64a1_event], metric=area_agreement)
+                                                                       7. PA Tool Output: burned_area_1; one source used. MODIS MCD64A1 area = 17,874.54 ha;
+                                                                       agreement class = high.
+                                                                       8. ORC: Terminate: {"value":17874.54, "units":"ha", "source":"MODIS MCD64A1",
+                                                                       "evidence":"binary burn mask + AOI boundary"}
+       Primary Burn-Mask Overlay on the Post-Fire Image                9. ORC: Final Answer: Burned area = 17,874.54 ha, evidence: MODIS MCD64A1.
+
+
+
+
+Figure S8: Example GeoDisaster for wildfire burned-area estimation. The task uses pre/post fire imagery and a burn-mask
+product to compute the burned footprint area, with role-specialized tool calls for evidence loading, area measurement, and final
+grounded reporting.
+
+
+
+
+                                                                                                    27
+
+========= PAGE 028 / 28 =========
+     GeoDisaster LLM-as-Judge Prompt (condensed)
+
+
+     GeoDisaster LLM-as-Judge Prompt                                                     single-agent runs, judge the implicit or explicit plan.
+                                                                                      • `DelegAcc`: specialist-assignment correctness. ORC coordinates; GA
+     You are an evaluation assistant responsible for fair, strict, tool-aware            handles geospatial/vector/raster context; VRA handles visual,
+     evaluation of GeoDisaster geospatial agent conversations.                           damage, flood, and scene interpretation; PA handles statistics,
+     You will receive one saved case containing the user question, visible               ranking, exposure, route decisions, classification, and final analytic
+     input context, expected final answer, GT/reference tool chain or plan               synthesis. Return `null` for single-agent runs unless delegation-like
+     when available, predicted final answer, full predicted trajectory, tool             behavior is present.
+     calls, tool observations, runner metrics, and failure metadata.                  • `Summ`: grounded completion or handoff quality. Score whether the
+                                                                                         response is supported, complete, schema-aware, readable, and
+     Read the full case before scoring. Evaluate the agent’s behavior from               useful. This is separate from `Ans`.
+     the visible trajectory and evidence, not hidden data. Runner metrics             • `TSR`: aggregate task success. Use the mean of `Ans`, `CSR`,
+     may be used as evidence, but verify them against the trace and GT; if               `ESR`, `AnyOr`, and `SameO` as the default, then adjust by at most
+     they conflict, score from the trace and briefly explain the discrepancy.            +/-0.10 for severe hallucination, missing evidence, or unusually
+     Use the same metric definitions for single-agent and multi-agent runs:              strong evidence-backed completion.
+     • Multi-agent runs should include per-role scores for visible roles:             • `Gen`: artifact-generation quality. Return `null` when no artifact is
+       `ORC`, `GA`, `PA`, and `VRA`.                                                     requested; otherwise score whether the requested artifact is
+     • Single-agent runs should include one `MAIN` role score.                           produced and usable.
+     Metric families:                                                                 Backend/tool policy:
+     • Deterministic/trace: `AnyOr`, `SameO`, `Uni`, `StrictCorrect`, most of         • Do not mark `ArgErr` for backend timeout, weak
+       `Inst`, `Tool`, `ArgN`, `ArgV`, raw `ESR`, and explicit failure tags.             segmentation/detection, or unstable server output if the selected tool
+       Compute these directly from the GT chain, predicted trajectory, tool              and arguments were correct.
+       calls, runner events, and visible observations.                                • Tag backend failures as `ToolExecErr` or `ToolErr` only if they
+     • Semantic judge: `Ans`, `Summ`, `CSR`, semantic `PlanAcc`, semantic                materially affected the trajectory.
+       `DelegAcc`, and synthesis/failure severity. Score these from the final         • Do not inflate `Ans` or `Summ` if the agent fabricated a final answer
+       answer, evidence, schema compliance, and trajectory meaning.                      without sufficient evidence.
+     • Hybrid: `TSR`, final `ESR`, final `Tool`, final `ArgV`, and role-level         • If tools produced enough evidence for synthesis but the final response
+       scores when valid equivalent actions, partial execution, or backend               failed to use it, penalize `Summ` and, when appropriate, `Ans`.
+       failures require both trace verification and semantic judgment.
+                                                                                      Failure tags:
+     Trajectory normalization:                                                        • `PlanErr`: missing, invalid, or insufficient planning.
+     • Build `expected_tools` from the GT/reference tool chain and                    • `AgentErr`: wrong specialist choice, skipped role, role inconsistency,
+       `actual_tools` from executable predicted tool/API calls.                          or role-contract violation.
+     • Exclude pure planning, termination, and final-answer text unless               • `ToolErr`: missing required tool, wrong tool family, unsuitable tool
+       explicitly part of the target action.                                             choice, or incomplete tool-chain coverage.
+     • Deduplicate only immediate duplicate retry/log entries with identical          • `ArgErr`: missing, wrong, inconsistent, or non-value-preserving
+       tool and arguments.                                                               arguments.
+     • Preserve multiplicity for `AnyOr`, preserve order for `SameO`, and             • `FormatErr`: malformed JSON/action/output schema or invalid action
+       ignore multiplicity for `Uni`.                                                    wrapper.
+                                                                                      • `TermErr`: premature, missing, or invalid termination.
+     Metric definitions:
+                                                                                      • `LoopErr`: redundant calls or repeated reasoning loops that affect
+     • `AnyOr`: order-agnostic multiset tool-chain fidelity. Score 1.0 only if all
+                                                                                         completion.
+        expected tools appear with required multiplicity, ignoring order. Extra
+                                                                                      • `ReplanErr`: bad, unnecessary, contradictory, or missing
+        calls are allowed.
+                                                                                         recovery/replanning.
+     • `SameO`: ordered tool-chain fidelity. Score 1.0 only if `AnyOr=1.0`
+                                                                                      • `SynthErr`: weak final synthesis despite available evidence.
+        and the expected tool sequence appears as an ordered subsequence
+                                                                                      • `ConstraintErr`: schema, modality, source, region/time, unit,
+        of `actual_tools`.
+                                                                                         grounding, or task-constraint violation.
+     • `Uni`: unique required-tool coverage. Score 1.0 only if every distinct
+                                                                                      • `ToolExecErr`: live tool failure, timeout, failed observation, or
+        expected tool appears at least once.
+                                                                                         backend/control failure affecting the trajectory.
+     • `Inst`: syntactic and logical action validity, including valid action
+                                                                                      • `AbortErr`: no clean completion or no usable final answer.
+        format, legal ORC events, correct delegation/termination, and
+        absence of invalid loops or impossible state references.                      Output requirements:
+     • `Tool`: local step-wise tool/control correctness for the current state         Return strictly one JSON object and nothing else.
+        and subtask. This differs from `AnyOr`, which scores whole-trajectory
+                                                                                      The JSON object must include:
+        tool coverage.
+                                                                                      • `case_id` and `mode`, where `mode` is `multiagent` or `singleagent`.
+     • `ArgN`: required argument-name coverage for emitted tool calls,
+                                                                                      • All applicable case-level metrics using the keys defined above. Report
+        including mandatory fields and expected nesting/shape.
+                                                                                         numeric scores as floats in `[0.000, 1.000]`; use `null` only when a
+     • `ArgV`: correctness of argument values, including handles, regions,
+                                                                                         metric is not applicable.
+        modalities, timestamps, labels, thresholds, source selectors, and
+                                                                                      • Boolean status fields: `answer_correct`, `strict_correct`,
+        task-specific options.
+                                                                                         `constraint_satisfied`, and `execution_success`.
+     • `Ans`: semantic final-answer correctness independent of formatting.
+                                                                                      • `deterministic_audit` containing `expected_tools`, `actual_tools`, and
+        Accept numeric values within +/-10% unless exact IDs, counts,
+                                                                                         a short discrepancy note when needed.
+        ordering, schema, or strict values are required.
+                                                                                      • `agent_scores`, where each visible role (`ORC`, `GA`, `PA`, `VRA`) or
+     • `StrictCorrect`: strict runner-style correctness. Score 1.0 only when
+                                                                                         `MAIN` contains the same applicable metric keys as floats in `[0.000,
+        the final answer exactly satisfies the required exact, numeric, or
+                                                                                         1.000]`, plus `turn_count` and `tool_call_count`.
+        numeric-subset checks.
+                                                                                      • `failure_tags`, `dominant_failure`, and a concise `justification` of 2--4
+     • `CSR`: constraint satisfaction, including answer schema, required
+                                                                                         sentences.
+        fields, units, region/time/source constraints, grounding, and output
+        format.                                                                       Scoring reminders:
+     • `ESR`: clean episode completion without agent-caused abort,                    • Compute deterministic trace metrics first, then semantic metrics from
+        premature stop, unrecovered tool/backend failure, unresolved                    the final answer and evidence.
+        missing evidence, or harmful loops.                                           • Use `answer_correct=true` when `Ans >= 0.800`.
+     • `PlanAcc`: planning/decomposition quality. For multi-agent runs, judge         • Use `strict_correct=true` only when `StrictCorrect >= 0.950`.
+        ORC’s plan against the GT plan and tool dependencies; for                     • Use `constraint_satisfied=true` when `CSR >= 0.800`.
+                                                                                      • Use `execution_success=true` when `ESR >= 0.800`.
+                                                                                      • Always include `agent_scores`; use `MAIN` for single-agent runs.
+
+
+
+
+Figure S9: Condensed LLM-as-judge prompt used for GeoDisaster evaluation. The prompt defines deterministic, semantic, and hybrid
+metric families; specifies scoring rules for tool-chain fidelity, final-answer correctness, constraint satisfaction, execution success, role-level
+agent scores, and failure tags; and enforces structured JSON output for reproducible aggregation.
+
+
+
+
+                                                                                     28

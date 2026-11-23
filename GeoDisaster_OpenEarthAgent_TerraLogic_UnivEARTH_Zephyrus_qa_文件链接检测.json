@@ -1,0 +1,45 @@
+{
+  "errors": [],
+  "records": [
+    {
+      "name": "GeoDisaster",
+      "page_count": 28,
+      "figures": 23,
+      "source_pages": 28,
+      "english_text_chars": 161365,
+      "file_count": 66
+    },
+    {
+      "name": "OpenEarthAgent",
+      "page_count": 39,
+      "figures": 27,
+      "source_pages": 39,
+      "english_text_chars": 137734,
+      "file_count": 82
+    },
+    {
+      "name": "TerraLogic",
+      "page_count": 8,
+      "figures": 10,
+      "source_pages": 8,
+      "english_text_chars": 77233,
+      "file_count": 31
+    },
+    {
+      "name": "UnivEARTH",
+      "page_count": 15,
+      "figures": 11,
+      "source_pages": 15,
+      "english_text_chars": 83922,
+      "file_count": 39
+    },
+    {
+      "name": "Zephyrus",
+      "page_count": 51,
+      "figures": 74,
+      "source_pages": 51,
+      "english_text_chars": 222757,
+      "file_count": 145
+    }
+  ]
+}

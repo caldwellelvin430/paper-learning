@@ -1,0 +1,23 @@
+{
+  "name": "TerraLogic",
+  "source_file": "Yan 等 - 2026 - TerraLogic A Benchmark for Hierarchical Geospatial Reasoning in Earth Observation.pdf",
+  "sha256": "4396ea3cbcaae6bd75b96097af56adb8331454831ff5eee7dea43461c4e06033",
+  "pages": 8,
+  "page_text_characters": [
+    8243,
+    7953,
+    16101,
+    9340,
+    10025,
+    9005,
+    12740,
+    3826
+  ],
+  "figure_table_captures": 10,
+  "figures": 3,
+  "tables": 7,
+  "source_page_images": 8,
+  "source_pdf_bytes": 7706074,
+  "method": "Poppler pdftotext -layout; PyMuPDF 1.6x page render and 2.0x caption-anchored crop",
+  "generated_at": "2026-11-23"
+}

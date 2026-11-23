@@ -1,0 +1,569 @@
+[
+  {
+    "type": "figure",
+    "num": "1",
+    "caption": "Fig. 1: Comparison of OpenEarthAgent-4B and Qwen3-4B on a complex GIS reasoning task. OpenEarthAgent correctly sequences tool calls with proper dependencies and feedback, while Qwen3 fails due to misordered tool usage and inconsistent reasoning.",
+    "bbox": [
+      134.8,
+      461.3,
+      480.7,
+      492.2
+    ],
+    "label": "图1",
+    "page": 1,
+    "source_page": "./source_pages/page-001.jpg",
+    "image": "./images/figure-1-p001.png",
+    "clip_rect": [
+      27.0,
+      186.3,
+      585.0,
+      520.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "1",
+    "caption": "Table 1: Comparison of geospatial/EO agent frameworks. Abbrev.: RS=remote sensing; MM=multimodal inputs; Tools=executable tool/function calls; MS=multi- step reasoning; GIS=GIS/vector-raster geospatial; Spec=spectral (e.g., indices, multi- spectral); CD=change detection; RData=reasoning-supervision data for training.",
+    "bbox": [
+      134.8,
+      116.3,
+      480.7,
+      158.2
+    ],
+    "label": "表1",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-1-p005.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      423.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "2",
+    "caption": "Table 2: Comprehensive overview of data sources used for dataset construction, across optical, SAR, GIS, and multispectral domains. These sources provide complementary resolutions and annotations spanning urban and transport monitoring to environmental and disaster assessment, forming a foundation for multi-sensor, tool-based geospatial reasoning. GSD: ground sample distance, B-Box: bounding box, Seg: segmentation.",
+    "bbox": [
+      134.8,
+      116.3,
+      480.6,
+      169.1
+    ],
+    "label": "表2",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/table-2-p006.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      434.1
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "2",
+    "caption": "Fig. 2: Unified data-curation pipeline for the OpenEarthAgent dataset. RGB/SAR imagery, GIS spatial layers, and index-driven datasets are processed through dedi- cated filtering (annotation checks, POI constraints, and spectral-change signals such as NDVI/NBR/NDBI). The resulting samples are merged into unified JSON records with imagery metadata and geopackage information. A question synthesizer and con- versational generator produce tool-grounded queries and reasoning traces, which are",
+    "bbox": [
+      134.8,
+      245.1,
+      480.7,
+      330.8
+    ],
+    "label": "图2",
+    "page": 7,
+    "source_page": "./source_pages/page-007.jpg",
+    "image": "./images/figure-2-p007.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      358.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "3",
+    "caption": "Fig. 3: Representative query-reasoning trajectories from dataset, showing interleaving of natural-language thoughts, tool executions, and observations across tasks such as object localization, direction estimation, spectral mapping, change detection, and GIS- based analysis. Examples are simplified excerpts of longer multi-step reasoning traces.",
+    "bbox": [
+      134.8,
+      283.7,
+      480.6,
+      325.8
+    ],
+    "label": "图3",
+    "page": 8,
+    "source_page": "./source_pages/page-008.jpg",
+    "image": "./images/figure-3-p008.png",
+    "clip_rect": [
+      27.0,
+      8.7,
+      585.0,
+      353.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "4",
+    "caption": "Fig. 4: Dataset overview: category distribution (left) and corpus statistics (right).",
+    "bbox": [
+      142.0,
+      460.2,
+      473.4,
+      469.4
+    ],
+    "label": "图4",
+    "page": 8,
+    "source_page": "./source_pages/page-008.jpg",
+    "image": "./images/figure-4-p008.png",
+    "clip_rect": [
+      27.0,
+      185.2,
+      585.0,
+      497.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "5",
+    "caption": "Fig. 5: Overview of the proposed OpenEarthAgent framework. The figure depicts tool deployment, where user queries over RGB, SAR, paired change-detection (CD), or GIS/indexed imagery are processed by the geospatial reasoning engine and tool or- chestrator, which invoke appropriate tools and integrate feedback.",
+    "bbox": [
+      134.8,
+      247.3,
+      480.6,
+      289.2
+    ],
+    "label": "图5",
+    "page": 9,
+    "source_page": "./source_pages/page-009.jpg",
+    "image": "./images/figure-5-p009.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      317.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "3",
+    "caption": "Table 3: Step-by-step evaluation under tool-agnostic rollouts. We report accuracies: Inst.; syntactic + logical validity of actions, Tool.; correct tool selection, ArgN.; pres- ence of required parameters, ArgV.; parameter correctness, and Summ.; correctness of the final consolidated answer. While frontier LLMs lead on summary accuracy, Ope- nEarthAgent attains state-of-the-art Inst./Tool./ArgN./ArgV., narrowing the gap de- spite a substantially smaller parameter budget.",
+    "bbox": [
+      134.8,
+      451.0,
+      480.7,
+      514.7
+    ],
+    "label": "表3",
+    "page": 12,
+    "source_page": "./source_pages/page-012.jpg",
+    "image": "./images/table-3-p012.png",
+    "clip_rect": [
+      27.0,
+      296.0,
+      585.0,
+      779.7
+    ]
+  },
+  {
+    "type": "table",
+    "num": "4",
+    "caption": "Table 4: End-to-end evaluation: (i) F1 scores for tool selection across: Perception (Per.), Operation (Op.), Logic (Logic.), and GIS (GIS.); (ii) tool-order fidelity: Any- Order (multiset match, order-agnostic), SameOrder (exact sequence match), and Unique (set match, no multiplicity); and (iii) task-level Accuracy, Ans. for non- generative and Gen. for image-generation. GPT-4o attains high GIS F1, while Open- EarthAgent achieves strong, balanced performance with superior trajectory fidelity.",
+    "bbox": [
+      134.8,
+      116.3,
+      480.6,
+      180.1
+    ],
+    "label": "表4",
+    "page": 13,
+    "source_page": "./source_pages/page-013.jpg",
+    "image": "./images/table-4-p013.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      445.1
+    ]
+  },
+  {
+    "type": "table",
+    "num": "5",
+    "caption": "Table 5: Step-by-step evaluation on Earth-Agent Benchmark.",
+    "bbox": [
+      181.5,
+      116.3,
+      434.0,
+      125.5
+    ],
+    "label": "表5",
+    "page": 14,
+    "source_page": "./source_pages/page-014.jpg",
+    "image": "./images/table-5-p014.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      390.5
+    ]
+  },
+  {
+    "type": "table",
+    "num": "6",
+    "caption": "Table 6: (Left) ThinkGeo benchmark comparison on answer-level metrics. Open- EarthAgent achieves the scores, outperforming ThinkGeo and Qwen3-4B. (Right) Com- parison with a generic GPT agent across the spectrum, product, and image tasks. Ope- nEarthAgent achieves the best overall performance with the lowest latency.",
+    "bbox": [
+      134.8,
+      250.0,
+      480.6,
+      291.9
+    ],
+    "label": "表6",
+    "page": 14,
+    "source_page": "./source_pages/page-014.jpg",
+    "image": "./images/table-6-p014.png",
+    "clip_rect": [
+      27.0,
+      95.0,
+      585.0,
+      556.9
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "6",
+    "caption": "Fig. 6: Tool-call performance: Open- source models show lower success rates, while GPT family and OpenEarthAgent",
+    "bbox": [
+      134.8,
+      250.4,
+      300.8,
+      292.3
+    ],
+    "label": "图6",
+    "page": 15,
+    "source_page": "./source_pages/page-015.jpg",
+    "image": "./images/figure-6-p015.png",
+    "clip_rect": [
+      22.0,
+      0.0,
+      312.1,
+      320.3
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "7",
+    "caption": "Fig. 7: Category-wise performance: Ope- nEarthAgent and gpt-5 lead in index/ GIS score, while open source performs comparatively on image-based queries.",
+    "bbox": [
+      314.6,
+      250.4,
+      480.6,
+      292.3
+    ],
+    "label": "图7",
+    "page": 15,
+    "source_page": "./source_pages/page-015.jpg",
+    "image": "./images/figure-7-p015.png",
+    "clip_rect": [
+      299.9,
+      0.0,
+      590.0,
+      320.3
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A1",
+    "caption": "Table A1: Impact of data composition: Easy-only training achieves the best Perception score, Hard-only training boosts operational reasoning, while the combined setting yields the most balanced performance overall, achieving the highest Logic and GIS scores, the strongest tool-order consistency, and the best answer accuracy.",
+    "bbox": [
+      134.8,
+      553.5,
+      480.6,
+      595.3
+    ],
+    "label": "表A1",
+    "page": 20,
+    "source_page": "./source_pages/page-020.jpg",
+    "image": "./images/table-a1-p020.png",
+    "clip_rect": [
+      27.0,
+      398.5,
+      585.0,
+      792.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A2",
+    "caption": "Table A2: Performance comparison of Qwen3-Instruct-2507 under increasing in- context example sizes (k = 5, 10, 15) against the baseline (BL) and OpenEarthAgent. Increasing the number of in-context examples consistently improves performance over the baseline, while OpenEarthAgent achieves the strongest results across all metrics.",
+    "bbox": [
+      134.8,
+      526.4,
+      480.7,
+      568.2
+    ],
+    "label": "表A2",
+    "page": 21,
+    "source_page": "./source_pages/page-021.jpg",
+    "image": "./images/table-a2-p021.png",
+    "clip_rect": [
+      27.0,
+      371.4,
+      585.0,
+      792.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A3",
+    "caption": "Table A3: Impact of Tool Schema Complexity on Model Reasoning and Tool Usage: Structural exposure (Sch.1→2) improves tool perception and selection; argument-level signatures (Sch.3) enhance interface alignment and GIS reasoning; executable con- straints (Sch.4) strengthen logical consistency; and maximal specification with explicit JSON examples (Sch.5) yields the highest overall F1, tool-order correctness, and an- swer accuracy.",
+    "bbox": [
+      134.8,
+      508.7,
+      480.6,
+      572.5
+    ],
+    "label": "表A3",
+    "page": 22,
+    "source_page": "./source_pages/page-022.jpg",
+    "image": "./images/table-a3-p022.png",
+    "clip_rect": [
+      27.0,
+      353.7,
+      585.0,
+      792.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A4",
+    "caption": "Table A4: Impact of Tool Order on Model Reasoning and Tool Usage: Comparing shuffled order, optimized order without rules, and optimized order with enforced pre- conditions shows consistent gains in reasoning F1, tool-order correctness, and answer Acc., while Generation Acc. remains stable.",
+    "bbox": [
+      134.8,
+      116.3,
+      480.6,
+      158.2
+    ],
+    "label": "表A4",
+    "page": 25,
+    "source_page": "./source_pages/page-025.jpg",
+    "image": "./images/table-a4-p025.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      423.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A5",
+    "caption": "Table A5: Effect of High-Level Planning: Explicit high-level planning improves logical reasoning, tool sequencing consistency, and image generation decision accuracy, leading to stronger structured execution and overall performance.",
+    "bbox": [
+      134.8,
+      569.1,
+      480.6,
+      600.0
+    ],
+    "label": "表A5",
+    "page": 25,
+    "source_page": "./source_pages/page-025.jpg",
+    "image": "./images/table-a5-p025.png",
+    "clip_rect": [
+      27.0,
+      414.1,
+      585.0,
+      792.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "A6",
+    "caption": "Table A6: Comparison of base model performance across reasoning and tool-usage metrics. Qwen3-4B-Instruct-2507 slightly outperforms Qwen2.5-7B-Instruct. Results highlight that improved architectural alignment in the Qwen3 series yields more effi- cient multi-step reasoning despite a smaller model size.",
+    "bbox": [
+      134.8,
+      270.0,
+      480.6,
+      311.9
+    ],
+    "label": "表A6",
+    "page": 26,
+    "source_page": "./source_pages/page-026.jpg",
+    "image": "./images/table-a6-p026.png",
+    "clip_rect": [
+      27.0,
+      115.0,
+      585.0,
+      576.9
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A1",
+    "caption": "Fig. A1: Log-scale error distribution across models for four error types: No action, Wrong action format, Answer reached without a single tool call, and Multiple tool calls in a single action. Frontier models show fewer errors overall, while the fine-tuned OpenEarthAgent achieves the lowest total error count.",
+    "bbox": [
+      134.8,
+      258.5,
+      480.6,
+      300.3
+    ],
+    "label": "图A1",
+    "page": 27,
+    "source_page": "./source_pages/page-027.jpg",
+    "image": "./images/figure-a1-p027.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      585.0,
+      328.3
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A2",
+    "caption": "Fig. A2: Comparative model performance:(Left) Inference time efficiency across ar- chitectures. (Right) Error distribution by type, revealing tool-specific failure modes per model.",
+    "bbox": [
+      134.8,
+      291.5,
+      480.6,
+      322.4
+    ],
+    "label": "图A2",
+    "page": 28,
+    "source_page": "./source_pages/page-028.jpg",
+    "image": "./images/figure-a2-p028.png",
+    "clip_rect": [
+      27.0,
+      16.5,
+      585.0,
+      350.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A3",
+    "caption": "Fig. A3: Domain-stratified performance on the OpenEarthAgent Benchmark. The heatmap shows accuracy across eight geospatial domains. OpenEarthAgent delivers strong, consistent results, particularly in urban planning and environmental monitor- ing, while remaining competitive in infrastructure and disaster-related tasks.",
+    "bbox": [
+      134.8,
+      331.0,
+      480.7,
+      372.8
+    ],
+    "label": "图A3",
+    "page": 29,
+    "source_page": "./source_pages/page-029.jpg",
+    "image": "./images/figure-a3-p029.png",
+    "clip_rect": [
+      27.0,
+      56.0,
+      585.0,
+      400.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A4",
+    "caption": "Fig. A4: Example illustrates the zero-shot geospatial reasoning capabilities of Open- EarthAgent on a real-world environmental task by generating a Normalized Burn Ratio (NBR) difference map for a given region. The NBR difference map shows pronounced negative values (red) in southern Topanga, revealing burn scars and vegetation loss, while northern areas remain stable (yellow), showing the post-fire effects from early 2025 events.",
+    "bbox": [
+      134.8,
+      597.7,
+      480.6,
+      661.4
+    ],
+    "label": "图A4",
+    "page": 29,
+    "source_page": "./source_pages/page-029.jpg",
+    "image": "./images/figure-a4-p029.png",
+    "clip_rect": [
+      27.0,
+      322.7,
+      585.0,
+      689.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A5",
+    "caption": "Fig. A5: Example demonstrating OpenEarthAgent’s capability for metric-scale geospatial reasoning from imagery, estimating an airplane-to-airplane distance using centroid detection and GSD scaling.",
+    "bbox": [
+      134.8,
+      349.2,
+      480.7,
+      381.9
+    ],
+    "label": "图A5",
+    "page": 30,
+    "source_page": "./source_pages/page-030.jpg",
+    "image": "./images/figure-a5-p030.png",
+    "clip_rect": [
+      27.0,
+      74.2,
+      585.0,
+      409.9
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A6",
+    "caption": "Fig. A6: Example demonstrating OpenEarthAgent’s road-network distance computa- tion and spatial analysis within a 1000 m buffer of a specified area. The visualization highlights the detailed map output generated through sequential tool orchestration.",
+    "bbox": [
+      134.8,
+      601.2,
+      480.7,
+      632.1
+    ],
+    "label": "图A6",
+    "page": 30,
+    "source_page": "./source_pages/page-030.jpg",
+    "image": "./images/figure-a6-p030.png",
+    "clip_rect": [
+      27.0,
+      326.2,
+      585.0,
+      660.1
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A7",
+    "caption": "Fig. A7: Evaluation comparison for Geospatial Agent Answer Accuracy Assessment. Although Qwen3-30B assigns slightly higher absolute scores, model rankings remain consistent, demonstrating the robustness of the evaluation framework.",
+    "bbox": [
+      134.8,
+      455.9,
+      480.6,
+      486.8
+    ],
+    "label": "图A7",
+    "page": 33,
+    "source_page": "./source_pages/page-033.jpg",
+    "image": "./images/figure-a7-p033.png",
+    "clip_rect": [
+      27.0,
+      180.9,
+      585.0,
+      514.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "A8",
+    "caption": "Fig. A8: Evaluation Prompt for Geospatial Agent Answer Accuracy Assessment. The figure shows the structured prompt used to compute an Answer Accuracy Score (0–1) for a geospatial agent’s prediction. It defines criteria for numerical tolerance, semantic equivalence, error handling, and required JSON output format for standardized evalu- ation.",
+    "bbox": [
+      134.8,
+      511.1,
+      480.7,
+      563.9
+    ],
+    "label": "图A8",
+    "page": 34,
+    "source_page": "./source_pages/page-034.jpg",
+    "image": "./images/figure-a8-p034.png",
+    "clip_rect": [
+      27.0,
+      236.1,
+      585.0,
+      591.9
+    ]
+  }
+]

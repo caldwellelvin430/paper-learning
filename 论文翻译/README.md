@@ -44,6 +44,11 @@
 | DORA | [中文重点章节](DORA/中文学术译稿_重点章节.md) · [阅读说明](DORA/README_阅读说明.md) · [原文 PDF](DORA/原始论文.pdf) |
 | EarthVerse | [中文重点章节](EarthVerse/中文学术译稿_重点章节.md) · [阅读说明](EarthVerse/README_阅读说明.md) · [原文 PDF](EarthVerse/原始论文.pdf) |
 | EO-Gym | [中文重点章节](EO-Gym/中文学术译稿_重点章节.md) · [阅读说明](EO-Gym/README_阅读说明.md) · [原文 PDF](EO-Gym/原始论文.pdf) |
+| GeoDisaster | [中文摘要与主要章节](GeoDisaster/中文摘要全译与主要章节译述.md) · [阅读说明](GeoDisaster/README_阅读说明.md) · [原文 PDF](GeoDisaster/原始论文.pdf) |
+| OpenEarthAgent | [中文摘要与主要章节](OpenEarthAgent/中文摘要全译与主要章节译述.md) · [阅读说明](OpenEarthAgent/README_阅读说明.md) · [原文 PDF](OpenEarthAgent/原始论文.pdf) |
+| TerraLogic | [中文摘要与主要章节](TerraLogic/中文摘要全译与主要章节译述.md) · [阅读说明](TerraLogic/README_阅读说明.md) · [原文 PDF](TerraLogic/原始论文.pdf) |
+| UnivEARTH | [中文摘要与主要章节](UnivEARTH/中文摘要全译与主要章节译述.md) · [阅读说明](UnivEARTH/README_阅读说明.md) · [原文 PDF](UnivEARTH/原始论文.pdf) |
+| Zephyrus | [中文摘要与主要章节](Zephyrus/中文摘要全译与主要章节译述.md) · [阅读说明](Zephyrus/README_阅读说明.md) · [原文 PDF](Zephyrus/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

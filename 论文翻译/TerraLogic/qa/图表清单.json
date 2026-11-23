@@ -1,0 +1,212 @@
+[
+  {
+    "type": "figure",
+    "num": "1",
+    "caption": "Figure 1: Hierarchical Scene Context (HSC) enables cognitive- level geospatial reasoning by organizing scene information from intent to entities, relations, and dependency-aware sub- goals, bridging perception and decision-making.",
+    "bbox": [
+      318.0,
+      342.3,
+      559.8,
+      384.1
+    ],
+    "label": "图1",
+    "page": 1,
+    "source_page": "./source_pages/page-001.jpg",
+    "image": "./images/figure-1-p001.png",
+    "clip_rect": [
+      299.9,
+      67.3,
+      590.0,
+      412.1
+    ]
+  },
+  {
+    "type": "table",
+    "num": "1",
+    "caption": "Table 1: Comparison of representative execution-grounded remote sensing (RS/EO) reasoning benchmarks. (✓: fully sup- ported; ✗: not supported; –: not emphasized or not applicable.)",
+    "bbox": [
+      317.7,
+      84.6,
+      559.8,
+      115.4
+    ],
+    "label": "表1",
+    "page": 2,
+    "source_page": "./source_pages/page-002.jpg",
+    "image": "./images/table-1-p002.png",
+    "clip_rect": [
+      299.9,
+      0.0,
+      590.0,
+      380.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "2",
+    "caption": "Figure 2: Representative TerraLogic tasks and HieraPlan execution traces under our error taxonomy. From left to right: (i) input image and query, (ii) high-level plans from HieraPlan, (iii) executed tool sequence, and (iv) final geospatial answer. Red crosses mark erroneous intermediate plans or tool calls, while green checkmarks indicate the validated final tool chain and answer.",
+    "bbox": [
+      53.8,
+      425.9,
+      558.2,
+      456.7
+    ],
+    "label": "图2",
+    "page": 3,
+    "source_page": "./source_pages/page-003.jpg",
+    "image": "./images/figure-2-p003.png",
+    "clip_rect": [
+      27.0,
+      150.9,
+      585.0,
+      484.7
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "3",
+    "caption": "Figure 3: Pipeline for constructing the TerraLogic benchmark.",
+    "bbox": [
+      180.4,
+      639.2,
+      431.6,
+      648.2
+    ],
+    "label": "图3",
+    "page": 3,
+    "source_page": "./source_pages/page-003.jpg",
+    "image": "./images/figure-3-p003.png",
+    "clip_rect": [
+      27.0,
+      364.2,
+      585.0,
+      676.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "2",
+    "caption": "Table 2: Datasets used as image sources in the TerraLogic benchmark.",
+    "bbox": [
+      53.5,
+      84.5,
+      294.0,
+      104.5
+    ],
+    "label": "表2",
+    "page": 4,
+    "source_page": "./source_pages/page-004.jpg",
+    "image": "./images/table-2-p004.png",
+    "clip_rect": [
+      22.0,
+      0.0,
+      312.1,
+      369.5
+    ]
+  },
+  {
+    "type": "table",
+    "num": "3",
+    "caption": "Table 3: Statistics of question complexity and tool-use pat- terns across different modalities.",
+    "bbox": [
+      317.7,
+      84.5,
+      559.8,
+      104.5
+    ],
+    "label": "表3",
+    "page": 4,
+    "source_page": "./source_pages/page-004.jpg",
+    "image": "./images/table-3-p004.png",
+    "clip_rect": [
+      299.9,
+      0.0,
+      590.0,
+      369.5
+    ]
+  },
+  {
+    "type": "table",
+    "num": "4",
+    "caption": "Table 4: Main results of HieraPlan on the TerraLogic bench- mark. Inst., Tool., Arg., and Summ. denote step-by-step ac- curacies (InstAcc, ToolAcc, ArgAcc, SummAcc). P, O, and L denote end-to-end scores in the Perception, Spatial Statistics, and Spatial Relations toolkits. Ans. denotes the final answer accuracy (AnsAcc). Bold indicates the best overall score, and",
+    "bbox": [
+      317.7,
+      84.6,
+      559.8,
+      159.3
+    ],
+    "label": "表4",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-4-p005.png",
+    "clip_rect": [
+      299.9,
+      0.0,
+      590.0,
+      424.3
+    ]
+  },
+  {
+    "type": "table",
+    "num": "5",
+    "caption": "Table 5: Percentage distribution of four error categories for different LLMs (%). Bold indicates the most frequent error type for each model.",
+    "bbox": [
+      317.7,
+      315.2,
+      558.4,
+      346.1
+    ],
+    "label": "表5",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-5-p005.png",
+    "clip_rect": [
+      299.9,
+      160.2,
+      590.0,
+      611.1
+    ]
+  },
+  {
+    "type": "table",
+    "num": "6",
+    "caption": "Table 6: Optical accuracy comparison between representa- tive remote-sensing multimodal LLMs (RS-MLLMs) and our HieraPlan (GPT-4o) on TerraLogic optical VQA tasks.",
+    "bbox": [
+      53.5,
+      84.5,
+      295.7,
+      115.5
+    ],
+    "label": "表6",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/table-6-p006.png",
+    "clip_rect": [
+      22.0,
+      0.0,
+      312.1,
+      380.5
+    ]
+  },
+  {
+    "type": "table",
+    "num": "7",
+    "caption": "Table 7: Fine-grained results across models and capability subsets. All metrics are in %.",
+    "bbox": [
+      317.7,
+      84.5,
+      558.5,
+      104.5
+    ],
+    "label": "表7",
+    "page": 6,
+    "source_page": "./source_pages/page-006.jpg",
+    "image": "./images/table-7-p006.png",
+    "clip_rect": [
+      299.9,
+      0.0,
+      590.0,
+      369.5
+    ]
+  }
+]

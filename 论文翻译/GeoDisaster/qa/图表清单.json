@@ -1,0 +1,485 @@
+[
+  {
+    "type": "table",
+    "num": "1",
+    "caption": "Table 1: GeoDisaster vs. prior work. ✓: sup- ported; ✗: not supported; ˜: partial.",
+    "bbox": [
+      315.3,
+      296.5,
+      525.1,
+      323.6
+    ],
+    "label": "表1",
+    "page": 2,
+    "source_page": "./source_pages/page-002.jpg",
+    "image": "./images/table-1-p002.png",
+    "clip_rect": [
+      291.7,
+      141.5,
+      573.3,
+      588.6
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "1",
+    "caption": "Figure 1: Overview of the GeoDisaster pipeline. Public EO/GIS sources are ingested and standardized into five disaster task families, validated through executable geospatial workflows, and converted into agentic trajectories comprising orchestrator plans, specialist-agent actions, tool calls, and structured outputs. The resulting benchmark supports both end-to-end task evaluation and step-level trajectory assessment across single and multi-agent settings.",
+    "bbox": [
+      72.0,
+      380.3,
+      523.7,
+      445.4
+    ],
+    "label": "图1",
+    "page": 3,
+    "source_page": "./source_pages/page-003.jpg",
+    "image": "./images/figure-1-p003.png",
+    "clip_rect": [
+      27.0,
+      105.3,
+      568.3,
+      473.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "2",
+    "caption": "Figure 2: Examples from GeoDisaster task families. Left: A flood-safe routing example in Sweden, where satellite context and flood-routing evidence are used to generate a route overlay and compare fastest, safest, and balanced routes. Right: A multi-hazard NO2 exposure example in Los Angeles, where satellite context and exposure artifacts support population-exposure estimation. The traces illustrate representative compressed agentic workflows.",
+    "bbox": [
+      71.6,
+      230.7,
+      524.6,
+      296.0
+    ],
+    "label": "图2",
+    "page": 4,
+    "source_page": "./source_pages/page-004.jpg",
+    "image": "./images/figure-2-p004.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      324.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "2",
+    "caption": "Table 2: GeoDisaster task families. Each family is derived from public EO/GIS sources and targets a distinct stage of operational disaster geospatial reasoning, spanning five disaster families, with heteroge- neous input modalities and structured answer targets.",
+    "bbox": [
+      71.7,
+      73.0,
+      525.1,
+      111.2
+    ],
+    "label": "表2",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-2-p005.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      376.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "3",
+    "caption": "Table 3: GeoDisaster statistics.",
+    "bbox": [
+      344.3,
+      579.2,
+      485.3,
+      590.2
+    ],
+    "label": "表3",
+    "page": 5,
+    "source_page": "./source_pages/page-005.jpg",
+    "image": "./images/table-3-p005.png",
+    "clip_rect": [
+      291.7,
+      424.2,
+      573.3,
+      841.9
+    ]
+  },
+  {
+    "type": "table",
+    "num": "4",
+    "caption": "Table 4: GeoDisaster benchmark results. Tool-use fidelity: order-agnostic (ToolAnyOr), exact-order (ToolSameO), and unique-tool (ToolUni) matching. TSR: task success rate; Ans: answer accuracy; CSR: contract satisfaction; ESR: strict episode resolution. Step-wise: instruction following (Inst.), tool selection (Tool), argument names (ArgN), argument values (ArgV), summarization (Summa). Best results in bold.",
+    "bbox": [
+      71.6,
+      73.0,
+      524.8,
+      124.8
+    ],
+    "label": "表4",
+    "page": 10,
+    "source_page": "./source_pages/page-010.jpg",
+    "image": "./images/table-4-p010.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      389.8
+    ]
+  },
+  {
+    "type": "table",
+    "num": "5",
+    "caption": "Table 5: OpenEarthAgent benchmark results. Tool-use fidelity: order-agnostic (ToolAnyOr), exact- order (ToolSameO), unique-tool (ToolUni) matching. Ans: non-generative accuracy; Gen: generative accuracy. Step-wise: instruction following (Inst.), tool selection (Tool), argument names (ArgN), argument values (ArgV), summarization (Summa).",
+    "bbox": [
+      71.7,
+      72.9,
+      525.1,
+      124.8
+    ],
+    "label": "表5",
+    "page": 11,
+    "source_page": "./source_pages/page-011.jpg",
+    "image": "./images/table-5-p011.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      389.8
+    ]
+  },
+  {
+    "type": "table",
+    "num": "6",
+    "caption": "Table 6: Agent-specific step-wise metrics on GeoDisaster. ORC: orchestrator; VRA: visual reasoning; GA: geospatial analysis; PA: planning. Inst: instruction following; Tool: tool selection; ArgN/ArgV: argument name/value correctness; Summa: summarization.",
+    "bbox": [
+      71.7,
+      404.3,
+      524.8,
+      442.3
+    ],
+    "label": "表6",
+    "page": 11,
+    "source_page": "./source_pages/page-011.jpg",
+    "image": "./images/table-6-p011.png",
+    "clip_rect": [
+      27.0,
+      249.3,
+      568.3,
+      707.3
+    ]
+  },
+  {
+    "type": "table",
+    "num": "7",
+    "caption": "Table 7: Backbone sensitivity on GeoDisaster (MAS+SFT+GRPO). PlanAcc/DelegAcc: planning and delegation accuracy; ToolAnyOr/SameO/Uni: tool-use fidelity; TSR: task success; Ans: answer accuracy; CSR: constraint satisfaction. Step-wise as in Table 6.",
+    "bbox": [
+      71.6,
+      73.1,
+      524.2,
+      111.2
+    ],
+    "label": "表7",
+    "page": 12,
+    "source_page": "./source_pages/page-012.jpg",
+    "image": "./images/table-7-p012.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      376.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "8",
+    "caption": "Table 8: Failure-wise error rates on GeoDisaster (lower is better). Each cell: % of trajectories where the error materially affected execution. PlanErr: planning; AgentErr: agent selection; ToolErr: tool selection; ArgErr: arguments; FormatErr: output format; TermErr: termination; LoopErr: repeated calls; ReplanErr: replanning; SynthErr: synthesis; ConstraintErr: constraint violation; ToolExecErr: tool execution; AbortErr: aborted trajectory.",
+    "bbox": [
+      71.7,
+      212.8,
+      524.2,
+      278.0
+    ],
+    "label": "表8",
+    "page": 12,
+    "source_page": "./source_pages/page-012.jpg",
+    "image": "./images/table-8-p012.png",
+    "clip_rect": [
+      27.0,
+      57.8,
+      568.3,
+      543.0
+    ]
+  },
+  {
+    "type": "table",
+    "num": "9",
+    "caption": "Table 9: Efficiency analysis on GeoDisaster. ↑/↓: higher/lower is better. Per-trajectory averages: Agents, Tools, Tokens. Success-normalized: Tokens/Succ., Latency/Succ. (s), Calls/Succ. Dashes: unavailable or undefined (zero successes).",
+    "bbox": [
+      71.4,
+      73.0,
+      524.6,
+      111.2
+    ],
+    "label": "表9",
+    "page": 13,
+    "source_page": "./source_pages/page-013.jpg",
+    "image": "./images/table-9-p013.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      376.2
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S1",
+    "caption": "Figure S1: GeoDisaster task taxonomy, summarizing the five disaster task families and their associated sub-task categories, highlighting the benchmark’s coverage across geo-intelligence tasks.",
+    "bbox": [
+      72.0,
+      452.8,
+      524.4,
+      474.2
+    ],
+    "label": "图S1",
+    "page": 17,
+    "source_page": "./source_pages/page-017.jpg",
+    "image": "./images/figure-s1-p017.png",
+    "clip_rect": [
+      27.0,
+      177.8,
+      568.3,
+      502.2
+    ]
+  },
+  {
+    "type": "table",
+    "num": "S1",
+    "caption": "Table S1: Geo Disaster task taxonomy. The benchmark contains 43 task categories across five disaster- oriented families. Each category is associated with a representative compact question illustrating the expected reasoning behavior.",
+    "bbox": [
+      71.7,
+      653.0,
+      525.1,
+      691.0
+    ],
+    "label": "表S1",
+    "page": 18,
+    "source_page": "./source_pages/page-018.jpg",
+    "image": "./images/table-s1-p018.png",
+    "clip_rect": [
+      27.0,
+      498.0,
+      568.3,
+      841.9
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S2",
+    "caption": "Figure S2: Distribution of executable GT tool-chain lengths across GeoDisaster task families. Darker cells indicate more cases, showing how trajectory depth varies across domains.",
+    "bbox": [
+      72.0,
+      217.3,
+      523.3,
+      238.8
+    ],
+    "label": "图S2",
+    "page": 19,
+    "source_page": "./source_pages/page-019.jpg",
+    "image": "./images/figure-s2-p019.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      266.8
+    ]
+  },
+  {
+    "type": "table",
+    "num": "S2",
+    "caption": "Table S2: GeoDisaster geospatial tool suite. The 18 tools are organized by their role in the operational reasoning workflow, with each tool assigned to the specialist agent responsible for its execution.",
+    "bbox": [
+      71.7,
+      621.4,
+      523.3,
+      645.9
+    ],
+    "label": "表S2",
+    "page": 20,
+    "source_page": "./source_pages/page-020.jpg",
+    "image": "./images/table-s2-p020.png",
+    "clip_rect": [
+      27.0,
+      466.4,
+      568.3,
+      841.9
+    ]
+  },
+  {
+    "type": "table",
+    "num": "S3",
+    "caption": "Table S3: Representative error traces. Common failure modes in GeoDisaster agent execution. Each row gives the failure definition with schematic wrong and correct traces.",
+    "bbox": [
+      71.7,
+      386.4,
+      523.3,
+      411.0
+    ],
+    "label": "表S3",
+    "page": 21,
+    "source_page": "./source_pages/page-021.jpg",
+    "image": "./images/table-s3-p021.png",
+    "clip_rect": [
+      27.0,
+      231.4,
+      568.3,
+      676.0
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S3",
+    "caption": "Figure S3: Smoothed role-wise reward curves during GRPO alignment. Rewards increase across all agent roles and stabilize over training, indicating that the alignment objective improves role-specific execution while preserving distinct reward profiles for ORC, GA, PA, and VRA.",
+    "bbox": [
+      72.0,
+      211.2,
+      523.3,
+      243.6
+    ],
+    "label": "图S3",
+    "page": 22,
+    "source_page": "./source_pages/page-022.jpg",
+    "image": "./images/figure-s3-p022.png",
+    "clip_rect": [
+      27.0,
+      0.0,
+      568.3,
+      271.6
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S4",
+    "caption": "Figure S4: Task-wise answer success on GeoDisaster before and after alignment. SFT provides the dominant improvement across all families, while GRPO adds consistent gains, especially on decision-sensitive tasks such as flood-safe routing and building-damage assessment.",
+    "bbox": [
+      72.0,
+      367.5,
+      523.3,
+      399.8
+    ],
+    "label": "图S4",
+    "page": 22,
+    "source_page": "./source_pages/page-022.jpg",
+    "image": "./images/figure-s4-p022.png",
+    "clip_rect": [
+      27.0,
+      92.5,
+      568.3,
+      427.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S5",
+    "caption": "Figure S5: Example of successful alignment on a GeoDisaster SAR flood task. The vanilla MAS extracts useful intermediate evidence but fails to project it into the final answer. MAS + SFT still fails due to an invalid filename/handle, while MAS + SFT + GRPO corrects the handle usage and produces a clean completed report.",
+    "bbox": [
+      72.0,
+      723.6,
+      523.3,
+      752.7
+    ],
+    "label": "图S5",
+    "page": 25,
+    "source_page": "./source_pages/page-025.jpg",
+    "image": "./images/figure-s5-p025.png",
+    "clip_rect": [
+      27.0,
+      448.6,
+      568.3,
+      780.7
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S6",
+    "caption": "Figure S6: Failure-case comparison on a GeoDisaster damage-assessment task. The plain MAS fails to access valid evidence handles. SFT fixes evidence extraction but still ranks by building count instead of footprint area. GRPO preserves the improved execution, but the final answer retains the same metric-selection error.",
+    "bbox": [
+      72.0,
+      717.3,
+      523.5,
+      746.4
+    ],
+    "label": "图S6",
+    "page": 26,
+    "source_page": "./source_pages/page-026.jpg",
+    "image": "./images/figure-s6-p026.png",
+    "clip_rect": [
+      27.0,
+      442.3,
+      568.3,
+      774.4
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S7",
+    "caption": "Figure S7: Example GeoDisaster for scene-level building-damage assessment. The task combines pre/post imagery, damage polygons, quadrant overlays, and role-specialized tool calls to produce a structured damage summary with counts, severe-area estimates, spatial dispersion, and mask validation.",
+    "bbox": [
+      72.0,
+      333.5,
+      523.3,
+      365.8
+    ],
+    "label": "图S7",
+    "page": 27,
+    "source_page": "./source_pages/page-027.jpg",
+    "image": "./images/figure-s7-p027.png",
+    "clip_rect": [
+      27.0,
+      58.5,
+      568.3,
+      393.8
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S8",
+    "caption": "Figure S8: Example GeoDisaster for wildfire burned-area estimation. The task uses pre/post fire imagery and a burn-mask product to compute the burned footprint area, with role-specialized tool calls for evidence loading, area measurement, and final grounded reporting.",
+    "bbox": [
+      72.0,
+      700.5,
+      523.5,
+      732.9
+    ],
+    "label": "图S8",
+    "page": 27,
+    "source_page": "./source_pages/page-027.jpg",
+    "image": "./images/figure-s8-p027.png",
+    "clip_rect": [
+      27.0,
+      425.5,
+      568.3,
+      760.9
+    ]
+  },
+  {
+    "type": "figure",
+    "num": "S9",
+    "caption": "Figure S9: Condensed LLM-as-judge prompt used for GeoDisaster evaluation. The prompt defines deterministic, semantic, and hybrid metric families; specifies scoring rules for tool-chain fidelity, final-answer correctness, constraint satisfaction, execution success, role-level agent scores, and failure tags; and enforces structured JSON output for reproducible aggregation.",
+    "bbox": [
+      72.0,
+      706.7,
+      523.3,
+      735.9
+    ],
+    "label": "图S9",
+    "page": 28,
+    "source_page": "./source_pages/page-028.jpg",
+    "image": "./images/figure-s9-p028.png",
+    "clip_rect": [
+      27.0,
+      431.7,
+      568.3,
+      763.9
+    ]
+  }
+]
