@@ -1,0 +1,302 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "caption": "Figure. 1. Representative task examples in DORA across different disaster operational categories. Each example illustrates the heterogeneous data inputs and multi-step tool chains required to produce concrete, decision-ready outputs.",
+    "rect": [
+      42.52000427246094,
+      587.5433959960938,
+      552.7543334960938,
+      609.4609985351562
+    ],
+    "id": "figure-1-p002",
+    "page": 2,
+    "file": "./images/figure-1-p002.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      621.46
+    ]
+  },
+  {
+    "type": "table",
+    "number": "1",
+    "caption": "Table 1. Comparison of DORA with representative agent benchmarks.",
+    "rect": [
+      157.16000366210938,
+      437.2753601074219,
+      437.806396484375,
+      447.2379455566406
+    ],
+    "id": "table-1-p003",
+    "page": 3,
+    "file": "./images/table-1-p003.png",
+    "clip_pdf": [
+      4.0,
+      268.9,
+      591.28,
+      836.89
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "caption": "Figure. 2. DORA aggregates multi-modal data from 10 open-source databases into 45 disaster events distributed across five continents, including 2,850 remote sensing images, 460 vector layers and 515 expert-designed tasks across 10 disaster types. ‘new’ denotes our self-constructed samples.",
+    "rect": [
+      42.52000045776367,
+      552.4393920898438,
+      552.7545166015625,
+      586.31298828125
+    ],
+    "id": "figure-2-p004",
+    "page": 4,
+    "file": "./images/figure-2-p004.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      598.31
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "caption": "Figure. 4. Distribution of 515 tasks across five an- alytical dimensions (inner ring) and disaster types (outer bars).",
+    "rect": [
+      348.6650085449219,
+      350.54144287109375,
+      554.4225463867188,
+      384.41400146484375
+    ],
+    "id": "figure-4-p005",
+    "page": 5,
+    "file": "./images/figure-4-p005.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      396.41
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "caption": "Figure. 3. Each sample is stored as a JSON meta file linking the query (Q), heterogeneous input data (D, rasters and vectors), tool-call trajectory (T), and final answer (A).",
+    "rect": [
+      42.52000427246094,
+      350.54144287109375,
+      339.704345703125,
+      386.1768798828125
+    ],
+    "id": "figure-3-p005",
+    "page": 5,
+    "file": "./images/figure-3-p005.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      398.18
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "5",
+    "caption": "Figure. 5. Complexity and tool-usage profiles across DORA’s five dimensions. (a) Trajectory length grows from 3.35 (T1) to 11.96 steps (T5), with distinct tool-category distributions per dimension. (b) Representative trajectories show the progression from linear perception chains (T1) to full-stack report synthesis (T5); node colors match (a).",
+    "rect": [
+      42.52000045776367,
+      653.8384399414062,
+      552.7545776367188,
+      687.7120361328125
+    ],
+    "id": "figure-5-p005",
+    "page": 5,
+    "file": "./images/figure-5-p005.png",
+    "clip_pdf": [
+      4.0,
+      30.84,
+      591.28,
+      699.71
+    ]
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "caption": "Table 2. Overview of the DORA tool library.",
+    "rect": [
+      207.8800048828125,
+      530.6963500976562,
+      387.0871276855469,
+      540.658935546875
+    ],
+    "id": "table-2-p006",
+    "page": 6,
+    "file": "./images/table-2-p006.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      666.94
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "6",
+    "caption": "Figure. 6. Our annotation pipeline: (1) experts author queries and symbolic trajectories; (2) a deterministic replay engine resolves references to produce gold annotations; (3) AI-assisted evaluation.",
+    "rect": [
+      42.52000045776367,
+      733.9064331054688,
+      552.7543334960938,
+      755.8240356445312
+    ],
+    "id": "figure-6-p007",
+    "page": 7,
+    "file": "./images/figure-6-p007.png",
+    "clip_pdf": [
+      4.0,
+      110.91,
+      591.28,
+      767.82
+    ]
+  },
+  {
+    "type": "table",
+    "number": "3",
+    "caption": "Table 3. Atomic scoring operators used by DORA. All typed fields are ultimately reduced to these four rules. 𝑦𝑝, 𝑦𝑔denote predicted and gold values; nrm(·) applies string normalization.",
+    "rect": [
+      42.21099853515625,
+      126.21342468261719,
+      552.75634765625,
+      150.5335235595703
+    ],
+    "id": "table-3-p008",
+    "page": 8,
+    "file": "./images/table-3-p008.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      739.86
+    ]
+  },
+  {
+    "type": "table",
+    "number": "4",
+    "caption": "Table 4. Main results on the DORA benchmark. We report final-answer accuracy (%) per task dimension, trajectory metrics (%), and efficiency.",
+    "rect": [
+      42.21099853515625,
+      280.48040771484375,
+      553.9996337890625,
+      302.39801025390625
+    ],
+    "id": "table-4-p008",
+    "page": 8,
+    "file": "./images/table-4-p008.png",
+    "clip_pdf": [
+      4.0,
+      112.1,
+      591.28,
+      836.89
+    ]
+  },
+  {
+    "type": "table",
+    "number": "5",
+    "caption": "Table 5. AP versus IF mode.",
+    "rect": [
+      381.6650085449219,
+      223.01341247558594,
+      495.67706298828125,
+      232.97601318359375
+    ],
+    "id": "table-5-p009",
+    "page": 9,
+    "file": "./images/table-5-p009.png",
+    "clip_pdf": [
+      4.0,
+      54.64,
+      591.28,
+      822.3
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "7",
+    "caption": "Figure. 7. Failure modes in disaster domain.",
+    "rect": [
+      82.12899780273438,
+      373.16644287109375,
+      258.0286560058594,
+      383.1290283203125
+    ],
+    "id": "figure-7-p009",
+    "page": 9,
+    "file": "./images/figure-7-p009.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      395.13
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "8",
+    "caption": "Figure. 8. Agent performances (%) decomposed by input modality configuration.",
+    "rect": [
+      136.1529998779297,
+      672.3214111328125,
+      459.1204528808594,
+      682.2839965820312
+    ],
+    "id": "figure-8-p009",
+    "page": 9,
+    "file": "./images/figure-8-p009.png",
+    "clip_pdf": [
+      4.0,
+      49.32,
+      591.28,
+      694.28
+    ]
+  },
+  {
+    "type": "table",
+    "number": "6",
+    "caption": "Table 6. Agent scaffolding ablation.",
+    "rect": [
+      357.0369873046875,
+      164.30247497558594,
+      499.89068603515625,
+      174.26507568359375
+    ],
+    "id": "table-6-p010",
+    "page": 10,
+    "file": "./images/table-6-p010.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      763.59
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "9",
+    "caption": "Figure. 9. Agents vs. gold trajectory: compositional fragility scales with length.",
+    "rect": [
+      42.52000045776367,
+      271.87945556640625,
+      83.43639373779297,
+      293.79705810546875
+    ],
+    "id": "figure-9-p010",
+    "page": 10,
+    "file": "./images/figure-9-p010.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      591.28,
+      305.8
+    ]
+  }
+]

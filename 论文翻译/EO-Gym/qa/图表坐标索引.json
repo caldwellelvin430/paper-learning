@@ -1,0 +1,722 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "caption": "Figure 1: The EO-Gym framework operationalizes EO as an interactive evidence-acquisition problem. A controlled environment (left) enables dynamic exploration across space, time, and modality. An iterative pipeline (middle) synthesizes a large-scale trajectory dataset. Finally, a unified evaluation protocol (right) assesses fine-tuned and baseline models.",
+    "rect": [
+      72.0,
+      303.5122985839844,
+      540.00048828125,
+      346.2770690917969
+    ],
+    "id": "figure-1-p003",
+    "page": 3,
+    "file": "./images/figure-1-p003.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      358.28
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "caption": "Figure 2: Overview of EO-GYM-DATA statistics. Panel (a) shows the taxonomy of six EO task categories and 18 question types. Panel (b) shows the geographical distribution of the geolocated trajectory subset only, with red markers for training examples and blue markers for held-out test examples. Panels (c) and (d) summarize the dataset’s temporal spans and trajectory-length distribution, illustrating diversity in observation history and multi-step interaction depth.",
+    "rect": [
+      72.0,
+      355.6593017578125,
+      539.9991455078125,
+      398.424072265625
+    ],
+    "id": "figure-2-p004",
+    "page": 4,
+    "file": "./images/figure-2-p004.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      410.42
+    ]
+  },
+  {
+    "type": "table",
+    "number": "1",
+    "caption": "Table 1: Comparison with recent EO agent resources. DG denotes whether the benchmark supports data-gathering execution tools for ac- tive evidence acquisition. EO-GYM-DATA uniquely provides a training- scale VLM benchmark backed by massive indexed files with data- gathering tools.",
+    "rect": [
+      258.88800048828125,
+      531.2000732421875,
+      539.995361328125,
+      585.0520629882812
+    ],
+    "id": "table-1-p004",
+    "page": 4,
+    "file": "./images/table-1-p004.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      703.85
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "caption": "Figure 3: Qualitative examples from EO-GYM-DATA across six EO task categories. Each example shows a complete interactive trajectory: an EO question (left), the sequential execution of EO tools to gather spatial, temporal, or cross-modal evidence (center), and the resulting verifiable answer (right).",
+    "rect": [
+      72.0,
+      297.1047058105469,
+      540.0006103515625,
+      328.8890686035156
+    ],
+    "id": "figure-3-p005",
+    "page": 5,
+    "file": "./images/figure-3-p005.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      340.89
+    ]
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "caption": "Table 2: Main benchmark results. EO-GYM-4B achieves the highest overall performance, leading in Pass@1, Pass@2, Pass@3, and Tool-any. Compared to its base model (QWEN3-VL-4B-INSTRUCT), EO-GYM-4B yields substantial absolute improvements across all metrics, while simultaneously reducing unnecessary tool calls and formatting errors. EO-GYM-4B maintains a highly competitive, near-zero illegal error rate while vastly outperforming them in final task success.",
+    "rect": [
+      71.69100189208984,
+      78.22937774658203,
+      541.2492065429688,
+      131.77206420898438
+    ],
+    "id": "table-2-p006",
+    "page": 6,
+    "file": "./images/table-2-p006.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      686.17
+    ]
+  },
+  {
+    "type": "table",
+    "number": "3",
+    "caption": "Table 3: The Table 2 Pass@3 results broken down by EO task. EO-GYM-4B achieves the strongest performance on Temporal, Disaster Impact, and Visual Understanding tasks.",
+    "rect": [
+      71.69100189208984,
+      271.85552978515625,
+      540.0035400390625,
+      292.77606201171875
+    ],
+    "id": "table-3-p006",
+    "page": 6,
+    "file": "./images/table-3-p006.png",
+    "clip_pdf": [
+      4.0,
+      113.46,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "4",
+    "caption": "Table 4: Zero function-call rates under main evaluation setting.",
+    "rect": [
+      352.4939880371094,
+      490.4664306640625,
+      540.0006713867188,
+      511.50506591796875
+    ],
+    "id": "table-4-p006",
+    "page": 6,
+    "file": "./images/table-4-p006.png",
+    "clip_pdf": [
+      4.0,
+      332.07,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "5",
+    "caption": "Table 5: Repeated sampling with k = 10. EO-GYM-4B consistently outperforms baseline models",
+    "rect": [
+      107.468994140625,
+      557.0899047851562,
+      504.538330078125,
+      567.2830200195312
+    ],
+    "id": "table-5-p007",
+    "page": 7,
+    "file": "./images/table-5-p007.png",
+    "clip_pdf": [
+      4.0,
+      26.45,
+      608.0,
+      686.08
+    ]
+  },
+  {
+    "type": "table",
+    "number": "6",
+    "caption": "Table 6: Prompt specification results under the Detailed prompt configuration. EO-GYM-4B achieves the best Pass@1 and Tool-any, while remaining competitive with the strongest generalist model on Pass@2 and Pass@3.",
+    "rect": [
+      71.69100189208984,
+      78.11544036865234,
+      540.0001220703125,
+      99.15408325195312
+    ],
+    "id": "table-6-p008",
+    "page": 8,
+    "file": "./images/table-6-p008.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.55
+    ]
+  },
+  {
+    "type": "table",
+    "number": "7",
+    "caption": "Table 7: RQ1: End-to-end evaluation under the Unverified mode, All tools, and Simple prompt. This study tests whether the model survives raw tool outputs and the full execution space.",
+    "rect": [
+      71.69100189208984,
+      249.73439025878906,
+      539.9999389648438,
+      270.7731018066406
+    ],
+    "id": "table-7-p008",
+    "page": 8,
+    "file": "./images/table-7-p008.png",
+    "clip_pdf": [
+      4.0,
+      91.33,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "8",
+    "caption": "Table 8: RQ2: Tool & transfer evaluation. The Base model is the untuned QWEN3-VL-4B-INSTRUCT. The SFT column represents three separate models, each fine-tuned on a training set where the target tool group was withheld.",
+    "rect": [
+      71.69100189208984,
+      78.02908325195312,
+      539.99609375,
+      99.15408325195312
+    ],
+    "id": "table-8-p009",
+    "page": 9,
+    "file": "./images/table-8-p009.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.55
+    ]
+  },
+  {
+    "type": "table",
+    "number": "9",
+    "caption": "Table 9: RQ3: Tool renaming results. Renaming all exposed tools at inference time leaves performance and tool-use behavior essentially unchanged, indicating that EO-GYM-4B relies on functional semantics rather than memorized tool strings.",
+    "rect": [
+      71.69100189208984,
+      210.051513671875,
+      540.0028686523438,
+      241.92306518554688
+    ],
+    "id": "table-9-p009",
+    "page": 9,
+    "file": "./images/table-9-p009.png",
+    "clip_pdf": [
+      4.0,
+      51.65,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "10",
+    "caption": "Table 10: Open-source imagery sources used to construct EO-Gym.",
+    "rect": [
+      173.51699829101562,
+      78.17250061035156,
+      438.4923400878906,
+      88.38312530517578
+    ],
+    "id": "table-10-p014",
+    "page": 14,
+    "file": "./images/table-10-p014.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      642.78
+    ]
+  },
+  {
+    "type": "table",
+    "number": "11",
+    "caption": "Table 11: Data gathering tools in EO-Gym. These tools actively acquire new spatial, temporal, or cross-modal evidence from the environment.",
+    "rect": [
+      71.69100189208984,
+      78.2027816772461,
+      539.9989013671875,
+      99.04507446289062
+    ],
+    "id": "table-11-p015",
+    "page": 15,
+    "file": "./images/table-11-p015.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.45
+    ]
+  },
+  {
+    "type": "table",
+    "number": "12",
+    "caption": "Table 12: Data analysis and support tools in EO-Gym. These tools process acquired observations to extract objects, masks, spectral indices, and semantic relationships.",
+    "rect": [
+      71.69100189208984,
+      78.14028930664062,
+      541.2435302734375,
+      99.08706665039062
+    ],
+    "id": "table-12-p016",
+    "page": 16,
+    "file": "./images/table-12-p016.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.49
+    ]
+  },
+  {
+    "type": "table",
+    "number": "13",
+    "caption": "Table 13: Dataset-mapped tool subsets under the Skill tools configuration. This mapping restricts the action space to the most relevant functions for each data source.",
+    "rect": [
+      71.69100189208984,
+      223.7263946533203,
+      539.9998779296875,
+      244.52206420898438
+    ],
+    "id": "table-13-p019",
+    "page": 19,
+    "file": "./images/table-13-p019.png",
+    "clip_pdf": [
+      4.0,
+      65.33,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "14",
+    "caption": "Table 14: Imagery inventory counts. The expanded scope represents the full executable data lake available for interactive evidence acquisition.",
+    "rect": [
+      71.69100189208984,
+      78.2484359741211,
+      539.9996948242188,
+      99.04507446289062
+    ],
+    "id": "table-14-p020",
+    "page": 20,
+    "file": "./images/table-14-p020.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.45
+    ]
+  },
+  {
+    "type": "table",
+    "number": "15",
+    "caption": "Table 15: Global geographical coverage of the EO-GYM-DATA trajectories, which constitute the only geolocated subset. The distribution maintains consistent regional shares between the training and testing splits.",
+    "rect": [
+      71.69100189208984,
+      535.7752685546875,
+      540.0008544921875,
+      556.7230224609375
+    ],
+    "id": "table-15-p020",
+    "page": 20,
+    "file": "./images/table-15-p020.png",
+    "clip_pdf": [
+      4.0,
+      5.14,
+      608.0,
+      675.52
+    ]
+  },
+  {
+    "type": "table",
+    "number": "16",
+    "caption": "Table 16: Multispectral platform and sensor details. The environment exposes raw GeoTIFF band files, requiring the agent to understand specific band roles for spectral reasoning.",
+    "rect": [
+      71.69100189208984,
+      145.99932861328125,
+      540.0035400390625,
+      166.90109252929688
+    ],
+    "id": "table-16-p021",
+    "page": 21,
+    "file": "./images/table-16-p021.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      721.3
+    ]
+  },
+  {
+    "type": "table",
+    "number": "17",
+    "caption": "Table 17: Mapping of source datasets to EO-Gym tasks and question types. The environment converts static annotations into interactive reasoning targets.",
+    "rect": [
+      71.69100189208984,
+      147.5585174560547,
+      539.998046875,
+      168.37704467773438
+    ],
+    "id": "table-17-p022",
+    "page": 22,
+    "file": "./images/table-17-p022.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      722.78
+    ]
+  },
+  {
+    "type": "table",
+    "number": "18",
+    "caption": "Table 18: Nearest-train geolocation distance audit for datasets with precise coordinate metadata. Distance is measured using the Haversine formula over WGS84 coordinates. Shared source identifiers and identical rounded coordinates serve as strict leakage indicators.",
+    "rect": [
+      71.69100189208984,
+      114.93518829345703,
+      539.9956665039062,
+      146.69308471679688
+    ],
+    "id": "table-18-p023",
+    "page": 23,
+    "file": "./images/table-18-p023.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      701.09
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "caption": "Figure 4: An initial cropped observation from the FAIR1M dataset used for spatial navigation generation. The generated question asks the agent to count complete road intersections (the middle bottom has suspicious one), requiring the agent to pan the view to resolve objects partially visible at the image boundaries.",
+    "rect": [
+      72.0,
+      269.4512634277344,
+      539.9954223632812,
+      301.30706787109375
+    ],
+    "id": "figure-4-p025",
+    "page": 25,
+    "file": "./images/figure-4-p025.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      313.31
+    ]
+  },
+  {
+    "type": "table",
+    "number": "19",
+    "caption": "Table 19: Reviewer failure categories used during the trajectory quality control phase. Trajectories exhibiting any of these logical gaps are strictly discarded to ensure high-quality reasoning paths.",
+    "rect": [
+      71.69100189208984,
+      433.4405212402344,
+      539.9953002929688,
+      454.361083984375
+    ],
+    "id": "table-19-p026",
+    "page": 26,
+    "file": "./images/table-19-p026.png",
+    "clip_pdf": [
+      4.0,
+      275.04,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "20",
+    "caption": "Table 20: Hyperparameters for the Supervised Fine-Tuning (SFT) of EO-GYM-4B.",
+    "rect": [
+      138.84799194335938,
+      213.44252014160156,
+      473.1530456542969,
+      223.40512084960938
+    ],
+    "id": "table-20-p027",
+    "page": 27,
+    "file": "./images/table-20-p027.png",
+    "clip_pdf": [
+      4.0,
+      55.04,
+      608.0,
+      777.81
+    ]
+  },
+  {
+    "type": "table",
+    "number": "21",
+    "caption": "Table 21: Distribution of zero function call trajectories across evaluated models corresponding to the main results in Table 2. Models that fail to call any tools are attempting to guess the answer without gathering necessary evidence. To optimize API expenditure for closed weight models, we implement dynamic early stopping during inference. If a model successfully resolves the query in an early rollout, subsequent sampling iterations for that specific instance are bypassed. This dynamic evaluation results in total rollout counts for GPT and Gemini variants being lower than",
+    "rect": [
+      71.69100189208984,
+      167.12376403808594,
+      540.0027465820312,
+      220.79901123046875
+    ],
+    "id": "table-21-p028",
+    "page": 28,
+    "file": "./images/table-21-p028.png",
+    "clip_pdf": [
+      4.0,
+      8.72,
+      608.0,
+      775.2
+    ]
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "caption": "Table 2. Models that fail to call any tools are attempting to guess the answer without gathering necessary evidence. To optimize API expenditure for closed weight models, we implement dynamic early stopping during inference. If a model successfully resolves the query in an early rollout, subsequent sampling iterations for that specific instance are bypassed. This dynamic evaluation results in total rollout counts for GPT and Gemini variants being lower than the theoretical maximum of 4,308. For Pass@k under dynamic early stopping, once any rollout among the first j ≤k",
+    "rect": [
+      71.69100189208984,
+      178.01028442382812,
+      541.73779296875,
+      231.68629455566406
+    ],
+    "id": "table-2-p028",
+    "page": 28,
+    "file": "./images/table-2-p028.png",
+    "clip_pdf": [
+      4.0,
+      19.61,
+      608.0,
+      786.09
+    ]
+  },
+  {
+    "type": "table",
+    "number": "22",
+    "caption": "Table 22: Overall pairwise agreement between Human, GEMINI-2.5-FLASH, GPT-4.1-MINI, and GEMINI-2.5-FLASH- LITE on the manually audited sample of n = 600 model outputs. Y Y denotes both raters marking the answer as same, NN denotes both marking it as different, and Y N/NY denote disagreement cases.",
+    "rect": [
+      71.69100189208984,
+      277.4604187011719,
+      541.6614990234375,
+      309.1650695800781
+    ],
+    "id": "table-22-p029",
+    "page": 29,
+    "file": "./images/table-22-p029.png",
+    "clip_pdf": [
+      4.0,
+      119.06,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "23",
+    "caption": "Table 23: Agreement between the GPT-4.1-MINI and GEMINI-2.5-FLASH semantic judges versus human review across the six primary EO tasks.",
+    "rect": [
+      71.69100189208984,
+      432.2673034667969,
+      540.3539428710938,
+      453.2140808105469
+    ],
+    "id": "table-23-p029",
+    "page": 29,
+    "file": "./images/table-23-p029.png",
+    "clip_pdf": [
+      4.0,
+      273.87,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "24",
+    "caption": "Table 24: Consumed-trajectory tool execution metrics evaluated under the Simple prompt, Verified mode and Skill tools. EO-GYM-4B achieves the highest alignment with the optimal evidence-gathering paths.",
+    "rect": [
+      71.69100189208984,
+      383.09429931640625,
+      540.0001831054688,
+      404.04107666015625
+    ],
+    "id": "table-24-p030",
+    "page": 30,
+    "file": "./images/table-24-p030.png",
+    "clip_pdf": [
+      4.0,
+      224.69,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "25",
+    "caption": "Table 25: Pass@3 performance breakdown by required reference function-call count (L). L denotes the number of ground-truth function calls required by a trajectory. While detailed instructions help generalist models on longer work- flows, EO-GYM-4B achieves strong performance using only the Simple prompt, indicating improved internalization of EO tool-use procedures.",
+    "rect": [
+      71.69100189208984,
+      124.73490905761719,
+      539.9972534179688,
+      167.65505981445312
+    ],
+    "id": "table-25-p031",
+    "page": 31,
+    "file": "./images/table-25-p031.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      722.06
+    ]
+  },
+  {
+    "type": "table",
+    "number": "26",
+    "caption": "Table 26: Performance on the MULTISPECTRAL subset. Generalist models suffer significant performance drops on this entirely novel data. EO-GYM-4B achieves superior performance using only the Simple prompt, proving its capabilities stem from robust interactive reasoning rather than dataset memorization.",
+    "rect": [
+      71.69100189208984,
+      78.17250061035156,
+      539.99853515625,
+      109.95407104492188
+    ],
+    "id": "table-26-p032",
+    "page": 32,
+    "file": "./images/table-26-p032.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      664.35
+    ]
+  },
+  {
+    "type": "table",
+    "number": "27",
+    "caption": "Table 27: Comparison of Verified Skill-tool mode and Unverified All-tool mode under the Simple prompt. Final-answer accuracy remains relatively stable, while tool-use behavior, measured by Tool-any, drops substantially when models must operate over all 35 tools with raw outputs.",
+    "rect": [
+      71.69100189208984,
+      348.5464172363281,
+      540.1657104492188,
+      380.2510681152344
+    ],
+    "id": "table-27-p032",
+    "page": 32,
+    "file": "./images/table-27-p032.png",
+    "clip_pdf": [
+      4.0,
+      190.15,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "28",
+    "caption": "Table 28: Qualitative examples illustrating reasoning failures caused by perception noise in the Unverified mode compared to successful evidence acquisition in the Verified mode.",
+    "rect": [
+      71.69100189208984,
+      78.09732055664062,
+      540.000244140625,
+      99.04507446289062
+    ],
+    "id": "table-28-p033",
+    "page": 33,
+    "file": "./images/table-28-p033.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      653.45
+    ]
+  },
+  {
+    "type": "table",
+    "number": "29",
+    "caption": "Table 29: Task-level leave-one-out tool analysis. Holding out an entire primary task fails to isolate the underlying tools, as 100 percent of test records continue to rely on foundational tools shared with the training distribution.",
+    "rect": [
+      71.69100189208984,
+      536.7461547851562,
+      541.2448120117188,
+      557.5570678710938
+    ],
+    "id": "table-29-p033",
+    "page": 33,
+    "file": "./images/table-29-p033.png",
+    "clip_pdf": [
+      4.0,
+      6.11,
+      608.0,
+      676.36
+    ]
+  },
+  {
+    "type": "table",
+    "number": "30",
+    "caption": "Table 30: Mapping of original tool name prefixes to their model-facing aliases during the renaming evaluation.",
+    "rect": [
+      85.38999938964844,
+      232.45948791503906,
+      526.6135864257812,
+      242.42208862304688
+    ],
+    "id": "table-30-p034",
+    "page": 34,
+    "file": "./images/table-30-p034.png",
+    "clip_pdf": [
+      4.0,
+      74.06,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "31",
+    "caption": "Table 31: Representative examples illustrating the transformation from backend tool names to model-facing tool names under the renaming protocol.",
+    "rect": [
+      71.69100189208984,
+      388.92816162109375,
+      539.9998168945312,
+      409.73907470703125
+    ],
+    "id": "table-31-p034",
+    "page": 34,
+    "file": "./images/table-31-p034.png",
+    "clip_pdf": [
+      4.0,
+      230.53,
+      608.0,
+      787.0
+    ]
+  }
+]

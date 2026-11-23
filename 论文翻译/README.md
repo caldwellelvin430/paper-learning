@@ -40,6 +40,10 @@
 | GeoAnalystBench | [中文稿](GeoAnalystBench/中文译文_全文.md) · [阅读说明](GeoAnalystBench/README_阅读说明.md) · [原文 PDF](GeoAnalystBench/原始论文.pdf) |
 | GeoBenchX | [中文稿](GeoBenchX/中文译文_全文.md) · [阅读说明](GeoBenchX/README_阅读说明.md) · [原文 PDF](GeoBenchX/原始论文.pdf) |
 | HTAM_EarthAgent | [中文稿](HTAM_EarthAgent/中文译文_主文.md) · [阅读说明](HTAM_EarthAgent/README_阅读说明.md) · [原文 PDF](HTAM_EarthAgent/原始论文.pdf) |
+| ClimateAgent | [中文重点章节](ClimateAgent/中文学术译稿_重点章节.md) · [阅读说明](ClimateAgent/README_阅读说明.md) · [原文 PDF](ClimateAgent/原始论文.pdf) |
+| DORA | [中文重点章节](DORA/中文学术译稿_重点章节.md) · [阅读说明](DORA/README_阅读说明.md) · [原文 PDF](DORA/原始论文.pdf) |
+| EarthVerse | [中文重点章节](EarthVerse/中文学术译稿_重点章节.md) · [阅读说明](EarthVerse/README_阅读说明.md) · [原文 PDF](EarthVerse/原始论文.pdf) |
+| EO-Gym | [中文重点章节](EO-Gym/中文学术译稿_重点章节.md) · [阅读说明](EO-Gym/README_阅读说明.md) · [原文 PDF](EO-Gym/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

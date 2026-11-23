@@ -1,0 +1,119 @@
+[
+  {
+    "page": 1,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 4480,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 0
+  },
+  {
+    "page": 2,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 14802,
+    "embedded_images": 48,
+    "figure_captions": 1,
+    "table_captions": 0
+  },
+  {
+    "page": 3,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 5304,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 1
+  },
+  {
+    "page": 4,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 12182,
+    "embedded_images": 68,
+    "figure_captions": 1,
+    "table_captions": 0
+  },
+  {
+    "page": 5,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 15829,
+    "embedded_images": 98,
+    "figure_captions": 3,
+    "table_captions": 0
+  },
+  {
+    "page": 6,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 5388,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 1
+  },
+  {
+    "page": 7,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 5963,
+    "embedded_images": 20,
+    "figure_captions": 1,
+    "table_captions": 0
+  },
+  {
+    "page": 8,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 5151,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 2
+  },
+  {
+    "page": 9,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 7431,
+    "embedded_images": 5,
+    "figure_captions": 2,
+    "table_captions": 1
+  },
+  {
+    "page": 10,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 5084,
+    "embedded_images": 3,
+    "figure_captions": 1,
+    "table_captions": 1
+  },
+  {
+    "page": 11,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 4398,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 0
+  },
+  {
+    "page": 12,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 4338,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 0
+  },
+  {
+    "page": 13,
+    "width": 595.3,
+    "height": 841.9,
+    "text_chars": 3749,
+    "embedded_images": 3,
+    "figure_captions": 0,
+    "table_captions": 0
+  }
+]

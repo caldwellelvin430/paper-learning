@@ -1,0 +1,482 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "caption": "Figure 1: Coverage and model landscape. Task and answer-unit coverage across hazards and capabilities (left); mean answer-unit accuracy and token use across 25 systems (right).",
+    "rect": [
+      71.99996948242188,
+      640.119140625,
+      540.0032348632812,
+      661.0280151367188
+    ],
+    "id": "figure-1-p001",
+    "page": 1,
+    "file": "./images/figure-1-p001.png",
+    "clip_pdf": [
+      4.0,
+      54.04,
+      608.0,
+      673.03
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "caption": "Figure 2: Benchmark overview. Global event coverage and four representative investigations. Each case follows a different model trajectory, and performance is scored against the answer units defined for that task. In Case 2, the linked-event score is a deterministic composite derived from package evidence.",
+    "rect": [
+      72.0,
+      490.3194274902344,
+      540.00439453125,
+      522.2670288085938
+    ],
+    "id": "figure-2-p003",
+    "page": 3,
+    "file": "./images/figure-2-p003.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      534.27
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "caption": "Figure 3: Expert roles and scientific tools for investi- gation authoring.",
+    "rect": [
+      334.0790100097656,
+      240.94979858398438,
+      541.6506958007812,
+      261.7530822753906
+    ],
+    "id": "figure-3-p004",
+    "page": 4,
+    "file": "./images/figure-3-p004.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      273.75
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "caption": "Figure 4: Task interface. Metadata, observations, and an auditable research trajectory.",
+    "rect": [
+      306.0,
+      540.9224243164062,
+      539.9971313476562,
+      561.9610595703125
+    ],
+    "id": "figure-4-p005",
+    "page": 5,
+    "file": "./images/figure-4-p005.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      573.96
+    ]
+  },
+  {
+    "type": "table",
+    "number": "1",
+    "caption": "Table 1: Where the scientific work begins. The two text columns identify the starting evidence and analytical work; marks show full, partial, or absent/unreported coverage.",
+    "rect": [
+      71.69100189208984,
+      337.02239990234375,
+      540.82275390625,
+      358.0040588378906
+    ],
+    "id": "table-1-p006",
+    "page": 6,
+    "file": "./images/table-1-p006.png",
+    "clip_pdf": [
+      4.0,
+      178.62,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "5",
+    "caption": "Figure 5: Benchmark construction. Event grounding, package assembly, investigation authoring, and expert audit.",
+    "rect": [
+      75.25700378417969,
+      316.1105041503906,
+      536.7444458007812,
+      326.1640625
+    ],
+    "id": "figure-5-p007",
+    "page": 7,
+    "file": "./images/figure-5-p007.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      338.16
+    ]
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "caption": "Table 2: EarthVerse leaderboard. Harness names the controller. Scores are percentages; failed, timed-out, or malformed runs remain zero, and batch reads may cover multiple files. Within each family, Core increases downward; bold blue and underlined teal mark the top two outcomes.",
+    "rect": [
+      71.69100189208984,
+      165.8824005126953,
+      540.1729125976562,
+      197.83004760742188
+    ],
+    "id": "table-2-p008",
+    "page": 8,
+    "file": "./images/table-2-p008.png",
+    "clip_pdf": [
+      4.0,
+      7.48,
+      608.0,
+      752.23
+    ]
+  },
+  {
+    "type": "table",
+    "number": "3",
+    "caption": "Table 3: Reasoning and evidence access. GPT-5.5 across four access modes and five effort settings; diagnostics are per-task means.",
+    "rect": [
+      265.9079895019531,
+      377.42852783203125,
+      540.0006713867188,
+      398.3180847167969
+    ],
+    "id": "table-3-p009",
+    "page": 9,
+    "file": "./images/table-3-p009.png",
+    "clip_pdf": [
+      4.0,
+      219.03,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "4",
+    "caption": "Table 4: Evidence-path interventions. Complete paired outcome, effect, and capability grid relative to the Top-20 router. Intervals are paired 95% bootstrap CIs.",
+    "rect": [
+      71.69100189208984,
+      151.7504425048828,
+      540.0001220703125,
+      172.78909301757812
+    ],
+    "id": "table-4-p010",
+    "page": 10,
+    "file": "./images/table-4-p010.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      727.19
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "6",
+    "caption": "Figure 6: Cross-benchmark protocol sensitivity. Benchmark-native scores across three GPT-5.5 stages and published references.",
+    "rect": [
+      72.0,
+      358.15106201171875,
+      539.9998168945312,
+      379.0560607910156
+    ],
+    "id": "figure-6-p011",
+    "page": 11,
+    "file": "./images/figure-6-p011.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      391.06
+    ]
+  },
+  {
+    "type": "table",
+    "number": "5",
+    "caption": "Table 5: Outcome view of the reasoning sweep. GPT-5.5; bold blue and shading mark the best setting in each access mode.",
+    "rect": [
+      71.69100189208984,
+      222.0848388671875,
+      539.9948120117188,
+      243.00906372070312
+    ],
+    "id": "table-5-p018",
+    "page": 18,
+    "file": "./images/table-5-p018.png",
+    "clip_pdf": [
+      4.0,
+      63.68,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "6",
+    "caption": "Table 6: System ablations. GPT-5.5 at medium reasoning; bold blue marks panel bests.",
+    "rect": [
+      129.56300354003906,
+      411.3905334472656,
+      482.4383239746094,
+      421.444091796875
+    ],
+    "id": "table-6-p019",
+    "page": 19,
+    "file": "./images/table-6-p019.png",
+    "clip_pdf": [
+      4.0,
+      252.99,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "7",
+    "caption": "Table 7: Required scientific environments. GPT-5.5; ∆Core is relative to the Top-20 router.",
+    "rect": [
+      120.03700256347656,
+      470.4359436035156,
+      491.9608459472656,
+      480.62908935546875
+    ],
+    "id": "table-7-p020",
+    "page": 20,
+    "file": "./images/table-7-p020.png",
+    "clip_pdf": [
+      4.0,
+      312.04,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "8",
+    "caption": "Table 8: Core by capability. Tags overlap; system groups follow Table 2. Bold blue marks column bests.",
+    "rect": [
+      160.7570037841797,
+      57.94175720214844,
+      448.9996337890625,
+      75.107666015625
+    ],
+    "id": "table-8-p028",
+    "page": 28,
+    "file": "./images/table-8-p028.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      629.51
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "7",
+    "caption": "Figure 7: Pairwise win, tie, and loss shares. Net is win share minus loss share.",
+    "rect": [
+      150.24099731445312,
+      349.0294494628906,
+      461.7616271972656,
+      358.9920654296875
+    ],
+    "id": "figure-7-p029",
+    "page": 29,
+    "file": "./images/figure-7-p029.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      370.99
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "8",
+    "caption": "Figure 8: Task Core and diagnosed errors by system family.",
+    "rect": [
+      294.5790100097656,
+      532.0764770507812,
+      532.705078125,
+      542.0390625
+    ],
+    "id": "figure-8-p029",
+    "page": 29,
+    "file": "./images/figure-8-p029.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      554.04
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "9",
+    "caption": "Figure 9: System family, primary error family, and task-level Core band.",
+    "rect": [
+      161.51800537109375,
+      305.67645263671875,
+      450.483154296875,
+      315.6390686035156
+    ],
+    "id": "figure-9-p030",
+    "page": 30,
+    "file": "./images/figure-9-p030.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      327.64
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "10",
+    "caption": "Figure 10: Within-system Core differences and the strongest error co-occurrences.",
+    "rect": [
+      141.96200561523438,
+      458.8544616699219,
+      470.04034423828125,
+      468.81707763671875
+    ],
+    "id": "figure-10-p031",
+    "page": 31,
+    "file": "./images/figure-10-p031.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      480.82
+    ]
+  },
+  {
+    "type": "table",
+    "number": "9",
+    "caption": "Table 9: Interactive trajectory diagnostics. Per-task means; call success is the share of tool calls that return normally.",
+    "rect": [
+      71.69100189208984,
+      56.85967254638672,
+      541.7389526367188,
+      66.8577880859375
+    ],
+    "id": "table-9-p032",
+    "page": 32,
+    "file": "./images/table-9-p032.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      621.26
+    ]
+  },
+  {
+    "type": "table",
+    "number": "10",
+    "caption": "Table 10: Direct-serialization resources. Direct modes inject a fixed file set before generation; values are per-task means.",
+    "rect": [
+      71.69100189208984,
+      325.9544372558594,
+      540.2440795898438,
+      346.9930725097656
+    ],
+    "id": "table-10-p032",
+    "page": 32,
+    "file": "./images/table-10-p032.png",
+    "clip_pdf": [
+      4.0,
+      167.55,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "11",
+    "caption": "Table 11: Evaluation cost. Rows descend by total cost.",
+    "rect": [
+      195.0070037841797,
+      548.009521484375,
+      416.99365234375,
+      558.0630493164062
+    ],
+    "id": "table-11-p032",
+    "page": 32,
+    "file": "./images/table-11-p032.png",
+    "clip_pdf": [
+      4.0,
+      17.37,
+      608.0,
+      676.86
+    ]
+  },
+  {
+    "type": "table",
+    "number": "12",
+    "caption": "Table 12: System-ablation trajectories. Per-task means for the panels in Table 6.",
+    "rect": [
+      142.36500549316406,
+      56.817501068115234,
+      469.6364440917969,
+      66.87106323242188
+    ],
+    "id": "table-12-p034",
+    "page": 34,
+    "file": "./images/table-12-p034.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      621.27
+    ]
+  },
+  {
+    "type": "table",
+    "number": "13",
+    "caption": "Table 13: Intervention trajectories. Panels match Table 4; values are per-task means.",
+    "rect": [
+      133.8179931640625,
+      56.817501068115234,
+      478.18536376953125,
+      66.87106323242188
+    ],
+    "id": "table-13-p035",
+    "page": 35,
+    "file": "./images/table-13-p035.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      621.27
+    ]
+  },
+  {
+    "type": "table",
+    "number": "14",
+    "caption": "Table 14: Scientific-environment outcomes and execution. Final Answer, Process, and Core scores are reported with per-task compliance, successful specialist calls, resource use, and implemented operations.",
+    "rect": [
+      71.69100189208984,
+      56.86351776123047,
+      540.00341796875,
+      77.78109741210938
+    ],
+    "id": "table-14-p036",
+    "page": 36,
+    "file": "./images/table-14-p036.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      632.18
+    ]
+  }
+]

@@ -1,0 +1,402 @@
+[
+  {
+    "type": "figure",
+    "number": "1",
+    "caption": "Figure 1: Overview of the ClimateAgent system architecture. The workflow illustrates how user queries are decomposed and processed by specialized agents, with robust error recovery and context management, to produce comprehensive climate science reports.",
+    "rect": [
+      72.0,
+      299.06842041015625,
+      540.1430053710938,
+      334.9335021972656
+    ],
+    "id": "figure-1-p005",
+    "page": 5,
+    "file": "./images/figure-1-p005.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      346.93
+    ]
+  },
+  {
+    "type": "table",
+    "number": "1",
+    "caption": "Table 1: End-to-end report quality (Report Score) by domain.",
+    "rect": [
+      169.927001953125,
+      92.22291564941406,
+      442.17498779296875,
+      102.18551635742188
+    ],
+    "id": "table-1-p012",
+    "page": 12,
+    "file": "./images/table-1-p012.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      656.59
+    ]
+  },
+  {
+    "type": "table",
+    "number": "2",
+    "caption": "Table 2: Overall Performance Summary on Climate-Agent-Bench-85. All scores are averaged across all tasks on a 1-10 scale.",
+    "rect": [
+      72.0,
+      246.95042419433594,
+      540.0730590820312,
+      270.8605651855469
+    ],
+    "id": "table-2-p012",
+    "page": 12,
+    "file": "./images/table-2-p012.png",
+    "clip_pdf": [
+      4.0,
+      88.55,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "2",
+    "caption": "Figure 2: Qualitative comparison of generated figures for representative tasks. Each row corresponds to a climate task: (1) Drought (DR), (2) Sea Surface Temperature (SST), (3) Extreme Precipitation (EP), (4-5) Tropical Cyclone (TC), (6) Atmospheric River (AR). Columns: (a) Baseline (GPT-5), (b) Baseline (Copilot), (c) Ours, (d) Golden answer.",
+    "rect": [
+      72.0,
+      444.9629211425781,
+      540.2321166992188,
+      490.79150390625
+    ],
+    "id": "figure-2-p014",
+    "page": 14,
+    "file": "./images/figure-2-p014.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      502.79
+    ]
+  },
+  {
+    "type": "table",
+    "number": "3",
+    "caption": "Table 3: Summary of Error Categories and Their Counts",
+    "rect": [
+      181.53704833984375,
+      485.517822265625,
+      430.5521545410156,
+      495.4804382324219
+    ],
+    "id": "table-3-p015",
+    "page": 15,
+    "file": "./images/table-3-p015.png",
+    "clip_pdf": [
+      4.0,
+      327.12,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "3",
+    "caption": "Figure 3: Comparison of array indexing: the baseline code fails due to a shape mismatch in boolean indexing, while our system validates shapes and applies correct masking.",
+    "rect": [
+      72.0,
+      170.6949005126953,
+      540.2222900390625,
+      192.61251831054688
+    ],
+    "id": "figure-3-p016",
+    "page": 16,
+    "file": "./images/figure-3-p016.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      204.61
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "4",
+    "caption": "Figure 4: Comparison of ERA5 data request formatting: the baseline code fails due to an invalid date range string, while our system programmatically generates and validates correct request parameters, preventing API errors.",
+    "rect": [
+      72.0,
+      323.78192138671875,
+      540.2023315429688,
+      357.6545104980469
+    ],
+    "id": "figure-4-p016",
+    "page": 16,
+    "file": "./images/figure-4-p016.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      369.65
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "5",
+    "caption": "Figure 5: Comparison of syntax handling: the baseline code fails with a syntax error due to an unmatched brace, while our system’s coding agent ensures only syntactically valid code is executed.",
+    "rect": [
+      72.0,
+      443.99090576171875,
+      540.2122192382812,
+      465.9095153808594
+    ],
+    "id": "figure-5-p016",
+    "page": 16,
+    "file": "./images/figure-5-p016.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      477.91
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "6",
+    "caption": "Figure 6: Comparison of longitude alignment: the baseline code fails when non-numeric values are present, while our system ensures type safety before applying arithmetic operations.",
+    "rect": [
+      72.0,
+      570.1788940429688,
+      540.2321166992188,
+      592.0964965820312
+    ],
+    "id": "figure-6-p016",
+    "page": 16,
+    "file": "./images/figure-6-p016.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      604.1
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "1",
+    "caption": "Figure 1. Daily total precipitation in the Greater Bay Area from September 5 to 10, 2023. Stepped color intervals (0, 1, 10, 25, 50, 100, 250 mm) illustrate rainfall intensity. Major cities (Guangzhou, Shenzhen, Hong Kong) are marked for reference. Event Evolution Narrative Onset (Sep 5–6): The event began on September 5 with scattered moderate showers (10–25 mm) over western Guangdong.",
+    "rect": [
+      87.59100341796875,
+      477.89990234375,
+      524.555908203125,
+      547.638427734375
+    ],
+    "id": "figure-1-p032",
+    "page": 32,
+    "file": "./images/figure-1-p032.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      559.64
+    ]
+  },
+  {
+    "type": "table",
+    "number": "4",
+    "caption": "Table 4: SST_1 trace summary (sources under task_SST_1/log/.",
+    "rect": [
+      161.0570068359375,
+      375.6098937988281,
+      450.944580078125,
+      385.572509765625
+    ],
+    "id": "table-4-p039",
+    "page": 39,
+    "file": "./images/table-4-p039.png",
+    "clip_pdf": [
+      4.0,
+      217.21,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "7",
+    "caption": "Figure 7: Monthly mean SST (top) and SST anomaly (bottom) for January 2003 from NOAA OISST v2.1 (AVHRR-only), averaged over 2003-01-01–2003-01-31 and plotted over 30◦S–30◦N, 120◦E–290◦E.",
+    "rect": [
+      72.0,
+      507.5819091796875,
+      540.1126708984375,
+      529.4994506835938
+    ],
+    "id": "figure-7-p040",
+    "page": 40,
+    "file": "./images/figure-7-p040.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      541.5
+    ]
+  },
+  {
+    "type": "table",
+    "number": "5",
+    "caption": "Table 5: CTP trace summary for three representative long-horizon tasks (from */context.json and */log/orchestrating_agent.log).",
+    "rect": [
+      72.0,
+      137.25392150878906,
+      109.32986450195312,
+      159.17153930664062
+    ],
+    "id": "table-5-p042",
+    "page": 42,
+    "file": "./images/table-5-p042.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      713.57
+    ]
+  },
+  {
+    "type": "table",
+    "number": "7",
+    "caption": "Table 7: Task stats and errors (short cols)",
+    "rect": [
+      213.76199340820312,
+      92.22291564941406,
+      398.3192138671875,
+      102.18551635742188
+    ],
+    "id": "table-7-p044",
+    "page": 44,
+    "file": "./images/table-7-p044.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      656.59
+    ]
+  },
+  {
+    "type": "table",
+    "number": "8",
+    "caption": "Table 8: Human expert vs. LLM-as-judge agreement by domain. Values are mean absolute score differences; smaller values indicate closer agreement.",
+    "rect": [
+      72.0,
+      616.0089111328125,
+      540.2022094726562,
+      637.926513671875
+    ],
+    "id": "table-8-p048",
+    "page": 48,
+    "file": "./images/table-8-p048.png",
+    "clip_pdf": [
+      4.0,
+      85.37,
+      608.0,
+      756.73
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "8",
+    "caption": "Figure 8: Case 1. Left: Output from the AI Agent. Right: Created by Specialist.",
+    "rect": [
+      128.44400024414062,
+      325.3119201660156,
+      483.7002868652344,
+      335.2745361328125
+    ],
+    "id": "figure-8-p049",
+    "page": 49,
+    "file": "./images/figure-8-p049.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      347.27
+    ]
+  },
+  {
+    "type": "figure",
+    "number": "9",
+    "caption": "Figure 9: Case 2. Left: Output from the AI Agent. Right: Created by Specialist.",
+    "rect": [
+      128.44400024414062,
+      567.6478881835938,
+      483.7002868652344,
+      577.6104736328125
+    ],
+    "id": "figure-9-p049",
+    "page": 49,
+    "file": "./images/figure-9-p049.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      589.61
+    ]
+  },
+  {
+    "type": "table",
+    "number": "9",
+    "caption": "Table 9: CLIMATEAGENT computational cost and wall-clock time breakdown by domain and agent. Plan/Prog/Viz denote the Planning/Programming/Visualization agents. SubT = number of subtasks as- signed to the agent; Invk = number of LLM invocations; InTk/ OtTk = input/output tokens; Dur = wall- clock duration in milliseconds for that agent; TotO = total output tokens summed over Plan+Prog+Viz; TotD = total duration (ms) summed over Plan+Prog+Viz.",
+    "rect": [
+      72.0,
+      92.22291564941406,
+      540.1226806640625,
+      150.00656127929688
+    ],
+    "id": "table-9-p051",
+    "page": 51,
+    "file": "./images/table-9-p051.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      704.41
+    ]
+  },
+  {
+    "type": "table",
+    "number": "10",
+    "caption": "Table 10: Output-token (OtTk) comparison between CLIMATEAGENT and a GPT-5 baseline for Task 1 in each domain. OtTk (CLIMATEAGENT) corresponds to TotO in Table 9 (total output tokens summed over Plan+Prog+Viz). GPT-5 baseline reports total output tokens for the single-pass run.",
+    "rect": [
+      72.0,
+      251.58192443847656,
+      540.1426391601562,
+      285.45452880859375
+    ],
+    "id": "table-10-p051",
+    "page": 51,
+    "file": "./images/table-10-p051.png",
+    "clip_pdf": [
+      4.0,
+      93.18,
+      608.0,
+      787.0
+    ]
+  },
+  {
+    "type": "table",
+    "number": "11",
+    "caption": "Table 11: Report quality comparison between ClimateAgent and DeepAgent. “–” indicates err (DeepA- gent run failed or did not produce a valid report for scoring).",
+    "rect": [
+      72.0,
+      90.23039245605469,
+      540.0142822265625,
+      114.14053344726562
+    ],
+    "id": "table-11-p053",
+    "page": 53,
+    "file": "./images/table-11-p053.png",
+    "clip_pdf": [
+      4.0,
+      4.0,
+      608.0,
+      668.54
+    ]
+  }
+]

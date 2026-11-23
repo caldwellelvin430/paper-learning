@@ -1,0 +1,42 @@
+{
+  "DORA": {
+    "pages": 13,
+    "source_pages": 13,
+    "figures": 9,
+    "tables": 6,
+    "crops": 15,
+    "md": 7,
+    "local_links_missing": 0,
+    "images": 263
+  },
+  "ClimateAgent": {
+    "pages": 53,
+    "source_pages": 53,
+    "figures": 10,
+    "tables": 10,
+    "crops": 20,
+    "md": 7,
+    "local_links_missing": 0,
+    "images": 27
+  },
+  "EarthVerse": {
+    "pages": 46,
+    "source_pages": 46,
+    "figures": 10,
+    "tables": 14,
+    "crops": 24,
+    "md": 7,
+    "local_links_missing": 0,
+    "images": 14
+  },
+  "EO-Gym": {
+    "pages": 34,
+    "source_pages": 34,
+    "figures": 4,
+    "tables": 32,
+    "crops": 36,
+    "md": 7,
+    "local_links_missing": 0,
+    "images": 4
+  }
+}
