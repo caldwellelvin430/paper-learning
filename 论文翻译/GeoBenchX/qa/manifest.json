@@ -1,0 +1,269 @@
+{
+  "paper": "GeoBenchX",
+  "title": "GeoBenchX: Benchmarking LLMs in Agent Solving Multistep Geospatial Tasks",
+  "source_filename": "Krechetova和Kochedykov - 2025 - GeoBenchX Benchmarking LLMs in Agent Solving Multistep Geospatial Tasks.pdf",
+  "pdf_pages": 8,
+  "source_sha256": "60a9ab9a7b41e12676235291e129cc72a663d05b2b453123d005e28e7d8220c5",
+  "pages": [
+    {
+      "number": 1,
+      "text_length": 5825,
+      "blocks": 17,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "number": 2,
+      "text_length": 6506,
+      "blocks": 8,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "number": 3,
+      "text_length": 5933,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "number": 4,
+      "text_length": 5604,
+      "blocks": 11,
+      "images": 1,
+      "draw_clusters": 1,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 1,
+          "bbox": [
+            367.4679870605469,
+            217.27867126464844,
+            508.6824951171875,
+            226.2446746826172
+          ],
+          "caption": "Figure 1: Testing of LLMs as judges",
+          "crop_file": "./images/figure-01-p004-01.png",
+          "crop_rect": [
+            309.0,
+            74.69,
+            572.0,
+            232.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "number": 5,
+      "text_length": 5181,
+      "blocks": 17,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 1,
+          "bbox": [
+            61.28200149536133,
+            84.58268737792969,
+            286.2568359375,
+            93.5486831665039
+          ],
+          "caption": "Table 1: Success rate in identifying the unsolvable tasks",
+          "crop_file": "./images/table-01-p005-01.png",
+          "crop_rect": [
+            49.28,
+            78.58,
+            301.26,
+            419.58
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 2,
+          "bbox": [
+            362.4519958496094,
+            84.58268737792969,
+            513.4034423828125,
+            93.5486831665039
+          ],
+          "caption": "Table 2: Success rate in solvable tasks",
+          "crop_file": "./images/table-02-p005-02.png",
+          "crop_rect": [
+            309.0,
+            78.58,
+            572.0,
+            419.58
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 3,
+          "bbox": [
+            326.6619873046875,
+            263.2336730957031,
+            549.1890869140625,
+            272.1996765136719
+          ],
+          "caption": "Table 3: Success rate in solving ’Merge - visualize’ tasks",
+          "crop_file": "./images/table-03-p005-03.png",
+          "crop_rect": [
+            309.0,
+            257.23,
+            572.0,
+            598.23
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "number": 6,
+      "text_length": 2727,
+      "blocks": 18,
+      "images": 1,
+      "draw_clusters": 1,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 2,
+          "bbox": [
+            118.2979965209961,
+            279.3056640625,
+            493.6864013671875,
+            288.27166748046875
+          ],
+          "caption": "Figure 2: Success rate (share of matches with reference solutions) across LLMs and task types",
+          "crop_file": "./images/figure-02-p006-01.png",
+          "crop_rect": [
+            45.0,
+            74.68,
+            567.0,
+            294.27
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 4,
+          "bbox": [
+            53.50199890136719,
+            305.1479797363281,
+            294.9397888183594,
+            325.1336669921875
+          ],
+          "caption": "Table 4: Success rate in solving ’Process - merge - visualize’ tasks",
+          "crop_file": "./images/table-04-p006-02.png",
+          "crop_rect": [
+            41.5,
+            299.15,
+            309.94,
+            640.15
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 5,
+          "bbox": [
+            60.00400161743164,
+            494.19866943359375,
+            287.5341796875,
+            503.1646728515625
+          ],
+          "caption": "Table 5: Success rate in solving ’Spatial operations’ tasks",
+          "crop_file": "./images/table-05-p006-03.png",
+          "crop_rect": [
+            48.0,
+            488.2,
+            302.53,
+            747.0
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 6,
+          "bbox": [
+            317.6587219238281,
+            305.1412658691406,
+            559.0951538085938,
+            325.1336669921875
+          ],
+          "caption": "Table 6: Success rate in solving ’Heatmaps, contour lines’ tasks",
+          "crop_file": "./images/table-06-p006-04.png",
+          "crop_rect": [
+            309.0,
+            299.14,
+            572.0,
+            640.14
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "number": 7,
+      "text_length": 4509,
+      "blocks": 15,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 7,
+          "bbox": [
+            167.51499938964844,
+            84.58268737792969,
+            444.178955078125,
+            93.5486831665039
+          ],
+          "caption": "Table 7: Share of solutions matching across models and tasks groups",
+          "crop_file": "./images/table-07-p007-01.png",
+          "crop_rect": [
+            155.51,
+            78.58,
+            316.0,
+            419.58
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 8,
+          "bbox": [
+            53.50199890136719,
+            253.0998077392578,
+            294.03741455078125,
+            272.9556579589844
+          ],
+          "caption": "Table 8: Tokens used for generation of solutions for the whole benchmark set (single run)",
+          "crop_file": "./images/table-08-p007-02.png",
+          "crop_rect": [
+            41.5,
+            247.1,
+            309.04,
+            588.1
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "number": 8,
+      "text_length": 9533,
+      "blocks": 7,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-008.jpg"
+    }
+  ],
+  "figure_table_count": {
+    "figure": 2,
+    "table": 8
+  }
+}

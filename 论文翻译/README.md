@@ -37,6 +37,9 @@
 | ToolSandbox | [中文稿](ToolSandbox/中文译文.md) · [阅读说明](ToolSandbox/README_使用说明.md) · [原文 PDF](ToolSandbox/original.pdf) |
 | Measuring What Matters | [中文稿](Measuring%20What%20Matters/中文译文.md) · [阅读说明](Measuring%20What%20Matters/README_使用说明.md) · [原文 PDF](Measuring%20What%20Matters/original.pdf) |
 | Oracle Failures | [中文稿](Oracle%20Failures/中文译文.md) · [阅读说明](Oracle%20Failures/README_使用说明.md) · [原文 PDF](Oracle%20Failures/original.pdf) |
+| GeoAnalystBench | [中文稿](GeoAnalystBench/中文译文_全文.md) · [阅读说明](GeoAnalystBench/README_阅读说明.md) · [原文 PDF](GeoAnalystBench/原始论文.pdf) |
+| GeoBenchX | [中文稿](GeoBenchX/中文译文_全文.md) · [阅读说明](GeoBenchX/README_阅读说明.md) · [原文 PDF](GeoBenchX/原始论文.pdf) |
+| HTAM_EarthAgent | [中文稿](HTAM_EarthAgent/中文译文_主文.md) · [阅读说明](HTAM_EarthAgent/README_阅读说明.md) · [原文 PDF](HTAM_EarthAgent/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 

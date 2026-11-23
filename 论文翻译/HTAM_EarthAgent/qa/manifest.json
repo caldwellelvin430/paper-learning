@@ -1,0 +1,1551 @@
+{
+  "paper": "HTAM_EarthAgent",
+  "title": "Designing Domain-Specific Agents via Hierarchical Task Abstraction Mechanism",
+  "source_filename": "Li 等 - 2025 - Designing Domain-Specific Agents via Hierarchical Task Abstraction Mechanism.pdf",
+  "pdf_pages": 69,
+  "source_sha256": "a68c57f88a3b58fbca21c070b462689753c2d036edda04b8a20b8a5b1584e135",
+  "pages": [
+    {
+      "number": 1,
+      "text_length": 4615,
+      "blocks": 11,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "number": 2,
+      "text_length": 4866,
+      "blocks": 66,
+      "images": 116,
+      "draw_clusters": 17,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 1,
+          "bbox": [
+            58.5,
+            340.22808837890625,
+            553.4990844726562,
+            393.1123046875
+          ],
+          "caption": "Figure 1. Comparative analysis of agent architectures on a complex geospatial query. (1) ReAct’s iterative, step-by-step process lacks a global strategy, leading to chaotic, redundant tool calls and incomplete solutions. (2) Plan&Execute adheres to a rigid, pre-determined plan, showing no capacity for correction even when encountering errors, ultimately failing the task. (3) HTAM demonstrates a structured, hierarchical decomposition, ensuring a logical progression from data acquisition (Layer 1) to analysis (Layer 2) and final synthesis (Layer 3), leading to a coherent and complete solution. Note that in (1) and (3), each tool-call denotes a thought-action-observation process.",
+          "crop_file": "./images/figure-01-p002-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            399.11
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "number": 3,
+      "text_length": 4711,
+      "blocks": 7,
+      "images": 3,
+      "draw_clusters": 3,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 2,
+          "bbox": [
+            58.5,
+            221.60011291503906,
+            553.4990234375,
+            285.44329833984375
+          ],
+          "caption": "Figure 2. Conceptual visualization of the planning processes of ReAct, Plan&Execute, and HTAM, inspired by gradient descent optimization. Starting from the same initial state, each architecture navigates the problem space differently. (a) ReAct takes noisy, stepby-step actions, analogous to stochastic gradient descent [4]; its path is highly reactive and can be inefficient. (b) Plan&Execute commits to a single, direct trajectory based on an initial global plan, similar to vanilla gradient descent [3], which can be brittle and fail if the initial direction is flawed. (c) HTAM operates in structured stages, providing a stable yet adaptive path analogous to mini-batch gradient descent [1], enabling efficient and robust convergence to the solution.",
+          "crop_file": "./images/figure-02-p003-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            291.44
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "number": 4,
+      "text_length": 5253,
+      "blocks": 19,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "number": 5,
+      "text_length": 4989,
+      "blocks": 35,
+      "images": 109,
+      "draw_clusters": 6,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 3,
+          "bbox": [
+            58.5,
+            293.2550964355469,
+            553.4989624023438,
+            313.26239013671875
+          ],
+          "caption": "Figure 3. Workflow of our EarthAgent. The process starts with a Top-Down Planning, where a user query is decomposed into a hierarchical plan across layers. This is followed by a Bottom-Up Execution, where specialized sub-agents process information.",
+          "crop_file": "./images/figure-03-p005-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            319.26
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "number": 6,
+      "text_length": 5382,
+      "blocks": 27,
+      "images": 30,
+      "draw_clusters": 3,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 4,
+          "bbox": [
+            58.5,
+            257.8541259765625,
+            294.7467041015625,
+            288.81939697265625
+          ],
+          "caption": "Figure 4. The process of task construction and validation. All tasks were built, designed and filtered through this highlyautomatic but human-intervened pipeline",
+          "crop_file": "./images/figure-04-p006-01.png",
+          "crop_rect": [
+            46.5,
+            63.0,
+            309.75,
+            294.82
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "number": 7,
+      "text_length": 3946,
+      "blocks": 19,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 1,
+          "bbox": [
+            58.5,
+            72.78913116455078,
+            553.4992065429688,
+            92.79638671875
+          ],
+          "caption": "Table 1. Results across different complexities and architectures in GeoPlan-bench. Bold indicates the best performance and underlined indicates the second-best performance.",
+          "crop_file": "./images/table-01-p007-01.png",
+          "crop_rect": [
+            45.0,
+            66.79,
+            567.0,
+            407.79
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "number": 8,
+      "text_length": 4845,
+      "blocks": 17,
+      "images": 2,
+      "draw_clusters": 4,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 2,
+          "bbox": [
+            76.3499984741211,
+            72.87100219726562,
+            276.9015197753906,
+            81.83740234375
+          ],
+          "caption": "Table 2. Performance of EarthAgent with various LLM.",
+          "crop_file": "./images/table-02-p008-01.png",
+          "crop_rect": [
+            64.35,
+            66.87,
+            301.0,
+            407.87
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 3,
+          "bbox": [
+            75.6510009765625,
+            200.62997436523438,
+            277.6012268066406,
+            209.59637451171875
+          ],
+          "caption": "Table 3. Ablation study on HTAM’s hierarchical design.",
+          "crop_file": "./images/table-03-p008-02.png",
+          "crop_rect": [
+            63.65,
+            194.63,
+            301.0,
+            535.63
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 5,
+          "bbox": [
+            317.25,
+            176.20596313476562,
+            553.4966430664062,
+            196.13134765625
+          ],
+          "caption": "Figure 5. Performance stability of EarthAgent versus ReAct across multiple LLM backbones.",
+          "crop_file": "./images/figure-05-p008-03.png",
+          "crop_rect": [
+            309.0,
+            63.0,
+            572.0,
+            202.13
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "number": 9,
+      "text_length": 5951,
+      "blocks": 4,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "number": 10,
+      "text_length": 6082,
+      "blocks": 3,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "number": 11,
+      "text_length": 3528,
+      "blocks": 3,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "number": 12,
+      "text_length": 5078,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "number": 13,
+      "text_length": 3573,
+      "blocks": 38,
+      "images": 18,
+      "draw_clusters": 4,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 6,
+          "bbox": [
+            58.5,
+            328.7240905761719,
+            553.499267578125,
+            359.69036865234375
+          ],
+          "caption": "Figure 6. An sample example of task dependency graph in Urban & Regional Planning sub-domain. Light yellow node denotes entry node while red node denotes ending node. The brown arrow denotes the dependency relation between nodes. In the process of production, 4 tasks were successfully built based on this graph.",
+          "crop_file": "./images/figure-06-p013-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            365.69
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "number": 14,
+      "text_length": 5170,
+      "blocks": 20,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "number": 15,
+      "text_length": 4780,
+      "blocks": 24,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "number": 16,
+      "text_length": 2753,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 4,
+          "bbox": [
+            146.302001953125,
+            72.87100219726562,
+            465.70306396484375,
+            81.83740234375
+          ],
+          "caption": "Table 4. Distribution and Description of Sub-Agents within the EarthAgent Architecture.",
+          "crop_file": "./images/table-04-p016-01.png",
+          "crop_rect": [
+            134.3,
+            66.87,
+            316.0,
+            407.87
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "number": 17,
+      "text_length": 4711,
+      "blocks": 39,
+      "images": 0,
+      "draw_clusters": 1,
+      "captions": [],
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "number": 18,
+      "text_length": 2887,
+      "blocks": 79,
+      "images": 82,
+      "draw_clusters": 14,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 7,
+          "bbox": [
+            65.10299682617188,
+            340.86309814453125,
+            546.89453125,
+            349.911376953125
+          ],
+          "caption": "Figure 7. Illustration of 5 Agent Architectures. We show the inference processes of ReAct, Plan&Execute, CoT, Debate and AFlow.",
+          "crop_file": "./images/figure-07-p018-01.png",
+          "crop_rect": [
+            45.0,
+            62.94,
+            567.0,
+            355.91
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "number": 19,
+      "text_length": 3623,
+      "blocks": 38,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "number": 20,
+      "text_length": 3675,
+      "blocks": 46,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "number": 21,
+      "text_length": 2672,
+      "blocks": 53,
+      "images": 0,
+      "draw_clusters": 5,
+      "captions": [],
+      "page_image": "source_pages/page-021.jpg"
+    },
+    {
+      "number": 22,
+      "text_length": 2798,
+      "blocks": 46,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-022.jpg"
+    },
+    {
+      "number": 23,
+      "text_length": 2545,
+      "blocks": 46,
+      "images": 0,
+      "draw_clusters": 5,
+      "captions": [],
+      "page_image": "source_pages/page-023.jpg"
+    },
+    {
+      "number": 24,
+      "text_length": 2550,
+      "blocks": 50,
+      "images": 0,
+      "draw_clusters": 6,
+      "captions": [],
+      "page_image": "source_pages/page-024.jpg"
+    },
+    {
+      "number": 25,
+      "text_length": 2607,
+      "blocks": 45,
+      "images": 0,
+      "draw_clusters": 5,
+      "captions": [],
+      "page_image": "source_pages/page-025.jpg"
+    },
+    {
+      "number": 26,
+      "text_length": 2969,
+      "blocks": 48,
+      "images": 0,
+      "draw_clusters": 7,
+      "captions": [],
+      "page_image": "source_pages/page-026.jpg"
+    },
+    {
+      "number": 27,
+      "text_length": 772,
+      "blocks": 10,
+      "images": 0,
+      "draw_clusters": 1,
+      "captions": [],
+      "page_image": "source_pages/page-027.jpg"
+    },
+    {
+      "number": 28,
+      "text_length": 3082,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 5,
+          "bbox": [
+            58.5,
+            72.78913116455078,
+            553.4991455078125,
+            92.99890899658203
+          ],
+          "caption": "Table 5. Detailed Experimental Results by Domain. Diff. stands for Difficulty. Arch. stands for Architecture. Rec. stands for Recallkey. Prec. stands for Precisionkey. F1. stands for F1key. Struct. stands for Structural. Hol. stands for Holistic.",
+          "crop_file": "./images/table-05-p028-01.png",
+          "crop_rect": [
+            45.0,
+            66.79,
+            567.0,
+            407.79
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-028.jpg"
+    },
+    {
+      "number": 29,
+      "text_length": 2824,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 5,
+          "bbox": [
+            226.83700561523438,
+            72.81349182128906,
+            385.16259765625,
+            82.77609252929688
+          ],
+          "caption": "Table 5 – continued from previous page",
+          "crop_file": "./images/table-05-p029-01.png",
+          "crop_rect": [
+            214.84,
+            66.81,
+            316.0,
+            407.81
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-029.jpg"
+    },
+    {
+      "number": 30,
+      "text_length": 2916,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 5,
+          "bbox": [
+            226.83700561523438,
+            72.81349182128906,
+            385.16259765625,
+            82.77609252929688
+          ],
+          "caption": "Table 5 – continued from previous page",
+          "crop_file": "./images/table-05-p030-01.png",
+          "crop_rect": [
+            214.84,
+            66.81,
+            316.0,
+            407.81
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-030.jpg"
+    },
+    {
+      "number": 31,
+      "text_length": 1495,
+      "blocks": 9,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 5,
+          "bbox": [
+            226.83700561523438,
+            72.81349182128906,
+            385.16259765625,
+            82.77609252929688
+          ],
+          "caption": "Table 5 – continued from previous page",
+          "crop_file": "./images/table-05-p031-01.png",
+          "crop_rect": [
+            214.84,
+            66.81,
+            316.0,
+            407.81
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-031.jpg"
+    },
+    {
+      "number": 32,
+      "text_length": 4499,
+      "blocks": 19,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 6,
+          "bbox": [
+            58.5,
+            72.87100219726562,
+            294.7467041015625,
+            92.79638671875
+          ],
+          "caption": "Table 6. Top 10 Most Frequently Used Tools by the ReAct Architecture.",
+          "crop_file": "./images/table-06-p032-01.png",
+          "crop_rect": [
+            46.5,
+            66.87,
+            309.75,
+            407.87
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 7,
+          "bbox": [
+            317.25,
+            72.87100219726562,
+            553.4967041015625,
+            92.79638671875
+          ],
+          "caption": "Table 7. Top 10 Most Frequently Used Tools by the Plan&Execute Architecture.",
+          "crop_file": "./images/table-07-p032-02.png",
+          "crop_rect": [
+            309.0,
+            66.87,
+            572.0,
+            407.87
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 8,
+          "bbox": [
+            317.25,
+            213.37600708007812,
+            553.4969482421875,
+            233.3013916015625
+          ],
+          "caption": "Table 8. Top 10 Most Frequently Used Tools by the EarthAgent Architecture.",
+          "crop_file": "./images/table-08-p032-03.png",
+          "crop_rect": [
+            309.0,
+            207.38,
+            572.0,
+            548.38
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 9,
+          "bbox": [
+            317.25,
+            353.8809814453125,
+            553.4968872070312,
+            373.806396484375
+          ],
+          "caption": "Table 9. Top 10 Most Frequently Used Tools by the Debate Architecture.",
+          "crop_file": "./images/table-09-p032-04.png",
+          "crop_rect": [
+            309.0,
+            347.88,
+            572.0,
+            688.88
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 10,
+          "bbox": [
+            317.25,
+            499.3429870605469,
+            553.4967651367188,
+            519.2683715820312
+          ],
+          "caption": "Table 10. Top 10 Most Frequently Used Tools by the CoT Architecture.",
+          "crop_file": "./images/table-10-p032-05.png",
+          "crop_rect": [
+            309.0,
+            493.34,
+            572.0,
+            747.0
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-032.jpg"
+    },
+    {
+      "number": 33,
+      "text_length": 1809,
+      "blocks": 9,
+      "images": 2,
+      "draw_clusters": 2,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 8,
+          "bbox": [
+            66.51100158691406,
+            377.0269775390625,
+            545.4871215820312,
+            385.9933776855469
+          ],
+          "caption": "Figure 8. Heatmap of Tool Usage. The color scale ranges from dark (most frequently used tools) to light (least frequently used tools).",
+          "crop_file": "./images/figure-08-p033-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            391.99
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 11,
+          "bbox": [
+            58.5,
+            407.9109802246094,
+            294.7467346191406,
+            427.83636474609375
+          ],
+          "caption": "Table 11. Top 10 Most Frequently Used Tools by the AFlow Architecture.",
+          "crop_file": "./images/table-11-p033-02.png",
+          "crop_rect": [
+            46.5,
+            401.91,
+            309.75,
+            742.91
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 9,
+          "bbox": [
+            319.56201171875,
+            565.7269287109375,
+            551.1910400390625,
+            574.693359375
+          ],
+          "caption": "Figure 9. Quadrant Analysis based on Correctness Metric Score.",
+          "crop_file": "./images/figure-09-p033-03.png",
+          "crop_rect": [
+            309.0,
+            63.0,
+            572.0,
+            580.69
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-033.jpg"
+    },
+    {
+      "number": 34,
+      "text_length": 2140,
+      "blocks": 14,
+      "images": 3,
+      "draw_clusters": 4,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 12,
+          "bbox": [
+            128.3459930419922,
+            72.87100219726562,
+            483.6575622558594,
+            81.83740234375
+          ],
+          "caption": "Table 12. The 20 tools identified as ”rare” based on their low frequency in the ground truth dataset.",
+          "crop_file": "./images/table-12-p034-01.png",
+          "crop_rect": [
+            116.35,
+            66.87,
+            316.0,
+            407.87
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 10,
+          "bbox": [
+            58.5,
+            399.87896728515625,
+            294.74664306640625,
+            419.80438232421875
+          ],
+          "caption": "Figure 10. Quadrant Analysis based on Mean Structural Metrics Score.",
+          "crop_file": "./images/figure-10-p034-02.png",
+          "crop_rect": [
+            46.5,
+            84.28,
+            309.75,
+            425.8
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 11,
+          "bbox": [
+            58.5,
+            595.0569458007812,
+            294.74664306640625,
+            614.9823608398438
+          ],
+          "caption": "Figure 11. Quadrant Analysis based on Mean Completeness Score.",
+          "crop_file": "./images/figure-11-p034-03.png",
+          "crop_rect": [
+            46.5,
+            84.28,
+            309.75,
+            620.98
+          ]
+        },
+        {
+          "kind": "table",
+          "number": 13,
+          "bbox": [
+            317.25,
+            242.06301879882812,
+            553.496826171875,
+            272.9473876953125
+          ],
+          "caption": "Table 13. Correctness Metric Score on Tasks Grouped by the Number of Rare Tools in their Ground Truth. Sample size (n) is shown in parentheses.",
+          "crop_file": "./images/table-13-p034-04.png",
+          "crop_rect": [
+            309.0,
+            236.06,
+            572.0,
+            577.06
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 12,
+          "bbox": [
+            324.27801513671875,
+            531.5389404296875,
+            546.4744262695312,
+            540.50537109375
+          ],
+          "caption": "Figure 12. Impact of Rare Tools on Correctness Metric Score.",
+          "crop_file": "./images/figure-12-p034-05.png",
+          "crop_rect": [
+            309.0,
+            84.28,
+            572.0,
+            546.51
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-034.jpg"
+    },
+    {
+      "number": 35,
+      "text_length": 3775,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 2,
+      "captions": [],
+      "page_image": "source_pages/page-035.jpg"
+    },
+    {
+      "number": 36,
+      "text_length": 3623,
+      "blocks": 21,
+      "images": 0,
+      "draw_clusters": 2,
+      "captions": [],
+      "page_image": "source_pages/page-036.jpg"
+    },
+    {
+      "number": 37,
+      "text_length": 3603,
+      "blocks": 18,
+      "images": 0,
+      "draw_clusters": 2,
+      "captions": [],
+      "page_image": "source_pages/page-037.jpg"
+    },
+    {
+      "number": 38,
+      "text_length": 3519,
+      "blocks": 22,
+      "images": 0,
+      "draw_clusters": 4,
+      "captions": [],
+      "page_image": "source_pages/page-038.jpg"
+    },
+    {
+      "number": 39,
+      "text_length": 3438,
+      "blocks": 16,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-039.jpg"
+    },
+    {
+      "number": 40,
+      "text_length": 3593,
+      "blocks": 19,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-040.jpg"
+    },
+    {
+      "number": 41,
+      "text_length": 3651,
+      "blocks": 22,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-041.jpg"
+    },
+    {
+      "number": 42,
+      "text_length": 3634,
+      "blocks": 21,
+      "images": 0,
+      "draw_clusters": 4,
+      "captions": [],
+      "page_image": "source_pages/page-042.jpg"
+    },
+    {
+      "number": 43,
+      "text_length": 3519,
+      "blocks": 18,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-043.jpg"
+    },
+    {
+      "number": 44,
+      "text_length": 3599,
+      "blocks": 21,
+      "images": 0,
+      "draw_clusters": 4,
+      "captions": [],
+      "page_image": "source_pages/page-044.jpg"
+    },
+    {
+      "number": 45,
+      "text_length": 3584,
+      "blocks": 18,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-045.jpg"
+    },
+    {
+      "number": 46,
+      "text_length": 3624,
+      "blocks": 22,
+      "images": 0,
+      "draw_clusters": 4,
+      "captions": [],
+      "page_image": "source_pages/page-046.jpg"
+    },
+    {
+      "number": 47,
+      "text_length": 3510,
+      "blocks": 18,
+      "images": 0,
+      "draw_clusters": 3,
+      "captions": [],
+      "page_image": "source_pages/page-047.jpg"
+    },
+    {
+      "number": 48,
+      "text_length": 1176,
+      "blocks": 23,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            247.1230010986328,
+            81.23995971679688,
+            364.8787536621094,
+            90.20635986328125
+          ],
+          "caption": "Table 14. List of Available Tools",
+          "crop_file": "./images/table-14-p048-01.png",
+          "crop_rect": [
+            235.12,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-048.jpg"
+    },
+    {
+      "number": 49,
+      "text_length": 1170,
+      "blocks": 23,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p049-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-049.jpg"
+    },
+    {
+      "number": 50,
+      "text_length": 1370,
+      "blocks": 28,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p050-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-050.jpg"
+    },
+    {
+      "number": 51,
+      "text_length": 1312,
+      "blocks": 25,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p051-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-051.jpg"
+    },
+    {
+      "number": 52,
+      "text_length": 1253,
+      "blocks": 23,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p052-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-052.jpg"
+    },
+    {
+      "number": 53,
+      "text_length": 1253,
+      "blocks": 23,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p053-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-053.jpg"
+    },
+    {
+      "number": 54,
+      "text_length": 1226,
+      "blocks": 23,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p054-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-054.jpg"
+    },
+    {
+      "number": 55,
+      "text_length": 1272,
+      "blocks": 24,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p055-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-055.jpg"
+    },
+    {
+      "number": 56,
+      "text_length": 1102,
+      "blocks": 21,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p056-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-056.jpg"
+    },
+    {
+      "number": 57,
+      "text_length": 1229,
+      "blocks": 22,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p057-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-057.jpg"
+    },
+    {
+      "number": 58,
+      "text_length": 207,
+      "blocks": 5,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 14,
+          "bbox": [
+            224.3470001220703,
+            81.18147277832031,
+            387.6539001464844,
+            91.14407348632812
+          ],
+          "caption": "Table 14 – continued from previous page",
+          "crop_file": "./images/table-14-p058-01.png",
+          "crop_rect": [
+            212.35,
+            75.18,
+            316.0,
+            416.18
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-058.jpg"
+    },
+    {
+      "number": 59,
+      "text_length": 3684,
+      "blocks": 4,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-059.jpg"
+    },
+    {
+      "number": 60,
+      "text_length": 717,
+      "blocks": 9,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 15,
+          "bbox": [
+            191.5989990234375,
+            160.66897583007812,
+            420.4035949707031,
+            169.6353759765625
+          ],
+          "caption": "Table 15. Statistics and Distribution of Frequently Shared Tools",
+          "crop_file": "./images/table-15-p060-01.png",
+          "crop_rect": [
+            179.6,
+            154.67,
+            316.0,
+            495.67
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-060.jpg"
+    },
+    {
+      "number": 61,
+      "text_length": 4537,
+      "blocks": 12,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-061.jpg"
+    },
+    {
+      "number": 62,
+      "text_length": 1499,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 16,
+          "bbox": [
+            225.3800048828125,
+            81.23995971679688,
+            384.13018798828125,
+            90.20635986328125
+          ],
+          "caption": "Table 16. Tool Importance Score Evaluation",
+          "crop_file": "./images/table-16-p062-01.png",
+          "crop_rect": [
+            213.38,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-062.jpg"
+    },
+    {
+      "number": 63,
+      "text_length": 1494,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 16,
+          "bbox": [
+            225.3800048828125,
+            81.23995971679688,
+            384.13018798828125,
+            90.20635986328125
+          ],
+          "caption": "Table 16. Tool Importance Score Evaluation",
+          "crop_file": "./images/table-16-p063-01.png",
+          "crop_rect": [
+            213.38,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-063.jpg"
+    },
+    {
+      "number": 64,
+      "text_length": 1558,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 16,
+          "bbox": [
+            225.3800048828125,
+            81.23995971679688,
+            384.13018798828125,
+            90.20635986328125
+          ],
+          "caption": "Table 16. Tool Importance Score Evaluation",
+          "crop_file": "./images/table-16-p064-01.png",
+          "crop_rect": [
+            213.38,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-064.jpg"
+    },
+    {
+      "number": 65,
+      "text_length": 1489,
+      "blocks": 27,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 16,
+          "bbox": [
+            225.3800048828125,
+            81.23995971679688,
+            384.13018798828125,
+            90.20635986328125
+          ],
+          "caption": "Table 16. Tool Importance Score Evaluation",
+          "crop_file": "./images/table-16-p065-01.png",
+          "crop_rect": [
+            213.38,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-065.jpg"
+    },
+    {
+      "number": 66,
+      "text_length": 783,
+      "blocks": 15,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [
+        {
+          "kind": "table",
+          "number": 16,
+          "bbox": [
+            225.3800048828125,
+            81.23995971679688,
+            384.13018798828125,
+            90.20635986328125
+          ],
+          "caption": "Table 16. Tool Importance Score Evaluation",
+          "crop_file": "./images/table-16-p066-01.png",
+          "crop_rect": [
+            213.38,
+            75.24,
+            316.0,
+            416.24
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-066.jpg"
+    },
+    {
+      "number": 67,
+      "text_length": 3557,
+      "blocks": 6,
+      "images": 0,
+      "draw_clusters": 0,
+      "captions": [],
+      "page_image": "source_pages/page-067.jpg"
+    },
+    {
+      "number": 68,
+      "text_length": 478,
+      "blocks": 3,
+      "images": 2,
+      "draw_clusters": 2,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 13,
+          "bbox": [
+            58.5,
+            352.6371154785156,
+            553.4990234375,
+            372.6444091796875
+          ],
+          "caption": "Figure 13. A snapshot of EarthAgent web-application. This image is taken from a comprehensive task on risk prediction for a large-scale concert. EarthAgent first analyzes the whole question and select sub-agents in each layer.",
+          "crop_file": "./images/figure-13-p068-01.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            378.64
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 14,
+          "bbox": [
+            58.5,
+            664.7440795898438,
+            553.4990234375,
+            684.7514038085938
+          ],
+          "caption": "Figure 14. A snapshot of EarthAgent web-application. This image is taken from the same task scenario as Figure 13. EarthAgent calls agent from the first layer (Data Acquisition and Preprocessing Layer), who has acquired relevant ROIs successfully.",
+          "crop_file": "./images/figure-14-p068-02.png",
+          "crop_rect": [
+            45.0,
+            63.0,
+            567.0,
+            690.75
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-068.jpg"
+    },
+    {
+      "number": 69,
+      "text_length": 541,
+      "blocks": 3,
+      "images": 2,
+      "draw_clusters": 2,
+      "captions": [
+        {
+          "kind": "figure",
+          "number": 15,
+          "bbox": [
+            58.5,
+            356.2861022949219,
+            553.4992065429688,
+            387.25238037109375
+          ],
+          "caption": "Figure 15. A snapshot of EarthAgent web-application. This image is also taken from the same task scenario as Figure 13. EarthAgent has currently progressed to layer 2 (Data Processing and Analysis Layer), where semantic segmentation of the regions of interest has been achieved.",
+          "crop_file": "./images/figure-15-p069-01.png",
+          "crop_rect": [
+            45.0,
+            67.48,
+            567.0,
+            393.25
+          ]
+        },
+        {
+          "kind": "figure",
+          "number": 16,
+          "bbox": [
+            58.5,
+            685.3961181640625,
+            553.4988403320312,
+            705.4033813476562
+          ],
+          "caption": "Figure 16. A Snapshot of EarthAgent Web-Application. Taken from the same task scenario as Figure 13, this image showcases agent from layer 3 (Synthesis and Application Layer) executes rigorous reasoning and synthesize to output a integrated technical report.",
+          "crop_file": "./images/figure-16-p069-02.png",
+          "crop_rect": [
+            45.0,
+            67.48,
+            567.0,
+            711.4
+          ]
+        }
+      ],
+      "page_image": "source_pages/page-069.jpg"
+    }
+  ],
+  "figure_table_count": {
+    "figure": 16,
+    "table": 33
+  }
+}

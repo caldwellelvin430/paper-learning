@@ -1,0 +1,41 @@
+{
+  "source_pages": 8,
+  "expected_pages": 8,
+  "screenshots": 8,
+  "all_page_screenshots_present": true,
+  "captured_figures": [
+    1,
+    2
+  ],
+  "expected_figure_numbers": [
+    1,
+    2
+  ],
+  "captured_tables": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "expected_table_numbers": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "figure_table_crop_files": 10,
+  "md_document_count": 5,
+  "raw_text_characters": 45818,
+  "broken_local_image_links": [],
+  "invalid_images": [],
+  "complete_page_text_extracted": true,
+  "translation_status": "覆盖摘要、所有正文章节、主要表格数据、讨论与结论的中文学术译述；书目保留英文，非逐句平行翻译。"
+}
