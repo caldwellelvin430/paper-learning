@@ -1,0 +1,805 @@
+                     This CVPR paper is the Open Access version, provided by the Computer Vision Foundation.
+                                  Except for this watermark, it is identical to the accepted version;
+                            the final published version of the proceedings is available on IEEE Xplore.
+
+
+
+
+                  GeoMMBench and GeoMMAgent: Toward Expert-Level
+                  Multimodal Intelligence in Geoscience and Remote Sensing
+ Aoran Xiao∗,1,† , Shihao Cheng∗,2 , Yonghao Xu3 , Yexian Ren5 , Hongruixuan Chen1,4 , Naoto Yokoya1,4
+     1                    2                        3                         4
+       RIKEN AIP            Wuhan University         Linköping University     University of Tokyo
+                       5
+                         Nanjing University of Information Science and Technology
+
+
+                           Abstract                                sential instruments for measuring progress and guiding the
+                                                                   development of more capable multimodal systems.
+ Recent advances in multimodal large language models                   Despite these advances, the domain of geoscience and
+(MLLMs) have accelerated progress in domain-oriented               remote sensing (RS) has received limited attention in cur-
+AI, yet their development in geoscience and remote sens-           rent benchmarking efforts. Existing studies [8, 18, 19, 38,
+ing (RS) remains constrained by distinctive challenges:            43] remain narrow in scope, focusing primarily on percep-
+wide-ranging disciplinary knowledge, heterogeneous sen-            tion tasks such as classification, detection, or segmentation,
+sor modalities, and a fragmented spectrum of tasks. To             and are often restricted to a limited set of sensor modali-
+bridge these gaps, we introduce GeoMMBench, a compre-              ties, particularly optical imagery. In contrast, geoscience
+hensive multimodal question-answering benchmark cover-             requires the integration of multi-sensor data, spatiotemporal
+ing diverse RS disciplines, sensors, and tasks, enabling           reasoning, and multidisciplinary knowledge, which existing
+broader and more rigorous evaluation than prior bench-             benchmarks fail to adequately evaluate. This gap highlights
+marks. Using GeoMMBench, we assess 36 open-source                  the need for a comprehensive and expert-level assessment
+and proprietary large language models, uncovering system-          framework to systematically measure and advance AGI per-
+atic deficiencies in domain knowledge, perceptual ground-          formance within the RS domain.
+ing, and reasoning—capabilities essential for expert-level             To bridge this gap, we introduce GeoMMBench, a com-
+geospatial interpretation. Beyond evaluation, we propose           prehensive domain-specific benchmark designed to eval-
+GeoMMAgent, a multi-agent framework that strategically             uate the multidisciplinary and multimodal capabilities of
+integrates retrieval, perception, and reasoning through            MLLMs in geoscience and RS. The benchmark contains
+domain-specific RS models and tools. Extensive experimen-          1,053 expert-level, image-based multiple-choice questions
+tal results demonstrate that GeoMMAgent significantly out-         that represent diverse and realistic challenges across the key
+performs standalone LLMs, underscoring the importance              dimensions, as illustrated in Fig. 1.
+of tool-augmented agents for dynamically tackling complex              GeoMMBench is characterized by three major proper-
+geoscience and RS challenges. Project: https://geo-                ties that define its breadth and depth. (1) Multi-disciplinary
+mm-agi.github.io                                                   coverage: It spans multiple geospatial disciplines, includ-
+                                                                   ing RS, photogrammetry, geographic information systems
+                                                                   (GIS), and global navigation satellite systems (GNSS).
+1. Introduction                                                    These areas draw upon foundational knowledge in math-
+                                                                   ematics, physics, cartography, spectroscopy, and geogra-
+Recent progress in multimodal large language models
+                                                                   phy, mirroring the diverse expertise required for profes-
+(MLLMs) has accelerated the pursuit of artificial general
+                                                                   sional interpretation and decision-making. (2) Multi-sensor
+intelligence (AGI), marking an important milestone with
+                                                                   modalities: The benchmark incorporates a wide range of
+the emergence of Expert AGI. This level of machine in-
+                                                                   sensing sources such as optical imagery, synthetic aperture
+telligence is characterized by performance comparable to
+                                                                   radar (SAR), multispectral and hyperspectral data, LiDAR,
+or exceeding that of skilled human experts at the 90th per-
+                                                                   and digital elevation models (DEM). These complementary
+centile across professional domains [31]. As research ad-
+                                                                   modalities enable a realistic evaluation of multi-sensor in-
+vances toward this stage, a growing collection of multi-
+                                                                   tegration skills crucial for expert-level analysis. (3) Diverse
+modal benchmarks has been introduced to assess reason-
+                                                                   task spectrum: GeoMMBench covers a continuum of com-
+ing, perception, and domain expertise across diverse disci-
+                                                                   plexity, from theoretical and data-preprocessing concepts to
+plines [16, 20, 25, 50, 52]. These benchmarks serve as es-
+                                                                   perception tasks and high-level geospatial applications, pro-
+   ∗ Equal contribution; † corresponding author                    viding a holistic assessment of AGI capabilities in RS.
+
+
+
+                                                             34843
+    We conduct a comprehensive evaluation of 36 open-
+source and proprietary MLLMs on GeoMMBench, reveal-
+ing critical gaps in their ability to interpret geoscience data.
+These limitations stem from the benchmark’s multidimen-
+sional structure, high domain complexity, and requirement
+for expert-level reasoning. To address these challenges, we
+propose GeoMMAgent, a multi-agent system that advances
+MLLMs toward expert-level performance in geoscience
+and RS. GeoMMAgent integrates large language models
+(LLMs) with domain-specific tools and models within an
+adaptive framework that plans, coordinates, and executes            Figure 1. Expert-level knowledge dimensions in geoscience and
+tasks across three key functional stages: retrieval, percep-        RS covered in GeoMMBench.
+tion, and reasoning. Through strategic task decomposition
+and tool selection, GeoMMAgent enables models to ac-
+cess external knowledge bases, analyze complex RS data,             uations such as AGIEval [58], ARC [4], and MMLU [13]
+and perform spatial reasoning beyond the intrinsic capac-           focus on standardized exams, while MMLU-Pro [46] in-
+ity of general-purpose MLLMs. The framework supports                troduces higher-order reasoning. Multimodal extensions
+transparent and modular integration of various RS tools and         like ScienceQA [27], MMMU [52], MMMU-Pro [53],
+model components, promoting interpretability, scalability,          and Video-MMMU [15] broaden evaluation across images
+and future extensibility.                                           and temporal sequences. In contrast, RS benchmarks still
+    Our main contributions are summarized as follows.               concentrate on perception tasks such as scene classifica-
+First, we propose GeoMMBench, a comprehensive and                   tion [6, 28, 47, 51], object detection [22, 37], and seman-
+domain-specific benchmark, which evaluates the multidis-            tic segmentation [22, 43], often using automatically gen-
+ciplinary, multimodal, and multi-level reasoning capabili-          erated descriptions instead of expert assessments. To the
+ties of MLLMs in geoscience and RS. Second, we develop              best of our knowledge, GeoMMBench is the first expert-
+GeoMMAgent, a multi-agent system tailored to geoscience             crafted, knowledge-driven benchmark that spans multiple
+and RS. It integrates MLLMs with domain-specific mod-               disciplines, sensor modalities, and task hierarchies, bridg-
+els and tools through structured task planning that spans           ing theoretical concepts and practical applications in geo-
+retrieval, perception, and reasoning stages, enabling adap-         science and RS.
+tive coordination and expert-level task execution. Third, we
+conduct an extensive evaluation of open-source and propri-          3. GeoMMBench Benchmark
+etary MLLMs on GeoMMBench, establishing the current                 3.1. Overview
+performance landscape, identifying key challenges in do-
+main expertise, and demonstrating the effectiveness of Ge-          GeoMMBench is a rigorously designed benchmark that
+oMMAgent in bridging these capability gaps.                         evaluates the ability of MLLMs to comprehend geoscience
+                                                                    and RS concepts across multiple dimensions. Its primary
+2. Related Works                                                    objective is to assess how effectively these models perceive
+                                                                    and interpret geospatial information across related disci-
+MLLMs for Geoscience and Remote Sensing. Despite                    plines while applying domain-specific knowledge and rea-
+rapid progress in MLLMs, their applications in geoscience           soning to solve complex geospatial problems.
+and RS remain limited [48, 49]. Most recent RS stud-                   The benchmark comprises 1,053 image-based multiple-
+ies focus on VQA over optical RGB imagery [30, 59].                 choice questions, each containing a single correct answer
+GeoChat [19] fine-tunes LLaVA-1.5 [23] with detection-              derived from the provided imagery. The dataset was de-
+based instruction data, while TeoChat [18] adapts tempo-            veloped through collaborative efforts by domain experts in
+ral Earth observation data for change detection. LHRS-              geoscience and RS, including PhD researchers and doctoral
+Bot [32] and EarthVQA [43] further tailor multimodal                students, who engaged in extensive panel discussions to de-
+datasets for RS perception and pixel-level understanding.           fine the scope, content, and evaluation dimensions. Source
+However, these models remain task-specific and lack multi-          materials were drawn from a diverse range of authoritative
+disciplinary knowledge integration, multi-sensor aware-             references, including educational resources, online reposi-
+ness, and advanced reasoning, which are key capabilities            tories, and academic literature.
+for expert-level intelligence in geoscience and RS.                    For evaluation purposes, the dataset is divided into a val
+Knowledge-driven Benchmarks for RS. Progress toward                 set of 37 questions and a test set of 1,016 questions. The
+Expert AGI [31] has inspired knowledge-oriented bench-              val set is intended for assessing human expert performance
+marks to assess professional expertise. Early textual eval-         and for model selection or hyperparameter tuning in future
+
+
+
+                                                               34844
+                           Different Disciplines                                              Different Sensor Modalities                                                  Different Tasks
+ Which of the following statements about Band ① is accurate?               Which SAR bands correspond to                                       Which of the following inferences is most likely correct based on
+                                                                           interferograms ①, ②, and ③,                                         the image?
+ A) It is often used in passive remote sensing.
+                                                                           respectively?                                                       A. Wetland converted to lake
+ B) It is suitable for thermal remote sensing.
+                                                                              A) X, C, L       B) X, L, C                                      B. River expanded to lake
+ C) It operates only during the day and is
+ affected by weather conditions.                                              C) C, X, L      D) C, L, X.                                      C. Saline-alkali or sandy land
+                                                                                                                                               converted to lake
+ D) It can penetrate vegetation to detect
+ subsurface targets.                                                                                                                           D. Glacier meltwater became lake
+ Discipline: RS; Image Type: Diagram                                       Data Modality: SAR; Image Type: interferogram image                 Task: Time Series Analysis; Image Type: Map, Optical image
+ Which step in photogrammetry                                              What does the image depict?                                         Does any quality issue appear in this
+ is illustrated in the image?                                                                                                                  remote sensing image?
+                                                                           A) A thermal image of a forest
+ A) Super-resolution                                                                                                                           A. Twisted Object
+                                                                           B) A LiDAR point cloud of forest vegetation
+ B) Motion compensation                                                                                                                        B. Blur
+ C) Radiometric correction                                                 C) A LiDAR point cloud of urban areas                               C. Stitching Misalignment
+ D) Stereo image matching                                                                                                                      D. Strip Noise
+                                                                           D) A simulated 3D model of a grass field
+
+ Discipline: Photogrammetry; Image Type: Panchromatic Image                Modality: LiDAR; Image Type: LiDAR image                            Task: Image Quality Inspection; Image Type: Optical image
+
+ In the GIS project illustrated, which spatial query is most appropriate   Which of the following statements about the image is NOT correct?   In which direction from the hospital
+ for determining the number of villages located near the highway?          A) The river (No. 10) registered a much lower                       (marked by red box) is the parking lot
+                                                                           temperature than both lakes (Nos. 3 and 4).                         (blue box) located?
+ A) Select villages that intersect the buffer                              B) Lakes (Nos. 8 and 9) show low land surface
+ zone.                                                                     temperature regions on the map.                                      A) East
+
+ B) Find all points that have a spatial join.                              C) There is a temperature difference between                        B) Northeast
+                                                                           the central areas of both football grounds (Nos.
+ C) Select point-in-polygon query.                                         3&4) due to their natural and artificial lawns.                     C) Northwest
+                                                                           D) In the residential area (No. 11), the average                    D) West
+ D) Analyze the distance calculation.                                      land surface temperature reaches up to 60°C.
+ Discipline: GIS; Image Type: Map                                          Modality: Thermal; Image Type: Thermal image                        Task: Spatial Relation Analysis; Image Type: Optical Image
+
+ Let 𝒄 be the speed of light, and 𝒄𝒓 be the C/A-code chipping rate. How    In the provided DEM visualization, four areas                       The image represents a remote sensing product derived from Landsat
+ is the pseudorange to a satellite calculated based on the given figure?   (①, ②, ③, ④) are marked. Based on the                               8 bands using the equation ((Band 5 – Band 4) / (Band 5 + Band 4 + 0.5))
+                                                                           terrain characteristics, which area is most                         * 1.5. Based on this index, which of the following statements is correct?
+ A) 𝑐(𝑡𝑟𝑐𝑣𝑒 + 𝑡𝑒𝑖 + 𝑋𝑖 /𝑐𝑟 )                                               likely to represent a valley?
+                                                                                                                                               A) The southern region has higher vegetation cover.
+ B) 𝑐(𝑡𝑟𝑐𝑣𝑒 − 𝑡𝑒𝑖 − 𝑋𝑖 /𝑐𝑟 )                                                A. ①
+                                                                                                                                               B) The southern region experiences higher
+                                                                           B. ②                                                                temperatures.
+ C) 𝑐(𝑡𝑟𝑐𝑣𝑒 + 𝑡𝑒𝑖 − 𝑋𝑖 /𝑐𝑟 )
+                                                                                                                                               C) The northern region has a lower density of
+                                                                           C. ③                                                                buildings.
+ D) 𝑐(−𝑡𝑟𝑐𝑣𝑒 + 𝑡𝑒𝑖 − 𝑋𝑖 /𝑐𝑟 )
+                                                                           D. ④                                                                D) The northern region has higher soil moisture.
+ Discipline: GNSS; Image Type: Diagram                                     Modality: DEM; Image Type: DEM Image                                Task: Environmental Analysis; Image Type: RS-Map
+
+
+
+
+Figure 2. Examples from GeoMMBench, covering multiple disciplines, diverse sensor modalities, and a wide range of task types. Answer-
+ing these questions requires advanced geoscience and RS expertise, along with specialized reasoning and interpretation skills.
+
+
+studies, whereas the test set serves as the final benchmark                                                              RS-specific corrections (e.g., atmospheric, radiometric, and
+for performance evaluation. This design ensures a standard-                                                              geometric corrections) for data preprocessing and quality
+ized, transparent, and reproducible framework for assessing                                                              control. 3) Mid-level geospatial recognition across sensor
+MLLMs in the geoscience and RS domain.                                                                                   modalities, including scene/object recognition, geospatial
+   We highlight key dimensions of GeoMMBench that en-                                                                    relationship analysis, and temporal change detection. 4)
+sure a specialized and comprehensive evaluation (Fig. 1):                                                                High-level geospatial applications across diverse domains,
+Disciplines: GeoMMBench encompasses four core disci-                                                                     such as environmental monitoring, agriculture, economic
+plines: RS, photogrammetry, GIS, and GNSS. Advanced                                                                      analysis, and RS mapping products.
+geospatial interpretation requires integrating knowledge                                                                 Image formats: GeoMMBench incorporates diverse
+across these domains. These disciplines are further sup-                                                                 geospatial image formats, including raw sensor imagery,
+ported by foundational subjects such as mathematics,                                                                     maps, diagrams, tables, plots, and various RS mapping
+physics, geography, cartography, and spectroscopy. The                                                                   products. This diversity challenges models to process het-
+questions frequently integrate multiple disciplinary per-                                                                erogeneous visual data while integrating domain-specific
+spectives to ensure a holistic assessment.                                                                               knowledge to interpret textual and visual information and
+Sensor modalities: The benchmark includes a broad range                                                                  apply reasoning skills.
+of sensing modalities, such as MSI/HSI, SAR, LiDAR, DEM,                                                                    Together, these dimensions ensure that GeoMMBench
+optical and thermal imagery. This diversity enables rigor-                                                               provides a rigorous and holistic assessment of Expert AGI
+ous evaluation of a model’s ability to integrate multi-sensor                                                            in geoscience and RS. Fig. 2 presents example questions
+data for complex Earth observation and geospatial analysis,                                                              covering various evaluation dimensions.
+which is essential for achieving expert-level intelligence.
+Task spectrum: GeoMMBench employs a structured task                                                                      3.2. Benchmark Construction
+hierarchy to systematically assess key geospatial competen-                                                              Data collection. A team of geoscience and RS experts, in-
+cies. It spans four levels: 1) Theoretical knowledge across                                                              cluding the co-authors, first defined the key evaluation di-
+multiple disciplines and subjects, forming the foundation                                                                mensions encompassing disciplines, sensor modalities, and
+for downstream perception and application tasks. 2) Low-                                                                 task categories. They then systematically outlined essen-
+level perception, covering image quality assessment and                                                                  tial knowledge points within these dimensions. Experts
+
+
+
+                                                                                                            34845
+                              Disciplines                          Sensor Modalities                                    Task Spectrum
+  Benchmarks
+                       RS   Ph.    GIS      GNSS   Optical   HSI   SAR     DEM       LiDAR   Thermal   Pri.   Per.      Spa.   Qua.   Tim.   App.
+  VLEO-Bench [54]      ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         –       –     ✓      –
+  EarthVQA [43]        ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         –       –     ✓      –
+  GeoChat-Bench [19]   ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         ✓       –     –      –
+  VRSBench [22]        ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         ✓       –     –      –
+  TeoChat-Bench [18]   ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         –       –     ✓      –
+  LHRS-Bench [32]      ✓     –       –       –       ✓        ✓     –       –           –       –       –      ✓         ✓       –     –      –
+  GeoText-1652 [7]     ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         –       –     –      –
+  GeoBench-VLM [8]     ✓     –       –       –       ✓        –     ✓       –           –       –       –      ✓         ✓       –     ✓      –
+  XLRS-Bench [42]      ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         ✓       –     –      –
+  CHOICE [3]           ✓     –       –       –       ✓        –     –       –           –       –       –      ✓         ✓       ✓     –      –
+  GeoMMBench           ✓    ✓       ✓        ✓       ✓        ✓     ✓       ✓          ✓       ✓        ✓      ✓         ✓       ✓     ✓      ✓
+
+Table 1. Comparison of geoscience and RS benchmarks for MLLMs across key evaluation dimensions. Full names of all dimensions are
+listed in the Appendix.
+
+
+were assigned specific knowledge points to develop mul-                    Bench challenges models to determine relative directions
+timodal questions using major textbooks, online resources,                 using a compass or compute absolute distances from scale
+and academic literature, ensuring comprehensive coverage                   bars, which requires advanced spatial reasoning. Similarly,
+of geospatial expertise by creating new questions when                     in RS application tasks, models must move beyond basic
+needed. The process strictly adhered to copyright and li-                  color recognition in thematic maps to the correct interpre-
+censing regulations, ensuring that no data was sourced from                tation and use of spectral indices. For instance, GeoMM-
+restricted materials.                                                      Bench evaluates whether a model can interpret the SAVI*
+Review process. All questions underwent a rigorous peer                    and apply it appropriately in a given context (row 4, col. 3).
+review by the expert team. The review process system-                      These tasks reflect a substantially deeper level of reason-
+atically identified and addressed two key issues: 1) Text-                 ing that combines conceptual understanding with analyti-
+only inference bias: Some questions could be answered cor-                 cal and application skills, extending well beyond traditional
+rectly without relying on the image input, thereby failing                 perception-based evaluation.
+to assess true multimodal understanding. These questions                       GeoMMBench remains complementary to existing
+were either revised to reinforce image dependency or ex-                   benchmarks. Prior efforts provide valuable evaluations for
+cluded from the benchmark. 2) Incorrect samples: Ques-                     optical imagery and foundational vision tasks that support
+tions with ambiguous phrasing, misleading answer choices,                  many downstream geospatial applications. Rather than du-
+or incorrect solutions were identified and refined to uphold               plicating these contributions, GeoMMBench expands the
+benchmark integrity, ensuring that all questions accurately                evaluation landscape toward higher-level reasoning and in-
+reflected geospatial expertise and aligned with the bench-                 terpretation skills that are essential for multimodal expert
+mark’s objectives.                                                         intelligence in geoscience and RS. Additionally, GeoMM-
+                                                                           Bench is expert-crafted, differing fundamentally from
+3.3. Comparisons with Existing Benchmarks                                  prior benchmarks that repurpose perception datasets with
+We elaborate the key differences between GeoMMBench                        text annotations or MLLM-generated questions. Each ques-
+and existing benchmarks from the following perspectives:                   tion is authored by geoscience and RS experts based on
+Breadth. Table 1 summarizes the evaluation dimensions                      domain knowledge and authoritative references, ensuring
+of GeoMMBench relative to prior benchmarks. Most ex-                       methodological rigor and substantive depth. This expert-
+isting benchmarks are limited in scope, focusing primarily                 driven construction makes GeoMMBench both uniquely
+on perception-oriented tasks within the optical domain. Ge-                challenging and complementary to existing resources.
+oMMBench substantially expands this scope by integrating
+multiple disciplines, diverse sensor modalities, and a com-                4. GeoMMAgent
+prehensive task spectrum. This broader coverage enables                    Given the complexity and diversity of geoscience and RS
+more holistic evaluation of MLLMs and supports progress                    tasks, it is challenging for a single MLLM to meet all do-
+toward expert-level multimodal intelligence in geoscience.                 main requirements. A promising solution is to leverage in-
+Depth. Even when GeoMMBench shares evaluation di-                          telligent agent systems that integrate general and special-
+mensions with prior benchmarks, its questions demand                       ized tools for adaptive problem-solving. To this end, we in-
+deeper domain-specific reasoning.         As illustrated in                troduce GeoMMAgent, a multi-agent orchestration frame-
+Fig. 2 (row 3, col. 3), GeoMMBench assesses spatial rela-                  work designed to enable expert-level interpretation for mul-
+tionship recognition within authentic geoscientific contexts.              timodal tasks in geoscience and RS.
+While earlier benchmarks [8, 19] may include simple spa-
+tial queries such as identifying “left” or “right,” GeoMM-                     * SAVI: Soil-Adjusted Vegetation Index
+
+
+
+
+                                                                    34846
+                                       Query            Image                                                Tool Library                                      Stage 3: Self Evaluation
+
+             Which of the following statements about Band ① is accurate?
+                                                                                   General Toolkit                  Search Toolkit                                          Input: Agent Execution Results
+             A) It is often used in passive remote sensing.
+User Input
+
+
+
+
+                                                                                    Image Crop       Image Resize   Wikipedia Search Google Search
+             B) It is suitable for thermal remote sensing.                          Super Resolution ...            GME Retrieval    ...             Coordinator
+             C) It operates only during the day and is
+             affected by weather conditions.                                        Perception Toolkit              Reasoning Toolkit                                          Evaluation Dimensions
+                                                                                                                                                                   Logic: Reasonable? ✓ Domain Validity? ✓
+             D) It can penetrate vegetation to detect                               Detection        Segmentation    Spatial-Temporal Analysis
+                                                                                    Classification   ...             Multiple Choice Matching ...                  Spatial Reasoning? ✓ Accuracy: Reliable? ✓
+             subsurface targets.
+
+
+                                                                                                                                                                    Grade:
+                                          Stage 1: Planning                              Stage 2: Multi-Agent Execution                                               Excellent→output    Fair → re-execution
+Agent Team
+
+
+
+
+                                           Task Specification
+                                                                                                                    Retrieval          Perception
+                         Coordinator       Meta Information Analysis                                                 Agent               Agent                         Result: D
+                                           Fine-grained Task Decomposition
+                                                                                                                    Reasoning            More
+                                                                                   Coordinator                        Agent              Agent
+                 Required Agents: [ Retrieval , Reasoning]
+
+
+
+             You are an Intelligent Orchestration Expert in the field of Remote   You are an Intelligent Analysis Expert in the field of             You are a Professional Assessment Expert in the field
+                                                                                  Remote Sensing that understands images and queries,
+Experts
+
+
+
+
+             Sensing that analyzes images and queries, creating execution plans                                                                      of Remote Sensing, specialized in evaluating the
+             through the coordination of multiple specialized agents...           determining the best approach to solve complex tasks by            correctness of image analysis results. You assess logic,
+                                                                                  coordinating multiple specialized agents...                        consistency, completeness ...
+
+
+Figure 3. Overview of GeoMMAgent, a multi-agent framework that plans, executes, and self-evaluates multimodal tasks for expert-level
+geospatial understanding.
+
+
+4.1. Overall Framework                                                                                     soning. These capabilities reflect human expert cognition,
+                                                                                                           as geospatial analysis is inherently complex, dynamic, and
+As illustrated in Fig. 3, GeoMMAgent follows a
+                                                                                                           multidimensional. Accurate interpretation requires integrat-
+plan–execute–evaluate paradigm comprising three stages:
+                                                                                                           ing information across multiple sensors, scales, and disci-
+Planning, Multi-Agent Execution, and Self-Evaluation.
+                                                                                                           plinary contexts. To operationalize these capabilities, Ge-
+Given an image–query pair as input, the system dynami-
+                                                                                                           oMMAgent provides a tool library that equips agents with
+cally decomposes complex problems into structured sub-
+                                                                                                           domain-specific functionalities for robust interpretation.
+goals, assigns them to specialized agents, and integrates
+their outputs into a coherent final answer.                                                                   Knowledge tools handle the retrieval and synthesis of ex-
+Planning. A unified coordinator first interprets the input                                                 ternal information. We integrate multiple search engines
+using an internal planner that formulates an executable plan                                               (e.g., Wikipedia and Google) for general knowledge ac-
+specifying subgoals, required tools or agents, and schedul-                                                quisition and adopt GME [57] for multimodal retrieval to
+ing strategies for execution order and dependencies.                                                       match collected image–text information with the input im-
+Multi-Agent Execution. Based on the execution plan, the                                                    age–query pair. Retrieved evidence snippets are returned
+coordinator dispatches subtasks to specialized agents re-                                                  with provenance, ensuring fact-grounded reasoning and
+sponsible for retrieval, perception, and reasoning. Each                                                   expert-level explanations.
+agent operates with domain-specific tools, such as object                                                     Perception tools include traditional RS models such as
+detection or geospatial reasoning models, and returns struc-                                               object detection, scene classification, and land use and land
+tured outputs. A comprehensive tool library comprising                                                     cover segmentation, trained with supervised learning on do-
+these specialized agents is described in Section 4.2. The                                                  main datasets. These models are optimized for geospatial
+coordinator then aggregates the results into an interpretable,                                             perception tasks and provide accurate, interpretable results.
+evidence-based response.                                                                                       Reasoning tools consist of advanced MLLMs that gener-
+Self-Evaluation. Finally, a self-evaluation module reviews                                                 ate contextual insights or intermediate reasoning steps from
+the reasoning trace and generated answer, verifying con-                                                   image–text pairs to support final answer generation. This
+sistency and correctness against the original plan. If in-                                                 module is automatically invoked when the coordinator iden-
+consistencies are detected, the module triggers selective re-                                              tifies that complex logical structures must be resolved. In
+execution or refinement.                                                                                   our implementation, we employ Qwen-VL-Max, though the
+    This modular and iterative workflow enables GeoMMA-                                                    framework can accommodate alternative reasoning models.
+gent to perform transparent, interpretable, and expert-level                                                  All tools are implemented in compliance with the Model
+analyses for multimodal geoscience and RS tasks.                                                           Context Protocol (MCP) [14], ensuring scalability and mod-
+                                                                                                           ularity. This design allows new domain-specific tools to
+4.2. Specialized Tool Library and Core Capabilities
+                                                                                                           be seamlessly integrated, enabling GeoMMAgent to coordi-
+We define three core geospatial capabilities that underpin                                                 nate heterogeneous agents and perform transparent, expert-
+expert-level intelligence: knowledge, perception, and rea-                                                 level multimodal reasoning in geoscience and RS.
+
+
+
+                                                                                               34847
+5. Experiments                                                     sensitive applications, continued progress in open-source
+                                                                   MLLMs is critical for accessibility and private deployment.
+5.1. Baselines                                                     Geospatial-specific models require stronger instruction
+Models. The evaluated models are grouped into three                tuning. Domain-specialized MLLMs such as GeoChat
+categories. 1) Closed-source MLLMs [9, 33–35, 39] re-              [19], TeoChat [18], LHRS-Bot [32], and VHM [37] perform
+leased by commercial providers. 2) Open-source MLLMs               markedly below advanced general-purpose models despite
+further divided into general-purpose [1, 5, 10–12, 21, 23,         fine-tuning on RS data. Their narrow focus on perception
+24, 26, 40, 44, 45, 56] and geoscience-specialized vari-           tasks limits reasoning and generalization in broader geospa-
+ants [18, 19, 32, 37]. 3) LLMs as text-only baselines [2]          tial contexts. These results highlight the need for more di-
+used to assess the contribution of visual inputs.                  verse datasets and instruction-tuning strategies to enhance
+Human experts. To establish a human expert baseline, we            domain-specific expertise.
+invited participants with at least a master’s degree in a rele-    5.2.1. Error Analysis
+vant field to complete the validation tests. They had access
+                                                                   To better understand the limitations of SOTA MLLMs in
+to course materials and personal notes but were strictly pro-
+                                                                   geoscience and RS, we analyze misinterpreted samples
+hibited from using online search engines or AI assistants.
+                                                                   from Gemini-1.5 Pro and GPT-4o, the top-performing mod-
+Evaluation. All models, including GeoMMAgent, are
+                                                                   els from Google and OpenAI, respectively, as reported in
+tested under a zero-shot setting without fine-tuning or addi-
+                                                                   Table 2. Fig. 4 presents representative error cases specific
+tional supervision. Each model follows its default multiple-
+                                                                   to geospatial tasks, highlighting common geo-interpretation
+choice question-answering prompt for consistency. Model
+                                                                   failure patterns in model predictions. These cases under-
+responses are evaluated through an automated rule-based
+                                                                   score the need for domain-specialized advancements in fu-
+pipeline using regular expressions to extract option letters
+                                                                   ture developments.
+and numerical answers, with invalid outputs marked as in-
+                                                                   Visual-linguistic misalignment. A key challenge in evalu-
+correct. Micro-averaged accuracy serves as the primary
+                                                                   ating Expert AGI for geoscience and RS is distinguishing
+metric. All evaluations are conducted using the LMMs-Eval
+                                                                   between genuine gaps in domain knowledge and failures
+toolkit [55], with random-choice results reported as a base-
+                                                                   caused by misalignment between language and vision com-
+line. Experiments are performed on NVIDIA A100 GPUs.
+                                                                   ponents. Our analysis reveals that while SOTA LLMs of-
+5.2. Main Results                                                  ten exhibit strong geospatial knowledge in text-based tasks,
+                                                                   their visual understanding remains inadequate, resulting in
+We present the evaluation results in Table 2 and summarize         incorrect predictions. Fig. 4 (top-left) illustrates two rep-
+our key findings as follows:                                       resentative cases. When given text-only input, GPT-4o and
+GeoMMBench poses significant challenges for current                Gemini-1.5 Pro accurately describe the spectral characteris-
+models. Human experts achieve a validation accuracy of             tics of 1mm–1nm wavelengths (i.e., microwave) and recog-
+86.5%, outperforming all foundation models by a large              nize their ability to penetrate vegetation for subsurface de-
+margin. This pronounced gap underscores the limitations            tection. However, when required to identify the wavelength
+of existing models in geoscience and RS, revealing weak-           range for Band ⃝  1 in a standard electromagnetic spectrum
+nesses in expert-level reasoning, multimodal integration,          diagram, both models fail, selecting incorrect options de-
+and domain-specific interpretation. These results demon-           spite possessing the necessary textual knowledge. A similar
+strate the rigor of GeoMMBench and its effectiveness in            issue arises with Along-Track Scanning (Pushbroom) sen-
+evaluating advanced geospatial competencies.                       sors. Both models correctly explain their advantages in a
+GeoMMAgent demonstrates superior capability. GeoM-                 text-based setting but fail to recognize them visually, lead-
+MAgent attains 88.4% accuracy on the test set, surpassing          ing to misinterpretation.
+all MLLMs by substantial margins. It also achieves the                 These findings highlight a key limitation: while MLLMs
+same score by human expert on val set. This is due to its          may exhibit rich geospatial knowledge in text-based tasks,
+multi-agent design, enabling the intelligent decomposition         their visual encoders remain poorly aligned, preventing ef-
+of complex RS tasks and coordinated use of specialized             fective integration of visual and textual reasoning. Bridging
+tools, highlighting the great potential of agent-based sys-        this gap requires improving visual processing architectures
+tems for expert-level multimodal analysis in RS.                   to enhance the interpretation of domain-specific imagery in
+Open-source MLLMs are rapidly improving. State-of-                 geoscience and RS.
+the-art closed-source models still lead overall, with Gemini-      Misinterpretation of geospatial relationships. Interpret-
+1.5 Pro [39] reaching 70.7% accuracy. The leading open-            ing spatial relationships is fundamental in geoscience and
+source model, Qwen3-VL-30B [41], achieves 66.7%, nar-              RS, often requiring expertise in analyzing spatial elements
+rowing the gap and even outperforming GPT-4o [34].                 such as compasses (for direction), scale bars (for distance),
+Given the importance of geoscience and RS for public and           and latitude/longitude grids (for positioning). GeoMM-
+
+
+
+                                                              34848
+                                                    Results by Disciplines           Results by Sensor Modalities                  Results by Task Spectrum
+ Model                            Val    Test
+                                                 RS Pho. GIS GNS. Opt. DEM SAR HSI LiD.                             The.   Pri.   Per. Spa. Qua. Tim.         App.
+ Random                           20.8   25.2   25.3 25.2 25.0 22.4 27.2 20.4                 24.5 35.1 16.1        32.1   23.2   23.7 35.1 42.3 28.3         26.3
+ Human Expert                     86.5    -       -       -      -        -      -     -        -      -     -       -      -       -      -      -       -    -
+                                                                    LLMs: Only Text as Input
+ GPT-4 Text [2]                   24.3   31.2   27.4 49.6 36.4 45.9 19.9 29.9                 26.4 32.4 35.5        35.7   30.8   27.1   16.2   7.7    30.4   30.5
+                                                                       Open-source MLLMs
+ GeoChat [19]                     21.6   35.4   34.1 40.9 34.1 34.1 41.7 22.8                 34.6 27.0 46.8        21.4   31.1   36.8   29.7   26.9   30.4   33.9
+ TeoChat [18]                     24.3   31.1   28.2 39.4 52.3 37.6 29.6 22.8                 30.8 32.4 25.8        25.0   29.2   26.4   27.0   23.1   32.6   28.0
+ SkySenseGPT [29]                 18.9   36.5   35.8 40.2 36.4 37.6 48.1 25.7                 31.4 37.8 46.8        25.0   30.3   42.5   37.8   26.9   28.3   30.5
+ LHRS-Bot [32]                    27.0   31.1   27.9 37.0 45.5 41.2 31.6 26.9                 25.2 29.7 21.0        25.0   24.0   33.8   13.5   15.4   32.6   33.1
+ VHM [37]                         37.8   39.1   39.0 40.2 27.3 43.5 56.3 28.1                 30.8 35.1 41.9        35.7   27.7   46.2   35.1   38.5   41.3   44.9
+ LLaVA1.5-7B [23]                 27.0   34.4   34.6 7.6 45.5 27.1 46.6 21.0                  38.4 27.0 41.9        32.1   29.2   40.8   37.8   34.6   26.1   30.5
+ LLaVA1.5-13B [23]                29.7   38.2   38.9 32.3 50.0 27.1 57.3 27.5                 37.7 32.4 32.3        28.6   32.4   45.5   45.9   34.6   41.3   35.6
+ LLaVA-NeXT-7B [24]               45.9   41.2   42.0 40.2 54.5 35.3 54.9 31.7                 37.1 32.4 40.3        53.6   36.8   47.8   51.4   34.6   39.1   39.8
+ LLaVA-NeXT-34B [24]              59.5   54.2   52.8 63.0 56.8 60.0 60.2 42.5                 52.2 51.4 74.2        35.7   50.7   51.8   59.5   46.2   54.3   55.9
+ LLaVA-OneVision-0.5B [21]        32.4   40.3   39.9 44.1 40.9 35.3 48.5 32.3                 35.8 35.1 51.6        32.1   35.0   41.8   35.1   46.2   37.0   41.5
+ LLaVA-OneVision-7B [21]          56.8   57.3   55.7 64.6 65.9 64.7 66.5 50.3                 47.8 59.5 62.9        46.4   53.5   57.5   54.1   65.4   52.2   51.7
+ CogVLM2 [45]                     37.8   54.1   52.8 55.9 54.5 60.0 67.0 48.5                 43.4 62.2 61.3        53.6   47.0   57.9   40.5   57.7   54.3   54.2
+ Mini-Monkey [17]                 54.1   41.8   41.4 37.0 52.3 43.5 48.1 34.7                 36.5 43.2 50.0        32.1   37.1   43.8   37.8   42.3   45.7   43.2
+ LLaMA3.2-11B [12]                35.1   40.1   38.1 46.5 50.0 43.5 46.1 32.9                 35.8 43.2 45.2        28.6   37.1   40.1   29.7   42.3   30.4   36.4
+ InternLM-XComposer-2.5-7B [56]   37.8   46.2   45.3 47.2 63.6 45.9 54.4 37.7                 37.7 70.3 48.4        50.0   39.9   48.5   35.1   46.2   54.3   48.3
+ InternLM-XComposer2-4KHD [10]    44.5   31.3   31.6 29.1 43.2 17.6 52.9 25.1                 22.6 27.0 29.0        28.6   24.3   40.5   59.5   34.6   23.9   22.0
+ NVILA-8B [26]                    43.2   45.3   42.4 57.5 47.7 55.3 34.5 45.5                 37.7 67.6 56.5        46.4   42.8   39.5   35.1   30.8   45.7   51.7
+ NVILA-15B [26]                   48.6   46.8   43.7 62.2 47.7 56.5 30.6 47.3                 49.7 56.8 59.7        50.0   48.3   35.8   37.8   42.3   45.7   57.6
+ InternVL 2.5-8B [5]              59.5   56.8   55.2 61.4 65.9 62.4 65.0 46.1                 42.1 59.5 64.5        53.6   50.4   55.2   54.1   57.7   60.9   64.4
+ Phi-3v-128k [1]                  45.9   46.9   45.2 51.2 63.6 51.8 51.5 37.1                 44.0 51.4 54.8        39.3   44.1   44.8   37.8   38.5   39.1   47.5
+ Phi-3.5v [1]                     51.4   48.7   46.8 55.1 63.6 60.0 50.5 39.5                 40.3 54.1 54.8        46.4   46.2   44.5   54.1   34.6   47.8   47.5
+ Phi-4-Multimodal [11]            48.6   55.3   54.0 63.8 61.4 62.4 58.3 50.3                 47.2 70.3 61.3        50.0   53.3   53.2   40.5   65.4   47.8   58.5
+ Qwen2-VL-2B [44]                 29.7   48.9   48.2 48.8 59.1 49.4 61.7 39.5                 39.0 54.1 53.2        42.9   43.9   49.2   51.4   61.5   47.8   47.5
+ Qwen2-VL-7B [44]                 51.4   59.8   59.1 56.7 70.5 61.2 69.4 51.5                 54.1 67.6 67.7        50.0   53.8   63.5   62.2   46.2   58.7   61.9
+ Qwen2.5-VL-3B [40]               54.1   58.1   56.8 60.6 61.4 63.5 64.1 48.5                 52.8 62.2 62.9        60.7   54.3   57.9   59.5   42.3   52.2   57.6
+ Qwen2.5-VL-7B [40]               56.8   62.5   60.6 68.5 72.7 70.6 66.0 52.1                 55.3 70.3 74.2        57.1   59.8   59.2   54.1   50.0   52.2   64.4
+ Qwen3-VL-4B [41]                 56.8   63.2   61.2 72.4 75.0 68.2 73.8 49.7                 52.2 73.0 75.8        60.7   58.2   58.9   56.8   53.8   58.7   64.4
+ Qwen3-VL-8B [41]                 56.8   65.8   64.0 70.1 77.3 70.6 72.8 59.3                 55.3 75.7 75.8        67.9   61.4   62.5   51.4   57.7   60.9   71.2
+ Qwen3-VL-30B [41]                70.3   66.7   64.5 74.0 72.7 76.5 71.4 59.9                 58.5 70.3 80.6        60.7   63.2   61.2   48.6   65.4   63.0   67.8
+                                                                      Closed-source MLLMs
+ GPT-4v [33]                      56.8   61.0   59.3 71.7 61.4 67.1 63.6 61.7                 54.1 45.9 71.0        46.4   59.8   58.5   37.8   53.8   56.5   69.5
+ GPT-4o [34]                      56.8   68.5   65.6 78.7 77.3 80.0 71.4 62.3                 61.0 64.9 80.6        67.9   65.8   63.9   48.6   69.2   56.5   72.0
+ GPT-o1 [35]                      59.5   65.8   63.5 78.7 65.9 72.9 71.4 63.5                 56.0 59.5 75.8        67.9   64.2   63.5   54.1   50.0   56.5   64.4
+ GPT-5 [36]                       35.1   46.1   41.2 64.6 54.5 67.1 21.8 46.1                 39.6 48.6 61.3        28.6   46.0   33.8   21.6   30.8   50.0   59.3
+ Gemini-1.5-pro [39]              64.8   70.7   68.9 76.4 86.4 72.9 74.3 64.7                 67.3 64.9 77.4        75.0   71.5   68.2   56.8   61.5   58.7   62.7
+ Gemini-2.0-flash [9]             62.2   70.1   67.5 79.5 86.4 74.1 73.8 67.1                 62.3 64.9 72.6        75.0   68.9   66.2   59.5   69.2   63.0   64.4
+ GeoMMAgent (ours)                86.5   88.4   87.6 89.8 93.2 97.6 78.2 94.0                 91.2 89.2 74.2        89.3   92.2   82.9   97.3   76.9   97.8   83.1
+
+Table 2. Evaluation results of MLLMs and text-only LLM baselines on the GeoMMBench val and test sets. The best-performing model in
+each category is highlighted in bold. Abbreviations: Full names of all dimensions and their subtasks are listed in the Appendix.
+
+Bench evaluates these geospatial reasoning skills through                          tative range of RS sensor modalities. This improvement
+a diverse set of targeted questions. As shown in Fig. 4                            will enhance models’ multimodal understanding, strength-
+(upper right), existing MLLMs struggle with complex spa-                           ening their ability to perform complex geospatial analyses
+tial reasoning, often failing to interpret relationships cor-                      and fostering synergistic multi-sensor processing.
+rectly, even when given clear visual cues such as legends.
+These findings highlight a critical gap in domain-specific                         Deficiencies in specialized geoscience disciplines.
+spatial reasoning and emphasize the need for geospatial-                           MLLMs often struggle with less common geoscience
+aware MLLMs that can better integrate visual, numerical,                           disciplines, likely due to their limited representation in
+and contextual information for precise spatial interpretation.                     training data. As shown in Fig. 4 (bottom left), the sample
+                                                                                   questions cover fundamental concepts in GIS and pho-
+Sensor modality confusion. As shown in Fig. 4 (mid-                                togrammetry—topics considered standard knowledge in the
+dle right), MLLMs may misinterpret images from differ-                             field. However, even the two best-performing proprietary
+ent sensor types, failing to distinguish between various RS                        MLLMs fail to answer them correctly, revealing significant
+modalities. This challenge stems from training data bias,                          gaps in their domain understanding. This highlights a
+as most models are predominantly trained on RGB im-                                critical gap in existing models and underscores the need
+agery, limiting their exposure to non-RGB RS such as HSI                           for specialized geospatial MLLMs with deeper domain
+imagery. Overcoming this limitation requires expanding                             knowledge to improve reasoning and interpretation in
+training datasets to include a more diverse and represen-                          geoscience and RS.
+
+
+
+                                                                           34849
+                             Visual-Linguistic Misalignment                                                  Geospatial Relation Misinterpretation
+ Image-based question                          Equivalent Text-only question                                            Question     In which direction from the hospital
+ Which of the following statements             Which of the following statements about                                               (marked by red box) is the parking
+                                               the spectral band in the 1 mm – 1 m                                                   lot (blue box) located?
+ about Band ① is accurate?
+                                               wavelength range is accurate?
+ Answer:        A                B             Answer:        D                D                                        Options      A) East                B) Northeast
+                                                                                                                                     C) Northwest            D) West
+                                               Shared Options :
+                                               A) It is often used in passive remote sensing.                           Answer            C                            B
+                                               B) It is suitable for thermal remote sensing.
+                                               C) It operates only during the day and is                                Question     What is the most likely actual
+                                               affected by weather conditions.                                                       distance between points A and B in
+                                                                                                                                     the figure?
+                                               D) It can penetrate vegetation to detect
+                                               subsurface targets.                                                      Options      A: 67 m              B: 321 m
+ Image-based question                          Equivalent Text-only question                                                         C: 167 m             D: 496 m
+ What is a major advantage of the remote       What is a major advantage of the Along-                                   Answer           A                            C
+ sensing scanning method shown in the
+                                               track scanning (pushbroom)?
+ right panel?
+                                                                                                                    Sensor Modality Confusion
+  Answer:       B                B             Answer:           C                    C                                             Question Which panel in the image
+                                               Shared Options:                                                                               is most likely to be a
+                                                                                                                                             hyperspectral image in
+                                               A) Higher spectral resolution                                                                 remote sensing?
+                                               B) Higher spatial resolution                                                         Options        A) Panel 2 B) Panel 3
+
+                                               C) More consistent data quality                                                                     C) Panel 7 D) Panel 1
+                                                                                                                                    Answer            B                B
+                                               D) Wider range of spectral wavelengths
+
+                         Specialized Discipline Deficiency                                                           Image Perception Failure
+
+                                                                                                                         Question      Which remote sensing quality
+                                                    Question     Which option correctly
+                                                                                                                                       issue is present in the image?
+                                                                 identifies the types of
+                                                                 GIS data shown from                                     Options       A) Twisted Object
+                                                                 left to right?                                                        B) Spectral Overflow
+   Options    A) Polygon, Point, Line
+              B) Point, Line, Polygon                                                                                                  C) Stitching Misalignment
+              C) Polygon, Line, Point                                                                                                  D) Seam Line
+              D) Line, Polygon, Point
+                                                    Answer           A              B
+                                                                                                                         Answer                C                  D
+                          Question      This image shows azimuth, tilt, and swing
+                                        rotation angles in Photogrammetry. What is the
+                                        purpose of the x'y'z' coordinate system?                                         Question      What object is enclosed by the
+                                                                                                                                       red bounding box in this image?
+                          Options       A) To represent the photo measurement system
+                                        aligned with the tilted photo plane.                                             Options       A) Reach Stacker.
+                                        B) To serve as an intermediate coordinate system                                               B) Truck.
+                                        parallel to the ground coordinate system XYZ.                                                  C) Storage Tank.
+                                        C) To represent the nadir point projection.                                                    D) Shipping Container.
+                                        D) To simplify the calculation of azimuth, tilt, and
+                A            A          swing angles
+   Answer                                                                                                                Answer                D                  D
+
+        Figure 4. Representative error cases from advanced MLLMs specific to geospatial tasks.                            : GPT-4o;           : Gemini-1.5 pro.
+
+
+Image perception failure. While GeoMMBench does not                                             6. Conclusion
+primarily focus on perception tasks for raw RS images like                                      In this work, we introduced GeoMMBench, the first
+prior benchmarks (as discussed in Section 3.3), it incorpo-                                     expert-crafted, multidisciplinary benchmark for evaluat-
+rates domain-specific recognition tasks that are essential for                                  ing MLLMs in geoscience and RS. Through comprehen-
+geoscience applications. Our evaluation indicates that while                                    sive experiments, we revealed substantial challenges that
+advanced MLLMs perform well in coarse-level recognition                                         current models face in expert-level reasoning, perception,
+tasks for RGB images (e.g., scene classification), they strug-                                  and multimodal integration. To address these limitations,
+gle with more sophistic recognition tasks, as shown in Fig. 4                                   we developed GeoMMAgent, a multi-agent orchestration
+(bottom right). These challenges span from low-level as-                                        framework that integrates domain-specific tools for adap-
+sessments, such as RS-specific image quality inspection and                                     tive task planning and expert-level interpretation. GeoM-
+correction, to mid-level tasks, including fine-grained object                                   MAgent achieves state-of-the-art performance on GeoMM-
+recognition. Since these recognition capabilities serve as                                      Bench, surpassing all existing models and approaching hu-
+the foundation for intelligent RS interpretation, improving                                     man expert performance. We believe that GeoMMBench
+MLLMs’ ability to handle domain-specific geospatial per-                                        and GeoMMAgent together lay a foundation for advancing
+ception tasks remains a crucial direction for future research                                   intelligent, transparent, and domain-specialized multimodal
+and development in geospatial AI.                                                               agents in geoscience and beyond.
+
+
+
+                                                                                           34850
+Acknowledgement                                                            Geobench-vlm: Benchmarking vision-language models for
+                                                                           geospatial tasks. arXiv preprint arXiv:2411.19325, 2024. 1,
+This work was supported in part by JST FOREST (Grant                       4
+Number JPMJFR206S) and JST CRONOS (Grant Number                        [9] Google DeepMind. Introducing gemini 2.0: Our new ai
+JPMJCS25K5). It was also supported in part by the Excel-                   model for the agentic era. Technical report, Google Deep-
+lence Center at Linköping-Lund in Information Technology                  Mind, 2024. Accessed: 2025-02-26. 6, 7
+(ELLIIT) Researcher Funding, the Zenith Research Pro-                 [10] Xiaoyi Dong, Pan Zhang, Yuhang Zang, Yuhang Cao, Bin
+gram, and the Swedish Research Council with grant agree-                   Wang, Linke Ouyang, Songyang Zhang, Haodong Duan,
+ment No. 2024-05652. Additionally, it was supported in                     Wenwei Zhang, Yining Li, Hang Yan, Yang Gao, Zhe Chen,
+part by the National Natural Science Foundation of China                   Xinyue Zhang, Wei Li, Jingwen Li, Wenhai Wang, Kai Chen,
+                                                                           Conghui He, Xingcheng Zhang, Jifeng Dai, Yu Qiao, Dahua
+(NSFC) under Grant No. 62401273.
+                                                                           Lin, and Jiaqi Wang. Internlm-xcomposer2-4khd: A pioneer-
+                                                                           ing large vision-language model handling resolutions from
+References                                                                 336 pixels to 4k hd, 2024. 6, 7
+ [1] Marah Abdin, Jyoti Aneja, Hany Awadalla, Ahmed Awadal-           [11] Abdelrahman Abouelenin et al. Phi-4-mini technical re-
+     lah, Ammar Ahmad Awan, Nguyen Bach, Amit Bahree,                      port: Compact yet powerful multimodal language models via
+     Arash Bakhtiari, Jianmin Bao, Harkirat Behl, et al. Phi-3             mixture-of-loras. arXiv preprint arXiv:2503.01743, 2025. 7
+     technical report: A highly capable language model locally        [12] Aaron Grattafiori et al. The llama 3 herd of models, 2024. 6,
+     on your phone. arXiv preprint arXiv:2404.14219, 2024. 6, 7            7
+                                                                      [13] Dan Hendrycks, Collin Burns, Steven Basart, Andy Zou,
+ [2] Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ah-
+                                                                           Mantas Mazeika, Dawn Song, and Jacob Steinhardt. Mea-
+     mad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida,
+                                                                           suring massive multitask language understanding. arXiv
+     Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.
+                                                                           preprint arXiv:2009.03300, 2020. 2
+     Gpt-4 technical report. arXiv preprint arXiv:2303.08774,
+     2023. 6, 7                                                       [14] Xinyi Hou, Yanjie Zhao, Shenao Wang, and Haoyu Wang.
+                                                                           Model context protocol (mcp): Landscape, security threats,
+ [3] Xiao An, Jiaxing Sun, Zihan Gui, and Wei He. Choice:
+                                                                           and future research directions, 2025. 5
+     Benchmarking the remote sensing capabilities of large
+                                                                      [15] Kairui Hu, Penghao Wu, Fanyi Pu, Wang Xiao, Yuanhan
+     vision-language models. Advances in Neural Information
+                                                                           Zhang, Xiang Yue, Bo Li, and Ziwei Liu. Video-mmmu:
+     Processing Systems, 2025. 4
+                                                                           Evaluating knowledge acquisition from multi-discipline pro-
+ [4] Michael Boratko, Harshit Padigela, Divyendra Mikkili-                 fessional videos. arXiv preprint arXiv:2501.13826, 2025. 2
+     neni, Pritish Yuvraj, Rajarshi Das, Andrew McCallum,             [16] Yutao Hu, Tianbin Li, Quanfeng Lu, Wenqi Shao, Junjun He,
+     Maria Chang, Achille Fokoue-Nkoutche, Pavan Kapanipathi,              Yu Qiao, and Ping Luo. Omnimedvqa: A new large-scale
+     Nicholas Mattei, et al. A systematic classification of knowl-         comprehensive evaluation benchmark for medical lvlm. In
+     edge, reasoning, and context within the arc dataset. arXiv            Proceedings of the IEEE/CVF Conference on Computer Vi-
+     preprint arXiv:1806.00358, 2018. 2                                    sion and Pattern Recognition, pages 22170–22183, 2024. 1
+ [5] Zhe Chen, Weiyun Wang, Yue Cao, Yangzhou Liu, Zhang-             [17] Mingxin Huang, Yuliang Liu, Dingkang Liang, Lianwen Jin,
+     wei Gao, Erfei Cui, Jinguo Zhu, Shenglong Ye, Hao Tian,               and Xiang Bai. Mini-monkey: Alleviating the semantic saw-
+     Zhaoyang Liu, Lixin Gu, Xuehui Wang, Qingyun Li, Yimin                tooth effect for lightweight mllms via complementary image
+     Ren, Zixuan Chen, Jiapeng Luo, Jiahao Wang, Tan Jiang, Bo             pyramid. arXiv preprint arXiv:2408.02034, 2024. 7
+     Wang, Conghui He, Botian Shi, Xingcheng Zhang, Han Lv,           [18] Jeremy Andrew Irvin, Emily Ruoyu Liu, Joyce Chuyi Chen,
+     Yi Wang, Wenqi Shao, Pei Chu, Zhongying Tu, Tong He,                  Ines Dormoy, Jinyoung Kim, Samar Khanna, Zhuo Zheng,
+     Zhiyong Wu, Huipeng Deng, Jiaye Ge, Kai Chen, Min Dou,                and Stefano Ermon. Teochat: A large vision-language assis-
+     Lewei Lu, Xizhou Zhu, Tong Lu, Dahua Lin, Yu Qiao, Jifeng             tant for temporal earth observation data. In ICLR, 2025. 1,
+     Dai, and Wenhai Wang. Expanding performance boundaries                2, 4, 6, 7
+     of open-source multimodal models with model, data, and           [19] Kartik Kuckreja, Muhammad Sohail Danish, Muzammal
+     test-time scaling, 2024. 6, 7                                         Naseer, Abhijit Das, Salman Khan, and Fahad Shahbaz
+ [6] Qimin Cheng, Haiyan Huang, Yuan Xu, Yuzhuo Zhou,                      Khan. Geochat: Grounded large vision-language model for
+     Huanying Li, and Zhongyuan Wang. Nwpu-captions dataset                remote sensing. In Proceedings of the IEEE/CVF Conference
+     and mlca-net for remote sensing image captioning. IEEE                on Computer Vision and Pattern Recognition, pages 27831–
+     Transactions on Geoscience and Remote Sensing, 60:1–19,               27840, 2024. 1, 2, 4, 6, 7
+     2022. 2                                                          [20] Bohao Li, Rui Wang, Guangzhi Wang, Yuying Ge, Yix-
+ [7] Meng Chu, Zhedong Zheng, Wei Ji, Tingyu Wang, and                     iao Ge, and Ying Shan. Seed-bench: Benchmarking mul-
+     Tat-Seng Chua. Towards natural language-guided drones:                timodal llms with generative comprehension. arXiv preprint
+     Geotext-1652 benchmark with spatial relation matching. In             arXiv:2307.16125, 2023. 1
+     ECCV, 2024. 4                                                    [21] Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li,
+ [8] Muhammad Sohail Danish, Muhammad Akhtar Munir, Syed                   Hao Zhang, Kaichen Zhang, Peiyuan Zhang, Yanwei Li, Zi-
+     Roshaan Ali Shah, Kartik Kuckreja, Fahad Shahbaz Khan,                wei Liu, and Chunyuan Li. Llava-onevision: Easy visual task
+     Paolo Fraccaro, Alexandre Lacoste, and Salman Khan.                   transfer, 2024. 6, 7
+
+
+
+
+                                                                 34851
+[22] Xiang Li, Jian Ding, and Mohamed Elhoseiny. Vrsbench: A         [34] OpenAI. Hello gpt-4o. Technical report, OpenAI, 2024. Ac-
+     versatile vision-language benchmark dataset for remote sens-         cessed: 2025-02-26. 6, 7
+     ing image understanding. In The Thirty-eight Conference on      [35] OpenAI. Openai o1 system card. Technical report, OpenAI,
+     Neural Information Processing Systems Datasets and Bench-            2024. Accessed: 2025-02-26. 6, 7
+     marks Track. 2, 4                                               [36] OpenAI. Gpt-5 system card. Technical report, OpenAI,
+[23] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee.               2025. Accessed on 2025-11-03. 7
+     Improved baselines with visual instruction tuning, 2024. 2,     [37] Chao Pang, Xingxing Weng, Jiang Wu, Jiayu Li, Yi Liu, Ji-
+     6, 7                                                                 axing Sun, Weijia Li, Shuai Wang, Litong Feng, Gui-Song
+[24] Haotian Liu, Chunyuan Li, Yuheng Li, Bo Li, Yuanhan                  Xia, and Conghui He. Vhm: Versatile and honest vision lan-
+     Zhang, Sheng Shen, and Yong Jae Lee. Llava-next: Im-                 guage model for remote sensing image analysis. In AAAI
+     proved reasoning, ocr, and world knowledge, 2024. 6, 7               conference on artificial intelligence, 2025. 2, 6, 7
+[25] Yuan Liu, Haodong Duan, Yuanhan Zhang, Bo Li, Songyang          [38] Sagar Soni, Akshay Dudhane, Hiyam Debary, Mustansar
+     Zhang, Wangbo Zhao, Yike Yuan, Jiaqi Wang, Conghui He,               Fiaz, Muhammad Akhtar Munir, Muhammad Sohail Danish,
+     Ziwei Liu, et al. Mmbench: Is your multi-modal model an              Paolo Fraccaro, Campbell D Watson, Levente J Klein, Fa-
+     all-around player? In European conference on computer vi-            had Shahbaz Khan, et al. Earthdial: Turning multi-sensory
+     sion, pages 216–233. Springer, 2024. 1                               earth observations to interactive dialogues. arXiv preprint
+[26] Zhijian Liu, Ligeng Zhu, Baifeng Shi, Zhuoyang Zhang,                arXiv:2412.15190, 2024. 1
+     Yuming Lou, Shang Yang, Haocheng Xi, Shiyi Cao, Yux-            [39] Gemini Team, Petko Georgiev, Ving Ian Lei, Ryan Burnell,
+     ian Gu, Dacheng Li, Xiuyu Li, Yunhao Fang, Yukang Chen,              Libin Bai, Anmol Gulati, Garrett Tanzer, Damien Vincent,
+     Cheng-Yu Hsieh, De-An Huang, An-Chieh Cheng, Vish-                   Zhufeng Pan, Shibo Wang, et al. Gemini 1.5: Unlocking
+     wesh Nath, Jinyi Hu, Sifei Liu, Ranjay Krishna, Daguang              multimodal understanding across millions of tokens of con-
+     Xu, Xiaolong Wang, Pavlo Molchanov, Jan Kautz, Hongxu                text. arXiv preprint arXiv:2403.05530, 2024. 6, 7
+     Yin, Song Han, and Yao Lu. Nvila: Efficient frontier visual
+                                                                     [40] Qwen Team. Qwen2.5-vl, 2025. 6, 7
+     language models, 2024. 6, 7
+                                                                     [41] Qwen Team. Qwen3 technical report, 2025. 6, 7
+[27] Pan Lu, Swaroop Mishra, Tanglin Xia, Liang Qiu, Kai-Wei
+     Chang, Song-Chun Zhu, Oyvind Tafjord, Peter Clark, and          [42] Fengxiang Wang, Hongzhen Wang, Zonghao Guo, Di Wang,
+     Ashwin Kalyan. Learn to explain: Multimodal reasoning via            Yulin Wang, Mingshuo Chen, Qiang Ma, Long Lan, Wenjing
+     thought chains for science question answering. Advances              Yang, Jing Zhang, et al. Xlrs-bench: Could your multimodal
+     in Neural Information Processing Systems, 35:2507–2521,              llms understand extremely large ultra-high-resolution remote
+     2022. 2                                                              sensing imagery? In Proceedings of the Computer Vision
+[28] Xiaoqiang Lu, Binqiang Wang, Xiangtao Zheng, and Xue-                and Pattern Recognition Conference, pages 14325–14336,
+     long Li. Exploring models and data for remote sensing im-            2025. 4
+     age caption generation. IEEE Transactions on Geoscience         [43] Junjue Wang, Zhuo Zheng, Zihang Chen, Ailong Ma, and
+     and Remote Sensing, 56(4):2183–2195, 2017. 2                         Yanfei Zhong. Earthvqa: Towards queryable earth via re-
+[29] Junwei Luo, Zhen Pang, Yongjun Zhang, Tingzhu Wang,                  lational reasoning-based remote sensing visual question an-
+     Linlin Wang, Bo Dang, Jiangwei Lao, Jian Wang, Jing-                 swering. In Proceedings of the AAAI Conference on Artificial
+     dong Chen, Yihua Tan, and Yansheng Li. Skysensegpt:                  Intelligence, pages 5481–5489, 2024. 1, 2, 4
+     A fine-grained instruction tuning dataset and model for re-     [44] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan,
+     mote sensing vision-language understanding. arXiv preprint           Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin
+     arXiv:2406.10100, 2024. 7                                            Ge, Yang Fan, Kai Dang, Mengfei Du, Xuancheng Ren, Rui
+[30] Junwei Luo, Yingying Zhang, Xue Yang, Kang Wu, Qi Zhu,               Men, Dayiheng Liu, Chang Zhou, Jingren Zhou, and Jun-
+     Lei Liang, Jingdong Chen, and Yansheng Li. When large                yang Lin. Qwen2-vl: Enhancing vision-language model’s
+     vision-language model meets large remote sensing imagery:            perception of the world at any resolution, 2024. 6, 7
+     Coarse-to-fine text-guided token pruning. In Proceedings of     [45] Weihan Wang, Qingsong Lv, Wenmeng Yu, Wenyi Hong, Ji
+     the IEEE/CVF International Conference on Computer Vision             Qi, Yan Wang, Junhui Ji, Zhuoyi Yang, Lei Zhao, Xixuan
+     (ICCV), pages 9206–9217, 2025. 2                                     Song, Jiazheng Xu, Bin Xu, Juanzi Li, Yuxiao Dong, Ming
+[31] Meredith Ringel Morris, Jascha Sohl-Dickstein, Noah                  Ding, and Jie Tang. Cogvlm: Visual expert for pretrained
+     Fiedel, Tris Warkentin, Allan Dafoe, Aleksandra Faust,               language models, 2024. 6, 7
+     Clement Farabet, and Shane Legg. Levels of agi: Oper-           [46] Yubo Wang, Xueguang Ma, Ge Zhang, Yuansheng Ni,
+     ationalizing progress on the path to agi. arXiv preprint             Abhranil Chandra, Shiguang Guo, Weiming Ren, Aaran
+     arXiv:2311.02462, 2023. 1, 2                                         Arulraj, Xuan He, Ziyan Jiang, et al. Mmlu-pro: A more
+[32] Dilxat Muhtar, Zhenshi Li, Feng Gu, Xueliang Zhang, and              robust and challenging multi-task language understanding
+     Pengfeng Xiao. Lhrs-bot: Empowering remote sensing                   benchmark. In The Thirty-eight Conference on Neural Infor-
+     with vgi-enhanced large multimodal language model. In                mation Processing Systems Datasets and Benchmarks Track,
+     European Conference on Computer Vision, pages 440–457.               2024. 2
+     Springer, 2024. 2, 4, 6, 7                                      [47] Zhecheng Wang, Rajanie Prabha, Tianyuan Huang, Jiajun
+[33] OpenAI. Gpt-4v system card. Technical report, OpenAI,                Wu, and Ram Rajagopal. Skyscript: A large and seman-
+     2023. Accessed: 2025-02-26. 6, 7                                     tically diverse vision-language dataset for remote sensing.
+
+
+
+
+                                                                34852
+     In Proceedings of the AAAI Conference on Artificial Intel-     [59] Qi Zhu, Jiangwei Lao, Deyi Ji, Junwei Luo, Kang Wu,
+     ligence, pages 5805–5813, 2024. 2                                   Yingying Zhang, Lixiang Ru, Jian Wang, Jingdong Chen,
+[48] Yimin Wei, Aoran Xiao, Yexian Ren, Yuting Zhu, Hongruix-            Ming Yang, Dong Liu, and Feng Zhao. Skysense-o: Towards
+     uan Chen, Junshi Xia, and Naoto Yokoya. Sarlang-1m: A               open-world remote sensing interpretation with vision-centric
+     benchmark for vision-language modeling in sar image un-             visual-language modeling. In Proceedings of the Computer
+     derstanding. IEEE Transactions on Geoscience and Remote             Vision and Pattern Recognition Conference (CVPR), pages
+     Sensing, 2026. 2                                                    14733–14744, 2025. 2
+[49] Aoran Xiao, Weihao Xuan, Junjue Wang, Jiaxing Huang,
+     Dacheng Tao, Shijian Lu, and Naoto Yokoya. Foundation
+     models for remote sensing and earth observation: A survey.
+     IEEE Geoscience and Remote Sensing Magazine, 2025. 2
+[50] Peng Xu, Wenqi Shao, Kaipeng Zhang, Peng Gao, Shuo Liu,
+     Meng Lei, Fanqing Meng, Siyuan Huang, Yu Qiao, and Ping
+     Luo. Lvlm-ehub: A comprehensive evaluation benchmark
+     for large vision-language models. IEEE Transactions on Pat-
+     tern Analysis and Machine Intelligence, 2024. 1
+[51] Zhiqiang Yuan, Wenkai Zhang, Kun Fu, Xuan Li, Chubo
+     Deng, Hongqi Wang, and Xian Sun. Exploring a fine-grained
+     multiscale method for cross-modal remote sensing image re-
+     trieval. IEEE Transactions on Geoscience and Remote Sens-
+     ing, 60:3078451, 2022. 2
+[52] Xiang Yue, Yuansheng Ni, Kai Zhang, Tianyu Zheng, Ruoqi
+     Liu, Ge Zhang, Samuel Stevens, Dongfu Jiang, Weiming
+     Ren, Yuxuan Sun, et al. Mmmu: A massive multi-discipline
+     multimodal understanding and reasoning benchmark for ex-
+     pert agi. In Proceedings of the IEEE/CVF Conference
+     on Computer Vision and Pattern Recognition, pages 9556–
+     9567, 2024. 1, 2
+[53] Xiang Yue, Tianyu Zheng, Yuansheng Ni, Yubo Wang,
+     Kai Zhang, Shengbang Tong, Yuxuan Sun, Botao Yu, Ge
+     Zhang, Huan Sun, et al. Mmmu-pro: A more robust multi-
+     discipline multimodal understanding benchmark. arXiv
+     preprint arXiv:2409.02813, 2024. 2
+[54] Chenhui Zhang and Sherrie Wang. Good at captioning, bad
+     at counting: Benchmarking gpt-4v on earth observation data.
+     In 2024 IEEE/CVF Conference on Computer Vision and Pat-
+     tern Recognition Workshops (CVPRW), pages 7839–7849.
+     IEEE, 2024. 4
+[55] Kaichen Zhang, Bo Li, Peiyuan Zhang, Fanyi Pu,
+     Joshua Adrian Cahyono, Kairui Hu, Shuai Liu, Yuanhan
+     Zhang, Jingkang Yang, Chunyuan Li, and Ziwei Liu. Lmms-
+     eval: Reality check on the evaluation of large multimodal
+     models, 2024. 6
+[56] Pan Zhang, Xiaoyi Dong, Yuhang Zang, Yuhang Cao, Rui
+     Qian, Lin Chen, Qipeng Guo, Haodong Duan, Bin Wang,
+     Linke Ouyang, et al. Internlm-xcomposer-2.5: A versatile
+     large vision language model supporting long-contextual in-
+     put and output. arXiv preprint arXiv:2407.03320, 2024. 6,
+     7
+[57] Xin Zhang, Yanzhao Zhang, Wen Xie, Mingxin Li, Ziqi Dai,
+     Dingkun Long, Pengjun Xie, Meishan Zhang, Wenjie Li, and
+     Min Zhang. Gme: Improving universal multimodal retrieval
+     by multimodal llms, 2025. 5
+[58] Wanjun Zhong, Ruixiang Cui, Yiduo Guo, Yaobo Liang,
+     Shuai Lu, Yanlin Wang, Amin Saied, Weizhu Chen, and Nan
+     Duan. Agieval: A human-centric benchmark for evaluating
+     foundation models, 2023. 2
+
+
+
+
+                                                               34853
+

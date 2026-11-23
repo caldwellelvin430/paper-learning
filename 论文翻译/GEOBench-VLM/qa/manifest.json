@@ -1,0 +1,288 @@
+{
+  "slug": "GEOBench-VLM",
+  "title": "GEOBench-VLM: Benchmarking Vision-Language Models for Geospatial Tasks",
+  "description": "地理空间视觉语言评测",
+  "original_name": "Danish 等 - 2025 - GEOBench-VLM Benchmarking Vision-Language Models for Geospatial Tasks.pdf",
+  "source_sha256": "d10450e3cdf0898e39dd5434fb1cb30e9cd79424384ac646328e78601cdbd14b",
+  "pdf_pages": 11,
+  "page_images": 11,
+  "captioned_crops": 14,
+  "figure_count": {
+    "figure": 9,
+    "table": 5
+  },
+  "references_start_page": 9,
+  "english_text_chars": 195860,
+  "translated_coverage": "see QA report and Chinese draft",
+  "figures": [
+    {
+      "type": "figure",
+      "number": "1",
+      "caption": "Figure 1. GEOBench-VLM comprehensively covers 31 fine-grained tasks categorized into 8 broad categories: scene and object classifica-\ntion, object detection, segmentation, captioning, event detection, non-optical and temporal understanding tasks.",
+      "rect": [
+        58.5,
+        507.3,
+        553.5,
+        527.2
+      ],
+      "page": 1,
+      "name": "figure-1-p001",
+      "file": "images/figure-1-p001.png",
+      "pixel_size": [
+        992,
+        808
+      ]
+    },
+    {
+      "type": "table",
+      "number": "1",
+      "caption": "Table 1. Overview of Generic and Geospatial-specific Datasets & Benchmarks, detailing modalities (O=Optical, PAN=Panchromatic,\nMS=Multi-spectral, IR=Infrared, SAR=Synthetic Aperture Radar, V=Video, MI=Multi-image, BT=Bi-Temporal, MT=Multi-temporal),\ndata sources (DRSD=Diverse RS Datasets, OSM=OpenStreetMap, GE=Google Earth, answer types (MCQ=Multiple Choice, SC=Single\nChoice, FF=Free-Form, BBox=Bounding Box, Seg=Segmentation Mask), and annotation types (A=Automatic, M=Manual).",
+      "rect": [
+        58.5,
+        322.2,
+        553.5,
+        364.1
+      ],
+      "page": 3,
+      "name": "table-1-p003",
+      "file": "images/table-1-p003.png",
+      "pixel_size": [
+        992,
+        1186
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "2",
+      "caption": "Figure 2. Comprehensive benchmark for VLMs in numerous geospatial tasks. This benchmark evaluates VLMs across eight core task\ncategories, assessing their ability to interpret complex spatial data, classify scenes, identify and localize objects, detect events, generate\ncaptions, segment regions, analyze temporal changes, and process non-optical data. Tasks span from classifying landscapes and objects\n(e.g., land use, crop types, ships, aircraft) to counting, detecting hazards, and assessing disaster impact, testing VLMs on spatial reasoning.",
+      "rect": [
+        58.5,
+        354.0,
+        553.5,
+        395.9
+      ],
+      "page": 4,
+      "name": "figure-2-p004",
+      "file": "images/figure-2-p004.png",
+      "pixel_size": [
+        992,
+        687
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "3",
+      "caption": "Figure 3. Data pipeline for the GEOBench-VLM: Our pipeline integrates diverse datasets, automated tools, and manual annotation. Tasks\nsuch as scene understanding, object classification, and non-optical analysis are based on classification datasets, while GPT-4o generates\nunique MCQs with five options: one correct answer, one semantically similar “closest” option, and three plausible alternatives. Spatial\nrelationship tasks rely on manually annotated object pair relationships, ensuring consistency through cross-verification. Caption generation\nleverages GPT-4o, combining image, object details, and spatial interactions with manual refinement for high precision.",
+      "rect": [
+        58.5,
+        260.2,
+        553.5,
+        313.0
+      ],
+      "page": 5,
+      "name": "figure-3-p005",
+      "file": "images/figure-3-p005.png",
+      "pixel_size": [
+        992,
+        553
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "4",
+      "caption": "Figure 4. Performance summary of VLMs. LLaVA-OneVision achieves the average accuracy (41.7%), slightly outperforming GPT-4o,\nwhich is relatively better in building counting, and general aircraft counting. EarthDial demonstrates strong results in scene classification.\nThe overall results highlight VLMs’ varying strengths across geospatial tasks, with even the best models achieving accuracy only slightly\nabove double the random guess.",
+      "rect": [
+        58.5,
+        259.9,
+        553.5,
+        301.8
+      ],
+      "page": 6,
+      "name": "figure-4-p006",
+      "file": "images/figure-4-p006.png",
+      "pixel_size": [
+        992,
+        535
+      ]
+    },
+    {
+      "type": "table",
+      "number": "2",
+      "caption": "Table 2. VLMs accuracies across geospatial tasks. Evaluation\nincludes event detection, object classification, counting, scene un-\nderstanding, and image captioning. EarthDial performs better in\nevent detection and scene understanding, demonstrating geospa-\ntial reasoning capabilities. GPT-4o performs best in object classi-\nfication, while LLaVA-OneVision leads in counting. As evaluated\nby BERT score [61], Sphinx excels in image captioning.",
+      "rect": [
+        58.5,
+        442.0,
+        294.7,
+        516.7
+      ],
+      "page": 6,
+      "name": "table-2-p006",
+      "file": "images/table-2-p006.png",
+      "pixel_size": [
+        992,
+        1038
+      ]
+    },
+    {
+      "type": "table",
+      "number": "3",
+      "caption": "Table 3. VLM performance on temporal geospatial tasks. Eval-\nuation spans crop type classification, disaster type classification,\nfarm pond change detection (CD), land use classification, and\ndamaged building counting. EarthDial performs best in land use\nclassification, while GPT-4o achieves better performance in dis-\naster classification and damaged building counting. Qwen2-VL\nstands second in disaster classification.",
+      "rect": [
+        58.5,
+        138.0,
+        294.7,
+        212.8
+      ],
+      "page": 7,
+      "name": "table-3-p007",
+      "file": "images/table-3-p007.png",
+      "pixel_size": [
+        992,
+        993
+      ]
+    },
+    {
+      "type": "table",
+      "number": "5",
+      "caption": "Table 5.\nPerformance com-\nparison of different models on\nNon-Optical tasks.\nEQME:\nEarthQuake Magnitude Esti-\nmation",
+      "rect": [
+        447.2,
+        140.2,
+        553.5,
+        193.0
+      ],
+      "page": 7,
+      "name": "table-5-p007",
+      "file": "images/table-5-p007.png",
+      "pixel_size": [
+        992,
+        961
+      ]
+    },
+    {
+      "type": "table",
+      "number": "4",
+      "caption": "Table 4. Referring expression\ndetection.\nWe report Preci-\nsion on 0.5 IoU and 0.25 IoU.",
+      "rect": [
+        317.2,
+        157.8,
+        423.6,
+        188.6
+      ],
+      "page": 7,
+      "name": "table-4-p007",
+      "file": "images/table-4-p007.png",
+      "pixel_size": [
+        992,
+        954
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "5",
+      "caption": "Figure 5.\nObject Density vs.\nCounting Accuracy.\nVLMs are\nevaluated on how well they maintain counting accuracy as the\nnumber of objects increases. LLaVA-OneVision shows better per-\nformance in less dense ranges, whereas Qwen2-VL, LHRS-Bot-\nNova, and SkySenseGPT exhibit more significant performance\ndrops at higher object densities.",
+      "rect": [
+        317.2,
+        288.2,
+        553.5,
+        352.0
+      ],
+      "page": 7,
+      "name": "figure-5-p007",
+      "file": "images/figure-5-p007.png",
+      "pixel_size": [
+        992,
+        616
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "6",
+      "caption": "Figure 6.\nPerformance com-\nparison of different models on\nReferring Expression Detection\nacross various object sizes.",
+      "rect": [
+        317.2,
+        453.6,
+        433.0,
+        495.4
+      ],
+      "page": 7,
+      "name": "figure-6-p007",
+      "file": "images/figure-6-p007.png",
+      "pixel_size": [
+        992,
+        843
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "7",
+      "caption": "Figure 7. Percentage of incor-\nrect answers falling within the\n20% error range",
+      "rect": [
+        440.1,
+        466.4,
+        553.5,
+        497.3
+      ],
+      "page": 7,
+      "name": "figure-7-p007",
+      "file": "images/figure-7-p007.png",
+      "pixel_size": [
+        992,
+        825
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "8",
+      "caption": "Figure 8. Accuracy Variance across different prompts.",
+      "rect": [
+        79.4,
+        214.1,
+        273.8,
+        223.0
+      ],
+      "page": 8,
+      "name": "figure-8-p008",
+      "file": "images/figure-8-p008.png",
+      "pixel_size": [
+        992,
+        407
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "9",
+      "caption": "Figure 9. Single vs Multi-temporal.",
+      "rect": [
+        112.8,
+        336.7,
+        240.4,
+        345.6
+      ],
+      "page": 8,
+      "name": "figure-9-p008",
+      "file": "images/figure-9-p008.png",
+      "pixel_size": [
+        992,
+        606
+      ]
+    }
+  ],
+  "translation_status": "摘要完整中文翻译；其余为核心章节中文节译/译述，不是全文逐句翻译",
+  "full_translation_completed": false,
+  "qa": {
+    "original_pages": 11,
+    "page_screenshots": 11,
+    "captioned_figures_and_tables": 14,
+    "figure_file_verified": 14,
+    "missing_image_links": [],
+    "pdf_sha256_verified": true,
+    "english_extraction_all_pages": true,
+    "references_detected_start_page": 9,
+    "abstract_translated": true,
+    "all_text_translated": false,
+    "graphic_caption_images_visual_audit": "contact sheets generated; sampled figure crops inspected; some cropped areas may include adjacent paragraphs",
+    "layout_and_formula_issues": "multi-column extraction can reorder text; native PDF page screenshots retained for check"
+  },
+  "crop_notes": "宽幅裁图覆盖完整页面宽度，并按题注位置保留充足上下文；若含多图、跨栏或表格，需要参考原始全页截图核对。"
+}

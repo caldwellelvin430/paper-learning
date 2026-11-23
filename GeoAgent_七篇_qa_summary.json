@@ -1,0 +1,72 @@
+[
+  {
+    "name": "AgenticAI_Survey",
+    "title": "Agentic AI in Remote Sensing: Foundations, Taxonomy, and Emerging Systems",
+    "role": "遥感智能体领域综述",
+    "pages": 14,
+    "figures": 3,
+    "md_files": 7,
+    "refs_start": 9,
+    "zip_size_MB": 16.62
+  },
+  {
+    "name": "EarthSE",
+    "title": "EarthSE: A Benchmark Evaluating Earth Scientific Exploration Capability for Large Language Models",
+    "role": "地学科学知识与探索能力 Benchmark",
+    "pages": 25,
+    "figures": 26,
+    "md_files": 7,
+    "refs_start": 11,
+    "zip_size_MB": 11.84
+  },
+  {
+    "name": "GEOBench-VLM",
+    "title": "GEOBench-VLM: Benchmarking Vision-Language Models for Geospatial Tasks",
+    "role": "地学视觉语言模型静态感知 Benchmark",
+    "pages": 11,
+    "figures": 14,
+    "md_files": 7,
+    "refs_start": 9,
+    "zip_size_MB": 8.54
+  },
+  {
+    "name": "GeoLLM-Engine",
+    "title": "GeoLLM-Engine: A Realistic Environment for Building Geospatial Copilots",
+    "role": "工具增强地理空间任务/环境 Benchmark",
+    "pages": 10,
+    "figures": 11,
+    "md_files": 7,
+    "refs_start": 8,
+    "zip_size_MB": 9.47
+  },
+  {
+    "name": "GeoMMBench_GeoMMAgent",
+    "title": "GeoMMBench and GeoMMAgent: Toward Expert-Level Multimodal Intelligence in Geoscience and Remote Sensing",
+    "role": "地学多模态 Benchmark + Agent 架构",
+    "pages": 11,
+    "figures": 6,
+    "md_files": 7,
+    "refs_start": 9,
+    "zip_size_MB": 6.6
+  },
+  {
+    "name": "MapAgent",
+    "title": "MapAgent: A Hierarchical Agent for Geospatial Reasoning with Dynamic Map Tool Integration",
+    "role": "地图服务工具增强 Agent",
+    "pages": 27,
+    "figures": 22,
+    "md_files": 7,
+    "refs_start": 9,
+    "zip_size_MB": 12.92
+  },
+  {
+    "name": "MSEarth",
+    "title": "MSEarth: A Multimodal Benchmark for Earth Science Phenomenon Discovery with MLLMs",
+    "role": "科学论文图文推理 Benchmark",
+    "pages": 32,
+    "figures": 42,
+    "md_files": 7,
+    "refs_start": 10,
+    "zip_size_MB": 17.19
+  }
+]

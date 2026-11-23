@@ -1,0 +1,14 @@
+{
+  "original_pages": 32,
+  "page_screenshots": 32,
+  "captioned_figures_and_tables": 42,
+  "figure_file_verified": 42,
+  "missing_image_links": [],
+  "pdf_sha256_verified": true,
+  "english_extraction_all_pages": true,
+  "references_detected_start_page": 10,
+  "abstract_translated": true,
+  "all_text_translated": false,
+  "graphic_caption_images_visual_audit": "contact sheets generated; sampled figure crops inspected; some cropped areas may include adjacent paragraphs",
+  "layout_and_formula_issues": "multi-column extraction can reorder text; native PDF page screenshots retained for check"
+}

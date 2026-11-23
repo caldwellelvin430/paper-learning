@@ -1,0 +1,19 @@
+[
+  {
+    "slug": "MSEarth",
+    "title": "MSEarth: A Multimodal Benchmark for Earth Science Phenomenon Discovery with MLLMs",
+    "description": "地学多模态现象发现基准",
+    "original_name": "Zhao 等 - 2026 - MSEarth A Multimodal Benchmark for Earth Science Phenomenon Discovery with MLLMs.pdf",
+    "source_sha256": "da03695885c493942e10325fe73eb8222b551e39baff1f70029f7e06f1a16d20",
+    "pdf_pages": 32,
+    "page_images": 32,
+    "captioned_crops": 44,
+    "figure_count": {
+      "figure": 28,
+      "table": 16
+    },
+    "references_start_page": 10,
+    "english_text_chars": 168698,
+    "translated_coverage": "see QA report and Chinese draft"
+  }
+]

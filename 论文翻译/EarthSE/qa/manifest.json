@@ -1,0 +1,504 @@
+{
+  "slug": "EarthSE",
+  "title": "EarthSE: A Benchmark Evaluating Earth Scientific Exploration Capability for Large Language Models",
+  "description": "地球科学探索能力基准",
+  "original_name": "Xu 等 - 2026 - EarthSE A Benchmark Evaluating Earth Scientific Exploration Capability for Large Language Models.pdf",
+  "source_sha256": "2eacda26466e795153d3dd31ab55d3b939431f2581b372aea7c96454aa02de24",
+  "pdf_pages": 25,
+  "page_images": 25,
+  "captioned_crops": 26,
+  "figure_count": {
+    "figure": 18,
+    "table": 8
+  },
+  "references_start_page": 11,
+  "english_text_chars": 85990,
+  "translated_coverage": "see QA report and Chinese draft",
+  "figures": [
+    {
+      "type": "figure",
+      "number": "1",
+      "caption": "Figure 1: Cross-domain Evaluation of Mainstream LLMs on EarthSE. (a) EarthSE evaluates the\ncapabilities of different LLMs in Earth’s five spheres. (b) The multi-task evaluation demonstrates\npronounced capability limitations in tasks such as calculation and term explanation.",
+      "rect": [
+        108.0,
+        420.7,
+        504.0,
+        452.7
+      ],
+      "page": 1,
+      "name": "figure-1-p001",
+      "file": "images/figure-1-p001.png",
+      "pixel_size": [
+        992,
+        779
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "2",
+      "caption": "Figure 2: EarthSE Covers 114 Disciplines in Earth Sciences.",
+      "rect": [
+        179.5,
+        718.9,
+        432.5,
+        729.0
+      ],
+      "page": 2,
+      "name": "figure-2-p002",
+      "file": "images/figure-2-p002.png",
+      "pixel_size": [
+        992,
+        1227
+      ]
+    },
+    {
+      "type": "table",
+      "number": "1",
+      "caption": "Table 1: Comparison between Existing Benchmarks and EarthSE. Comparison across (1) question\nvolume, (2) data sources, (3) Earth sphere coverage, (4) graduate-level difficulty, (5) multiple subsets\nand (6) scientific exploration assessment. EarthSE uniquely offers comprehensive domain coverage,\nprofessional difficulty, and evaluation of scientific exploration in Earth sciences.",
+      "rect": [
+        107.7,
+        82.0,
+        505.2,
+        124.8
+      ],
+      "page": 4,
+      "name": "table-1-p004",
+      "file": "images/table-1-p004.png",
+      "pixel_size": [
+        992,
+        851
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "3",
+      "caption": "Figure 3: Construction Process of EarthSE. Automated construction of three-tiered benchmarks\n(Earth-Iron, Earth-Silver, Earth-Gold) from 100K papers, enabling comprehensive evaluation of\nknowledge coverage, professional proficiency, and scientific exploration capabilities.",
+      "rect": [
+        107.7,
+        431.8,
+        504.0,
+        463.9
+      ],
+      "page": 4,
+      "name": "figure-3-p004",
+      "file": "images/figure-3-p004.png",
+      "pixel_size": [
+        992,
+        797
+      ]
+    },
+    {
+      "type": "table",
+      "number": "2",
+      "caption": "Table 2: Foundational Task Categories and Descriptions.",
+      "rect": [
+        186.3,
+        81.9,
+        425.4,
+        91.9
+      ],
+      "page": 5,
+      "name": "table-2-p005",
+      "file": "images/table-2-p005.png",
+      "pixel_size": [
+        992,
+        797
+      ]
+    },
+    {
+      "type": "table",
+      "number": "3",
+      "caption": "Table 3: Number of Papers on the Five Spheres\nof Earth.",
+      "rect": [
+        110.0,
+        528.5,
+        290.0,
+        547.5
+      ],
+      "page": 5,
+      "name": "table-3-p005",
+      "file": "images/table-3-p005.png",
+      "pixel_size": [
+        992,
+        1284
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "4",
+      "caption": "Figure 4: Citations of Papers in Phc.",
+      "rect": [
+        329.9,
+        646.2,
+        480.1,
+        657.1
+      ],
+      "page": 5,
+      "name": "figure-4-p005",
+      "file": "images/figure-4-p005.png",
+      "pixel_size": [
+        992,
+        1110
+      ]
+    },
+    {
+      "type": "table",
+      "number": "4",
+      "caption": "Table 4: Evaluation Metrics for Leading Models on the Earth-Iron and Earth-Silver Bench-\nmarks. For MC (Multiple Choice), TF (True/False), and FIB (Fill-in-the-Blank) questions, Accuracy\n(ACC) is used as the evaluation metric, reported in percentage (%). For FR (Free Response) questions,\nWin Rate (WR), Semantic Similarity (SS) are employed as an evaluation metrics.",
+      "rect": [
+        107.5,
+        81.8,
+        505.6,
+        124.8
+      ],
+      "page": 8,
+      "name": "table-4-p008",
+      "file": "images/table-4-p008.png",
+      "pixel_size": [
+        992,
+        851
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "5",
+      "caption": "Figure 5: Case Study from Earth-Silver. Some models make mistakes when applying formulas in\nmultiple steps, resulting in low accuracy in calculation questions.",
+      "rect": [
+        108.0,
+        539.1,
+        504.0,
+        560.1
+      ],
+      "page": 8,
+      "name": "figure-5-p008",
+      "file": "images/figure-5-p008.png",
+      "pixel_size": [
+        992,
+        953
+      ]
+    },
+    {
+      "type": "table",
+      "number": "5",
+      "caption": "Table 5: Scientific Exploration Capabilities of Main-\nstream Models on Earth-Gold. Earth-Gold assesses\nLLMs’ research potential through open-ended scientific\ndialogues, employing three metrics: Retention (propor-\ntion of responses outperforming references), Diversity\n(measure of divergent thinking), and their composite Sci-\nentific Exploration Score (SES).",
+      "rect": [
+        305.3,
+        299.6,
+        505.5,
+        369.1
+      ],
+      "page": 9,
+      "name": "table-5-p009",
+      "file": "images/table-5-p009.png",
+      "pixel_size": [
+        992,
+        1231
+      ]
+    },
+    {
+      "type": "table",
+      "number": "6",
+      "caption": "Table 6: The Impact of Using\nCoT Guidance on FIB ACC.",
+      "rect": [
+        379.0,
+        586.1,
+        504.0,
+        605.8
+      ],
+      "page": 9,
+      "name": "table-6-p009",
+      "file": "images/table-6-p009.png",
+      "pixel_size": [
+        992,
+        1284
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "6",
+      "caption": "Figure 6: Case Study from Earth-Gold. Earth-Gold is used to evaluate the performance of LLMs in\nopen scientific exploration. For the same user questions, the reference answers contain more details,\nsuch as the yellow text, while the bad answers are very general.",
+      "rect": [
+        108.0,
+        311.1,
+        505.2,
+        343.0
+      ],
+      "page": 10,
+      "name": "figure-6-p010",
+      "file": "images/figure-6-p010.png",
+      "pixel_size": [
+        992,
+        602
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "7",
+      "caption": "Figure 7: Positive and Negative Keywords.",
+      "rect": [
+        217.1,
+        187.7,
+        394.9,
+        197.7
+      ],
+      "page": 16,
+      "name": "figure-7-p016",
+      "file": "images/figure-7-p016.png",
+      "pixel_size": [
+        992,
+        366
+      ]
+    },
+    {
+      "type": "table",
+      "number": "7",
+      "caption": "Table 7: Partial List of Selected Journal Titles.",
+      "rect": [
+        208.0,
+        276.8,
+        403.7,
+        286.9
+      ],
+      "page": 16,
+      "name": "table-7-p016",
+      "file": "images/table-7-p016.png",
+      "pixel_size": [
+        992,
+        1113
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "8",
+      "caption": "Figure 8: Prompt for Different Question Formats.",
+      "rect": [
+        201.4,
+        175.3,
+        410.6,
+        185.3
+      ],
+      "page": 17,
+      "name": "figure-8-p017",
+      "file": "images/figure-8-p017.png",
+      "pixel_size": [
+        992,
+        346
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "9",
+      "caption": "Figure 9: Complete QA Construction Prompt.",
+      "rect": [
+        209.2,
+        137.9,
+        402.8,
+        147.9
+      ],
+      "page": 18,
+      "name": "figure-9-p018",
+      "file": "images/figure-9-p018.png",
+      "pixel_size": [
+        992,
+        285
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "10",
+      "caption": "Figure 10: QA Refine Prompt.",
+      "rect": [
+        242.8,
+        506.2,
+        369.2,
+        516.3
+      ],
+      "page": 18,
+      "name": "figure-10-p018",
+      "file": "images/figure-10-p018.png",
+      "pixel_size": [
+        992,
+        791
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "11",
+      "caption": "Figure 11: Paper Structuring Prompt.",
+      "rect": [
+        226.3,
+        709.0,
+        385.7,
+        719.0
+      ],
+      "page": 19,
+      "name": "figure-11-p019",
+      "file": "images/figure-11-p019.png",
+      "pixel_size": [
+        992,
+        1211
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "12",
+      "caption": "Figure 12: Dialogue Construction Prompt.",
+      "rect": [
+        217.1,
+        672.9,
+        394.9,
+        683.0
+      ],
+      "page": 20,
+      "name": "figure-12-p020",
+      "file": "images/figure-12-p020.png",
+      "pixel_size": [
+        992,
+        1152
+      ]
+    },
+    {
+      "type": "table",
+      "number": "8",
+      "caption": "Table 8: Expert Evaluation Dimensions and Scoring Criteria",
+      "rect": [
+        185.6,
+        346.5,
+        426.1,
+        356.5
+      ],
+      "page": 21,
+      "name": "table-8-p021",
+      "file": "images/table-8-p021.png",
+      "pixel_size": [
+        992,
+        1135
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "13",
+      "caption": "Figure 13: QA Example 1.",
+      "rect": [
+        251.3,
+        524.2,
+        360.7,
+        534.2
+      ],
+      "page": 22,
+      "name": "figure-13-p022",
+      "file": "images/figure-13-p022.png",
+      "pixel_size": [
+        992,
+        911
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "14",
+      "caption": "Figure 14: QA Example 2.",
+      "rect": [
+        251.3,
+        129.9,
+        360.7,
+        139.9
+      ],
+      "page": 23,
+      "name": "figure-14-p023",
+      "file": "images/figure-14-p023.png",
+      "pixel_size": [
+        992,
+        272
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "15",
+      "caption": "Figure 15: QA Example 3.",
+      "rect": [
+        251.3,
+        391.2,
+        360.7,
+        401.2
+      ],
+      "page": 23,
+      "name": "figure-15-p023",
+      "file": "images/figure-15-p023.png",
+      "pixel_size": [
+        992,
+        696
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "16",
+      "caption": "Figure 16: QA Example 4.",
+      "rect": [
+        251.3,
+        143.6,
+        360.7,
+        153.7
+      ],
+      "page": 24,
+      "name": "figure-16-p024",
+      "file": "images/figure-16-p024.png",
+      "pixel_size": [
+        992,
+        295
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "17",
+      "caption": "Figure 17: Scientific Exploration Dialogue Example 1.",
+      "rect": [
+        192.6,
+        532.8,
+        419.4,
+        542.8
+      ],
+      "page": 24,
+      "name": "figure-17-p024",
+      "file": "images/figure-17-p024.png",
+      "pixel_size": [
+        992,
+        925
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "18",
+      "caption": "Figure 18: Scientific Exploration Dialogue Example 2.",
+      "rect": [
+        192.6,
+        232.1,
+        419.4,
+        242.1
+      ],
+      "page": 25,
+      "name": "figure-18-p025",
+      "file": "images/figure-18-p025.png",
+      "pixel_size": [
+        992,
+        438
+      ]
+    }
+  ],
+  "translation_status": "摘要完整中文翻译；其余为核心章节中文节译/译述，不是全文逐句翻译",
+  "full_translation_completed": false,
+  "qa": {
+    "original_pages": 25,
+    "page_screenshots": 25,
+    "captioned_figures_and_tables": 26,
+    "figure_file_verified": 26,
+    "missing_image_links": [],
+    "pdf_sha256_verified": true,
+    "english_extraction_all_pages": true,
+    "references_detected_start_page": 11,
+    "abstract_translated": true,
+    "all_text_translated": false,
+    "graphic_caption_images_visual_audit": "contact sheets generated; sampled figure crops inspected; some cropped areas may include adjacent paragraphs",
+    "layout_and_formula_issues": "multi-column extraction can reorder text; native PDF page screenshots retained for check"
+  },
+  "crop_notes": "宽幅裁图覆盖完整页面宽度，并按题注位置保留充足上下文；若含多图、跨栏或表格，需要参考原始全页截图核对。"
+}

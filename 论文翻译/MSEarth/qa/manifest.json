@@ -1,0 +1,792 @@
+{
+  "slug": "MSEarth",
+  "title": "MSEarth: A Multimodal Benchmark for Earth Science Phenomenon Discovery with MLLMs",
+  "description": "地学多模态现象发现基准",
+  "original_name": "Zhao 等 - 2026 - MSEarth A Multimodal Benchmark for Earth Science Phenomenon Discovery with MLLMs.pdf",
+  "source_sha256": "da03695885c493942e10325fe73eb8222b551e39baff1f70029f7e06f1a16d20",
+  "pdf_pages": 32,
+  "page_images": 32,
+  "captioned_crops": 42,
+  "figure_count": {
+    "figure": 26,
+    "table": 16
+  },
+  "references_start_page": 10,
+  "english_text_chars": 168698,
+  "translated_coverage": "see QA report and Chinese draft",
+  "figures": [
+    {
+      "type": "figure",
+      "number": "1",
+      "caption": "Figure 1: Illustration of VQA generation methodologies: (a) VQA relying exclusively on figure captions, and (b)\nVQA utilizing refined captions that integrate figure captions with content from academic papers. Highlighted areas\ndenote questions and answers supported by evidence.",
+      "rect": [
+        70.5,
+        234.1,
+        525.1,
+        270.0
+      ],
+      "page": 2,
+      "name": "figure-1-p002",
+      "file": "images/figure-1-p002.png",
+      "pixel_size": [
+        965,
+        483
+      ]
+    },
+    {
+      "type": "table",
+      "number": "1",
+      "caption": "Table 1: Comparison with previous multimodal scientific benchmarks. Task types include OE (Open-ended QA),\nMCQ (Multiple-choice QA), and CG (Caption Generation). Originality refers to newly constructed QAs rather than\nthose collected from existing benchmarks or textbooks. Validated indicates whether the QAs are verified by experts\nor supported by evidence from papers.",
+      "rect": [
+        70.5,
+        441.4,
+        525.7,
+        489.3
+      ],
+      "page": 2,
+      "name": "table-1-p002",
+      "file": "images/table-1-p002.png",
+      "pixel_size": [
+        965,
+        1119
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "2",
+      "caption": "Figure 2: Data curation process for MSEarth. The two parts on the left represent data preprocessing, while the two\nparts on the right encompass the automated generation of VQA and expert-AI collaborative filtering.",
+      "rect": [
+        70.9,
+        235.1,
+        524.4,
+        259.0
+      ],
+      "page": 4,
+      "name": "figure-2-p004",
+      "file": "images/figure-2-p004.png",
+      "pixel_size": [
+        965,
+        465
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "3",
+      "caption": "Figure 3: Overall approach of our multi-agent, voting-based approach to automate the validation of generated\nquestions.",
+      "rect": [
+        70.9,
+        154.4,
+        524.4,
+        178.4
+      ],
+      "page": 5,
+      "name": "figure-3-p005",
+      "file": "images/figure-3-p005.png",
+      "pixel_size": [
+        965,
+        335
+      ]
+    },
+    {
+      "type": "table",
+      "number": "2",
+      "caption": "Table 2: Main statistics in MSEarth-Bench. The dataset\ncovers 66 subjects and 64,560 articles.",
+      "rect": [
+        70.5,
+        208.1,
+        289.1,
+        232.1
+      ],
+      "page": 6,
+      "name": "table-2-p006",
+      "file": "images/table-2-p006.png",
+      "pixel_size": [
+        965,
+        1025
+      ]
+    },
+    {
+      "type": "table",
+      "number": "3",
+      "caption": "Table 3: Main statistics in MSEarth.",
+      "rect": [
+        107.4,
+        285.9,
+        251.7,
+        298.0
+      ],
+      "page": 7,
+      "name": "table-3-p007",
+      "file": "images/table-3-p007.png",
+      "pixel_size": [
+        965,
+        1131
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "4",
+      "caption": "Figure 4: Subjects distribution in MSEarth.",
+      "rect": [
+        329.3,
+        286.8,
+        501.8,
+        298.8
+      ],
+      "page": 7,
+      "name": "figure-4-p007",
+      "file": "images/figure-4-p007.png",
+      "pixel_size": [
+        965,
+        530
+      ]
+    },
+    {
+      "type": "table",
+      "number": "4",
+      "caption": "Table 4: Accuracies (%) of different models on multiple-choice questions. The best results are highlighted in bold,\nwith the second-best underlined.",
+      "rect": [
+        70.5,
+        402.4,
+        525.7,
+        426.3
+      ],
+      "page": 8,
+      "name": "table-4-p008",
+      "file": "images/table-4-p008.png",
+      "pixel_size": [
+        965,
+        1157
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "5",
+      "caption": "Figure 5: Comparison of Spearman correlations across\ndifferent models. OE-Eval (red line) demonstrates con-\nsistently high correlation with human judgments com-\npared to traditional metrics.",
+      "rect": [
+        306.1,
+        593.5,
+        526.1,
+        641.3
+      ],
+      "page": 8,
+      "name": "figure-5-p008",
+      "file": "images/figure-5-p008.png",
+      "pixel_size": [
+        965,
+        1085
+      ]
+    },
+    {
+      "type": "table",
+      "number": "5",
+      "caption": "Table 5: MLLM’s performance on Scientific Open-ended QA and Figure Captioning. We report ROUGEL\n(R-L), METEOR (Met), BLEU, BERTSCORE (BS), and the respective LLM-based evaluations (OE-EVAL and\nCAP-EVAL). The best results are highlighted in bold, with the second-best underlined.",
+      "rect": [
+        70.5,
+        362.0,
+        524.7,
+        398.2
+      ],
+      "page": 9,
+      "name": "table-5-p009",
+      "file": "images/table-5-p009.png",
+      "pixel_size": [
+        965,
+        1178
+      ]
+    },
+    {
+      "type": "table",
+      "number": "6",
+      "caption": "Table 6: Accuracy on MSEarth-Bench-mini across Earth science domains. Human expert scores are averages of\nthree Ph.D.-level Earth science evaluators.",
+      "rect": [
+        70.5,
+        470.8,
+        524.4,
+        494.8
+      ],
+      "page": 9,
+      "name": "table-6-p009",
+      "file": "images/table-6-p009.png",
+      "pixel_size": [
+        965,
+        1072
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "6",
+      "caption": "Figure 6: Illustrative examples of the diverse types of scientific figures in MSEarth, sourced from open-access\narticles available from website.",
+      "rect": [
+        70.9,
+        319.8,
+        524.4,
+        343.8
+      ],
+      "page": 13,
+      "name": "figure-6-p013",
+      "file": "images/figure-6-p013.png",
+      "pixel_size": [
+        965,
+        603
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "7",
+      "caption": "Figure 7: Examples of the three types of scientific question-answering tasks presented in our benchmark.",
+      "rect": [
+        88.6,
+        685.6,
+        506.7,
+        697.6
+      ],
+      "page": 13,
+      "name": "figure-7-p013",
+      "file": "images/figure-7-p013.png",
+      "pixel_size": [
+        965,
+        1176
+      ]
+    },
+    {
+      "type": "table",
+      "number": "7",
+      "caption": "Table 7: Field Descriptions for Different Tasks. The table provides details about each field, whether it is used as\ninput, and its description. Fields are grouped by task type: MCQ, OE, and Caption Generation.",
+      "rect": [
+        70.5,
+        502.5,
+        524.4,
+        526.8
+      ],
+      "page": 14,
+      "name": "table-7-p014",
+      "file": "images/table-7-p014.png",
+      "pixel_size": [
+        965,
+        1020
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "8",
+      "caption": "Figure 8: Examples of the content list field in a paper.",
+      "rect": [
+        190.4,
+        305.8,
+        404.9,
+        317.8
+      ],
+      "page": 15,
+      "name": "figure-8-p015",
+      "file": "images/figure-8-p015.png",
+      "pixel_size": [
+        965,
+        561
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "9",
+      "caption": "Figure 9: Prompt for retaining Earth observation images.",
+      "rect": [
+        184.3,
+        620.6,
+        411.0,
+        632.6
+      ],
+      "page": 15,
+      "name": "figure-9-p015",
+      "file": "images/figure-9-p015.png",
+      "pixel_size": [
+        965,
+        1071
+      ]
+    },
+    {
+      "type": "table",
+      "number": "8",
+      "caption": "Table 8: Keywords for positive and negative classifications across different Earth system categories. The table\nincludes general keywords as well as specific keywords for hydrosphere, biosphere, lithosphere, atmosphere, and\ncryosphere.",
+      "rect": [
+        70.5,
+        501.3,
+        524.4,
+        537.2
+      ],
+      "page": 16,
+      "name": "table-8-p016",
+      "file": "images/table-8-p016.png",
+      "pixel_size": [
+        965,
+        1022
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "10",
+      "caption": "Figure 10: Proportion of valid and invalid data after\nmanual screening across different phases. Phase B, or\nSpecialized VQA, exhibits the highest quality.",
+      "rect": [
+        70.9,
+        295.2,
+        289.3,
+        331.1
+      ],
+      "page": 17,
+      "name": "figure-10-p017",
+      "file": "images/figure-10-p017.png",
+      "pixel_size": [
+        965,
+        582
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "11",
+      "caption": "Figure 11: Prompt for generating refined captions.",
+      "rect": [
+        197.3,
+        330.3,
+        398.0,
+        342.3
+      ],
+      "page": 18,
+      "name": "figure-11-p018",
+      "file": "images/figure-11-p018.png",
+      "pixel_size": [
+        965,
+        600
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "12",
+      "caption": "Figure 12: Prompt for generating VQAs.",
+      "rect": [
+        216.3,
+        684.1,
+        379.0,
+        696.1
+      ],
+      "page": 19,
+      "name": "figure-12-p019",
+      "file": "images/figure-12-p019.png",
+      "pixel_size": [
+        965,
+        1174
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "13",
+      "caption": "Figure 13: Prompt for generating normal answers for MCQs.",
+      "rect": [
+        176.0,
+        346.9,
+        419.3,
+        358.9
+      ],
+      "page": 20,
+      "name": "figure-13-p020",
+      "file": "images/figure-13-p020.png",
+      "pixel_size": [
+        965,
+        627
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "14",
+      "caption": "Figure 14: Prompt for generating enhanced answers for MCQs.",
+      "rect": [
+        171.3,
+        346.9,
+        424.0,
+        358.9
+      ],
+      "page": 21,
+      "name": "figure-14-p021",
+      "file": "images/figure-14-p021.png",
+      "pixel_size": [
+        965,
+        627
+      ]
+    },
+    {
+      "type": "table",
+      "number": "9",
+      "caption": "Table 9: Top Sub-disciplines in Various Scientific Subjects. The table lists the top three sub-disciplines by count\nwithin each major scientific subject.",
+      "rect": [
+        70.5,
+        370.5,
+        524.4,
+        394.8
+      ],
+      "page": 21,
+      "name": "table-9-p021",
+      "file": "images/table-9-p021.png",
+      "pixel_size": [
+        965,
+        1158
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "15",
+      "caption": "Figure 15: Models’ accuracy on reasoning and perception problems.",
+      "rect": [
+        161.4,
+        350.9,
+        433.9,
+        362.9
+      ],
+      "page": 22,
+      "name": "figure-15-p022",
+      "file": "images/figure-15-p022.png",
+      "pixel_size": [
+        965,
+        634
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "16",
+      "caption": "Figure 16: An example of easy multiple-choice VQA.",
+      "rect": [
+        190.1,
+        461.6,
+        405.2,
+        473.6
+      ],
+      "page": 23,
+      "name": "figure-16-p023",
+      "file": "images/figure-16-p023.png",
+      "pixel_size": [
+        965,
+        795
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "17",
+      "caption": "Figure 17: An example of specialized multiple-choice VQA.",
+      "rect": [
+        176.8,
+        437.2,
+        418.5,
+        449.2
+      ],
+      "page": 24,
+      "name": "figure-17-p024",
+      "file": "images/figure-17-p024.png",
+      "pixel_size": [
+        965,
+        774
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "18",
+      "caption": "Figure 18: An example of hard multiple-choice VQA.",
+      "rect": [
+        190.1,
+        748.5,
+        405.2,
+        760.5
+      ],
+      "page": 24,
+      "name": "figure-18-p024",
+      "file": "images/figure-18-p024.png",
+      "pixel_size": [
+        965,
+        1278
+      ]
+    },
+    {
+      "type": "table",
+      "number": "10",
+      "caption": "Table 10: Evaluated MLLMs in our experiments with their versions or Huggingface model paths.",
+      "rect": [
+        103.7,
+        81.2,
+        491.3,
+        93.2
+      ],
+      "page": 25,
+      "name": "table-10-p025",
+      "file": "images/table-10-p025.png",
+      "pixel_size": [
+        965,
+        799
+      ]
+    },
+    {
+      "type": "table",
+      "number": "11",
+      "caption": "Table 11: Accuracies (%) of different models on multiple-choice questions. The best results are highlighted in bold,\nwith the second-best underlined. OC: original caption.",
+      "rect": [
+        70.5,
+        399.4,
+        525.7,
+        423.3
+      ],
+      "page": 25,
+      "name": "table-11-p025",
+      "file": "images/table-11-p025.png",
+      "pixel_size": [
+        965,
+        1157
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "19",
+      "caption": "Figure 19: Prompt for evaluating the quality of generated captions.",
+      "rect": [
+        164.5,
+        547.1,
+        430.8,
+        559.1
+      ],
+      "page": 26,
+      "name": "figure-19-p026",
+      "file": "images/figure-19-p026.png",
+      "pixel_size": [
+        965,
+        795
+      ]
+    },
+    {
+      "type": "table",
+      "number": "12",
+      "caption": "Table 12: Effect of explicit chain-of-thought (CoT) prompting on MSEarth-Bench-mini. Higher is better; values are\naccuracy (%). For o4-mini, low/medium/high denote shorter-to-longer reasoning traces.",
+      "rect": [
+        70.5,
+        718.5,
+        524.4,
+        742.5
+      ],
+      "page": 26,
+      "name": "table-12-p026",
+      "file": "images/table-12-p026.png",
+      "pixel_size": [
+        965,
+        1364
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "20",
+      "caption": "Figure 20: Prompt for evaluating the quality of generated answers to open-ended questions.",
+      "rect": [
+        115.4,
+        391.4,
+        479.9,
+        403.4
+      ],
+      "page": 27,
+      "name": "figure-20-p027",
+      "file": "images/figure-20-p027.png",
+      "pixel_size": [
+        965,
+        699
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "21",
+      "caption": "Figure 21: Performance of different strategies on MSEarth-mini.",
+      "rect": [
+        168.9,
+        539.6,
+        426.4,
+        551.6
+      ],
+      "page": 27,
+      "name": "figure-21-p027",
+      "file": "images/figure-21-p027.png",
+      "pixel_size": [
+        965,
+        794
+      ]
+    },
+    {
+      "type": "table",
+      "number": "13",
+      "caption": "Table 13: Model Performance on Primary and Sub-Disciplines of Earth Science (Accuracy)",
+      "rect": [
+        114.9,
+        756.2,
+        480.1,
+        768.2
+      ],
+      "page": 27,
+      "name": "table-13-p027",
+      "file": "images/table-13-p027.png",
+      "pixel_size": [
+        965,
+        1364
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "22",
+      "caption": "Figure 22: Performance comparison of different models under two settings: with and without the original caption.\nThe results indicate that more powerful models exhibit less dependence on the original caption, highlighting their\nability to interpret image content independently.",
+      "rect": [
+        70.5,
+        367.6,
+        526.2,
+        403.5
+      ],
+      "page": 28,
+      "name": "figure-22-p028",
+      "file": "images/figure-22-p028.png",
+      "pixel_size": [
+        965,
+        700
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "23",
+      "caption": "Figure 23: Performance comparison of different models under two settings: with and without the original caption.",
+      "rect": [
+        70.9,
+        740.1,
+        524.4,
+        752.1
+      ],
+      "page": 28,
+      "name": "figure-23-p028",
+      "file": "images/figure-23-p028.png",
+      "pixel_size": [
+        965,
+        1264
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "24",
+      "caption": "Figure 24: Performance comparison of different models across various subjects.",
+      "rect": [
+        138.2,
+        322.2,
+        457.1,
+        334.2
+      ],
+      "page": 29,
+      "name": "figure-24-p029",
+      "file": "images/figure-24-p029.png",
+      "pixel_size": [
+        965,
+        587
+      ]
+    },
+    {
+      "type": "table",
+      "number": "14",
+      "caption": "Table 14: Model Performance on Primary and Sub-Disciplines of Earth Science (Accuracy, Continued)",
+      "rect": [
+        92.0,
+        544.4,
+        503.0,
+        556.5
+      ],
+      "page": 29,
+      "name": "table-14-p029",
+      "file": "images/table-14-p029.png",
+      "pixel_size": [
+        965,
+        1364
+      ]
+    },
+    {
+      "type": "table",
+      "number": "15",
+      "caption": "Table 15: Model Performance on Primary and Sub-Disciplines of Earth Science (Accuracy, Continued)",
+      "rect": [
+        92.0,
+        753.8,
+        503.0,
+        765.8
+      ],
+      "page": 29,
+      "name": "table-15-p029",
+      "file": "images/table-15-p029.png",
+      "pixel_size": [
+        965,
+        1364
+      ]
+    },
+    {
+      "type": "table",
+      "number": "16",
+      "caption": "Table 16: Model Performance on Primary and Sub-Disciplines of Earth Science (Accuracy, Continued)",
+      "rect": [
+        92.0,
+        555.3,
+        503.0,
+        567.3
+      ],
+      "page": 30,
+      "name": "table-16-p030",
+      "file": "images/table-16-p030.png",
+      "pixel_size": [
+        965,
+        1364
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "25",
+      "caption": "Figure 25: Case Study of Multiple Choice VQA.",
+      "rect": [
+        200.5,
+        759.5,
+        394.8,
+        771.5
+      ],
+      "page": 31,
+      "name": "figure-25-p031",
+      "file": "images/figure-25-p031.png",
+      "pixel_size": [
+        965,
+        1296
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "26",
+      "caption": "Figure 26: Case Study of Open-Ended VQA.",
+      "rect": [
+        207.8,
+        750.3,
+        387.5,
+        762.3
+      ],
+      "page": 32,
+      "name": "figure-26-p032",
+      "file": "images/figure-26-p032.png",
+      "pixel_size": [
+        965,
+        1281
+      ]
+    }
+  ],
+  "translation_status": "摘要完整中文翻译；其余为核心章节中文节译/译述，不是全文逐句翻译",
+  "full_translation_completed": false,
+  "qa": {
+    "original_pages": 32,
+    "page_screenshots": 32,
+    "captioned_figures_and_tables": 42,
+    "figure_file_verified": 42,
+    "missing_image_links": [],
+    "pdf_sha256_verified": true,
+    "english_extraction_all_pages": true,
+    "references_detected_start_page": 10,
+    "abstract_translated": true,
+    "all_text_translated": false,
+    "graphic_caption_images_visual_audit": "contact sheets generated; sampled figure crops inspected; some cropped areas may include adjacent paragraphs",
+    "layout_and_formula_issues": "multi-column extraction can reorder text; native PDF page screenshots retained for check"
+  },
+  "crop_notes": "宽幅裁图覆盖完整页面宽度，并按题注位置保留充足上下文；若含多图、跨栏或表格，需要参考原始全页截图核对。"
+}

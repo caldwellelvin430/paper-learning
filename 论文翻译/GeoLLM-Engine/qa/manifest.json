@@ -1,0 +1,234 @@
+{
+  "slug": "GeoLLM-Engine",
+  "title": "GeoLLM-Engine: A Realistic Environment for Building Geospatial Copilots",
+  "description": "地理空间 Copilot 工具执行环境",
+  "original_name": "Singh 等 - 2024 - GeoLLM-Engine A Realistic Environment for Building Geospatial Copilots.pdf",
+  "source_sha256": "4a659bd0d200b169be15858bda196c94564b444c0acd7052a55d442f280a963c",
+  "pdf_pages": 10,
+  "page_images": 10,
+  "captioned_crops": 11,
+  "figure_count": {
+    "figure": 5,
+    "table": 6
+  },
+  "references_start_page": 8,
+  "english_text_chars": 58974,
+  "translated_coverage": "see QA report and Chinese draft",
+  "figures": [
+    {
+      "type": "figure",
+      "number": "1",
+      "caption": "Figure 1. GeoLLM-Engine offers a realistic web environment equipped with comprehensive APIs for developing, deploying, and eval-\nuating geospatial Copilots on tasks that authentically reflect the workflows of remote sensing analysts. Unlike existing LLM benchmarks\nwhich rely on simplified question-answer pairs, GeoLLM-Engine introduces nuanced, long-horizon natural-language commands over a\nwide range of tasks - from object detection and land classification to document retrieval and web search.",
+      "rect": [
+        50.1,
+        509.4,
+        545.1,
+        551.7
+      ],
+      "page": 1,
+      "name": "figure-1-p001",
+      "file": "images/figure-1-p001.png",
+      "pixel_size": [
+        992,
+        844
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "2",
+      "caption": "Figure 2.\nPaper overview:\nGeoLLM-Engine is a realis-\ntic environment for building and evaluating agents on complex\nEO tasks.\nOur GPT-driven benchmark-engine and the agent-\ncorrectness checker minimize the need for human intervention\nfor benchmark curation. This allows us to develop a large-scale\nbenchmark with more than 500, 000 long-horizon geospatial tasks\non 1, 100, 000 satellite images.",
+      "rect": [
+        308.9,
+        178.2,
+        545.1,
+        253.4
+      ],
+      "page": 2,
+      "name": "figure-2-p002",
+      "file": "images/figure-2-p002.png",
+      "pixel_size": [
+        992,
+        456
+      ]
+    },
+    {
+      "type": "table",
+      "number": "1",
+      "caption": "Table 1. GeoLLM-Engine module inventory: Tool Space T",
+      "rect": [
+        57.5,
+        247.5,
+        276.6,
+        256.9
+      ],
+      "page": 3,
+      "name": "table-1-p003",
+      "file": "images/table-1-p003.png",
+      "pixel_size": [
+        992,
+        1065
+      ]
+    },
+    {
+      "type": "table",
+      "number": "2",
+      "caption": "Table 2. Examples of realistic GeoLLM-Engine tasks across three primary “Intent” categories. Please note the long-horizon high-level\nnatural language commands, which constitutes a novel departure from existing single-task template-based geospatial LLM benchmarks.",
+      "rect": [
+        50.1,
+        199.3,
+        545.1,
+        219.7
+      ],
+      "page": 4,
+      "name": "table-2-p004",
+      "file": "images/table-2-p004.png",
+      "pixel_size": [
+        992,
+        1004
+      ]
+    },
+    {
+      "type": "table",
+      "number": "3",
+      "caption": "Table 3. We define model-checks to obtain the agent success and correctness at performing each task.",
+      "rect": [
+        116.3,
+        248.0,
+        478.9,
+        257.1
+      ],
+      "page": 5,
+      "name": "table-3-p005",
+      "file": "images/table-3-p005.png",
+      "pixel_size": [
+        992,
+        1065
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "3",
+      "caption": "Figure 3. Dataset overview with a wide spatial and temporal range. The satellite imagery serves as task contexts for LLM agents to perform\nfunction calls (e.g., given image coordinates, we can assess the agents’ ability to fetch the proper set of images around a user-specified\nlocation) and is not employed for any LLM-finetuning or other downstream tasks, enabling our research-purposes investigation.",
+      "rect": [
+        50.1,
+        177.1,
+        545.1,
+        208.2
+      ],
+      "page": 6,
+      "name": "figure-3-p006",
+      "file": "images/figure-3-p006.png",
+      "pixel_size": [
+        992,
+        383
+      ]
+    },
+    {
+      "type": "table",
+      "number": "4",
+      "caption": "Table 4. The overall performance of different methods and prompting strategies on GeoLLM-Engine-10k.",
+      "rect": [
+        101.1,
+        444.7,
+        494.1,
+        454.2
+      ],
+      "page": 6,
+      "name": "table-4-p006",
+      "file": "images/table-4-p006.png",
+      "pixel_size": [
+        992,
+        1034
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "4",
+      "caption": "Figure 4. Success Rate vs. Task Complexity (left), Benchmark size (middle), and Error Tolerance (right). All methods use GPT-4-Turbo.",
+      "rect": [
+        52.2,
+        186.7,
+        543.1,
+        195.7
+      ],
+      "page": 7,
+      "name": "figure-4-p007",
+      "file": "images/figure-4-p007.png",
+      "pixel_size": [
+        992,
+        363
+      ]
+    },
+    {
+      "type": "table",
+      "number": "5",
+      "caption": "Table 5. Success Rate of GPT-4 CoT on massively large-scale\nbenchmark with 100k queries",
+      "rect": [
+        308.9,
+        281.4,
+        545.1,
+        301.3
+      ],
+      "page": 7,
+      "name": "table-5-p007",
+      "file": "images/table-5-p007.png",
+      "pixel_size": [
+        992,
+        1137
+      ]
+    },
+    {
+      "type": "figure",
+      "number": "5",
+      "caption": "Figure 5. Distribution of different errors in correctness rate for\nCoT and ReAct methods. All methods use GPT-4",
+      "rect": [
+        50.1,
+        284.9,
+        286.4,
+        304.9
+      ],
+      "page": 7,
+      "name": "figure-5-p007",
+      "file": "images/figure-5-p007.png",
+      "pixel_size": [
+        992,
+        540
+      ]
+    },
+    {
+      "type": "table",
+      "number": "6",
+      "caption": "Table 6. Comparison GeoLLM-Engine to existing geospatial LLM-related benchmarks.\n†Note: while these works consider dynamic\nchatGPT-like prompting capabilities, the underlying agent execution is conducted mainly across multiple steps via conversational prompt-\ning of separate tasks (i.e., multi-step single-task), rather that multiple tasks (tools) per query (i.e., single/multi-step multi-task).",
+      "rect": [
+        50.1,
+        306.1,
+        545.1,
+        338.8
+      ],
+      "page": 8,
+      "name": "table-6-p008",
+      "file": "images/table-6-p008.png",
+      "pixel_size": [
+        992,
+        1171
+      ]
+    }
+  ],
+  "translation_status": "摘要完整中文翻译；其余为核心章节中文节译/译述，不是全文逐句翻译",
+  "full_translation_completed": false,
+  "qa": {
+    "original_pages": 10,
+    "page_screenshots": 10,
+    "captioned_figures_and_tables": 11,
+    "figure_file_verified": 11,
+    "missing_image_links": [],
+    "pdf_sha256_verified": true,
+    "english_extraction_all_pages": true,
+    "references_detected_start_page": 8,
+    "abstract_translated": true,
+    "all_text_translated": false,
+    "graphic_caption_images_visual_audit": "contact sheets generated; sampled figure crops inspected; some cropped areas may include adjacent paragraphs",
+    "layout_and_formula_issues": "multi-column extraction can reorder text; native PDF page screenshots retained for check"
+  },
+  "crop_notes": "宽幅裁图覆盖完整页面宽度，并按题注位置保留充足上下文；若含多图、跨栏或表格，需要参考原始全页截图核对。"
+}

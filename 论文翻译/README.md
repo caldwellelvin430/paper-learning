@@ -49,6 +49,13 @@
 | TerraLogic | [中文摘要与主要章节](TerraLogic/中文摘要全译与主要章节译述.md) · [阅读说明](TerraLogic/README_阅读说明.md) · [原文 PDF](TerraLogic/原始论文.pdf) |
 | UnivEARTH | [中文摘要与主要章节](UnivEARTH/中文摘要全译与主要章节译述.md) · [阅读说明](UnivEARTH/README_阅读说明.md) · [原文 PDF](UnivEARTH/原始论文.pdf) |
 | Zephyrus | [中文摘要与主要章节](Zephyrus/中文摘要全译与主要章节译述.md) · [阅读说明](Zephyrus/README_阅读说明.md) · [原文 PDF](Zephyrus/原始论文.pdf) |
+| AgenticAI_Survey | [中文摘要与核心章节](AgenticAI_Survey/中文学术译稿_摘要与核心章节.md) · [阅读说明](AgenticAI_Survey/README_阅读说明.md) · [原文 PDF](AgenticAI_Survey/原始论文.pdf) |
+| EarthSE | [中文摘要与核心章节](EarthSE/中文学术译稿_摘要与核心章节.md) · [阅读说明](EarthSE/README_阅读说明.md) · [原文 PDF](EarthSE/原始论文.pdf) |
+| GEOBench-VLM | [中文摘要与核心章节](GEOBench-VLM/中文学术译稿_摘要与核心章节.md) · [阅读说明](GEOBench-VLM/README_阅读说明.md) · [原文 PDF](GEOBench-VLM/原始论文.pdf) |
+| GeoLLM-Engine | [中文摘要与核心章节](GeoLLM-Engine/中文学术译稿_摘要与核心章节.md) · [阅读说明](GeoLLM-Engine/README_阅读说明.md) · [原文 PDF](GeoLLM-Engine/原始论文.pdf) |
+| GeoMMBench_GeoMMAgent | [中文摘要与核心章节](GeoMMBench_GeoMMAgent/中文学术译稿_摘要与核心章节.md) · [阅读说明](GeoMMBench_GeoMMAgent/README_阅读说明.md) · [原文 PDF](GeoMMBench_GeoMMAgent/原始论文.pdf) |
+| MapAgent | [中文摘要与核心章节](MapAgent/中文学术译稿_摘要与核心章节.md) · [阅读说明](MapAgent/README_阅读说明.md) · [原文 PDF](MapAgent/原始论文.pdf) |
+| MSEarth | [中文摘要与核心章节](MSEarth/中文学术译稿_摘要与核心章节.md) · [阅读说明](MSEarth/README_阅读说明.md) · [原文 PDF](MSEarth/原始论文.pdf) |
 
 中文精读稿的覆盖范围见对应目录说明。Beyond the Final Answer 现有资料缺少本地原稿 PDF、逐页原文和图表截图，详见[资料说明](Kim_Bhat资料说明.md)及其核查报告。
 
