@@ -1,0 +1,11 @@
+﻿original_english_name,chinese_explanation,cause,paper_case,evidence,repair_proposal,repair_effect_evidence,geospatial_transfer_hypothesis
+Brittle state matching / exact-match constraints / state over-specification,任务无关或表示层差异造成拒绝,全对象、标点及无关状态精确比较,BFCL50任务导出中有20个状态不匹配；并非全部错误,§3.4、§4.3 pp.3–4、7,按任务相关状态验证；保留合法表示变体,论文未给逐类型修复效果,地学几何顺序或CRS字符串差异；待验证
+Trajectory lock-in,锁定参考执行路径或过早截断,合法替代或后续修复不能被接受,BFCL叙述提到晚到纠正前被终止，无逐例ID,§4.3 p.7；§5 p.9,结果判据、必要步骤约束及明确修复预算,无独立消融效果,等价GIS工作流；待验证
+Incorrect ground truths / annotation errors,参考目标语义错误,GT包含用户要求排除的预约,τ² Task7：402+306=708；参考1628,§4.3 p.7；A.1 p.11 表6,按用户目标重算、复核标注,未给修复后全量得分,字段单位或空间筛选GT错误；待验证
+Substring-based communication failures,以固定子串判语义沟通,语言断言绑定错误数值或表达,τ² Task7最终回复无1628即失败，与上一类重叠,§4.3 p.7；A.1 p.11,语义结果与沟通条件分开验证,未报告单独效果,格式正确但数值语义不同或反之；待验证
+Reward-basis mismatch / reward misalignment,奖励条件未覆盖真实目标,未变化的最终状态可奖励不作为,τ² Task10未退货而转人工，仍通过,§4.3 pp.7–8,必要动作证据结合产物检查,无修复前后计数,空输出或未处理图层被误认可；待验证
+Rubric drift,重复生成评分标准改变判据,每任务identify_key_points随机生成,LiveMCPBench默认管线；未公布逐例rubric变化对照,§4.4 p.8；A.2 pp.11–12,固定、版本化rubric，另测生成变化,23轮波动不等于修复效果,地学术语判据漂移；待验证
+Judge variance,同等证据的裁判判定波动,LLM最终判定存在随机性,23次完整重跑57.9–76.8%，混合Agent变化,§3.5 p.4；§4.4 p.8；表7 p.12,固定轨迹和rubric重复评分,未报告Judge-only受控估计,同一空间产物多次判定不同；待验证
+Hallucinated completion / unsupported success judgments,将没有证据的完成当成功,相信自信回答或漏读工具失败,原文概述，无可复核逐例ID,§1 pp.1–2；§4.2 p.7；§5 p.9,可观测硬门约束Judge,Tool-Veritas420例零FP仅为总体观察非此类消融,没有实际GIS产物却声称成功；待验证
+Answer-only scoring,只看答案遗漏过程与工具证据,答案代替实际动作或结果验证,原文概述，无独立案例表,§2 p.2；§4.2 p.7；§5 p.9,结合轨迹与实际产物,无单类修复效果,空间叙述正确但分析未执行；待验证
+Implementation-specification mismatches,实现与论文推荐设置不符,实际运行默认配置不同,LiveMCPBench默认gpt-4.1-mini而非推荐更强Judge,§3.4 p.4；A.2 p.12,锁定实现、模型和rubric版本并对照,原文只说可能增加不稳定性；无因果对照,评分器代码与论文空间规则不一致；待验证

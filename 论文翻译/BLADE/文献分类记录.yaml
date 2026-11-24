@@ -1,0 +1,24 @@
+paper_title: 'BLADE: Benchmarking Language Model Agents for Data-Driven Science'
+paper_short_name: BLADE
+benchmark_name: BLADE
+year: 2024
+publication: Findings of EMNLP 2024
+source_url: https://aclanthology.org/2024.findings-emnlp.815/
+primary_category: E
+reading_priority: P1
+research_role:
+- 方法借鉴
+- 相关工作
+secondary_tags:
+- 科学智能体
+- 评分机制
+classification_reason: 非地学专项科学分析基准；多解、数据转换等价和覆盖率评分可迁移。
+measurement_target: 科学数据分析决策、可接受分析方法的多样性
+evaluation_mechanism: 概念变量、数据转换、统计模型匹配；平均 precision、coverage@10、F1
+ground_truth_type: 独立专家分析形成的决策空间
+reproducibility: RU
+open_source_status: 论文提供 GitHub 链接，未实际验证运行
+evidence_location: PDF 第 1 页摘要；PDF 第 7 页 第 6 节：评价指标
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 2–5 节专家决策空间、灵活匹配；第 6 节指标及附录 A.7。
+local_path: 论文翻译/BLADE/

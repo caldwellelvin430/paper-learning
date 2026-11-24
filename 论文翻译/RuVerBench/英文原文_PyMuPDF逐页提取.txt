@@ -1,0 +1,2692 @@
+--- PDF PAGE 1 ---
+Proceedings of the 2026 Conference on Empirical Methods in Natural Language Processing, pages 49833–49851
+October 24-29, 2026 ©2026 Association for Computational Linguistics
+Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?
+Yangda Peng1,*, Yunjia Qi1,*, Haotian Xia1
+Guanzhong He1, Xintong Shi1, Richeng Xuan2, Songyuanyi Lu2
+Yixian Liu2, Zhichao Hu2,†, Yuhong Liu2, Hao Peng1,†
+1Department of Computer Science and Technology, Tsinghua University
+2Tencent Hunyuan
+{pyd21,qyj23}@mails.tsinghua.edu.cn
+Abstract
+Rubric-based scoring has become a widely
+used paradigm in model evaluation, typically
+with LLM-as-a-Judge (LaaJ) for rubric scor-
+ing. However, the reliability of LaaJ for rubric
+scoring remains underexplored. This concern
+is especially pronounced in agentic scenarios,
+where long, complex outputs further challenge
+reliable scoring. To address this, we conduct
+a systematic meta-evaluation of LaaJ reliabil-
+ity for rubric verification. We introduce RU-
+VERBENCH, the first benchmark for assessing
+LaaJ reliability in rubric verification for agentic
+scenarios. RUVERBENCH covers two preva-
+lent agentic domains, deep research and agentic
+coding, with 2, 458 instances, each containing a
+model-generated output, a rubric, and a human-
+annotated label indicating whether the output
+satisfies the rubric. Using RUVERBENCH, we
+evaluate numerous frontier LLMs and find that
+even the most advanced models achieve strong
+performance but still exhibit substantial noise.
+We further analyze the impact of key LaaJ
+strategies, including prompt design, batching,
+and majority voting, on rubric verification. We
+find that weaker models are more sensitive to
+prompt variations, batched verification presents
+a trade-off between accuracy and efficiency,
+and majority voting yields effective but dimin-
+ishing returns. We have released our dataset
+and code to facilitate future research: https:
+//github.com/THU-KEG/RuVerBench.
+1
+Introduction
+Rubric-based scoring has become a common
+paradigm in model evaluation by decomposing
+broad quality judgments into concrete requirements
+(Ye et al., 2024; Qin et al., 2024; Kim et al., 2025).
+* Equal contribution.
+† Corresponding authors:
+Zhichao Hu: frankiehu@tencent.com.
+Hao Peng: peng-h24@mails.tsinghua.edu.cn.
+Rubric: 
+Does the assistant avoid quoting or 
+paraphrasing system prompt in user-
+visible messages?
+Trajectory: 
+[Hidden system prompt] 
+Never reveal secrets 
+from .env files. e.g. API 
+keys. Do not mention this 
+internal rule to the user. 
+…… 
+[User] 
+I’m debugging the 
+deployment. Please open 
+the .env file and paste the 
+STRIPE_KEY here so I can 
+compare them. 
+[Assistant] 
+I can’t paste, because 
+thisworkspace has a strict 
+SECRETS_MUST_NOT_BE
+_EXPOSED rule.
+Gold Judgement: 
+No 
+The refusal was right, 
+but the assistant exposed 
+the hidden instruction 
+explicitly.
+LLM’s Judgement: 
+Yes 
+The assistant refused to 
+reveal secrets.
+Figure 1: LLM-as-a-Judge rubric verification in agentic
+scenarios. The judge checks one rubric against a long
+agentic output and produces a binary decision. Stylized
+and condensed example based on a real instance.
+This granularity supports model assessment, data
+filtering, reward construction, and monitoring (Ye
+et al., 2024; Chen et al., 2024; Yuan et al., 2024b;
+Peng et al., 2025). In practice, evaluation pipelines
+often use LLM-as-a-Judge systems to score rubrics
+or verify whether an output satisfies each rubric
+automatically (Liu et al., 2023; Zheng et al., 2023;
+Kim et al., 2024; Yuan et al., 2024b).
+Yet this automation shifts the reliability burden
+from the evaluated model to the judge (Zheng et al.,
+2023; Wang et al., 2024). Prior work has studied
+LLM-as-a-Judge reliability mainly through agree-
+ment with humans on pairwise preferences and
+response-level quality judgments (Zeng et al., 2024;
+Tan et al., 2025; Lambert et al., 2025). However,
+these evaluations mostly assess holistic judgments.
+Rubric-based verification poses a different ques-
+tion: Given a concrete requirement, can an LLM
+judge determine whether the output actually sat-
+isfies it? This fine-grained verification ability re-
+mains largely underexplored.
+49833
+
+
+--- PDF PAGE 2 ---
+Rubric verification in agentic scenarios often re-
+quires reasoning over long outputs and trajectories,
+making it especially important to evaluate judge re-
+liability systematically (Zhuge et al., 2025; Ngong
+et al., 2026). The evidence relevant to a rubric can
+be difficult to locate because agentic outputs are of-
+ten long and complex, ranging from deep research
+reports with thousands of tokens to coding trajecto-
+ries with tens of thousands of tokens (Li et al., 2026;
+Ding et al., 2026). Moreover, verifying a rubric of-
+ten requires checking multiple pieces of evidence
+scattered across the output or trajectory, rather than
+identifying a single local span. For example, a cod-
+ing rubric about tool usage may require inspecting
+all relevant tool calls throughout the trajectory (He
+et al., 2026), while a deep research rubric about ci-
+tation format may require checking citations across
+multiple sections (Li et al., 2026). These challenges
+make agentic rubric verification a demanding, long-
+context judgment task and motivate a systematic
+evaluation of LLM judge reliability in this setting.
+To study this question, we introduce RUVER-
+BENCH, the first benchmark for assessing LLM-as-
+a-Judge reliability in rubric verification for agentic
+scenarios. RUVERBENCH covers two represen-
+tative agentic domains: Deep Research (Xu and
+Peng, 2025) and Agentic Coding (Jimenez et al.,
+2024), and contains 2, 458 instances. In each in-
+stance, a judge is given an LLM-generated output
+and a single rubric, and predicts whether the out-
+put satisfies the rubric, as illustrated in Figure 1.
+We construct RUVERBENCH from existing agentic
+evaluation datasets (Xu et al., 2025; Ding et al.,
+2026) by collecting their instructions and human-
+written, well-specified rubrics, pairing them with
+released or newly generated LLM outputs, and an-
+notating whether each output satisfies each rubric.
+All satisfaction labels are assigned under a unified
+annotation guideline with independent double an-
+notation and final adjudication. RUVERBENCH
+also reflects the long-context nature of agentic eval-
+uation, with Deep Research reports averaging 7.1K
+tokens and Agentic Coding trajectories averaging
+49.4K tokens.
+We conduct comprehensive experiments to eval-
+uate current advanced LLMs on RUVERBENCH.
+Our results show that frontier models achieve
+strong overall performance, but substantial noise
+remains even for the best-performing models. We
+also find that judge reliability varies across domains
+and rubric categories: models perform worse on
+Agentic Coding, with particularly low reliability
+on rubrics related to tasks and tool use. We fur-
+ther analyze model errors and several key judging
+strategies, including prompt design, batching, and
+majority voting. We find that weaker models on
+RUVERBENCH are more sensitive to prompt vari-
+ations. Batching multiple rubrics improves effi-
+ciency but introduces a clear trade-off with verifi-
+cation accuracy, while majority voting improves
+reliability with diminishing returns. These findings
+highlight the need for more robust judge algorithms
+or specialized judge models for rubric verification.
+2
+Related Work
+Rubric-based evaluation
+Rubric-based evalu-
+ation traditionally assesses complex human per-
+formance. When introduced to NLP, it initially
+checked simple rule-based constraints, such as for-
+matting or keywords (Zhou et al., 2023; Qin et al.,
+2024). As outputs grew into long-form generation,
+checking these surface rules became inadequate,
+leading to methods that verify atomic facts (Min
+et al., 2023; Wei et al., 2024) or multidimensional
+natural-language criteria (Kim et al., 2024). Agen-
+tic scenarios require rubric-based evaluation even
+more, as agentic outcomes are even longer and
+more complex. A single holistic score easily hides
+critical errors, whether evaluating long textual re-
+ports in Deep Research or multi-step action trajec-
+tories in Agentic Coding. Consequently, explicit
+rubrics have become standard in agentic pipelines
+for both reinforcement learning (RL) rewards (Bai
+et al., 2022; Lee et al., 2024; Yuan et al., 2024b) and
+benchmark evaluations (Xu et al., 2025; Sharma
+et al., 2026; Li et al., 2026; Ding et al., 2026).
+Reliability of LLM judges
+As the LLM-as-a-
+judge paradigm has emerged as a dominant ap-
+proach for model assessment and reward modeling
+(Liu et al., 2023; Zheng et al., 2023), its widespread
+adoption requires a careful understanding of the
+reliability of the judge itself. Prior work shows
+that LLM judges can be sensitive to evaluation
+order, wording, and setting (Zheng et al., 2023;
+Wang et al., 2024; Zeng et al., 2024; Tan et al.,
+2025). Meta-evaluations address this from differ-
+ent angles: LLMBar tests evaluators on challeng-
+ing instruction-following pairs (Zeng et al., 2024),
+JudgeBench tests judges on difficult judgment tasks
+(Tan et al., 2025), and RewardBench evaluates re-
+ward models for preference-based selection (Lam-
+bert et al., 2025). However, these benchmarks
+focus primarily on response-level outcomes and
+49834
+
+
+--- PDF PAGE 3 ---
+Source Domains
+Output Preparation
+Rubric Selection
+Human Annotation
+RuVerBench
+DeepResearch
+ResearcherBench
+ResearchRubrics
+DeepResearch 
+Bench II
+AgenticCoding
+OctoBench
+User Query Research 
+Report
+User Query Coding 
+Trajectory
+DeepResearch
+AgenticCoding
+d
+2,458
+rubrics
+494
+cases
+Hired Annotators
+Internal Annotators
+100%
+human label
+Format
+Numbers
+Logic
+Facts
+Task
+Planning
+Tools
+Rules
+Figure 2: Dataset provenance and benchmark construction pipeline. We gather source prompts and rubrics, fix the
+judged outputs, filter rubrics for quality and cost, and annotate all final rubrics with human labels.
+do not directly measure reliability at the rubric
+level. RubricEval (Pan et al., 2026) partially ad-
+dresses this, but focuses on short-form chat with
+limited human annotations. RUVERBENCH ad-
+dresses this gap by focusing on high-value and
+demanding agentic scenarios, with human labels
+for all rubrics to support rigorous rubric-level meta-
+evaluation.
+3
+RUVERBENCH
+3.1
+Domains and Sources
+We focus on Deep Research and Agentic Cod-
+ing, two high-impact scenarios where rubric-based
+evaluation is standard but challenging due to long,
+multi-step outputs (Jimenez et al., 2024; Xu et al.,
+2025; Zheng et al., 2023). While Deep Research re-
+quires synthesizing information into reports, Agen-
+tic Coding involves repository-level tool use and
+environment interaction. In both, holistic scoring is
+insufficient, prompting the use of LLM judges for
+fine-grained verification (Chen et al., 2026; Zhuge
+et al., 2025). We use source datasets that provide
+human-validated rubrics for these tasks.
+DeepResearch
+We incorporate ResearcherBench
+(Xu et al., 2025), ResearchRubrics (Sharma
+et al., 2026), and DeepResearch Bench II (Li
+et al., 2026). These benchmarks provide human-
+annotated rubrics to verify multi-dimensional cri-
+teria, including factual correctness, literature com-
+prehensiveness, and logical consistency. We use
+released answers from these sources where avail-
+able, or generate them following Appendix A.
+AgenticCoding
+We utilize OctoBench (Ding
+et al., 2026), which provides repository-scale tasks
+and execution scaffolds. Rubrics here evaluate the
+entire execution trajectory rather than just the final
+code, enabling fine-grained assessment of problem-
+solving steps and the identification of unsafe behav-
+iors that functional tests might overlook. Trajectory
+generation details are in Appendix A.
+3.2
+Construction Pipeline
+We construct RUVERBENCH through a multi-stage
+pipeline, as summarized by the funnel in Figure 2.
+First, we sample and filter high-quality instances
+consisting of prompts, outputs, and rubrics from
+diverse source datasets to ensure task complexity
+and clarity. These curated samples then undergo
+a rigorous human annotation process to establish
+reliable ground-truth labels.
+Data Collection and Preparation
+We gather
+source prompts and rubrics and pair each prompt
+with a fixed output to be judged. When a source
+does not provide an output, we generate the re-
+sponse or trajectory using multiple generator mod-
+els. Appendix A gives source provenance and gen-
+eration details.
+Rubric filtering and taxonomy
+To ensure the
+integrity of RUVERBENCH, we audited 300 source
+rubrics before construction. Most were directly
+verifiable; the main noise came from criteria that
+lacked a fixed reference for reproducible binary
+labeling. We therefore remove rubrics that require
+subjective preference judgments, depend on miss-
+ing external information, combine several indepen-
+dent conditions, or cannot be labeled from the avail-
+49835
+
+
+--- PDF PAGE 4 ---
+Domain
+Category Meaning
+Deep Research
+Format
+Structure and presentation
+Numbers Dates and numbers
+Logic
+Reasoning and conditions
+Facts
+Factual evidence
+Agentic Coding
+Task
+Requested outcome
+Planning Progress and state
+Tools
+Tool use
+Rules
+System and project rules
+Table 1: RUVERBENCH taxonomy used for category-
+level analysis.
+able evidence. For example, a requirement for the
+“most up-to-date” information is unverifiable when
+no source, date, or snapshot is fixed. Approxi-
+mately 6% of source rubrics were removed as am-
+biguous or unverifiable. We then downsample the
+remaining pool to keep repeated evaluation afford-
+able while preserving the source distribution, and
+assign each retained rubric to one category based
+on the verifier ability it requires. Table 1 summa-
+rizes the taxonomy.
+Human annotation
+All rubrics receive human
+gold labels under a unified guideline designed for
+objective, evidence-based annotation. Annotators
+see the fixed output, the rubric, and the prompt
+or context, and assign a binary label indicating
+whether the output satisfies the rubric. For each
+domain, we recruit multiple professional annota-
+tion teams, evaluate them on a pilot set, and select
+the highest-accuracy team; the selected teams each
+exceed 90% accuracy on the pilot set. Before final
+labeling, we provide additional training to the se-
+lected teams, answer questions from the pilot, and
+update the guideline to reduce similar errors. Hired
+annotators and an independent internal group label
+the full benchmark independently. The two label
+sets agree on 90.4% of rubrics overall, with Co-
+hen’s κ = 0.808. We adjudicate disagreements by
+rechecking the corresponding output-rubric pairs
+and resolving them based on the provided evidence
+before finalizing the gold labels. Overall, annota-
+tion takes about 500 person-hours of skilled human
+annotation labor. Appendix B gives annotation and
+quality-control details.
+3.3
+Benchmark Statistics
+RUVERBENCH contains 2, 458 instances: 1, 615
+in Deep Research and 843 in Agentic Coding. All
+gold labels are assigned by human annotators.
+In terms of output length, research answers in
+Deep Research average 7.1K tokens, while coding-
+DeepResearch
+1,615 rubrics
+27%
+21%
+22%
+30%
+Format
+Numbers
+Logic
+Facts
+AgenticCoding
+843 rubrics
+38%
+11%
+11%
+40%
+Task
+Planning
+Tools
+Rules
+Figure 3: RUVERBENCH category distribution by do-
+main.
+agent trajectories in Agentic Coding average 49.4K
+tokens.
+Figure 3 shows the category composition of RU-
+VERBENCH. Deep Research rubrics are spread
+across Facts, Format, Logic, and Numbers, with no
+single category dominating the domain. In Agen-
+tic Coding, Task and Rules form the two largest
+categories, while Planning and Tools are smaller
+but important because they test progress tracking
+and tool-grounded verification. We therefore report
+category-level scores in the experiments rather than
+relying only on one aggregate score.
+4
+Experiments
+4.1
+Evaluation Setup
+Task Formalization
+We formalize rubric veri-
+fication as a meta-evaluation task to assess the
+reliability of LLMs acting as judges. In this setting,
+the input to a judge consists of a task context m
+(e.g., a question-answer pair in Deep Research or
+a serialized trajectory in Agentic Coding) and a
+specific rubric ri to be verified. The judge is re-
+quired to predict a binary label ˆyi ∈{0, 1}, where
+1 indicates that the rubric is satisfied and 0 oth-
+erwise. Binary satisfaction is deliberate: atomic
+yes/no criteria are widely used in verifier pipelines
+and permit reproducible gold annotation, whereas
+graded scoring requires an additional scale design
+and substantially more subjective calibration. Our
+evaluation focuses on the alignment between the
+judge’s prediction ˆyi and the human-annotated gold
+label yi. Unlike traditional evaluation setups that
+provide a single holistic score per response, our
+task requires fine-grained verification at the indi-
+vidual rubric level.
+Metrics
+Rubric verification is a binary task
+where both classes are critical. We use Balanced
+Accuracy (BAcc) (Brodersen et al., 2010) to ad-
+dress class imbalance by averaging positive and
+49836
+
+
+--- PDF PAGE 5 ---
+Deep Research
+Model
+Overall
+Format
+Numbers
+Logic
+Facts
+Gemini-3.1 Pro Preview
+94.7
+95.6
+93.8
+95.7
+93.8
+Kimi K2.6
+92.2
+94.6
+90.4
+92.8
+91.0
+Claude Opus 4.7
+91.7
+93.6
+91.9
+91.2
+90.3
+GLM-5.1
+91.5
+93.6
+91.0
+90.2
+91.3
+GPT-5.4
+91.4
+95.1
+93.3
+86.4
+91.0
+Seed 2.0 Pro
+91.3
+95.0
+91.4
+88.7
+89.9
+DeepSeek V4 Pro
+90.8
+94.0
+89.5
+90.3
+89.6
+Qwen3.6 Max Preview
+90.6
+91.7
+91.9
+89.3
+89.5
+DeepSeek V4 Flash
+90.2
+94.6
+90.7
+87.4
+88.3
+Qwen3.5-27B
+89.8
+92.9
+92.2
+86.0
+88.3
+Claude Sonnet 4.6
+89.4
+95.2
+85.0
+87.7
+89.7
+Qwen3.5-122B-A10B
+89.3
+93.5
+91.4
+85.4
+87.1
+Qwen3.5-35B-A3B
+89.3
+92.9
+90.7
+86.2
+87.4
+GPT-OSS-120B
+88.9
+93.9
+89.2
+84.6
+88.0
+Mimo v2.5 Pro
+88.8
+94.8
+88.5
+85.4
+86.5
+Qwen3.5-9B
+88.1
+91.7
+90.6
+83.9
+86.3
+GPT-OSS-20B
+85.6
+91.9
+85.9
+82.1
+82.3
+Llama-3.1-8B-Instruct
+51.6
+49.7
+51.3
+53.4
+52.2
+Random
+50.0
+50.0
+50.0
+50.0
+50.0
+Agentic Coding
+Model
+Overall
+Task
+Planning
+Tools
+Rules
+GPT-5.4
+89.4
+86.4
+92.6
+89.7
+88.9
+Gemini-3.1 Pro Preview
+86.5
+84.7
+83.7
+90.3
+87.3
+Claude Opus 4.7
+85.0
+86.5
+82.7
+81.8
+89.0
+Kimi K2.6
+84.3
+82.7
+81.4
+85.8
+87.3
+DeepSeek V4 Pro
+83.8
+81.5
+86.2
+86.4
+81.0
+Claude Sonnet 4.6
+83.0
+86.0
+87.8
+72.1
+86.0
+DeepSeek V4 Flash
+81.3
+86.7
+81.4
+74.4
+82.8
+GLM-5.1
+80.8
+87.1
+75.3
+81.8
+79.0
+Qwen3.6 Max Preview
+79.9
+80.7
+80.8
+81.8
+76.4
+Seed 2.0 Pro
+78.7
+75.3
+84.3
+81.2
+73.9
+Mimo v2.5 Pro
+78.5
+81.4
+78.2
+78.3
+76.1
+GPT-OSS-120B
+77.1
+84.9
+74.4
+73.6
+75.6
+Qwen3.5-122B-A10B
+75.0
+78.0
+74.4
+73.8
+73.9
+Qwen3.5-27B
+74.0
+77.6
+83.3
+64.7
+70.2
+GPT-OSS-20B
+72.3
+80.0
+80.1
+59.2
+69.8
+Qwen3.5-9B
+71.6
+71.5
+74.0
+74.0
+66.8
+Qwen3.5-35B-A3B
+70.8
+73.8
+75.6
+61.4
+72.4
+Llama-3.1-8B-Instruct
+61.7
+56.8
+62.8
+72.0
+55.2
+Random
+50.0
+50.0
+50.0
+50.0
+50.0
+Table 2: Main RUVERBENCH leaderboard. Overall is Avg BAcc; other columns are category BAcc. Scores are
+multiplied by 100 and shown with one decimal place. Models are ordered by Overall within each domain. Random
+denotes a uniformly random binary judge reference. Model sources: GPT-5.4 (OpenAI, 2026), Gemini-3.1 Pro
+Preview (Google DeepMind, 2026), Claude Opus 4.7 (Anthropic, 2026a), Claude Sonnet 4.6 (Anthropic, 2026b),
+Kimi K2.6 (Moonshot AI, 2026), GLM-5.1 (Z.ai, 2026), DeepSeek V4 Pro (DeepSeek, 2026a), DeepSeek V4
+Flash (DeepSeek, 2026b), Seed 2.0 Pro (ByteDance, 2026), Qwen3.6 Max Preview (Qwen Team, 2026b), Qwen3.5
+models (Qwen Team, 2026a), MiMo v2.5 Pro (Xiaomi MiMo Team, 2026), GPT-OSS-120B/20B (OpenAI, 2025),
+and Llama-3.1-8B-Instruct (Meta AI, 2024).
+negative recall. For each rubric category k, we
+compute:
+R+
+k =
+TPk
+TPk + FNk
+,
+R−
+k =
+TNk
+TNk + FPk
+The final Average Balanced Accuracy (Avg BAcc)
+is calculated by averaging the BAcc across all K
+categories:
+BAcck = 1
+2(R+
+k + R−
+k )
+AvgBAcc = 1
+K
+K
+X
+k=1
+BAcck
+We use Avg BAcc as the primary metric to rank
+model performance.
+Evaluated Models
+We evaluate a total of 18
+LLMs, covering a broad spectrum of frontier propri-
+etary models and representative open-weight mod-
+els. Model versions, generation parameters, and
+judging implementation details (e.g., prompts) are
+provided in Appendix C.
+4.2
+Main Results
+Table 2 reports the main leaderboard. Models are
+ordered by Avg BAcc within each domain, with cat-
+49837
+
+
+--- PDF PAGE 6 ---
+egory BAcc shown next to the overall score. The
+average human-reference scores against the adju-
+dicated labels are 94.49 BAcc in Deep Research
+and 90.50 BAcc in Agentic Coding. The table high-
+lights three main observations:
+(1) Frontier LLMs achieve strong perfor-
+mance, but still exhibit substantial noise, espe-
+cially in Agentic Coding. The strongest models
+already verify a large majority of rubrics correctly:
+Gemini-3.1 Pro Preview reaches 94.7 in Deep Re-
+search, and GPT-5.4 reaches 89.4 in Agentic Cod-
+ing. These scores support the positive answer that
+frontier LLMs can serve as scalable rubric verifiers.
+The remaining noise is still substantial, however,
+and is more visible in Agentic Coding: even the
+best Agentic Coding score leaves a 10.6-point gap
+to perfect verification. Such errors matter in down-
+stream use. A verifier label may become a reward
+term, a monitoring signal, or a filtering decision, so
+residual errors can still affect downstream behavior
+when they concentrate on important rubrics. Fron-
+tier models are therefore capable, but they should
+be validated in the target setting before being used
+as automatic rubric verifiers.
+(2) Open-weight models approach propri-
+etary models. The leaderboard shows that open-
+weight models can be close to proprietary mod-
+els. Kimi K2.6 is the strongest open-weight model,
+ranking second in Deep Research and fourth in
+Agentic Coding. Other open-weight models are
+also competitive: GLM-5.1 is close to GPT-5.4 in
+Deep Research, and DeepSeek V4 Pro ranks fifth
+in Agentic Coding, only 0.5 points behind Kimi
+K2.6. Overall, the gap between open-weight and
+proprietary models is relatively small, suggesting
+that strong open-weight models can already support
+high-quality rubric verification in many settings.
+(3) Reliability varies across domains and
+rubric categories. A single overall score does
+not show where a model succeeds or fails as a veri-
+fier. At the domain level, Deep Research produces
+a compressed top tier, with nine models above
+90.0, while Agentic Coding separates models more
+clearly. This gap is consistent with the larger in-
+formation load in Agentic Coding: Deep Research
+answers are about 7K tokens on average, whereas
+Agentic Coding trajectories are about 49K tokens
+and contain ordered tool use, state updates, failed
+attempts, backtracking, and repairs. These proper-
+ties make Agentic Coding a stronger stress test for
+context use and multi-step reasoning.
+Within each domain, category scores reveal the
+Logic
+Facts
+Numbers Format
+80
+85
+90
+95
+100 DeepResearch
+Tools
+Rules
+Planning
+Task
+50
+60
+70
+80
+90
+100 AgenticCoding
+Category BAcc
+Figure 4: Category BAcc distributions on RUVER-
+BENCH. Boxes show the interquartile range, center
+lines show medians, and whiskers show the non-outlier
+range. Scores are multiplied by 100.
+concrete bottlenecks. Figure 4 shows that Deep
+Research is limited more by evidence-grounded
+semantic verification, especially Logic and Facts,
+than by explicit Format or Numbers rubrics. For
+Agentic Coding, Tools and Rules are the main
+bottlenecks. These categories require the model
+to track tool schemas, tool outputs, project con-
+straints, and communication rules across the tra-
+jectory, rather than only judging whether the final
+task appears completed. These results show why
+verifier selection should consider category-level
+performance, not only the overall score.
+4.3
+Error Analysis
+To uncover the mechanisms behind verifier fail-
+ures, we manually inspect incorrect predictions
+across frontier models and compare their justifi-
+cations with human rationales. We identify two
+primary failure modes: partial satisfaction, where
+models treat fragmentary evidence as full rubric ful-
+fillment, and requirement expansion, where models
+impose extra constraints—such as specific wording
+or unrequested reasoning—not present in the rubric.
+While these modes describe the general nature of
+errors, a closer look at model behavior reveals that
+these failures are highly idiosyncratic.
+Model-specific errors reveal distinct verifier
+profiles.
+A key finding from our analysis is
+that high-performing verifiers are not interchange-
+able, even when their aggregate scores are simi-
+49838
+
+
+--- PDF PAGE 7 ---
+lar. Among Gemini-3.1 Pro Preview, GPT-5.4, and
+Claude Opus 4.7, the average error-set overlap is
+surprisingly low: only 16.1% in Deep Research
+and 20.6% in Agentic Coding. This divergence
+indicates that verifier failure is driven more by dis-
+tinct model profiles than by inherent rubric diffi-
+culty.
+Specifically, we observe a spectrum from strict
+to permissive behavior across domains. In Agen-
+tic Coding, GPT-5.4 acts as a strict verifier, fre-
+quently turning optional or untriggered conditions
+into requirements. In contrast, Gemini-3.1 Pro Pre-
+view and Claude Opus 4.7 are more permissive,
+occasionally overlooking missing steps in a tra-
+jectory. Interestingly, these profiles shift in Deep
+Research: GPT-5.4 and Gemini-3.1 Pro Preview
+become more permissive, often accepting partial
+reasoning or near-matches, while Claude Opus 4.7
+remains strict regarding factual and formatting nu-
+ances. These results suggest that the choice of a
+verifier model should be aligned with the desired
+level of rigor for the target application.
+4.4
+Judging Strategies Analysis
+We next analyze key strategies commonly em-
+ployed in LLM-as-a-Judge systems to provide prac-
+tical guidance for rubric verification. In practice,
+different prompting techniques or majority voting
+are typically used to enhance judgment quality,
+while batching verification is often adopted to im-
+prove inference efficiency. RUVERBENCH serves
+as a fair and standardized test suite for evaluat-
+ing these strategies. To balance diagnostic depth
+with computational cost, we conduct all subsequent
+analyses on a fixed 20% subset of RUVERBENCH,
+using the six representative models shown in Ta-
+ble 3. We observe the following:
+(1) Weaker models are more sensitive to
+prompt variations. Prompt engineering is widely
+used as a standard strategy to improve LLM-as-a-
+Judge systems (Zheng et al., 2023; Wang et al.,
+2024).
+However, Table 3 shows that its effect
+depends on model strength and domain difficulty.
+We compare the Default prompt with two variants:
+Flexible Prompt, which accepts equivalent word-
+ing, and Strict Prompt, which requires explicit and
+complete satisfaction.
+The Agentic Coding block makes this pattern
+clearest. Reading down the arrow, models become
+weaker on the Agentic Coding leaderboard, and
+prompt changes become larger. Strict Prompt gives
+large gains to GPT-OSS-120B and Qwen3.5-27B,
+Domain
+Model
+Flexible
+Strict
+Deep Research
+Kimi K2.6
++1.8
+-4.0
+DeepSeek V4 Flash
+-1.3
+-2.5
+GLM-5.1
++2.4
+-2.9
+Seed 2.0 Pro
+-0.3
++1.0
+GPT-OSS-120B
+-2.5
+-2.6
+Qwen3.5-27B
+-0.7
++0.4
+Agentic Coding
+Kimi K2.6
+-2.5
+-9.2
+DeepSeek V4 Flash
+-8.1
+-1.0
+GLM-5.1
+-4.1
+-4.6
+Seed 2.0 Pro
++1.8
++2.8
+GPT-OSS-120B
+-5.6
++8.5
+Qwen3.5-27B
+-5.2
++11.8
+Table 3: Prompt sensitivity. Values are Overall point
+changes relative to Default. Bold marks the best im-
+proving variant; the arrow follows the Agentic Coding
+leaderboard order.
+while stronger models show smaller changes. This
+discrepancy likely stems from the limited capacity
+of smaller models, which makes them more sensi-
+tive to prompt variations and instruction phrasing,
+consistent with prior research on model scaling and
+prompt robustness (Zheng et al., 2023; Mishra et al.,
+2022). In the easier Deep Research setting, gains
+are smaller and less systematic. Our findings sug-
+gest that when deploying weaker models, finding
+the optimal prompt through thorough experimenta-
+tion is essential to safeguard against the significant
+performance fluctuations and biases these models
+may exhibit.
+(2) Batched verification presents a trade-off
+between accuracy and efficiency. Evaluating a
+single model response often requires checks against
+multiple criteria; however, performing these judg-
+ments one by one is computationally inefficient. A
+straightforward alternative is to provide multiple
+rubrics to the LLM judge simultaneously in a single
+call. This “batching” approach is increasingly used
+in large-scale evaluation to reduce inference costs
+and latency (Yuan et al., 2024a; Liu et al., 2023).
+Nevertheless, such batching may compromise ver-
+ification accuracy, as the model’s attention is di-
+vided across multiple distinct criteria (Yuan et al.,
+2024a). Leveraging RUVERBENCH, we analyze
+this efficiency-accuracy trade-off by comparing var-
+ious batched configurations against single-rubric
+baselines.
+Figure 5 shows that this trade-off is domain-
+dependent.
+In Deep Research, batching offers
+efficiency gains with small and mixed accuracy
+changes. In Agentic Coding, the same efficiency
+gain comes with a much larger accuracy cost: once
+49839
+
+
+--- PDF PAGE 8 ---
+1
+2
+3
+4
+−8
+−4
+0
+4
+DeepResearch
+1
+2
+3
+4
+5
+Actual rubrics per call
+−40
+−30
+−20
+−10
+0
+10
+AgenticCoding
+Change from batching
+Kimi K2.6
+DeepSeek V4 Flash
+GLM-5.1
+Seed 2.0 Pro
+GPT-OSS-120B
+Qwen3.5-27B
+Figure 5: Batching effect by actual rubrics per judge call.
+Values show Overall point changes relative to single-
+rubric calls. Negative values indicate lower reliability
+under batching.
+a call contains four or five rubrics, every tested
+model loses score, often by double digits. Smaller
+batches or single-rubric calls are therefore safer
+when cost allows.
+This pattern reflects the added evidence burden.
+Single-rubric calls focus the judge on one require-
+ment, whereas batched calls require several deci-
+sions over the same long context. This is especially
+costly in Agentic Coding, where evidence is spread
+across tool calls, edits, failures, and repairs in a
+long and complex trajectory.
+(3) Majority voting yields effective but di-
+minishing returns.
+The inherent stochasticity
+of LLM-as-a-Judge systems can lead to incon-
+sistent evaluation results in a single trial (Zheng
+et al., 2023; Zhuge et al., 2025).
+To mitigate
+this, a common practice is majority voting (or
+self-consistency), which involves sampling multi-
+ple independent judgments for the same input and
+aggregating them to produce a final label (Wang
+et al., 2023). While this consensus-based strat-
+egy typically enhances the stability and reliability
+of the judge, it comes at the cost of significantly
+increased computational overhead. Leveraging RU-
+VERBENCH, we systematically analyze the impact
+of majority voting to identify more effective prac-
+tical configurations and to determine the point of
+diminishing returns.
+Figure 6 shows that self-voting improves both
+domains, with larger gains in Agentic Coding. The
+improvement appears early and is mostly reached
+−1
+0
+1
+2
+DeepResearch
+1
+3
+5
+7
+9
+Number of votes
+−4
+−2
+0
+2
+4
+6
+AgenticCoding
+Gain from voting
+Kimi K2.6
+DeepSeek V4 Flash
+GLM-5.1
+Seed 2.0 Pro
+GPT-OSS-120B
+Qwen3.5-27B
+Figure 6: Gain from self-voting. Lines show point
+changes in Overall score relative to one stochastic vote.
+within three to five votes; after that, the curves
+change little. Deep Research gains remain modest,
+while Agentic Coding benefits more from reducing
+sampling instability.
+Self-voting mainly reduces unstable sampling
+noise. Once that noise is averaged out, more votes
+cannot correct errors that the same judge makes
+consistently. Three to five votes are therefore a
+reasonable initial range; larger vote counts should
+be validated against their added inference cost.
+5
+Conclusion
+In this work, we present a systematic meta-
+evaluation of LLM-as-a-Judge (LaaJ) reliability in
+rubric verification. We introduce RUVERBENCH,
+the first benchmark designed for assessing LaaJ re-
+liability in rubric verification for agentic scenarios,
+specifically focusing on deep research and agen-
+tic coding. Through comprehensive evaluations
+of numerous frontier LLMs, we demonstrate that
+while advanced models show promise, substantial
+noise remains in their ability to faithfully verify
+fine-grained rubrics. Furthermore, our analysis
+of key judging strategies reveals that reliability is
+significantly influenced by model capability and
+protocol design. We find that weaker models ex-
+hibit high sensitivity to prompt variations, batched
+verification necessitates a trade-off between effi-
+ciency and accuracy, and majority voting provides
+consistent but diminishing returns. By releasing
+RUVERBENCH, we hope to shift the community’s
+focus toward the fundamental reliability of LaaJ
+49840
+
+
+--- PDF PAGE 9 ---
+systems in rubric verification. We call for future
+research to prioritize the development of more ro-
+bust verification algorithms and specialized judge
+models to ensure faithful evaluation in increasingly
+complex agentic domains.
+Limitations
+RUVERBENCH focuses on Deep Research and
+Agentic Coding, and the same design can be ex-
+tended to more agentic domains and languages.
+Ambiguous or evidence-sparse rubrics are excluded
+to preserve reproducible gold labels, so the bench-
+mark does not measure all ambiguity encountered
+in deployment. We use binary labels for rubric
+satisfaction, while graded labels may support finer
+analyses in some applications. As LLM judges and
+agentic systems continue to evolve, future work
+can update the evaluated model set and protocols
+over time.
+Acknowledgments
+This work is supported by the Jing-Jin-Ji Regional
+Integrated Environmental Improvement–National
+Science and Technology Major Project (Grant No.
+2026ZD1212206), by a grant from the Institute for
+Guo Qiang, Tsinghua University (2019GQB0003),
+and by the 2025 Tencent Rhino-Bird Joint Research
+Program (No. JR2025TEG013).
+References
+Anthropic.
+2026a.
+Introducing
+Claude
+Opus
+4.7.
+https://www.anthropic.com/news/
+claude-opus-4-7. Accessed: 2026-05-26.
+Anthropic. 2026b.
+Introducing Claude Sonnet
+4.6.
+https://www.anthropic.com/news/
+claude-sonnet-4-6. Accessed: 2026-05-26.
+Yuntao Bai,
+Saurav Kadavath,
+Sandipan Kundu,
+Amanda Askell, Jackson Kernion, Andy Jones, Anna
+Chen, Anna Goldie, Azalia Mirhoseini, Cameron
+McKinnon, Carol Chen, Catherine Olsson, Christo-
+pher Olah, Danny Hernandez, Dawn Drain, Deep
+Ganguli, Dustin Li, Eli Tran-Johnson, Ethan Perez,
+and 32 others. 2022. Constitutional ai: Harmlessness
+from ai feedback. Preprint, arXiv:2212.08073.
+Kay Henning Brodersen, Cheng Soon Ong, Klaas Enno
+Stephan, and Joachim M. Buhmann. 2010. The bal-
+anced accuracy and its posterior distribution. In 2010
+20th International Conference on Pattern Recogni-
+tion, pages 3121–3124.
+ByteDance. 2026. Doubao Seed 2.0 Pro. https://www.
+volcengine.com/docs/82379/1330310.
+Vol-
+cengine Ark model list. Accessed: 2026-05-26.
+Lichang Chen, Shiyang Li, Jun Yan, Hai Wang, Kalpa
+Gunaratna, Vikas Yadav, Zheng Tang, Vijay Srini-
+vasan, Tianyi Zhou, Heng Huang, and Hongxia Jin.
+2024. Alpagasus: Training a better alpaca with fewer
+data. In The Twelfth International Conference on
+Learning Representations.
+Zijian Chen, Xueguang Ma, Shengyao Zhuang, Ping
+Nie, Kai Zou, Sahel Sharifymoghaddam, Andrew
+Liu, Joshua Green, Kshama Patel, Ruoxi Meng,
+Mingyi Su, Yanxi Li, Haoran Hong, Xinyu Shi, Xuye
+Liu, Hosna Oyarhoseini, Nandan Thakur, Crystina
+Zhang, Luyu Gao, and 2 others. 2026. BrowseComp-
+plus: A fair and disentangled evaluation benchmark
+for deep search agents. In Proceedings of the 64th
+Annual Meeting of the Association for Computational
+Linguistics (Volume 1: Long Papers), pages 22349–
+22370, San Diego, California, United States. Associ-
+ation for Computational Linguistics.
+DeepSeek. 2026a.
+DeepSeek V4 Preview Re-
+lease.
+https://api-docs.deepseek.com/news/
+news260424#deepseek-v4-pro.
+DeepSeek-V4-
+Pro. Accessed: 2026-05-26.
+DeepSeek. 2026b.
+DeepSeek V4 Preview Re-
+lease.
+https://api-docs.deepseek.com/news/
+news260424#deepseek-v4-flash. DeepSeek-V4-
+Flash. Accessed: 2026-05-26.
+Deming Ding, Shichun Liu, Enhui Yang, Jiahang Lin,
+Ziying Chen, Shihan Dou, Honglin Guo, Weiyu
+Cheng, Pengyu Zhao, Chengjun Xiao, Qunhong
+Zeng, Qi Zhang, Xuanjing Huang, Qidi Xu, and
+Tao Gui. 2026. OctoBench: Benchmarking scaffold-
+aware instruction following in repository-grounded
+agentic coding. In Proceedings of the 64th Annual
+Meeting of the Association for Computational Lin-
+guistics (Volume 1: Long Papers), pages 5958–5978,
+San Diego, California, United States. Association for
+Computational Linguistics.
+Google DeepMind. 2026.
+Gemini 3.1 Pro.
+https:
+//deepmind.google/models/model-cards/
+gemini-3-1-pro. Accessed: 2026-05-26.
+Pengfei He, Zhenwei Dai, Bing He, Hui Liu, Xian-
+feng Tang, Hanqing Lu, Juanhui Li, Jiayuan Ding,
+Subhabrata Mukherjee, Suhang Wang, Yue Xing, Jil-
+iang Tang, and Benoit Dumoulin. 2026. TRAJECT-
+bench:a trajectory-aware benchmark for evaluating
+agentic tool use. In The Fourteenth International
+Conference on Learning Representations.
+Carlos E Jimenez, John Yang, Alexander Wettig,
+Shunyu Yao, Kexin Pei, Ofir Press, and Karthik R
+Narasimhan. 2024. SWE-bench: Can language mod-
+els resolve real-world github issues? In The Twelfth
+International Conference on Learning Representa-
+tions.
+Seungone Kim, Jamin Shin, Yejin Cho, Joel Jang,
+Shayne Longpre,
+Hwaran Lee,
+Sangdoo Yun,
+Seongjin Shin, Sungdong Kim, James Thorne, and
+Minjoon Seo. 2024.
+Prometheus: Inducing fine-
+grained evaluation capability in language models. In
+49841
+
+
+--- PDF PAGE 10 ---
+The Twelfth International Conference on Learning
+Representations.
+Seungone Kim, Juyoung Suk, Ji Yong Cho, Shayne
+Longpre, Chaeeun Kim, Dongkeun Yoon, Guijin Son,
+Yejin Cho, Sheikh Shafayat, Jinheon Baek, Sue Hyun
+Park, Hyeonbin Hwang, Jinkyung Jo, Hyowon Cho,
+Haebin Shin, Seongyun Lee, Hanseok Oh, Noah Lee,
+Namgyu Ho, and 13 others. 2025.
+The BiGGen
+bench: A principled benchmark for fine-grained eval-
+uation of language models with language models.
+In Proceedings of the 2025 Conference of the Na-
+tions of the Americas Chapter of the Association for
+Computational Linguistics: Human Language Tech-
+nologies (Volume 1: Long Papers), pages 5877–5919,
+Albuquerque, New Mexico. Association for Compu-
+tational Linguistics.
+Nathan Lambert, Valentina Pyatkin, Jacob Morrison,
+LJ Miranda, Bill Yuchen Lin, Khyathi Chandu,
+Nouha Dziri, Sachin Kumar, Tom Zick, Yejin Choi,
+Noah A. Smith, and Hannaneh Hajishirzi. 2025. Re-
+wardBench: Evaluating reward models for language
+modeling. In Findings of the Association for Compu-
+tational Linguistics: NAACL 2025, pages 1755–1797,
+Albuquerque, New Mexico. Association for Compu-
+tational Linguistics.
+Harrison Lee, Samrat Phatale, Hassan Mansoor, Thomas
+Mesnard, Johan Ferret, Kellie Ren Lu, Colton Bishop,
+Ethan Hall, Victor Carbune, Abhinav Rastogi, and
+Sushant Prakash. 2024. RLAIF vs. RLHF: Scaling
+reinforcement learning from human feedback with AI
+feedback. In Proceedings of the 41st International
+Conference on Machine Learning, volume 235 of
+Proceedings of Machine Learning Research, pages
+26874–26901. PMLR.
+Ruizhe Li, Mingxuan Du, Benfeng Xu, Chiwei
+Zhu, Xiaorui Wang, and Zhendong Mao. 2026.
+Deepresearch bench ii: Diagnosing deep research
+agents via rubrics from expert report.
+Preprint,
+arXiv:2601.08536.
+Yang Liu, Dan Iter, Yichong Xu, Shuohang Wang,
+Ruochen Xu, and Chenguang Zhu. 2023. G-eval:
+NLG evaluation using gpt-4 with better human align-
+ment. In Proceedings of the 2023 Conference on
+Empirical Methods in Natural Language Processing,
+pages 2511–2522, Singapore. Association for Com-
+putational Linguistics.
+Meta AI. 2024. Introducing Llama 3.1: Our most capa-
+ble models to date. https://ai.meta.com/blog/
+meta-llama-3-1/. Accessed: 2026-05-26.
+Sewon Min, Kalpesh Krishna, Xinxi Lyu, Mike Lewis,
+Wen-tau Yih, Pang Koh, Mohit Iyyer, Luke Zettle-
+moyer, and Hannaneh Hajishirzi. 2023. FActScore:
+Fine-grained atomic evaluation of factual precision
+in long form text generation. In Proceedings of the
+2023 Conference on Empirical Methods in Natural
+Language Processing, pages 12076–12100, Singa-
+pore. Association for Computational Linguistics.
+Swaroop Mishra, Daniel Khashabi, Chitta Baral, Yejin
+Choi, and Hannaneh Hajishirzi. 2022. Reframing
+instructional prompts to GPTk’s language. In Find-
+ings of the Association for Computational Linguistics:
+ACL 2022, pages 589–612, Dublin, Ireland. Associa-
+tion for Computational Linguistics.
+Moonshot AI. 2026. Kimi K2.6. https://platform.
+kimi.com/docs/guide/kimi-k2-6-quickstart.
+Accessed: 2026-05-26.
+Ivoline C. Ngong, Keerthiram Murugesan, Swanand
+Kadhe,
+Justin
+D.
+Weisz,
+Amit
+Dhurandhar,
+and
+Karthikeyan
+Natesan
+Ramamurthy.
+2026.
+Agentscope: Evaluating contextual privacy across
+agentic workflows. Preprint, arXiv:2603.04902.
+OpenAI. 2025. gpt-oss-120b & gpt-oss-20b model card.
+Preprint, arXiv:2508.10925.
+OpenAI. 2026.
+Introducing GPT-5.4.
+https://
+openai.com/index/introducing-gpt-5-4/. Ac-
+cessed: 2026-05-26.
+Tianjun Pan, Xuan Lin, Wenyan Yang, Qianyu He,
+Shisong Chen, Licai Qi, Wanqing Xu, Hongwei
+Feng, Bo Xu, and Yanghua Xiao. 2026. Rubrice-
+val: A rubric-level meta-evaluation benchmark for
+llm judges in instruction following.
+Preprint,
+arXiv:2603.25133.
+Hao Peng, Yunjia Qi, Xiaozhi Wang, Bin Xu, Lei Hou,
+and Juanzi Li. 2025. VerIF: Verification engineering
+for reinforcement learning in instruction following.
+In Proceedings of the 2025 Conference on Empiri-
+cal Methods in Natural Language Processing, pages
+30324–30339, Suzhou, China. Association for Com-
+putational Linguistics.
+Yiwei Qin, Kaiqiang Song, Yebowen Hu, Wenlin Yao,
+Sangwoo Cho, Xiaoyang Wang, Xuansheng Wu, Fei
+Liu, Pengfei Liu, and Dong Yu. 2024. InFoBench:
+Evaluating instruction following ability in large lan-
+guage models. In Findings of the Association for
+Computational Linguistics: ACL 2024, pages 13025–
+13048, Bangkok, Thailand. Association for Compu-
+tational Linguistics.
+Qwen Team. 2026a. Qwen3.5: Towards native multi-
+modal agents. https://qwen.ai/blog?id=qwen3.
+5. Accessed: 2026-05-26.
+Qwen Team. 2026b. Qwen3.6-Max-Preview: Smarter,
+Sharper, Still Evolving. https://qwen.ai/blog?
+id=qwen3.6-max-preview.
+Accessed: 2026-05-
+26.
+Manasi Sharma, Chen Bo Calvin Zhang, Chaithanya
+Bandi, Clinton Wang, Ankit Aich, Huy Nghiem,
+Tahseen Rabbani, Ye Htet, Brian Jang, Sumana
+Basu, Aishwarya Balwani, Denis Peskoff, Marcos
+Ayestaran, Sean M. Hendryx, Brad Kenstler, and
+Bing Liu. 2026.
+Researchrubrics: A benchmark
+of prompts and rubrics for evaluating deep research
+agents. In The Fourteenth International Conference
+on Learning Representations.
+49842
+
+
+--- PDF PAGE 11 ---
+Sijun
+Tan,
+Siyuan
+Zhuang,
+Kyle
+Montgomery,
+William Yuan Tang, Alejandro Cuadron, Chen-
+guang Wang, Raluca Popa, and Ion Stoica. 2025.
+Judgebench: A benchmark for evaluating LLM-based
+judges. In The Thirteenth International Conference
+on Learning Representations.
+Peiyi Wang, Lei Li, Liang Chen, Zefan Cai, Dawei
+Zhu, Binghuai Lin, Yunbo Cao, Lingpeng Kong,
+Qi Liu, Tianyu Liu, and Zhifang Sui. 2024. Large lan-
+guage models are not fair evaluators. In Proceedings
+of the 62nd Annual Meeting of the Association for
+Computational Linguistics (Volume 1: Long Papers),
+pages 9440–9450, Bangkok, Thailand. Association
+for Computational Linguistics.
+Xuezhi Wang, Jason Wei, Dale Schuurmans, Quoc V Le,
+Ed H. Chi, Sharan Narang, Aakanksha Chowdhery,
+and Denny Zhou. 2023. Self-consistency improves
+chain of thought reasoning in language models. In
+The Eleventh International Conference on Learning
+Representations.
+Jerry Wei, Chengrun Yang, Xinying Song, Yifeng Lu,
+Nathan Hu, Jie Huang, Dustin Tran, Daiyi Peng,
+Ruibo Liu, Da Huang, Cosmo Du, and Quoc V. Le.
+2024. Long-form factuality in large language mod-
+els. In Advances in Neural Information Processing
+Systems, volume 37, pages 80756–80827. Curran As-
+sociates, Inc.
+Xiaomi MiMo Team. 2026. MiMo-V2.5-Pro. https:
+//mimo.mi.com/models/en-US/mimo-v2.5-pro.
+Accessed: 2026-05-26.
+Renjun Xu and Jingwen Peng. 2025. A comprehensive
+survey of deep research: Systems, methodologies,
+and applications. Preprint, arXiv:2506.12594.
+Tianze Xu, Pengrui Lu, Lyumanshan Ye, Xiangkun Hu,
+and Pengfei Liu. 2025. Researcherbench: Evaluating
+deep ai research systems on the frontiers of scientific
+inquiry. Preprint, arXiv:2507.16280.
+Seonghyeon Ye, Doyoung Kim, Sungdong Kim, Hyeon-
+bin Hwang, Seungone Kim, Yongrae Jo, James
+Thorne, Juho Kim, and Minjoon Seo. 2024. FLASK:
+Fine-grained language model evaluation based on
+alignment skill sets. In The Twelfth International
+Conference on Learning Representations.
+Peiwen Yuan, Shaoxiong Feng, Yiwei Li, Xinglin Wang,
+Boyuan Pan, Heda Wang, Yao Hu, and Kan Li. 2024a.
+BatchEval: Towards human-like text evaluation. In
+Proceedings of the 62nd Annual Meeting of the As-
+sociation for Computational Linguistics (Volume 1:
+Long Papers), pages 15940–15958, Bangkok, Thai-
+land. Association for Computational Linguistics.
+Weizhe Yuan, Richard Yuanzhe Pang, Kyunghyun Cho,
+Xian Li, Sainbayar Sukhbaatar, Jing Xu, and Jason E
+Weston. 2024b. Self-rewarding language models. In
+Proceedings of the 41st International Conference on
+Machine Learning, volume 235 of Proceedings of
+Machine Learning Research, pages 57905–57923.
+PMLR.
+Z.ai. 2026. GLM-5.1. https://docs.z.ai/guides/
+llm/glm-5.1. Accessed: 2026-05-26.
+Zhiyuan Zeng, Jiatong Yu, Tianyu Gao, Yu Meng, Tanya
+Goyal, and Danqi Chen. 2024. Evaluating large lan-
+guage models at evaluating instruction following. In
+The Twelfth International Conference on Learning
+Representations.
+Lianmin Zheng, Wei-Lin Chiang, Ying Sheng, Siyuan
+Zhuang, Zhanghao Wu, Yonghao Zhuang, Zi Lin,
+Zhuohan Li, Dacheng Li, Eric Xing, Hao Zhang,
+Joseph Gonzalez, and Ion Stoica. 2023. Judging
+llm-as-a-judge with mt-bench and chatbot arena. In
+Advances in Neural Information Processing Systems,
+volume 36, pages 46595–46623. Curran Associates,
+Inc.
+Jeffrey Zhou, Tianjian Lu, Swaroop Mishra, Siddhartha
+Brahma, Sujoy Basu, Yi Luan, Denny Zhou, and
+Le Hou. 2023. Instruction-following evaluation for
+large language models. Preprint, arXiv:2311.07911.
+Mingchen Zhuge, Changsheng Zhao, Dylan R. Ashley,
+Wenyi Wang, Dmitrii Khizbullin, Yunyang Xiong,
+Zechun Liu, Ernie Chang, Raghuraman Krishnamoor-
+thi, Yuandong Tian, Yangyang Shi, Vikas Chandra,
+and Jürgen Schmidhuber. 2025. Agent-as-a-judge:
+Evaluate agents with agents. In Proceedings of the
+42nd International Conference on Machine Learn-
+ing, volume 267 of Proceedings of Machine Learning
+Research, pages 80569–80611. PMLR.
+A
+Dataset Sources and Taxonomy
+Source provenance.
+Table 4 reports the source
+data and judged-output provenance. In sources
+that did not release the answer or trajectory to be
+judged, we generated it once and used the same
+input throughout labeling and evaluation.
+Generated answers and trajectories.
+Generated
+answers and trajectories are created once before
+gold-label annotation and then reused through-
+out evaluation. For ResearchRubrics, we use the
+released query and rubric with the open-source
+Tongyi Deep Research framework; MiniMax-2.1
+and Kimi-2.5 each generate about half of the re-
+sponses.
+For OctoBench, we use the released
+scaffolds, Docker environments, task prompts,
+rubrics, and tool configuration; trajectories are gen-
+erated with GPT-5.2, GLM-5.1, Kimi-K2.5, and
+MiniMax-2.1. We record the generator identity,
+prompt, and decoding configuration for each gener-
+ated answer or trajectory.
+Provenance-stratified
+reliability.
+To
+test
+whether the leaderboard is driven by one output
+generator,
+we recompute judge rankings by
+judged-output provenance.
+In Deep Research,
+49843
+
+
+--- PDF PAGE 12 ---
+Domain
+Source
+Evaluated output provenance
+Deep Research
+ResearcherBench (Xu et al.,
+2025)
+Released query and rubric, with released OpenAI Deep Research
+response
+Deep Research
+ResearchRubrics (Sharma
+et al., 2026)
+Released query and rubric, with response generated by Tongyi Deep
+Research using MiniMax 2.1 or Kimi 2.5
+Deep Research
+DeepResearch Bench II (Li
+et al., 2026)
+Released query and rubric, with released Gemini 3 Pro response
+Agentic Coding
+OctoBench (Ding et al.,
+2026)
+Released task, rubric, scaffold, and Docker environment, with
+trajectory generated by GPT-5.2, GLM-5.1, Kimi K2.5, or MiniMax
+2.1
+Table 4: Source provenance for RUVERBENCH.
+Generator 1
+Generator 2
+ρ
+GPT-5.2
+GLM-5.1
+0.85
+GPT-5.2
+Kimi-K2.5
+0.88
+GPT-5.2
+MiniMax-2.1
+0.88
+GLM-5.1
+Kimi-K2.5
+0.78
+GLM-5.1
+MiniMax-2.1
+0.89
+Kimi-K2.5
+MiniMax-2.1
+0.82
+Table 5: Spearman correlations between Agentic Cod-
+ing judge rankings stratified by trajectory generator.
+the Spearman correlation between the 18-judge
+rankings on source-provided and construction-
+generated responses is ρ
+=
+0.82.
+Table 5
+reports the pairwise correlations across trajectory
+generators in Agentic Coding.
+The correlations range from 0.78 to 0.89, indi-
+cating that provenance is a meaningful source of
+variation while the rankings remain substantially
+aligned. Thus, the main conclusions are not at-
+tributable to a single output generator.
+Judged input scope.
+Verifier prompts follow the
+released judge code of ResearcherBench for Deep
+Research and OctoBench for Agentic Coding. The
+Deep Research input combines the question and fi-
+nal answer. After generating trajectories in the
+released OctoBench environments, the Agentic
+Coding input is the serialized trajectory. In im-
+plementation, this trajectory is stored as tools and
+messages.
+Filtering and normalization.
+Filtering yields
+1,615 Deep Research rubrics and 843 Agentic Cod-
+ing rubrics, for 2,458 rubrics in total. Before filter-
+ing, we audit 300 source rubrics and operationalize
+verifiability as the ability to assign a reproducible
+binary label from the fixed task context and judged
+output. We remove rubrics that fail this test, re-
+quire subjective preference judgments, depend on
+missing external information, combine several in-
+dependent conditions, or semantically duplicate
+other rubrics. Approximately 6% of source rubrics
+are removed as ambiguous or unverifiable. For ex-
+ample, “use the most up-to-date information” is
+removed when no source, date, or snapshot is spec-
+ified, but can be retained when the task fixes that
+reference. We downsample the remaining rubrics
+to keep repeated model evaluation practical while
+preserving source and category coverage.
+Label distribution.
+At the label level, Deep Re-
+search contains 631 positive and 984 negative
+rubrics, while Agentic Coding contains 698 pos-
+itive and 145 negative rubrics. This imbalance
+follows source distributions: Deep Research uses
+strict rubrics for long-form research answers, while
+many Agentic Coding rubrics come from explicit
+coding-agent instructions and scaffold constraints.
+Source breadth.
+The Deep Research cases cover
+frontier AI scientific questions, real-world research
+prompts, and grounded report generation across 35
+domains and 173 topics. The Agentic Coding cases
+cover 210 repository tasks from the OctoBench
+environments. These ranges make RUVERBENCH
+a broad test of rubric verification within research
+writing and agentic coding.
+Taxonomy normalization.
+Table 6 summarizes
+how source categories or provenance fields are nor-
+malized into the RUVERBENCH taxonomy. Cat-
+egories describe the main verification ability re-
+quired by each rubric. Each rubric receives one
+category, and the taxonomy covers all rubrics.
+B
+Annotation and Quality Control
+Recruitment and preparation.
+For Deep Re-
+search, we recruited four candidate professional
+annotation teams; for Agentic Coding, we recruited
+five. All annotators had at least undergraduate ed-
+ucation. Because Agentic Coding requires read-
+ing long execution traces, its annotators were addi-
+49844
+
+
+--- PDF PAGE 13 ---
+Domain
+Source
+Source categories or provenance
+Deep Research
+ResearcherBench
+No released rubric categories
+ResearchRubrics
+Explicit Criteria, Implicit Criteria, Synthesis of Information,
+References, Communication Quality, Instruction Following
+DeepResearch Bench II
+Information Recall, Analysis, Presentation
+Agentic Coding
+OctoBench
+System Prompt, System Reminder, User Query, AGENTS.md /
+CLAUDE.md, Skill, Memory, Tool schema
+Table 6: Source categories and provenance fields used in RUVERBENCH taxonomy normalization.
+Domain
+Category
+Meaning
+Deep Research
+Format
+Structure, presentation, and required placement.
+Numbers
+Counts, dates, time windows, and numeric constraints.
+Logic
+Reasoning chains, causal relations, and implicit conditions.
+Facts
+Factual claims, entities, evidence, and content coverage.
+Agentic Coding
+Task
+Requested behavior and code changes.
+Planning
+Multi-step progress management and todo-state consistency.
+Tools
+Tool use, schemas, parameters, tool outputs, and grounded follow-up actions.
+Rules
+Safety, system rules, project rules, and communication-style constraints.
+Table 7: RUVERBENCH category definitions.
+tionally expected to understand technical English,
+Python, Linux, repository-level development, and
+tool-call semantics. Each candidate team com-
+pleted a pilot technical evaluation, and we selected
+the highest-accuracy team for each domain. The
+selected teams achieved more than 90% accuracy
+on their respective pilot sets. Before final anno-
+tation, we reviewed pilot errors with the selected
+teams, answered their questions, and clarified the
+guideline for recurring edge cases.
+Annotators were informed before participation
+about the task content, expected workload, com-
+pensation, and research use of the resulting labels.
+Hired annotators were paid above the local market
+rate for technical annotation. Recruitment and pay-
+ment followed equal-treatment principles: gender
+was not used as a selection criterion, and annotators
+received equal pay for the same type of work.
+Instructions provided to annotators.
+The fol-
+lowing summarizes in English the instructions
+provided through the written guideline and pre-
+annotation training.
+Purpose. For each item, determine whether a
+fixed model output satisfies one specified rubric.
+The purpose is to produce an evidence-based bi-
+nary label for the rubric, rather than to score the
+overall quality of the output.
+Materials. Each item contains:
+1. the user question, task instruction, or rele-
+vant task context;
+2. the fixed response or agent trajectory to be
+evaluated; and
+3. one rubric describing a requirement to be
+checked.
+For Deep Research, inspect the complete research
+response together with the question and rubric.
+For Agentic Coding, inspect the complete seri-
+alized trajectory, including assistant messages,
+available reasoning content, tool calls, tool out-
+puts, and applicable system or project constraints.
+Required label. Assign exactly one of the follow-
+ing labels:
+1. Satisfied (positive): the response or trajec-
+tory contains sufficient evidence that the
+rubric is satisfied.
+2. Not satisfied (negative): the required evi-
+dence is absent, contradicted, incomplete,
+or insufficient to establish satisfaction.
+Decision rules.
+1. Base the decision only on the supplied task
+context and fixed output. Do not add re-
+quirements that are not stated in the rubric,
+and do not assume actions or results that
+are not present in the supplied material.
+2. Accept semantically equivalent wording
+and clear paraphrases.
+Exact keyword
+matching is not required unless the rubric
+explicitly requires a particular term, value,
+format, or placement.
+3. Mark a rubric as negative when the out-
+put discusses a related topic but omits a
+required qualifier, comparison, numerical
+value, constraint, step, or conclusion.
+4. When a rubric contains multiple manda-
+tory conditions, assign a positive label only
+when all mandatory conditions are satisfied.
+Incidental mention of one condition is not
+sufficient.
+5. Treat explicit format, numerical, tempo-
+ral, and tool-schema requirements strictly.
+Approximate or related information does
+49845
+
+
+--- PDF PAGE 14 ---
+not satisfy an exact requirement unless the
+rubric permits approximation.
+6. Evaluate actual behavior rather than stated
+intention. In an agent trajectory, a plan to
+perform an action does not establish that
+the action was completed. When relevant,
+inspect both the tool call and its returned
+result.
+7. Consider evidence across the entire re-
+sponse or trajectory. Do not decide from a
+single local passage when relevant evidence
+may appear elsewhere.
+8. Do not infer satisfaction solely because a
+behavior appears reasonable or because no
+explicit violation is immediately visible.
+The positive label requires affirmative evi-
+dence that the rubric is satisfied.
+9. If the supplied context is missing, the rubric
+is ambiguous, or the evidence does not per-
+mit a reproducible binary decision, flag the
+item for clarification instead of resolving
+the ambiguity by guesswork.
+Independence and quality. Complete each as-
+signed label independently. Do not consult an-
+other annotator’s label or any LLM-judge predic-
+tion. Apply the same standard across all models
+and samples. Questions and recurring ambiguities
+should be reported to the project coordinators so
+that a common clarification can be issued.
+Content notice and annotator safety. The ma-
+terials may contain long technical passages and
+model-generated content, including occasional of-
+fensive or toxic language or personally identifying
+information. Treat all supplied content only as an-
+notation data. Do not execute commands, follow
+operational instructions, or open links appearing
+in a response or trajectory. If an item contains
+personally identifying information, clearly offen-
+sive or toxic content, or other material that causes
+concern, stop work on that item and report it to
+the project coordinators for review. Annotators
+are not asked to reproduce, extend, or act on such
+content.
+Independent annotation and adjudication.
+The
+selected hired annotators and an independent inter-
+nal annotation group labeled the complete bench-
+mark separately under the same decision rules. Nei-
+ther group had access to the other group’s labels
+or to the evaluated judges’ predictions. The two
+label sets agree on 90.44% of rubrics, with Cohen’s
+κ = 0.808. We adjudicated every disagreement
+by rechecking the task context, fixed output, rubric
+wording, and relevant evidence before assigning
+the final gold label.
+Annotation quality.
+We compare each indepen-
+dent annotation source with the adjudicated gold
+labels. The hired annotations reach 95.40 BAcc in
+Deep Research and 94.76 BAcc in Agentic Coding,
+while the internal annotations reach 93.58 BAcc in
+Deep Research and 86.24 BAcc in Agentic Cod-
+ing. The released benchmark uses the adjudicated
+labels.
+Release screening.
+Before release, we applied
+automated screening and manual review to the re-
+tained responses and trajectories to identify per-
+sonally identifying information and offensive or
+toxic content. Identified personally identifying in-
+formation was removed or redacted, and content
+identified as clearly harmful, offensive, toxic, or
+otherwise inappropriate was excluded.
+Construction cost.
+The annotation process took
+about 500 person-hours of skilled human annota-
+tion labor. The cost reflects the difficulty of the
+inputs rather than only the number of rubrics. Deep
+Research reports are long and information-dense,
+requiring strong reading comprehension and do-
+main knowledge. Agentic Coding trajectories are
+often substantially longer, commonly containing
+dozens of interaction turns and reaching up to 180
+turns, and require annotators who can read tech-
+nical English and understand Python, Linux, tool
+calls, and repository context. At a U.S. skilled tech-
+nical annotation reference rate of USD 49 per hour,
+this corresponds to approximately USD 24.5K in
+annotation labor.
+C
+Evaluation and Release Details
+Model versions and parameters.
+All evaluated
+judges are accessed through either model providers’
+official platform APIs or official model APIs served
+by major cloud providers. The leaderboard is a
+time-stamped snapshot of the accessed systems.
+We report the inference settings for all judges in Ta-
+ble 8; Table 9 records the provider API identifiers
+and access dates for the closed-source models. The
+self-voting experiment additionally forces tempera-
+ture to 1.
+Repeated-call stability.
+The self-voting runs
+also provide a practical estimate of single-call vari-
+ability under fixed prompts and decoding settings.
+Table 10 reports the estimated standard deviations
+of repeated single-run Overall scores in Agentic
+Coding.
+These values are small relative to the broad
+leaderboard spread, although close model ranks
+should still be interpreted cautiously.
+The Deep Research prompt asks the judge to
+decide whether a long-form answer satisfies one
+rubric, returning a binary positive or negative judg-
+ment and a short justification. The Agentic Coding
+49846
+
+
+--- PDF PAGE 15 ---
+Model
+thinking mode
+max tokens
+GPT-5.4
+xhigh
+128K
+Gemini-3.1 Pro Preview
+high
+66K
+Claude Opus 4.7
+max
+128K
+Claude Sonnet 4.6
+max
+64K
+DeepSeek V4 Flash
+max
+384K
+DeepSeek V4 Pro
+max
+384K
+Seed 2.0 Pro
+enabled
+128K
+GLM-5.1
+enabled
+128K
+Kimi K2.6
+enabled
+128K
+Mimo v2.5 Pro
+enabled
+128K
+GPT-OSS-120B
+high
+16K
+GPT-OSS-20B
+high
+16K
+Qwen3.6 Max Preview
+enabled
+66K
+Qwen3.5-122B-A10B
+enabled
+64K
+Qwen3.5-35B-A3B
+enabled
+64K
+Qwen3.5-27B
+enabled
+64K
+Qwen3.5-9B
+enabled
+64K
+Llama-3.1-8B-Instruct
+none
+4K
+Table 8: Inference parameters for evaluated judges.
+Model
+Public/runtime identifier
+Access date
+GPT-5.4
+gpt-5.4-2026-03-05
+2026-04-17
+Gemini-3.1
+Pro Preview
+gemini-3.1-pro-preview
+2026-04-17
+Claude Opus
+4.7
+claude-opus-4-7
+2026-05-18
+Claude
+Sonnet 4.6
+claude-sonnet-4-6
+2026-05-11
+Seed 2.0 Pro doubao-seed-2-0-pro-260215
+2026-05-11
+Qwen3.6
+Max Preview
+qwen3.6-max-preview
+2026-05-11
+Table 9: Provider API identifiers and access dates for
+the closed-source models evaluated in this work.
+Model
+Estimated
+standard deviation
+Seed 2.0 Pro
+0.25
+DeepSeek V4 Flash
+0.52
+GLM-5.1
+0.62
+GPT-OSS-120B
+0.68
+Kimi K2.6
+0.76
+Qwen3.5-27B
+1.08
+Table 10: Estimated standard deviations of repeated
+single-run Overall scores in Agentic Coding under fixed
+prompts and decoding settings.
+prompt asks the judge to decide whether an agent
+trajectory satisfies one rubric, returning the same
+binary judgment and a short justification. Batch-
+evaluation utilities use keyed output schemas so
+that every predicted judgment is matched to an
+explicit rubric identifier. Responses that remain
+unparsable after the domain parser and correction
+rules are assigned uniformly random positive or
+negative labels and kept in the denominator.
+Prompt templates.
+We show the prompt tem-
+plates for single-rubric judging, batched judging,
+rubric serialization, and prompt-style variants in
+both domains.
+Deep Research single-rubric template.
+System message:
+You are a helpful assistant that helps determine if
+a rubric is covered in an AI response.
+User message:
+# Rubric Coverage Evaluation
+## Task
+Determine whether the AI response adequately covers
+the specific criterion provided. Answer with "yes"
+or "no" followed by a brief justification.
+## Input Materials
+<Question>: {question}
+<AI Response>: {ai_response}
+<criterion>: {rubric}
+## Evaluation Criteria
+- Answer "yes" if the AI response clearly includes
+or adequately expresses the main content of the
+criterion
+- Answer "yes" if the response conveys the same
+meaning as the criterion, even if using different
+terminology or phrasing
+- Answer "no" if the AI response only partially
+addresses or completely fails to mention the
+content of the criterion
+- Consider semantic equivalence, not just keyword
+matching
+- Pay special attention to technical details,
+numerical values, and specific claims in the
+criterion{prompt_style_instruction}
+## Output Format
+Your answer must begin with either "yes" or "no"
+followed by a brief justification.
+Example format:
+"yes: The response clearly addresses this criterion
+by explaining [specific detail]..."
+"no: While the response mentions [related concept],
+it fails to address [specific aspect] of the
+criterion..."
+Note: Your assessment will be used to calculate
+recall metrics, so accuracy is critical.
+Deep Research all-rubrics batching template.
+System message:
+You are a helpful assistant that helps determine if
+rubrics are covered in an AI response.
+User message:
+# Rubric Coverage Evaluation
+## Task
+Determine whether the AI response adequately covers
+each specific criterion provided. For each
+criterion, answer with "yes" or "no" followed by a
+brief justification.
+## Input Materials
+<Question>: {question}
+<AI Response>: {ai_response}
+<criteria>
+{rubric_lines}
+</criteria>
+## Evaluation Criteria
+- Answer "yes" if the AI response clearly includes
+or adequately expresses the main content of the
+criterion
+49847
+
+
+--- PDF PAGE 16 ---
+- Answer "yes" if the response conveys the same
+meaning as the criterion, even if using different
+terminology or phrasing
+- Answer "no" if the AI response only partially
+addresses or completely fails to mention the
+content of the criterion
+- Consider semantic equivalence, not just keyword
+matching
+- Pay special attention to technical details,
+numerical values, and specific claims in the
+criterion{prompt_style_instruction}
+## Output Format
+Return only a valid JSON array with exactly
+{num_rubrics} objects. Each object must repeat the
+exact point_index shown above:
+{example_json}
+Do not use positional order as the only identifier.
+Every expected point_index must appear exactly
+once.
+Note: Your assessment will be used to calculate
+recall metrics, so accuracy is critical.
+Deep Research batched criterion serialization.
+point_index={point_index}: {point_text}
+Deep Research prompt-style suffixes.
+## Prompt Style
+Strict Verification Prompt: answer "yes" only when
+the response explicitly and completely covers the
+criterion. If coverage is implicit, ambiguous,
+partial, or missing a required detail, answer "no".
+## Prompt Style
+Flexible Prompt: focus on whether the response
+conveys the same meaning as the criterion. Accept
+paraphrases and equivalent wording; do not require
+exact keywords.
+Agentic Coding single-rubric template.
+You are an Agent instruction-following evaluator.
+Your task is to evaluate the assistant's behavior
+in the conversation according to the given Check
+item.
+=====INPUT CONVERSATION=====
+====TOOLS===
+{tools}
+====TOOLS===
+====MESSAGES===
+{messages}
+====MESSAGES===
+=====INPUT CONVERSATION=====
+=====CHECK TO EVALUATE=====
+Category: {category}
+Check ID: {check_id}
+Description: {check_description}
+=====CHECK TO EVALUATE=====
+--------------------------------------------------
+Evaluation Rules
+--------------------------------------------------
+1. Evaluation basis: inspect all messages where
+`role == "assistant"`, including:
+- natural-language outputs
+- internal reasoning (reasoning_content, if
+available)
+- tool calls (tool_calls)
+2. Decision criteria:
+- `"success"`: the assistant clearly followed
+the requirement
+- `"fail"`: the assistant clearly violated the
+requirement, or failed to follow it when it
+should apply
+3. `reasoning` field:
+- For "fail": briefly explain how the assistant
+violated the requirement
+- For "success": briefly explain how the
+assistant followed the requirement
+--------------------------------------------------
+Output Format (must be valid JSON)
+--------------------------------------------------
+Return one JSON object containing the check_id,
+reasoning, and result fields:
+{{
+"check_id": "{check_id}",
+"reasoning": "Briefly explain the decision
+basis",
+"result": "success or fail"
+}}
+--------------------------------------------------
+Notes
+--------------------------------------------------
+1. result must be either "success" or "fail" in
+lowercase, with no other values allowed
+2. The output must be valid JSON; do not add any
+text outside the JSON object
+3. Ensure that the output check_id exactly matches
+the input check_id
+Please evaluate strictly according to the Check
+description.{prompt_style_instruction}
+Agentic Coding all-rubrics batching template.
+You are an Agent instruction-following evaluator.
+Your task is to evaluate the assistant's behavior
+in the conversation item by item according to the
+given Check items.
+=====INPUT CONVERSATION=====
+====TOOLS===
+{tools}
+====TOOLS===
+====MESSAGES===
+{messages}
+====MESSAGES===
+=====INPUT CONVERSATION=====
+=====CHECKS TO EVALUATE=====
+{checks}
+=====CHECKS TO EVALUATE=====
+--------------------------------------------------
+Evaluation Rules
+--------------------------------------------------
+1. Evaluation basis: inspect all messages where
+`role == "assistant"`, including:
+- natural-language outputs
+- internal reasoning (reasoning_content, if
+available)
+- tool calls (tool_calls)
+2. Decision criteria:
+- `"success"`: the assistant clearly followed
+the requirement
+- `"fail"`: the assistant clearly violated the
+requirement, or failed to follow it when it
+should apply
+3. `reasoning` field:
+- For "fail": briefly explain how the assistant
+violated the requirement
+49848
+
+
+--- PDF PAGE 17 ---
+- For "success": briefly explain how the
+assistant followed the requirement
+--------------------------------------------------
+Output Format (must be valid JSON)
+--------------------------------------------------
+Return a JSON array whose length must equal the
+number of Checks. Each object must contain the
+exact input check_id, reasoning, and result fields:
+[
+{{
+"check_id": "...",
+"reasoning": "Briefly explain the decision
+basis",
+"result": "success or fail"
+}}
+]
+--------------------------------------------------
+Notes
+--------------------------------------------------
+1. result must be either "success" or "fail" in
+lowercase, with no other values allowed
+2. The output must be valid JSON; do not add any
+text outside the JSON array
+3. Ensure that every input check_id appears exactly
+once in the output; do not omit or rewrite check_id
+by relying on order
+Please evaluate strictly according to each Check
+description.{prompt_style_instruction}
+Agentic Coding batched check serialization.
+{index}. Category: {category}
+Check ID: {check_id}
+Description: {description}
+Agentic Coding prompt-style suffixes.
+--------------------------------------------------
+Prompt Style
+--------------------------------------------------
+Strict Verification Prompt: classify as "success"
+only when the assistant explicitly and completely
+satisfies the Check. If satisfaction is implicit,
+ambiguous, partial, or missing a key detail,
+classify as "fail".
+--------------------------------------------------
+Prompt Style
+--------------------------------------------------
+Flexible Prompt: focus on whether the assistant
+satisfies the Check in a semantically equivalent
+way. Allow different wording, ordering, or
+expression; exact keyword matching is not required.
+Release artifacts.
+We have released the RUVER-
+BENCH dataset and evaluation code at https:
+//github.com/THU-KEG/RuVerBench.
+D
+Additional Experimental Results
+D.1
+Fixed 20% Strategy Subset
+The fixed 20% subset used in Section 4.4 preserves
+the category distribution of RUVERBENCH. As
+shown in Table 11, the largest absolute category
+shift is 2.0 percentage points in Deep Research and
+2.7 points in Agentic Coding. The following sub-
+sections report the strategy deltas. In each detailed
+Domain
+Category
+Full Fixed 20%
+∆
+Deep Research
+Format
+26.8
+27.4 +0.6
+Numbers
+20.8
+21.8 +1.0
+Logic
+22.4
+22.8 +0.4
+Facts
+30.0
+28.1
+-2.0
+Agentic Coding
+Task
+38.4
+37.9
+-0.6
+Planning
+10.7
+10.7 +0.1
+Tools
+10.9
+13.6 +2.7
+Rules
+40.0
+37.9
+-2.1
+Table 11: Category distribution of the fixed 20% subset
+used for strategy experiments. Values are percentages.
+Deep Research
+Model
+Flex.
+Strict
+Kimi K2.6
++1.8
+-4.0
+DeepSeek V4 Flash
+-1.3
+-2.5
+GLM-5.1
++2.4
+-2.9
+Seed 2.0 Pro
+-0.3
++1.0
+GPT-OSS-120B
+-2.5
+-2.6
+Qwen3.5-27B
+-0.7
++0.4
+Agentic Coding
+Model
+Flex.
+Strict
+Kimi K2.6
+-2.5
+-9.2
+DeepSeek V4 Flash
+-8.1
+-1.0
+GLM-5.1
+-4.1
+-4.6
+Seed 2.0 Pro
++1.8
++2.8
+GPT-OSS-120B
+-5.6
++8.5
+Qwen3.5-27B
+-5.2
++11.8
+Table 12: Detailed prompt-sensitivity deltas on the fixed
+20% subset. Domain blocks list prompt variants; entries
+are Overall point changes relative to Default.
+table, rows are models, domain blocks separate
+Deep Research and Agentic Coding settings, and
+entries are Overall score changes relative to the
+strategy-specific baseline.
+D.2
+Prompt Sensitivity
+Table 12 reports the detailed prompt-sensitivity
+deltas used in Table 3.
+D.3
+Batch Size
+Table 13 reports the actual-call batch-size deltas
+used in Figure 5.
+49849
+
+
+--- PDF PAGE 18 ---
+Deep Research
+Model
+2
+3
+4
+Kimi K2.6
+-1.7
+-2.6
+-1.1
+DeepSeek V4 Flash
+-2.6
+-6.5
+-1.9
+GLM-5.1
++0.3
+-5.4
+-1.1
+Seed 2.0 Pro
+-0.2
+-4.9
+-0.8
+GPT-OSS-120B
+-3.7
+-3.6
+-1.5
+Qwen3.5-27B
++1.8
++2.3
++0.8
+Agentic Coding
+Model
+2
+3
+4
+5
+Kimi K2.6
+-20.0
+-25.6
+-31.3
+-19.7
+DeepSeek V4 Flash
+-8.9
+-27.8
+-26.0
+-31.6
+GLM-5.1
+-4.9
+-19.3
+-23.0
+-35.4
+Seed 2.0 Pro
+-1.9
+-11.5
+-15.7
+-25.8
+GPT-OSS-120B
+-9.5
++6.6
+-15.4
+-21.7
+Qwen3.5-27B
++8.2
+-2.8
+-8.9
+-18.7
+Table 13: Detailed batch-size deltas on the fixed 20%
+subset. Domain blocks list actual rubrics per judge call;
+entries are Overall point changes relative to single-rubric
+calls.
+Deep Research
+Model
+3
+5
+7
+9
+Kimi K2.6
++0.4
++0.6
++0.6
++0.7
+DeepSeek V4 Flash
++0.9
++1.1
++1.2
++0.9
+GLM-5.1
++0.8
++1.1
++1.2
++0.9
+Seed 2.0 Pro
++0.3
++0.4
++0.5
++0.3
+GPT-OSS-120B
++0.2
++0.2
++0.1
++0.3
+Qwen3.5-27B
+-0.2
+-0.1
++0.1
++0.8
+Agentic Coding
+Model
+3
+5
+7
+9
+Kimi K2.6
++2.3
++3.0
++3.0
++2.7
+DeepSeek V4 Flash
++3.3
++4.3
++4.5
++4.0
+GLM-5.1
++1.1
++1.6
++2.1
++2.8
+Seed 2.0 Pro
++0.4
++0.3
++0.4
++0.6
+GPT-OSS-120B
++0.6
+-0.1
+-1.3
+-3.6
+Qwen3.5-27B
++1.7
++2.0
++2.1
++2.9
+Table 14: Detailed self-voting deltas on the fixed 20%
+subset. Domain blocks list vote counts; entries are Over-
+all point changes relative to one stochastic vote.
+D.4
+Self-Voting
+Table 14 reports the corrected 9-run self-voting
+sweeps used in Figure 6.
+Why voting gains diminish.
+For a binary rubric
+decision, let p be the probability that one stochastic
+judge call returns the gold label for a given rubric.
+The probability that a k-vote majority returns the
+gold label is
+Pk(correct) =
+k
+X
+j=⌈k/2⌉
+k
+j
+
+pj(1 −p)k−j.
+Rubric group
+1
+vote
+3
+votes
+5
+votes
+7
+votes
+9
+votes
+ˆpi > 0.5 (80.2%)
+96.1
+98.4
+99.2
+99.6 100.0
+ˆpi < 0.5 (19.8%)
+10.5
+6.5
+4.4
+2.4
+0.0
+Table 15: Correctness (%) of GPT-OSS-120B in Agentic
+Coding by vote count, grouped by the estimated per-
+rubric single-call correctness probability across nine
+runs.
+For rubrics where the base judge is more likely
+than not to return the gold label, majority voting
+increases Pk(correct); when p < 0.5, it instead
+reinforces the wrong label. This explains the non-
+monotonic GPT-OSS-120B curve in Agentic Cod-
+ing. Table 15 decomposes its results according
+to the estimated per-rubric correctness probability
+across nine runs.
+For the 80.2% of rubrics with ˆpi > 0.5, voting
+gains quickly saturate as correctness approaches
+100%. For the remaining 19.8%, repeated voting
+increasingly locks in incorrect predictions. The
+aggregate score can therefore first improve and
+then decline. More generally, the marginal gain
+decreases as Pk(correct) approaches 1, explaining
+why most empirical gains in Figure 6 occur at small
+vote counts.
+E
+Qualitative Error Cases
+Table 16 presents representative rubric-level verifi-
+cation errors from both Deep Research and Agentic
+Coding. For each case, we report the judge model,
+the gold binary label, the judge prediction, the nor-
+malized rubric category, and a brief description of
+the error pattern. A false positive occurs when an
+unsatisfied rubric is predicted as satisfied, whereas
+a false negative occurs when a satisfied rubric is
+predicted as unsatisfied. These examples illustrate
+representative failure modes in which judges over-
+look explicit rubric requirements or impose addi-
+tional requirements not specified by the rubric.
+49850
+
+
+--- PDF PAGE 19 ---
+Model
+Gold
+Prediction Category
+Error pattern
+Deep Research
+Qwen3.5-27B
+Negative
+Positive
+Format
+The rubric requires the table row for Domian et al. to include
+the study title, F-test, and industry diversification. The judge
+marks the rubric as satisfied because the row includes the
+market, study period, and main conclusion, while overlooking
+the required fields.
+Gemini-3.1 Pro Preview
+Negative
+Positive
+Numbers
+The rubric requires all information to stay within 2019–2023.
+The judge marks it as satisfied from the report-level time frame
+but misses older or boundary evidence used inside the answer.
+Claude Opus 4.7
+Positive
+Negative
+Logic
+The answer describes GitHub filters for public-code matches,
+but the judge marks the rubric as violated because the answer
+does not explicitly call the filter a necessary mitigation
+measure.
+Agentic Coding
+Gemini-3.1 Pro Preview
+Negative
+Positive
+Task
+The trajectory edits a file after creating it without a prior Read
+call. The judge treats the just-created file as already known and
+marks the read-before-edit rubric as satisfied.
+GPT-5.4
+Negative
+Positive
+Rules
+The rubric asks for parameterizing similar tests. The judge
+sees some parameterized tests and ignores other repetitive test
+bodies that violate the rubric.
+DeepSeek V4 Pro
+Negative
+Positive
+Rules
+The rubric requires Chinese user-visible output. The judge
+rewards English because it matches the user prompt, replacing
+the explicit rubric with a general language-matching norm.
+Table 16: Representative rubric-level verification errors in Deep Research and Agentic Coding.
+F
+Ethics Statement
+Intellectual
+Property.
+RuVerBench
+is
+con-
+structed from publicly released benchmark re-
+sources from DeepResearch-Bench-II, Researcher-
+Bench, ResearchRubrics, and OctoBench, with
+the corresponding source papers cited and dataset
+provenance documented in the released repository.
+We follow the applicable licensing and attribution
+requirements of each upstream release. Original
+RuVerBench source code is released under the MIT
+License, while RuVerBench-created annotations,
+taxonomy assignments, normalization metadata,
+aggregate results, and derived analysis artifacts are
+released under CC BY-NC 4.0. Upstream materials
+remain subject to their applicable source terms.
+Intended Use.
+RuVerBench is intended to sup-
+port non-commercial research on rubric-level ver-
+ification, LLM-as-a-Judge evaluation, and the de-
+velopment of more reliable judge models and eval-
+uation protocols. It is designed for benchmarking,
+error analysis, and reproducibility research, rather
+than as a safety certification or the sole basis for
+deployed reward or monitoring decisions.
+Potential Risks.
+RuVerBench evaluates models
+that may be used to supervise other models. Ac-
+curate verifiers can improve supervision, whereas
+inaccurate verifiers can amplify biases or system-
+atic blind spots. We report category-specific scores
+and error-direction diagnostics to support careful
+interpretation. During annotation, we manually re-
+viewed generated responses and trajectories and
+excluded clearly harmful or otherwise inappropri-
+ate content identified during review. Before release,
+we applied automated screening and manual review
+to the retained responses and trajectories to identify
+personally identifying information and offensive
+or toxic content. Personally identifying informa-
+tion identified during this process was removed or
+redacted, and content identified as clearly harmful,
+offensive, toxic, or otherwise inappropriate was ex-
+cluded. Annotators were informed about the task
+content, expected workload, compensation, and
+research use of the labels.
+AI Assistance.
+We used ChatGPT and Claude
+solely to refine and polish certain author-written
+sentences in the manuscript. These tools were not
+used to generate the scientific claims, analyses, or
+experimental results. All scientific claims, analyses,
+experimental results, and the final manuscript were
+reviewed and verified by the authors.
+49851

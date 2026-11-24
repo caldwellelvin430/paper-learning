@@ -1,0 +1,25 @@
+paper_title: Do Agent Benchmarks Measure Capability? Protocol Validity in the Age
+  of Agentic AI
+paper_short_name: Protocol_Validity_HackDetect
+benchmark_name: N/A（审计方法 HackDetect）
+year: 2026
+publication: arXiv:2607.22368v1（上传版本）
+source_url: https://arxiv.org/abs/2607.22368
+primary_category: B
+reading_priority: P0
+research_role:
+- 方法借鉴
+- 创新性对照
+secondary_tags:
+- 元评价
+- 评价机制
+classification_reason: 将协议有效性、可归因证据链和分数膨胀作为核心研究对象，属于直接创新性对照。
+measurement_target: 协议是否仍使目标能力成为成功的必要条件
+evaluation_mechanism: Expose→Exploit→Mislead；Mislead gap；事后证据归因
+ground_truth_type: 人工核查的轨迹及有依据的比较得分
+reproducibility: N/A
+open_source_status: 待核验
+evidence_location: PDF 第 1 页摘要；PDF 第 2 页 引言：研究贡献（节译）；PDF 第 4 页 第 3.2 节：从暴露到误导（节译）
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 3–4 节协议有效性及 HackDetect；第 5 节实证；附录裁判 schema。
+local_path: 论文翻译/Protocol_Validity_HackDetect/

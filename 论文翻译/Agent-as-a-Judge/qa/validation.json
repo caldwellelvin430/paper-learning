@@ -1,0 +1,17 @@
+{
+  "paper": "Agent-as-a-Judge",
+  "pages": 43,
+  "expected": 43,
+  "text_pages": 43,
+  "page_images": 43,
+  "caption_candidates": 21,
+  "native_raster_candidates": 21,
+  "missing_links": [],
+  "invalid_images": [],
+  "empty_text_pages": [],
+  "pdf_sha256_matches": true,
+  "page_count_matches": true,
+  "translation_status": "摘要全译与明确标注段落节译；非全文",
+  "visual_inspection": "九篇各首个候选截图抽查；SCIRIGOR 与 Double Measurement Confound 图表联系表额外抽查；未逐幅人工确认",
+  "auto_checks_pass": true
+}

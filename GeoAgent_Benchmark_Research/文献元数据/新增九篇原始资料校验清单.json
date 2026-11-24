@@ -1,0 +1,3423 @@
+{
+  "archive": "%E4%B9%9D%E7%AF%87Agent%E8%AF%84%E6%B5%8B%E8%AE%BA%E6%96%87_%E6%95%B4%E7%90%86%E5%90%88%E9%9B%86.zip",
+  "archive_sha256": "7ff20e7d84a575af3c129181b995b052733aaa33536e2c55cb2d204a8d33f3c9",
+  "papers": [
+    "Agent-as-a-Judge",
+    "AgentProcessBench",
+    "BLADE",
+    "DiscoveryBench",
+    "Double_Measurement_Confound",
+    "Protocol_Validity_HackDetect",
+    "RuVerBench",
+    "SCIRIGOR",
+    "ScienceAgentBench"
+  ],
+  "file_count": 681,
+  "files": [
+    {
+      "path": "论文翻译/Agent-as-a-Judge/QA_逐页核查报告.md",
+      "size": 1481,
+      "sha256": "2878ae542dc2ea2e4d0a65920b498ca6c398d4ba3a08ac4c8448e8e7b99c333c"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/README_阅读说明.md",
+      "size": 1093,
+      "sha256": "29fd29f3f3ad3b8c71ed9aabe28752e958b0b72c04ec3185f2961a9dc7337711"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-1-p002.jpg",
+      "size": 161923,
+      "sha256": "0654bf6234805779b2563de1cdd6c2211a501065b5294e2af1c2e3836ce79bd0"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-10-p041.jpg",
+      "size": 206105,
+      "sha256": "30e2e118da758851fc6c56337be8f64ebaec3ecfd5608595d4af1883e2649807"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-11-p042.jpg",
+      "size": 256657,
+      "sha256": "6dab2e80f32ecc9b075980b3e495256056ceeb6d2c12da3d7d7148c7478b52bf"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-2-p004.jpg",
+      "size": 124570,
+      "sha256": "5d7e4521079437dd62ba44b4a65e09b0c486b85b973bf0ae0fc9376632433ae6"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-3-p005.jpg",
+      "size": 303198,
+      "sha256": "c3abc382f3d0d898c9f0518f97252c4bd202fc9096b193f67c5a6eb847662522"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-4-p006.jpg",
+      "size": 332256,
+      "sha256": "ca8a02e6c52fd6bde01b33511adbf5da1f96cc2c3857e0e1cc969a887c698cc3"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-5-p006.jpg",
+      "size": 332256,
+      "sha256": "ca8a02e6c52fd6bde01b33511adbf5da1f96cc2c3857e0e1cc969a887c698cc3"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-6-p008.jpg",
+      "size": 218210,
+      "sha256": "1724991b2296c8e6016b3e94a964a51815365befb30672b5e1f9136808a7c8e6"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-7-p015.jpg",
+      "size": 148647,
+      "sha256": "20b66084616f529cc3faac1bb255d2121aa1c78895216f5407d48bb8af45092f"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-8-p017.jpg",
+      "size": 158864,
+      "sha256": "84079f69afe28c2524943c52e0d78f84dfd99f41fd02276f75412f072a9bda86"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/figure-9-p040.jpg",
+      "size": 225831,
+      "sha256": "668da0f4d89b49bd38ced5237558c0000eef5d72c790a1c6adbdca43c20ac823"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p002-02.jpg",
+      "size": 24526,
+      "sha256": "e5831d7a5bb474275150b648bc26a30f8ebf7316d4f3cc430ce68bbe28e18f15"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p002-18.jpg",
+      "size": 30847,
+      "sha256": "d0645611f466d6d617f22e1231527d2b5e8ead3fa9a75c0c02bc7fcb1fa0b7af"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p002-62.jpg",
+      "size": 28622,
+      "sha256": "ec30e59393176f7dc788e0dbe6df163298d0de097de478ffd699889d3c0d0f39"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p004-01.jpg",
+      "size": 9058,
+      "sha256": "c949d8f1ee5bad925402d44836bf0570bca994e9a736b02612479ad7e9e1feb2"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p004-02.jpg",
+      "size": 12703,
+      "sha256": "53c1fb62055abba66abc2409051ba14d4a9db6b6dea0ecbc911580122199586e"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p004-03.jpg",
+      "size": 28471,
+      "sha256": "e5400e02bb14f834d011205194957cc7236adc2a4a11362c299a4f994ed2aa2f"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p004-04.jpg",
+      "size": 11231,
+      "sha256": "36588da95eaabf9222a9ee52fda8aee50a4ec8e04e2fbf0a3c29360fac945fd4"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p005-06.jpg",
+      "size": 6953,
+      "sha256": "6441bbeb5989e07411c9fae4b15bea060e51e206d3813c71ec323b66baa6dd63"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p006-01.jpg",
+      "size": 9489,
+      "sha256": "89f80c9c3a15acba5faae60fcdc2945206f19b06f91ac62df6d4977fa0946d15"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p008-01.jpg",
+      "size": 17077,
+      "sha256": "b0c4d5abe8108ba2a3ef401bc33753caa3f1cafe9de7007d4b2acf06b978bca8"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-01.jpg",
+      "size": 17718,
+      "sha256": "2fdd3506076732ee8610cfde4b620f1597722fa472b64f6106b9cbadaaafe5a4"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-04.jpg",
+      "size": 42038,
+      "sha256": "798ef5ebf865d6f3faba02985d180c19f4b7a31d0eb255f687a33d5f42add105"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-05.jpg",
+      "size": 6101,
+      "sha256": "858c02ae4298f8befaba0bfd05efdbb9b47fd6ec739342a06979ac8c66988964"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-17.jpg",
+      "size": 5891,
+      "sha256": "619bae9d33f66c72ba473f27930b1cf4c1c157aca71dc9b26992657f7408ad6f"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-18.jpg",
+      "size": 4408,
+      "sha256": "1b36a0ca6376071325dec836eb23d06da67f514f0849a11fc92d0299974914fe"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-31.jpg",
+      "size": 60874,
+      "sha256": "5f00adaaf76429ec5606fa4b74951a7b6adf668da9bbe421a84d58d6ef3f7f2d"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p017-34.jpg",
+      "size": 10045,
+      "sha256": "e54d0e600e11619fe311589f4f3dc20bac3dba9907d0a4a40187a7388b346e73"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p043-01.jpg",
+      "size": 19802,
+      "sha256": "539625d5fe7299e6de358ce381dbcaf645c3115e546395f30f7ec445d318c11d"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p043-02.jpg",
+      "size": 14575,
+      "sha256": "21148addb77ce056fbd08ee49508690bd8132d09f12d4df51f2fbc3483578a87"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p043-03.jpg",
+      "size": 8865,
+      "sha256": "a960448e38c875602c2eae6c65c6f8b34057a2a0e34aa93a6b38726568720dc2"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/raster-p043-04.jpg",
+      "size": 28092,
+      "sha256": "a95d1b23cbf4a6dfc4461cbf8221ab9101eacee7d12637d55462fba0ca8785f8"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-1-p005.jpg",
+      "size": 298064,
+      "sha256": "4bb22b5e8036b6520dd822d9a7f19ab5ac7cca89a2991b1c0f9a1c03df0a1eed"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-10-p039.jpg",
+      "size": 214398,
+      "sha256": "62acb5e35a5c4a5617fa12bf2e56d581649434481956489ca422cfbebb12792a"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-2-p005.jpg",
+      "size": 255391,
+      "sha256": "31f21a94f6e9d7b3e9506e605e1e57a7a3bd83c654e5770730b051d7f2398e2f"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-3-p007.jpg",
+      "size": 323104,
+      "sha256": "960116d7d0903e75ed5063da25f7c69c57099de4e2d5a4f74597452b07b9cc8b"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-4-p008.jpg",
+      "size": 356948,
+      "sha256": "66c7cfa3dc3560605a917bd021bf7380881fc8f688d6708f2b9ea337e40ba8a8"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-5-p032.jpg",
+      "size": 300549,
+      "sha256": "61cda034bf8f588cf9f60ad791cf056e9cfd8a63fd451dc798d6f3b794b96e91"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-6-p032.jpg",
+      "size": 319273,
+      "sha256": "4fe293ee6a57576411c650caae1fc7536b2ff1fe2795dad6753c30b2f6e6ba79"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-7-p033.jpg",
+      "size": 109193,
+      "sha256": "da7f873931c422b3e820e2287fcffa141decae00af26a9b857517e961092d022"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-8-p038.jpg",
+      "size": 146526,
+      "sha256": "11c7f3cbad8926e69f4df2849e5316653b2cf0612cc584e8f5622bea33817e10"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/images/table-9-p038.jpg",
+      "size": 104810,
+      "sha256": "121073a07c38c67144dae0e13da980d5e80c3e1052d577cb35b08cda736eb06d"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/figure-contact-01.jpg",
+      "size": 154939,
+      "sha256": "494cae287a495b08aa5a8d33db350dd69dc6630692b6192a721d8cc5b4dc7e9a"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/figure-contact-02.jpg",
+      "size": 107681,
+      "sha256": "9f87a65c25e6f0b8996654508876c8d83e54ef75e07c7a688c11a7ff4ae28642"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/manifest.json",
+      "size": 20843,
+      "sha256": "89fbe317d7453268a897b1cf69364880cf64a466f0ff46a6ddcd83906420d19c"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/page-contact-01.jpg",
+      "size": 264679,
+      "sha256": "2515690251cc95ff06d53d24f581edc754d016f13e2f0cda88818aa8f95f98f0"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/page-contact-02.jpg",
+      "size": 168897,
+      "sha256": "54a1bb190cb0651f6f8cdd15c229a0490404bf7ddcde6c15b737376a91d6daa7"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/page-contact-03.jpg",
+      "size": 32693,
+      "sha256": "fabbdf1eb97dbbaaf117c3a2adefd2b7a605b03a77d31a6879172cca21220a38"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/qa/validation.json",
+      "size": 564,
+      "sha256": "9c2249424b9285a24a68fcf175676b5f08bd5b79297d3461238563ccec1a8916"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-001.jpg",
+      "size": 311135,
+      "sha256": "600e7bf2964d3e1ff5e3bdd9c76eab93eb8f3270c8fd98c76bf68fcb1dc57c4b"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-002.jpg",
+      "size": 313337,
+      "sha256": "3bc40837adf98dc4a43017c2cdd14fb2aa4c647e84ea39378f79bc63f92d2382"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-003.jpg",
+      "size": 356217,
+      "sha256": "b47ed6c35a09b21d6e6ef599df3b02a3ec742aa70c11e210c0ab9badd32db035"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-004.jpg",
+      "size": 286576,
+      "sha256": "be2c6e693d07002bddddce4f88e0a0848a577dd9cf3eb7e0aa28e38f104c6468"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-005.jpg",
+      "size": 275547,
+      "sha256": "de585376f59774ad6689d2ee0689996d2c2eb038ba3ef8756eebee10f6c5e62e"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-006.jpg",
+      "size": 303760,
+      "sha256": "0b25af9f3295189e20d77f7154dd66302ab54bd69a626a546645e047955230be"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-007.jpg",
+      "size": 289370,
+      "sha256": "fefab19f780767a49837e8c5ba80ba63a224ca4eadfb2a5752084188deb72929"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-008.jpg",
+      "size": 329008,
+      "sha256": "01cd1d9cc53233148aae9e06963f32d671f5ed8aec490c67b3a137b47734bbbf"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-009.jpg",
+      "size": 346848,
+      "sha256": "dbee30d167ec44d03bc8c42980538c1460d7bf180bd026a2d2d12928ae88011d"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-010.jpg",
+      "size": 320026,
+      "sha256": "41a0cb15fed7555a0ad06d75a750a627e00a2c89efe22918e125d4687036603e"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-011.jpg",
+      "size": 305912,
+      "sha256": "ac1aa4035f57f4ed7beff3aff1dc4015abf9d1da2ac7bbe824457e0cb772b1d7"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-012.jpg",
+      "size": 321902,
+      "sha256": "57f3a0a6323554a6ca9971c141d8e7c83aa88e4f42f4284151ed77dd318ba982"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-013.jpg",
+      "size": 322788,
+      "sha256": "bb4d8e0e1354a707296acced67c27c0268fb19e0ff6a392785e290d327344dbc"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-014.jpg",
+      "size": 91376,
+      "sha256": "ffe17aec7843722f8fa81e63beed24a136656a6149fced35aa85e9c0f3aa29d0"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-015.jpg",
+      "size": 139621,
+      "sha256": "53fb306bac50dd996bd837a1115ed1d46f73684ae9662642224f3d5045e33d20"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-016.jpg",
+      "size": 143151,
+      "sha256": "3c09c06430082646ad079d8e9e6528c5ed02047c951c974404272e111939a630"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-017.jpg",
+      "size": 142544,
+      "sha256": "37921ecf8f053be46c0f35aba5513ba23e8089246bf096ab2d8346aea1bd9a0d"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-018.jpg",
+      "size": 363235,
+      "sha256": "bcbd0ab5e5c3c9186c020a503154735e18fe458d14b1c9a1da0d8791e99d8fdd"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-019.jpg",
+      "size": 55956,
+      "sha256": "3ccd1f375889949b072e838e81f138f01f6580683f98b6cd715813ed1bbb7207"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-020.jpg",
+      "size": 306709,
+      "sha256": "6e8ebde043e0f2fbdb71513df6538d8965235abc85e3617d2e80790db803e8be"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-021.jpg",
+      "size": 207783,
+      "sha256": "c776cc728d9cc91d811c5348439a7b4ae032844acacb91254cd443bc49f06008"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-022.jpg",
+      "size": 112871,
+      "sha256": "2f67b3c8930ce35a2292e164efb0f7ccfc073c9dbe85f74579ab54b10ebcff7e"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-023.jpg",
+      "size": 123813,
+      "sha256": "2e3117377aa4c357182e97c2e695e82162461941e88f6edf58767621b6395a70"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-024.jpg",
+      "size": 31956,
+      "sha256": "4ed3d90b7d81d297957f34b5335938e6db8c50d494f8f179596dfd869b419eb8"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-025.jpg",
+      "size": 109601,
+      "sha256": "406da420eac77440bf0b7d53b9f95de600a84bbbf51904c5bab5bdc0af043ee1"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-026.jpg",
+      "size": 89131,
+      "sha256": "92f0e4fe931276c74cf2b4c485f235401d77be2ad3fc55f485f5544374015b72"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-027.jpg",
+      "size": 130107,
+      "sha256": "da381070b5749b60b5481789ed4c18d789ed68b2e7c4e213983cbc95774fc280"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-028.jpg",
+      "size": 92244,
+      "sha256": "ceb7139e0dcf42b381948d376f76cfb568018887ef9e192bbf5839564fd41b79"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-029.jpg",
+      "size": 245550,
+      "sha256": "0468b2ef1eadee52175a48108de7c8c044ac3a3ef58679fb1de8952db3afc78e"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-030.jpg",
+      "size": 191541,
+      "sha256": "ceb14ec55139ce42c08fa0cec3a5599663e346118990fe36ceae4db1e68d9f3b"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-031.jpg",
+      "size": 236323,
+      "sha256": "e1edae1bf4398ff026348c858db1173729e558c29bdf4776ba890d9fcaa64f25"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-032.jpg",
+      "size": 296731,
+      "sha256": "cd1bab5ba06dda51e62712e9fb8f1943bc312d9615778749e458922d64fda3c6"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-033.jpg",
+      "size": 100264,
+      "sha256": "93a46bf5419b31d5ed02b82bfb9f19ae109ff3354e3bb569f8c582a6f539005a"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-034.jpg",
+      "size": 137817,
+      "sha256": "f3a54e34d68e01d63d944a9fc46d8dc432fb289c8ec65c52d6654873f9dd1aa4"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-035.jpg",
+      "size": 172806,
+      "sha256": "aa590e36f91364daa9dca2c0ff19dd36bcdebb84fd7290ab99903b4bcf35f344"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-036.jpg",
+      "size": 116910,
+      "sha256": "f53a5f36c84629dafeee31d8b2b230f21c1ca7d294039cec69a6c03866e49e03"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-037.jpg",
+      "size": 63018,
+      "sha256": "8cde02fe1f1cfe7b28610d2d958c838adca36a2480d62f0dab8388a1195f3777"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-038.jpg",
+      "size": 152590,
+      "sha256": "a9a65ea5408e189bc2e1a6887c749b603c3fdc0d7cbd3e481c109cdd0b62a0e2"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-039.jpg",
+      "size": 212463,
+      "sha256": "ffb5b01aa10d7b667c346382e99eefdc87cd70670cc8f427913870c928926dfd"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-040.jpg",
+      "size": 197320,
+      "sha256": "19199e13113ecff313232f71334da44122377906c7b8f7ffccce52a197419a11"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-041.jpg",
+      "size": 187835,
+      "sha256": "831ebf92d3153eb94d44bfc6db836011f3de1d93e6258b9e1135f4db00a34b55"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-042.jpg",
+      "size": 218355,
+      "sha256": "673c8f0b6e716172665fa9ff8c95e11ff15936e93e422e0a12baaa99244206e0"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/source_pages/page-043.jpg",
+      "size": 88014,
+      "sha256": "840bb651e89e65b215df13476878e1a2f5b4422b06f0fddc7a399cb1d3fa71d9"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/中文译稿_摘要全译与关键段落节译.md",
+      "size": 4350,
+      "sha256": "2ed31fc419275908b2fc27861ba6ca71e9676f70001cda65ac7e55c296770b60"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/原始论文.pdf",
+      "size": 5157438,
+      "sha256": "10c479cdc343b9916c3fc994cdedf6fd040462d85ce00a57f2a6654b231bde00"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/参考文献及后续原文.md",
+      "size": 109800,
+      "sha256": "a1ca03227a732bdcf50e633e2a22dca48b828ae79f3d4cb107803688038a9316"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/图表索引.md",
+      "size": 8884,
+      "sha256": "3172a906c216e6cc62a116e13bba6e207d9533ab1350c1c1a0d3c805f77d26ec"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/文献分类记录.yaml",
+      "size": 1207,
+      "sha256": "ff42ab323da9e7d9859fe56c98d1c9777a470123dbd170c3081a1e0b2ad6f3e3"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/英文原文_PyMuPDF逐页提取.txt",
+      "size": 122572,
+      "sha256": "903a9892ab50b82d688b08e0159e26dd843827a490d8470d746d374c396d1989"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/英文原文_内容流提取.txt",
+      "size": 121712,
+      "sha256": "2b01f9da02c288a7d0369c4c545b6be1b533c6fd10170a7c4e8a7b29a0c109fd"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/英文原文_版面提取.txt",
+      "size": 166748,
+      "sha256": "772ef524061dbbd2961666ff102625cf9da2dd8d033b7b6f5f168f15085f9f42"
+    },
+    {
+      "path": "论文翻译/Agent-as-a-Judge/英文原文_逐页全文与配图.md",
+      "size": 178094,
+      "sha256": "c9c20bef4cb9104245fc2b92cb52e9fdc19601019caccdcb8cf6cabcbca09c57"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/QA_逐页核查报告.md",
+      "size": 1481,
+      "sha256": "d415991c2ff5162d90c97b690134b8b2cd44db719c6eb8dc5cd7739a634e0c34"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/README_阅读说明.md",
+      "size": 1162,
+      "sha256": "e55d359986c08d6e8a485b51063af1a61dd7bec8631d4ffeed51003fb985c351"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-1-p002.jpg",
+      "size": 86897,
+      "sha256": "34efb80f170f8719dd33b38bb46ac9b5989c207ad5ecae6a291eaf8623a7f1a5"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-2-p003.jpg",
+      "size": 216593,
+      "sha256": "01bfaba61c014e9c3583895be9b658c4134f72dac49ba3b3083982f2edadc0a5"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-3-p005.jpg",
+      "size": 156963,
+      "sha256": "7cbdc0d9d6262ba612585cdda47a492107e0aa439b939791a39e2af63c44fefa"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-4-p006.jpg",
+      "size": 117177,
+      "sha256": "13acb5f75d7a34a0028315e3a2847e9d0990804212f4389afa8cf5c2700b63d9"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-5-p008.jpg",
+      "size": 341491,
+      "sha256": "02b3dfcd939d5dcc01011468a5ef84b873d93db1fbba129204bcef231ac743b5"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-6-p008.jpg",
+      "size": 159213,
+      "sha256": "0f2c24387b53d43bb20bc1ded40261befeeac4167bf3b7b4ca72a74c3e35e02a"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-7-p008.jpg",
+      "size": 341491,
+      "sha256": "02b3dfcd939d5dcc01011468a5ef84b873d93db1fbba129204bcef231ac743b5"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-8-p009.jpg",
+      "size": 358511,
+      "sha256": "c235ad1a6cc1c7c94fb03f87cd0f4a779dd4e297ff83594e60eb883a498e9b72"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/figure-9-p012.jpg",
+      "size": 273402,
+      "sha256": "6bf30011c916bd031d547b3c3c5b1772445e08d9dc4cf82e6b5b2b5e9946be0a"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/raster-p005-08.jpg",
+      "size": 11980,
+      "sha256": "7f85fce1b2b5a0edac9695705cfcb77a94bc17babd1945a4bbcadcf5ebff487d"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/raster-p005-22.jpg",
+      "size": 15828,
+      "sha256": "a40a07f2a768353cfac10d6cf01f4e0b9a44bd5846f98f9114e3840783f60312"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/table-1-p002.jpg",
+      "size": 255667,
+      "sha256": "9cb0ea7fea83fd87f975259b0b990d85f9b8e8dae06e3b756648d62e28cd8089"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/table-2-p005.jpg",
+      "size": 169093,
+      "sha256": "bd7fccad2d3d091ef552e9fb08b1dcac8c57fac307383248950ef90ccd5be794"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/table-3-p007.jpg",
+      "size": 316780,
+      "sha256": "1c05de3babd956b3578fed51e81e76afb9d69a22b4c6b3ad33a8e7db99ebb19d"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/table-4-p009.jpg",
+      "size": 357045,
+      "sha256": "c9c1459aa6a800d2644319143e97da54cbdac7fe49b04f1ef7f1f722340f3fb8"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/images/table-5-p009.jpg",
+      "size": 279624,
+      "sha256": "3ec85e718edc433093b472a307eef3ba692fec198334afc19f061393ee5530e7"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/qa/figure-contact-01.jpg",
+      "size": 142084,
+      "sha256": "b0c77520dd631d804b588c850d39aa140605eb8b6aa1ba4c44eedc1ceef2e8fa"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/qa/figure-contact-02.jpg",
+      "size": 30972,
+      "sha256": "cdb676fa0973f467110560d0c2a39388e47eb6f1004c1aa0abf1f255b6d18740"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/qa/manifest.json",
+      "size": 9272,
+      "sha256": "cbab4023cdcefa41be8ca29bd3a9f0dd9352e7fe2acab19f48adf5402e195b39"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/qa/page-contact-01.jpg",
+      "size": 177257,
+      "sha256": "dd68642b5ecb60d5ffca3a9d56fba76520f80e0f822851733d8c6236a253b6f2"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/qa/validation.json",
+      "size": 564,
+      "sha256": "053fe325f5742a4286699b852f0cbb0e8112f6d5691331448df9f06ef41e7e6c"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-001.jpg",
+      "size": 273065,
+      "sha256": "00bcfdd19e41388121c20b9fb3e1a4dc6d593af249ee274d238321192ebdff69"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-002.jpg",
+      "size": 271299,
+      "sha256": "8330c8f5b3b76e9a214cfa7f64c4a7cc15c208d11b2d6204c6b4b1e94ec38170"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-003.jpg",
+      "size": 324825,
+      "sha256": "65fdf975dd254bdd8f6b79f6496758a8629578895ae085e29b31bbbfe0cbf63a"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-004.jpg",
+      "size": 374657,
+      "sha256": "e93abc939bd9471601f9f129c2af9cdff35cce5b67172dec0475dce2922aa979"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-005.jpg",
+      "size": 268339,
+      "sha256": "e9147b7eadfa39911b18821dd1dd7fcc7ae2d89a69c7d0c194cd0bb589b4d191"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-006.jpg",
+      "size": 325800,
+      "sha256": "73f5ce6ff003ed7fc70223304da2591358c23104e6b8853a309d3852ae8be988"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-007.jpg",
+      "size": 292149,
+      "sha256": "69ad9fcab78dbfcc93b4ab33bb613993882bddc56dbc45065b9a39f521d0573e"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-008.jpg",
+      "size": 308263,
+      "sha256": "4c149b5902206f8028eccb7371a3c676845836fb01371f9851875f9384b215e2"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-009.jpg",
+      "size": 320305,
+      "sha256": "baec62bc9a8bdb042da463d09dbb00afffbe87341d86f387872a4dcb0c7f0b99"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-010.jpg",
+      "size": 398865,
+      "sha256": "2bd9fb94a9895f7197643a3132488c575f308960002f85ff9f1fdfeca2771638"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-011.jpg",
+      "size": 360836,
+      "sha256": "d3fac537f7b63c252880334d0c08b40ddcd5e07a1907904a8f1ff7fee3202518"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/source_pages/page-012.jpg",
+      "size": 246414,
+      "sha256": "32ab2a8d98b601193613005a948e6b4820a2705f380371e4efea68318bb08d2e"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/中文译稿_摘要全译与关键段落节译.md",
+      "size": 5256,
+      "sha256": "fef90a3dfe82c346f6f127d826ac72a87853182e33c82ce3c03f1cf7a0ba6d2c"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/原始论文.pdf",
+      "size": 3058765,
+      "sha256": "b81148ad9bfe63a86117951cdb7149670a966bbc3a40bfc4ffaac45805a48eb6"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/参考文献及后续原文.md",
+      "size": 33363,
+      "sha256": "030fe93aaa557fb0091cf04ba40ee7181a040cd9769c606f370b3177fba6e67c"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/图表索引.md",
+      "size": 4863,
+      "sha256": "f3331b2403322ba2ea48645ac1e46aa37892aa68b464361e4b6a126edb4ab7d0"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/文献分类记录.yaml",
+      "size": 1268,
+      "sha256": "083239ddeee268b6b090e384dccc1843fd3675ead3a063f7f6460c7bafba9a90"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/英文原文_PyMuPDF逐页提取.txt",
+      "size": 67673,
+      "sha256": "d1279aeb07b1db4457e7e9dd101d2095dea9787bb6b7150cd47e3257a8e03979"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/英文原文_内容流提取.txt",
+      "size": 67482,
+      "sha256": "fe4cb076ec5777b2100fb49166a890e4459ec161ffc85d67e10ed8390d3affd6"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/英文原文_版面提取.txt",
+      "size": 137503,
+      "sha256": "01d0e089367eaa2428557a1f304fe70753bf005cbd0596743575b428be304094"
+    },
+    {
+      "path": "论文翻译/AgentProcessBench/英文原文_逐页全文与配图.md",
+      "size": 142978,
+      "sha256": "f88f1ed508ac97a72c3ea2cbd0a4ab0428a932157c4152d7cdedb93c5aad8c02"
+    },
+    {
+      "path": "论文翻译/BLADE/QA_逐页核查报告.md",
+      "size": 1471,
+      "sha256": "7fe08b07e3df7552b15eeb09b0362bfe0740a03410327e7bf8dfc0b0683597b9"
+    },
+    {
+      "path": "论文翻译/BLADE/README_阅读说明.md",
+      "size": 1104,
+      "sha256": "12656c5c56905cf2abc1f16a299db42e51c5fd526a508d0ccaa45357c462fdb0"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-1-p002.jpg",
+      "size": 143221,
+      "sha256": "9ab59f59d3d06203af7897789e9106d521787d624e645c88188a39bb11ce0d28"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-10-p024.jpg",
+      "size": 114444,
+      "sha256": "f768ea8380d66a0d2c000a2031e927e9188a771799ee98bc63bba5e065c38fe6"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-11-p025.jpg",
+      "size": 127444,
+      "sha256": "3fceae025464fc449370f82e07d22f611110682d8ef663b26c0ec9f9892c2a6c"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-12-p026.jpg",
+      "size": 117690,
+      "sha256": "91ece03d7e9851eff8e6b257664009c10e28d9a95b260064b2793085b4d6f1fe"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-13-p027.jpg",
+      "size": 122761,
+      "sha256": "8c0669985640bea1dd3949b4c9827795393a0629de0b61b31c9bbb9b049f717c"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-14-p028.jpg",
+      "size": 66527,
+      "sha256": "c1a28d628f91b3b916859b2ea67d0381a151a01529734a2afbbbfc1572189034"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-15-p029.jpg",
+      "size": 95521,
+      "sha256": "4b0c894db53a12eb4ebbdd769f6897ea58f005e7e95c0e7c7a82cc59758e9091"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-16-p030.jpg",
+      "size": 121921,
+      "sha256": "8f1ab5ad3c98db8ca6d34d12af92de18ebdc2ff7b0d7c55745bde91b7ad510f7"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-17-p031.jpg",
+      "size": 110319,
+      "sha256": "f7f0a63d12c00e999f7f3d908a8bc2371c5bea4f1c4d9b5d5d452885a0ca98b0"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-18-p032.jpg",
+      "size": 158320,
+      "sha256": "d36c1f0e00580f1206a3e20eb8b07366ef026e076e3fdcac0042652307a96478"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-19-p033.jpg",
+      "size": 137104,
+      "sha256": "1cc99f395cfe9750bc6a61cb763496d345b0cf92a7f30ad1f8c75fd5bc376ee9"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-2-p005.jpg",
+      "size": 89934,
+      "sha256": "1555a413cc3898459ba84882a6bbab52badfe3cef1e6653b7381829a3d85970a"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-20-p034.jpg",
+      "size": 125016,
+      "sha256": "592a4bce457b60c10d1b5e053364ec35ef74ab57d0f0a39e19d9bae15112ca1f"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-21-p035.jpg",
+      "size": 92643,
+      "sha256": "c5ca63142c500c2b3746ca0221fecaa98baaedfcccb38025aaf175d70b7063a5"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-22-p036.jpg",
+      "size": 70353,
+      "sha256": "f40fbdbe42b5c3d9cfc9a1daaafdbaa56b2948980dc25f90c70736a0e55e4ee8"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-3-p007.jpg",
+      "size": 345153,
+      "sha256": "3306e7c9c78e5b073d51cc7d286791a0e7e19e2d8b82b4b7d5becb1753cdde7a"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-4-p008.jpg",
+      "size": 87866,
+      "sha256": "8ce75a3704cd7e299d7759fa2d5104828f860932cefdb89ab1a234355e1f1b71"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-5-p008.jpg",
+      "size": 152887,
+      "sha256": "d75ca94ad8eadb71ad38bd5f71a05db9236e373c7a08580019cab35c7dc38e3f"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-6-p009.jpg",
+      "size": 105735,
+      "sha256": "1caae421529af02d4d87a7c818528d835dcda6961b159309432eaf37abd0f171"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-7-p016.jpg",
+      "size": 74787,
+      "sha256": "c6146df992cb32f764daed49a4f65107b4e79dfabc289eaa698d9fcb6c123b67"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-8-p016.jpg",
+      "size": 183819,
+      "sha256": "ea28403135202b5a24a89d579f2514181744de937bb2724a42f2f562cb54f1f1"
+    },
+    {
+      "path": "论文翻译/BLADE/images/figure-9-p023.jpg",
+      "size": 126644,
+      "sha256": "8eb77e1ca56dbd7a4dcda68cef85be356353110553ebe98073f5407bbccecfdf"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p005-01.jpg",
+      "size": 43190,
+      "sha256": "46253ad84170665a3c113663990ae7eb695fecba222c927d3d172c05d987149b"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p007-01.jpg",
+      "size": 15343,
+      "sha256": "85d1f5102c9a967bdb29a52672184fc134b21f8d6d48f178e0a496bb9ecd4e21"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p008-01.jpg",
+      "size": 43064,
+      "sha256": "b64b3443621b094d22978da6c4d7619d75a40ac31d58c3592881b3a68a31f558"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p008-02.jpg",
+      "size": 28928,
+      "sha256": "ea396966ecb5bee8a86f29392cf8111ff3d7cc818797d88542367a2460286a51"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p009-01.jpg",
+      "size": 46700,
+      "sha256": "348c98c9f90dd89d46844a8dcf07388aab26468dcd2f6717bab802765cc7691d"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p034-01.jpg",
+      "size": 25002,
+      "sha256": "4ffc26bb756bc084ecfe822799a934528e6a17a47c854bca7f5263b43d650f03"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p034-02.jpg",
+      "size": 26251,
+      "sha256": "1a1ff38cf4919761b60b3f5c1a4f23dd59f943062f32a5ca03fca2367ec40ae6"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p034-03.jpg",
+      "size": 10373,
+      "sha256": "9bcc94a18c76eb7bded51a2572a87fb9f5f37bf9d4cb78f948e32530dcc0ed66"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p034-04.jpg",
+      "size": 22861,
+      "sha256": "036c1cd457874f916fa0eda82f19bbc696c54372096c903553073daa7893bbb1"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p035-01.jpg",
+      "size": 27350,
+      "sha256": "6221a6f77b6b6036aca2536501e82b17eeec5cc748ac70447edebd2e1a7aab0a"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p035-02.jpg",
+      "size": 8381,
+      "sha256": "53717fe85f62ee489f8f2663519749c07dcac9324e1134d185c7bf99aa8838b7"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p035-03.jpg",
+      "size": 17448,
+      "sha256": "5291c479a76efb779a7e92907e2b5366f7abc8e1a2102fd70f295fc4bcabd88f"
+    },
+    {
+      "path": "论文翻译/BLADE/images/raster-p036-01.jpg",
+      "size": 41202,
+      "sha256": "c56e187973078d31bdac35a84dca9d9f44de57f5d0dcc23e79e74450519068a0"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-1-p003.jpg",
+      "size": 321187,
+      "sha256": "6d5e2282b2d35519488649b4109481964e175fec734acea398bbcd1e84e3c41e"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-2-p007.jpg",
+      "size": 361819,
+      "sha256": "9a5c374f3051de8337d7ed6c7bd7b25372e9d23d938de27d8fcc287666effcd5"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-3-p020.jpg",
+      "size": 243526,
+      "sha256": "f50073d6d1e892bc4ce4ba743252a1d7b0e966380f7400dd0af281754c134fdc"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-4-p021.jpg",
+      "size": 342926,
+      "sha256": "b851ed0d1e6d84f6904b2277a44b83ec1f4b9f9096d6a358df00fd97e2655ec0"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-5-p022.jpg",
+      "size": 149759,
+      "sha256": "3b700f96804fd293923166f4c886a07088ea5b2f94f53f82d6e895a5fee77f83"
+    },
+    {
+      "path": "论文翻译/BLADE/images/table-6-p022.jpg",
+      "size": 198733,
+      "sha256": "26b1a11fd87f32f8675c151f16f6c4606bacb9b9902abfe7b63801c64dbdeb6c"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/figure-contact-01.jpg",
+      "size": 131557,
+      "sha256": "3689cacf7f6b159b73c4911f8184dd933b9c0daeecbdc725cea8b102707fddba"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/figure-contact-02.jpg",
+      "size": 86253,
+      "sha256": "d3a0c07bc32d7d80c99b82f7674ca9eb9401862bc5b9c02b6258b372d3e1572b"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/figure-contact-03.jpg",
+      "size": 29329,
+      "sha256": "e3739f6824757e86867804f5c7832b29df3f90617d5e36d7cb2af9fde1a921e4"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/manifest.json",
+      "size": 22456,
+      "sha256": "e8d07500ae9608afe3bc07ae3727cd0c42d0da56a23b2f5aca4be958861646fd"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/page-contact-01.jpg",
+      "size": 265433,
+      "sha256": "204c2074ce9dd65bc4237a50ea0d30b325d3c2f07c90c88e559a35e53ef600f6"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/page-contact-02.jpg",
+      "size": 111576,
+      "sha256": "9896671006681ad57fbc8b39e2677e9a9d248b0eeab0e5ddfcaba2e2d41a63c5"
+    },
+    {
+      "path": "论文翻译/BLADE/qa/validation.json",
+      "size": 553,
+      "sha256": "6c667304a92018788a615aed8b6a15477dbf53e9187bb17d6c96a1da2fd93f1b"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-001.jpg",
+      "size": 346007,
+      "sha256": "49e2707221598bee6b97d5e0812f84da52fa416bc8e99cab383352d88b3a4ad7"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-002.jpg",
+      "size": 334288,
+      "sha256": "188fe4f64b6fb73fc00b58e50e4d2c16febd2efb3313e287b61dc0e65f84f42a"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-003.jpg",
+      "size": 322280,
+      "sha256": "cdeb6c58d0550c6c4f81cbb0cf3479dc9db15ad28ed49b4736d8decd948c2135"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-004.jpg",
+      "size": 369660,
+      "sha256": "6302acb13d6596b5586dfaf4d9ada94fa2db0ef66eff0fc2079ae5ddf11935f2"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-005.jpg",
+      "size": 286099,
+      "sha256": "189f4976ae3e81992a3949dc458b4ab745c7a5cb9e74b63433b993b26fde98ca"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-006.jpg",
+      "size": 372358,
+      "sha256": "6e567286f05f08ae18bfd2eb18bf2a3a83fe35af6bd6b5a3dd4b83df3065c6e5"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-007.jpg",
+      "size": 326889,
+      "sha256": "6570a1a4c39e206b4407f7ced9d329c2657b8feb02c43af482d98bbefc610f37"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-008.jpg",
+      "size": 261591,
+      "sha256": "45c4809ac6f78ff0fc6650df4b15857435685bbf2b95a1848bae87445d287449"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-009.jpg",
+      "size": 296330,
+      "sha256": "83b383d23107cab214c784bd35309e50d2b219abdb501f2c2bc88f55f982a719"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-010.jpg",
+      "size": 326315,
+      "sha256": "572df52febc9fe01da20124c3a2240b4162f54502412f4fdca223b7f220c0e34"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-011.jpg",
+      "size": 339565,
+      "sha256": "12c7d5fcbbe2e08bf280072708ccfbd8980739d9b8b83092f9a177b8573dbe8d"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-012.jpg",
+      "size": 332081,
+      "sha256": "261b93c69a44c5694694f37eff6d298f2846cbb3839f211fa1ca4667491c4f35"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-013.jpg",
+      "size": 266764,
+      "sha256": "def8cee40f6466e964760859d7f782cf5864a135d5186223a8f76277d3ab7796"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-014.jpg",
+      "size": 358964,
+      "sha256": "00b4507d840fa161803f87bd6555c2c36928bc6a7fac58f708ab1cd0ae15d648"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-015.jpg",
+      "size": 296605,
+      "sha256": "606496a1a54318e9ead95d2d2a566ad8031f2392ed3da29e4e9bc72471ded94e"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-016.jpg",
+      "size": 249986,
+      "sha256": "9dbc1746937ca5bb8b6b9d6d36fd589e2e58dd580c0c40bb2b0c145174646ce7"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-017.jpg",
+      "size": 319365,
+      "sha256": "ef2684bab2aa51b6779e8ccdf764975c900327b501a7d1d7c988746972ee32ea"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-018.jpg",
+      "size": 318819,
+      "sha256": "03e7fb9412ed75f1bce8240cafb060ad134310a940613bcf84f494fa41a82010"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-019.jpg",
+      "size": 195579,
+      "sha256": "0e61fd8b0cc05a883640b74d3dfa6ec3d57c1fca51d095477ae6e63df33380d0"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-020.jpg",
+      "size": 219961,
+      "sha256": "66b29a1cb7bd667566ff8cba3c0f84c2d23e813126b67b544f5ba7765e2e5704"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-021.jpg",
+      "size": 325899,
+      "sha256": "2007aa4d4331f28ad79b28f81a7483f60917ad51fbe7cdc2113a7728e098dc70"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-022.jpg",
+      "size": 181240,
+      "sha256": "cada056229163f975bbbf09cc5c42ec8145441e9adbecd339d94ff551807aed9"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-023.jpg",
+      "size": 118577,
+      "sha256": "135aec85bf3a04f263cbacc35c53a22cc16af8b1f3362e55587690aef8ccf82c"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-024.jpg",
+      "size": 105632,
+      "sha256": "9668700a0bbe9453b1aacbb3a7c708ad5a800ef451b1ff7d577bd3e06a134d70"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-025.jpg",
+      "size": 119237,
+      "sha256": "4f600b65492bb03b5286cc443a7df0077ea26c62a7352bff54e82f10e04cbb9f"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-026.jpg",
+      "size": 106811,
+      "sha256": "6eef455ace834b81b0aeb2fd25d5148f0a95159ec294996c342bb51a85c3a8bc"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-027.jpg",
+      "size": 113140,
+      "sha256": "7c1e8d4ed11c7344f0425af8bf292357bcf66e9eb46ce41fc7d202d3295d3e03"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-028.jpg",
+      "size": 60882,
+      "sha256": "0d04c2a5f89afb16ba441bb95e6fb8a4ac0e47b668d84fdcd96aef268456ca04"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-029.jpg",
+      "size": 88486,
+      "sha256": "ffe1b65ac5f5ff855104736ce289b4ffde9f40ce91e1c33dc4e59d528d99378e"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-030.jpg",
+      "size": 110751,
+      "sha256": "5da9b139572ce133c26670244eaa5a7e1ec5cef34f5c1cc95ff235e0d496106a"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-031.jpg",
+      "size": 98252,
+      "sha256": "65e1114006c3a89eaf0d9fcab5e6e0e9e02e24ecbcc9c9d18967c2ab9c608536"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-032.jpg",
+      "size": 145585,
+      "sha256": "543cba5331758b4a712e2996e596b20c6654950a6790c5be9df77feb2828fe26"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-033.jpg",
+      "size": 124472,
+      "sha256": "2e9b6a861b8adfc2785135fba0b51b1dcccef2ddf86b1353748b3b8d8d0e9d29"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-034.jpg",
+      "size": 113070,
+      "sha256": "2a529b90c23c16781b98bf989dfc980785e75d21b09d4e0850e4977af33615ab"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-035.jpg",
+      "size": 85310,
+      "sha256": "b32820560674ca799aa7ed8b8c5af0c0adbf596ae284b081a6c9ab8b6ceb487f"
+    },
+    {
+      "path": "论文翻译/BLADE/source_pages/page-036.jpg",
+      "size": 67712,
+      "sha256": "1763063b54237d5a45801dff935bce238699f70f7897f38337daac0d6909d85d"
+    },
+    {
+      "path": "论文翻译/BLADE/中文译稿_摘要全译与关键段落节译.md",
+      "size": 3635,
+      "sha256": "8c17660c421ce2f9fe4b54b152609771400ed514ce65fbfb4ce40fe1b1ed8964"
+    },
+    {
+      "path": "论文翻译/BLADE/原始论文.pdf",
+      "size": 17341067,
+      "sha256": "c1a51ba6f496e9aee8f2255036c97ebf261b407d3942fc9749d133978f4ef429"
+    },
+    {
+      "path": "论文翻译/BLADE/参考文献及后续原文.md",
+      "size": 122891,
+      "sha256": "3a14ada47f7a6b35d02c4e48316669980e9cdf09e99746b0999c6b80090847b3"
+    },
+    {
+      "path": "论文翻译/BLADE/图表索引.md",
+      "size": 11193,
+      "sha256": "d054627e7b9b7ba143cea74b547d13bb0159b736b552b48ef36d554042b52097"
+    },
+    {
+      "path": "论文翻译/BLADE/文献分类记录.yaml",
+      "size": 1134,
+      "sha256": "988fcca7fbf30bac01ceaf41b45ac336dd1ffa456f41aa338b03559ebb7af09d"
+    },
+    {
+      "path": "论文翻译/BLADE/英文原文_PyMuPDF逐页提取.txt",
+      "size": 125402,
+      "sha256": "c61f26539abf5412c7bdab735197ebec0686c5f0e5e62e310a6a857757c0f63f"
+    },
+    {
+      "path": "论文翻译/BLADE/英文原文_内容流提取.txt",
+      "size": 123639,
+      "sha256": "3b0fefbc65b703b6726c8e4721e81715c11858e3de91a4c1aaddd427f6ae48e9"
+    },
+    {
+      "path": "论文翻译/BLADE/英文原文_版面提取.txt",
+      "size": 176664,
+      "sha256": "d6bea188f22fa5cea95415762fcff87048282dda6b4264bcb5728e1ec659579f"
+    },
+    {
+      "path": "论文翻译/BLADE/英文原文_逐页全文与配图.md",
+      "size": 189955,
+      "sha256": "ed1e07330c1eea7811ee05b091b18871db658ab2cebeeb3b01aef6be2c257ca3"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/QA_逐页核查报告.md",
+      "size": 1479,
+      "sha256": "863d4a88c9c60bed64c27709e0f0420131807532e99ebeaaa7a389795c1c59d7"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/README_阅读说明.md",
+      "size": 1144,
+      "sha256": "b7e7644f6abe01ce702917e9e7de41cd4ce44fd813eb2b34230b0714d9a2c075"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-1-p002.jpg",
+      "size": 311606,
+      "sha256": "49a8a7243b53b3975a803400ecf3cc6d0deef16efb890deb97367311102eb5a9"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-2-p004.jpg",
+      "size": 117544,
+      "sha256": "279a99919668f16eff1fcf3fb31ff3260aea01ed6df10d84a13d9260492b2159"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-3-p006.jpg",
+      "size": 329894,
+      "sha256": "ed22157bf97e974ad27eee1f781195cfff257bf897003a2bdc10d2f02450c4bb"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-4-p008.jpg",
+      "size": 256374,
+      "sha256": "fa523eaaec36bf8a38a0bff75a57653ce9a8d7036b82c680ab25b053b436c298"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-5-p008.jpg",
+      "size": 151403,
+      "sha256": "5edde9caac8347816a28c720165184f54cb72a9c71a4530a302112d00979b66a"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-6-p009.jpg",
+      "size": 85389,
+      "sha256": "33502cf71d5830112172919a3907caa86cb989db625201c3fd2c8faa656968b0"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/figure-7-p010.jpg",
+      "size": 121643,
+      "sha256": "1100126c21dfbd1e0e3e8bbc1464122234a0795e6a5288b7036747316a9261d4"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-01.jpg",
+      "size": 11259,
+      "sha256": "3d6d8199c040c8200cc01bf069b437e209b8913c3e38791ea93ae9a3ec4ea657"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-02.jpg",
+      "size": 10864,
+      "sha256": "ac47418ea51df08d8a6e2048bf658be9531012769a1b9d356db392980e12cac4"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-03.jpg",
+      "size": 11067,
+      "sha256": "da54ef440179fb6f29de7424ef7f7e0ea24ab35b8b7d1d08a1ac6ea088e0c1f6"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-04.jpg",
+      "size": 11270,
+      "sha256": "9fb4f4bf13cee69f41b23b46304dfa287ff6e6a949a1023c4e2bfb5c059dfd92"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-05.jpg",
+      "size": 11942,
+      "sha256": "d1a5a8503f2a27ec1bda6abf8dae14c9ee1663b1d4ccae242058c53e9732bbc2"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-06.jpg",
+      "size": 12825,
+      "sha256": "b87c84f54324bcb7a928203745d9227377c392c68058eb091cc723fdedd290e1"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/raster-p008-07.jpg",
+      "size": 6125,
+      "sha256": "4e83a4023249d90878cc01f2669c6609a09ab0c43e5db3c1f1606dcd629785fb"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/table-1-p003.jpg",
+      "size": 310458,
+      "sha256": "d609f3a5fa653c6f1a34014edd8bc4f1c2aefc3153eeaad166dc9cc422ff9b29"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/table-2-p005.jpg",
+      "size": 341550,
+      "sha256": "921194599604735ff6de3e0541f934498144525ddcd4ef778b4d4570dafd3f7f"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/images/table-3-p016.jpg",
+      "size": 133569,
+      "sha256": "5e6bcff52f435ab33a840d75a023590290617cd5ab9c45b585bfa19fadde887c"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/qa/figure-contact-01.jpg",
+      "size": 107935,
+      "sha256": "63f7661cbf979ed000111d309ecad45139e94452b6bb02d11a1b9dd5e3a1fd2a"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/qa/manifest.json",
+      "size": 9922,
+      "sha256": "feb96d05c29abc71b7002f02918d4df8a243316ba48e65a03a1a1f997e54e4f8"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/qa/page-contact-01.jpg",
+      "size": 241288,
+      "sha256": "1379b530bc73d230e2a3c6a2ba96b4b22b9fd5bb1cfa51022732bd88b293ff32"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/qa/page-contact-02.jpg",
+      "size": 30156,
+      "sha256": "b1d019952a01c002024d8c23864e9bad4d32ed875d3140f83f64e9e1574fce20"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/qa/validation.json",
+      "size": 561,
+      "sha256": "375bfa642601a24add3dd674ec96cdfef7362787138ee963881a934fcafbf79e"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-001.jpg",
+      "size": 255687,
+      "sha256": "b084d4ce8441afb7c3f7d1ddd214a37edaa9406f49fa93b70fdfb3b38e10e253"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-002.jpg",
+      "size": 284174,
+      "sha256": "1dfef00710627eaa5e5ee31aea6ddad8ede50b134f348caef6647af43a88d7af"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-003.jpg",
+      "size": 284427,
+      "sha256": "d818635386cd97f26914e155b3c56b4d46dc5b43ad206dc2a8c68f6806a7f1ca"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-004.jpg",
+      "size": 251585,
+      "sha256": "17122c01d86bbb596671313b72da2b10fb486e6e53450ca4e4e03bf80753eaab"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-005.jpg",
+      "size": 304613,
+      "sha256": "029af680242b1a34aba746e53cde9bae4d6c314a167651cd8899f280b9faac1e"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-006.jpg",
+      "size": 296868,
+      "sha256": "071d9cdf0513d0ed10fc9004b8023d8dddc48ff7cd5efed9461042fd3fb909a1"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-007.jpg",
+      "size": 314284,
+      "sha256": "b55a79ed3a19244b9e599444d572f3de5140b1b104e2f7c27056a9482bdbdd01"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-008.jpg",
+      "size": 233200,
+      "sha256": "82cb0807a98befe2602283f1ace09d82e509e24e2e3a6ac9e996c34c3eca66df"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-009.jpg",
+      "size": 265410,
+      "sha256": "7d1df2ce0f331743e2b0595ab0802f83f8be5650eea26bcd22520b2d3def9144"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-010.jpg",
+      "size": 300660,
+      "sha256": "44aff8594216df1d13c2159f2d94fc19855f69debb8d7e8aef4ca409eaef063c"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-011.jpg",
+      "size": 255332,
+      "sha256": "2234c602f507a43c0cab30d1b42c2d4c3c9a4938807256ea35d24f3b90b9c11c"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-012.jpg",
+      "size": 257247,
+      "sha256": "47f3f02a478818817fb0a7c79b4806587de8bff0fe312a16adcbdc5f98207852"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-013.jpg",
+      "size": 267465,
+      "sha256": "4c49651729a35a30be932ee26af4472bc9d2af1d1f215fb5e99434bd3715c80d"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-014.jpg",
+      "size": 269138,
+      "sha256": "3f9e764f59739860db581f28857fe0756dd1893a65f783a19dd5a9b498c7f2c7"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-015.jpg",
+      "size": 233883,
+      "sha256": "72664bed2e1e70f4ad1c8ec19c6cbfbed39fa1853b6192cce1e39b99005c2f59"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-016.jpg",
+      "size": 238601,
+      "sha256": "493d08741bc48b940ab633f6805de1fa868731bf4a21f6c1e29d057b92202b3b"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-017.jpg",
+      "size": 211166,
+      "sha256": "fea3b79f3cde3ed71b520ca65c08f97cd6566286b881f46cd55570b6297bee98"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-018.jpg",
+      "size": 141061,
+      "sha256": "a528f2aa7b9b988bfc28eebbd00469c8d71710d4305605e90b6c422db27109a3"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-019.jpg",
+      "size": 168315,
+      "sha256": "ffef7bfcccf046ab504c0425bb2ec6e76fbd6d2a0ab45e76fb48f7bb7373e189"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-020.jpg",
+      "size": 81766,
+      "sha256": "9457bc3c2e9487bfd7275007390f8f9538780e76ee5c1b742f7555180ac2a6fa"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-021.jpg",
+      "size": 99549,
+      "sha256": "4d7f036d66ced41c2b0898b740a1f062efe24f0bf5ef7a9bc53925b8899445bf"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-022.jpg",
+      "size": 79959,
+      "sha256": "1363eb17a96b49d46f6d5b4dc707a96134dc84c15c484868b33e2cc9bafd9f1d"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-023.jpg",
+      "size": 136241,
+      "sha256": "c5534fdd1702e4196636c3928419b3eba5aadcf0b8b29dabaa9e19d516e0ba72"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/source_pages/page-024.jpg",
+      "size": 141555,
+      "sha256": "39d7c69290c80d0021b7cd1fbdc56a1b1ea9f03b9e5ade00f121f1b902f37554"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/中文译稿_摘要全译与关键段落节译.md",
+      "size": 3917,
+      "sha256": "76a95c5d4aff131c73e7a9df5004a7d3eb6564b5b190d10c16cd8766c0f59e78"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/原始论文.pdf",
+      "size": 1456777,
+      "sha256": "fa4fa59a12e9bcc3591bc098f392ca7993db56f9e66b2c967c8e9b6d063a6694"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/参考文献及后续原文.md",
+      "size": 41450,
+      "sha256": "231b6620b3589fd22d574cbd8f9c62ceadd78f56b93d5685d61cc0847f06647c"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/图表索引.md",
+      "size": 3738,
+      "sha256": "e8a0757ba51242d738886cd2443e2e74aca145dbbd2852314c2737b89cccbd58"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/文献分类记录.yaml",
+      "size": 1173,
+      "sha256": "3d9299cbbcae7ea92b21ac6cbadba0070f3efde97d6d23ea1551eb9ee87842d8"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/英文原文_PyMuPDF逐页提取.txt",
+      "size": 79913,
+      "sha256": "23efc1d39ca11875e6cc04d05a2295602bdd3071d22dc298199f7671bc7e05c6"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/英文原文_内容流提取.txt",
+      "size": 81508,
+      "sha256": "df3350fc091107dca331166a66290ab0210e750f043ccac5055996089a613f38"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/英文原文_版面提取.txt",
+      "size": 117613,
+      "sha256": "74091fad4ada0cfe274bb6d329571d7471350217016e2d0298b77ace37140dcc"
+    },
+    {
+      "path": "论文翻译/DiscoveryBench/英文原文_逐页全文与配图.md",
+      "size": 122906,
+      "sha256": "8dd44f99ba9d64547e55e5ff92876a807b14b264b09eeec6b55bd0b7080ecffa"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/QA_逐页核查报告.md",
+      "size": 1491,
+      "sha256": "2ecdde2988402ac8d192651cb9efd3f152721b16b66b8ccbee74350b439dea89"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/README_阅读说明.md",
+      "size": 1229,
+      "sha256": "4ea8ccb4d93851baeefe82c45e0d1f3aa26a73a90cf6a4724b13611482cffa2c"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-1-p002.jpg",
+      "size": 110027,
+      "sha256": "411807af408fbd9d778a3a29187880f7d81ea479de9bc18fbae09d002beefbda"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-2-p006.jpg",
+      "size": 367255,
+      "sha256": "711244f60350f1d2e7f12efeac7a0958a362a4082d8001c9de0485e5edea8d59"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A1-p011.jpg",
+      "size": 99307,
+      "sha256": "155b5b5a1cba61260e3979de95c885955709af272094909fbf3d1180ebc91b55"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A10-p024.jpg",
+      "size": 107083,
+      "sha256": "f4bb0f4d7dd19d2388cb3c9ef78d75059f23127a63f5ac384302d3e9162f7772"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A11-p024.jpg",
+      "size": 217508,
+      "sha256": "844d338fce38d20c671c8e413ed16f1f6c593b1c2b6f7c94836f67f8cc05cfa6"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A12-p026.jpg",
+      "size": 121738,
+      "sha256": "25b996fce9c91ba24355b72690c64b61da9f80676017cba96f43442756d81e25"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A13-p027.jpg",
+      "size": 102602,
+      "sha256": "b08ce3669bc11a31b2a9e8210f9fea135be60053e5a621e23ecdc4f8d0019915"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A14-p027.jpg",
+      "size": 195390,
+      "sha256": "c56639b060477b4ab60db343d42f511a6d14d567b7342ee11ee313323c84b253"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A15-p028.jpg",
+      "size": 97222,
+      "sha256": "55292e0463feb7bf8d4e44e937fd827fff75bbafe6a3ddf86582aa6bd502f580"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A16-p029.jpg",
+      "size": 119447,
+      "sha256": "96cadd6ead8962b01c9e4b319164a34ca117652d4c873723c95086b2b57a25bc"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A2-p012.jpg",
+      "size": 133349,
+      "sha256": "530755a2773069e7e8cb35e920f7aaf12a5249cd51793d92b1c9b3548829f05c"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A3-p012.jpg",
+      "size": 349143,
+      "sha256": "c6410cd13e2a2eb2c90e57432803fd6b21a5054d7cdfd6f86dcb9e96dec5de47"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A4-p014.jpg",
+      "size": 421665,
+      "sha256": "ce821a6b8f47f1a97f5d133261446a12b9a7130e76caa0bc881afc8808dcd289"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A5-p019.jpg",
+      "size": 305665,
+      "sha256": "2fdb3e271f2ea29b763842a78880875466d5b424f00866a0539136fdf1e78f38"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A6-p022.jpg",
+      "size": 102548,
+      "sha256": "e5da42f89584844811be979ef35df79b330b3276d5df016cda02168ebeb0a333"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A7-p023.jpg",
+      "size": 82341,
+      "sha256": "d0efc3b44a6f5855e0f73d66e416d155238b9d95550c910a677cda6b517eb7c3"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A8-p023.jpg",
+      "size": 213824,
+      "sha256": "fbe4dc2086c540acdd31a46f0ff5b10bf943be8730b9f793c953322560549dec"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/figure-A9-p023.jpg",
+      "size": 221809,
+      "sha256": "0efae343a92a62eab058fc887730453f3291a35d647953e4a1e05660712572a4"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/raster-p006-01.jpg",
+      "size": 19769,
+      "sha256": "21b1065de4e17f91378429f9f77cf47f6e0b34f0cd28c1ecb339347e8cf02a65"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-1-p006.jpg",
+      "size": 367255,
+      "sha256": "711244f60350f1d2e7f12efeac7a0958a362a4082d8001c9de0485e5edea8d59"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A1-p010.jpg",
+      "size": 425940,
+      "sha256": "04bb4577189c17b563fc69d70dc5b379b2c9a3101d272f11c9443c2ffefd8b8d"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A10-p018.jpg",
+      "size": 206956,
+      "sha256": "102f2f950de44abfe5db63b68fdb21c7537ce0841ad2ef92c7b8f48468cd70c9"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A11-p019.jpg",
+      "size": 244704,
+      "sha256": "ca08b17d441b01fd99beeb20e64c09a35d836950bb1253c1cd659d930fa1d557"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A12-p020.jpg",
+      "size": 258829,
+      "sha256": "92e5ed9588164623f6e6347a88f309ea4a02e5a546736356037d45752ccc7e9f"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A13-p025.jpg",
+      "size": 232162,
+      "sha256": "a5b12ae214d08f4283e1a2829b56d17ea1006ebedc3219f534ef5333075b8072"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A14-p029.jpg",
+      "size": 97996,
+      "sha256": "dbdfd0640c18a4bc986638226c0901a182a503e1b882f1155c6bb3c9e383c8ac"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A15-p030.jpg",
+      "size": 148157,
+      "sha256": "e7c38b9c9bf98a19427c9bc885cc161b825805fb745a4ccf3028df94acd8b0b1"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A16-p030.jpg",
+      "size": 91183,
+      "sha256": "205129d581e689f7eae628882654ee2882599b2e7fc8f024a7031b1abbcf3ed4"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A17-p030.jpg",
+      "size": 202310,
+      "sha256": "11416b0ffba1e3e96076b7efb8b94650256ecb8a8042f7203340bcefde9659eb"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A18-p030.jpg",
+      "size": 202310,
+      "sha256": "11416b0ffba1e3e96076b7efb8b94650256ecb8a8042f7203340bcefde9659eb"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A19-p031.jpg",
+      "size": 35528,
+      "sha256": "1042aa31f2e28d6539dcf7249264b23a49a39c96009da1cb69d2a11fffd0a152"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A2-p011.jpg",
+      "size": 218302,
+      "sha256": "4cf8954aafda1c081d511ad88a91299cff99d266debd2a56d24b35d3a721e250"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A3-p013.jpg",
+      "size": 415719,
+      "sha256": "3e04e153549d457520e6aa86b78e106b604c9ed7e3032c62a4fa1b0d4a7146da"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A4-p016.jpg",
+      "size": 179542,
+      "sha256": "3dad0de44a5a0d15bbafd68831dcac484ba8374b52b0c0e2c4b9d03f5d1e0928"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A5-p016.jpg",
+      "size": 116219,
+      "sha256": "23bee17a3a681d861ed1497d3d7fd9d80f6c6b7c6506fa832f2d817c92a8d87b"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A6-p016.jpg",
+      "size": 280356,
+      "sha256": "1368844693b59a33607889227d359dd359b0d4cf6637e420b7f6ca5b05d1ab3d"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A7-p017.jpg",
+      "size": 308251,
+      "sha256": "9736d701906ed4d205cb6c1b252244630c6993bb5b909ecc054c56245c2e80c2"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A8-p017.jpg",
+      "size": 253398,
+      "sha256": "bb67c10b255e29bc9222b8663e1be919412027bc5fe6285b8acd39a631668174"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/images/table-A9-p018.jpg",
+      "size": 248308,
+      "sha256": "91c5efbef1408b2f544c9fb7ab393d27e0dc2f4866fd6d21a4bccd75c1d00d05"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/figure-contact-01.jpg",
+      "size": 142851,
+      "sha256": "ae7e1c019486dac442ad87530ff1d55981dbcd4682022171e04b3ce5e907ea21"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/figure-contact-02.jpg",
+      "size": 137898,
+      "sha256": "072d45030f764a50f71d41f7837e5420bb3dda5a03b73eee20d3de56796dc029"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/figure-contact-03.jpg",
+      "size": 106607,
+      "sha256": "660cd4b6d30873aa0f5e73393609dbeca66de317c713add52b3d2b941f0debd1"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/figure-contact-04.jpg",
+      "size": 17420,
+      "sha256": "d13179a4a154fccf67e9e84f9d44ac61b218467b7a6c8dbef17d805c81dfe62a"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/manifest.json",
+      "size": 33096,
+      "sha256": "bd1f3d282c17bdb8f970a5e64e8a185efd85a67de1dc1fd345b148c211ace680"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/page-contact-01.jpg",
+      "size": 298285,
+      "sha256": "31a921ab15e4f9a0b5d1826f1aa0e8c5253b6949e3385e9afdb99784f58fe028"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/page-contact-02.jpg",
+      "size": 110475,
+      "sha256": "97200857eda1ccb278d8462832f855d9df8ce543ef1728017f2298444920a15a"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/qa/validation.json",
+      "size": 574,
+      "sha256": "89c9f78c8cb60b0aef1ee8dab5a8234860aa3baafc4aefcece2e2f3cfa7a4bf5"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-001.jpg",
+      "size": 356726,
+      "sha256": "2e383fb7a7a354db1606a3170549a05599d8311c1902ca4e4301b7f2f311fbf2"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-002.jpg",
+      "size": 331445,
+      "sha256": "f4ff1852855efde5859089e461c538446a395c26bb2a5355c9fb0eec5c74ec60"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-003.jpg",
+      "size": 398048,
+      "sha256": "44780de09104bfccbce26f85a35238ca7eeaec97d6732bdd9768c66e0f276f04"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-004.jpg",
+      "size": 400763,
+      "sha256": "e000d5ef26f242cc327414dcbf41c013b7cdd56cda35f7fa1f013efd9f32e441"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-005.jpg",
+      "size": 398936,
+      "sha256": "78dccf0e0c1bac1d61588029715508d3117562f5856bc6f19e8f96bede0066ae"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-006.jpg",
+      "size": 330142,
+      "sha256": "82a114138452de5fa6eb2fd4758784400b75406555c974d684fdb5e8d050c47b"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-007.jpg",
+      "size": 410230,
+      "sha256": "7248313ea92bedd6712812d02fa67e1a79420090557db10566af8e7fb3b35665"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-008.jpg",
+      "size": 379110,
+      "sha256": "7212530b5fd44a77dfbad5675fc1f23fbd040d75d08a439f90a4abc08fc0a552"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-009.jpg",
+      "size": 295488,
+      "sha256": "ca92886da62877f78d105f8cd5e1f89534b5f2fb2ae9c0fdabe1f925513ebad9"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-010.jpg",
+      "size": 384105,
+      "sha256": "719dcb03ec61550bd8367dc41b8fec4426795c3fe27e557f404593f8183b7d6a"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-011.jpg",
+      "size": 321368,
+      "sha256": "e3e9f6158ac741af93ce7db8140b9b10da694f66462f2d2a52df63f6b5fe5ea4"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-012.jpg",
+      "size": 317087,
+      "sha256": "c2ee6be1dc2f22d9693e3e7a9e4ec2efb50e3e5d39b5eeca3ad6858e8f0e2a39"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-013.jpg",
+      "size": 376271,
+      "sha256": "c426effb819f85b0bc48aeb3b08d85d0d9b56c9855127c1d3ce041db98c2f415"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-014.jpg",
+      "size": 376255,
+      "sha256": "645a2c9a3fb5958b1c2504418f0e10dda604c53f1b59342d9783778c74ab2682"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-015.jpg",
+      "size": 365437,
+      "sha256": "b788b71799bd518f2561dc2b8ab884ecedf49e6ce0ea474b374f745987c44b78"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-016.jpg",
+      "size": 255713,
+      "sha256": "344ee6d91d4ac9f39430cb7c811dd15a8a1856bc72c23fc3a5fba49280ec1bf0"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-017.jpg",
+      "size": 292214,
+      "sha256": "1b3a22cf0c3fd9167589ba2e868280efa704d64fd0a5c82211deea64c7ba4811"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-018.jpg",
+      "size": 273026,
+      "sha256": "c28bb38e80aaae6938276c7933a6b56a15e78e735627a8bc16aa43dd6a93271e"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-019.jpg",
+      "size": 271139,
+      "sha256": "0a9c1760182d73f82e31dc48ddddc8b6e146254d2586676a978d6dab9c1a7b99"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-020.jpg",
+      "size": 236211,
+      "sha256": "5fb75155e92e507c6db12442c648b1e2a0064b1793a8898fc2889f7426e22cf0"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-021.jpg",
+      "size": 330388,
+      "sha256": "e67ec7b02539a0c06ae12af5948e9a25ec21d7f2749c47027279ecf9d269b38b"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-022.jpg",
+      "size": 199241,
+      "sha256": "b01ff05b5ca4813b1b74a6ea7637c62ac224f209e8c1047b32237eaade79b9e9"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-023.jpg",
+      "size": 199208,
+      "sha256": "2f0cb0119bbe889149fef6be89688b89f0476538a900937091ae72fe1e863275"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-024.jpg",
+      "size": 196707,
+      "sha256": "99b364ad8e90ea66d435fdc6a69983c56f77eeccd3d0f09b988021a3409c1729"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-025.jpg",
+      "size": 214511,
+      "sha256": "f783012b7155a06178f1717ca89001226b4a92be796d5362e8f0dac9d402f08f"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-026.jpg",
+      "size": 113366,
+      "sha256": "5281811cb5e7c3c2d45cd2bfff94797bce64fd6516c68ace721af2a363639057"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-027.jpg",
+      "size": 182190,
+      "sha256": "8ed750663e9fc72bb9b38694908da69739474f891d267efc72d1ea816873daca"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-028.jpg",
+      "size": 94815,
+      "sha256": "1e07422ea16933e617f48abc60fc863cb725b5e42d5fc6384d30b1e62c261ed1"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-029.jpg",
+      "size": 108031,
+      "sha256": "0b22290c46533b509102f6152ffa06a607cd44ec1f828c3c67b0b6634b6cadce"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-030.jpg",
+      "size": 180325,
+      "sha256": "4a7a2342600c1941feb3b75eed0b9586209fb403cf52d250c121d987bc745007"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/source_pages/page-031.jpg",
+      "size": 46152,
+      "sha256": "291d3aff06c2ac57b137dd3591abbac6fa88492649583f101fd4a46f1ac7ddc3"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/中文译稿_摘要全译与关键段落节译.md",
+      "size": 4539,
+      "sha256": "4cee8a8c5ea45842f2135640300a321267c23cc2c1560e040dc9a551e04970d8"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/原始论文.pdf",
+      "size": 1899050,
+      "sha256": "f2a9c07c3b268841ed2918d55dff138547ec6b938f2335f0ef68c51903c5679b"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/参考文献及后续原文.md",
+      "size": 137014,
+      "sha256": "2e93de803e9d819c09faf50907f47dab9828274f241bf7b10fea1d893ee58156"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/图表索引.md",
+      "size": 21794,
+      "sha256": "b76528ecdff0f9ff0aed04cdfb3d16a7fa1e536e02bdc664e8ac0e9f1119bbca"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/文献分类记录.yaml",
+      "size": 1387,
+      "sha256": "9e519a27072711fa439078371383936db10d81b07c66295d3b27cff5a39ef5a7"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/英文原文_PyMuPDF逐页提取.txt",
+      "size": 129952,
+      "sha256": "4b7e16a893607e44a7cfeec9b4f54eed40fab0a6d7bb96dbe35f74318e6632c3"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/英文原文_内容流提取.txt",
+      "size": 129383,
+      "sha256": "bd5f3a24e0f4c0e1a851a728b986e682261139ee7e0d31f9bf8e7a93c0995884"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/英文原文_版面提取.txt",
+      "size": 187109,
+      "sha256": "ebc47ff65b03e6c0f6f3ac09f47981f8019ccbfba4c7f0cea893d89bc1431674"
+    },
+    {
+      "path": "论文翻译/Double_Measurement_Confound/英文原文_逐页全文与配图.md",
+      "size": 210518,
+      "sha256": "116e7022177a856628580ce0384d1819c1f3480a5495a8f6bed01bd40433347a"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/QA_逐页核查报告.md",
+      "size": 1493,
+      "sha256": "c01d5ba83131917160c1e3a666794783e830dc75a9c159187681b6b75247c3f0"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/README_阅读说明.md",
+      "size": 1181,
+      "sha256": "1324148385e413a9e6e631240414cad4bb23a3a5da27dbf042dcc1bccd2acd4c"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-1-p002.jpg",
+      "size": 138746,
+      "sha256": "78cd98f5ec5d54d891780a53a2e4ef1aaa52d891eca69e6138941fb3e78dab12"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-2-p005.jpg",
+      "size": 123341,
+      "sha256": "2e523b92bd96f4fbbaf9dac8a671e0ca8b3146c329b228db1f4a70f6659c682b"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-3-p007.jpg",
+      "size": 112309,
+      "sha256": "c2bbea45effaeb2a5050ac9c23a0612c67313b5b58c9dba7afd86e66222503b9"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-4-p011.jpg",
+      "size": 82834,
+      "sha256": "307c37231e3771452ad72734eba5499fd446555e16f8ac43912511006a27956b"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-5-p029.jpg",
+      "size": 154421,
+      "sha256": "252347e1d57b3fa7de25efea55d3ce349aa03b916f04f5278c6461bb120b4bea"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/figure-6-p030.jpg",
+      "size": 165653,
+      "sha256": "51ae5c4397a830be4c55ecb990e793681ec078694280242bc56168435f1d16fc"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p002-01.jpg",
+      "size": 70889,
+      "sha256": "2de8513d99ef408c41cbbbfa1b17a1b14f8030eecf329fb055bcd63b866e529e"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p005-01.jpg",
+      "size": 52654,
+      "sha256": "84c53c3402fa271ede653366f73268c26f80768de408c0bad0f450603a638532"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p007-01.jpg",
+      "size": 53068,
+      "sha256": "1f43fdead882b9f3740caf0a4fd305b3e6745583b7108085159d85a639ced8ae"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p011-01.jpg",
+      "size": 23184,
+      "sha256": "474f4b003f3beec67f0912a54cc08e7626d6c54afec177731400cc147e4bd692"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p029-01.jpg",
+      "size": 32855,
+      "sha256": "52baf7fb63a29e02336063c1390fcf91d74ff56fb5c7455943e2928c6503da45"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/raster-p030-01.jpg",
+      "size": 42272,
+      "sha256": "2f6e9355c0c7374b680851d670314c931b59bb83f2730d8112105faef351d25c"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-1-p009.jpg",
+      "size": 326989,
+      "sha256": "d3d1de1ea00fd5ce74e9e9a1ca12e7b1cc6071c1885020f8a478138e1e27f48d"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-10-p030.jpg",
+      "size": 198342,
+      "sha256": "5f0d4218c123e0503d952118d775b2bc889a722e036edb3b451357538c4923a6"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-11-p033.jpg",
+      "size": 271342,
+      "sha256": "85eadf0c93215d57c462549787d462c1736b2658e3d129017869ae4bd5812240"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-2-p010.jpg",
+      "size": 291719,
+      "sha256": "b9d0cd883818ccede461d733dbe06e6c003fc383d86ad06a0ed2b0442d96fc20"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-3-p010.jpg",
+      "size": 191642,
+      "sha256": "6a79d503d9507c0b67090137dc593a400ba05b7f8381f96b6a10e8d37550883b"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-4-p020.jpg",
+      "size": 306925,
+      "sha256": "3b6c75a7882db03cf436217ae74429e2bd81227f11c37e9b56c2a696b33692cb"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-5-p021.jpg",
+      "size": 200121,
+      "sha256": "4244353cbd82f77473276e606a226bdab149e71c50cbe4b7199a049ee41dcb3f"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-6-p022.jpg",
+      "size": 252114,
+      "sha256": "5d3600624398ab1dfb676e8ec61c8dd61c209ae2656a581cfd6c860d672ac8df"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-7-p022.jpg",
+      "size": 175336,
+      "sha256": "b1e6f69e122b41da6ff5173fc24c61484d956c6a57438a4f3986cdc4f2672aa2"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-8-p026.jpg",
+      "size": 254141,
+      "sha256": "73e1a184edf1ca21838ea63c5858312c7a9a73316ad26d15105b5ee3771c731c"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/images/table-9-p029.jpg",
+      "size": 204793,
+      "sha256": "548725e8e9e6dd162f5363d7f4f175bc188925b27985eee0f9b42bdc7dc94fae"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/figure-contact-01.jpg",
+      "size": 132909,
+      "sha256": "4e18017388bc300b6a2be8c37cde5f0e9ef738cb9540cb107760da1fd36288fb"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/figure-contact-02.jpg",
+      "size": 65787,
+      "sha256": "2e5c909e0e109d8c067453be205dc9803b3f694b19a0de1e11eb54d99c8f5ca9"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/manifest.json",
+      "size": 15078,
+      "sha256": "ccb5eb43b1e35546194c2a8a6ea4e5cfe7cfc0b21b57611846830388f44d53dd"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/page-contact-01.jpg",
+      "size": 262475,
+      "sha256": "0e906495873c1b070633a12ca96935b951288b7c2da15bd80debe2ba696551f5"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/page-contact-02.jpg",
+      "size": 161063,
+      "sha256": "3355c4b0c9667342fd2105b5f5098bd01303e0e3e6a674390021b98beca5ce88"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/qa/validation.json",
+      "size": 575,
+      "sha256": "2c7c4fa6360277791b0fb7bbe2503aef36302f04edce08cbd6d66fbe7172d919"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-001.jpg",
+      "size": 331577,
+      "sha256": "4ef23292abc9b3e588f28e0dd2aca7ad2c8e7109b81ef30e84d5d880a87f857a"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-002.jpg",
+      "size": 275045,
+      "sha256": "ab45b6ac7feaefe8d60494a62ddc874a9c13cb1947209a06bd60ff02cf203870"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-003.jpg",
+      "size": 384910,
+      "sha256": "1b946b32c9d213116913ddca6ec4f7548566b9eb55145d9fb82fd5e51fd49a32"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-004.jpg",
+      "size": 278323,
+      "sha256": "c83962600eac875c6b420cac9a2164736bc074c7139cc752d547ed37e0ca7e28"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-005.jpg",
+      "size": 252313,
+      "sha256": "16a15a1fea4e57a06ce9efa6232ec5d5feb88c1c78fbf0cead0c44173af9ab69"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-006.jpg",
+      "size": 328382,
+      "sha256": "d9ff8809b68ad8d5eb52bc62f6fb3d327f8d7e9a39b52baf1d797e658450c2a3"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-007.jpg",
+      "size": 250438,
+      "sha256": "abb4d0d8a22c50a7281f6ae609d7361ecdf45b0c783d3536c0a0c910e094a3f3"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-008.jpg",
+      "size": 314426,
+      "sha256": "714edd5d5b0dc5fe216ea9ed201fe86edb456cb58685f8f02a71f715ad98bf44"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-009.jpg",
+      "size": 303561,
+      "sha256": "77a83d5efbdc674863daf5f5007d69011392e9c0f0ff0490475217d99d50ab12"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-010.jpg",
+      "size": 265155,
+      "sha256": "a4d5d8c5a8e237c179923f3e69582d23230f12623b2e03f2660422a8375ccfd5"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-011.jpg",
+      "size": 270035,
+      "sha256": "9af1631d63ed62492ad58c7f86f9ad06c691169134b8fb477a6b6b4d922d8328"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-012.jpg",
+      "size": 342922,
+      "sha256": "29720a7926dbf13093b75b10a02594fb9011d46ed1de847839bca669296bd180"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-013.jpg",
+      "size": 225767,
+      "sha256": "998df6aa9022b6d5e0477fc227bff6946f530dfeda94d2ea24f8180198b253fa"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-014.jpg",
+      "size": 300946,
+      "sha256": "ea7340fffbc25324485b742045de924e8cb95f4f074e20591f2a8f1783340129"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-015.jpg",
+      "size": 317973,
+      "sha256": "3f6dfc6a9d34352a9989eff605f3a503ae64b3b7cd15cc3039c652a311b42802"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-016.jpg",
+      "size": 302812,
+      "sha256": "5f5b15fd6e53e7ec1067b0c6fd1c49faf9e14c9c111fe7309e288e8280f685ed"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-017.jpg",
+      "size": 313815,
+      "sha256": "e32cee0f0e398de888bdc8129b6e4110abc779e94a2996791189fd3a20f53443"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-018.jpg",
+      "size": 120498,
+      "sha256": "3d88c1302ef0e05cbedd913119f3c0c0d5f447660199118b0febbc12b9498eb2"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-019.jpg",
+      "size": 249464,
+      "sha256": "9119cbdeb415dcaf76452b692727945141d4e80327439e9a31dfb674888ff69a"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-020.jpg",
+      "size": 279383,
+      "sha256": "d76bf6c19a82eb2473ecd660ff53f9a9486141aa8a17f832cdfaf8c4f6c42236"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-021.jpg",
+      "size": 186656,
+      "sha256": "b869d37bc8e465dd7bcdee9d2e3aa8b477ea568b3087cb833ec28495cb696783"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-022.jpg",
+      "size": 229118,
+      "sha256": "40a00189379be5ca1641191c9681f12a12803ba6849ac9044276c8ef6779dc22"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-023.jpg",
+      "size": 269448,
+      "sha256": "5534b98103e46def0a69f107481fcd147e4d177bd514d4dab3e1251660cd9401"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-024.jpg",
+      "size": 298483,
+      "sha256": "378e9270e338e4c820ef2e9dc34e4872b236ce8f697e35c5bb6d124ed3043fa4"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-025.jpg",
+      "size": 230339,
+      "sha256": "b51d1ff0f154df7404e62efc9f7d8d4f6d0fc5436fb9c4bd7ed69231d5b3a5f2"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-026.jpg",
+      "size": 228079,
+      "sha256": "853a0311143c3c4ce5304e921fb8bae61c39903312ce75aca734e73bec88f896"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-027.jpg",
+      "size": 303688,
+      "sha256": "493a58c1bde04e1e8cc806c14981f61759dd3ad9d3897440619ea56c1227ac52"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-028.jpg",
+      "size": 301195,
+      "sha256": "24ba3853a81975d9fb42ea03774e44470f51c1562f0b750953d1c0bcf8f0712b"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-029.jpg",
+      "size": 184713,
+      "sha256": "80c57229860feab9083499720f99544236a3749fe2cd4496d5cb979660f4f354"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-030.jpg",
+      "size": 182011,
+      "sha256": "a4da40a5db58dd98d7cb0c1870cebc66c3f6c50ea95cacd1a5a66b3ec9df0f78"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-031.jpg",
+      "size": 279585,
+      "sha256": "8ffb08afcd662ff643cfaa0cc21040d0696ede707a7ee0319f4466d1dbd2266d"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-032.jpg",
+      "size": 289056,
+      "sha256": "546c11de4ddac8ac805fabf9907e605ad94267ef6baeb3bf2baa2474dcce1070"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/source_pages/page-033.jpg",
+      "size": 248694,
+      "sha256": "6c51f0252b95d18250a422eb78cce89ff5cc98d7dcdc18466711dce90e317935"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/中文译稿_摘要全译与关键段落节译.md",
+      "size": 4113,
+      "sha256": "5ca3c7d897b83adbbe624a2a17c7bd57e6f14740794c7e1745e73686ea925e70"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/原始论文.pdf",
+      "size": 3823215,
+      "sha256": "121e175f40d47e474b1a0b90c9ce378dbaa2403f51d904794f8dbc7995abce7f"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/参考文献及后续原文.md",
+      "size": 68772,
+      "sha256": "b283a65b894c1f3825299eb0d3b347644812c7f9931c5032c77f88603a13cb91"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/图表索引.md",
+      "size": 6411,
+      "sha256": "338949c5ac1b5e320556b491c1e051e8db80bbe6981708f0717e967d6d369a29"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/文献分类记录.yaml",
+      "size": 1252,
+      "sha256": "c816461e00b875779d2bdb66f50c0adec5087d246dbab233bd7c62bcde7fe624"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/英文原文_PyMuPDF逐页提取.txt",
+      "size": 99357,
+      "sha256": "947f285331e6089cb5e360d58efa131ef0f321d19e6b8a53c6b3ccd8c4c59159"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/英文原文_内容流提取.txt",
+      "size": 98732,
+      "sha256": "a63bbc0d506d818937b6d0e18ccc94fc3f714bce3682e9bebb001af4597a4459"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/英文原文_版面提取.txt",
+      "size": 115730,
+      "sha256": "765ae448b1e3549bc4348bb5b4fc7f24ede24c79f4c87662e7969d2d376c6b04"
+    },
+    {
+      "path": "论文翻译/Protocol_Validity_HackDetect/英文原文_逐页全文与配图.md",
+      "size": 124231,
+      "sha256": "97a75206f06db9a630176984fd5eece438442230ed5767529a7392bc872a0cb6"
+    },
+    {
+      "path": "论文翻译/RuVerBench/QA_逐页核查报告.md",
+      "size": 1474,
+      "sha256": "fe7997c45ee39c121a08026565a7aa344928fb86cbf2667d6134bc792daf864d"
+    },
+    {
+      "path": "论文翻译/RuVerBench/README_阅读说明.md",
+      "size": 1106,
+      "sha256": "85afee256ad2d1704aa529ec3634da2cf7e9c854bfefdcde64e3e1c7635fa965"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-1-p001.jpg",
+      "size": 324295,
+      "sha256": "c0818ca5b9458fc38141adf04dd3cdb4520e4fb81e6b0ad808310b9a1c610ed1"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-2-p003.jpg",
+      "size": 112399,
+      "sha256": "00816ff3339a75d715b9226301ed9af928349c2a17c76e760df4eb1c5cd84817"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-3-p004.jpg",
+      "size": 346250,
+      "sha256": "ef89c57b90b04912d2a84635ca3e9861d39b91421cec41c6a41c3fcc70efbfec"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-4-p006.jpg",
+      "size": 358006,
+      "sha256": "d23cc5ae5e8d53346556665d8116663eb1addac71e7546f9d09fb3f1b0696d66"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-5-p008.jpg",
+      "size": 99639,
+      "sha256": "6aea1eedf6a722cf8ea57fb2b335fd5fc50d3f2dd7334dcc72d474395700edad"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/figure-6-p008.jpg",
+      "size": 319703,
+      "sha256": "0b7e02ce17425ab326b1b94c8c8c5a59109ccdb753519e3eee7bebb0940b4d21"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-1-p004.jpg",
+      "size": 318852,
+      "sha256": "47113249cbc5eb1ccdffa64ce967d7495d59a666a7bd5cbaeb6b0c550b152f1e"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-10-p015.jpg",
+      "size": 274360,
+      "sha256": "a9b417938af5300731a19e31be54a70d129225a6c5f401cccc60c7d2b6b8e366"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-11-p017.jpg",
+      "size": 236376,
+      "sha256": "c43cd0510cef2da9efb56b3d0e9362c480dc8e031eb0ad4ef7effb38fb135d1a"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-12-p017.jpg",
+      "size": 236376,
+      "sha256": "c43cd0510cef2da9efb56b3d0e9362c480dc8e031eb0ad4ef7effb38fb135d1a"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-13-p018.jpg",
+      "size": 212220,
+      "sha256": "7d54a282257a3ad6f421487534a057c6613bed428080c73ae0ca30ecea17c49a"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-14-p018.jpg",
+      "size": 93715,
+      "sha256": "ce6bf743b59d771a8e4b65e60ac301da378c7adcf19b9db6671171de3efe3bfb"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-15-p018.jpg",
+      "size": 267238,
+      "sha256": "2b873e61f2d1d99734088ee77e05b7e980a9c98cf7871313249ab2ba447a5a19"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-16-p019.jpg",
+      "size": 225165,
+      "sha256": "5a0eb130620be78d4332f2a77614ad3756482ed277f2d9f5cc8b119f70a52a70"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-2-p005.jpg",
+      "size": 140708,
+      "sha256": "1c3788660fd3a07111c388f486764357643a8ef1a28da2a59182cf1f8cbc968a"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-3-p007.jpg",
+      "size": 380136,
+      "sha256": "686df5a34a2aaa504f922b5947ecf8a548df3fdc0f3b1d6c14eab859c6f1c0a0"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-4-p012.jpg",
+      "size": 302002,
+      "sha256": "5e9e85ea782231a367518aa311a33e2a792fc164b1bea717c94a0686f09495fd"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-5-p012.jpg",
+      "size": 259231,
+      "sha256": "e89eb66a22e5ef8669697d85b202554bb4cb342f9c17b7ba123b5b7331e8660f"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-6-p013.jpg",
+      "size": 269977,
+      "sha256": "175d4d652301194dcea19be3a9acc445d5927a490db21d482f4a39bf66bcae0c"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-7-p013.jpg",
+      "size": 226564,
+      "sha256": "b4e73079dd4dea3cd1d177fe1da95df411516c3b518ac28fc1dcda516cfdaa2c"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-8-p015.jpg",
+      "size": 203734,
+      "sha256": "7619ede64ec97d1e1c05598e3ef24aa31aafb6ea848712c323b69e7508d81053"
+    },
+    {
+      "path": "论文翻译/RuVerBench/images/table-9-p015.jpg",
+      "size": 144280,
+      "sha256": "4ac88c8609ee62df0fca8dc825ef6868662cfd970141032770f4dde080c7f8f6"
+    },
+    {
+      "path": "论文翻译/RuVerBench/qa/figure-contact-01.jpg",
+      "size": 153812,
+      "sha256": "6e27f38cdb26b7ff279f3aaff438ef36d16ef63ede04d06b0c027f436574873f"
+    },
+    {
+      "path": "论文翻译/RuVerBench/qa/figure-contact-02.jpg",
+      "size": 111269,
+      "sha256": "3ab93d6c88b590d044aea22e757da4da157a0cd5c4f91a89698aad44ee7e134e"
+    },
+    {
+      "path": "论文翻译/RuVerBench/qa/manifest.json",
+      "size": 12859,
+      "sha256": "48bc07c9f2e817ff493e37a2b99178118d068caf6cfeb21181c855d61b67e992"
+    },
+    {
+      "path": "论文翻译/RuVerBench/qa/page-contact-01.jpg",
+      "size": 249501,
+      "sha256": "f74bced41f96f73758f8d1dd1f2437d940cc13a8a1ed57929eaa09885d4cdd14"
+    },
+    {
+      "path": "论文翻译/RuVerBench/qa/validation.json",
+      "size": 557,
+      "sha256": "08cff2aa5340b589bcb44f4e75c67ef5f28cf48a045693aab9d7c60c05cf27d2"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-001.jpg",
+      "size": 290815,
+      "sha256": "3fd135ce621ec61519ef2877fd3a76416679f9463c9ec2d116147e3d71454f87"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-002.jpg",
+      "size": 382544,
+      "sha256": "e1f66a7271af89948f3a3801287fd4a8ea67859d6abdf5275ef835d53a5fc7c5"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-003.jpg",
+      "size": 299434,
+      "sha256": "89cd78fbe3e94df1b878840372b4f6c6270871eb90586e64e4e3b2f1219fee43"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-004.jpg",
+      "size": 315511,
+      "sha256": "a972a58948310389e96941af5664f87052f8c47ffc4ffbdaf1ed19560adaf4b0"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-005.jpg",
+      "size": 228458,
+      "sha256": "c4b12b1b6cc74bd1b8e5a863e55fc490ecd9e298aa5d4d82ada8c5706fecd755"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-006.jpg",
+      "size": 324524,
+      "sha256": "729c00873f1885738bbee8d6618024ade3a54daf5008e7fa7837b9a2327e68ea"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-007.jpg",
+      "size": 347600,
+      "sha256": "4b09b1e4e1fd2460c816e0404e1a25a88c2fa55f82bf2cdb8f91d0f7e13fe872"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-008.jpg",
+      "size": 288932,
+      "sha256": "b7e4658e0a9353df71f44b9f1ce3f9ebbd0b6cb71c053c2ea5f65cc8152a5e3b"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-009.jpg",
+      "size": 352219,
+      "sha256": "7d22e3c377975b71b0c19f39eb5dbd8c6ba1892dad00eb2e44f00b4683551ebc"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-010.jpg",
+      "size": 360941,
+      "sha256": "60ed2f42df27294ef7dfdafc73319e22e15b279b000de5a53a79f98cb138ad74"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-011.jpg",
+      "size": 362449,
+      "sha256": "ebc26eb4286129cae00625228fb06d2be45dbb2fb3a3a3a1b063855b1dda6037"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-012.jpg",
+      "size": 307481,
+      "sha256": "d29bb530d984323b45108f0cf2b546d797fe8623111ea6efc81fc276e12a3ba7"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-013.jpg",
+      "size": 271934,
+      "sha256": "4cf2c52676f8ae23e47e298388753bd3f1bcc7a3021726480e4ef240f8ddee1c"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-014.jpg",
+      "size": 338784,
+      "sha256": "68da5e01b0ed3cf207a6cd4a5a4f7316b4da5fda6560d418a73ea579dec607f7"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-015.jpg",
+      "size": 247899,
+      "sha256": "da0166fc0a76334c15a27527188a5cf9abd6c118964c88d010acabc032034ddd"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-016.jpg",
+      "size": 222277,
+      "sha256": "f5abc7ab6ea14c58771890f3e46a246009932e7a4a8d4738b7489ff03ab85f98"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-017.jpg",
+      "size": 215792,
+      "sha256": "0613cb326d698e33d79986929e7e93757c6023e3a93feea0dc3836fe7d7f0065"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-018.jpg",
+      "size": 244979,
+      "sha256": "bec52e6763bbef2da5a4d30ed2a2a451c20a9b01afe847644c889545f3f39b1d"
+    },
+    {
+      "path": "论文翻译/RuVerBench/source_pages/page-019.jpg",
+      "size": 281143,
+      "sha256": "293b6f7445a3a8adb8563a9a65809cb08518704579f2344a794ae07e818bfea3"
+    },
+    {
+      "path": "论文翻译/RuVerBench/中文译稿_摘要全译与关键段落节译.md",
+      "size": 4723,
+      "sha256": "9b0c36372618e298b6f438628e7c0d02589d1204ce46ffbe57cc2be2512c6340"
+    },
+    {
+      "path": "论文翻译/RuVerBench/原始论文.pdf",
+      "size": 1282671,
+      "sha256": "4b3766affe7e370decc8ed1ea53d0c7cac3fb294f5c2939cbf1340a3bf79ca82"
+    },
+    {
+      "path": "论文翻译/RuVerBench/参考文献及后续原文.md",
+      "size": 69536,
+      "sha256": "6a08f58e24608843a0d12c79b2869739347f6f3fa7d77cbdda3d55fac6e9a73a"
+    },
+    {
+      "path": "论文翻译/RuVerBench/图表索引.md",
+      "size": 6267,
+      "sha256": "96af274e16aa2f44476ec3a2f2eaf207d651fc80b48b3748dec27c4c7efa9c20"
+    },
+    {
+      "path": "论文翻译/RuVerBench/文献分类记录.yaml",
+      "size": 1144,
+      "sha256": "b4a8ac64104269b6707442a4a6a2290b0d79f63d241c83048ce28b35c72255fa"
+    },
+    {
+      "path": "论文翻译/RuVerBench/英文原文_PyMuPDF逐页提取.txt",
+      "size": 79560,
+      "sha256": "409ab0291b37eea22a48b46ea6167c9ffb411bd1d7aece2113c02fcfa8fad4da"
+    },
+    {
+      "path": "论文翻译/RuVerBench/英文原文_内容流提取.txt",
+      "size": 79158,
+      "sha256": "1328a6cfd8e06b5b8087a07c60e8f90922602d17cac0e065b9a3d37703a17de2"
+    },
+    {
+      "path": "论文翻译/RuVerBench/英文原文_版面提取.txt",
+      "size": 117952,
+      "sha256": "455fc2e7cd4ed2879639afbd3ee236c1a6537f1a3087a8cfd4fe770b9be5d212"
+    },
+    {
+      "path": "论文翻译/RuVerBench/英文原文_逐页全文与配图.md",
+      "size": 125223,
+      "sha256": "6f6401e122a5ef6ac4a88256028de576a87e5c5af5b56266d24e7b6450039f1b"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/QA_逐页核查报告.md",
+      "size": 1474,
+      "sha256": "3f2b014197fce24174c6ad2c43bb6ce4644b476bf02e7aeb25854a07615c9187"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/README_阅读说明.md",
+      "size": 1191,
+      "sha256": "bf93b4c771ddb7c8c97969fd915b1dff7ea62f8a6ff86e487f087229a7d81a5a"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-1-p005.jpg",
+      "size": 100739,
+      "sha256": "646165a4e0c17c0f8c7fa39b8ec84a7bcf5f8b8dec79218064f0cf4a7c8a6fe7"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-10-p021.jpg",
+      "size": 75514,
+      "sha256": "3ca5e1b1f1554414d9ba1e62a588ae8cb8524e585a0be079c35173b1a802ceba"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-2-p007.jpg",
+      "size": 119171,
+      "sha256": "59587667d2ca640e70ed0991e6a4f1df3033b55abdcb499fd44ffee9c83fabfd"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-3-p009.jpg",
+      "size": 92293,
+      "sha256": "7d4a067f9619c0e146efc97c96ca81df269f1a06509d73cbf10fecb1689bec5b"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-4-p010.jpg",
+      "size": 73150,
+      "sha256": "3088d25225d95dd7b1fcf0a1e6db66c80e261ed39e13ad5e92cf3fba3d114000"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-5-p016.jpg",
+      "size": 90301,
+      "sha256": "6589f3609c8edc27db45cdf9ea26b66b34fcc270e1751aec4e45770437f87a1d"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-6-p017.jpg",
+      "size": 71635,
+      "sha256": "fbee28a41e23efa912d1ecba293f1457868ec5b0f7440071822d80f1c3fea763"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-7-p018.jpg",
+      "size": 89244,
+      "sha256": "5541018b345a8c9dfb696301b51f6f89129e077609f6d362a8db9411ca8f7ea5"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-8-p019.jpg",
+      "size": 106646,
+      "sha256": "40a79c5eac158c1e0445bc311c3af96d1d48f1d8ba676ca688912ba2fc3eda52"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/figure-9-p020.jpg",
+      "size": 86376,
+      "sha256": "a79aa508e1074179c96e4c8e627141fcb1ec0850603b0d859058c0d473f9ec27"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p005-01.jpg",
+      "size": 8814,
+      "sha256": "3a67fba04801f31a2c9dbe265426b8e73d73eb957cef8737831c0e4334a4894f"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p005-03.jpg",
+      "size": 9943,
+      "sha256": "9e6af7d48c38b305aa39ca0622237aeaf8976cd562f51332dee3cceab860258b"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p005-04.jpg",
+      "size": 8044,
+      "sha256": "13833e1f1daa5ab1a10ddaaa3c5896a2475e94fd89d733c72cb7ca8e846d8348"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p005-05.jpg",
+      "size": 10643,
+      "sha256": "faea2d8eb8c73d4ad1a10df344bc99d7527f8236fb160b109778f46bf769b6bc"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p009-01.jpg",
+      "size": 8582,
+      "sha256": "a56271b8017e1dac41c62dce436643045459fe9217d9397ae7ae43f2636b931c"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p016-01.jpg",
+      "size": 37964,
+      "sha256": "32aa1065963340a199e2e2c26bab4a3e4601c96dba3fa5fc59dd46dd3eb29c49"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p017-01.jpg",
+      "size": 20267,
+      "sha256": "38af2629494a1a81eba9aa53ebfb4cf0349ef0a2cc9d7f1809a0c38e18986143"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p018-01.jpg",
+      "size": 33617,
+      "sha256": "889cdac81d3c7c4f4fd7c3201b96895c0b8fcd4d22cd5b04039d9e17f9a5ee24"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p019-01.jpg",
+      "size": 46323,
+      "sha256": "fc4b4d47fd2a7c2163e3accd609247fb59093e96948d004ad76ecf1a0d2761a6"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p020-01.jpg",
+      "size": 35783,
+      "sha256": "5afdde82dc52b74b0b979651722200d604912a827033c3d2c69f86c80ae3cb0d"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/raster-p021-01.jpg",
+      "size": 32681,
+      "sha256": "075220b7f3cd47e670b8681a2b6749052579a89c07dbaef4e8e200bfc761f170"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/table-1-p003.jpg",
+      "size": 280811,
+      "sha256": "3f20c24a260388cee7f325711f9f3a70031df9da1b2c6a884574cd136c0c77a0"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/table-2-p008.jpg",
+      "size": 266692,
+      "sha256": "6ecb43bfd688f0201e43624dd86c0bc1c8be19ae790d431595906cc7d3a9e05e"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/table-3-p013.jpg",
+      "size": 227845,
+      "sha256": "fdac24287f3f433bba670a1f633f50922dea60ec382ed145fef6d5702e4db2c4"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/table-4-p013.jpg",
+      "size": 187819,
+      "sha256": "966fda8c1993f924a624d73b137d303969118de2e18771d08a3cb7e8afbd7248"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/images/table-5-p015.jpg",
+      "size": 268555,
+      "sha256": "c767bad1b68f32cdbc9918de02bd1f098b0ef1ebf361b7e1b5f45985af6da56e"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/figure-contact-01.jpg",
+      "size": 112345,
+      "sha256": "ab628f010c5a64c2aa2780ba042dae49dba9739ade83d12a001024ad213a648f"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/figure-contact-02.jpg",
+      "size": 22682,
+      "sha256": "6de128b50919beef3b347abbeb1f0a28fc13418a831b99b53ce991b1bfdd6186"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/manifest.json",
+      "size": 14084,
+      "sha256": "33091b3b82d23e3e8dcdb01f213ae37cc1787ab5ee51cd50fbffb4fd3d7d95f0"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/page-contact-01.jpg",
+      "size": 219067,
+      "sha256": "911c9c1e3697ca8cc9c5b0e55242e94b09bd24fe7665f00072a9b238b3363faa"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/page-contact-02.jpg",
+      "size": 10276,
+      "sha256": "6c834722134bb4bac56a8dccd3533318ee6994ff3f880586bb96c72d927b8deb"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/qa/validation.json",
+      "size": 556,
+      "sha256": "a012832c882bc68d27000358fc23873ca7da00712e0a4858c182a53f116c131c"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-001.jpg",
+      "size": 270522,
+      "sha256": "ed4d7f7d34d2eafaf1cc9f940e2e666bacea197fe58ad3f7d946cf9b6df1ca3e"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-002.jpg",
+      "size": 295696,
+      "sha256": "499158a0923dc5c0e0cc87a1ecb314c36bd831cdcc842db5df729cdc967d20f9"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-003.jpg",
+      "size": 258253,
+      "sha256": "8a2acc8a04a252e4f70a41713cc7277a4b5824df56fdb157312c7ab6054cabf5"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-004.jpg",
+      "size": 283686,
+      "sha256": "063afc8d09fdfe238a4dc7320387068d99b2211b0475ead7aa0d87f679a1df9b"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-005.jpg",
+      "size": 245080,
+      "sha256": "c61c8c6447f1e53b030bb4662c2b9947848ecd66cdf2eaaef5f4312aaa6e9b37"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-006.jpg",
+      "size": 290807,
+      "sha256": "fda69ea615f2892a35688e59474c422321310acaa193ea985bbb385f5b70a9a4"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-007.jpg",
+      "size": 167789,
+      "sha256": "1229efcd4d92764309186f93ab44c99f06fe828669f8b45b427c4f1de4c093bb"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-008.jpg",
+      "size": 249051,
+      "sha256": "e1a6bc03411f0e047b69229b8df783b34051b127e4100f74a5e471722784e85a"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-009.jpg",
+      "size": 224872,
+      "sha256": "8c4ac3faddd2e1265c0245592277de240f191d26bbd3a90c7e9451b7fa97e005"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-010.jpg",
+      "size": 154021,
+      "sha256": "5d3a3bb9a4ed753115b586879fcd160419607c96556885b330088c41853b4e15"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-011.jpg",
+      "size": 295905,
+      "sha256": "f3bc8ab680e7d13e7e454e8f3d4727608505c27372761cb78060c76c84e4b2c0"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-012.jpg",
+      "size": 62996,
+      "sha256": "fc9500eccb3274d85168f6f7ce8dce09e760fb5c06d6e4aaf152baf1950f8871"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-013.jpg",
+      "size": 221767,
+      "sha256": "9138b06da7a5aca258d7a8ae24db632b3ccd354a39eaa4576d324de7fd1d3ed3"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-014.jpg",
+      "size": 268349,
+      "sha256": "46745a33505ec6b1fa2103f3bcdbee1d73bbc89600235a705bc26317bd7a48df"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-015.jpg",
+      "size": 243293,
+      "sha256": "5421b3c5c4d3929b8042dfca155dd6dfe99900504960fe81b53ccfda385e009e"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-016.jpg",
+      "size": 147446,
+      "sha256": "18f7e6a91b4ba06a6e0c665c6c897cad9e08fbfba32768afc1eea9104c05901a"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-017.jpg",
+      "size": 135404,
+      "sha256": "f2693de7a3f9cff27c8bb25960aaf174c007442bc560ef34bcb3a50bd5214e93"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-018.jpg",
+      "size": 150209,
+      "sha256": "b58d357c86949577886869975a63fc903476a8665d221d137924e4175c3d1624"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-019.jpg",
+      "size": 169334,
+      "sha256": "08fe7850d433dfec93c10c6fa574cb65df6615fc62d090f775b271796f741845"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-020.jpg",
+      "size": 156561,
+      "sha256": "711faaad2291fd8396d368eca75f1f03df3a29c5a6aa2dd09edde1baf16bbf21"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/source_pages/page-021.jpg",
+      "size": 75415,
+      "sha256": "bc7ecf4f5327f35f336742e365d628ba9a47c2e2fad90e7cd3cae59e493c3ded"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/中文译稿_摘要全译与关键段落节译.md",
+      "size": 5362,
+      "sha256": "7fd278125f14c8524d7811d0f1018d084513cb6a3bdb80061b583e268b5d745a"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/原始论文.pdf",
+      "size": 4553200,
+      "sha256": "94d65d556cdd779ed06cccf9a280bc37dbfdc4f789cf428332866c7ae431a612"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/参考文献及后续原文.md",
+      "size": 27361,
+      "sha256": "11b9329f6b27606e5dab0092f661c87d971e4077fb489cf21f62751f2c47efd4"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/图表索引.md",
+      "size": 7366,
+      "sha256": "7d8584cad19a268bc0fc7b7920331e4559e78d6cb87f1028d514094992f267b7"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/文献分类记录.yaml",
+      "size": 1298,
+      "sha256": "f734df6fb88cd4c10c6ec3c96560860cf5f3781d59604604c9ce4f5d2e809672"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/英文原文_PyMuPDF逐页提取.txt",
+      "size": 61792,
+      "sha256": "736ecfb72c3fcbb4e7ebc80f3debeb7a27e614f3c2644c867d52ada07b095947"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/英文原文_内容流提取.txt",
+      "size": 61469,
+      "sha256": "d60b9ab37b5734f06f82afbaac37fd49d8e1ae2e5473646911b5c1b7d8e1bd62"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/英文原文_版面提取.txt",
+      "size": 90072,
+      "sha256": "acf04985b98f93be654b0a0deb89c90082e0f262469b2bf52296a5ab5956b6c6"
+    },
+    {
+      "path": "论文翻译/SCIRIGOR/英文原文_逐页全文与配图.md",
+      "size": 98533,
+      "sha256": "99956931aa8ba2b6f223d01ad83747ff5e851db450c527e2d53c90bb9cb78591"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/QA_逐页核查报告.md",
+      "size": 1482,
+      "sha256": "e37cbe5de5dc36439a3c6d1df9c04bc155de7c56dc5fa864a7ea6b5df949a867"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/README_阅读说明.md",
+      "size": 1169,
+      "sha256": "b6894cd75e18ac8341eb9fd10b4571a66d115cc6ca87a4fced5b4d813a73255e"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/figure-1-p002.jpg",
+      "size": 96365,
+      "sha256": "720893ab3c55e0d60b8a425a139b67f969ddbf3c080e6d0aa7762885d9e67a1a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/figure-2-p003.jpg",
+      "size": 118366,
+      "sha256": "7ebf183780c9ffb34010e6f394948ed3858abbe56aec2defea783d4482130829"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/figure-3-p009.jpg",
+      "size": 84351,
+      "sha256": "ee7050c97162833d8eb47077d01f9222b3a6177ab672494aaee6fbd412d31a9d"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/figure-4-p010.jpg",
+      "size": 79947,
+      "sha256": "635c6417208d0a9c32db8d4fa79c118c08a3a9834828a0701743b6a9ca25ffda"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/raster-p002-02.jpg",
+      "size": 4426,
+      "sha256": "b8df1fa1ab149d8bf380592e5d86d0fe86e48fc10b1ccf455c0cf081ccafb628"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/raster-p002-03.jpg",
+      "size": 8566,
+      "sha256": "af40b9c58828af2cc02278b1026f0206f04ff10b0dd4f8bc8b00960ce2ce57b9"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/raster-p009-01.jpg",
+      "size": 9622,
+      "sha256": "26b54905824ca353ceda658dcbc3155b5f8ddc8ca3800fcd49f05a48b4585af6"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/raster-p009-02.jpg",
+      "size": 12440,
+      "sha256": "3d76f235c2dcd1c408ba48544af849cbcb81f24ced7a8cf901b310f159833ff2"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/raster-p010-01.jpg",
+      "size": 21496,
+      "sha256": "f28071f606106a8b74bd7afd99f59e4f6fa80ea8c4d6d7216442ae540f4d0103"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-1-p005.jpg",
+      "size": 317090,
+      "sha256": "26ee9a7149ab48a7aa14c9f985a5eca4e73d4382f8b038511cded4318cb38cad"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-2-p006.jpg",
+      "size": 308968,
+      "sha256": "0b4626486bf409036fde468b966805c3b61fe0356088ec5450bc89053a1f4fca"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-3-p008.jpg",
+      "size": 304470,
+      "sha256": "329598196fa4bc4eca8a509049be9df6fa74de8d9d6279eb23fb60b1f9f5aac5"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-C-1-p024.jpg",
+      "size": 176588,
+      "sha256": "6dd33e0bebb5b2718f260d6a3dbad83b472d529b5cf85bb1839a28825d71ca40"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-C-2-p025.jpg",
+      "size": 190831,
+      "sha256": "1553596fceae8443eb00d34295ab41f1c61d4a42a10f08a71ca4ce63554a5dd6"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-E-1-p027.jpg",
+      "size": 198502,
+      "sha256": "9441aac83bc1b878753ba3a993409b60886303b5b65cbac3731edc5a2f563727"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-E-2-p027.jpg",
+      "size": 105978,
+      "sha256": "c695bca9c626aa5888af29b229bfe6f541d927f93ef02893f635dc9f623fd93b"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-I-1-p051.jpg",
+      "size": 181143,
+      "sha256": "13fb12be4be2254fbdc0654f87114d8f3504f2892e11f49b1af3327c9dedf878"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-I-2-p051.jpg",
+      "size": 97774,
+      "sha256": "57e443c28f6cad17306655f6f540675d946646645a13ae03368b934d136ca54a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-I-3-p052.jpg",
+      "size": 86120,
+      "sha256": "f87aafccf67cd9fddf904256533c693ac744aa7608814cc0a0cce4702454ebee"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-J-1-p053.jpg",
+      "size": 162024,
+      "sha256": "bcfed42dbe3972821f788ab4596515eb84d9601ea994b5006dcc60f02583c1b1"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-J-2-p054.jpg",
+      "size": 121410,
+      "sha256": "90d6c54fef936b62676619e54036bc7cf0a80e1319b0a4c39a9129d14d2c4c0a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-J-3-p055.jpg",
+      "size": 89853,
+      "sha256": "bdc3ebfe6e63ae61f4378ebe650466b2907d1df5f12c7d3b86a0254c8498939e"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-J-4-p056.jpg",
+      "size": 123963,
+      "sha256": "6b59900d3ac00005330ce009a5181277aed0ffb4b2c4e4aedf7975e11732c770"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/images/table-J-5-p057.jpg",
+      "size": 192190,
+      "sha256": "b2fc8ede1dd746da8e22f02c72d7e7a71f6fa21cfe15c9b7f76b83e3f1fc7b20"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/figure-contact-01.jpg",
+      "size": 114645,
+      "sha256": "de7fb480d5303c7cffca01ed7a96878b4ae2849035aca747a61181086091a63d"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/figure-contact-02.jpg",
+      "size": 51275,
+      "sha256": "a2ad731d5d8150cbd818251b4d83deebed94de27d471825e0361a0202d45621f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/manifest.json",
+      "size": 19100,
+      "sha256": "fe71cf11e2d7c2e49eeec1f94c982f2f5091be114f99f6b541b7651cdfa7181f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/page-contact-01.jpg",
+      "size": 265447,
+      "sha256": "5da13e1349ae769ce05ccbe24934f05c3971155243c3a69d5dbe8845a7a8a749"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/page-contact-02.jpg",
+      "size": 178223,
+      "sha256": "d9dd0e7509df5d3d8b0b251b21f592b378bc6d93d9b62a815921e62f40b6661e"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/page-contact-03.jpg",
+      "size": 124044,
+      "sha256": "b136d23b53fcec6c48b3b0569da358ad7fb154cb70acedbf97b263dcd6c66fcb"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/qa/validation.json",
+      "size": 564,
+      "sha256": "ddacbe611ea1151f6cd09f2d0aa909e7e4a3a551b2db39b2caefa9ed3094e930"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-001.jpg",
+      "size": 260499,
+      "sha256": "c6c1011a18e30c3686874196105b5919a424420834128cf04e4a31f135904282"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-002.jpg",
+      "size": 299357,
+      "sha256": "a6417590e4b7a6a2409c1cc0a62a658e2be0e95232c5b488fa0590d088ef312c"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-003.jpg",
+      "size": 259187,
+      "sha256": "cbaa130b1e3a3cc488616200f5c063ca89c015f95d72b4441c30020b34906183"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-004.jpg",
+      "size": 324438,
+      "sha256": "d4e8474cec3e3f2358564aa024f9196d8502015fac017d616303bd9318ace637"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-005.jpg",
+      "size": 289515,
+      "sha256": "7c474dbf6cbda3cc704dd92f56c1503a9d885ee62846f1970af3dc57e78d96cf"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-006.jpg",
+      "size": 281240,
+      "sha256": "45a8a8dba19e1cabc6743dfe4cea46cdddf4df165f39a7355acb877117709b58"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-007.jpg",
+      "size": 323089,
+      "sha256": "c6ac863e0e2e269487144297cd4a91c04d3728bb93a40cc7ab52af5818dd5bbe"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-008.jpg",
+      "size": 279827,
+      "sha256": "38ff42d69de5b85c520298eb56d3e105740dded2df68f292016276f1081b4993"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-009.jpg",
+      "size": 283268,
+      "sha256": "0a875cd32df1a18b8240a3558433635510b4e861e9be41f57eaf98166c515914"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-010.jpg",
+      "size": 245829,
+      "sha256": "cd7ae796cb9d2f8272b2be139430266a39154d419223107fa17d52741d28ea54"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-011.jpg",
+      "size": 292106,
+      "sha256": "f8e0251689678895ba4a863c9d46fd61953a3eaddb25fce6f80ed4fc990ec9e0"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-012.jpg",
+      "size": 296816,
+      "sha256": "cfcf7de68f1cc9766482aa787aaa66ec282a86daf735a83f72b42f3290ed8000"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-013.jpg",
+      "size": 356038,
+      "sha256": "527b2a40e3490c402edeb47582df2d17dc1bedca6e7933cb060aabbc7a29d00a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-014.jpg",
+      "size": 321521,
+      "sha256": "414b90b8b79938578456b9c7f446f58c9256f8067782a9bdd38cf5f550630181"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-015.jpg",
+      "size": 288822,
+      "sha256": "f681d5072727cf929c87e7c0bdbd8a38c82fd22b248b7eff4e31aad64ad26e06"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-016.jpg",
+      "size": 284422,
+      "sha256": "c717643b608e632b0487e551b519019e04efe7ad7caedb5cc85515eb98addda5"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-017.jpg",
+      "size": 274419,
+      "sha256": "5bd05fc931570aa453f0e5ce29fea29013798eee6a109ad1f47223fd767778c3"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-018.jpg",
+      "size": 291345,
+      "sha256": "8f7b2c2345fc24681ba1e4edd091f9715f6da370786ce6cb8ce5d039f0391588"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-019.jpg",
+      "size": 305179,
+      "sha256": "e329ce4f88b55dc2b0c56de41687ec1536095d9caa236c3791a368cb09439bcb"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-020.jpg",
+      "size": 246269,
+      "sha256": "54585f8748642c34de2634deaee42b9d3956578616b26ef9912420b59474c35b"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-021.jpg",
+      "size": 164136,
+      "sha256": "84af454485a096e05a0241da17d17f78f81aebf49320c7ce803a5931f6ec6db4"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-022.jpg",
+      "size": 261848,
+      "sha256": "7eb652c167a5e601544c58d3116ce24819364fb6915a8d96b12b69815ca5e517"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-023.jpg",
+      "size": 240087,
+      "sha256": "d4cc2e405722eb0e9a235e11c148dd2c37aa0f8a60488ecb4055d262af6859cd"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-024.jpg",
+      "size": 162917,
+      "sha256": "2905501904de43c423bc6674c8546e641fc23764cfd6924e6ac92546baff9f89"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-025.jpg",
+      "size": 179988,
+      "sha256": "5b2095ad582e3b0a4499c4a92771afa2beca4fc37dcfcfa3f6a44ed878a88881"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-026.jpg",
+      "size": 131929,
+      "sha256": "fb6035e8cdda968a8f7aa92021c92affe3dbfe2249bac630a60a0b991051bc27"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-027.jpg",
+      "size": 204920,
+      "sha256": "c6efe001994b06c5dfb27964c58360c0c901a52d977f98d977e009bd74c0f2ed"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-028.jpg",
+      "size": 172629,
+      "sha256": "2345435288e5a8801a0e265c53893da90063f8e8911169c48c2742f078f033c4"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-029.jpg",
+      "size": 177695,
+      "sha256": "077e4a2cd90fd85964fafc13a1645eb9bf7a850b02345c542720d084becaf73f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-030.jpg",
+      "size": 184454,
+      "sha256": "7d8f29bb08ea9425f24526e45006189d72dcd5ac6a08e99b7848612236f80e94"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-031.jpg",
+      "size": 201222,
+      "sha256": "840b2bb22f9dc4e794146f4d29976f972ba9c1763d77149364010d2f41309cf7"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-032.jpg",
+      "size": 157743,
+      "sha256": "a709b295018870cc2fbb24332900283fba526cd01d82330ad91f61f1cb8a5483"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-033.jpg",
+      "size": 114562,
+      "sha256": "16a3b5de8ca686c92753f4cbe180a414163c56ef51eaf250eae49ce6270ee48a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-034.jpg",
+      "size": 179538,
+      "sha256": "20eff8b1d4751b725b6dab719aab3a18521642c9040404efed24b7d2144fb07a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-035.jpg",
+      "size": 214049,
+      "sha256": "31f3c8aef6c7e378fc6f79f1ad3523fc0cbffc15a857d772a7dd519ff380b030"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-036.jpg",
+      "size": 142770,
+      "sha256": "31796fc772d977194a5bdadce2117cf3c8fbcbd1b810819766f5ffa92e657798"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-037.jpg",
+      "size": 120525,
+      "sha256": "5e06d8186852aebc04d473a975cee22ce115c9f63cb8cb0ca487a2811a968958"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-038.jpg",
+      "size": 108679,
+      "sha256": "12ff9fa2cc7dfeaa5236bf355e499fc92a94e41e94b91502749f323e68d01007"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-039.jpg",
+      "size": 223153,
+      "sha256": "36f941c53fbd924232a9d4fbb338379ee5e9cb4dc5fdfad0d8e6f43b077ca77c"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-040.jpg",
+      "size": 231041,
+      "sha256": "276d435c0ebeda2180a273d94d3683840f5b5b0d762d744a3b81644adc2a36bc"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-041.jpg",
+      "size": 122858,
+      "sha256": "3b4c48f21c05a0e62ca142f08a62f37e227d09055c725570676c6591ada37303"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-042.jpg",
+      "size": 134351,
+      "sha256": "16f5fdaf4bbc4e0398de7b45888c79735548f9e7521614d7baf8bd6e1d64a323"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-043.jpg",
+      "size": 139564,
+      "sha256": "94c5440b9af9e78426a878b9ed3cd8c50ed5899ba3d30f70a51ce887935cf4f7"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-044.jpg",
+      "size": 89829,
+      "sha256": "e6fa165d179409bafa9490293e9728db46911d645d3dc9f52764277b96fbcbe2"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-045.jpg",
+      "size": 140716,
+      "sha256": "5a010c1eb0390ed6bc64fc6a41aeed107533208745331f35f66cc6a33bc6593b"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-046.jpg",
+      "size": 134653,
+      "sha256": "99d49ad40efa06c7eb3a677e18af7c06ed8ca4831a41241106e796f314bfa387"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-047.jpg",
+      "size": 33757,
+      "sha256": "5dcde2736d91c186edd990e524bb05ac8d895210748e514cca165a2b2cc81c1d"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-048.jpg",
+      "size": 124037,
+      "sha256": "51197c7ae21d362d85af42a82e247904b4e8fd1aeb3261d59be8b94d4c17fe4b"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-049.jpg",
+      "size": 117582,
+      "sha256": "e7730c3baed2dd0ef6f25253c9deaa61b3d1b44eb1c784555481a43cf7ab012f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-050.jpg",
+      "size": 81638,
+      "sha256": "b2f3c3908d4927f575dbf3abd18e45741165a3b46d04a141bf78adf48c1abb5f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-051.jpg",
+      "size": 177388,
+      "sha256": "69779453fabb657c47f9b2f5c540b98304fb5bc6964f3617a6576fe9c47ff1a7"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-052.jpg",
+      "size": 76477,
+      "sha256": "d34369c2f2803c21e245e8f70f30085d79c3d97b431ac1c25648b3501f641b2f"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-053.jpg",
+      "size": 153665,
+      "sha256": "f13fb42291d238a838569fda08ddc7ee01c092a9a1ea79c720be0d8f5ebdb362"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-054.jpg",
+      "size": 117891,
+      "sha256": "a8d41412326f788ae5f6d3e400e34637982cf99c982c31f3c39c0be06ea9b0c2"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-055.jpg",
+      "size": 83748,
+      "sha256": "f1745ebc189f79e9636db1d431a5ddc40b1e758f71ab1f3d29f261badb06ce32"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-056.jpg",
+      "size": 113645,
+      "sha256": "a8d20c545d2081372e3715cf63435e00370a10553452ba902bde7f76defb055c"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/source_pages/page-057.jpg",
+      "size": 165630,
+      "sha256": "3de08e8e2b1c280acd27aca45c74ec5b651a64e201194684e9d7e38a6fb5486a"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/中文译稿_摘要全译与关键段落节译.md",
+      "size": 4873,
+      "sha256": "4707dbaf87aa0dfbac31a17fd69ee5178b55ca9689373db4dfae82a8065232c2"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/原始论文.pdf",
+      "size": 1855143,
+      "sha256": "dbd8d388e3ea5cbf7d04eac631689169030c34cfd391e3c57bd13cde81b977fa"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/参考文献及后续原文.md",
+      "size": 165537,
+      "sha256": "6a096861549d81030cce3dcfe595ec60e3079ff70ee2feb84c654ee9c64f47bc"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/图表索引.md",
+      "size": 6273,
+      "sha256": "060ca37785c925c6b1301bb092330de742a7c68610b24c508f769f09867ca1f7"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/文献分类记录.yaml",
+      "size": 1284,
+      "sha256": "64bc01ac5ab3d522713c582c8d144a3acd9f6c3fb4ebe697cc3dbd2931f66183"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/英文原文_PyMuPDF逐页提取.txt",
+      "size": 180572,
+      "sha256": "b1a727fe000e99600e20e6f614a625a2709584b89f42e4f5d1e4ececd343ea14"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/英文原文_内容流提取.txt",
+      "size": 179408,
+      "sha256": "1f30328a122509afdcd9036dd70fe1ebacfe7f9ce57a3acc82efa882ab6b097e"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/英文原文_版面提取.txt",
+      "size": 210788,
+      "sha256": "430c635944dba01e47dd8206955478a61f61dfed5a469a7a417beb8cd08343d6"
+    },
+    {
+      "path": "论文翻译/ScienceAgentBench/英文原文_逐页全文与配图.md",
+      "size": 220982,
+      "sha256": "766ca9d3377a4281d9650ecda4dd6926e3dc29be556540b27d19a5b3d12b761c"
+    }
+  ]
+}

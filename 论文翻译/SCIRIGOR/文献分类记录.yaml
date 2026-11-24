@@ -1,0 +1,24 @@
+paper_title: 'SCIRIGOR: Evaluating Open-Ended Scientific Analysis Beyond Final Scores'
+paper_short_name: SCIRIGOR
+benchmark_name: SCIRIGOR
+year: 2026
+publication: arXiv:2609.06192v1（上传版本）
+source_url: https://arxiv.org/abs/2609.06192
+primary_category: B
+reading_priority: P0
+research_role:
+- 方法借鉴
+- 创新性对照
+secondary_tags:
+- 元评价
+- 评价机制
+classification_reason: 核心贡献为可审计的跨工件证据图、替代有效路径与最弱环节评分；与地学结果—过程一致性高度相关。次要角色 E。
+measurement_target: 可执行科学分析的工件保真度、证据关系及完整支持路径
+evaluation_mechanism: 证据图边验证、最弱环节评分、替代路径、证据链 F1 与首次失败层
+ground_truth_type: 源分析、输入、数值、图像、原子发现和 provenance
+reproducibility: N/A
+open_source_status: 待核验
+evidence_location: PDF 第 1 页摘要；PDF 第 1 页 引言：错误链示例（节译）；PDF 第 5 页 第 3.4 节：主张路径评分与失败定位（节译）
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 3.2–3.4 节证据图、边验证与路径评分；第 5.2 节失败定位。
+local_path: 论文翻译/SCIRIGOR/

@@ -1,0 +1,482 @@
+{
+  "name": "SCIRIGOR",
+  "source_filename": "Liu 等 - 2026 - SCIRIGOREvaluating Open-Ended Scientific Analysis Beyond Final Scores.pdf",
+  "pages": 21,
+  "expected_pages": 21,
+  "poppler_pages": 21,
+  "sha256": "94d65d556cdd779ed06cccf9a280bc37dbfdc4f789cf428332866c7ae431a612",
+  "reference_start_page": 11,
+  "caption_candidates": [
+    {
+      "page": 3,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1: Support coverage of scientific-agent benchmarks.",
+      "path": "images/table-1-p003.jpg",
+      "clip": [
+        0.0,
+        51.06,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1: SCIRIGOR benchmark construction. Open-access studies enter the benchmark only after figure-level evidence closure, task standardization, two clean reconstructions, and expert audit. The agent-visible task is separated from evaluator-side gold artifacts, scoring constraints, and sup- port paths.",
+      "path": "images/figure-1-p005.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        347.82
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2: SCIRIGOR spans diverse scientific domains, analysis methods, and multi-artifact task complexities. (a) The 100 cases span six reporting domains and 17 disciplinary subfields. The taxonomy ring assigns equal angular width to every subfield, while each inner domain spans the subfields it contains. (b) Cases require multiple input assets, result slots, visual requirements, and atomic claims, creating long evidence chains. (c) Method families are multi-label across domains; cells report case counts, and darker color denotes greater within-domain prevalence.",
+      "path": "images/figure-2-p007.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        555.63
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2: Main results on SCIRIGOR (%; higher is better). Blue shading is normalized within each model row.",
+      "path": "images/table-2-p008.jpg",
+      "clip": [
+        0.0,
+        51.06,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 9,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3: Case-level error analysis across ten complete 100-case runs. (a) Earliest failure stage among the 936 trajectories that do not complete a strict chain. Each trajectory contributes to exactly one stage. (b) Overlapping artifact- and edge-level errors among the 718 successfully executed trajectories; values are percentages within each model’s executed cases. (c) Local Result→Visual and Result→Claim consistency conditioned on independent result fidelity.",
+      "path": "images/figure-3-p009.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        358.13
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 10,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4: Performance by task complexity for GPT-5.6 Sol xhigh on 100 cases. Points show bin means; error bars denote ±1 SEM across cases. Strict RG-EC decreases with more input assets, required result slots, and visual requirements; RG-EC F1 also declines with assets and result slots, while the gated-claim composite is flatter. RG-EC F1 gates claim coverage by verified numerical support, whereas Strict RG-EC requires complete support for every required and generated claim.",
+      "path": "images/figure-4-p010.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        382.4
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 13,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3: Five-file SCIRIGOR contract for reference and candidate bundles. Serialized artifact Frozen reference role Candidate execution role",
+      "path": "images/table-3-p013.jpg",
+      "clip": [
+        0.0,
+        51.06,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 13,
+      "kind": "table",
+      "number": "4",
+      "caption": "Table 4: Independent evidence used to verify each candidate relation. Relation symbols follow Equation 2; both incident nodes must satisfy their semantic constraints before an edge can pass.",
+      "path": "images/table-4-p013.jpg",
+      "clip": [
+        0.0,
+        224.38,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 15,
+      "kind": "table",
+      "number": "5",
+      "caption": "Table 5: Disciplinary composition of the 100 SCIRIGOR cases. Domains are used for descriptive reporting and do not imply a probability-balanced sample of the scientific literature.",
+      "path": "images/table-5-p015.jpg",
+      "clip": [
+        0.0,
+        51.06,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 16,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5: NIH funding-inequality case. The frozen Figure 4 reference decomposes total Theil inequality into between- and within-group components by career stage, gender, race, and degree from FY1985 to FY2020. The within-group component exceeds the between-group component throughout all four panels.",
+      "path": "images/figure-5-p016.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        487.22
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 17,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6: Food-delivery workload case. The frozen Figure 4a panel shows percentage changes in completed orders per worker relative to the 20 ◦C baseline for all-day, lunch-peak, and dinner-peak periods. Curves and bands encode transformed estimates and 95% confidence intervals; shading marks the extreme-heat range.",
+      "path": "images/figure-6-p017.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        410.68
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 18,
+      "kind": "figure",
+      "number": "7",
+      "caption": "Figure 7: Language-model reliability case. The frozen Figure 1 reference presents six-indicator profiles for GPT, LLaMA, and BLOOM systems on a common radial scale. Warm profiles denote raw systems and blue profiles shaped systems, exposing the joint correctness, robustness, difficulty- concordance, and error-free trade-offs evaluated by the case.",
+      "path": "images/figure-7-p018.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        354.26
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 19,
+      "kind": "figure",
+      "number": "8",
+      "caption": "Figure 8: bioRxiv publication-outcomes case. The frozen Figure 3 reference combines monthly linked-publication proportions with category- level proportions and counts. Evolutionary biology has the highest linked proportion, whereas neuroscience has the largest linked count; the monthly view must be interpreted under unequal follow-up across posting cohorts.",
+      "path": "images/figure-8-p019.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        461.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 20,
+      "kind": "figure",
+      "number": "9",
+      "caption": "Figure 9: Gleason phenotype case. The frozen Figure 4 reference combines PCA phenotype di- rections and group centroids with complete Proliferation and Apoptosis distributions for the low, intermediate, and high Gleason groups. The two displayed dimensions explain 38.3% and 27.8% of the model variance.",
+      "path": "images/figure-9-p020.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        442.04
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 21,
+      "kind": "figure",
+      "number": "10",
+      "caption": "Figure 10: Didymos post-impact fading case. The frozen Figure 3 reference shows all 27 absolute- magnitude observations and error bars, the author-selected weighted fit, the impact-time marker, and the pre-impact magnitude with its uncertainty band. The astronomical magnitude axis is reversed, so upward movement denotes greater brightness.",
+      "path": "images/figure-10-p021.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        582.93
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [
+    {
+      "page": 5,
+      "path": "images/raster-p005-01.jpg",
+      "bbox": [
+        108.66,
+        95.31,
+        187.78,
+        212.05
+      ]
+    },
+    {
+      "page": 5,
+      "path": "images/raster-p005-03.jpg",
+      "bbox": [
+        269.37,
+        95.31,
+        345.19,
+        212.05
+      ]
+    },
+    {
+      "page": 5,
+      "path": "images/raster-p005-04.jpg",
+      "bbox": [
+        348.82,
+        95.31,
+        424.39,
+        212.05
+      ]
+    },
+    {
+      "page": 5,
+      "path": "images/raster-p005-05.jpg",
+      "bbox": [
+        427.61,
+        95.31,
+        503.18,
+        217.08
+      ]
+    },
+    {
+      "page": 9,
+      "path": "images/raster-p009-01.jpg",
+      "bbox": [
+        285.04,
+        103.15,
+        396.11,
+        216.32
+      ]
+    },
+    {
+      "page": 16,
+      "path": "images/raster-p016-01.jpg",
+      "bbox": [
+        159.48,
+        81.86,
+        452.52,
+        373.89
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-01.jpg",
+      "bbox": [
+        163.44,
+        81.86,
+        448.56,
+        297.35
+      ]
+    },
+    {
+      "page": 18,
+      "path": "images/raster-p018-01.jpg",
+      "bbox": [
+        115.92,
+        81.86,
+        496.1,
+        240.93
+      ]
+    },
+    {
+      "page": 19,
+      "path": "images/raster-p019-01.jpg",
+      "bbox": [
+        163.44,
+        81.86,
+        448.56,
+        347.67
+      ]
+    },
+    {
+      "page": 20,
+      "path": "images/raster-p020-01.jpg",
+      "bbox": [
+        131.76,
+        81.86,
+        480.24,
+        328.71
+      ]
+    },
+    {
+      "page": 21,
+      "path": "images/raster-p021-01.jpg",
+      "bbox": [
+        123.84,
+        286.16,
+        488.18,
+        469.6
+      ]
+    }
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 3968,
+      "chars_poppler": 6614,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 4563,
+      "chars_poppler": 4781,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 3897,
+      "chars_poppler": 4617,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 4364,
+      "chars_poppler": 4815,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 3809,
+      "chars_poppler": 7219,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 4426,
+      "chars_poppler": 4527,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 2450,
+      "chars_poppler": 13730,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 3617,
+      "chars_poppler": 4456,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 3772,
+      "chars_poppler": 9644,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 2025,
+      "chars_poppler": 2581,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 4095,
+      "chars_poppler": 4247,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 638,
+      "chars_poppler": 725,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 3282,
+      "chars_poppler": 4296,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 3947,
+      "chars_poppler": 4057,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 3713,
+      "chars_poppler": 4416,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 1529,
+      "chars_poppler": 1628,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 1604,
+      "chars_poppler": 1698,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 1644,
+      "chars_poppler": 1737,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 1672,
+      "chars_poppler": 1766,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars_fitz": 1659,
+      "chars_poppler": 1753,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars_fitz": 417,
+      "chars_poppler": 494,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-021.jpg"
+    }
+  ]
+}

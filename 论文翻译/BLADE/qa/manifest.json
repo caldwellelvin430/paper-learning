@@ -1,0 +1,789 @@
+{
+  "name": "BLADE",
+  "source_filename": "Gu 等 - 2024 - BLADE Benchmarking Language Model Agents for Data-Driven Science.pdf",
+  "pages": 36,
+  "expected_pages": 36,
+  "poppler_pages": 36,
+  "sha256": "c1a51ba6f496e9aee8f2255036c97ebf261b407d3942fc9749d133978f4ef429",
+  "reference_start_page": 10,
+  "caption_candidates": [
+    {
+      "page": 2,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1: Overview of BLADE. We gathered research questions and datasets from existing research papers, crowd-sourced analysis studies and statistic textbooks as well as analyses from expert annotators (boxes 1-2-3, and Sec. 3). Given a research question and dataset, LM agents generate a full analysis containing the relevant conceptual variables, a data transform function, and a statistical modeling function (boxes 1-4-5, and Sec. 4.2). BLADE automatically evaluates this against the ground truth (box 6 and Sec. 5).",
+      "path": "images/figure-1-p002.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        401.47
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 3,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1: Comparing BLADE against existing data analysis evaluation datasets and benchmarks for conduct- ing scientific analyses based on the requirements specified in Section 2. −indicates partial satisfaction (e.g., data understanding is only on ML model building). See Table 4 for examples from BLADE and recent benchmarks.",
+      "path": "images/table-1-p003.jpg",
+      "clip": [
+        0.0,
+        149.57,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2: To allow flexible and fine-grained matching, we represent transforms in code (left) as a column data flow graph G (right). The nodes in blue are column indicator nodes P, and the nodes in orange are transform nodes T. Details of the data flow graph formalization are in Appendix A.3",
+      "path": "images/figure-2-p005.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        355.22
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3: Accuracy scores and 95% confidence intervals for different models on BLADE’s 188 MCQs (168 for transformations and 20 for conceptual variables).",
+      "path": "images/figure-3-p007.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        754.53
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2: We report the decision-type weighted F1-score on analysis generation based on average precision and coverage@10. Appendix A.7 has the calculation details.",
+      "path": "images/table-2-p007.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4: Average precision (top row) and coverage@10 (bottom row) percentages averaged across datasets in BLADE. All runs were included in the results. Run errors default to a hit rate of 0 and are counted in the coverage calculation (i.e., treated as a run that generated nothing). Error bars represent bootstrapped 95% confidence intervals.",
+      "path": "images/figure-4-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        365.91
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5: Characterization of run results for analysis generation for each LM and ReAct agent variants. \"No execution errors\" indicates executable transform code, \"Empty transform\" means no transformations were provided, \"Execution errors\" means the code resulted in errors, and \"No generation\" indicates the result could not be parsed.",
+      "path": "images/figure-5-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        544.58
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 9,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6: BLADE Performance vs. HumanEval Performance. We compare BLADE evaluation metrics against reported Pass@1 on HumanEval (Chen et al., 2021) for all LMs in our experiments.",
+      "path": "images/figure-6-p009.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        377.85
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 16,
+      "kind": "figure",
+      "number": "7",
+      "caption": "Figure 7: Example of the full analysis submission to BLADE.",
+      "path": "images/figure-7-p016.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        345.65
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 16,
+      "kind": "figure",
+      "number": "8",
+      "caption": "Figure 8: Given a transform function from a graph (top), we first use an LM (GPT-4o) to convert the transform into individual transform units with verb and column specifications (middle). Using this information, we then derive the column data flow graph G (bottom).",
+      "path": "images/figure-8-p016.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        606.62
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 20,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3: Open-ended scientific research questions in BLADE across different domains.",
+      "path": "images/table-3-p020.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 21,
+      "kind": "table",
+      "number": "4",
+      "caption": "Table 4: Comparison of task examples in BLADE and related benchmarks. BLADE prioritizes open-ended scientific research questions rather than ML prediction tasks or data analysis code execution, focusing on the analysis approach and allowing for multiple valid solutions.",
+      "path": "images/table-4-p021.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 22,
+      "kind": "table",
+      "number": "5",
+      "caption": "Table 5: Expert level data annotation. All annotators have at least 4 years of experience in statistics and data analysis. In addition, they are either currently pursuing a postgraduate degree in a relevant scientific field or are regularly working with data in industry.",
+      "path": "images/table-5-p022.jpg",
+      "clip": [
+        0.0,
+        244.72,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 22,
+      "kind": "table",
+      "number": "6",
+      "caption": "Table 6: Taxonomy of transformation verbs utilized in the analysis ground truth. BLADE leverages these verbs in its evaluation to measure the nuance and complexity inherent in transformation approaches (Appendix A.4.1 explains our “fuzzy” transformation matching).",
+      "path": "images/table-6-p022.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 23,
+      "kind": "figure",
+      "number": "9",
+      "caption": "Figure 9: Prompt template A asking the LM to suggest an additional conceptual variable relevant to the research question and dataset. The format instructions asks the LM to generate a JSON representation of a Pydantic Ob- ject. Specifically we use Langchain’s pydantic parser (https://python.langchain.com/v0.1/docs/modules/ model_io/output_parsers/types/pydantic/) for the format instructions. The dataset schema is a, JSON repre- sentation of a data table. We use the data summarizer in LIDA (Dibia, 2023)",
+      "path": "images/figure-9-p023.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        770.25
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 24,
+      "kind": "figure",
+      "number": "10",
+      "caption": "Figure 10: Prompt template B asking the LM to suggest an alternative transformation in Python that transforms the given data columns to operationalize a conceptual variable.",
+      "path": "images/figure-10-p024.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        788.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 25,
+      "kind": "figure",
+      "number": "11",
+      "caption": "Figure 11: Prompt template C asking the LM to match conceptual variables from two given sets, considering their similarity in the context of the research question and dataset.",
+      "path": "images/figure-11-p025.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        788.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 26,
+      "kind": "figure",
+      "number": "12",
+      "caption": "Figure 12: Prompt template D asking the LM to convert a given Python function for data transformation into a sequence of unit transformation functions, each taking a DataFrame as input and returning a TransformDataReturn object. Refer to Figure 13 for the content of TransformationAPI.",
+      "path": "images/figure-12-p026.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        781.44
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 27,
+      "kind": "figure",
+      "number": "13",
+      "caption": "Figure 13: Detailed description of the transformation API, specifying the available transformation verbs (derive, filter, groupby, de-duplicate, impute, rollup, and orderby) along with example code and input/output column mappings for each transformation. This is used in part of the prompt in Figure 12.",
+      "path": "images/figure-13-p027.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        782.16
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 28,
+      "kind": "figure",
+      "number": "14",
+      "caption": "Figure 14: Prompt template E instructing the LM to analyze code snippets and determine the corresponding statistical model specifications.",
+      "path": "images/figure-14-p028.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        788.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 29,
+      "kind": "figure",
+      "number": "15",
+      "caption": "Figure 15: Prompt template F asking the LM to match statistical model specifications written in natural language, determining which models from two given sets are identical.",
+      "path": "images/figure-15-p029.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        788.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 30,
+      "kind": "figure",
+      "number": "16",
+      "caption": "Figure 16: Prompt template G asking the LM to formulate a conceptual model and write an end-to-end analysis, including data transformations and a statistical model, given a research question and dataset.",
+      "path": "images/figure-16-p030.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        788.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 31,
+      "kind": "figure",
+      "number": "17",
+      "caption": "Figure 17: One-shot example used in prompt template G (Fig. 16)",
+      "path": "images/figure-17-p031.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 32,
+      "kind": "figure",
+      "number": "18",
+      "caption": "Figure 18: Prompt template H for using ReAct to instruct an LM-based agent to formulate a conceptual model and perform end-to-end analysis given a research question and dataset.",
+      "path": "images/figure-18-p032.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 33,
+      "kind": "figure",
+      "number": "19",
+      "caption": "Figure 19: Prompt template I for a multiple-choice question asking the LM to select the least justifiable data transformation code to operationalize a given conceptual variable, based on the provided research question and dataset. 13968",
+      "path": "images/figure-19-p033.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 34,
+      "kind": "figure",
+      "number": "20",
+      "caption": "Figure 20: Part I for examples of LM-generated python codes transformations and models from case studies. Model types and corresponding datasets are shown on the left of the code.",
+      "path": "images/figure-20-p034.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 35,
+      "kind": "figure",
+      "number": "21",
+      "caption": "Figure 21: Part II for examples of LM-generated python codes transformations and models from case studies. Model types and corresponding datasets are shown on the left of the code.",
+      "path": "images/figure-21-p035.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        728.59
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 36,
+      "kind": "figure",
+      "number": "22",
+      "caption": "Figure 22: Counts of different types of ground truth specifications recorded in BLADE, reflecting the diversity and complexity of datasets and broad coverage of analysts’ approaches.",
+      "path": "images/figure-22-p036.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        674.79
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [
+    {
+      "page": 5,
+      "path": "images/raster-p005-01.jpg",
+      "bbox": [
+        134.36,
+        70.84,
+        460.93,
+        244.09
+      ]
+    },
+    {
+      "page": 7,
+      "path": "images/raster-p007-01.jpg",
+      "bbox": [
+        76.31,
+        543.39,
+        283.67,
+        643.4
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-01.jpg",
+      "bbox": [
+        75.39,
+        70.84,
+        519.9,
+        254.78
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-02.jpg",
+      "bbox": [
+        91.27,
+        312.57,
+        504.0,
+        433.45
+      ]
+    },
+    {
+      "page": 9,
+      "path": "images/raster-p009-01.jpg",
+      "bbox": [
+        73.12,
+        70.85,
+        522.17,
+        266.71
+      ]
+    },
+    {
+      "page": 34,
+      "path": "images/raster-p034-01.jpg",
+      "bbox": [
+        166.82,
+        280.37,
+        519.95,
+        441.95
+      ]
+    },
+    {
+      "page": 34,
+      "path": "images/raster-p034-02.jpg",
+      "bbox": [
+        164.64,
+        80.44,
+        457.71,
+        251.65
+      ]
+    },
+    {
+      "page": 34,
+      "path": "images/raster-p034-03.jpg",
+      "bbox": [
+        164.96,
+        462.54,
+        433.78,
+        546.65
+      ]
+    },
+    {
+      "page": 34,
+      "path": "images/raster-p034-04.jpg",
+      "bbox": [
+        166.82,
+        565.28,
+        435.54,
+        734.47
+      ]
+    },
+    {
+      "page": 35,
+      "path": "images/raster-p035-01.jpg",
+      "bbox": [
+        168.88,
+        198.78,
+        508.31,
+        368.11
+      ]
+    },
+    {
+      "page": 35,
+      "path": "images/raster-p035-02.jpg",
+      "bbox": [
+        168.88,
+        392.99,
+        443.78,
+        456.73
+      ]
+    },
+    {
+      "page": 35,
+      "path": "images/raster-p035-03.jpg",
+      "bbox": [
+        168.67,
+        489.29,
+        397.81,
+        618.53
+      ]
+    },
+    {
+      "page": 36,
+      "path": "images/raster-p036-01.jpg",
+      "bbox": [
+        70.86,
+        246.16,
+        524.43,
+        563.66
+      ]
+    }
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 4572,
+      "chars_poppler": 5845,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 5123,
+      "chars_poppler": 12427,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 4361,
+      "chars_poppler": 6642,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 4929,
+      "chars_poppler": 6213,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 3243,
+      "chars_poppler": 4127,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 4864,
+      "chars_poppler": 6428,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 4197,
+      "chars_poppler": 6482,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 2578,
+      "chars_poppler": 2935,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 3252,
+      "chars_poppler": 3632,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 4432,
+      "chars_poppler": 6004,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 4817,
+      "chars_poppler": 6197,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 4715,
+      "chars_poppler": 6104,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 3776,
+      "chars_poppler": 4294,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 4776,
+      "chars_poppler": 5500,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 3930,
+      "chars_poppler": 5352,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 4217,
+      "chars_poppler": 11301,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 4179,
+      "chars_poppler": 5112,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 4206,
+      "chars_poppler": 5922,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 2436,
+      "chars_poppler": 2915,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars_fitz": 3376,
+      "chars_poppler": 8624,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars_fitz": 4847,
+      "chars_poppler": 6579,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars_fitz": 2617,
+      "chars_poppler": 4625,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars_fitz": 2734,
+      "chars_poppler": 3160,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars_fitz": 2692,
+      "chars_poppler": 3280,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-024.jpg"
+    },
+    {
+      "page": 25,
+      "chars_fitz": 3172,
+      "chars_poppler": 3908,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-025.jpg"
+    },
+    {
+      "page": 26,
+      "chars_fitz": 2702,
+      "chars_poppler": 3633,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-026.jpg"
+    },
+    {
+      "page": 27,
+      "chars_fitz": 3002,
+      "chars_poppler": 3759,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-027.jpg"
+    },
+    {
+      "page": 28,
+      "chars_fitz": 1092,
+      "chars_poppler": 1418,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-028.jpg"
+    },
+    {
+      "page": 29,
+      "chars_fitz": 2118,
+      "chars_poppler": 2720,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-029.jpg"
+    },
+    {
+      "page": 30,
+      "chars_fitz": 2895,
+      "chars_poppler": 3529,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-030.jpg"
+    },
+    {
+      "page": 31,
+      "chars_fitz": 4311,
+      "chars_poppler": 4583,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-031.jpg"
+    },
+    {
+      "page": 32,
+      "chars_fitz": 5254,
+      "chars_poppler": 6713,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-032.jpg"
+    },
+    {
+      "page": 33,
+      "chars_fitz": 3643,
+      "chars_poppler": 4697,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-033.jpg"
+    },
+    {
+      "page": 34,
+      "chars_fitz": 331,
+      "chars_poppler": 510,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-034.jpg"
+    },
+    {
+      "page": 35,
+      "chars_fitz": 294,
+      "chars_poppler": 465,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-035.jpg"
+    },
+    {
+      "page": 36,
+      "chars_fitz": 189,
+      "chars_poppler": 247,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-036.jpg"
+    }
+  ]
+}

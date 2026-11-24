@@ -1,0 +1,820 @@
+{
+  "name": "Agent-as-a-Judge",
+  "source_filename": "Zhuge 等 - 2025 - Agent-as-a-Judge Evaluate Agents with Agents.pdf",
+  "pages": 43,
+  "expected_pages": 43,
+  "poppler_pages": 43,
+  "sha256": "10c479cdc343b9916c3fc994cdedf6fd040462d85ce00a57f2a6654b231bde00",
+  "reference_start_page": 9,
+  "caption_candidates": [
+    {
+      "page": 2,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1. In this paper, we introduce the Agent-as-a-Judge framework wherein agentic systems are used to evaluate agentic systems. We compare this to LLM-as-a-Judge, which uses LLMs to evaluate LLMs and for which Agent-as-a-Judge is a natural evolution, and Human-as-a-Judge, where skilled humans labourers manually evaluate an agentic system.",
+      "path": "images/figure-1-p002.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        416.74
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 4,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2. Distribution of DevAI Tasks (1) DevAI focuses on AI development tasks and so terms such as “dataset,” “model,” and “results” are particularly common in the queries. (2) The first 53 tasks in DevAI all have a one-paragraph query but of varying lengths (note that task 54 and 55 are excluded here as they are outliers, representing the longest and most complex tasks in the dataset). (3) Each task has one or more tags. The prevalence of supervised learning here reflects the fact that it dominates many machine learning applications. (4) SVM classifiers (Cortes, 1995) and LSTM models (Hochreiter, 1997) are two of the most widely used architectures—a fact reflected by DevAI.",
+      "path": "images/figure-2-p004.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        406.19
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1. Preliminary Statistics of AI Developers. We compare three leading open-source code agents using metrics such as average cost, average time, and the average number of generated files.",
+      "path": "images/table-1-p005.jpg",
+      "clip": [
+        0.0,
+        36.39,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2. Human-as-a-Judge for AI Developers. (I) and (D) represent independent performance versus performance considering task",
+      "path": "images/table-2-p005.jpg",
+      "clip": [
+        0.0,
+        198.7,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3. Between the three human evaluators, a large amount of disagreement was observed in their individual evaluations— highlighting the inherent unreliability of human evaluation.",
+      "path": "images/figure-3-p005.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 6,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4. Mismatch between the individual evaluations and the consensus evaluation. Note that the majority vote showed the smallest deviation from the consensus evaluation.",
+      "path": "images/figure-4-p006.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 6,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5. Initial diagram of Agent-as-a-Judge.",
+      "path": "images/figure-5-p006.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3. AI Judges and Their Shift/Alignment with Human-as-a-Judge. We compare the results of LLM-as-a-Judge and Agent-as- a-Judge with Human-as-a-Judge. (I) represents performance on independent tasks, while (D) represents performance considering task dependencies. Note: gray-box settings use carefully manually collected trajectory data (which is nearly inaccessible in practical situations, see Appendix J). In contrast, black-box setting doesn’t need to access to such data. The red scores represent the absolute judge shift compared with Human-as-a-Judge (e.g., 2.74%).",
+      "path": "images/table-3-p007.jpg",
+      "clip": [
+        0.0,
+        36.26,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6. PR Curves comparing judge Methods.",
+      "path": "images/figure-6-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        463.55
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "table",
+      "number": "4",
+      "caption": "Table 4. Component Ablation Studies for Agent-as-a-Judge. We analyze the impact of adding various components (ask, graph, read, locate, and retrieve) on the performance of Agent-as-a-Judge for judging OpenHands.",
+      "path": "images/table-4-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 15,
+      "kind": "figure",
+      "number": "7",
+      "caption": "Figure 7. A task example in DevAI. This task is adapted from a real-world demo given at https://www.cognition.ai/blog/ introducing-devin. As this example shows, task requirements in DevAI are structured as a Directed Acyclic Graph (DAG), with nodes representing individual requirements and directed edges showing dependencies. More examples are in Appendix G.",
+      "path": "images/figure-7-p015.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        576.55
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 17,
+      "kind": "figure",
+      "number": "8",
+      "caption": "Figure 8. The pipelines of developer agents and judge agent.",
+      "path": "images/figure-8-p017.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        687.66
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 32,
+      "kind": "table",
+      "number": "5",
+      "caption": "Table 5. Component Ablation Studies for Agent-as-a-Judge. We analyze the impact of sequentially adding various components (ask, graph, read, locate, retrieve, planning, memory, and search) on the performance of Agent-as-a-Judge for judging OpenHands.",
+      "path": "images/table-5-p032.jpg",
+      "clip": [
+        0.0,
+        81.85,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 32,
+      "kind": "table",
+      "number": "6",
+      "caption": "Table 6. Comparisons on Search module with different engines.",
+      "path": "images/table-6-p032.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 33,
+      "kind": "table",
+      "number": "7",
+      "caption": "Table 7. Ablations on retrieve.",
+      "path": "images/table-7-p033.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 38,
+      "kind": "table",
+      "number": "8",
+      "caption": "Table 8. Counts of failure cases aggregated over task categories. Category Count Data preprocessing and postprocessing 10 Dataset or Environment 8 Other 5 Machine Learning Method 4 Performance Metrics 3 Visualization 3 Human-Computer Interaction 3",
+      "path": "images/table-8-p038.jpg",
+      "clip": [
+        0.0,
+        103.7,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 38,
+      "kind": "table",
+      "number": "9",
+      "caption": "Table 9. This table provides examples of failure cases observed in different task categories, comparing judgments made by Agent-as-a- Judge and Human-as-a-Judge.",
+      "path": "images/table-9-p038.jpg",
+      "clip": [
+        0.0,
+        291.44,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 39,
+      "kind": "table",
+      "number": "10",
+      "caption": "Table 10. This table reports alignment percentages between Agent-as-a-Judge and Human-as-a-Judge for different backend LLMs.",
+      "path": "images/table-10-p039.jpg",
+      "clip": [
+        0.0,
+        89.72,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 40,
+      "kind": "figure",
+      "number": "9",
+      "caption": "Figure 9. An Example Task in DevAI: Task 13.",
+      "path": "images/figure-9-p040.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 41,
+      "kind": "figure",
+      "number": "10",
+      "caption": "Figure 10. An Example Task in DevAI: Task 19.",
+      "path": "images/figure-10-p041.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        779.14
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 42,
+      "kind": "figure",
+      "number": "11",
+      "caption": "Figure 11. Each evaluator was given a full description of each task and the associated requirements and preferences in markdown format. They were then asked, for each workspace and trajectory generated by each of the agents on each of the task, whether (1) the agent successfully finished its execution cycle and (2) which of the requirements were satisfied. After the evaluation was complete, the evaluators were asked to self-report the nuances of their evaluation.",
+      "path": "images/figure-11-p042.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        736.78
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [
+    {
+      "page": 2,
+      "path": "images/raster-p002-02.jpg",
+      "bbox": [
+        71.21,
+        67.06,
+        203.71,
+        295.01
+      ]
+    },
+    {
+      "page": 2,
+      "path": "images/raster-p002-18.jpg",
+      "bbox": [
+        229.65,
+        67.06,
+        364.19,
+        295.01
+      ]
+    },
+    {
+      "page": 2,
+      "path": "images/raster-p002-62.jpg",
+      "bbox": [
+        389.58,
+        67.06,
+        523.17,
+        295.01
+      ]
+    },
+    {
+      "page": 4,
+      "path": "images/raster-p004-01.jpg",
+      "bbox": [
+        82.39,
+        126.34,
+        280.34,
+        183.95
+      ]
+    },
+    {
+      "page": 4,
+      "path": "images/raster-p004-02.jpg",
+      "bbox": [
+        80.84,
+        58.56,
+        274.12,
+        127.81
+      ]
+    },
+    {
+      "page": 4,
+      "path": "images/raster-p004-03.jpg",
+      "bbox": [
+        78.5,
+        179.21,
+        512.08,
+        305.67
+      ]
+    },
+    {
+      "page": 4,
+      "path": "images/raster-p004-04.jpg",
+      "bbox": [
+        279.21,
+        67.88,
+        507.62,
+        199.95
+      ]
+    },
+    {
+      "page": 5,
+      "path": "images/raster-p005-06.jpg",
+      "bbox": [
+        307.44,
+        414.99,
+        541.43,
+        474.52
+      ]
+    },
+    {
+      "page": 6,
+      "path": "images/raster-p006-01.jpg",
+      "bbox": [
+        83.44,
+        67.06,
+        258.95,
+        198.68
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-01.jpg",
+      "bbox": [
+        83.44,
+        221.62,
+        258.95,
+        362.41
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-01.jpg",
+      "bbox": [
+        94.0,
+        95.0,
+        503.0,
+        142.0
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-04.jpg",
+      "bbox": [
+        94.0,
+        398.0,
+        503.0,
+        573.0
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-05.jpg",
+      "bbox": [
+        99.49,
+        401.59,
+        181.56,
+        522.35
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-17.jpg",
+      "bbox": [
+        269.02,
+        413.33,
+        377.68,
+        508.46
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-18.jpg",
+      "bbox": [
+        272.57,
+        416.82,
+        374.06,
+        505.07
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-31.jpg",
+      "bbox": [
+        94.0,
+        147.0,
+        503.0,
+        393.0
+      ]
+    },
+    {
+      "page": 17,
+      "path": "images/raster-p017-34.jpg",
+      "bbox": [
+        336.83,
+        292.84,
+        461.7,
+        384.81
+      ]
+    },
+    {
+      "page": 43,
+      "path": "images/raster-p043-01.jpg",
+      "bbox": [
+        144.5,
+        546.31,
+        445.27,
+        696.14
+      ]
+    },
+    {
+      "page": 43,
+      "path": "images/raster-p043-02.jpg",
+      "bbox": [
+        146.89,
+        388.39,
+        450.89,
+        546.91
+      ]
+    },
+    {
+      "page": 43,
+      "path": "images/raster-p043-03.jpg",
+      "bbox": [
+        147.33,
+        310.12,
+        450.25,
+        387.7
+      ]
+    },
+    {
+      "page": 43,
+      "path": "images/raster-p043-04.jpg",
+      "bbox": [
+        145.76,
+        83.06,
+        450.25,
+        310.9
+      ]
+    }
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 4548,
+      "chars_poppler": 5934,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 5981,
+      "chars_poppler": 14567,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 5403,
+      "chars_poppler": 6772,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 3706,
+      "chars_poppler": 4445,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 4073,
+      "chars_poppler": 6872,
+      "caption_candidates": 3,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 4255,
+      "chars_poppler": 6064,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 4467,
+      "chars_poppler": 6956,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 4578,
+      "chars_poppler": 6469,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 5168,
+      "chars_poppler": 7262,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 4704,
+      "chars_poppler": 6584,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 4473,
+      "chars_poppler": 6345,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 4670,
+      "chars_poppler": 6318,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 4732,
+      "chars_poppler": 6429,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 1110,
+      "chars_poppler": 1253,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 1568,
+      "chars_poppler": 2004,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 1502,
+      "chars_poppler": 2460,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 1183,
+      "chars_poppler": 2559,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 5345,
+      "chars_poppler": 5458,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 527,
+      "chars_poppler": 628,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars_fitz": 4664,
+      "chars_poppler": 4772,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars_fitz": 2778,
+      "chars_poppler": 3385,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars_fitz": 1397,
+      "chars_poppler": 2148,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars_fitz": 1645,
+      "chars_poppler": 1749,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars_fitz": 141,
+      "chars_poppler": 241,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-024.jpg"
+    },
+    {
+      "page": 25,
+      "chars_fitz": 1397,
+      "chars_poppler": 1504,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-025.jpg"
+    },
+    {
+      "page": 26,
+      "chars_fitz": 1110,
+      "chars_poppler": 1284,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-026.jpg"
+    },
+    {
+      "page": 27,
+      "chars_fitz": 1638,
+      "chars_poppler": 2404,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-027.jpg"
+    },
+    {
+      "page": 28,
+      "chars_fitz": 1024,
+      "chars_poppler": 1758,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-028.jpg"
+    },
+    {
+      "page": 29,
+      "chars_fitz": 3360,
+      "chars_poppler": 4275,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-029.jpg"
+    },
+    {
+      "page": 30,
+      "chars_fitz": 2648,
+      "chars_poppler": 3353,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-030.jpg"
+    },
+    {
+      "page": 31,
+      "chars_fitz": 3253,
+      "chars_poppler": 4293,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-031.jpg"
+    },
+    {
+      "page": 32,
+      "chars_fitz": 4148,
+      "chars_poppler": 4580,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-032.jpg"
+    },
+    {
+      "page": 33,
+      "chars_fitz": 1207,
+      "chars_poppler": 1764,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-033.jpg"
+    },
+    {
+      "page": 34,
+      "chars_fitz": 1665,
+      "chars_poppler": 2042,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-034.jpg"
+    },
+    {
+      "page": 35,
+      "chars_fitz": 2147,
+      "chars_poppler": 2600,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-035.jpg"
+    },
+    {
+      "page": 36,
+      "chars_fitz": 1311,
+      "chars_poppler": 1589,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-036.jpg"
+    },
+    {
+      "page": 37,
+      "chars_fitz": 644,
+      "chars_poppler": 747,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-037.jpg"
+    },
+    {
+      "page": 38,
+      "chars_fitz": 1948,
+      "chars_poppler": 3370,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-038.jpg"
+    },
+    {
+      "page": 39,
+      "chars_fitz": 2824,
+      "chars_poppler": 3240,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-039.jpg"
+    },
+    {
+      "page": 40,
+      "chars_fitz": 2328,
+      "chars_poppler": 2761,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-040.jpg"
+    },
+    {
+      "page": 41,
+      "chars_fitz": 2135,
+      "chars_poppler": 2557,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-041.jpg"
+    },
+    {
+      "page": 42,
+      "chars_fitz": 3643,
+      "chars_poppler": 4296,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-042.jpg"
+    },
+    {
+      "page": 43,
+      "chars_fitz": 49,
+      "chars_poppler": 74,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-043.jpg"
+    }
+  ]
+}

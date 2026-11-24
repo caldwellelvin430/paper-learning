@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "generator_sha256": "6d71c0dc466ab12f294e857224c76bc38db03e2558b2d27daf90a1979583020d",
+  "assertions": [
+    "新增1篇合成文献：1→2条，三层导航、G类与P3统计同步；无52篇硬编码",
+    "重复生成：0文件改变，全部生成文件SHA-256一致，--check通过",
+    "重复paper_id/短名/目录/记录路径被拒绝",
+    "分类理由空缺被拒绝",
+    "不存在的中文阅读文件被拒绝"
+  ],
+  "original_paper_files_copied": 0,
+  "original_repo_modified": false
+}

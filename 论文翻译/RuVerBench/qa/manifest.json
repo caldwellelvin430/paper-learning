@@ -1,0 +1,455 @@
+{
+  "name": "RuVerBench",
+  "source_filename": "Peng 等 - 2026 - Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios.pdf",
+  "pages": 19,
+  "expected_pages": 19,
+  "poppler_pages": 19,
+  "sha256": "4b3766affe7e370decc8ed1ea53d0c7cac3fb294f5c2939cbf1340a3bf79ca82",
+  "reference_start_page": 9,
+  "caption_candidates": [
+    {
+      "page": 1,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1: LLM-as-a-Judge rubric verification in agentic scenarios. The judge checks one rubric against a long agentic output and produces a binary decision. Stylized and condensed example based on a real instance.",
+      "path": "images/figure-1-p001.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 3,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2: Dataset provenance and benchmark construction pipeline. We gather source prompts and rubrics, fix the judged outputs, filter rubrics for quality and cost, and annotate all final rubrics with human labels.",
+      "path": "images/figure-2-p003.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        357.29
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 4,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1: RUVERBENCH taxonomy used for category- level analysis.",
+      "path": "images/table-1-p004.jpg",
+      "clip": [
+        0.0,
+        143.46,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 4,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3: RUVERBENCH category distribution by do- main.",
+      "path": "images/figure-3-p004.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2: Main RUVERBENCH leaderboard. Overall is Avg BAcc; other columns are category BAcc. Scores are multiplied by 100 and shown with one decimal place. Models are ordered by Overall within each domain. Random denotes a uniformly random binary judge reference. Model sources: GPT-5.4 (OpenAI, 2026), Gemini-3.1 Pro Preview (Google DeepMind, 2026), Claude Opus 4.7 (Anthropic, 2026a), Claude Sonnet 4.6 (Anthropic, 2026b), Kimi K2.6 (Moonshot AI, 2026), GLM-5.1 (Z.ai, 2026), DeepSeek V4 Pro (DeepSeek, 2026a), DeepSeek V4 Flash (DeepSeek, 2026b), Seed 2.0 Pro (ByteDance, 2026), Qwen3.6 Max Preview (Qwen Team, 2026b), Qwen3.5 models (Qwen Team, 2026a), MiMo v2.5 Pro (Xiaomi MiMo Team, 2026), GPT-OSS-120B/20B (OpenAI, 2025), and Llama-3.1-8B-Instruct (Meta AI, 2024).",
+      "path": "images/table-2-p005.jpg",
+      "clip": [
+        0.0,
+        450.44,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 6,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4: Category BAcc distributions on RUVER- BENCH. Boxes show the interquartile range, center lines show medians, and whiskers show the non-outlier range. Scores are multiplied by 100.",
+      "path": "images/figure-4-p006.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3: Prompt sensitivity. Values are Overall point changes relative to Default. Bold marks the best im- proving variant; the arrow follows the Agentic Coding leaderboard order.",
+      "path": "images/table-3-p007.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5: Batching effect by actual rubrics per judge call. Values show Overall point changes relative to single- rubric calls. Negative values indicate lower reliability under batching.",
+      "path": "images/figure-5-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        388.08
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6: Gain from self-voting. Lines show point changes in Overall score relative to one stochastic vote.",
+      "path": "images/figure-6-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 12,
+      "kind": "table",
+      "number": "4",
+      "caption": "Table 4: Source provenance for RUVERBENCH.",
+      "path": "images/table-4-p012.jpg",
+      "clip": [
+        0.0,
+        153.7,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 12,
+      "kind": "table",
+      "number": "5",
+      "caption": "Table 5: Spearman correlations between Agentic Cod- ing judge rankings stratified by trajectory generator.",
+      "path": "images/table-5-p012.jpg",
+      "clip": [
+        0.0,
+        281.37,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 13,
+      "kind": "table",
+      "number": "6",
+      "caption": "Table 6: Source categories and provenance fields used in RUVERBENCH taxonomy normalization.",
+      "path": "images/table-6-p013.jpg",
+      "clip": [
+        0.0,
+        129.51,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 13,
+      "kind": "table",
+      "number": "7",
+      "caption": "Table 7: RUVERBENCH category definitions.",
+      "path": "images/table-7-p013.jpg",
+      "clip": [
+        0.0,
+        274.04,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 15,
+      "kind": "table",
+      "number": "8",
+      "caption": "Table 8: Inference parameters for evaluated judges.",
+      "path": "images/table-8-p015.jpg",
+      "clip": [
+        0.0,
+        247.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 15,
+      "kind": "table",
+      "number": "9",
+      "caption": "Table 9: Provider API identifiers and access dates for the closed-source models evaluated in this work.",
+      "path": "images/table-9-p015.jpg",
+      "clip": [
+        0.0,
+        408.89,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 15,
+      "kind": "table",
+      "number": "10",
+      "caption": "Table 10: Estimated standard deviations of repeated single-run Overall scores in Agentic Coding under fixed prompts and decoding settings.",
+      "path": "images/table-10-p015.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 17,
+      "kind": "table",
+      "number": "11",
+      "caption": "Table 11: Category distribution of the fixed 20% subset used for strategy experiments. Values are percentages.",
+      "path": "images/table-11-p017.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 17,
+      "kind": "table",
+      "number": "12",
+      "caption": "Table 12: Detailed prompt-sensitivity deltas on the fixed 20% subset. Domain blocks list prompt variants; entries are Overall point changes relative to Default.",
+      "path": "images/table-12-p017.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 18,
+      "kind": "table",
+      "number": "13",
+      "caption": "Table 13: Detailed batch-size deltas on the fixed 20% subset. Domain blocks list actual rubrics per judge call; entries are Overall point changes relative to single-rubric calls.",
+      "path": "images/table-13-p018.jpg",
+      "clip": [
+        0.0,
+        232.78,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 18,
+      "kind": "table",
+      "number": "14",
+      "caption": "Table 14: Detailed self-voting deltas on the fixed 20% subset. Domain blocks list vote counts; entries are Over- all point changes relative to one stochastic vote.",
+      "path": "images/table-14-p018.jpg",
+      "clip": [
+        0.0,
+        494.32,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 18,
+      "kind": "table",
+      "number": "15",
+      "caption": "Table 15: Correctness (%) of GPT-OSS-120B in Agentic Coding by vote count, grouped by the estimated per- rubric single-call correctness probability across nine runs.",
+      "path": "images/table-15-p018.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 19,
+      "kind": "table",
+      "number": "16",
+      "caption": "Table 16: Representative rubric-level verification errors in Deep Research and Agentic Coding.",
+      "path": "images/table-16-p019.jpg",
+      "clip": [
+        0.0,
+        300.97,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 4157,
+      "chars_poppler": 6531,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 5045,
+      "chars_poppler": 5520,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 3570,
+      "chars_poppler": 6625,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 4127,
+      "chars_poppler": 5231,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 3099,
+      "chars_poppler": 6537,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 4210,
+      "chars_poppler": 5516,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 4564,
+      "chars_poppler": 5936,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 3586,
+      "chars_poppler": 6914,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 4744,
+      "chars_poppler": 6617,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 5055,
+      "chars_poppler": 6121,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 4971,
+      "chars_poppler": 6343,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 4053,
+      "chars_poppler": 5567,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 4136,
+      "chars_poppler": 6579,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 4911,
+      "chars_poppler": 6210,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 3870,
+      "chars_poppler": 6922,
+      "caption_candidates": 3,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 4198,
+      "chars_poppler": 6864,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 3438,
+      "chars_poppler": 5931,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 3289,
+      "chars_poppler": 5356,
+      "caption_candidates": 3,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 3993,
+      "chars_poppler": 6476,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-019.jpg"
+    }
+  ]
+}

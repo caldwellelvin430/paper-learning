@@ -1,0 +1,544 @@
+{
+  "name": "Protocol_Validity_HackDetect",
+  "source_filename": "Shao 等 - 2026 - Do Agent Benchmarks Measure Capability Protocol Validity in the Age of Agentic AI.pdf",
+  "pages": 33,
+  "expected_pages": 33,
+  "poppler_pages": 33,
+  "sha256": "121e175f40d47e474b1a0b90c9ce378dbaa2403f51d904794f8dbc7995abce7f",
+  "reference_start_page": 14,
+  "caption_candidates": [
+    {
+      "page": 2,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1 | Agent benchmark pipeline and five protocol exposure entry points. The upper panel follows the task-to-score path through the agent run, evaluator, and reported score. The lower panel maps the five Exposure sources to their entry points and shows how benchmark-exposed information or control can create a score-relevant shortcut.",
+      "path": "images/figure-1-p002.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        420.87
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2 | Five stages in the evolution of benchmark protocols. As agent capability increases, benchmarks move from item–answer scoring toward protocols with scripted interaction, controlled environments with feedback, workspaces with hidden evaluators, and live or adaptive feedback loops. The vertical axis tracks increasing interaction fidelity and information access; both expand the benchmark’s measurement scope and the protocol surfaces requiring verification.",
+      "path": "images/figure-2-p005.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        438.56
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 7,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3 | Operational exposure taxonomy used to organize candidate evidence for the HackDetect judge. Each row maps an Exposure source and value to its decision rule.",
+      "path": "images/figure-3-p007.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        387.01
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 9,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1 | Detector validity on 53 hand-labeled Frontier Science traces (manual mechanism label vs. detector mislead). Positive class = source transcription. Precision 0.94, recall 0.76, 𝐹1 = 0.84.",
+      "path": "images/table-1-p009.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 10,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2 | Trace-audit results across 15 agent benchmarks, ordered by positive rate. Positive denotes a trace with a supported score-relevant protocol finding; rates of at least 20% are bolded and lightly highlighted. The five rightmost columns show the Exposure sources observed among positive traces. †Preselected suspicious traces; percentages describe that audited subset. ∗Internal evaluation suite.",
+      "path": "images/table-2-p010.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 10,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3 | Cross-model validation on Frontier Science, by exposure composition (% of passing runs). Both models show the same Answer source-dominated pattern, with small Hidden state and Evaluation pipeline tails and comparable clean remainders. The observed Mislead rate is reported with a 95% Wald interval; the overlapping intervals do not support a statistically separable difference.",
+      "path": "images/table-3-p010.jpg",
+      "clip": [
+        0.0,
+        366.61,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 11,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4 | Mislead gap for cases with a defensible comparison score. 𝑆exploit is the observed shortcut score; 𝑆intended is the score after targeted repair, ablation, paired baseline, or source-free comparison.",
+      "path": "images/figure-4-p011.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        357.47
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 20,
+      "kind": "table",
+      "number": "4",
+      "caption": "Table 4 | Judge output schema. Field meanings for the JSON object above. A run is counted as a measurement failure when mislead ≠no, regardless of engagement, so evaluator-side scoring failures are captured alongside agent-driven exploits.",
+      "path": "images/table-4-p020.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 21,
+      "kind": "table",
+      "number": "5",
+      "caption": "Table 5 | Operational definition of each exposure value.",
+      "path": "images/table-5-p021.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 22,
+      "kind": "table",
+      "number": "6",
+      "caption": "Table 6 | Decision boundaries for engagement and Mislead.",
+      "path": "images/table-6-p022.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 22,
+      "kind": "table",
+      "number": "7",
+      "caption": "Table 7 | Confidence anchors used for both confidence fields.",
+      "path": "images/table-7-p022.jpg",
+      "clip": [
+        0.0,
+        289.38,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 26,
+      "kind": "table",
+      "number": "8",
+      "caption": "Table 8 | AutoLab exposure summary under the five Exposure sources. The 24 positive task traces are complemented by 12 traces with no identified exposure.",
+      "path": "images/table-8-p026.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 29,
+      "kind": "table",
+      "number": "9",
+      "caption": "Table 9 | Reward-hacking cases independently reported during EdgeBench construction (Zhu et al., 2026), classified under our exposure taxonomy.",
+      "path": "images/table-9-p029.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 29,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5 | Distribution of the five numbered Exposure sources across 352 Mislead-positive traces from audits with complete trace coverage. Exact counts are shown on the bars. Only audits with complete trace-level Mislead attribution are included so that the plotted units share the same attribution standard.",
+      "path": "images/figure-5-p029.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        637.16
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 30,
+      "kind": "table",
+      "number": "10",
+      "caption": "Table 10 | Exposures ordered by detection difficulty. Scale: 1–5 (5 = most difficult).",
+      "path": "images/table-10-p030.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 30,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6 | Detection difficulty by exposure across five dimensions (darker = harder). The figure shows only the ordinal detection scores from Table 10; observed frequency is reported separately in Figure 5 and Table 2. This separation avoids conflating how hard an exposure is to detect with how often it appeared in our audits.",
+      "path": "images/figure-6-p030.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        595.28,
+        677.48
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 33,
+      "kind": "table",
+      "number": "11",
+      "caption": "Table 11 | Recommended detector combinations by protocol type.",
+      "path": "images/table-11-p033.jpg",
+      "clip": [
+        0.0,
+        45.55,
+        595.28,
+        841.89
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [
+    {
+      "page": 2,
+      "path": "images/raster-p002-01.jpg",
+      "bbox": [
+        62.36,
+        85.04,
+        532.9,
+        308.97
+      ]
+    },
+    {
+      "page": 5,
+      "path": "images/raster-p005-01.jpg",
+      "bbox": [
+        85.89,
+        85.04,
+        509.38,
+        326.61
+      ]
+    },
+    {
+      "page": 7,
+      "path": "images/raster-p007-01.jpg",
+      "bbox": [
+        85.89,
+        85.04,
+        509.38,
+        275.09
+      ]
+    },
+    {
+      "page": 11,
+      "path": "images/raster-p011-01.jpg",
+      "bbox": [
+        123.53,
+        85.04,
+        471.74,
+        243.77
+      ]
+    },
+    {
+      "page": 29,
+      "path": "images/raster-p029-01.jpg",
+      "bbox": [
+        62.36,
+        298.26,
+        532.92,
+        525.26
+      ]
+    },
+    {
+      "page": 30,
+      "path": "images/raster-p030-01.jpg",
+      "bbox": [
+        74.13,
+        287.58,
+        521.18,
+        565.53
+      ]
+    }
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 3681,
+      "chars_poppler": 5669,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 2323,
+      "chars_poppler": 2481,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 4271,
+      "chars_poppler": 4413,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 3223,
+      "chars_poppler": 3566,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 2282,
+      "chars_poppler": 2516,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 3875,
+      "chars_poppler": 4050,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 2239,
+      "chars_poppler": 2684,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 3625,
+      "chars_poppler": 3795,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 3375,
+      "chars_poppler": 3847,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 2939,
+      "chars_poppler": 4423,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 2795,
+      "chars_poppler": 2943,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 4005,
+      "chars_poppler": 4160,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 2534,
+      "chars_poppler": 2672,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 3094,
+      "chars_poppler": 3336,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 3475,
+      "chars_poppler": 3670,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 3257,
+      "chars_poppler": 3439,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 3384,
+      "chars_poppler": 3569,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 1143,
+      "chars_poppler": 1292,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 2904,
+      "chars_poppler": 3386,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars_fitz": 3255,
+      "chars_poppler": 3633,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars_fitz": 2241,
+      "chars_poppler": 6273,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars_fitz": 2738,
+      "chars_poppler": 4042,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars_fitz": 3108,
+      "chars_poppler": 3372,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars_fitz": 3428,
+      "chars_poppler": 3593,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-024.jpg"
+    },
+    {
+      "page": 25,
+      "chars_fitz": 2582,
+      "chars_poppler": 2739,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-025.jpg"
+    },
+    {
+      "page": 26,
+      "chars_fitz": 2617,
+      "chars_poppler": 3465,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-026.jpg"
+    },
+    {
+      "page": 27,
+      "chars_fitz": 3698,
+      "chars_poppler": 3845,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-027.jpg"
+    },
+    {
+      "page": 28,
+      "chars_fitz": 3539,
+      "chars_poppler": 3720,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-028.jpg"
+    },
+    {
+      "page": 29,
+      "chars_fitz": 1669,
+      "chars_poppler": 2048,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-029.jpg"
+    },
+    {
+      "page": 30,
+      "chars_fitz": 1496,
+      "chars_poppler": 2501,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-030.jpg"
+    },
+    {
+      "page": 31,
+      "chars_fitz": 3063,
+      "chars_poppler": 3229,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-031.jpg"
+    },
+    {
+      "page": 32,
+      "chars_fitz": 3223,
+      "chars_poppler": 3373,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-032.jpg"
+    },
+    {
+      "page": 33,
+      "chars_fitz": 2824,
+      "chars_poppler": 3216,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-033.jpg"
+    }
+  ]
+}

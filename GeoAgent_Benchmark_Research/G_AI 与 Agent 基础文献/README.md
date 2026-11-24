@@ -1,0 +1,27 @@
+<!-- 自动生成：仅修改 literature_catalog.yaml，再运行 scripts/generate_literature_navigation.py。 -->
+
+# G｜AI 与 Agent 基础文献
+
+共 6 篇。理解基础模型、推理行动循环、规划、记忆与感知工具。分类依据为 v1.0；兼有多项贡献的论文以研究用途确定唯一主类别，次要作用写入标签。
+
+| 论文名称 | 年份 | 阅读优先级 | 研究价值 | 中文译稿 | 英文原文 | PDF |
+|---|---|---|---|---|---|---|
+| [ReAct](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/ReAct.md) | 2023 | P3 | 理解现有GeoAgent常用执行循环与反馈来源，为后续固定轨迹表示提供背景。 | [章节中文译稿（未认定全文覆盖）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/ReAct/%E4%B8%AD%E6%96%87%E8%AF%91%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/ReAct/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5.md) · [官方](https://arxiv.org/abs/2210.03629v3) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/ReAct/%E5%8E%9F%E5%A7%8B%E8%AE%BA%E6%96%87.pdf) |
+| [Plan-and-Solve](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Plan-and-Solve.md) | 2023 | P3 | 理解规划策略与missing-step错误，避免把提示方法的答案提高当工作流执行正确证据。 | [摘要与章节译述（非逐句全文）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Plan-and-Solve/%E4%B8%AD%E6%96%87%E8%AF%91%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Plan-and-Solve/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5.md) · [官方](https://aclanthology.org/2023.acl-long.147/) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Plan-and-Solve/original.pdf) |
+| [Voyager](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Voyager.md) | 2023 | P3 | 借鉴可执行技能、失败反馈与自验证边界；不以物品探索指标替代地学任务完成。 | [正文译稿（代码/参考文献等保留英文）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Voyager/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Voyager/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5%E6%8F%90%E5%8F%96.md) · [官方](https://arxiv.org/abs/2305.16291v2) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Voyager/%E5%8E%9F%E5%A7%8B%E8%AE%BA%E6%96%87.pdf) |
+| [Generative Agents](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Generative%20Agents.md) | 2023 | P3 | 借鉴记忆/长期行为机制及控制实验固定历史的设计，明确believability不等于事实或地学正确。 | [章节中文译稿（未认定全文覆盖）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Generative%20Agents/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Generative%20Agents/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5%E6%8F%90%E5%8F%96.md) · [官方](https://doi.org/10.1145/3586183.3606763) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Generative%20Agents/%E5%8E%9F%E5%A7%8B%E8%AE%BA%E6%96%87.pdf) |
+| [Segment Anything](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Segment%20Anything.md) | 2023 | P3 | 理解掩膜歧义、IoU与人类质量判定的边界，区分感知工具误差与上游Agent误差。 | [正文译稿（代码/参考文献等保留英文）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Segment%20Anything/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Segment%20Anything/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5%E6%8F%90%E5%8F%96.md) · [官方](https://arxiv.org/abs/2304.02643) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Segment%20Anything/%E5%8E%9F%E8%AE%BA%E6%96%87.pdf) |
+| [Attention Is All You Need](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Attention%20Is%20All%20You%20Need.md) | 2017 | P3 | 查询注意力、并行性和上下文表示背景；BLEU是翻译度量，不能作为地学结果正确性依据。 | [正文译稿（代码/参考文献等保留英文）](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Attention%20Is%20All%20You%20Need/%E4%B8%AD%E6%96%87%E5%85%A8%E6%96%87.md) | [本地原文](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Attention%20Is%20All%20You%20Need/%E8%8B%B1%E6%96%87%E5%8E%9F%E6%96%87_%E9%80%90%E9%A1%B5%E6%8F%90%E5%8F%96.md) · [官方](https://arxiv.org/abs/1706.03762) | [PDF](../../%E8%AE%BA%E6%96%87%E7%BF%BB%E8%AF%91/Attention%20Is%20All%20You%20Need/%E5%8E%9F%E8%AE%BA%E6%96%87.pdf) |
+
+## 分类理由与重点章节
+
+| 论文 | 分类理由 | 重点阅读 | P / R | 原文出处 |
+|---|---|---|---|---|
+| [ReAct](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/ReAct.md) | 贡献是交替thought/action/observation的Agent范式，不是新的地学或审计基准。 | §2形式化thought/action；§3 QA与§4决策环境的不同测量；局限中的重复行动与有限prompt。 | P3 / N/A | 摘要p1；§2 p3；§3–4 pp4–7；讨论/附录A |
+| [Plan-and-Solve](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Plan-and-Solve.md) | 将先计划再求解用于零样本推理，主要是prompt方法，在既有数学/常识/符号数据上实验。 | §2 PS/PS+指令；§3–4数据与accuracy；§5错误分析；§7语义误解和prompt敏感。 | P3 / N/A | 摘要p1；方法§2 pp2–3；实验§3–4 pp4–7；§7 p9 |
+| [Voyager](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Voyager.md) | 自动课程、技能代码库和反馈迭代是具身Agent基础架构，研究领域与当前地学审计较间接。 | §2课程/技能库/迭代；§3探索与transfer；§4自验证误判/幻觉和成本限制。 | P3 / N/A | 摘要p1；方法§2 pp3–5；实验§3 pp6–9；§4 p10 |
+| [Generative Agents](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Generative%20Agents.md) | 记忆、反思与规划架构服务人类行为模拟，主要输出可信行为，不是工具正确性基准。 | §4记忆检索/反思/计划；§6冻结同一历史的消融与人标排序；§8.2短时与成本。 | P3 / N/A | 摘要p1；架构§4 pp8–11；§6 pp13–15；§8.2 p17 |
+| [Segment Anything](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Segment%20Anything.md) | 提出promptable segmentation任务、SAM与SA-1B数据，作为地学Agent常用感知工具基础，不当作动态Agent Benchmark。 | §2–4任务/模型/数据引擎；§6.1单点可多解与人标；Limitations细结构/边界/域适用性。 | P3 / N/A | 摘要p1；任务/模型§2–4 pp3–6；§5–6 pp6–9；Limitations p9 |
+| [Attention Is All You Need](../%E6%96%87%E7%8C%AE%E5%85%83%E6%95%B0%E6%8D%AE/%E9%80%90%E7%AF%87/Attention%20Is%20All%20You%20Need.md) | 提出attention-only序列建模架构，属于LLM基础技术，不提供地学Agent审计对象。 | §3 attention/positional encoding；§4复杂度；§6 BLEU与消融；结论可推广范围。 | P3 / N/A | 摘要p1；架构§3 pp3–6；§4 p7；§6 pp8–9；结论p10 |
+
+[返回科研导航](../README.md)

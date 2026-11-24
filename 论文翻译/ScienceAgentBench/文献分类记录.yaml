@@ -1,0 +1,25 @@
+paper_title: 'ScienceAgentBench: Toward Rigorous Assessment of Language Agents for
+  Data-Driven Scientific Discovery'
+paper_short_name: ScienceAgentBench
+benchmark_name: ScienceAgentBench
+year: 2025
+publication: ICLR 2025
+source_url: https://osu-nlp-group.github.io/ScienceAgentBench/
+primary_category: E
+reading_priority: P1
+research_role:
+- 方法借鉴
+- 相关工作
+secondary_tags:
+- 科学智能体
+- 评分机制
+classification_reason: 多学科科学 Agent 基准包含 GIS 子集；可执行代码、结果、成本和逐步 rubric 的组合评价可借鉴。
+measurement_target: 科学程序、执行结果、成本及细粒度完成度
+evaluation_mechanism: VER、SR、CBS、API cost、图像裁判与人工 rubric
+ground_truth_type: 专家验证参考程序、任务专用标准与输出
+reproducibility: RU
+open_source_status: 论文提供项目链接，未实际验证运行
+evidence_location: PDF 第 1 页摘要；PDF 第 5 页 第 2.3 节：程序评价；PDF 第 5 页 第 2.3 节：图像评价与评分细则评价（节译）
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 2.1–2.3 节；图 1 GIS 子任务；附录 GIS 任务与专家 rubric。
+local_path: 论文翻译/ScienceAgentBench/

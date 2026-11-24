@@ -1,0 +1,25 @@
+paper_title: 'AgentProcessBench: Diagnosing Step-Level Process Quality in Tool-Using
+  Agents'
+paper_short_name: AgentProcessBench
+benchmark_name: AgentProcessBench
+year: 2026
+publication: KDD 2026
+source_url: https://doi.org/10.1145/3770855.3817494
+primary_category: B
+reading_priority: P0
+research_role:
+- 方法借鉴
+- 创新性对照
+secondary_tags:
+- 元评价
+- 评价机制
+classification_reason: 以人工步骤标注验证过程评价模型，直接提供中性探索、错误传播和首次错误定位的评测方法。
+measurement_target: 工具使用轨迹步骤的有效性与首次错误位置
+evaluation_mechanism: 三元标签、StepAcc、FirstErrAcc
+ground_truth_type: 8,509 人工步骤标签；独立双标与共识
+reproducibility: N/A
+open_source_status: 论文提供代码与数据链接，未实际验证运行
+evidence_location: PDF 第 1 页摘要；PDF 第 4 页 第 3.1 节：评价协议与三元标签（节译）；PDF 第 6 页 第 4.1 节：步骤准确率与首次错误准确率
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 3.1 节三元标签及错误传播规则；第 4.1 节 StepAcc/FirstErrAcc；第 4.3 节。
+local_path: 论文翻译/AgentProcessBench/

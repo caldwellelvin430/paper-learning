@@ -1,0 +1,24 @@
+paper_title: Can LLM-as-a-Judge Reliably Verify Rubrics in Agentic Scenarios?
+paper_short_name: RuVerBench
+benchmark_name: RuVerBench
+year: 2026
+publication: EMNLP 2026
+source_url: https://aclanthology.org/2026.emnlp-main.2192/
+primary_category: B
+reading_priority: P0
+research_role:
+- 方法借鉴
+- 创新性对照
+secondary_tags:
+- 元评价
+- 评价机制
+classification_reason: 直接以人工 gold label 对评分细则裁判做元评价，并研究策略敏感性。
+measurement_target: 裁判能否正确验证每项原子 rubric
+evaluation_mechanism: 人工二元标签；类别平衡准确率、平均 BAcc
+ground_truth_type: 2,458 实例的人工标注标签
+reproducibility: N/A
+open_source_status: 作者声明数据和代码发布；未实际验证运行
+evidence_location: PDF 第 1 页摘要；PDF 第 4 页 第 4.1 节：任务形式化；PDF 第 5 页 第 4.1 节：平衡准确率
+verification_status: 部分原文核验（摘要及所列指标节译；非全篇/代码核验）
+reading_focus: 第 3 节标注流程；第 4.1 节 BAcc；第 4.3–4.4 节错误、批量验证和投票。
+local_path: 论文翻译/RuVerBench/

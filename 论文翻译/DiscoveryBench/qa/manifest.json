@@ -1,0 +1,393 @@
+{
+  "name": "DiscoveryBench",
+  "source_filename": "Majumder 等 - 2025 - DiscoveryBench Towards Data-Driven Discovery with Large Language Models.pdf",
+  "pages": 24,
+  "expected_pages": 24,
+  "poppler_pages": 24,
+  "sha256": "fa4fa59a12e9bcc3591bc098f392ca7993db56f9e66b2c967c8e9b6d063a6694",
+  "reference_start_page": 11,
+  "caption_candidates": [
+    {
+      "page": 2,
+      "kind": "figure",
+      "number": "1",
+      "caption": "Figure 1: Each DISCOVERYBENCH task consists of a goal and dataset(s) (left). Solving the task requires both statistical analysis and scientific semantic reasoning. The realistic requirement of domain-specific tools in some tasks adds more complexity. An ideal discovery system should implement discovery programs in Python.",
+      "path": "images/figure-1-p002.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 3,
+      "kind": "table",
+      "number": "1",
+      "caption": "Table 1: Comparison with other data-analysis benchmarks",
+      "path": "images/table-1-p003.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 4,
+      "kind": "figure",
+      "number": "2",
+      "caption": "Figure 2: Workflow categories in DB-REAL with representative examples.",
+      "path": "images/figure-2-p004.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        430.86
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 5,
+      "kind": "table",
+      "number": "2",
+      "caption": "Table 2: Statistics for DB-REAL",
+      "path": "images/table-2-p005.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 6,
+      "kind": "figure",
+      "number": "3",
+      "caption": "Figure 3: Hypothesis Semantic Tree",
+      "path": "images/figure-3-p006.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "4",
+      "caption": "Figure 4: (Left) Hypothesis Matching Scores (HMS) across agent-LLM pairs in DB-REAL and DB-SYNTH. (Right) Scatter plots for mean ctxalign vs mean varF1 and mean varF1 vs mean relacc. The plots show that agent-LLM combinations that are capable of identifying the correct context have a higher likelihood of obtaining the right set of interacting variables. Similarly, identifying correct variables leads to better identification of relationships between them.",
+      "path": "images/figure-4-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 8,
+      "kind": "figure",
+      "number": "5",
+      "caption": "Figure 5: Best non-oracle agent’s performance (HMS) (a) across domains, (b) for goal types (dimen- sion to be discovered), and (c) for different workflow lengths. In (c) workflow length categories for DB-REAL are s: < 10, m: > 10, < 20, l: > 20. For DB-SYNTH, it is the semantic tree height.",
+      "path": "images/figure-5-p008.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        505.01
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 9,
+      "kind": "figure",
+      "number": "6",
+      "caption": "Figure 6: Breakdown of performance (HMS) of the best non-oracle agent in several workflow categories in their decreasing order of appearance in the benchmark.",
+      "path": "images/figure-6-p009.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        326.22
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 10,
+      "kind": "figure",
+      "number": "7",
+      "caption": "Figure 7: Representative examples of tasks where we qualitatively evaluate non-oracle best agent’s trajectories along with their performance indicated by HMS.",
+      "path": "images/figure-7-p010.jpg",
+      "clip": [
+        0.0,
+        0.0,
+        612.0,
+        338.08
+      ],
+      "method": "caption-anchored context crop"
+    },
+    {
+      "page": 16,
+      "kind": "table",
+      "number": "3",
+      "caption": "Table 3: Licenses for original data sources. The Creative Commons Attribution license allows the re-distribution and re-use of a licensed work on the condition that the creator is appropriately credited.",
+      "path": "images/table-3-p016.jpg",
+      "clip": [
+        0.0,
+        454.78,
+        612.0,
+        792.0
+      ],
+      "method": "caption-anchored context crop"
+    }
+  ],
+  "native_raster_objects": [
+    {
+      "page": 8,
+      "path": "images/raster-p008-01.jpg",
+      "bbox": [
+        254.48,
+        82.92,
+        503.85,
+        192.1
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-02.jpg",
+      "bbox": [
+        266.04,
+        85.27,
+        532.78,
+        202.05
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-03.jpg",
+      "bbox": [
+        259.35,
+        85.27,
+        526.09,
+        202.05
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-04.jpg",
+      "bbox": [
+        254.06,
+        85.27,
+        520.79,
+        202.05
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-05.jpg",
+      "bbox": [
+        247.61,
+        85.27,
+        514.35,
+        202.05
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-06.jpg",
+      "bbox": [
+        240.94,
+        85.27,
+        507.67,
+        202.05
+      ]
+    },
+    {
+      "page": 8,
+      "path": "images/raster-p008-07.jpg",
+      "bbox": [
+        269.62,
+        107.27,
+        484.48,
+        191.26
+      ]
+    }
+  ],
+  "page_records": [
+    {
+      "page": 1,
+      "chars_fitz": 3661,
+      "chars_poppler": 4024,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-001.jpg"
+    },
+    {
+      "page": 2,
+      "chars_fitz": 4427,
+      "chars_poppler": 5736,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-002.jpg"
+    },
+    {
+      "page": 3,
+      "chars_fitz": 4284,
+      "chars_poppler": 4706,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-003.jpg"
+    },
+    {
+      "page": 4,
+      "chars_fitz": 4161,
+      "chars_poppler": 7865,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-004.jpg"
+    },
+    {
+      "page": 5,
+      "chars_fitz": 4712,
+      "chars_poppler": 5163,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-005.jpg"
+    },
+    {
+      "page": 6,
+      "chars_fitz": 4943,
+      "chars_poppler": 28922,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-006.jpg"
+    },
+    {
+      "page": 7,
+      "chars_fitz": 4841,
+      "chars_poppler": 5093,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-007.jpg"
+    },
+    {
+      "page": 8,
+      "chars_fitz": 2967,
+      "chars_poppler": 3439,
+      "caption_candidates": 2,
+      "page_image": "source_pages/page-008.jpg"
+    },
+    {
+      "page": 9,
+      "chars_fitz": 4034,
+      "chars_poppler": 5420,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-009.jpg"
+    },
+    {
+      "page": 10,
+      "chars_fitz": 5260,
+      "chars_poppler": 6134,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-010.jpg"
+    },
+    {
+      "page": 11,
+      "chars_fitz": 3662,
+      "chars_poppler": 3789,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-011.jpg"
+    },
+    {
+      "page": 12,
+      "chars_fitz": 3627,
+      "chars_poppler": 3735,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-012.jpg"
+    },
+    {
+      "page": 13,
+      "chars_fitz": 3787,
+      "chars_poppler": 3911,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-013.jpg"
+    },
+    {
+      "page": 14,
+      "chars_fitz": 3732,
+      "chars_poppler": 3852,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-014.jpg"
+    },
+    {
+      "page": 15,
+      "chars_fitz": 3447,
+      "chars_poppler": 3602,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-015.jpg"
+    },
+    {
+      "page": 16,
+      "chars_fitz": 3149,
+      "chars_poppler": 4502,
+      "caption_candidates": 1,
+      "page_image": "source_pages/page-016.jpg"
+    },
+    {
+      "page": 17,
+      "chars_fitz": 3035,
+      "chars_poppler": 3525,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-017.jpg"
+    },
+    {
+      "page": 18,
+      "chars_fitz": 1805,
+      "chars_poppler": 2145,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-018.jpg"
+    },
+    {
+      "page": 19,
+      "chars_fitz": 2260,
+      "chars_poppler": 2537,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-019.jpg"
+    },
+    {
+      "page": 20,
+      "chars_fitz": 935,
+      "chars_poppler": 1064,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-020.jpg"
+    },
+    {
+      "page": 21,
+      "chars_fitz": 1276,
+      "chars_poppler": 1734,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-021.jpg"
+    },
+    {
+      "page": 22,
+      "chars_fitz": 939,
+      "chars_poppler": 1261,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-022.jpg"
+    },
+    {
+      "page": 23,
+      "chars_fitz": 1947,
+      "chars_poppler": 2424,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-023.jpg"
+    },
+    {
+      "page": 24,
+      "chars_fitz": 2053,
+      "chars_poppler": 2554,
+      "caption_candidates": 0,
+      "page_image": "source_pages/page-024.jpg"
+    }
+  ]
+}
